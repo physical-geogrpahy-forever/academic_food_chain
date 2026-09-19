@@ -32,5 +32,6 @@ jobs:
           path: |
             CIV_GAME_MAP_STAGE10B_MAPSPAM_PROBE_SUMMARY.json
             CIV_GAME_MAP_STAGE10B_MAPSPAM_PROBE_RUN.log
+            MAPSPAM_OBJECTS.txt
           if-no-files-found: error
           retention-days: 30
