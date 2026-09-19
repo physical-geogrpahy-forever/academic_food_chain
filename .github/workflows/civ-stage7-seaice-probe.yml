@@ -1,0 +1,32 @@
+name: CIV Stage 7 sea ice source probe
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - ".github/workflows/civ-stage7-seaice-probe.yml"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe NOAA NSIDC CDR directory
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=https://noaadata.apps.nsidc.org/NOAA/G02202_V4/
+          curl -L --retry 4 --retry-delay 2 "$BASE" -o NSIDC_G02202_V4_INDEX.html
+          grep -Eo 'href="[^"]+"' NSIDC_G02202_V4_INDEX.html | head -120 | tee NSIDC_G02202_V4_LINKS.txt
+          wc -c NSIDC_G02202_V4_INDEX.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE7_SEAICE_SOURCE_PROBE
+          path: |
+            NSIDC_G02202_V4_INDEX.html
+            NSIDC_G02202_V4_LINKS.txt
+          if-no-files-found: error
+          retention-days: 30
