@@ -1,2 +1,3 @@
 trigger 2026-09-19 uthdepo network probe v1
 retry 2026-09-19 uthdepo network probe
+retry 2 domcontentloaded
