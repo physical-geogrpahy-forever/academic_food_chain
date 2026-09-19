@@ -1,12 +1,6 @@
 name: CIV Stage 10D GOGET resource probe
 
 on:
-  push:
-    branches:
-      - civ-game-map-stage1b-etopo2022
-    paths:
-      - "civ_map_stage10_resources/probe_goget_resources.py"
-      - ".github/workflows/civ-stage10d-goget-probe.yml"
   workflow_dispatch:
 
 jobs:
