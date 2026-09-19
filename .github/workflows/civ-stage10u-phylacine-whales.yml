@@ -1,0 +1,61 @@
+name: CIV Stage 10 whales U
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_stage10u.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas pyogrio shapely rasterio exactextract
+
+      - name: Download Stage 10T board
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/t
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10586252339/zip > input/t.zip
+          unzip -q input/t.zip -d input/t
+          BOARD="$(find input/t -type f -name 'CIV_GAME_MAP_STAGE10T_PHYLACINE_WILD.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Download PHYLACINE v1.2.1
+        run: |
+          mkdir -p input/phylacine
+          curl -L --fail --retry 4             "https://github.com/MegaPast2Future/PHYLACINE_1.2/releases/download/v1.2.1/PHYLACINE_1.2.1.zip"             -o input/phylacine/PHYLACINE_1.2.1.zip
+
+      - name: Aggregate whale evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10u_phylacine_whales.py             "$BOARD"             input/phylacine/PHYLACINE_1.2.1.zip             --layer game_map_stage10t_phylacine_wild             --prefix CIV_GAME_MAP_STAGE10U_PHYLACINE_WHALES
+
+      - name: Audit
+        run: cat CIV_GAME_MAP_STAGE10U_PHYLACINE_WHALES_SUMMARY.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10U_PHYLACINE_WHALES
+          path: |
+            CIV_GAME_MAP_STAGE10U_PHYLACINE_WHALES.gpkg
+            CIV_GAME_MAP_STAGE10U_PHYLACINE_WHALES_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10U_PHYLACINE_WHALES_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
