@@ -14,10 +14,12 @@ RIVER=[
  ("Sudd",29,33.5,5,10.5),
 ]
 DRY=[
- ("Sahara",-15,35,18,32),
- ("Arabia",35,58,16,30),
+ # Interior desert controls. Coastal Arabia is excluded from this QA because
+ # the Red Sea and Persian Gulf contain genuine mangrove/salt-marsh wetlands.
+ ("Central Sahara",5,25,22,30),
+ ("Rub al Khali interior",45,55,18,25),
  ("Central Australia",125,140,-30,-20),
- ("Atacama",-72,-68,-28,-18),
+ ("Atacama interior",-71,-68,-27,-20),
 ]
 
 def sel(df,b):
