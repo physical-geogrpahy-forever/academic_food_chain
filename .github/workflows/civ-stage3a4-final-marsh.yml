@@ -1,0 +1,77 @@
+name: CIV Stage 3A4 finalize Marsh
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage3_wetlands/finalize_stage3a4_marsh.py"
+      - ".github/workflows/civ-stage3a4-final-marsh.yml"
+  workflow_dispatch:
+
+jobs:
+  final_marsh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE3A3_RUN: "35437561915"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Wait for GLWD subtype diagnostics
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 360); do
+            DATA=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${STAGE3A3_RUN}")
+            STATUS=$(echo "$DATA" | jq -r .status)
+            CONCLUSION=$(echo "$DATA" | jq -r .conclusion)
+            echo "attempt=$i status=$STATUS conclusion=$CONCLUSION"
+            if [ "$STATUS" = "completed" ]; then
+              test "$CONCLUSION" = "success"
+              exit 0
+            fi
+            sleep 10
+          done
+          exit 1
+
+      - name: Download subtype metrics
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p diag
+          gh run download "$STAGE3A3_RUN" -n CIV_GAME_MAP_STAGE3A3_GLWD_DIAG -D diag
+          test -s diag/CIV_GAME_MAP_STAGE3A3_GLWD_DIAG_HEX_STATS.csv
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade numpy pandas
+
+      - name: Select and audit final Marsh rule
+        run: |
+          python civ_map_stage3_wetlands/finalize_stage3a4_marsh.py             diag/CIV_GAME_MAP_STAGE3A3_GLWD_DIAG_HEX_STATS.csv             --prefix CIV_GAME_MAP_STAGE3A4_MARSH             | tee CIV_GAME_MAP_STAGE3A4_MARSH_RUN.log
+
+      - name: Package
+        run: |
+          zip -9 CIV_GAME_MAP_STAGE3A4_MARSH.zip             CIV_GAME_MAP_STAGE3A4_MARSH_CLASSIFIED.csv             CIV_GAME_MAP_STAGE3A4_MARSH_THRESHOLD_SCAN.csv             CIV_GAME_MAP_STAGE3A4_MARSH_REGIONAL_QA.csv             CIV_GAME_MAP_STAGE3A4_MARSH_RIVERINE_QA.csv             CIV_GAME_MAP_STAGE3A4_MARSH_SUMMARY.json             CIV_GAME_MAP_STAGE3A4_MARSH_GATE.txt             CIV_GAME_MAP_STAGE3A4_MARSH_RUN.log
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE3A4_MARSH
+          path: |
+            CIV_GAME_MAP_STAGE3A4_MARSH.zip
+            CIV_GAME_MAP_STAGE3A4_MARSH_CLASSIFIED.csv
+            CIV_GAME_MAP_STAGE3A4_MARSH_THRESHOLD_SCAN.csv
+            CIV_GAME_MAP_STAGE3A4_MARSH_REGIONAL_QA.csv
+            CIV_GAME_MAP_STAGE3A4_MARSH_RIVERINE_QA.csv
+            CIV_GAME_MAP_STAGE3A4_MARSH_SUMMARY.json
+            CIV_GAME_MAP_STAGE3A4_MARSH_GATE.txt
+          if-no-files-found: error
+          retention-days: 30
