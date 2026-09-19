@@ -26,17 +26,17 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          DATA=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/35435702734")
+          DATA=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/35436045507")
           test "$(echo "$DATA" | jq -r .conclusion)" = "success"
-          echo "STAGE2B_RUN=35435702734" >> "$GITHUB_ENV"
+          echo "STAGE2B_RUN=35436045507" >> "$GITHUB_ENV"
 
-      - name: Download Stage 2B LAND GPKG
+      - name: Download canonical Stage 2B full-board GPKG
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p stage2b
-          gh run download "$STAGE2B_RUN" -n CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES_RELIEF_LAND -D stage2b
-          test -s stage2b/CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES_RELIEF_LAND.gpkg
+          gh run download "$STAGE2B_RUN" -n CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES -D stage2b
+          test -s stage2b/stage2b_out/CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES.gpkg
 
       - name: Download official GLWD v2 combined-class GeoTIFF package
         run: |
@@ -57,7 +57,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          /usr/bin/time -v python civ_map_stage3_wetlands/build_glwd_stage3a.py             stage2b/CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES_RELIEF_LAND.gpkg             glwd/GLWD_v2_0_area_pct.tif             glwd/GLWD_v2_0_main_class.tif             --prefix CIV_GAME_MAP_STAGE3A_GLWD2             2>&1 | tee CIV_GAME_MAP_STAGE3A_GLWD2_RUN.log
+          /usr/bin/time -v python civ_map_stage3_wetlands/build_glwd_stage3a.py             stage2b/stage2b_out/CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES.gpkg             glwd/GLWD_v2_0_area_pct.tif             glwd/GLWD_v2_0_main_class.tif             --prefix CIV_GAME_MAP_STAGE3A_GLWD2             2>&1 | tee CIV_GAME_MAP_STAGE3A_GLWD2_RUN.log
 
       - name: Package compact outputs
         run: |
