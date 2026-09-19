@@ -1,0 +1,59 @@
+name: CIV Stage 10 OBIS marine probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_obis_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests
+      - name: Probe OBIS taxon and grid endpoints
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,urllib.parse
+          base="https://api.obis.org/v3"
+          names=["Actinopterygii","Brachyura","Pinctada","Pteriidae"]
+          out={"taxon":{},"grids":{}}
+          for name in names:
+              u=f"{base}/taxon/{urllib.parse.quote(name)}"
+              r=requests.get(u,timeout=90,headers={"User-Agent":"civ-map-resource-probe/1.0"})
+              out["taxon"][name]={
+                "status":r.status_code,"bytes":len(r.content),
+                "head":r.text[:2000]
+              }
+              for precision in [3,4]:
+                  params={"scientificname":name}
+                  rr=requests.get(f"{base}/occurrence/grid/{precision}",params=params,
+                                  timeout=180,headers={"User-Agent":"civ-map-resource-probe/1.0"})
+                  key=f"{name}_p{precision}"
+                  rec={"status":rr.status_code,"bytes":len(rr.content),"url":rr.url}
+                  try:
+                      js=rr.json()
+                      rec["type"]=js.get("type")
+                      rec["feature_count"]=len(js.get("features",[]))
+                      rec["keys"]=list(js.keys())
+                      if js.get("features"):
+                          rec["sample_feature"]=js["features"][0]
+                  except Exception:
+                      rec["head"]=rr.text[:2000]
+                  out["grids"][key]=rec
+                  print(key,json.dumps(rec)[:4000],flush=True)
+          pathlib.Path("obis_probe.json").write_text(json.dumps(out,indent=2),encoding="utf-8")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10_OBIS_MARINE_PROBE
+          path: obis_probe.json
+          if-no-files-found: error
+          retention-days: 30
