@@ -1,0 +1,76 @@
+name: CIV Stage 10 UThDEPO map websocket probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_uthdepo_map_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Playwright
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Capture map websocket and DOM
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p uthdepo_map_probe
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          from pathlib import Path
+          import json, base64
+
+          out=Path("uthdepo_map_probe")
+          ev=[]
+          def log(kind,**kw):
+              rec={"kind":kind,**kw}; ev.append(rec)
+              print(json.dumps(rec,ensure_ascii=False)[:4000])
+
+          with sync_playwright() as p:
+              browser=p.chromium.launch(headless=True)
+              ctx=browser.new_context()
+              page=ctx.new_page()
+
+              def on_ws(ws):
+                  log("ws_open",url=ws.url)
+                  def recv(payload):
+                      if isinstance(payload,bytes):
+                          text=payload[:20000].decode("utf-8","replace")
+                          log("ws_recv_binary",n=len(payload),text=text)
+                      else:
+                          log("ws_recv_text",n=len(payload),text=payload[:20000])
+                  def sent(payload):
+                      if isinstance(payload,bytes):
+                          text=payload[:8000].decode("utf-8","replace")
+                          log("ws_sent_binary",n=len(payload),text=text)
+                      else:
+                          log("ws_sent_text",n=len(payload),text=payload[:8000])
+                  ws.on("framereceived",recv)
+                  ws.on("framesent",sent)
+              page.on("websocket",on_ws)
+              page.on("request",lambda r: log("request",method=r.method,url=r.url,resource_type=r.resource_type) if ("UTHDEPO" in r.url or "_blazor" in r.url) else None)
+
+              page.goto("https://infcis.iaea.org/UTHDEPO/Deposits/Map",wait_until="domcontentloaded",timeout=60000)
+              page.wait_for_timeout(30000)
+              out.joinpath("map.html").write_text(page.content(),encoding="utf-8")
+              page.screenshot(path=str(out/"map.png"),full_page=True)
+              out.joinpath("events.json").write_text(json.dumps(ev,indent=2,ensure_ascii=False),encoding="utf-8")
+              browser.close()
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10_UTHDEPO_MAP_WS_PROBE
+          path: uthdepo_map_probe
+          if-no-files-found: error
+          retention-days: 30
