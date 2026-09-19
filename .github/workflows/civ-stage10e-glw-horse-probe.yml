@@ -1,11 +1,6 @@
 name: CIV Stage 10E GLW horse source probe
 
 on:
-  push:
-    branches:
-      - civ-game-map-stage1b-etopo2022
-    paths:
-      - ".github/workflows/civ-stage10e-glw-horse-probe.yml"
   workflow_dispatch:
 
 jobs:
