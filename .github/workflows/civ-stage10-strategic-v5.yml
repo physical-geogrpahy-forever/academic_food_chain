@@ -1,0 +1,83 @@
+name: CIV Stage 10 strategic evidence V5 uranium
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_strategic_v5.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas pyogrio shapely matplotlib playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Download strategic V4 artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/v4
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10585248468/zip > input/v4.zip
+          unzip -q input/v4.zip -d input/v4
+          BOARD="$(find input/v4 -type f -name 'CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V4.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+          echo "Using $BOARD"
+
+      - name: Capture current IAEA UThDEPO public map payload
+        run: |
+          python civ_map_stage10_resources/capture_uthdepo_map.py             --out UTHDEPO_MAP_DATA.json             --summary UTHDEPO_MAP_DATA_SUMMARY.json
+
+      - name: Aggregate UThDEPO uranium evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10m_uthdepo_evidence.py             "$BOARD" UTHDEPO_MAP_DATA.json             --layer game_map_stage10_strategic_candidates             --prefix CIV_GAME_MAP_STAGE10M_UTHDEPO_EVIDENCE
+
+      - name: Recalculate strategic quantities V5
+        run: |
+          python civ_map_stage10_resources/build_strategic_candidates.py             CIV_GAME_MAP_STAGE10M_UTHDEPO_EVIDENCE.gpkg             --layer game_map_stage10m_uthdepo_evidence             --prefix CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V5
+
+      - name: Render review maps
+        run: |
+          python civ_map_stage10_resources/render_strategic_candidates.py             CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V5.gpkg             --outdir strategic_maps_v5
+
+      - name: Audit V5
+        run: |
+          echo "=== UTHDEPO MAP ==="
+          cat UTHDEPO_MAP_DATA_SUMMARY.json
+          echo "=== URANIUM EVIDENCE ==="
+          cat CIV_GAME_MAP_STAGE10M_UTHDEPO_EVIDENCE_SUMMARY.json
+          echo "=== STRATEGIC V5 ==="
+          cat CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V5_SUMMARY.json
+          echo "=== MAP SUMMARY ==="
+          cat strategic_maps_v5/strategic_candidate_map_summary.csv
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10_STRATEGIC_EVIDENCE_V5
+          path: |
+            UTHDEPO_MAP_DATA_SUMMARY.json
+            CIV_GAME_MAP_STAGE10M_UTHDEPO_EVIDENCE_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10M_UTHDEPO_EVIDENCE_SUMMARY.json
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V5.gpkg
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V5_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V5_SUMMARY.json
+            strategic_maps_v5/
+          if-no-files-found: error
+          retention-days: 30
