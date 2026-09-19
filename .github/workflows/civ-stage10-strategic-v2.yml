@@ -1,0 +1,95 @@
+name: CIV Stage 10 strategic evidence V2
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_strategic_v2.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install geospatial dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas pyogrio shapely rasterio exactextract matplotlib
+
+      - name: Download Stage 9 canonical board
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/stage9
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10583127941/zip > input/stage9.zip
+          unzip -q input/stage9.zip -d input/stage9
+          BOARD="$(find input/stage9 -type f -name 'CIV_GAME_MAP_STAGE9A_CONSOLIDATED.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Download strategic source data
+        run: |
+          mkdir -p input/raw
+          curl -L --fail --retry 3             https://mrdata.usgs.gov/mrds/mrds-csv.zip             -o input/raw/mrds-csv.zip
+
+          curl -L --fail --retry 3             "https://raw.githubusercontent.com/Asefidi/Overpower/eb3a7229a5ec6e6bb567160971316f3147bdee81/src/raw-input-data/Global-Oil-and-Gas-Extraction-Tracker-March-2026__Field-level_main_data.csv"             -o input/raw/goget.csv
+
+          curl -L --fail --retry 3             https://dataverse.harvard.edu/api/access/datafile/6769681             -o input/raw/horse_2015.tif
+
+          ls -lh input/raw
+
+      - name: Rebuild MRDS evidence with deposit size
+        run: |
+          python civ_map_stage10_resources/build_stage10c_mrds_evidence.py             "$BOARD" input/raw/mrds-csv.zip             --layer game_map_stage9a_consolidated             --prefix CIV_GAME_MAP_STAGE10C2_MRDS_EVIDENCE
+
+      - name: Rebuild GOGET evidence with quantitative fields
+        run: |
+          python civ_map_stage10_resources/build_stage10f_goget_evidence.py             CIV_GAME_MAP_STAGE10C2_MRDS_EVIDENCE.gpkg input/raw/goget.csv             --layer game_map_stage10c_mrds_evidence             --prefix CIV_GAME_MAP_STAGE10F2_GOGET_EVIDENCE
+
+      - name: Rebuild horse evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10i_horse_evidence.py             CIV_GAME_MAP_STAGE10F2_GOGET_EVIDENCE.gpkg input/raw/horse_2015.tif             --layer game_map_stage10f_goget_evidence             --prefix CIV_GAME_MAP_STAGE10I2_HORSE_EVIDENCE
+
+      - name: Build strategic candidates V2
+        run: |
+          python civ_map_stage10_resources/build_strategic_candidates.py             CIV_GAME_MAP_STAGE10I2_HORSE_EVIDENCE.gpkg             --layer game_map_stage10i_horse_evidence             --prefix CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V2
+
+      - name: Render review maps
+        run: |
+          python civ_map_stage10_resources/render_strategic_candidates.py             CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V2.gpkg             --outdir strategic_maps_v2
+
+      - name: Audit
+        run: |
+          cat CIV_GAME_MAP_STAGE10C2_MRDS_EVIDENCE_SUMMARY.json
+          cat CIV_GAME_MAP_STAGE10F2_GOGET_EVIDENCE_SUMMARY.json
+          cat CIV_GAME_MAP_STAGE10I2_HORSE_EVIDENCE_SUMMARY.json
+          cat CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V2_SUMMARY.json
+          cat strategic_maps_v2/strategic_candidate_map_summary.csv
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10_STRATEGIC_EVIDENCE_V2
+          path: |
+            CIV_GAME_MAP_STAGE10C2_MRDS_EVIDENCE_AUDIT.csv
+            CIV_GAME_MAP_STAGE10C2_MRDS_EVIDENCE_SUMMARY.json
+            CIV_GAME_MAP_STAGE10F2_GOGET_EVIDENCE_SUMMARY.json
+            CIV_GAME_MAP_STAGE10I2_HORSE_EVIDENCE_SUMMARY.json
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V2.gpkg
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V2_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V2_SUMMARY.json
+            strategic_maps_v2/
+          if-no-files-found: error
+          retention-days: 30
