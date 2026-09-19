@@ -102,9 +102,19 @@ def prepare_land_mask(dem_path, work):
         with zipfile.ZipFile(nezip) as z: z.extractall(nedir)
     land=gpd.read_file(shp)
     with rasterio.open(dem_path) as src:
-        assert src.crs and src.crs.to_epsg()==4326
+        # ETOPO 2022 GeoTIFF may expose a compound horizontal+vertical CRS
+        # (WGS84 horizontal + EGM2008 vertical), so src.crs.to_epsg() need not
+        # equal 4326. Validate the actual global lon/lat grid instead.
         transform=src.transform
         shape=(src.height,src.width)
+        b=src.bounds
+        xres=abs(src.transform.a); yres=abs(src.transform.e)
+        if not (abs(b.left + 180.0) < 1e-4 and abs(b.right - 180.0) < 1e-4
+                and abs(b.bottom + 90.0) < 1e-4 and abs(b.top - 90.0) < 1e-4):
+            raise RuntimeError(f"unexpected ETOPO2022 bounds: {b}")
+        if not (abs(xres - 1/60) < 1e-8 and abs(yres - 1/60) < 1e-8):
+            raise RuntimeError(f"unexpected ETOPO2022 resolution: {xres}, {yres}")
+        print("DEM_CRS", src.crs, "BOUNDS", b, "RES", (xres,yres), flush=True)
     shapes=((geom,1) for geom in land.geometry if geom is not None and not geom.is_empty)
     mask=rasterize(shapes,out_shape=shape,transform=transform,fill=0,dtype="uint8",all_touched=False)
     mpath=work/"landmask_60s.tif"
@@ -127,7 +137,9 @@ def make_land_dem_and_slope(dem_path, mask_path, work):
     nodata=-99999.0
     with rasterio.open(dem_path) as src, rasterio.open(mask_path) as msrc:
         prof=src.profile.copy()
-        prof.update(dtype="float32",nodata=nodata,compress="DEFLATE",tiled=True,
+        # Use the verified horizontal CRS only for derived rasters. The source
+        # may carry a vertical CRS component that exactextract does not need.
+        prof.update(crs="EPSG:4326",dtype="float32",nodata=nodata,compress="DEFLATE",tiled=True,
                     blockxsize=512,blockysize=512,BIGTIFF="YES")
         with rasterio.open(landdem,"w",**prof) as dst:
             for _,win in src.block_windows(1):
