@@ -14,25 +14,24 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - name: Download PeerJ global oasis vector supplement
+
+      - name: Retrieve PeerJ oasis supplement from PMC OA package
         shell: bash
         run: |
           set -euo pipefail
-          curl -L --fail --retry 5 --retry-delay 2 -o PMC_OA.xml "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=PMC11874939"
+          curl -L --fail --retry 5 --retry-delay 2 \
+            -o PMC_OA.xml \
+            "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=PMC11874939"
           cat PMC_OA.xml
-          HREF=$(grep -o 'href="[^"]*"' PMC_OA.xml | sed 's/^href="//;s/"$//' | grep -E '\\.(tar\\.gz|tgz)
-      - uses: actions/upload-artifact@v4
-        with:
-          name: CIV_STAGE8_OASIS_SOURCE_PROBE
-          path: |
-            OASIS_FILETYPE.txt
-            OASIS_SHA256.txt
-            OASIS_ZIP_LIST.txt
-          if-no-files-found: error
-          retention-days: 30
- | head -1)
+          HREF=$(python - <<'PY'
+          import re
+          s=open("PMC_OA.xml",encoding="utf-8").read()
+          m=re.search(r'href="([^"]+\.(?:tar\.gz|tgz))"',s)
+          print(m.group(1) if m else "")
+          PY
+          )
           test -n "$HREF"
-          HTTPS_HREF=${HREF/ftp:\/\//https://}
+          HTTPS_HREF=$(printf '%s' "$HREF" | sed 's#^ftp://#https://#')
           curl -L --fail --retry 5 --retry-delay 2 -o article.tar.gz "$HTTPS_HREF"
           mkdir oa
           tar -xzf article.tar.gz -C oa
@@ -42,10 +41,12 @@ jobs:
           file peerj_oasis_supp9.zip | tee OASIS_FILETYPE.txt
           sha256sum peerj_oasis_supp9.zip | tee OASIS_SHA256.txt
           unzip -l peerj_oasis_supp9.zip | tee OASIS_ZIP_LIST.txt
+
       - uses: actions/upload-artifact@v4
         with:
           name: CIV_STAGE8_OASIS_SOURCE_PROBE
           path: |
+            PMC_OA.xml
             OASIS_FILETYPE.txt
             OASIS_SHA256.txt
             OASIS_ZIP_LIST.txt
