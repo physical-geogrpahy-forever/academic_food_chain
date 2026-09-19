@@ -30,7 +30,9 @@ REGIONS = [
     ("Ethiopian Highlands",      35,  41,   5,  14, "MOUNTAIN"),
     ("Japanese mountains",      135, 141,  33,  40, "MOUNTAIN"),
     ("Korean mountains",        127, 130,  35,  39, "MOUNTAIN"),
-    ("Appalachians",            -84, -77,  33,  42, "HILL"),
+    # Appalachian ridge core; the wider -84..-77 / 33..42 box includes large
+    # Piedmont/valley/lowland areas and is inappropriate for a HILL-only QA gate.
+    ("Appalachians",          -82.5, -78,  35, 40.5, "HILL"),
     ("Korean Peninsula",        126, 130,  34,  40, "HILL"),
     ("Eastern Australia",       145, 153, -39, -27, "HILL"),
     ("East African plateau",     29,  40, -10,  10, "HILL"),
@@ -42,6 +44,12 @@ REGIONS = [
     ("Central Australia",       125, 140, -30, -20, "FLAT"),
     ("Greenland interior",      -50, -30,  70,  80, "POLAR_NOT_ALL_MOUNTAIN"),
     ("Antarctica interior",       0,  90, -85, -75, "POLAR_NOT_ALL_MOUNTAIN"),
+    # Explicit anti-wall checks motivated by the old 1-degree failure: Peru and
+    # Chile must retain substantial non-mountain hexes for playable settlement.
+    ("Peru broad",               -81, -68, -18,  -4, "NOT_ALL_MOUNTAIN"),
+    ("Peru coastal belt",        -81, -75, -18,  -4, "NOT_ALL_MOUNTAIN"),
+    ("Chile broad",              -75, -66, -55, -17, "NOT_ALL_MOUNTAIN"),
+    ("Central Chile",          -73.5, -70, -38, -30, "NOT_ALL_MOUNTAIN"),
 ]
 
 def add_lonlat(df):
@@ -115,9 +123,12 @@ def score_candidate(rm,global_shares):
         elif row.expectation=="FLAT":
             score += min(row.flat/0.68,1.0)*1.5
             score -= max(row.mountain-0.10,0)*5.0
-        else:
+        elif row.expectation=="POLAR_NOT_ALL_MOUNTAIN":
             score += min((1-row.mountain)/0.75,1.0)
             score -= max(row.mountain-0.35,0)*5.0
+        else:  # NOT_ALL_MOUNTAIN
+            score += min((1-row.mountain)/0.40,1.0)
+            score -= max(row.mountain-0.75,0)*8.0
 
     f,h,m=global_shares
     # Avoid a world dominated by either mountains or featureless flats.
@@ -186,6 +197,7 @@ def main():
       if row.expectation=="HILL" and not ((row.hill+row.mountain)>=0.45 and row.mountain<=0.40): failures.append(row.region)
       if row.expectation=="FLAT" and not (row.flat>=0.55 and row.mountain<=0.15): failures.append(row.region)
       if row.expectation=="POLAR_NOT_ALL_MOUNTAIN" and not (row.mountain<=0.40): failures.append(row.region)
+      if row.expectation=="NOT_ALL_MOUNTAIN" and not (row.mountain<=0.75): failures.append(row.region)
     Path(a.prefix+"_QA_GATE.txt").write_text(
         ("PASS\n" if not failures else "REVIEW\n") + "\n".join(failures) + "\n",encoding="utf-8")
     print(json.dumps(summary,indent=2))
