@@ -1,0 +1,87 @@
+name: CIV Stage 5A integrate hydro features
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage5_integrate/build_stage5a_hydro_features.py"
+      - ".github/workflows/civ-stage5a-integrate.yml"
+  workflow_dispatch:
+
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    env:
+      MARSH_RUN: "35437612840"
+      FLOOD_RUN: "35437888668"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Wait for Marsh and Flood Plains
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for RID in "$MARSH_RUN" "$FLOOD_RUN"; do
+            for i in $(seq 1 360); do
+              DATA=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${RID}")
+              STATUS=$(echo "$DATA" | jq -r .status)
+              CONCLUSION=$(echo "$DATA" | jq -r .conclusion)
+              echo "run=$RID attempt=$i status=$STATUS conclusion=$CONCLUSION"
+              if [ "$STATUS" = "completed" ]; then
+                test "$CONCLUSION" = "success"
+                break
+              fi
+              sleep 10
+            done
+          done
+
+      - name: Download Marsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p marsh
+          gh run download "$MARSH_RUN" -n CIV_GAME_MAP_STAGE3A4_MARSH -D marsh
+          test -s marsh/CIV_GAME_MAP_STAGE3A4_MARSH_CLASSIFIED.csv
+
+      - name: Download Flood Plains
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p flood
+          gh run download "$FLOOD_RUN" -n CIV_GAME_MAP_STAGE4B_FLOODPLAINS -D flood
+          test -s flood/CIV_GAME_MAP_STAGE4B_FLOODPLAINS.gpkg
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pandas geopandas shapely pyproj pyogrio
+
+      - name: Integrate audited flags
+        run: |
+          python civ_map_stage5_integrate/build_stage5a_hydro_features.py             flood/CIV_GAME_MAP_STAGE4B_FLOODPLAINS.gpkg             marsh/CIV_GAME_MAP_STAGE3A4_MARSH_CLASSIFIED.csv             --prefix CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES             | tee CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES_RUN.log
+
+      - name: Package
+        run: |
+          sha256sum CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES* > CIV_GAME_MAP_STAGE5A_SHA256.txt
+          zip -9 CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES_PACKAGE.zip             CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES.gpkg             CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES_AUDIT.csv             CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES_SUMMARY.json             CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES_RUN.log             CIV_GAME_MAP_STAGE5A_SHA256.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES
+          path: |
+            CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES_PACKAGE.zip
+            CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES.gpkg
+            CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES_AUDIT.csv
+            CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
