@@ -23,6 +23,7 @@ GROUPS={
  "IRON":["iron"],
  "ALUMINUM":["aluminum","bauxite"],
  "URANIUM":["uranium"],
+ "NITER_NATURAL":["nitrate","nitratite","niter","saltpeter","saltpetre"],
  "GOLD":["gold"],
  "SILVER":["silver"],
  "COPPER":["copper"],
