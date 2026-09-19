@@ -110,12 +110,15 @@ def build(board):
     uth_n=col(board,"URANIUM_UTHDEPO_DEPOSITS")
     um_score=col(board,"URANIUM_MRDS_SCORE")
     um_size=col(board,"URANIUM_MRDS_SIZE_MAX")
-    uranium_raw=np.where(
-        uth.gt(0),
-        np.log1p(uth)+0.20*np.log1p(uth_n),
-        np.log1p(um_score)+0.75*um_size,
+    # Any UThDEPO deposit supersedes MRDS as the primary uranium evidence.
+    # Resource-range proxy controls magnitude when reported; deposit count keeps
+    # documented UThDEPO occurrences without a resource estimate from vanishing.
+    uth_raw=1.5*np.log1p(uth)+0.30*np.log1p(uth_n)
+    mrds_u_raw=np.log1p(um_score)+0.75*um_size
+    uranium_raw=pd.Series(
+        np.where(uth_n.gt(0), uth_raw, mrds_u_raw),
+        index=board.index,
     )
-    uranium_raw=pd.Series(uranium_raw,index=board.index)
     uranium_s=pct_positive(uranium_raw)
 
     # NITER: combine natural nitrate occurrences from MRDS with a separate
