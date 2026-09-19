@@ -71,25 +71,46 @@ def in_box(df,box):
     _,lo0,lo1,la0,la1,_=box
     return (df.lon>=lo0)&(df.lon<=lo1)&(df.lat>=la0)&(df.lat<=la1)
 
-def classify(df,q_m_mid,q_m_ext,q_h_mid,q_h_ext):
+def classify(df,q_r_main,q_p75_main,q_med_main,q_ext):
+    # GAME-MAP mountain core: large within-hex relief plus broadly steep terrain.
+    # This deliberately avoids calling a tile MOUNTAIN merely because its steepest
+    # 10% is extreme. Mixed lowland+mountain hexes therefore tend to become HILL.
     r=df["RELIEF_P90P10"].fillna(0).to_numpy(float)
-    s=df["SLOPE_P90"].fillna(0).to_numpy(float)
-    valid=np.isfinite(r)&np.isfinite(s)
-    rv=r[valid]; sv=s[valid]
-    qr={q:np.quantile(rv,q) for q in set([q_m_mid,q_m_ext,q_h_mid,q_h_ext])}
-    qs={q:np.quantile(sv,q) for q in set([q_m_mid,q_m_ext,q_h_mid,q_h_ext])}
-    # A Civilization MOUNTAIN tile should represent a rugged mountain core.
-    # Do not let a single extreme statistic (e.g. coastal escarpment relief)
-    # create an impassable wall by itself. Extreme relief must have at least
-    # moderate slope support, and vice versa.
-    m=((r>=qr[q_m_mid])&(s>=qs[q_m_mid])) \
-      | ((r>=qr[q_m_ext])&(s>=qs[q_h_mid])) \
-      | ((s>=qs[q_m_ext])&(r>=qr[q_h_mid]))
-    h=((r>=qr[q_h_mid])&(s>=qs[q_h_mid])) | (r>=qr[q_h_ext]) | (s>=qs[q_h_ext])
+    p90=df["SLOPE_P90"].fillna(0).to_numpy(float)
+    p75=df["SLOPE_P75"].fillna(0).to_numpy(float)
+    med=df["SLOPE_MED"].fillna(0).to_numpy(float)
+    valid=np.isfinite(r)&np.isfinite(p90)&np.isfinite(p75)&np.isfinite(med)
+    rv=r[valid]; p90v=p90[valid]; p75v=p75[valid]; medv=med[valid]
+
+    Qr=lambda q: float(np.quantile(rv,q))
+    Q90=lambda q: float(np.quantile(p90v,q))
+    Q75=lambda q: float(np.quantile(p75v,q))
+    Qm=lambda q: float(np.quantile(medv,q))
+
+    # Main mountain core requires the majority of the tile to be rugged.
+    m_main=(r>=Qr(q_r_main)) & (p75>=Q75(q_p75_main)) & (med>=Qm(q_med_main))
+
+    # Extremely rugged tiles can still qualify with slightly lower median-slope
+    # support. This preserves sharp alpine/island ranges without recreating
+    # continuous walls from a single extreme flank.
+    support=max(0.55, q_med_main-0.15)
+    m_ext_relief=(r>=Qr(q_ext)) & (p75>=Q75(max(0.65,q_p75_main-0.10))) & (med>=Qm(support))
+    m_ext_steep=(p75>=Q75(q_ext)) & (r>=Qr(max(0.65,q_r_main-0.10))) & (med>=Qm(support))
+    m=m_main | m_ext_relief | m_ext_steep
+
+    # HILL remains broad. Mountain candidates are cut from this set afterwards.
+    h=((r>=Qr(0.50))&(p90>=Q90(0.50))) | (r>=Qr(0.78)) | (p90>=Q90(0.78)) | (med>=Qm(0.65))
     h &= ~m
+
     cls=np.full(len(df),"FLAT",dtype=object)
     cls[h]="HILL"; cls[m]="MOUNTAIN"
-    return cls,qr,qs
+    thresholds={
+      "q_r_main":q_r_main,"q_p75_main":q_p75_main,"q_med_main":q_med_main,"q_ext":q_ext,
+      "relief_main":Qr(q_r_main),"slope_p75_main":Q75(q_p75_main),"slope_med_main":Qm(q_med_main),
+      "relief_extreme":Qr(q_ext),"slope_p75_extreme":Q75(q_ext),
+      "hill_relief_mid":Qr(0.50),"hill_slope_p90_mid":Q90(0.50),
+    }
+    return cls,thresholds
 
 def region_metrics(df,cls):
     out=[]
@@ -112,35 +133,39 @@ def region_metrics(df,cls):
     return pd.DataFrame(out)
 
 def score_candidate(rm,global_shares):
-    # Higher is better. Scores broad game-map behavior, not any single point.
+    # Higher is better. QA combines physical recognizability and game playability.
     score=0.0
     for row in rm.itertuples():
-        if row.n==0: 
-            score-=3; continue
+        if row.n==0:
+            score-=5; continue
         if row.expectation=="MOUNTAIN":
-            # Mountain belts should contain substantial mountain tiles and few pure-flat tiles.
-            score += min(row.mountain/0.28,1.0)*2.0
-            score += min((row.mountain+row.hill)/0.70,1.0)*1.5
-            score -= max(row.flat-0.35,0)*4.0
+            target=0.18 if row.region=="Korean mountains" else 0.25
+            score += min(row.mountain/target,1.0)*2.0
+            score += min((row.mountain+row.hill)/0.72,1.0)*1.5
+            score -= max(row.flat-0.35,0)*5.0
         elif row.expectation=="HILL":
-            score += min(row.hill/0.40,1.0)*1.5
-            score += min((row.hill+row.mountain)/0.55,1.0)
-            score -= max(row.mountain-0.30,0)*4.0
+            score += min((row.hill+row.mountain)/0.55,1.0)*1.5
+            score += min(row.hill/0.38,1.0)
+            score -= max(row.mountain-0.35,0)*3.0
         elif row.expectation=="FLAT":
             score += min(row.flat/0.68,1.0)*1.5
-            score -= max(row.mountain-0.10,0)*5.0
+            score -= max(row.mountain-0.10,0)*6.0
         elif row.expectation=="POLAR_NOT_ALL_MOUNTAIN":
-            score += min((1-row.mountain)/0.75,1.0)
-            score -= max(row.mountain-0.35,0)*5.0
+            score += min((1-row.mountain)/0.80,1.0)
+            score -= max(row.mountain-0.25,0)*8.0
         else:  # NOT_ALL_MOUNTAIN
-            score += min((1-row.mountain)/0.50,1.0)*2.0
-            score -= max(row.mountain-0.65,0)*12.0
+            # Explicitly penalize the old Andes wall. The classification rule is
+            # global; Peru/Chile are only QA regions, not geographic exceptions.
+            cap=0.50 if row.region in ("Peru coastal belt","Central Chile") else 0.42
+            score += min((1-row.mountain)/(1-cap),1.0)*1.5
+            score -= max(row.mountain-cap,0)*12.0
 
     f,h,m=global_shares
-    # Avoid a world dominated by either mountains or featureless flats.
-    if not (0.06 <= m <= 0.18): score -= abs(m-0.12)*30
-    if not (0.20 <= h <= 0.45): score -= abs(h-0.32)*20
-    if not (0.40 <= f <= 0.70): score -= abs(f-0.55)*15
+    # A Civilization-style board needs mountains to be selective obstacles,
+    # with most rugged-but-traversable terrain represented as HILL.
+    if not (0.055 <= m <= 0.14): score -= abs(m-0.09)*35
+    if not (0.25 <= h <= 0.45): score -= abs(h-0.35)*20
+    if not (0.40 <= f <= 0.65): score -= abs(f-0.52)*18
     return score
 
 def main():
@@ -149,29 +174,23 @@ def main():
     ap.add_argument("--prefix",default="CIV_GAME_MAP_STAGE1B_RELIEF")
     a=ap.parse_args()
     df=pd.read_csv(a.stats_csv)
-    need=["id","ELEV_MEAN","ELEV_MAX","RELIEF_P90P10","SLOPE_MEAN","SLOPE_P90"]
+    need=["id","ELEV_MEAN","ELEV_MAX","RELIEF_P90P10","SLOPE_MEAN","SLOPE_MED","SLOPE_P75","SLOPE_P90"]
     miss=[c for c in need if c not in df.columns]
     if miss: raise SystemExit("Missing columns: "+",".join(miss))
     df=add_lonlat(df)
 
     candidates=[]
     best=None
-    for qmm in [0.825,0.85,0.875,0.90,0.925]:
-      for qme in [0.93,0.94,0.95,0.96,0.97]:
-        if qme<=qmm: continue
-        for qhm in [0.45,0.50,0.55,0.60,0.65]:
-          for qhe in [0.70,0.75,0.80,0.85]:
-            if qhe<=qhm or qhm>=qmm: continue
-            cls,qr,qs=classify(df,qmm,qme,qhm,qhe)
+    for q_r_main in [0.78,0.81,0.84,0.87,0.90]:
+      for q_p75_main in [0.72,0.76,0.80,0.84,0.88]:
+        for q_med_main in [0.60,0.65,0.70,0.75,0.80]:
+          for q_ext in [0.93,0.95,0.97]:
+            if q_ext<=q_r_main or q_ext<=q_p75_main: continue
+            cls,thr=classify(df,q_r_main,q_p75_main,q_med_main,q_ext)
             f=float(np.mean(cls=="FLAT")); h=float(np.mean(cls=="HILL")); m=float(np.mean(cls=="MOUNTAIN"))
             rm=region_metrics(df,cls)
             sc=score_candidate(rm,(f,h,m))
-            rec=dict(score=sc,q_m_mid=qmm,q_m_ext=qme,q_h_mid=qhm,q_h_ext=qhe,
-                     flat=f,hill=h,mountain=m,
-                     relief_m_mid=qr[qmm],relief_m_ext=qr[qme],
-                     slope_m_mid=qs[qmm],slope_m_ext=qs[qme],
-                     relief_h_mid=qr[qhm],relief_h_ext=qr[qhe],
-                     slope_h_mid=qs[qhm],slope_h_ext=qs[qhe])
+            rec=dict(score=sc,flat=f,hill=h,mountain=m,**thr)
             candidates.append(rec)
             if best is None or sc>best[0]:
                 best=(sc,rec,cls,rm)
@@ -189,9 +208,10 @@ def main():
       "best":{k:(float(v) if isinstance(v,(np.floating,float)) else v) for k,v in rec.items()},
       "counts":{k:int(np.sum(cls==k)) for k in ["FLAT","HILL","MOUNTAIN"]},
       "rules":{
-        "MOUNTAIN":"(relief>=mountain_mid AND slope_p90>=mountain_mid) OR relief>=mountain_extreme OR slope_p90>=mountain_extreme",
-        "HILL":"same structure at hill thresholds, excluding MOUNTAIN",
-        "absolute_elevation":"QA/reporting only; never sufficient by itself"
+        "MOUNTAIN":"global mountain-core rule using RELIEF_P90P10 + SLOPE_P75 + SLOPE_MED; extreme branches still require median-slope support",
+        "HILL":"broad rugged-terrain rule using relief and slope; excludes MOUNTAIN",
+        "absolute_elevation":"QA/reporting only; never sufficient by itself",
+        "playability":"Peru/Chile are QA constraints only; there are no country-specific classification overrides"
       }
     }
     Path(a.prefix+"_SUMMARY.json").write_text(json.dumps(summary,indent=2),encoding="utf-8")
