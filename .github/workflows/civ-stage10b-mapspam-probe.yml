@@ -1,12 +1,6 @@
 name: CIV Stage 10B MAPSPAM resource probe
 
 on:
-  push:
-    branches:
-      - civ-game-map-stage1b-etopo2022
-    paths:
-      - "civ_map_stage10_resources/probe_mapspam_resources.py"
-      - ".github/workflows/civ-stage10b-mapspam-probe.yml"
   workflow_dispatch:
 
 jobs:
