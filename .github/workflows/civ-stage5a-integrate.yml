@@ -17,7 +17,7 @@ jobs:
       contents: read
       actions: read
     env:
-      MARSH_RUN: "35437612840"
+      MARSH_RUN: "35438506356"
       FLOOD_RUN: "35437888668"
     steps:
       - uses: actions/checkout@v4
@@ -52,6 +52,8 @@ jobs:
           mkdir -p marsh
           gh run download "$MARSH_RUN" -n CIV_GAME_MAP_STAGE3A4_MARSH -D marsh
           test -s marsh/CIV_GAME_MAP_STAGE3A4_MARSH_CLASSIFIED.csv
+          test -s marsh/CIV_GAME_MAP_STAGE3A4_MARSH_GATE.txt
+          grep -q '^PASS' marsh/CIV_GAME_MAP_STAGE3A4_MARSH_GATE.txt
 
       - name: Download Flood Plains
         env:
