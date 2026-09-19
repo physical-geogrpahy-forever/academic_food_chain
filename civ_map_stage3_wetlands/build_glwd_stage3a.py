@@ -60,8 +60,15 @@ def main():
     ap.add_argument("land_gpkg"); ap.add_argument("wet_pct_tif"); ap.add_argument("main_class_tif")
     ap.add_argument("--prefix",default="CIV_GAME_MAP_STAGE3A_GLWD2")
     a=ap.parse_args()
-    g=gpd.read_file(a.land_gpkg,layer="stage2b_land_biomes")
-    if len(g)!=68048: raise SystemExit("Expected 68048 LAND hexes")
+    g0=gpd.read_file(a.land_gpkg)
+    # Accept either the compact LAND-only Stage2B artifact or the canonical
+    # full-board Stage2B artifact. For the full board, terrestrial metrics are
+    # computed on SURFACE=LAND only.
+    g=g0[g0["SURFACE"].eq("LAND")].copy() if "SURFACE" in g0.columns else g0.copy()
+    if len(g)!=68048: raise SystemExit(f"Expected 68048 LAND hexes, got {len(g)}")
+    if "lon" not in g.columns and "LON" in g.columns: g["lon"]=g["LON"]
+    if "lat" not in g.columns and "LAT" in g.columns: g["lat"]=g["LAT"]
+    if not g["id"].is_unique: raise SystemExit("Duplicate canonical LAND IDs")
     g4326=g[["id","RELIEF","TERRAIN","geometry"]].rename(columns={"id":"HEX_ID"}).to_crs(4326)
     mr=Path(a.prefix+"_MARSHLIKE_15S.tif")
     build_marsh_raster(a.wet_pct_tif,a.main_class_tif,mr)
