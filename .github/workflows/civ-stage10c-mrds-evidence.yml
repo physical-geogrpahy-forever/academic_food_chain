@@ -1,0 +1,65 @@
+name: CIV Stage 10C MRDS mineral evidence
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/build_stage10c_mrds_evidence.py"
+      - ".github/workflows/civ-stage10c-mrds-evidence.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE9_RUN: "35439673753"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Stage 9A
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p stage9
+          gh run download "$STAGE9_RUN" -n CIV_GAME_MAP_STAGE9A_CONSOLIDATED -D stage9
+          test -s stage9/CIV_GAME_MAP_STAGE9A_CONSOLIDATED.gpkg
+
+      - name: Download USGS MRDS
+        run: |
+          curl -L --fail --retry 5 --retry-delay 3             -o mrds-csv.zip             https://mrdata.usgs.gov/mrds/mrds-csv.zip
+          sha256sum mrds-csv.zip | tee MRDS_SHA256.txt
+
+      - name: Install geospatial stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pandas geopandas shapely pyproj pyogrio
+
+      - name: Aggregate MRDS evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10c_mrds_evidence.py             stage9/CIV_GAME_MAP_STAGE9A_CONSOLIDATED.gpkg             mrds-csv.zip             --prefix CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE             | tee CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE_RUN.log
+
+      - name: Package
+        run: |
+          sha256sum CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE* MRDS_SHA256.txt > CIV_GAME_MAP_STAGE10C_SHA256.txt
+          zip -9 CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE_PACKAGE.zip             CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE.gpkg             CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE_LAND_EVIDENCE.csv             CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE_AUDIT.csv             CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE_SUMMARY.json             CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE_RUN.log             CIV_GAME_MAP_STAGE10C_SHA256.txt             MRDS_SHA256.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE
+          path: |
+            CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE_PACKAGE.zip
+            CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE.gpkg
+            CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE_LAND_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE_AUDIT.csv
+            CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
