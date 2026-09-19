@@ -41,25 +41,38 @@ jobs:
 
       - name: Add MAPSPAM maize and tobacco
         run: |
-          python civ_map_stage10_resources/build_stage10n_mapspam_extra.py             "$BOARD"             "https://digital-atlas.s3.amazonaws.com/cdh/data/mapspam2020-v2r2/cog/spam2020-physical_area-all.tif"             --layer game_map_stage10_strategic_candidates             --prefix CIV_GAME_MAP_STAGE10N_MAPSPAM_EXTRA
+          python civ_map_stage10_resources/build_stage10n_mapspam_extra.py \
+            "$BOARD" \
+            "https://digital-atlas.s3.amazonaws.com/cdh/data/mapspam2020-v2r2/cog/spam2020-physical_area-all.tif" \
+            --layer game_map_stage10_strategic_candidates \
+            --prefix CIV_GAME_MAP_STAGE10N_MAPSPAM_EXTRA
 
       - name: Download selected Monfreda crop rasters
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p input/monfreda
-          base="https://s3.us-east-2.amazonaws.com/earthstatdata/HarvestedAreaYield175Crops_Indvidual_Geotiff"
+          mkdir -p input/monfreda/extracted
+          curl -L --fail --retry 4 \
+            "https://geodata.ucdavis.edu/geodata/crops/monfreda/Monfreda_HarvestedAreaHectares.zip" \
+            -o input/monfreda/Monfreda_HarvestedAreaHectares.zip
+          ls -lh input/monfreda/Monfreda_HarvestedAreaHectares.zip
           crops=(olive grape pepper clove nutmeg cinnamon ginger spicenes pimento aniseetc vanilla)
           for crop in "${crops[@]}"; do
-            echo "Downloading $crop"
-            curl -L --fail --retry 4 "$base/${crop}_HarvAreaYield_Geotiff.zip"               -o "input/monfreda/${crop}.zip"
-            unzip -q -o "input/monfreda/${crop}.zip" -d input/monfreda
+            member="$(unzip -Z1 input/monfreda/Monfreda_HarvestedAreaHectares.zip | grep -E "(^|/)${crop}_HarvestedAreaHectares\\.tif$" | head -1)"
+            if [ -z "$member" ]; then
+              echo "Missing crop raster: $crop" >&2
+              exit 2
+            fi
+            unzip -q -o input/monfreda/Monfreda_HarvestedAreaHectares.zip "$member" -d input/monfreda/extracted
           done
-          find input/monfreda -type f -name '*HarvestedAreaHectares.tif' -print
+          find input/monfreda/extracted -type f -name '*HarvestedAreaHectares.tif' -print
 
       - name: Add Monfreda olive wine spices evidence
         run: |
-          python civ_map_stage10_resources/build_stage10o_monfreda_evidence.py             CIV_GAME_MAP_STAGE10N_MAPSPAM_EXTRA.gpkg input/monfreda             --layer game_map_stage10n_mapspam_extra             --prefix CIV_GAME_MAP_STAGE10O_MONFREDA_EVIDENCE
+          python civ_map_stage10_resources/build_stage10o_monfreda_evidence.py \
+            CIV_GAME_MAP_STAGE10N_MAPSPAM_EXTRA.gpkg input/monfreda/extracted \
+            --layer game_map_stage10n_mapspam_extra \
+            --prefix CIV_GAME_MAP_STAGE10O_MONFREDA_EVIDENCE
 
       - name: Audit
         run: |
