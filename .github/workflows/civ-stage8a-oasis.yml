@@ -1,0 +1,107 @@
+name: CIV Stage 8A oasis candidates
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage8_oasis/build_stage8a_oasis.py"
+      - ".github/workflows/civ-stage8a-oasis.yml"
+  workflow_dispatch:
+
+jobs:
+  oasis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE7_RUN: "35438956679"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Wait for Stage 7A
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 540); do
+            D=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${STAGE7_RUN}")
+            S=$(echo "$D" | jq -r .status)
+            C=$(echo "$D" | jq -r .conclusion)
+            echo "attempt=$i status=$S conclusion=$C"
+            if [ "$S" = "completed" ]; then
+              test "$C" = "success"
+              exit 0
+            fi
+            sleep 10
+          done
+          exit 1
+
+      - name: Download Stage 7A
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p stage7
+          gh run download "$STAGE7_RUN" -n CIV_GAME_MAP_STAGE7A_SEAICE -D stage7
+          test -s stage7/CIV_GAME_MAP_STAGE7A_SEAICE.gpkg
+
+      - name: Retrieve PeerJ oasis supplement through PMC OA package
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 5 --retry-delay 2             -o PMC_OA.xml             "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=PMC11874939"
+          HREF=$(grep -o 'href="[^"]*"' PMC_OA.xml | sed 's/^href="//;s/"$//' | grep -E '\.(tar\.gz|tgz)$' | head -1)
+          test -n "$HREF"
+          HTTPS_HREF=${HREF/ftp:\/\//https://}
+          curl -L --fail --retry 5 --retry-delay 2 -o article.tar.gz "$HTTPS_HREF"
+          mkdir oa
+          tar -xzf article.tar.gz -C oa
+          SUPP=$(find oa -type f -name 'peerj-13-18884-s009.zip' | head -1)
+          test -n "$SUPP"
+          cp "$SUPP" peerj_oasis_supp9.zip
+          sha256sum peerj_oasis_supp9.zip | tee OASIS_SOURCE_SHA256.txt
+          unzip -l peerj_oasis_supp9.zip | tee OASIS_SOURCE_CONTENTS.txt
+
+      - name: Install geospatial stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pandas geopandas shapely pyproj pyogrio
+
+      - name: Build oasis candidates
+        run: |
+          python civ_map_stage8_oasis/build_stage8a_oasis.py             stage7/CIV_GAME_MAP_STAGE7A_SEAICE.gpkg             peerj_oasis_supp9.zip             --prefix CIV_GAME_MAP_STAGE8A_OASIS             | tee CIV_GAME_MAP_STAGE8A_OASIS_RUN.log
+
+      - name: Audit
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open('CIV_GAME_MAP_STAGE8A_OASIS_SUMMARY.json'))
+          assert s['random_seeds_used'] is False, s
+          assert s['Stage1A_1deg_used'] is False, s
+          print(json.dumps(s,indent=2))
+          PY
+
+      - name: Package
+        run: |
+          sha256sum CIV_GAME_MAP_STAGE8A_OASIS* OASIS_SOURCE_SHA256.txt > CIV_GAME_MAP_STAGE8A_SHA256.txt
+          zip -9 CIV_GAME_MAP_STAGE8A_OASIS_PACKAGE.zip             CIV_GAME_MAP_STAGE8A_OASIS.gpkg             CIV_GAME_MAP_STAGE8A_OASIS_CANDIDATES.csv             CIV_GAME_MAP_STAGE8A_OASIS_QA.csv             CIV_GAME_MAP_STAGE8A_OASIS_THRESHOLD_SCAN.csv             CIV_GAME_MAP_STAGE8A_OASIS_SUMMARY.json             CIV_GAME_MAP_STAGE8A_OASIS_RUN.log             CIV_GAME_MAP_STAGE8A_SHA256.txt             OASIS_SOURCE_SHA256.txt             OASIS_SOURCE_CONTENTS.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE8A_OASIS
+          path: |
+            CIV_GAME_MAP_STAGE8A_OASIS_PACKAGE.zip
+            CIV_GAME_MAP_STAGE8A_OASIS.gpkg
+            CIV_GAME_MAP_STAGE8A_OASIS_CANDIDATES.csv
+            CIV_GAME_MAP_STAGE8A_OASIS_QA.csv
+            CIV_GAME_MAP_STAGE8A_OASIS_THRESHOLD_SCAN.csv
+            CIV_GAME_MAP_STAGE8A_OASIS_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
