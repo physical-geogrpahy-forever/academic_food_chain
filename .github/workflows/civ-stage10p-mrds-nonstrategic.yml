@@ -1,0 +1,62 @@
+name: CIV Stage 10 nonstrategic minerals P
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_stage10p.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pandas geopandas pyogrio shapely
+
+      - name: Download crop evidence board
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/crops
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10586380118/zip > input/crops.zip
+          unzip -q input/crops.zip -d input/crops
+          BOARD="$(find input/crops -type f -name 'CIV_GAME_MAP_STAGE10O_MONFREDA_EVIDENCE.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Download MRDS
+        run: |
+          curl -L --fail --retry 4             https://mrdata.usgs.gov/mrds/mrds-csv.zip             -o input/mrds-csv.zip
+
+      - name: Aggregate nonstrategic minerals
+        run: |
+          python civ_map_stage10_resources/build_stage10p_mrds_nonstrategic.py             "$BOARD" input/mrds-csv.zip             --layer game_map_stage10o_monfreda_evidence             --prefix CIV_GAME_MAP_STAGE10P_MRDS_NONSTRATEGIC
+
+      - name: Audit
+        run: |
+          cat CIV_GAME_MAP_STAGE10P_MRDS_NONSTRATEGIC_SUMMARY.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10P_MRDS_NONSTRATEGIC
+          path: |
+            CIV_GAME_MAP_STAGE10P_MRDS_NONSTRATEGIC.gpkg
+            CIV_GAME_MAP_STAGE10P_MRDS_NONSTRATEGIC_LAND_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10P_MRDS_NONSTRATEGIC_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
