@@ -1,0 +1,83 @@
+name: CIV Stage 10 strategic evidence V3 GEM
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_strategic_v3.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install geospatial dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas pyogrio shapely matplotlib
+
+      - name: Download V2 evidence board
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/v2
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10585381458/zip > input/v2.zip
+          unzip -q input/v2.zip -d input/v2
+          BOARD="$(find input/v2 -type f -name 'CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V2.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+          echo "Using $BOARD"
+
+      - name: Download official GEM public map data
+        run: |
+          mkdir -p input/gem
+          curl -L --fail --retry 4             "https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/Current_maps/gcmt-smp/gcmt-smp_map_2026-08.geojson"             -o input/gem/gcmt_2026-08.geojson
+          curl -L --fail --retry 4             "https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/interim_maps/goget_map_2026-03.geojson"             -o input/gem/goget_2026-03.geojson
+          ls -lh input/gem
+
+      - name: Aggregate current GEM coal and oil evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10k_gem_live_evidence.py             "$BOARD"             input/gem/gcmt_2026-08.geojson             input/gem/goget_2026-03.geojson             --layer game_map_stage10_strategic_candidates             --prefix CIV_GAME_MAP_STAGE10K_GEM_LIVE_EVIDENCE
+
+      - name: Recalculate strategic candidate quantities
+        run: |
+          python civ_map_stage10_resources/build_strategic_candidates.py             CIV_GAME_MAP_STAGE10K_GEM_LIVE_EVIDENCE.gpkg             --layer game_map_stage10k_gem_live_evidence             --prefix CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V3
+
+      - name: Render V3 review maps
+        run: |
+          python civ_map_stage10_resources/render_strategic_candidates.py             CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V3.gpkg             --outdir strategic_maps_v3
+
+      - name: Audit V3
+        run: |
+          echo "=== GEM LIVE EVIDENCE ==="
+          cat CIV_GAME_MAP_STAGE10K_GEM_LIVE_EVIDENCE_SUMMARY.json
+          echo "=== V3 CANDIDATES ==="
+          cat CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V3_SUMMARY.json
+          echo "=== MAP SUMMARY ==="
+          cat strategic_maps_v3/strategic_candidate_map_summary.csv
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10_STRATEGIC_EVIDENCE_V3
+          path: |
+            CIV_GAME_MAP_STAGE10K_GEM_LIVE_EVIDENCE_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10K_GEM_LIVE_EVIDENCE_SUMMARY.json
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V3.gpkg
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V3_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V3_SUMMARY.json
+            strategic_maps_v3/
+          if-no-files-found: error
+          retention-days: 30
