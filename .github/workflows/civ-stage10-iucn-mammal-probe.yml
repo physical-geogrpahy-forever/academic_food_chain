@@ -1,0 +1,68 @@
+name: CIV Stage 10 IUCN mammal source probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_iucn_mammal_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests beautifulsoup4
+      - name: Probe IUCN spatial download page
+        run: |
+          python - <<'PY'
+          import requests, json, pathlib, re
+          from bs4 import BeautifulSoup
+          url="https://nrl.iucnredlist.org/resources/spatial-data-download"
+          r=requests.get(url,headers={"User-Agent":"Mozilla/5.0"},timeout=90)
+          print("status",r.status_code,"bytes",len(r.content),r.url)
+          pathlib.Path("iucn_spatial_page.html").write_bytes(r.content)
+          soup=BeautifulSoup(r.text,"html.parser")
+          links=[]
+          for a in soup.find_all("a",href=True):
+              text=" ".join(a.stripped_strings)
+              href=requests.compat.urljoin(r.url,a["href"])
+              if any(k in (text+" "+href).lower() for k in ["mammal","marine","terrestrial","polygon","spatial"]):
+                  links.append({"text":text,"href":href})
+          pathlib.Path("iucn_links.json").write_text(json.dumps(links,indent=2),encoding="utf-8")
+          print(json.dumps(links,indent=2)[:30000])
+          PY
+      - name: Head likely downloads
+        run: |
+          python - <<'PY'
+          import json, requests, pathlib
+          links=json.load(open("iucn_links.json"))
+          out=[]
+          for x in links:
+              u=x["href"]
+              try:
+                  rr=requests.get(u,headers={"User-Agent":"Mozilla/5.0"},timeout=60,stream=True,allow_redirects=True)
+                  out.append({
+                    "text":x["text"],"url":u,"status":rr.status_code,
+                    "final_url":rr.url,"content_type":rr.headers.get("content-type"),
+                    "content_length":rr.headers.get("content-length"),
+                  })
+                  rr.close()
+              except Exception as e:
+                  out.append({"text":x["text"],"url":u,"error":repr(e)})
+          pathlib.Path("iucn_download_probe.json").write_text(json.dumps(out,indent=2),encoding="utf-8")
+          print(json.dumps(out,indent=2)[:30000])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10_IUCN_MAMMAL_PROBE
+          path: |
+            iucn_links.json
+            iucn_download_probe.json
+          if-no-files-found: error
+          retention-days: 30
