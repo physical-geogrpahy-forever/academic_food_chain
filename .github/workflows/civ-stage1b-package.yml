@@ -17,7 +17,7 @@ jobs:
       contents: read
       actions: read
     env:
-      TARGET_QA_SHA: aab91bad28659f36fbcd87ab32691a0603ce9e01
+      TARGET_QA_SHA: 9b59fc8397df8053697ac35fd665eb20d3b5799c
       TARGET_QA_WORKFLOW: civ-stage1b-qa.yml
     steps:
       - uses: actions/checkout@v4
