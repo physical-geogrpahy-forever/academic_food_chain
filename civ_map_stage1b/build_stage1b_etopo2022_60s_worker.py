@@ -174,7 +174,14 @@ def make_land_dem_and_slope(dem_path, mask_path, work):
 
 def run_exactextract(raster_path, gdf4326, stats):
     from exactextract import exact_extract
-    return exact_extract(str(raster_path), gdf4326, stats, include_cols=["id"], output="pandas")
+    out=exact_extract(str(raster_path), gdf4326, stats, include_cols=["HEX_ID"], output="pandas")
+    # exactextract also emits its own feature-id column named "id". Do not let
+    # that positional 0..N-1 identifier overwrite the canonical hex ID.
+    if "HEX_ID" not in out.columns:
+        raise RuntimeError(f"exactextract did not preserve HEX_ID; columns={list(out.columns)}")
+    if "id" in out.columns:
+        out=out.drop(columns=["id"])
+    return out
 
 def main():
     ap=argparse.ArgumentParser()
@@ -194,7 +201,7 @@ def main():
     print("DEM",dem,dem.stat().st_size,sha256(dem))
     mpath=prepare_land_mask(dem,work)
     landdem,slope=make_land_dem_and_slope(dem,mpath,work)
-    g=land.to_crs("EPSG:4326")
+    g=land.rename(columns={"id":"HEX_ID"}).to_crs("EPSG:4326")
     estats=["count","min","max","mean","quantile(q=0.1)","quantile(q=0.5)","quantile(q=0.9)"]
     elev=run_exactextract(landdem,g,estats)
     elev=elev.rename(columns={
@@ -211,10 +218,13 @@ def main():
     qcols=[c for c in sl.columns if "quantile" in c.lower()]
     if "SLOPE_P90" not in sl.columns and qcols:
         sl=sl.rename(columns={qcols[0]:"SLOPE_P90"})
-    out=elev.merge(sl,on="id",how="left")
-    # exactextract may emit included ID columns as strings; normalize before
-    # joining back to the canonical integer Stage 0 lattice IDs.
+    out=elev.merge(sl,on="HEX_ID",how="left")
+    out=out.rename(columns={"HEX_ID":"id"})
     out["id"]=pd.to_numeric(out["id"],errors="raise").astype(np.int64)
+    if not out["id"].is_unique:
+        raise RuntimeError("non-unique canonical hex IDs after exactextract")
+    if int(out["id"].min()) < 1 or int(out["id"].max()) > N:
+        raise RuntimeError(f"invalid canonical hex ID range {out['id'].min()}..{out['id'].max()}")
     out["RELIEF_P90P10"]=out["ELEV_P90"]-out["ELEV_P10"]
     out["ELEV_RANGE"]=out["ELEV_MAX"]-out["ELEV_MIN"]
     out["DEM_SRC"]="ETOPO2022_v1_60s_surface"
