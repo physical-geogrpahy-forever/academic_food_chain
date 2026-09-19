@@ -1,0 +1,71 @@
+name: CIV Stage 9R terrain biome review
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage9_review/build_stage9r_review.py"
+      - ".github/workflows/civ-stage9r-review.yml"
+  workflow_dispatch:
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE9_RUN: "35439673753"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Stage 9A
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p stage9
+          gh run download "$STAGE9_RUN" -n CIV_GAME_MAP_STAGE9A_CONSOLIDATED -D stage9
+          test -s stage9/CIV_GAME_MAP_STAGE9A_CONSOLIDATED.gpkg
+
+      - name: Install plotting stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pandas geopandas shapely pyproj pyogrio matplotlib
+
+      - name: Build review maps
+        shell: bash
+        run: |
+          set -o pipefail
+          python civ_map_stage9_review/build_stage9r_review.py             stage9/CIV_GAME_MAP_STAGE9A_CONSOLIDATED.gpkg             --prefix CIV_GAME_MAP_STAGE9R_REVIEW             2>&1 | tee CIV_GAME_MAP_STAGE9R_REVIEW_RUN.log
+
+      - name: Package review
+        run: |
+          sha256sum CIV_GAME_MAP_STAGE9R_REVIEW* > CIV_GAME_MAP_STAGE9R_SHA256.txt
+          zip -9 CIV_GAME_MAP_STAGE9R_REVIEW_PACKAGE.zip             CIV_GAME_MAP_STAGE9R_REVIEW_WORLD_TERRAIN.png             CIV_GAME_MAP_STAGE9R_REVIEW_WORLD_RELIEF.png             CIV_GAME_MAP_STAGE9R_REVIEW_WORLD_COMBINED.png             CIV_GAME_MAP_STAGE9R_REVIEW_Andes.png             CIV_GAME_MAP_STAGE9R_REVIEW_Himalaya_Tibet.png             CIV_GAME_MAP_STAGE9R_REVIEW_Korea_Japan.png             CIV_GAME_MAP_STAGE9R_REVIEW_Europe.png             CIV_GAME_MAP_STAGE9R_REVIEW_North_America.png             CIV_GAME_MAP_STAGE9R_REVIEW_Africa.png             CIV_GAME_MAP_STAGE9R_REVIEW_Australia.png             CIV_GAME_MAP_STAGE9R_REVIEW_REGIONAL_COUNTS.csv             CIV_GAME_MAP_STAGE9R_REVIEW_SUMMARY.json             CIV_GAME_MAP_STAGE9R_REVIEW_README.md             CIV_GAME_MAP_STAGE9R_REVIEW_RUN.log             CIV_GAME_MAP_STAGE9R_SHA256.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE9R_TERRAIN_BIOME_REVIEW
+          path: |
+            CIV_GAME_MAP_STAGE9R_REVIEW_PACKAGE.zip
+            CIV_GAME_MAP_STAGE9R_REVIEW_WORLD_TERRAIN.png
+            CIV_GAME_MAP_STAGE9R_REVIEW_WORLD_RELIEF.png
+            CIV_GAME_MAP_STAGE9R_REVIEW_WORLD_COMBINED.png
+            CIV_GAME_MAP_STAGE9R_REVIEW_Andes.png
+            CIV_GAME_MAP_STAGE9R_REVIEW_Himalaya_Tibet.png
+            CIV_GAME_MAP_STAGE9R_REVIEW_Korea_Japan.png
+            CIV_GAME_MAP_STAGE9R_REVIEW_Europe.png
+            CIV_GAME_MAP_STAGE9R_REVIEW_North_America.png
+            CIV_GAME_MAP_STAGE9R_REVIEW_Africa.png
+            CIV_GAME_MAP_STAGE9R_REVIEW_Australia.png
+            CIV_GAME_MAP_STAGE9R_REVIEW_REGIONAL_COUNTS.csv
+            CIV_GAME_MAP_STAGE9R_REVIEW_SUMMARY.json
+            CIV_GAME_MAP_STAGE9R_REVIEW_README.md
+          if-no-files-found: error
+          retention-days: 30
