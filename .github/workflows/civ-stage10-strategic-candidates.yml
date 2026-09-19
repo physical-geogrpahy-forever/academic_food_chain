@@ -1,0 +1,68 @@
+name: CIV Stage 10 strategic candidates
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_strategic_candidates.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install geospatial dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas pyogrio shapely matplotlib
+
+      - name: Download Stage 10I integrated evidence artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input
+          gh run download 35440299912             -n CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE             -D input
+          find input -maxdepth 2 -type f -print
+          BOARD="$(find input -type f -name '*.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Build strategic candidate quantities
+        run: |
+          python civ_map_stage10_resources/build_strategic_candidates.py "$BOARD"             --prefix CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES
+
+      - name: Render review maps
+        run: |
+          python civ_map_stage10_resources/render_strategic_candidates.py             CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES.gpkg             --outdir strategic_maps
+
+      - name: Audit outputs
+        run: |
+          python - <<'PY'
+          import json, pandas as pd
+          s=json.load(open("CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_SUMMARY.json"))
+          print(json.dumps(s,indent=2))
+          print(pd.read_csv("strategic_maps/strategic_candidate_map_summary.csv").to_string(index=False))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES
+          path: |
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES.gpkg
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_SUMMARY.json
+            strategic_maps/
+          if-no-files-found: error
+          retention-days: 30
