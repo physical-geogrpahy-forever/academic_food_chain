@@ -60,6 +60,8 @@ def main():
     df["PROD_MT"]=num(df[prodcol]) if prodcol else 0.0
     df["CAP_MTPA"]=pd.to_numeric(df["CAP_MTPA"],errors="coerce").fillna(0).clip(lower=0)
     df["PROD_MT"]=pd.to_numeric(df["PROD_MT"],errors="coerce").fillna(0).clip(lower=0)
+    df["RESERVE_MT"]=pd.to_numeric(df["RESERVE_MT"],errors="coerce").fillna(0).clip(lower=0)
+    df["RESOURCE_MT"]=pd.to_numeric(df["RESOURCE_MT"],errors="coerce").fillna(0).clip(lower=0)
 
     pts=gpd.GeoDataFrame(df,geometry=gpd.points_from_xy(df.Longitude,df.Latitude),crs=4326).to_crs(board.crs)
     join=gpd.sjoin(pts,land,predicate="within",how="inner")
@@ -73,6 +75,8 @@ def main():
           "COAL_GEM_SCORE":int(g.STATUS_W.sum()),
           "COAL_GEM_CAP_MTPA":float(g.CAP_MTPA.sum()),
           "COAL_GEM_PROD_MT":float(g.PROD_MT.sum()),
+          "COAL_GEM_RESERVE_MT":float(g.RESERVE_MT.sum()),
+          "COAL_GEM_RESOURCE_MT":float(g.RESOURCE_MT.sum()),
           "COAL_GEM_OPERATING":int(g.Status.eq("Operating").sum()),
           "COAL_GEM_PROPOSED":int(g.Status.eq("Proposed").sum()),
           "COAL_GEM_MOTHBALLED":int(g.Status.eq("Mothballed").sum()),
@@ -99,6 +103,8 @@ def main():
       "total_production_mt":float(df.PROD_MT.sum()),
       "capacity_column":capcol,
       "production_column":prodcol,
+      "reserve_column":reservecol,
+      "resource_column":resourcecol,
       "placement_policy":"Evidence only; no random placement and no gameplay thinning.",
       "Stage1A_1deg_used":False
     }
