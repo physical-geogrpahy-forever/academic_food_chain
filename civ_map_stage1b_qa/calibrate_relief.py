@@ -139,17 +139,23 @@ def _components(mask,neighbors):
         comps.append(comp)
     return comps
 
-def add_gameplay_passes(df,cls,min_component=100,strength_quantile=0.935,max_mountain_neighbors=4):
+def add_gameplay_passes(df,cls,min_component=100,strength_quantile=0.935,max_mountain_neighbors=4,
+                        max_axis_span_m=1200000.0,pass_halfwidth_m=60000.0,max_chain_cuts=32):
     """
-    Generic global mountain-belt thinning.
+    Generic global mountain-belt gameplay thinning.
 
-    Only large connected MOUNTAIN components are eligible. Boundary cells with
-    lower mountain-strength are demoted to HILL once, preserving strong ridge
-    cores while opening naturalistic passes and reducing continent-scale
-    impassable walls. No country-specific override is used.
+    Pass 1:
+      Demote weaker boundary MOUNTAIN cells in large components to HILL.
+
+    Pass 2:
+      For any remaining very long connected mountain chain, find a low-strength
+      cross-section along the component's major PCA axis and open a one-to-two
+      hex-wide HILL pass. Repeat until no connected component exceeds the
+      configured major-axis span or the safety cut limit is reached.
+
+    This is globally applied. No country/region receives a special override.
     """
     out=cls.copy()
-    mountain=(out=="MOUNTAIN")
     neighbors=_neighbors_for_offset_grid(df)
 
     rank_r=df["RELIEF_P90P10"].rank(pct=True).fillna(0).to_numpy(float)
@@ -157,23 +163,102 @@ def add_gameplay_passes(df,cls,min_component=100,strength_quantile=0.935,max_mou
     rank_med=df["SLOPE_MED"].rank(pct=True).fillna(0).to_numpy(float)
     strength=(rank_r+rank_p75+rank_med)/3.0
 
+    # Projected cell centers from the locked EPSG:8857 lattice.
+    cols=df["col_index"].to_numpy(np.int64)
+    rows=df["row_index"].to_numpy(np.int64)
+    left=BASE_LEFT+cols*X_STEP
+    top=BASE_TOP-rows*HEX_H-(cols%2)*(HEX_H/2.0)
+    xy=np.column_stack([left+HEX_W/2.0, top-HEX_H/2.0])
+
+    mountain=(out=="MOUNTAIN")
     eligible=np.zeros(len(df),dtype=bool)
     for comp in _components(mountain,neighbors):
         if len(comp)>=min_component:
             eligible[np.asarray(comp,dtype=int)]=True
-
     n_m=np.asarray([sum(bool(mountain[j]) for j in ns) for ns in neighbors],dtype=np.int16)
-    demote=mountain & eligible & (n_m<=max_mountain_neighbors) & (strength<strength_quantile)
-    out[demote]="HILL"
+    demote_boundary=mountain & eligible & (n_m<=max_mountain_neighbors) & (strength<strength_quantile)
+    out[demote_boundary]="HILL"
+
+    def axis_info(comp):
+        ii=np.asarray(comp,dtype=int)
+        p=xy[ii]
+        ctr=p.mean(axis=0)
+        q=p-ctr
+        if len(ii)<2:
+            return 0.0,np.zeros(len(ii)),np.array([1.0,0.0])
+        cov=(q.T@q)/max(len(ii)-1,1)
+        vals,vecs=np.linalg.eigh(cov)
+        axis=vecs[:,int(np.argmax(vals))]
+        proj=q@axis
+        return float(proj.max()-proj.min()),proj,axis
+
+    chain_cuts=[]
+    for cut_no in range(max_chain_cuts):
+        mountain=(out=="MOUNTAIN")
+        comps=_components(mountain,neighbors)
+        candidates=[]
+        for comp in comps:
+            if len(comp)<min_component: continue
+            span,proj,axis=axis_info(comp)
+            if span>max_axis_span_m:
+                candidates.append((span,comp,proj,axis))
+        if not candidates:
+            break
+
+        # Cut the longest remaining belt first.
+        span,comp,proj,axis=max(candidates,key=lambda z:z[0])
+        ii=np.asarray(comp,dtype=int)
+        lo=float(proj.min()); hi=float(proj.max())
+        # Search the central 70% for the weakest narrow cross-section.
+        ts=np.linspace(lo+0.15*span,hi-0.15*span,29)
+        best=None
+        for t in ts:
+            band=np.abs(proj-t)<=pass_halfwidth_m
+            jj=ii[band]
+            if len(jj)==0: continue
+            # Strong peaks are expensive to cut; also weakly penalize wide cuts.
+            st=strength[jj]
+            cost=float(np.quantile(st,0.90)+0.0025*len(jj))
+            if best is None or cost<best[0]:
+                best=(cost,float(t),jj)
+        if best is None:
+            break
+
+        _,t,jj=best
+        out[jj]="HILL"
+        chain_cuts.append({
+          "cut":int(cut_no+1),
+          "component_before":int(len(comp)),
+          "axis_span_km_before":float(span/1000.0),
+          "demoted":int(len(jj)),
+          "mean_strength":float(strength[jj].mean()),
+          "max_strength":float(strength[jj].max()),
+        })
+
+    # Final component diagnostics.
+    final_components=_components(out=="MOUNTAIN",neighbors)
+    spans=[]
+    for comp in final_components:
+        sp,_,_=axis_info(comp)
+        spans.append((len(comp),sp))
+    max_comp=max((x[0] for x in spans),default=0)
+    max_span=max((x[1] for x in spans),default=0.0)
 
     audit={
-      "pass_rule":"large-component boundary thinning",
+      "pass_rule":"boundary thinning + generic low-strength cross-section passes",
       "min_component":int(min_component),
       "strength_quantile":float(strength_quantile),
       "max_mountain_neighbors":int(max_mountain_neighbors),
-      "demoted_mountain_to_hill":int(demote.sum()),
-      "mountain_before":int(mountain.sum()),
+      "max_axis_span_km":float(max_axis_span_m/1000.0),
+      "pass_halfwidth_km":float(pass_halfwidth_m/1000.0),
+      "boundary_demoted":int(demote_boundary.sum()),
+      "chain_pass_cuts":int(len(chain_cuts)),
+      "chain_pass_demoted":int(sum(x["demoted"] for x in chain_cuts)),
+      "mountain_before":int(np.sum(cls=="MOUNTAIN")),
       "mountain_after":int(np.sum(out=="MOUNTAIN")),
+      "largest_component_after":int(max_comp),
+      "largest_axis_span_km_after":float(max_span/1000.0),
+      "cuts":chain_cuts,
     }
     return out,audit
 
