@@ -1,0 +1,33 @@
+name: CIV Stage 8 oasis source probe
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - ".github/workflows/civ-stage8-oasis-probe.yml"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download PeerJ global oasis vector supplement
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 5 --retry-delay 2             -o peerj_oasis_supp9.zip             https://doi.org/10.7717/peerj.18884/supp-9
+          file peerj_oasis_supp9.zip | tee OASIS_FILETYPE.txt
+          sha256sum peerj_oasis_supp9.zip | tee OASIS_SHA256.txt
+          unzip -l peerj_oasis_supp9.zip | tee OASIS_ZIP_LIST.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE8_OASIS_SOURCE_PROBE
+          path: |
+            OASIS_FILETYPE.txt
+            OASIS_SHA256.txt
+            OASIS_ZIP_LIST.txt
+          if-no-files-found: error
+          retention-days: 30
