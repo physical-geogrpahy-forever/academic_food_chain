@@ -1,0 +1,30 @@
+name: CIV Stage 10 EarthStat crop-list probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_earthstat_crop_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: List Monfreda crop rasters
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 4             "https://geodata.ucdavis.edu/geodata/crops/monfreda/Monfreda_HarvestedAreaHectares.zip"             -o monfreda.zip
+          unzip -Z1 monfreda.zip | sed -n 's#^.*/\([^/]*\)_HarvestedAreaHectares\.tif$#\1#p' | sort -u > monfreda_crops.txt
+          cat monfreda_crops.txt
+          echo "=== relevant ==="
+          grep -Ei 'silk|mulber|indigo|safflower|dye|woad|madder|rose|jasmine|lavender|truffle|incense|frank|myrrh|agar|sandal|flower|spice|cocoon' monfreda_crops.txt || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10_EARTHSTAT_CROP_LIST
+          path: monfreda_crops.txt
+          if-no-files-found: error
+          retention-days: 30
