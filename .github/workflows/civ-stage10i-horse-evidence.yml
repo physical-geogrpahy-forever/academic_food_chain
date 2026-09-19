@@ -1,12 +1,6 @@
 name: CIV Stage 10I horse evidence
 
 on:
-  push:
-    branches:
-      - civ-game-map-stage1b-etopo2022
-    paths:
-      - "civ_map_stage10_resources/build_stage10i_horse_evidence.py"
-      - ".github/workflows/civ-stage10i-horse-evidence.yml"
   workflow_dispatch:
 
 jobs:
