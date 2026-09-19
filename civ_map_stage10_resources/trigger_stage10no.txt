@@ -1,1 +1,2 @@
 trigger 2026-09-19 stage10 crop evidence N-O
+retry with UC Davis Monfreda archive
