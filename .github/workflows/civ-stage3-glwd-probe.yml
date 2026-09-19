@@ -1,0 +1,28 @@
+name: CIV Stage 3 GLWD v2 probe
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage3_wetlands/**"
+      - ".github/workflows/civ-stage3-glwd-probe.yml"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests
+      - name: Query official Figshare GLWD v2 files
+        run: python civ_map_stage3_wetlands/glwd_probe.py | tee GLWD_V2_FILE_LIST.jsonl
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GLWD_V2_FILE_LIST
+          path: GLWD_V2_FILE_LIST.jsonl
+          retention-days: 30
