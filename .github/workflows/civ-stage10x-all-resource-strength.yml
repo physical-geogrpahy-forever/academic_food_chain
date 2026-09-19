@@ -1,0 +1,60 @@
+name: CIV Stage 10 all resource strength X
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_stage10x.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas pyogrio shapely
+
+      - name: Download Stage 10W board
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/w
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10586472788/zip > input/w.zip
+          unzip -q input/w.zip -d input/w
+          BOARD="$(find input/w -type f -name 'CIV_GAME_MAP_STAGE10W_MANUAL_LUXURIES.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Audit and normalize all resource evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10x_all_resource_strength.py             "$BOARD"             --layer game_map_stage10w_manual_luxuries             --prefix CIV_GAME_MAP_STAGE10X_ALL_RESOURCE_STRENGTH
+
+      - name: Audit
+        run: |
+          cat CIV_GAME_MAP_STAGE10X_ALL_RESOURCE_STRENGTH_SUMMARY.json
+          echo "=== compact audit ==="
+          cat CIV_GAME_MAP_STAGE10X_ALL_RESOURCE_STRENGTH_AUDIT.csv
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10X_ALL_RESOURCE_STRENGTH
+          path: |
+            CIV_GAME_MAP_STAGE10X_ALL_RESOURCE_STRENGTH.gpkg
+            CIV_GAME_MAP_STAGE10X_ALL_RESOURCE_STRENGTH_SCORES.csv
+            CIV_GAME_MAP_STAGE10X_ALL_RESOURCE_STRENGTH_AUDIT.csv
+            CIV_GAME_MAP_STAGE10X_ALL_RESOURCE_STRENGTH_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
