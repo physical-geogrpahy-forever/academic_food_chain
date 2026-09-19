@@ -22,7 +22,7 @@ jobs:
           URL="https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/JJGCTX"
           curl -L --fail --retry 5 --retry-delay 2 "$URL" -o GLW4_2015_DATASET.json
           jq -r '.data.latestVersion.files[] | [.dataFile.id,.label,.dataFile.filesize,.dataFile.contentType] | @tsv'             GLW4_2015_DATASET.json | tee GLW4_2015_FILES.tsv
-          grep -i -E 'horse|equine' GLW4_2015_FILES.tsv | tee GLW4_2015_HORSE_FILES.tsv
+          grep -E '5_Ho_2015_Da\.tif' GLW4_2015_FILES.tsv | tee GLW4_2015_HORSE_FILES.tsv
           test -s GLW4_2015_HORSE_FILES.tsv
 
       - name: Download first horse raster and inspect
