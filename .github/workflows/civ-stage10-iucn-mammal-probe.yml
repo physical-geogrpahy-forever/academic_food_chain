@@ -23,9 +23,21 @@ jobs:
           python - <<'PY'
           import requests, json, pathlib, re
           from bs4 import BeautifulSoup
-          url="https://nrl.iucnredlist.org/resources/spatial-data-download"
-          r=requests.get(url,headers={"User-Agent":"Mozilla/5.0"},timeout=90)
-          print("status",r.status_code,"bytes",len(r.content),r.url)
+          urls=[
+            "https://nrl.iucnredlist.org/resources/spatial-data-download",
+            "https://iucnredlist.yesdonations.com/resources/spatial-data-download",
+          ]
+          r=None
+          attempts=[]
+          for url in urls:
+              rr=requests.get(url,headers={"User-Agent":"Mozilla/5.0"},timeout=90)
+              attempts.append({"url":url,"status":rr.status_code,"bytes":len(rr.content),"final_url":rr.url})
+              if rr.status_code==200 and len(rr.content)>10000:
+                  r=rr
+                  break
+          if r is None:
+              r=rr
+          print("attempts",json.dumps(attempts,indent=2))
           pathlib.Path("iucn_spatial_page.html").write_bytes(r.content)
           soup=BeautifulSoup(r.text,"html.parser")
           links=[]
