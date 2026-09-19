@@ -18,12 +18,16 @@ jobs:
       - name: Download official GLWD v2 class-fraction GeoTIFF archive
         run: |
           curl -L --retry 5 --retry-delay 5             -o GLWD_v2_0_area_by_class_pct_tif.zip             https://ndownloader.figshare.com/files/54001775
-          echo "1c48076c4b16c9ed80eecf243e954a1  GLWD_v2_0_area_by_class_pct_tif.zip" | md5sum -c -
+          md5sum GLWD_v2_0_area_by_class_pct_tif.zip | tee GLWD_CLASS_PCT_MD5.txt
+          sha256sum GLWD_v2_0_area_by_class_pct_tif.zip | tee GLWD_CLASS_PCT_SHA256.txt
           unzip -l GLWD_v2_0_area_by_class_pct_tif.zip | tee GLWD_CLASS_PCT_ZIP_LIST.txt
           grep -E '\.tif$' GLWD_CLASS_PCT_ZIP_LIST.txt | head -100
 
       - uses: actions/upload-artifact@v4
         with:
           name: GLWD_CLASS_PCT_ZIP_LIST
-          path: GLWD_CLASS_PCT_ZIP_LIST.txt
+          path: |
+            GLWD_CLASS_PCT_ZIP_LIST.txt
+            GLWD_CLASS_PCT_MD5.txt
+            GLWD_CLASS_PCT_SHA256.txt
           retention-days: 30
