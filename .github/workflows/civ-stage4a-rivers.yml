@@ -1,0 +1,90 @@
+name: CIV Stage 4A river edge snap
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage4_rivers/build_stage4a_river_edges.py"
+      - ".github/workflows/civ-stage4a-rivers.yml"
+  workflow_dispatch:
+
+jobs:
+  rivers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE2B_RUN: "35436045507"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download final Stage 2B
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p stage2b
+          gh run download "$STAGE2B_RUN" -n CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES -D stage2b
+          GPKG=$(find stage2b -name '*.gpkg' | head -1)
+          test -s "$GPKG"
+          echo "STAGE2B_GPKG=$GPKG" >> "$GITHUB_ENV"
+
+      - name: Download Natural Earth 1:10m rivers
+        run: |
+          curl -L --retry 5 --retry-delay 3             -o ne_10m_rivers_lake_centerlines.zip             https://naturalearth.s3.amazonaws.com/10m_physical/ne_10m_rivers_lake_centerlines.zip
+          sha256sum ne_10m_rivers_lake_centerlines.zip | tee NE_RIVER_SHA256.txt
+          mkdir river
+          unzip -q ne_10m_rivers_lake_centerlines.zip -d river
+          RIVERS=$(find river -name '*.shp' | head -1)
+          test -s "$RIVERS"
+          echo "RIVER_SHP=$RIVERS" >> "$GITHUB_ENV"
+
+      - name: Install geospatial stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas shapely pyproj pyogrio scipy matplotlib
+
+      - name: Snap river centerlines to hex edges
+        shell: bash
+        run: |
+          set -o pipefail
+          /usr/bin/time -v python civ_map_stage4_rivers/build_stage4a_river_edges.py             "$STAGE2B_GPKG" "$RIVER_SHP"             --rank-cutoff 7             --spacing-m 5000             --max-snap-m 32000             --prefix CIV_GAME_MAP_STAGE4A_RIVERS             2>&1 | tee CIV_GAME_MAP_STAGE4A_RIVERS_RUN.log
+
+      - name: Audit hard gates
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open('CIV_GAME_MAP_STAGE4A_RIVERS_SUMMARY.json'))
+          assert s['shared_edge_symmetry_failures']==0, s
+          assert s['ocean_void_river_flags']==0, s
+          assert s['named_QA_pass']>=12, s
+          assert s['Stage1A_1deg_used'] is False, s
+          print(json.dumps(s,indent=2))
+          PY
+
+      - name: Package
+        run: |
+          sha256sum CIV_GAME_MAP_STAGE4A_RIVERS* NE_RIVER_SHA256.txt > CIV_GAME_MAP_STAGE4A_SHA256.txt
+          zip -9 CIV_GAME_MAP_STAGE4A_RIVERS_PACKAGE.zip             CIV_GAME_MAP_STAGE4A_RIVERS.gpkg             CIV_GAME_MAP_STAGE4A_RIVERS_EDGES.csv             CIV_GAME_MAP_STAGE4A_RIVERS_RANK_SCAN.csv             CIV_GAME_MAP_STAGE4A_RIVERS_NAMED_QA.csv             CIV_GAME_MAP_STAGE4A_RIVERS_SOURCE_AUDIT.csv             CIV_GAME_MAP_STAGE4A_RIVERS_SUMMARY.json             CIV_GAME_MAP_STAGE4A_RIVERS_WORLD_PREVIEW.png             CIV_GAME_MAP_STAGE4A_RIVERS_RUN.log             CIV_GAME_MAP_STAGE4A_SHA256.txt             NE_RIVER_SHA256.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE4A_RIVERS
+          path: |
+            CIV_GAME_MAP_STAGE4A_RIVERS_PACKAGE.zip
+            CIV_GAME_MAP_STAGE4A_RIVERS.gpkg
+            CIV_GAME_MAP_STAGE4A_RIVERS_EDGES.csv
+            CIV_GAME_MAP_STAGE4A_RIVERS_RANK_SCAN.csv
+            CIV_GAME_MAP_STAGE4A_RIVERS_NAMED_QA.csv
+            CIV_GAME_MAP_STAGE4A_RIVERS_SOURCE_AUDIT.csv
+            CIV_GAME_MAP_STAGE4A_RIVERS_SUMMARY.json
+            CIV_GAME_MAP_STAGE4A_RIVERS_WORLD_PREVIEW.png
+          if-no-files-found: error
+          retention-days: 30
