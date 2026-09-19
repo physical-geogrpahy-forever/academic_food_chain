@@ -1,0 +1,70 @@
+name: CIV Stage 10H MAPSPAM crop evidence
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/build_stage10h_mapspam_evidence.py"
+      - ".github/workflows/civ-stage10h-mapspam-evidence.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE10F_RUN: "35440146618"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Stage 10F
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p stage10f
+          gh run download "$STAGE10F_RUN" -n CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE -D stage10f
+          test -s stage10f/CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE.gpkg
+
+      - name: Download MAPSPAM physical-area COG
+        run: |
+          set -euo pipefail
+          aws s3 cp             s3://digital-atlas/cdh/data/mapspam2020-v2r2/cog/spam2020-physical_area-all.tif             mapspam_physical_area.tif             --no-sign-request
+          test -s mapspam_physical_area.tif
+          sha256sum mapspam_physical_area.tif | tee MAPSPAM_SHA256.txt
+          ls -lh mapspam_physical_area.tif
+
+      - name: Install geospatial stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas shapely pyproj pyogrio rasterio exactextract
+
+      - name: Aggregate crop evidence
+        shell: bash
+        run: |
+          set -o pipefail
+          /usr/bin/time -v python civ_map_stage10_resources/build_stage10h_mapspam_evidence.py             stage10f/CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE.gpkg             mapspam_physical_area.tif             --work stage10h_work             --prefix CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE             2>&1 | tee CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE_RUN.log
+
+      - name: Package
+        run: |
+          sha256sum CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE* MAPSPAM_SHA256.txt > CIV_GAME_MAP_STAGE10H_SHA256.txt
+          zip -9 CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE_PACKAGE.zip             CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE.gpkg             CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE_LAND_EVIDENCE.csv             CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE_AUDIT.csv             CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE_SUMMARY.json             CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE_RUN.log             CIV_GAME_MAP_STAGE10H_SHA256.txt             MAPSPAM_SHA256.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE
+          path: |
+            CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE_PACKAGE.zip
+            CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE.gpkg
+            CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE_LAND_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE_AUDIT.csv
+            CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
