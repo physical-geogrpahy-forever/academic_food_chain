@@ -15,7 +15,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
 
@@ -28,14 +28,14 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install numpy pandas geopandas pyogrio shapely rasterio exactextract
 
-      - name: Download Stage 10R board
+      - name: Download Stage 10S board
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p input/r
-          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10586421014/zip > input/r.zip
-          unzip -q input/r.zip -d input/r
-          BOARD="$(find input/r -type f -name 'CIV_GAME_MAP_STAGE10R_GLW_LIVESTOCK.gpkg' | head -1)"
+          mkdir -p input/s
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10586086155/zip > input/s.zip
+          unzip -q input/s.zip -d input/s
+          BOARD="$(find input/s -type f -name 'CIV_GAME_MAP_STAGE10S_CORAL_WCMC.gpkg' | head -1)"
           test -n "$BOARD"
           echo "BOARD=$BOARD" >> "$GITHUB_ENV"
 
@@ -46,7 +46,7 @@ jobs:
 
       - name: Aggregate wild mammal evidence
         run: |
-          python civ_map_stage10_resources/build_stage10t_phylacine_wild.py             "$BOARD" input/PHYLACINE_1.2.1.zip             --layer game_map_stage10r_glw_livestock             --prefix CIV_GAME_MAP_STAGE10T_PHYLACINE_WILD
+          python civ_map_stage10_resources/build_stage10t_phylacine_wild.py             "$BOARD" input/PHYLACINE_1.2.1.zip             --layer game_map_stage10s_coral_wcmc             --prefix CIV_GAME_MAP_STAGE10T_PHYLACINE_WILD
 
       - name: Audit
         run: cat CIV_GAME_MAP_STAGE10T_PHYLACINE_WILD_SUMMARY.json
