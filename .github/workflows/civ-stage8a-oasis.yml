@@ -52,24 +52,32 @@ jobs:
           gh run download "$STAGE7_RUN" -n CIV_GAME_MAP_STAGE7A_SEAICE -D stage7
           test -s stage7/CIV_GAME_MAP_STAGE7A_SEAICE.gpkg
 
-      - name: Retrieve PeerJ oasis supplement
+      - name: Retrieve PeerJ oasis supplement from PMC AWS dataset
         shell: bash
         run: |
           set -euo pipefail
-          URL1="https://pmc.ncbi.nlm.nih.gov/articles/PMC11874939/bin/peerj-13-18884-s009.zip"
-          URL2="https://pmc.ncbi.nlm.nih.gov/articles/instance/11874939/bin/peerj-13-18884-s009.zip"
-          URL3="https://peerj.com/articles/18884/supp-9.zip"
-          ok=0
-          for U in "$URL1" "$URL2" "$URL3"; do
-            echo "Trying $U"
-            if curl -A "Mozilla/5.0" -L --fail --retry 2 --retry-delay 2 -o peerj_oasis_supp9.zip "$U"; then
-              if unzip -t peerj_oasis_supp9.zip >/dev/null 2>&1; then
-                ok=1
-                break
-              fi
-            fi
-          done
-          test "$ok" = 1
+          PREFIX=$(aws s3api list-objects-v2 \
+            --bucket pmc-oa-opendata \
+            --prefix "PMC11874939." \
+            --delimiter "/" \
+            --query "CommonPrefixes[0].Prefix" \
+            --output text \
+            --no-sign-request)
+          test -n "$PREFIX"
+          test "$PREFIX" != "None"
+          echo "PMC prefix: $PREFIX"
+          aws s3 ls "s3://pmc-oa-opendata/$PREFIX" --no-sign-request | tee OASIS_PMC_OBJECTS.txt
+          KEY=$(aws s3api list-objects-v2 \
+            --bucket pmc-oa-opendata \
+            --prefix "$PREFIX" \
+            --query "Contents[?contains(Key, 'peerj-13-18884-s009.zip')].Key | [0]" \
+            --output text \
+            --no-sign-request)
+          test -n "$KEY"
+          test "$KEY" != "None"
+          echo "Supplement key: $KEY"
+          aws s3 cp "s3://pmc-oa-opendata/$KEY" peerj_oasis_supp9.zip --no-sign-request
+          unzip -t peerj_oasis_supp9.zip
           sha256sum peerj_oasis_supp9.zip | tee OASIS_SOURCE_SHA256.txt
           unzip -l peerj_oasis_supp9.zip | tee OASIS_SOURCE_CONTENTS.txt
 
