@@ -1,0 +1,54 @@
+name: CIV Stage 10 UThDEPO detail probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_uthdepo_detail_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Probe representative deposit detail pages
+        run: |
+          python -m pip install requests beautifulsoup4
+          mkdir -p uthdepo_detail_probe
+          python - <<'PY'
+          import requests,re,json
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+
+          ids=[1,5362,9392,9402]
+          out=[]
+          for did in ids:
+              u=f"https://infcis.iaea.org/UTHDEPO/Deposit/{did}"
+              r=requests.get(u,timeout=60,headers={"User-Agent":"Mozilla/5.0"})
+              rec={"id":did,"status":r.status_code,"bytes":len(r.content),"url":r.url}
+              Path(f"uthdepo_detail_probe/deposit_{did}.html").write_text(r.text,encoding="utf-8")
+              soup=BeautifulSoup(r.text,"html.parser")
+              txt="\n".join(x.strip() for x in soup.stripped_strings)
+              lines=[x for x in txt.splitlines() if any(k.lower() in x.lower() for k in [
+                  "Latitude","Longitude","Resource Range","Grade Range","Country","Commodity",
+                  "Deposit Name","Deposit Type","Resource"
+              ])]
+              rec["interesting_text"]=lines[:100]
+              # Also capture coordinate-looking strings and resource-range text.
+              rec["coord_like"]=re.findall(r'[-+]?\d{1,3}\.\d{3,}',txt)[:100]
+              out.append(rec)
+          Path("uthdepo_detail_probe/summary.json").write_text(json.dumps(out,indent=2),encoding="utf-8")
+          print(json.dumps(out,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10_UTHDEPO_DETAIL_PROBE
+          path: uthdepo_detail_probe
+          if-no-files-found: error
+          retention-days: 30
