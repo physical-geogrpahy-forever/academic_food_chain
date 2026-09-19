@@ -1,0 +1,71 @@
+name: CIV Stage 10 strategic evidence V4 niter
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_strategic_v4.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install geospatial dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas pyogrio shapely matplotlib
+
+      - name: Download strategic V3 artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/v3
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10584997905/zip > input/v3.zip
+          unzip -q input/v3.zip -d input/v3
+          BOARD="$(find input/v3 -type f -name 'CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V3.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Add documentary niter evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10l_niter_historical_evidence.py             "$BOARD"             civ_map_stage10_resources/niter_historical_sources_v1.csv             --layer game_map_stage10_strategic_candidates             --prefix CIV_GAME_MAP_STAGE10L_NITER_HIST_EVIDENCE
+
+      - name: Recalculate strategic quantities
+        run: |
+          python civ_map_stage10_resources/build_strategic_candidates.py             CIV_GAME_MAP_STAGE10L_NITER_HIST_EVIDENCE.gpkg             --layer game_map_stage10l_niter_hist_evidence             --prefix CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V4
+
+      - name: Render review maps
+        run: |
+          python civ_map_stage10_resources/render_strategic_candidates.py             CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V4.gpkg             --outdir strategic_maps_v4
+
+      - name: Audit
+        run: |
+          cat CIV_GAME_MAP_STAGE10L_NITER_HIST_EVIDENCE_SUMMARY.json
+          cat CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V4_SUMMARY.json
+          cat strategic_maps_v4/strategic_candidate_map_summary.csv
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10_STRATEGIC_EVIDENCE_V4
+          path: |
+            CIV_GAME_MAP_STAGE10L_NITER_HIST_EVIDENCE_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10L_NITER_HIST_EVIDENCE_SUMMARY.json
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V4.gpkg
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V4_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V4_SUMMARY.json
+            strategic_maps_v4/
+          if-no-files-found: error
+          retention-days: 30
