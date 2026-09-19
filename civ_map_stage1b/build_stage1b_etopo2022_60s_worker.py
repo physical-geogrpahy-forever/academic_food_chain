@@ -212,6 +212,9 @@ def main():
     if "SLOPE_P90" not in sl.columns and qcols:
         sl=sl.rename(columns={qcols[0]:"SLOPE_P90"})
     out=elev.merge(sl,on="id",how="left")
+    # exactextract may emit included ID columns as strings; normalize before
+    # joining back to the canonical integer Stage 0 lattice IDs.
+    out["id"]=pd.to_numeric(out["id"],errors="raise").astype(np.int64)
     out["RELIEF_P90P10"]=out["ELEV_P90"]-out["ELEV_P10"]
     out["ELEV_RANGE"]=out["ELEV_MAX"]-out["ELEV_MIN"]
     out["DEM_SRC"]="ETOPO2022_v1_60s_surface"
