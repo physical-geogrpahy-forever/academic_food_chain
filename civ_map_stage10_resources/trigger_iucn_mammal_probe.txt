@@ -1,1 +1,2 @@
 trigger 2026-09-19 IUCN mammal source probe
+retry mirror fallback
