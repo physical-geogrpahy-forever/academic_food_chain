@@ -1,0 +1,35 @@
+name: CIV Stage 10 MRDS nonstrategic probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_mrds_nonstrategic_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pandas
+      - name: Download MRDS
+        run: |
+          curl -L --fail --retry 4 https://mrdata.usgs.gov/mrds/mrds-csv.zip -o mrds-csv.zip
+      - name: Probe
+        run: |
+          python civ_map_stage10_resources/probe_mrds_nonstrategic.py             mrds-csv.zip --prefix CIV_STAGE10P_MRDS_NONSTRATEGIC_PROBE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10P_MRDS_NONSTRATEGIC_PROBE
+          path: |
+            CIV_STAGE10P_MRDS_NONSTRATEGIC_PROBE_COUNTS.csv
+            CIV_STAGE10P_MRDS_NONSTRATEGIC_PROBE_SAMPLES.csv
+            CIV_STAGE10P_MRDS_NONSTRATEGIC_PROBE_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
