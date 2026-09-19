@@ -60,11 +60,18 @@ def main():
     g.to_file(a.prefix+"_LAND.gpkg",layer="stage1b_land_relief",driver="GPKG")
     draw(g,a.prefix+"_WORLD_PREVIEW.png",
          "Civilization-style GAME MAP — Stage 1B ETOPO2022 60-second relief (LAND)")
-    w=g.to_crs("EPSG:4326")
-    sa=w.cx[-85:-30,-60:15].to_crs("EPSG:8857")
+    # Use centroid lon/lat columns for regional subsets rather than geographic
+    # polygon bbox slicing. Equal Earth polygons near the antimeridian can become
+    # long wraparound geometries in EPSG:4326 and contaminate regional previews.
+    if "lon" not in g.columns or "lat" not in g.columns:
+        cent=g.geometry.centroid
+        cg=gpd.GeoSeries(cent,crs=g.crs).to_crs("EPSG:4326")
+        g["lon"]=cg.x.to_numpy()
+        g["lat"]=cg.y.to_numpy()
+    sa=g[(g["lon"]>=-85)&(g["lon"]<=-30)&(g["lat"]>=-60)&(g["lat"]<=15)].copy()
     draw(sa,a.prefix+"_SOUTH_AMERICA_PREVIEW.png",
          "Stage 1B relief QA — South America")
-    andes=w.cx[-82:-64,-56:12].to_crs("EPSG:8857")
+    andes=g[(g["lon"]>=-82)&(g["lon"]<=-64)&(g["lat"]>=-56)&(g["lat"]<=12)].copy()
     draw(andes,a.prefix+"_ANDES_PREVIEW.png",
          "Stage 1B relief QA — Andes / Peru / Chile")
     counts=df["RELIEF"].value_counts().rename_axis("RELIEF").reset_index(name="COUNT")
