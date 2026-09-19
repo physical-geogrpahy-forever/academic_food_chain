@@ -1,0 +1,75 @@
+name: CIV Stage 3A GLWD v2 wetland stats
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage3_wetlands/build_glwd_stage3a.py"
+      - ".github/workflows/civ-stage3a-glwd.yml"
+  workflow_dispatch:
+
+jobs:
+  wetlands:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Find Stage 2B LAND artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DATA=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/35435702734")
+          test "$(echo "$DATA" | jq -r .conclusion)" = "success"
+          echo "STAGE2B_RUN=35435702734" >> "$GITHUB_ENV"
+
+      - name: Download Stage 2B LAND GPKG
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p stage2b
+          gh run download "$STAGE2B_RUN" -n CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES_RELIEF_LAND -D stage2b
+          test -s stage2b/CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES_RELIEF_LAND.gpkg
+
+      - name: Download official GLWD v2 combined-class GeoTIFF package
+        run: |
+          curl -L --retry 5 --retry-delay 5 -o GLWD_v2_0_combined_classes_tif.zip https://ndownloader.figshare.com/files/54001814
+          echo "aea80ff46211b349ffbaa871442fd0ed  GLWD_v2_0_combined_classes_tif.zip" | md5sum -c -
+          unzip -l GLWD_v2_0_combined_classes_tif.zip | tee GLWD_ZIP_LIST.txt
+          mkdir glwd
+          unzip -j GLWD_v2_0_combined_classes_tif.zip '*GLWD_v2_0_area_pct.tif' '*GLWD_v2_0_main_class.tif' -d glwd
+          find glwd -type f -maxdepth 1 -printf '%f %s bytes\n'
+          rm GLWD_v2_0_combined_classes_tif.zip
+
+      - name: Install geospatial stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas shapely pyproj pyogrio rasterio exactextract
+
+      - name: Compute GLWD wetland statistics
+        shell: bash
+        run: |
+          set -o pipefail
+          /usr/bin/time -v python civ_map_stage3_wetlands/build_glwd_stage3a.py             stage2b/CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES_RELIEF_LAND.gpkg             glwd/GLWD_v2_0_area_pct.tif             glwd/GLWD_v2_0_main_class.tif             --prefix CIV_GAME_MAP_STAGE3A_GLWD2             2>&1 | tee CIV_GAME_MAP_STAGE3A_GLWD2_RUN.log
+
+      - name: Package compact outputs
+        run: |
+          zip -9 CIV_GAME_MAP_STAGE3A_GLWD2_STATS.zip             CIV_GAME_MAP_STAGE3A_GLWD2_HEX_STATS.csv             CIV_GAME_MAP_STAGE3A_GLWD2_THRESHOLD_SCAN.csv             CIV_GAME_MAP_STAGE3A_GLWD2_README.json             CIV_GAME_MAP_STAGE3A_GLWD2_RUN.log             GLWD_ZIP_LIST.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE3A_GLWD2_STATS
+          path: |
+            CIV_GAME_MAP_STAGE3A_GLWD2_STATS.zip
+            CIV_GAME_MAP_STAGE3A_GLWD2_HEX_STATS.csv
+            CIV_GAME_MAP_STAGE3A_GLWD2_THRESHOLD_SCAN.csv
+            CIV_GAME_MAP_STAGE3A_GLWD2_README.json
+          if-no-files-found: error
+          retention-days: 30
