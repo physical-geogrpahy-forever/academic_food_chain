@@ -1,0 +1,51 @@
+name: CIV Stage 1B ETOPO5 5-minute
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_game_map/**"
+      - ".github/workflows/civ-stage1b-etopo5.yml"
+  workflow_dispatch:
+
+jobs:
+  stage1b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install geospatial dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas requests pyproj shapely geopandas rasterio pyogrio
+
+      - name: Run native 5-minute ETOPO5 hex aggregation
+        run: |
+          python civ_game_map/build_stage1b_etopo5_5min.py \
+            --work stage1b_work \
+            --out CIV_GAME_MAP_STAGE1B_ETOPO5_5MIN_STATS.csv
+
+      - name: Record checksums
+        if: always()
+        run: |
+          sha256sum CIV_GAME_MAP_STAGE1B_ETOPO5_5MIN_STATS.csv CIV_GAME_MAP_STAGE1B_ETOPO5_5MIN_SUMMARY.json > CIV_GAME_MAP_STAGE1B_SHA256.txt
+
+      - name: Upload Stage 1B results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE1B_ETOPO5_5MIN
+          path: |
+            CIV_GAME_MAP_STAGE1B_ETOPO5_5MIN_STATS.csv
+            CIV_GAME_MAP_STAGE1B_ETOPO5_5MIN_SUMMARY.json
+            CIV_GAME_MAP_STAGE1B_SHA256.txt
+          if-no-files-found: error
+          retention-days: 30
