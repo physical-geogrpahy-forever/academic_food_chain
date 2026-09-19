@@ -1,0 +1,56 @@
+name: CIV Stage 6 reef source probe
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - ".github/workflows/civ-stage6-reef-probe.yml"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Natural Earth 1:10m reefs
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --retry 5 --retry-delay 3             -o ne_10m_reefs.zip             https://naturalearth.s3.amazonaws.com/10m_physical/ne_10m_reefs.zip
+          sha256sum ne_10m_reefs.zip | tee NE_REEF_SHA256.txt
+          unzip -l ne_10m_reefs.zip | tee NE_REEF_ZIP_LIST.txt
+          mkdir reef
+          unzip -q ne_10m_reefs.zip -d reef
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Inspect reef source
+        run: |
+          python -m pip install --upgrade geopandas pyogrio
+          python - <<'PY' | tee NE_REEF_PROBE.txt
+          import geopandas as gpd
+          from pathlib import Path
+          shp=next(Path('reef').glob('*.shp'))
+          g=gpd.read_file(shp)
+          print('source',shp)
+          print('crs',g.crs)
+          print('features',len(g))
+          print('geom_types',g.geom_type.value_counts().to_dict())
+          print('columns',list(g.columns))
+          print('bounds',g.total_bounds.tolist())
+          for c in ['scalerank','featurecla','name','name_en','min_zoom']:
+              if c in g.columns:
+                  print('\n'+c)
+                  print(g[c].value_counts(dropna=False).head(40).to_string())
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE6_NATURAL_EARTH_REEF_PROBE
+          path: |
+            NE_REEF_PROBE.txt
+            NE_REEF_SHA256.txt
+            NE_REEF_ZIP_LIST.txt
+          if-no-files-found: error
+          retention-days: 30
