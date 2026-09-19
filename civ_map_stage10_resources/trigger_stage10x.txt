@@ -1,1 +1,2 @@
 trigger 2026-09-19 Stage 10X all resource audit
+retry on X0 consolidated board
