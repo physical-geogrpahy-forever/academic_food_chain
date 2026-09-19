@@ -87,7 +87,10 @@ def main():
         agg[group+"_MRDS_SECONDARY_N"]=agg.pop("S")
         agg[group+"_MRDS_TERTIARY_N"]=agg.pop("T")
         out=out.merge(agg,on="id",how="left",validate="one_to_one")
-        for c in [group+"_MRDS_PRIMARY_N",group+"_MRDS_SECONDARY_N",group+"_MRDS_TERTIARY_N"]:
+        for c in [
+            group+"_MRDS_PRIMARY_N",group+"_MRDS_SECONDARY_N",group+"_MRDS_TERTIARY_N",
+            group+"_MRDS_SIZE_SUM",group+"_MRDS_SIZE_MAX"
+        ]:
             out[c]=out[c].fillna(0).astype("int32")
         out[group+"_MRDS_SCORE"]=(
             3*out[group+"_MRDS_PRIMARY_N"]+
@@ -101,6 +104,8 @@ def main():
           "hexes_with_evidence":int(out[group+"_MRDS_ANY"].sum()),
           "max_score":int(out[group+"_MRDS_SCORE"].max()),
           "score_sum":int(out[group+"_MRDS_SCORE"].sum()),
+          "size_evidence_sum":int(out[group+"_MRDS_SIZE_SUM"].sum()),
+          "max_deposit_size_code":int(out[group+"_MRDS_SIZE_MAX"].max()),
         })
 
     audit=pd.DataFrame(audit)
@@ -119,6 +124,8 @@ def main():
       "mrds_points_joined_to_land_hexes":int(len(joined)),
       "land_hexes":68048,
       "groups":audit.to_dict(orient="records"),
+      "deposit_size_column":size_col,
+      "deposit_size_weights":{"small":1,"medium":2,"large":3},
       "coal_policy":"COAL_DIAG is diagnostic only; MRDS coverage is too sparse for final coal placement.",
       "placement_policy":"Evidence only. No random placement and no gameplay thinning yet.",
       "Stage1A_1deg_used":False
