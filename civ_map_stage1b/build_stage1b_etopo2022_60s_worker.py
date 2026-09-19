@@ -202,22 +202,25 @@ def main():
     mpath=prepare_land_mask(dem,work)
     landdem,slope=make_land_dem_and_slope(dem,mpath,work)
     g=land.rename(columns={"id":"HEX_ID"}).to_crs("EPSG:4326")
-    estats=["count","min","max","mean","quantile(q=0.1)","quantile(q=0.5)","quantile(q=0.9)"]
+    estats=["count","min","max","mean","quantile(q=0.1)","quantile(q=0.25)","quantile(q=0.5)","quantile(q=0.75)","quantile(q=0.9)"]
     elev=run_exactextract(landdem,g,estats)
     elev=elev.rename(columns={
         "count":"DEM_N","min":"ELEV_MIN","max":"ELEV_MAX","mean":"ELEV_MEAN",
-        "quantile_q_0_1":"ELEV_P10","quantile_q_0_5":"ELEV_MED","quantile_q_0_9":"ELEV_P90",
-        "quantile(q=0.1)":"ELEV_P10","quantile(q=0.5)":"ELEV_MED","quantile(q=0.9)":"ELEV_P90",
+        "quantile_q_0_1":"ELEV_P10","quantile_q_0_25":"ELEV_P25","quantile_q_0_5":"ELEV_MED",
+        "quantile_q_0_75":"ELEV_P75","quantile_q_0_9":"ELEV_P90",
+        "quantile(q=0.1)":"ELEV_P10","quantile(q=0.25)":"ELEV_P25","quantile(q=0.5)":"ELEV_MED",
+        "quantile(q=0.75)":"ELEV_P75","quantile(q=0.9)":"ELEV_P90",
     })
     qcols=[c for c in elev.columns if "quantile" in c.lower()]
-    if "ELEV_P10" not in elev.columns and len(qcols)>=3:
-        elev=elev.rename(columns={qcols[0]:"ELEV_P10",qcols[1]:"ELEV_MED",qcols[2]:"ELEV_P90"})
-    sl=run_exactextract(slope,g,["mean","quantile(q=0.9)","count"])
+    if "ELEV_P10" not in elev.columns and len(qcols)>=5:
+        elev=elev.rename(columns={qcols[0]:"ELEV_P10",qcols[1]:"ELEV_P25",qcols[2]:"ELEV_MED",qcols[3]:"ELEV_P75",qcols[4]:"ELEV_P90"})
+    sl=run_exactextract(slope,g,["mean","quantile(q=0.5)","quantile(q=0.75)","quantile(q=0.9)","count"])
     sl=sl.rename(columns={"mean":"SLOPE_MEAN","count":"SLOPE_N",
-                          "quantile_q_0_9":"SLOPE_P90","quantile(q=0.9)":"SLOPE_P90"})
+                          "quantile_q_0_5":"SLOPE_MED","quantile_q_0_75":"SLOPE_P75","quantile_q_0_9":"SLOPE_P90",
+                          "quantile(q=0.5)":"SLOPE_MED","quantile(q=0.75)":"SLOPE_P75","quantile(q=0.9)":"SLOPE_P90"})
     qcols=[c for c in sl.columns if "quantile" in c.lower()]
-    if "SLOPE_P90" not in sl.columns and qcols:
-        sl=sl.rename(columns={qcols[0]:"SLOPE_P90"})
+    if "SLOPE_MED" not in sl.columns and len(qcols)>=3:
+        sl=sl.rename(columns={qcols[0]:"SLOPE_MED",qcols[1]:"SLOPE_P75",qcols[2]:"SLOPE_P90"})
     out=elev.merge(sl,on="HEX_ID",how="left")
     out=out.rename(columns={"HEX_ID":"id"})
     out["id"]=pd.to_numeric(out["id"],errors="raise").astype(np.int64)
@@ -229,8 +232,8 @@ def main():
     out["ELEV_RANGE"]=out["ELEV_MAX"]-out["ELEV_MIN"]
     out["DEM_SRC"]="ETOPO2022_v1_60s_surface"
     out=out.merge(land.drop(columns="geometry"),on="id",how="left")
-    cols=["id","row_index","col_index","DEM_N","ELEV_MIN","ELEV_P10","ELEV_MEAN","ELEV_MED",
-          "ELEV_P90","ELEV_MAX","RELIEF_P90P10","ELEV_RANGE","SLOPE_N","SLOPE_MEAN","SLOPE_P90","DEM_SRC"]
+    cols=["id","row_index","col_index","DEM_N","ELEV_MIN","ELEV_P10","ELEV_P25","ELEV_MEAN","ELEV_MED","ELEV_P75",
+          "ELEV_P90","ELEV_MAX","RELIEF_P90P10","ELEV_RANGE","SLOPE_N","SLOPE_MEAN","SLOPE_MED","SLOPE_P75","SLOPE_P90","DEM_SRC"]
     out[cols].sort_values("id").to_csv(args.out,index=False)
     print("WROTE",args.out,len(out))
     print(out[cols].describe(include="all").to_string())
