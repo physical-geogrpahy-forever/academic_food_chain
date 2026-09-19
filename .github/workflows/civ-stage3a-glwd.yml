@@ -61,7 +61,7 @@ jobs:
 
       - name: Package compact outputs
         run: |
-          zip -9 CIV_GAME_MAP_STAGE3A_GLWD2_STATS.zip             CIV_GAME_MAP_STAGE3A_GLWD2_HEX_STATS.csv             CIV_GAME_MAP_STAGE3A_GLWD2_THRESHOLD_SCAN.csv             CIV_GAME_MAP_STAGE3A_GLWD2_README.json             CIV_GAME_MAP_STAGE3A_GLWD2_RUN.log             GLWD_ZIP_LIST.txt
+          zip -9 CIV_GAME_MAP_STAGE3A_GLWD2_STATS.zip             CIV_GAME_MAP_STAGE3A_GLWD2_HEX_STATS.csv             CIV_GAME_MAP_STAGE3A_GLWD2_THRESHOLD_SCAN.csv             CIV_GAME_MAP_STAGE3A_GLWD2_QA.csv             CIV_GAME_MAP_STAGE3A_GLWD2_README.json             CIV_GAME_MAP_STAGE3A_GLWD2_RUN.log             GLWD_ZIP_LIST.txt
 
       - uses: actions/upload-artifact@v4
         with:
@@ -70,6 +70,7 @@ jobs:
             CIV_GAME_MAP_STAGE3A_GLWD2_STATS.zip
             CIV_GAME_MAP_STAGE3A_GLWD2_HEX_STATS.csv
             CIV_GAME_MAP_STAGE3A_GLWD2_THRESHOLD_SCAN.csv
+            CIV_GAME_MAP_STAGE3A_GLWD2_QA.csv
             CIV_GAME_MAP_STAGE3A_GLWD2_README.json
           if-no-files-found: error
           retention-days: 30
