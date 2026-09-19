@@ -28,20 +28,20 @@ jobs:
 
           base="https://dataverse.harvard.edu/api"
           queries=[
-            'Global livestock cattle 2015',
-            'Global livestock sheep 2015',
-            'GLW cattle 2015',
-            'GLW sheep 2015',
+            '5_Ct_2015_Da.tif',
+            '5_Sh_2015_Da.tif',
+            'Global cattle distribution in 2015',
+            'Global sheep distribution in 2015',
           ]
           report={"searches":{},"datasets":[]}
           seen=set()
           for q in queries:
-              r=requests.get(base+"/search",params={"q":q,"type":"dataset","per_page":50},timeout=60)
+              r=requests.get(base+"/search",params={"q":q,"per_page":100},timeout=60)
               r.raise_for_status()
               js=r.json()
               items=js.get("data",{}).get("items",[])
               report["searches"][q]=[
-                {"name":x.get("name"),"global_id":x.get("global_id"),"url":x.get("url")}
+                {"type":x.get("type"),"name":x.get("name"),"global_id":x.get("global_id"),"url":x.get("url"),"file_id":x.get("file_id"),"dataset_id":x.get("dataset_id")}
                 for x in items
               ]
               for x in items:
