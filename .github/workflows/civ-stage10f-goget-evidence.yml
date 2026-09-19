@@ -1,0 +1,67 @@
+name: CIV Stage 10F GOGET oil gas evidence
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/build_stage10f_goget_evidence.py"
+      - ".github/workflows/civ-stage10f-goget-evidence.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE10C_RUN: "35439972900"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Stage 10C
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p stage10c
+          gh run download "$STAGE10C_RUN" -n CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE -D stage10c
+          test -s stage10c/CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE.gpkg
+
+      - name: Download GOGET March 2026 field data
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 5 --retry-delay 3             -o goget_fields.csv             "https://raw.githubusercontent.com/Asefidi/Overpower/eb3a7229a5ec6e6bb567160971316f3147bdee81/src/raw-input-data/Global-Oil-and-Gas-Extraction-Tracker-March-2026__Field-level_main_data.csv"
+          sha256sum goget_fields.csv | tee GOGET_SHA256.txt
+
+      - name: Install geospatial stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pandas geopandas shapely pyproj pyogrio
+
+      - name: Aggregate GOGET evidence
+        shell: bash
+        run: |
+          set -o pipefail
+          python civ_map_stage10_resources/build_stage10f_goget_evidence.py             stage10c/CIV_GAME_MAP_STAGE10C_MRDS_EVIDENCE.gpkg             goget_fields.csv             --prefix CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE             2>&1 | tee CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE_RUN.log
+
+      - name: Package
+        run: |
+          sha256sum CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE* GOGET_SHA256.txt > CIV_GAME_MAP_STAGE10F_SHA256.txt
+          zip -9 CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE_PACKAGE.zip             CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE.gpkg             CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE_EVIDENCE.csv             CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE_SUMMARY.json             CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE_RUN.log             CIV_GAME_MAP_STAGE10F_SHA256.txt             GOGET_SHA256.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE
+          path: |
+            CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE_PACKAGE.zip
+            CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE.gpkg
+            CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10F_GOGET_EVIDENCE_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
