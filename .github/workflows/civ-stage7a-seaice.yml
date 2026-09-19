@@ -1,0 +1,74 @@
+name: CIV Stage 7A sea ice climatology
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage7_seaice/build_stage7a_seaice_climatology.py"
+      - ".github/workflows/civ-stage7a-seaice.yml"
+  workflow_dispatch:
+
+jobs:
+  seaice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE6_RUN: "35438593900"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Stage 6A
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p stage6
+          gh run download "$STAGE6_RUN" -n CIV_GAME_MAP_STAGE6A_REEFS -D stage6
+          test -s stage6/CIV_GAME_MAP_STAGE6A_REEFS.gpkg
+
+      - name: Install geospatial stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas requests geopandas shapely pyproj pyogrio rasterio exactextract
+
+      - name: Build 1981-2010 sea ice climatology
+        shell: bash
+        run: |
+          set -o pipefail
+          /usr/bin/time -v python civ_map_stage7_seaice/build_stage7a_seaice_climatology.py             stage6/CIV_GAME_MAP_STAGE6A_REEFS.gpkg             --work stage7a_work             --hex-frac 0.25             --prefix CIV_GAME_MAP_STAGE7A_SEAICE             2>&1 | tee CIV_GAME_MAP_STAGE7A_SEAICE_RUN.log
+
+      - name: Hard audit
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open('CIV_GAME_MAP_STAGE7A_SEAICE_SUMMARY.json'))
+          assert s['qa_gate']=='PASS', s
+          assert s['tropical_typical']==0, s
+          assert s['Stage1A_1deg_used'] is False, s
+          print(json.dumps(s,indent=2))
+          PY
+
+      - name: Package
+        run: |
+          sha256sum CIV_GAME_MAP_STAGE7A_SEAICE* > CIV_GAME_MAP_STAGE7A_SHA256.txt
+          zip -9 CIV_GAME_MAP_STAGE7A_SEAICE_PACKAGE.zip             CIV_GAME_MAP_STAGE7A_SEAICE.gpkg             CIV_GAME_MAP_STAGE7A_SEAICE_CANDIDATES.csv             CIV_GAME_MAP_STAGE7A_SEAICE_QA.csv             CIV_GAME_MAP_STAGE7A_SEAICE_DOWNLOAD_AUDIT.csv             CIV_GAME_MAP_STAGE7A_SEAICE_SUMMARY.json             CIV_GAME_MAP_STAGE7A_SEAICE_RUN.log             CIV_GAME_MAP_STAGE7A_SHA256.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE7A_SEAICE
+          path: |
+            CIV_GAME_MAP_STAGE7A_SEAICE_PACKAGE.zip
+            CIV_GAME_MAP_STAGE7A_SEAICE.gpkg
+            CIV_GAME_MAP_STAGE7A_SEAICE_CANDIDATES.csv
+            CIV_GAME_MAP_STAGE7A_SEAICE_QA.csv
+            CIV_GAME_MAP_STAGE7A_SEAICE_DOWNLOAD_AUDIT.csv
+            CIV_GAME_MAP_STAGE7A_SEAICE_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
