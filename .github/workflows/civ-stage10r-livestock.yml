@@ -1,0 +1,64 @@
+name: CIV Stage 10 livestock R
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_stage10r.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pandas geopandas pyogrio shapely rasterio exactextract
+
+      - name: Download Stage 10Q board
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/q
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10586150699/zip > input/q.zip
+          unzip -q input/q.zip -d input/q
+          BOARD="$(find input/q -type f -name 'CIV_GAME_MAP_STAGE10Q_MANUAL_GEMS.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Download GLW 2015 cattle and sheep
+        run: |
+          mkdir -p input/glw
+          curl -L --fail --retry 4             https://dataverse.harvard.edu/api/access/datafile/6769711             -o input/glw/5_Ct_2015_Da.tif
+          curl -L --fail --retry 4             https://dataverse.harvard.edu/api/access/datafile/6769626             -o input/glw/5_Sh_2015_Da.tif
+          ls -lh input/glw
+
+      - name: Aggregate cattle and sheep evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10r_glw_livestock.py             "$BOARD"             input/glw/5_Ct_2015_Da.tif             input/glw/5_Sh_2015_Da.tif             --layer game_map_stage10q_manual_gems             --prefix CIV_GAME_MAP_STAGE10R_GLW_LIVESTOCK
+
+      - name: Audit
+        run: cat CIV_GAME_MAP_STAGE10R_GLW_LIVESTOCK_SUMMARY.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10R_GLW_LIVESTOCK
+          path: |
+            CIV_GAME_MAP_STAGE10R_GLW_LIVESTOCK.gpkg
+            CIV_GAME_MAP_STAGE10R_GLW_LIVESTOCK_LAND_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10R_GLW_LIVESTOCK_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
