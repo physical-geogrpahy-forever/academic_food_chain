@@ -1,12 +1,6 @@
 name: CIV Stage 10H MAPSPAM crop evidence
 
 on:
-  push:
-    branches:
-      - civ-game-map-stage1b-etopo2022
-    paths:
-      - "civ_map_stage10_resources/build_stage10h_mapspam_evidence.py"
-      - ".github/workflows/civ-stage10h-mapspam-evidence.yml"
   workflow_dispatch:
 
 jobs:
