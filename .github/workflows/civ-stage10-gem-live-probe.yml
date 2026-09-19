@@ -1,0 +1,38 @@
+name: CIV Stage 10 GEM live map probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_gem_live_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download current public map GeoJSON
+        run: |
+          set -euo pipefail
+          mkdir -p input probe
+          curl -L --fail --retry 4             "https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/Current_maps/gcmt-smp/gcmt-smp_map_2026-08.geojson"             -o input/gcmt_2026-08.geojson
+          curl -L --fail --retry 4             "https://publicgemdata.nyc3.cdn.digitaloceanspaces.com/interim_maps/goget_map_2026-03.geojson"             -o input/goget_2026-03.geojson
+          ls -lh input
+
+      - name: Probe schemas
+        run: |
+          python civ_map_stage10_resources/probe_gem_map_geojson.py             input/gcmt_2026-08.geojson --name GCMT_2026_08 --prefix probe/GCMT
+          python civ_map_stage10_resources/probe_gem_map_geojson.py             input/goget_2026-03.geojson --name GOGET_2026_03 --prefix probe/GOGET
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10_GEM_LIVE_MAP_PROBE
+          path: probe
+          retention-days: 30
