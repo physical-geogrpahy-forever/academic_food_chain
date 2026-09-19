@@ -1,0 +1,29 @@
+name: CIV Stage 3A GLWD class-fraction probe
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - ".github/workflows/civ-stage3a-glwd-classpct-probe.yml"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download official GLWD v2 class-fraction GeoTIFF archive
+        run: |
+          curl -L --retry 5 --retry-delay 5             -o GLWD_v2_0_area_by_class_pct_tif.zip             https://ndownloader.figshare.com/files/54001775
+          echo "1c48076c4b16c9ed80eecf243e954a1  GLWD_v2_0_area_by_class_pct_tif.zip" | md5sum -c -
+          unzip -l GLWD_v2_0_area_by_class_pct_tif.zip | tee GLWD_CLASS_PCT_ZIP_LIST.txt
+          grep -E '\.tif$' GLWD_CLASS_PCT_ZIP_LIST.txt | head -100
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GLWD_CLASS_PCT_ZIP_LIST
+          path: GLWD_CLASS_PCT_ZIP_LIST.txt
+          retention-days: 30
