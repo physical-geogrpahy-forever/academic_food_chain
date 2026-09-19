@@ -1,0 +1,85 @@
+name: CIV Stage 1B high-res relief QA
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage1b_qa/**"
+      - ".github/workflows/civ-stage1b-qa.yml"
+  workflow_dispatch:
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      actions: read
+    env:
+      TARGET_SHA: 2ceae670b4951e5f6a089a68bd355aa748e12bc4
+      TARGET_WORKFLOW: civ-map-stage1b-etopo2022.yml
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Wait for corrected 60-second Stage 1B run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 90); do
+            DATA=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/${TARGET_WORKFLOW}/runs?branch=civ-game-map-stage1b-etopo2022&per_page=20")
+            RID=$(echo "$DATA" | jq -r --arg sha "$TARGET_SHA" '.workflow_runs[] | select(.head_sha==$sha) | .id' | head -1)
+            STATUS=$(echo "$DATA" | jq -r --arg sha "$TARGET_SHA" '.workflow_runs[] | select(.head_sha==$sha) | .status' | head -1)
+            CONCLUSION=$(echo "$DATA" | jq -r --arg sha "$TARGET_SHA" '.workflow_runs[] | select(.head_sha==$sha) | .conclusion' | head -1)
+            echo "attempt=$i run=$RID status=$STATUS conclusion=$CONCLUSION"
+            if [ "$STATUS" = "completed" ]; then
+              if [ "$CONCLUSION" != "success" ]; then
+                echo "Corrected Stage 1B run failed: $CONCLUSION"
+                exit 1
+              fi
+              echo "RUN_ID=$RID" >> "$GITHUB_ENV"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Timed out waiting for Stage 1B"
+          exit 1
+
+      - name: Download corrected Stage 1B artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p raw60
+          gh run download "$RUN_ID" -n CIV_GAME_MAP_STAGE1B_ETOPO2022_60S -D raw60
+          find raw60 -maxdepth 2 -type f -printf '%p %s bytes\n'
+          test -s raw60/CIV_GAME_MAP_STAGE1B_ETOPO2022_60S_STATS.csv
+
+      - name: Install QA dependencies
+        run: python -m pip install --upgrade numpy pandas pyproj
+
+      - name: Calibrate relief from high-resolution statistics
+        run: |
+          python civ_map_stage1b_qa/calibrate_relief.py             raw60/CIV_GAME_MAP_STAGE1B_ETOPO2022_60S_STATS.csv             --prefix CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES             | tee CIV_GAME_MAP_STAGE1B_RELIEF_QA_RUN.log
+
+      - name: Package QA outputs
+        run: |
+          zip -9 CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_QA.zip             CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_CLASSIFIED.csv             CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_QA.csv             CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_QA_GATE.txt             CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_SUMMARY.json             CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_THRESHOLD_SEARCH.csv             CIV_GAME_MAP_STAGE1B_RELIEF_QA_RUN.log
+
+      - name: Upload calibrated relief
+        uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_QA
+          path: |
+            CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_QA.zip
+            CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_CLASSIFIED.csv
+            CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_QA.csv
+            CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_QA_GATE.txt
+            CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
