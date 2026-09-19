@@ -11,10 +11,12 @@ Status weights:
 Cancelled, abandoned, decommissioning, storage and unknown do not contribute.
 
 Field outline WKT is used when parseable; otherwise the published coordinate is
-used as a point. No random resource placement is performed.
+used as a point. Quantitative reserves/production evidence is preserved and,
+when a field polygon touches multiple game hexes, divided among those hexes to
+avoid duplicating the whole field value into every touched hex.
 """
 from __future__ import annotations
-import argparse, json
+import argparse, json, re
 from pathlib import Path
 import pandas as pd
 import geopandas as gpd
@@ -45,6 +47,17 @@ def parse_geom(row):
         pass
     return None
 
+def numeric_evidence(s):
+    txt=s.fillna("").astype(str).str.replace(",","",regex=False)
+    val=txt.str.extract(r"([-+]?\d*\.?\d+(?:[eE][-+]?\d+)?)",expand=False)
+    return pd.to_numeric(val,errors="coerce").fillna(0).clip(lower=0)
+
+def pick_evidence_col(cols,token):
+    cand=[c for c in cols if token in c.lower()]
+    # Prefer BOE and explicitly-million fields when available.
+    cand=sorted(cand,key=lambda x:(("boe" not in x.lower()),("million" not in x.lower()),len(x)))
+    return cand[0] if cand else None
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("board")
@@ -59,20 +72,31 @@ def main():
     active=board[board.SURFACE.isin(["LAND","COAST","OCEAN"])][["id","SURFACE","geometry"]].copy()
 
     df=pd.read_csv(a.goget_csv,low_memory=False,encoding_errors="replace")
+    for req in ["Status","Fuel type","Unit ID","Unit Name","Latitude","Longitude"]:
+        if req not in df.columns:
+            raise RuntimeError(f"GOGET missing required column: {req}")
+
     df["STATUS_N"]=df["Status"].fillna("").astype(str).str.lower().str.strip()
     df["STATUS_W"]=df["STATUS_N"].map(STATUS_W).fillna(0).astype("int16")
     df["FUEL_N"]=df["Fuel type"].fillna("").astype(str).str.lower().str.strip()
-    keep=df["STATUS_W"].gt(0)
-    df=df.loc[keep].copy()
+
+    reserve_col=pick_evidence_col(df.columns,"reserve")
+    production_col=pick_evidence_col(df.columns,"production")
+    df["RESERVE_EV"]=numeric_evidence(df[reserve_col]) if reserve_col else 0.0
+    df["PRODUCTION_EV"]=numeric_evidence(df[production_col]) if production_col else 0.0
+
+    df=df.loc[df["STATUS_W"].gt(0)].copy()
     geoms=df.apply(parse_geom,axis=1)
     ok=geoms.notna()
     df=df.loc[ok].copy()
     geoms=geoms.loc[ok]
     src=gpd.GeoDataFrame(df,geometry=list(geoms),crs=4326).to_crs(board.crs)
 
-    # Spatial intersection. A polygon field may touch multiple game hexes.
-    pairs=gpd.sjoin(active,src[["Fuel type","FUEL_N","STATUS_N","STATUS_W","Unit ID","Unit Name","geometry"]],
-                    predicate="intersects",how="inner")
+    cols=[
+      "Fuel type","FUEL_N","STATUS_N","STATUS_W","Unit ID","Unit Name",
+      "RESERVE_EV","PRODUCTION_EV","geometry",
+    ]
+    pairs=gpd.sjoin(active,src[cols],predicate="intersects",how="inner")
     if len(pairs)==0:
         raise RuntimeError("no GOGET intersections")
 
@@ -82,8 +106,13 @@ def main():
     p["OIL_SCORE"]=p["OIL_HIT"]*p["STATUS_W"]
     p["GAS_SCORE"]=p["GAS_HIT"]*p["STATUS_W"]
 
-    # De-duplicate the same source unit repeated in one hex by spatial join.
+    # One source unit can intersect multiple hexes. Deduplicate first, then
+    # distribute quantitative evidence evenly over the touched hexes.
     p=p.drop_duplicates(subset=["id","Unit ID"])
+    nhex=p.groupby("Unit ID")["id"].transform("nunique").clip(lower=1)
+    p["RESERVE_SHARE"]=p["RESERVE_EV"]/nhex
+    p["PRODUCTION_SHARE"]=p["PRODUCTION_EV"]/nhex
+
     rows=[]
     for hid,g in p.groupby("id"):
         oil=g[g.OIL_HIT.eq(1)]
@@ -92,22 +121,31 @@ def main():
           "id":int(hid),
           "OIL_GEM_FIELDS":int(len(oil)),
           "OIL_GEM_SCORE":int(oil.OIL_SCORE.sum()),
+          "OIL_GEM_RESERVE_EV":float(oil.RESERVE_SHARE.sum()),
+          "OIL_GEM_PRODUCTION_EV":float(oil.PRODUCTION_SHARE.sum()),
           "GAS_GEM_FIELDS":int(len(gas)),
           "GAS_GEM_SCORE":int(gas.GAS_SCORE.sum()),
           "GOGET_FIELDS_ANY":int(g["Unit ID"].nunique()),
         })
+
     ev=pd.DataFrame(rows)
-    for c in ["OIL_GEM_FIELDS","OIL_GEM_SCORE","GAS_GEM_FIELDS","GAS_GEM_SCORE","GOGET_FIELDS_ANY"]:
+    intcols=["OIL_GEM_FIELDS","OIL_GEM_SCORE","GAS_GEM_FIELDS","GAS_GEM_SCORE","GOGET_FIELDS_ANY"]
+    for c in intcols:
         ev[c]=ev[c].astype("int32")
+    for c in ["OIL_GEM_RESERVE_EV","OIL_GEM_PRODUCTION_EV"]:
+        ev[c]=pd.to_numeric(ev[c],errors="coerce").fillna(0.0)
+
     ev["OIL_GEM_ANY"]=(ev.OIL_GEM_SCORE>0).astype("uint8")
     ev["GAS_GEM_ANY"]=(ev.GAS_GEM_SCORE>0).astype("uint8")
 
     board=board.merge(ev,on="id",how="left",validate="one_to_one")
-    cols=[c for c in ev.columns if c!="id"]
-    for c in cols: board[c]=board[c].fillna(0)
+    evcols=[c for c in ev.columns if c!="id"]
+    for c in evcols:
+        board[c]=board[c].fillna(0)
+
     board.to_file(a.prefix+".gpkg",layer="game_map_stage10f_goget_evidence",driver="GPKG")
     board.loc[(board.OIL_GEM_ANY==1)|(board.GAS_GEM_ANY==1),
-              ["id","SURFACE"]+cols].to_csv(a.prefix+"_EVIDENCE.csv",index=False)
+              ["id","SURFACE"]+evcols].to_csv(a.prefix+"_EVIDENCE.csv",index=False)
 
     summary={
       "stage":"10F",
@@ -121,13 +159,15 @@ def main():
       "gas_surface_counts":board.loc[board.GAS_GEM_ANY.eq(1),"SURFACE"].value_counts().to_dict(),
       "status_weights":STATUS_W,
       "oil_fuels":["oil","oil and gas"],
+      "gas_fuels":["gas","gas and condensate","oil and gas"],
       "reserve_column":reserve_col,
       "production_column":production_col,
-      "gas_fuels":["gas","gas and condensate","oil and gas"],
+      "quantitative_spatial_policy":"field values divided by number of intersected game hexes",
       "placement_policy":"Evidence only; no random placement and no gameplay thinning.",
-      "Stage1A_1deg_used":False
+      "Stage1A_1deg_used":False,
     }
     Path(a.prefix+"_SUMMARY.json").write_text(json.dumps(summary,indent=2),encoding="utf-8")
     print(json.dumps(summary,indent=2))
 
-if __name__=="__main__":main()
+if __name__=="__main__":
+    main()
