@@ -1,0 +1,68 @@
+name: CIV Stage 3A3 GLWD subtype diagnostics
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage3_wetlands/build_stage3a3_glwd_subtypes.py"
+      - ".github/workflows/civ-stage3a3-glwd-subtypes.yml"
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE2B_RUN: "35436045507"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Stage 2B
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p stage2b
+          gh run download "$STAGE2B_RUN" -n CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES -D stage2b
+          GPKG=$(find stage2b -name '*.gpkg' | head -1)
+          test -s "$GPKG"
+          echo "STAGE2B_GPKG=$GPKG" >> "$GITHUB_ENV"
+
+      - name: Download official GLWD v2 class percentages
+        run: |
+          curl -L --retry 5 --retry-delay 5             -o GLWD_v2_0_area_by_class_pct_tif.zip             https://ndownloader.figshare.com/files/54001775
+          echo "1c48076c4b16c9ed80eecf243e954a1e  GLWD_v2_0_area_by_class_pct_tif.zip" | md5sum -c -
+
+      - name: Install geospatial stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas shapely pyproj pyogrio rasterio exactextract
+
+      - name: Compute subtype diagnostics
+        shell: bash
+        run: |
+          set -o pipefail
+          /usr/bin/time -v python civ_map_stage3_wetlands/build_stage3a3_glwd_subtypes.py             "$STAGE2B_GPKG" GLWD_v2_0_area_by_class_pct_tif.zip             --prefix CIV_GAME_MAP_STAGE3A3_GLWD_DIAG             --work stage3a3_work             2>&1 | tee CIV_GAME_MAP_STAGE3A3_GLWD_DIAG_RUN.log
+
+      - name: Package
+        run: |
+          zip -9 CIV_GAME_MAP_STAGE3A3_GLWD_DIAG.zip             CIV_GAME_MAP_STAGE3A3_GLWD_DIAG_HEX_STATS.csv             CIV_GAME_MAP_STAGE3A3_GLWD_DIAG_REGIONAL.csv             CIV_GAME_MAP_STAGE3A3_GLWD_DIAG_README.json             CIV_GAME_MAP_STAGE3A3_GLWD_DIAG_RUN.log
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE3A3_GLWD_DIAG
+          path: |
+            CIV_GAME_MAP_STAGE3A3_GLWD_DIAG.zip
+            CIV_GAME_MAP_STAGE3A3_GLWD_DIAG_HEX_STATS.csv
+            CIV_GAME_MAP_STAGE3A3_GLWD_DIAG_REGIONAL.csv
+            CIV_GAME_MAP_STAGE3A3_GLWD_DIAG_README.json
+          if-no-files-found: error
+          retention-days: 30
