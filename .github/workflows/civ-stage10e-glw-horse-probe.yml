@@ -1,0 +1,47 @@
+name: CIV Stage 10E GLW horse source probe
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - ".github/workflows/civ-stage10e-glw-horse-probe.yml"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Query Harvard Dataverse GLW3 dataset
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL="https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/BLWPZN"
+          curl -L --fail --retry 5 --retry-delay 2 "$URL" -o GLW3_DATASET.json
+          jq -r '.data.latestVersion.files[] | [.dataFile.id,.label,.dataFile.filesize,.dataFile.contentType] | @tsv'             GLW3_DATASET.json | tee GLW3_FILES.tsv
+          grep -i -E 'horse|equine' GLW3_FILES.tsv | tee GLW3_HORSE_FILES.tsv
+          test -s GLW3_HORSE_FILES.tsv
+
+      - name: Download first horse raster and inspect
+        shell: bash
+        run: |
+          set -euo pipefail
+          ID=$(head -1 GLW3_HORSE_FILES.tsv | cut -f1)
+          curl -L --fail --retry 5 --retry-delay 2             -o glw3_horse.dat             "https://dataverse.harvard.edu/api/access/datafile/$ID"
+          file glw3_horse.dat | tee GLW3_HORSE_FILETYPE.txt
+          sha256sum glw3_horse.dat | tee GLW3_HORSE_SHA256.txt
+          ls -lh glw3_horse.dat
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10E_GLW_HORSE_PROBE
+          path: |
+            GLW3_FILES.tsv
+            GLW3_HORSE_FILES.tsv
+            GLW3_HORSE_FILETYPE.txt
+            GLW3_HORSE_SHA256.txt
+          if-no-files-found: error
+          retention-days: 30
