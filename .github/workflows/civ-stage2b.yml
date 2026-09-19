@@ -32,11 +32,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          DATA=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/${RELIEF_QA_WORKFLOW}/runs?branch=civ-game-map-stage1b-etopo2022&per_page=50")
-          RID=$(echo "$DATA" | jq -r --arg sha "$RELIEF_QA_SHA" '.workflow_runs[] | select(.head_sha==$sha and .status=="completed" and .conclusion=="success") | .id' | head -1)
-          test -n "$RID"
-          echo "RELIEF_RUN_ID=$RID" >> "$GITHUB_ENV"
-          echo "Using Stage1B QA run $RID"
+          for i in $(seq 1 120); do
+            DATA=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/${RELIEF_QA_WORKFLOW}/runs?branch=civ-game-map-stage1b-etopo2022&per_page=50")
+            RID=$(echo "$DATA" | jq -r --arg sha "$RELIEF_QA_SHA" '.workflow_runs[] | select(.head_sha==$sha) | .id' | head -1)
+            STATUS=$(echo "$DATA" | jq -r --arg sha "$RELIEF_QA_SHA" '.workflow_runs[] | select(.head_sha==$sha) | .status' | head -1)
+            CONCLUSION=$(echo "$DATA" | jq -r --arg sha "$RELIEF_QA_SHA" '.workflow_runs[] | select(.head_sha==$sha) | .conclusion' | head -1)
+            echo "attempt=$i run=$RID status=$STATUS conclusion=$CONCLUSION"
+            if [ "$STATUS" = "completed" ]; then
+              test "$CONCLUSION" = "success"
+              echo "RELIEF_RUN_ID=$RID" >> "$GITHUB_ENV"
+              echo "Using Stage1B QA run $RID"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Timed out waiting for final Stage1B QA"
+          exit 1
 
       - name: Download final Stage 1B classified relief
         env:
