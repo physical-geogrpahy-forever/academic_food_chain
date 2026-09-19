@@ -27,20 +27,20 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install numpy pandas geopandas pyogrio shapely
 
-      - name: Download Stage 10W board
+      - name: Download consolidated Stage 10X0 board
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p input/w
-          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10586472788/zip > input/w.zip
-          unzip -q input/w.zip -d input/w
-          BOARD="$(find input/w -type f -name 'CIV_GAME_MAP_STAGE10W_MANUAL_LUXURIES.gpkg' | head -1)"
+          mkdir -p input/x0
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10586057118/zip > input/x0.zip
+          unzip -q input/x0.zip -d input/x0
+          BOARD="$(find input/x0 -type f -name 'CIV_GAME_MAP_STAGE10X0_CONSOLIDATED_EVIDENCE.gpkg' | head -1)"
           test -n "$BOARD"
           echo "BOARD=$BOARD" >> "$GITHUB_ENV"
 
       - name: Audit and normalize all resource evidence
         run: |
-          python civ_map_stage10_resources/build_stage10x_all_resource_strength.py             "$BOARD"             --layer game_map_stage10w_manual_luxuries             --prefix CIV_GAME_MAP_STAGE10X_ALL_RESOURCE_STRENGTH
+          python civ_map_stage10_resources/build_stage10x_all_resource_strength.py             "$BOARD"             --layer game_map_stage10x0_consolidated_evidence             --prefix CIV_GAME_MAP_STAGE10X_ALL_RESOURCE_STRENGTH
 
       - name: Audit
         run: |
