@@ -88,8 +88,16 @@ def build(board):
     coal_res=col(board,"COAL_GEM_RESERVE_MT")
     coal_resource=col(board,"COAL_GEM_RESOURCE_MT")
     coal_score=col(board,"COAL_GEM_SCORE")
-    coal_raw=np.log1p(coal_prod)+np.log1p(coal_cap)+np.log1p(coal_res)+0.5*np.log1p(coal_resource)+0.10*np.log1p(coal_score)
-    coal_s=max_pct(coal_prod,coal_cap,coal_res,coal_resource,coal_raw)
+    # Public OverWatts derivative is a provisional fallback when the current
+    # GEM mine-level original cannot be retrieved automatically.
+    coal_ow_prod=col(board,"COAL_OW_PROD_MTPA")
+    coal_ow_score=col(board,"COAL_OW_SCORE")
+    coal_raw=(
+        np.log1p(coal_prod)+np.log1p(coal_cap)+np.log1p(coal_res)
+        +0.5*np.log1p(coal_resource)+0.10*np.log1p(coal_score)
+        +np.log1p(coal_ow_prod)+0.10*np.log1p(coal_ow_score)
+    )
+    coal_s=max_pct(coal_prod,coal_cap,coal_res,coal_resource,coal_ow_prod,coal_raw)
 
     # URANIUM: UThDEPO resource-range evidence takes priority when available.
     # MRDS remains a fallback so the pipeline is auditable while the IAEA
