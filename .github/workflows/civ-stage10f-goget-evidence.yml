@@ -1,12 +1,6 @@
 name: CIV Stage 10F GOGET oil gas evidence
 
 on:
-  push:
-    branches:
-      - civ-game-map-stage1b-etopo2022
-    paths:
-      - "civ_map_stage10_resources/build_stage10f_goget_evidence.py"
-      - ".github/workflows/civ-stage10f-goget-evidence.yml"
   workflow_dispatch:
 
 jobs:
