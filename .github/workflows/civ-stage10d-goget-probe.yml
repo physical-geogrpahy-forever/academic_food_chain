@@ -1,0 +1,47 @@
+name: CIV Stage 10D GOGET resource probe
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/probe_goget_resources.py"
+      - ".github/workflows/civ-stage10d-goget-probe.yml"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download March 2026 GOGET field-level data
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 5 --retry-delay 3             -o goget_fields.csv             "https://raw.githubusercontent.com/Asefidi/Overpower/eb3a7229a5ec6e6bb567160971316f3147bdee81/src/raw-input-data/Global-Oil-and-Gas-Extraction-Tracker-March-2026__Field-level_main_data.csv"
+          sha256sum goget_fields.csv | tee GOGET_SHA256.txt
+          wc -l goget_fields.csv
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pandas
+
+      - name: Audit GOGET
+        run: |
+          python civ_map_stage10_resources/probe_goget_resources.py             goget_fields.csv             --prefix CIV_GAME_MAP_STAGE10D_GOGET_PROBE             | tee CIV_GAME_MAP_STAGE10D_GOGET_PROBE_RUN.log
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10D_GOGET_PROBE
+          path: |
+            CIV_GAME_MAP_STAGE10D_GOGET_PROBE_SUMMARY.json
+            CIV_GAME_MAP_STAGE10D_GOGET_PROBE_FUEL_COUNTS.csv
+            CIV_GAME_MAP_STAGE10D_GOGET_PROBE_STATUS_COUNTS.csv
+            CIV_GAME_MAP_STAGE10D_GOGET_PROBE_SAMPLE.csv
+            CIV_GAME_MAP_STAGE10D_GOGET_PROBE_RUN.log
+            GOGET_SHA256.txt
+          if-no-files-found: error
+          retention-days: 30
