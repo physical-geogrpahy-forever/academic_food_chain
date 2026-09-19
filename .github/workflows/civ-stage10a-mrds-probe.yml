@@ -1,0 +1,49 @@
+name: CIV Stage 10A MRDS resource probe
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/probe_mrds_resources.py"
+      - ".github/workflows/civ-stage10a-mrds-probe.yml"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download USGS MRDS bulk CSV
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 5 --retry-delay 3             -o mrds-csv.zip             https://mrdata.usgs.gov/mrds/mrds-csv.zip
+          sha256sum mrds-csv.zip | tee MRDS_SHA256.txt
+          unzip -l mrds-csv.zip | tee MRDS_ARCHIVE_LIST.txt
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pandas
+
+      - name: Audit Civ-style mineral groups
+        run: |
+          python civ_map_stage10_resources/probe_mrds_resources.py             mrds-csv.zip             --prefix CIV_GAME_MAP_STAGE10A_MRDS_PROBE             | tee CIV_GAME_MAP_STAGE10A_MRDS_PROBE_RUN.log
+
+      - name: Package
+        run: |
+          zip -9 CIV_GAME_MAP_STAGE10A_MRDS_PROBE.zip             CIV_GAME_MAP_STAGE10A_MRDS_PROBE_SUMMARY.json             CIV_GAME_MAP_STAGE10A_MRDS_PROBE_GROUP_COUNTS.csv             CIV_GAME_MAP_STAGE10A_MRDS_PROBE_TOP_COMMODITY_STRINGS.csv             CIV_GAME_MAP_STAGE10A_MRDS_PROBE_MATCHED_SAMPLE.csv             CIV_GAME_MAP_STAGE10A_MRDS_PROBE_RUN.log             MRDS_SHA256.txt             MRDS_ARCHIVE_LIST.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10A_MRDS_PROBE
+          path: |
+            CIV_GAME_MAP_STAGE10A_MRDS_PROBE.zip
+            CIV_GAME_MAP_STAGE10A_MRDS_PROBE_SUMMARY.json
+            CIV_GAME_MAP_STAGE10A_MRDS_PROBE_GROUP_COUNTS.csv
+            CIV_GAME_MAP_STAGE10A_MRDS_PROBE_TOP_COMMODITY_STRINGS.csv
+          if-no-files-found: error
+          retention-days: 30
