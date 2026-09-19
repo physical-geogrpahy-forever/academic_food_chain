@@ -1,0 +1,56 @@
+name: CIV Stage 10 coral S
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_stage10s.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests pandas geopandas pyogrio shapely
+
+      - name: Download Stage 10R board
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/r
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10586421014/zip > input/r.zip
+          unzip -q input/r.zip -d input/r
+          BOARD="$(find input/r -type f -name 'CIV_GAME_MAP_STAGE10R_GLW_LIVESTOCK.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Aggregate coral reef evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10s_coral_wcmc.py             "$BOARD"             --layer game_map_stage10r_glw_livestock             --prefix CIV_GAME_MAP_STAGE10S_CORAL_WCMC
+
+      - name: Audit
+        run: cat CIV_GAME_MAP_STAGE10S_CORAL_WCMC_SUMMARY.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10S_CORAL_WCMC
+          path: |
+            CIV_GAME_MAP_STAGE10S_CORAL_WCMC.gpkg
+            CIV_GAME_MAP_STAGE10S_CORAL_WCMC_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10S_CORAL_WCMC_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
