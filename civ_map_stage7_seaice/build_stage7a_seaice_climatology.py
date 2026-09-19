@@ -91,7 +91,11 @@ def monthly_climatology(hemi,work):
     ]:
         p=work/f"{hemi}_{name}.tif"
         prof=profile.copy()
-        prof.update(count=1,dtype=dtype,nodata=nodata,compress="DEFLATE",tiled=True)
+        # The NSIDC source GeoTIFF can carry strip/block dimensions that are
+        # invalid when blindly reused for a newly tiled TIFF. Write derived
+        # rasters as strips and remove inherited tile block keys.
+        prof.pop("blockxsize",None); prof.pop("blockysize",None)
+        prof.update(count=1,dtype=dtype,nodata=nodata,compress="DEFLATE",tiled=False)
         write=arr.copy()
         if name=="annual_mean":
             write=np.where(np.isfinite(write),write,nodata).astype(np.float32)
