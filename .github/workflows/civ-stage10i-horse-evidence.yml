@@ -1,0 +1,88 @@
+name: CIV Stage 10I horse evidence
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/build_stage10i_horse_evidence.py"
+      - ".github/workflows/civ-stage10i-horse-evidence.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE10H_RUN: "35440259181"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Wait for Stage 10H
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 720); do
+            D=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${STAGE10H_RUN}")
+            S=$(echo "$D" | jq -r .status)
+            C=$(echo "$D" | jq -r .conclusion)
+            echo "attempt=$i status=$S conclusion=$C"
+            if [ "$S" = "completed" ]; then
+              test "$C" = "success"
+              exit 0
+            fi
+            sleep 10
+          done
+          exit 1
+
+      - name: Download Stage 10H
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p stage10h
+          gh run download "$STAGE10H_RUN" -n CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE -D stage10h
+          test -s stage10h/CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE.gpkg
+
+      - name: Download 2015 horse dasymetric raster
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 5 --retry-delay 2             -o horse_2015_da.tif             "https://dataverse.harvard.edu/api/access/datafile/6769681"
+          sha256sum horse_2015_da.tif | tee HORSE_SHA256.txt
+          file horse_2015_da.tif
+          test -s horse_2015_da.tif
+
+      - name: Install geospatial stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pandas geopandas shapely pyproj pyogrio rasterio exactextract
+
+      - name: Aggregate horse evidence
+        shell: bash
+        run: |
+          set -o pipefail
+          python civ_map_stage10_resources/build_stage10i_horse_evidence.py             stage10h/CIV_GAME_MAP_STAGE10H_MAPSPAM_EVIDENCE.gpkg             horse_2015_da.tif             --prefix CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE             2>&1 | tee CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE_RUN.log
+
+      - name: Package
+        run: |
+          sha256sum CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE* HORSE_SHA256.txt > CIV_GAME_MAP_STAGE10I_SHA256.txt
+          zip -9 CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE_PACKAGE.zip             CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE.gpkg             CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE_LAND_EVIDENCE.csv             CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE_SUMMARY.json             CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE_RUN.log             CIV_GAME_MAP_STAGE10I_SHA256.txt             HORSE_SHA256.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE
+          path: |
+            CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE_PACKAGE.zip
+            CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE.gpkg
+            CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE_LAND_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10I_HORSE_EVIDENCE_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
