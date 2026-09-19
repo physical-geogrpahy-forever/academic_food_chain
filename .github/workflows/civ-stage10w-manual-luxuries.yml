@@ -1,0 +1,56 @@
+name: CIV Stage 10 remaining luxuries W
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_stage10w.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas pyogrio shapely
+
+      - name: Download Stage 10V board
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/v
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10585791946/zip > input/v.zip
+          unzip -q input/v.zip -d input/v
+          BOARD="$(find input/v -type f -name 'CIV_GAME_MAP_STAGE10V_OBIS_MARINE.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Build documented remaining luxury evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10w_manual_luxuries.py             "$BOARD"             civ_map_stage10_resources/manual_remaining_luxury_sources_v1.csv             --layer game_map_stage10v_obis_marine             --prefix CIV_GAME_MAP_STAGE10W_MANUAL_LUXURIES
+
+      - name: Audit
+        run: cat CIV_GAME_MAP_STAGE10W_MANUAL_LUXURIES_SUMMARY.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10W_MANUAL_LUXURIES
+          path: |
+            CIV_GAME_MAP_STAGE10W_MANUAL_LUXURIES.gpkg
+            CIV_GAME_MAP_STAGE10W_MANUAL_LUXURIES_LAND_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10W_MANUAL_LUXURIES_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
