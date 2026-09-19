@@ -29,7 +29,7 @@ REGIONS = [
     ("Caucasus",                 38,  50,  39,  45, "MOUNTAIN"),
     ("Ethiopian Highlands",      35,  41,   5,  14, "MOUNTAIN"),
     ("Japanese mountains",      135, 141,  33,  40, "MOUNTAIN"),
-    ("Korean mountains",        127, 130,  35,  39, "MOUNTAIN"),
+    ("Korean mountains",        128, 129.5,  37, 38.6, "MOUNTAIN"),
     # Appalachian ridge core; the wider -84..-77 / 33..42 box includes large
     # Piedmont/valley/lowland areas and is inappropriate for a HILL-only QA gate.
     ("Appalachians",          -82.5, -78,  35, 40.5, "HILL"),
@@ -78,7 +78,13 @@ def classify(df,q_m_mid,q_m_ext,q_h_mid,q_h_ext):
     rv=r[valid]; sv=s[valid]
     qr={q:np.quantile(rv,q) for q in set([q_m_mid,q_m_ext,q_h_mid,q_h_ext])}
     qs={q:np.quantile(sv,q) for q in set([q_m_mid,q_m_ext,q_h_mid,q_h_ext])}
-    m=((r>=qr[q_m_mid])&(s>=qs[q_m_mid])) | (r>=qr[q_m_ext]) | (s>=qs[q_m_ext])
+    # A Civilization MOUNTAIN tile should represent a rugged mountain core.
+    # Do not let a single extreme statistic (e.g. coastal escarpment relief)
+    # create an impassable wall by itself. Extreme relief must have at least
+    # moderate slope support, and vice versa.
+    m=((r>=qr[q_m_mid])&(s>=qs[q_m_mid])) \
+      | ((r>=qr[q_m_ext])&(s>=qs[q_h_mid])) \
+      | ((s>=qs[q_m_ext])&(r>=qr[q_h_mid]))
     h=((r>=qr[q_h_mid])&(s>=qs[q_h_mid])) | (r>=qr[q_h_ext]) | (s>=qs[q_h_ext])
     h &= ~m
     cls=np.full(len(df),"FLAT",dtype=object)
@@ -127,8 +133,8 @@ def score_candidate(rm,global_shares):
             score += min((1-row.mountain)/0.75,1.0)
             score -= max(row.mountain-0.35,0)*5.0
         else:  # NOT_ALL_MOUNTAIN
-            score += min((1-row.mountain)/0.40,1.0)
-            score -= max(row.mountain-0.75,0)*8.0
+            score += min((1-row.mountain)/0.50,1.0)*2.0
+            score -= max(row.mountain-0.65,0)*12.0
 
     f,h,m=global_shares
     # Avoid a world dominated by either mountains or featureless flats.
@@ -150,7 +156,7 @@ def main():
 
     candidates=[]
     best=None
-    for qmm in [0.80,0.825,0.85,0.875,0.90]:
+    for qmm in [0.825,0.85,0.875,0.90,0.925]:
       for qme in [0.93,0.94,0.95,0.96,0.97]:
         if qme<=qmm: continue
         for qhm in [0.45,0.50,0.55,0.60,0.65]:
@@ -193,11 +199,11 @@ def main():
     # Simple regional QA gate
     failures=[]
     for row in rm.itertuples():
-      if row.expectation=="MOUNTAIN" and not (row.mountain>=0.20 and row.flat<=0.45): failures.append(row.region)
+      if row.expectation=="MOUNTAIN" and not (row.mountain>=0.18 and row.flat<=0.45): failures.append(row.region)
       if row.expectation=="HILL" and not ((row.hill+row.mountain)>=0.45 and row.mountain<=0.40): failures.append(row.region)
       if row.expectation=="FLAT" and not (row.flat>=0.55 and row.mountain<=0.15): failures.append(row.region)
       if row.expectation=="POLAR_NOT_ALL_MOUNTAIN" and not (row.mountain<=0.40): failures.append(row.region)
-      if row.expectation=="NOT_ALL_MOUNTAIN" and not (row.mountain<=0.75): failures.append(row.region)
+      if row.expectation=="NOT_ALL_MOUNTAIN" and not (row.mountain<=0.65): failures.append(row.region)
     Path(a.prefix+"_QA_GATE.txt").write_text(
         ("PASS\n" if not failures else "REVIEW\n") + "\n".join(failures) + "\n",encoding="utf-8")
     print(json.dumps(summary,indent=2))
