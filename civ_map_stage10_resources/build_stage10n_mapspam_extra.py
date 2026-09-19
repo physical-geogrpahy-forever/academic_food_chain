@@ -3,9 +3,18 @@
 Stage 10N: add MAPSPAM 2020 physical-area evidence for Civ resources omitted
 from the earlier Stage 10H grouping.
 
-Current additions:
-  MAIZE   band 3
-  TOBACCO band 36
+Resource groups:
+  WHEAT    band 1
+  RICE     band 2
+  MAIZE    band 3
+  SUGAR    band 28 (sugarcane)
+  COTTON   band 30
+  COFFEE   bands 32+33 (arabica + robusta)
+  COCOA    band 34
+  TEA      band 35
+  TOBACCO  band 36
+  BANANAS  bands 37+38 (banana + plantain)
+  CITRUS   band 39
 
 Evidence only. No final placement or thinning.
 """
@@ -18,7 +27,19 @@ import geopandas as gpd
 import rasterio
 from exactextract import exact_extract
 
-GROUPS={"MAIZE":[3],"TOBACCO":[36]}
+GROUPS={
+ "WHEAT":[1],
+ "RICE":[2],
+ "MAIZE":[3],
+ "SUGAR":[28],
+ "COTTON":[30],
+ "COFFEE":[32,33],
+ "COCOA":[34],
+ "TEA":[35],
+ "TOBACCO":[36],
+ "BANANAS":[37,38],
+ "CITRUS":[39],
+}
 
 def write_group(src,bands,out):
     prof=src.profile.copy()
