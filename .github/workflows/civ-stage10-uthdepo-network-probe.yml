@@ -56,7 +56,8 @@ jobs:
               page.on("download",lambda d:add("download",suggested_filename=d.suggested_filename,url=d.url))
               context.on("page",lambda pg:add("new_page",url=pg.url))
 
-              page.goto("https://infcis.iaea.org/UTHDEPO/Deposits",wait_until="networkidle",timeout=120000)
+              page.goto("https://infcis.iaea.org/UTHDEPO/Deposits",wait_until="domcontentloaded",timeout=60000)
+              page.wait_for_timeout(15000)
               btn=page.get_by_text("Download Spreadsheet",exact=True)
               btn.wait_for(timeout=60000)
               add("before_click",url=page.url)
