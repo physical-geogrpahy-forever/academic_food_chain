@@ -40,8 +40,13 @@ jobs:
           python civ_map_stage1b/build_stage1b_etopo2022_60s_worker.py --self-test
 
       - name: Compute native 60 arc-second per-hex relief statistics
+        shell: bash
         run: |
-          /usr/bin/time -v python civ_map_stage1b/build_stage1b_etopo2022_60s_worker.py             --work stage1b_work             --out CIV_GAME_MAP_STAGE1B_ETOPO2022_60S_STATS.csv             2>&1 | tee CIV_GAME_MAP_STAGE1B_RUN.log
+          set -o pipefail
+          /usr/bin/time -v python civ_map_stage1b/build_stage1b_etopo2022_60s_worker.py \
+            --work stage1b_work \
+            --out CIV_GAME_MAP_STAGE1B_ETOPO2022_60S_STATS.csv \
+            2>&1 | tee CIV_GAME_MAP_STAGE1B_RUN.log
 
       - name: Write provenance
         if: always()
