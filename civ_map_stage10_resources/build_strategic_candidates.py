@@ -114,8 +114,12 @@ def build(board):
     uranium_raw=pd.Series(uranium_raw,index=board.index)
     uranium_s=pct_positive(uranium_raw)
 
-    # NITER: populated by a dedicated historical/geological evidence stage.
-    niter_raw=col(board,"NITER_EVIDENCE_SCORE")
+    # NITER: combine natural nitrate occurrences from MRDS with a separate
+    # documentary historical/geological score when available. No generic
+    # climate/population proxy is allowed.
+    niter_nat=col(board,"NITER_NATURAL_MRDS_SCORE")
+    niter_hist=col(board,"NITER_HIST_SCORE")
+    niter_raw=np.log1p(niter_nat)+niter_hist
     niter_s=pct_positive(niter_raw)
 
     vals={
