@@ -1,0 +1,120 @@
+version: CIV_RESOURCE_CATALOG_V1
+map_scale_km: 50
+rules:
+  one_resource_type_per_hex: true
+  strategic_has_quantity: true
+  bonus_quantity: 1
+  luxury_quantity: 1
+  strategic_quantity_method: evidence_normalized_integer
+  strategic_quantity_note: >
+    Normalize evidence strength within each strategic resource separately,
+    then map retained deposits to an integer quantity between qty_min and qty_max.
+    Do not compare physical tonnage across different resource types.
+
+resources:
+  strategic:
+    - id: HORSES
+      name_ko: 말
+      name_en: Horses
+      qty_min: 2
+      qty_max: 4
+      civ5_anchor: "small 2 / major 4"
+      evidence_family: livestock_horse_distribution
+    - id: IRON
+      name_ko: 철
+      name_en: Iron
+      qty_min: 2
+      qty_max: 6
+      civ5_anchor: "small 2 / major 6"
+      evidence_family: mineral_deposits
+    - id: NITER
+      name_ko: 초석
+      name_en: Niter
+      qty_min: 2
+      qty_max: 6
+      civ5_anchor: "new resource; range aligned to iron-scale strategic importance"
+      evidence_family: nitrate_deposits_and_historical_saltpeter
+    - id: COAL
+      name_ko: 석탄
+      name_en: Coal
+      qty_min: 2
+      qty_max: 7
+      civ5_anchor: "small 2-3 / major 7"
+      evidence_family: coal_deposits
+    - id: OIL
+      name_ko: 석유
+      name_en: Oil
+      qty_min: 2
+      qty_max: 7
+      civ5_anchor: "small 2-3 / major 7; offshore handled separately"
+      evidence_family: oil_fields
+    - id: ALUMINUM
+      name_ko: 알루미늄
+      name_en: Aluminum
+      qty_min: 3
+      qty_max: 8
+      civ5_anchor: "small 3 / major 8"
+      evidence_family: bauxite_deposits
+    - id: URANIUM
+      name_ko: 우라늄
+      name_en: Uranium
+      qty_min: 1
+      qty_max: 4
+      civ5_anchor: "small 1-2 / major 4"
+      evidence_family: uranium_deposits
+
+  bonus:
+    - {id: BANANAS, name_ko: 바나나, name_en: Bananas}
+    - {id: BISON, name_ko: 들소, name_en: Bison}
+    - {id: CATTLE, name_ko: 소, name_en: Cattle}
+    - {id: DEER, name_ko: 사슴, name_en: Deer}
+    - {id: FISH, name_ko: 물고기, name_en: Fish}
+    - {id: SHEEP, name_ko: 양, name_en: Sheep}
+    - {id: STONE, name_ko: 석재, name_en: Stone}
+    - {id: WHEAT, name_ko: 밀, name_en: Wheat}
+    - {id: MAIZE, name_ko: 옥수수, name_en: Maize}
+    - {id: RICE, name_ko: 쌀, name_en: Rice}
+
+  luxury:
+    - {id: CITRUS, name_ko: 감귤, name_en: Citrus}
+    - {id: COCOA, name_ko: 코코아, name_en: Cocoa}
+    - {id: COPPER, name_ko: 구리, name_en: Copper}
+    - {id: COTTON, name_ko: 면화, name_en: Cotton}
+    - {id: CRAB, name_ko: 게, name_en: Crab}
+    - {id: DYES, name_ko: 염료, name_en: Dyes}
+    - {id: FURS, name_ko: 모피, name_en: Furs}
+    - {id: GEMS, name_ko: 보석, name_en: Gems}
+    - {id: GOLD, name_ko: 금, name_en: Gold}
+    - {id: INCENSE, name_ko: 향, name_en: Incense}
+    - {id: IVORY, name_ko: 상아, name_en: Ivory}
+    - {id: MARBLE, name_ko: 대리석, name_en: Marble}
+    - {id: PEARLS, name_ko: 진주, name_en: Pearls}
+    - {id: SALT, name_ko: 소금, name_en: Salt}
+    - {id: SILK, name_ko: 비단, name_en: Silk}
+    - {id: SILVER, name_ko: 은, name_en: Silver}
+    - {id: SPICES, name_ko: 향신료, name_en: Spices}
+    - {id: SUGAR, name_ko: 설탕, name_en: Sugar}
+    - {id: TRUFFLES, name_ko: 송로버섯, name_en: Truffles}
+    - {id: WHALES, name_ko: 고래, name_en: Whales}
+    - {id: WINE, name_ko: 와인, name_en: Wine}
+    - {id: COFFEE, name_ko: 커피, name_en: Coffee}
+    - {id: TEA, name_ko: 차, name_en: Tea}
+    - {id: TOBACCO, name_ko: 담배, name_en: Tobacco}
+    - {id: OLIVES, name_ko: 올리브, name_en: Olives}
+    - id: PERFUME
+      name_ko: 향수
+      name_en: Perfume
+      interpretation: perfume_raw_material_source_region
+    - {id: AMBER, name_ko: 호박, name_en: Amber}
+    - {id: JADE, name_ko: 옥, name_en: Jade}
+    - {id: LAPIS_LAZULI, name_ko: 청금석, name_en: Lapis Lazuli}
+    - {id: CORAL, name_ko: 산호, name_en: Coral}
+
+excluded:
+  - {id: NUTMEG, reason: merged_into_SPICES}
+  - {id: CLOVES, reason: merged_into_SPICES}
+  - {id: PEPPER, reason: merged_into_SPICES}
+  - {id: JEWELRY, reason: processed_good}
+  - {id: PORCELAIN, reason: processed_good}
+  - {id: GLASS, reason: processed_good}
+  - {id: CIV6_OTHER_RESOURCES, reason: excluded_by_design_except_NITER_MAIZE_RICE}
