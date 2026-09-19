@@ -1,0 +1,57 @@
+name: CIV Stage 4 river source probe
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - ".github/workflows/civ-stage4-river-probe.yml"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Natural Earth 1:10m rivers
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --retry 5 --retry-delay 3             -o ne_10m_rivers_lake_centerlines.zip             https://naturalearth.s3.amazonaws.com/10m_physical/ne_10m_rivers_lake_centerlines.zip
+          unzip -l ne_10m_rivers_lake_centerlines.zip | tee NE_RIVER_ZIP_LIST.txt
+          sha256sum ne_10m_rivers_lake_centerlines.zip | tee NE_RIVER_SHA256.txt
+          mkdir river
+          unzip -q ne_10m_rivers_lake_centerlines.zip -d river
+          find river -maxdepth 1 -type f -printf '%f %s bytes\n' | sort
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Inspect schema and feature counts
+        run: |
+          python -m pip install --upgrade geopandas pyogrio
+          python - <<'PY' | tee NE_RIVER_PROBE.txt
+          import geopandas as gpd
+          from pathlib import Path
+          shp=next(Path('river').glob('*.shp'))
+          g=gpd.read_file(shp)
+          print('source',shp)
+          print('crs',g.crs)
+          print('features',len(g))
+          print('geom_types',g.geom_type.value_counts().to_dict())
+          print('columns',list(g.columns))
+          for col in ['scalerank','featurecla','name','name_en','min_zoom']:
+              if col in g:
+                  print('\n',col)
+                  print(g[col].value_counts(dropna=False).head(30).to_string())
+          print('\nbounds',g.total_bounds.tolist())
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE4_NATURAL_EARTH_RIVER_PROBE
+          path: |
+            NE_RIVER_PROBE.txt
+            NE_RIVER_ZIP_LIST.txt
+            NE_RIVER_SHA256.txt
+          if-no-files-found: error
+          retention-days: 30
