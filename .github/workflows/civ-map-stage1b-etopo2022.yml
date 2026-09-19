@@ -1,0 +1,69 @@
+name: CIV map Stage1B ETOPO2022 60s
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - 'civ_map_stage1b/**'
+      - '.github/workflows/civ-map-stage1b-etopo2022.yml'
+  workflow_dispatch:
+
+jobs:
+  stage1b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Cache source DEM
+        uses: actions/cache@v4
+        with:
+          path: |
+            stage1b_work/ETOPO_2022_v1_60s_N90W180_surface.tif
+            stage1b_work/ne_10m_land.zip
+          key: civmap-etopo2022-60s-v1-ne10m-v1
+
+      - name: Install Python geospatial stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas requests shapely pyproj rasterio geopandas pyogrio exactextract
+
+      - name: Self test canonical Stage0 LAND mask and lattice
+        run: |
+          python civ_map_stage1b/build_stage1b_etopo2022_60s_worker.py --self-test
+
+      - name: Compute native 60 arc-second per-hex relief statistics
+        run: |
+          /usr/bin/time -v python civ_map_stage1b/build_stage1b_etopo2022_60s_worker.py             --work stage1b_work             --out CIV_GAME_MAP_STAGE1B_ETOPO2022_60S_STATS.csv             2>&1 | tee CIV_GAME_MAP_STAGE1B_RUN.log
+
+      - name: Write provenance
+        if: always()
+        run: |
+          {
+            echo "Stage 1B numeric DEM aggregation"
+            echo "Source: NOAA NCEI ETOPO 2022 v1 60 arc-second surface GeoTIFF"
+            echo "No Stage 1A 1-degree data are used."
+            echo "Land/ocean mask for DEM samples: Natural Earth 1:10m land polygons."
+            echo "Canonical LAND hex count expected: 68048"
+            echo "Commit: $GITHUB_SHA"
+            date -u +"UTC: %Y-%m-%dT%H:%M:%SZ"
+          } > CIV_GAME_MAP_STAGE1B_PROVENANCE.txt
+
+      - name: Upload Stage1B raw statistics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE1B_ETOPO2022_60S
+          path: |
+            CIV_GAME_MAP_STAGE1B_ETOPO2022_60S_STATS.csv
+            CIV_GAME_MAP_STAGE1B_RUN.log
+            CIV_GAME_MAP_STAGE1B_PROVENANCE.txt
+          if-no-files-found: warn
+          retention-days: 30
