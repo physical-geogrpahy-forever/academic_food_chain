@@ -42,7 +42,7 @@ def pct_positive(x):
     out=pd.Series(0.0,index=x.index,dtype="float64")
     pos=x.gt(0)
     if pos.any():
-        out.loc[pos]=x.loc[pos].rank(method="average",pct=True)
+        out.loc[pos]=x.loc[pos].rank(method="max",pct=True)
     return out
 
 def raw_for(df,rid):
