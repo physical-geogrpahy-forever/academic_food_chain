@@ -1,0 +1,80 @@
+name: CIV Stage 10 UThDEPO network probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_uthdepo_network_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Playwright
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Capture download-button network activity
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p uthdepo_network
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          from pathlib import Path
+          import json, time
+
+          out=Path("uthdepo_network")
+          events=[]
+          def add(kind, **kw):
+              rec={"kind":kind, **kw}
+              events.append(rec)
+              print(json.dumps(rec,ensure_ascii=False))
+
+          with sync_playwright() as p:
+              browser=p.chromium.launch(headless=True)
+              context=browser.new_context(accept_downloads=True)
+              page=context.new_page()
+
+              page.on("request", lambda r: add("request",method=r.method,url=r.url,resource_type=r.resource_type))
+              def on_response(r):
+                  try:
+                      h=r.headers
+                  except Exception:
+                      h={}
+                  add("response",status=r.status,url=r.url,
+                      content_type=h.get("content-type",""),
+                      disposition=h.get("content-disposition",""))
+              page.on("response",on_response)
+              page.on("download",lambda d:add("download",suggested_filename=d.suggested_filename,url=d.url))
+              context.on("page",lambda pg:add("new_page",url=pg.url))
+
+              page.goto("https://infcis.iaea.org/UTHDEPO/Deposits",wait_until="networkidle",timeout=120000)
+              btn=page.get_by_text("Download Spreadsheet",exact=True)
+              btn.wait_for(timeout=60000)
+              add("before_click",url=page.url)
+              try:
+                  btn.click(timeout=30000)
+              except Exception as e:
+                  add("click_error",error=repr(e))
+              page.wait_for_timeout(20000)
+
+              add("after_click",url=page.url,pages=[pg.url for pg in context.pages])
+              out.joinpath("events.json").write_text(json.dumps(events,indent=2,ensure_ascii=False),encoding="utf-8")
+              out.joinpath("after_click.html").write_text(page.content(),encoding="utf-8")
+              page.screenshot(path=str(out/"after_click.png"),full_page=True)
+              browser.close()
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10_UTHDEPO_NETWORK_PROBE
+          path: uthdepo_network
+          if-no-files-found: error
+          retention-days: 30
