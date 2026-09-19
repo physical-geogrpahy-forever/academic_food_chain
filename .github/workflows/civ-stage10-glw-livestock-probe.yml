@@ -1,0 +1,78 @@
+name: CIV Stage 10 GLW livestock probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_glw_livestock_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Search Harvard Dataverse for GLW 2015 cattle sheep
+        run: |
+          python - <<'PY'
+          import json, requests, pathlib
+
+          base="https://dataverse.harvard.edu/api"
+          queries=[
+            'Global livestock cattle 2015',
+            'Global livestock sheep 2015',
+            'GLW cattle 2015',
+            'GLW sheep 2015',
+          ]
+          report={"searches":{},"datasets":[]}
+          seen=set()
+          for q in queries:
+              r=requests.get(base+"/search",params={"q":q,"type":"dataset","per_page":50},timeout=60)
+              r.raise_for_status()
+              js=r.json()
+              items=js.get("data",{}).get("items",[])
+              report["searches"][q]=[
+                {"name":x.get("name"),"global_id":x.get("global_id"),"url":x.get("url")}
+                for x in items
+              ]
+              for x in items:
+                  gid=x.get("global_id")
+                  if not gid or gid in seen: continue
+                  seen.add(gid)
+                  try:
+                      m=requests.get(base+"/datasets/:persistentId",params={"persistentId":gid},timeout=60)
+                      m.raise_for_status()
+                      d=m.json()["data"]["latestVersion"]
+                      files=[]
+                      for f in d.get("files",[]):
+                          df=f.get("dataFile",{})
+                          files.append({
+                            "id":df.get("id"),
+                            "filename":df.get("filename"),
+                            "contentType":df.get("contentType"),
+                            "filesize":df.get("filesize"),
+                            "description":df.get("description"),
+                          })
+                      report["datasets"].append({
+                        "global_id":gid,
+                        "title":d.get("metadataBlocks",{}).get("citation",{}).get("fields",[{}])[0].get("value"),
+                        "files":files,
+                      })
+                  except Exception as e:
+                      report["datasets"].append({"global_id":gid,"error":repr(e)})
+          pathlib.Path("glw_livestock_probe.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
+          print(json.dumps(report,indent=2)[:60000])
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10_GLW_LIVESTOCK_PROBE
+          path: glw_livestock_probe.json
+          if-no-files-found: error
+          retention-days: 30
