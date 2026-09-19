@@ -1,2 +1,3 @@
 trigger 2026-09-19 GLW cattle sheep probe
 retry install requests
+retry direct file search
