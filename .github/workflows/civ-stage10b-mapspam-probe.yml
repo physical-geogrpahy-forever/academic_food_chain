@@ -22,9 +22,29 @@ jobs:
       - name: Install raster tools
         run: python -m pip install --upgrade rasterio
 
-      - name: Probe MAPSPAM 2020 v2r2 global COG
+      - name: Discover current MAPSPAM 2020 v2r2 public S3 object
+        shell: bash
         run: |
-          python civ_map_stage10_resources/probe_mapspam_resources.py             "https://digital-atlas.s3.amazonaws.com/cdh/data/mapspam2020-v2r2/cog/spam2020-all-physical_area.tif"             --prefix CIV_GAME_MAP_STAGE10B_MAPSPAM_PROBE             | tee CIV_GAME_MAP_STAGE10B_MAPSPAM_PROBE_RUN.log
+          set -euo pipefail
+          aws s3api list-objects-v2 \
+            --bucket digital-atlas \
+            --prefix "cdh/data/mapspam2020-v2r2/" \
+            --no-sign-request \
+            --query 'Contents[].Key' \
+            --output text | tr '\t' '\n' | tee MAPSPAM_OBJECTS.txt
+          COG=$(grep -Ei 'physical.*area.*\.tif$|physical_area.*\.tif$' MAPSPAM_OBJECTS.txt | head -1)
+          test -n "$COG"
+          echo "MAPSPAM_COG=https://digital-atlas.s3.amazonaws.com/$COG" >> "$GITHUB_ENV"
+          echo "Using $COG"
+
+      - name: Probe MAPSPAM global physical-area COG
+        shell: bash
+        run: |
+          set -euo pipefail
+          python civ_map_stage10_resources/probe_mapspam_resources.py \
+            "$MAPSPAM_COG" \
+            --prefix CIV_GAME_MAP_STAGE10B_MAPSPAM_PROBE \
+            2>&1 | tee CIV_GAME_MAP_STAGE10B_MAPSPAM_PROBE_RUN.log
 
       - uses: actions/upload-artifact@v4
         with:
