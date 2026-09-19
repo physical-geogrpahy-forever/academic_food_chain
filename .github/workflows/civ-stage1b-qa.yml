@@ -17,7 +17,7 @@ jobs:
       contents: read
       actions: read
     env:
-      TARGET_SHA: 2ceae670b4951e5f6a089a68bd355aa748e12bc4
+      TARGET_SHA: 3f979f601463332afde8359e5f0f77a337cc4a10
       TARGET_WORKFLOW: civ-map-stage1b-etopo2022.yml
     steps:
       - uses: actions/checkout@v4
