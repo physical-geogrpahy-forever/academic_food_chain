@@ -1,0 +1,35 @@
+name: CIV Stage 10 PHYLACINE probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_phylacine_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download PHYLACINE public files
+        run: |
+          set -euo pipefail
+          mkdir -p phylacine_probe
+          curl -L --fail --retry 4             "https://datadryad.org/downloads/file_stream/6059"             -o phylacine_probe/Present_natural.zip
+          curl -L --fail --retry 4             "https://datadryad.org/downloads/file_stream/6060"             -o phylacine_probe/Spatial_metadata.csv
+          ls -lh phylacine_probe
+          unzip -l phylacine_probe/Present_natural.zip | head -80 | tee phylacine_probe/zip_head.txt
+          unzip -Z1 phylacine_probe/Present_natural.zip | grep -Ei             'Bison|Elephas|Loxodonta|Cervus|Odocoileus|Rangifer|Alces|Dama|Capreolus|Martes|Mustela|Vulpes|Castor|Lutra|Enhydra|Meles|Neovison|Gulo'             | head -300 | tee phylacine_probe/target_files.txt || true
+          head -5 phylacine_probe/Spatial_metadata.csv | tee phylacine_probe/spatial_metadata_head.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10_PHYLACINE_PROBE
+          path: |
+            phylacine_probe/zip_head.txt
+            phylacine_probe/target_files.txt
+            phylacine_probe/spatial_metadata_head.txt
+          if-no-files-found: error
+          retention-days: 30
