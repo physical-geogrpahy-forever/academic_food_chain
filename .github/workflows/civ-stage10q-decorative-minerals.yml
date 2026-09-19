@@ -40,17 +40,17 @@ jobs:
 
       - name: Add jade amber lapis evidence
         run: |
-          python civ_map_stage10_resources/build_stage10q_decorative_minerals.py             "$BOARD"             civ_map_stage10_resources/decorative_mineral_sources_v1.csv             --layer game_map_stage10p_mrds_nonstrategic             --prefix CIV_GAME_MAP_STAGE10Q_DECORATIVE_MINERALS
+          python civ_map_stage10_resources/build_stage10q_manual_gems.py             "$BOARD"             civ_map_stage10_resources/manual_gem_sources_v1.csv             --layer game_map_stage10p_mrds_nonstrategic             --prefix CIV_GAME_MAP_STAGE10Q_MANUAL_GEMS
 
       - name: Audit
-        run: cat CIV_GAME_MAP_STAGE10Q_DECORATIVE_MINERALS_SUMMARY.json
+        run: cat CIV_GAME_MAP_STAGE10Q_MANUAL_GEMS_SUMMARY.json
 
       - uses: actions/upload-artifact@v4
         with:
-          name: CIV_GAME_MAP_STAGE10Q_DECORATIVE_MINERALS
+          name: CIV_GAME_MAP_STAGE10Q_MANUAL_GEMS
           path: |
-            CIV_GAME_MAP_STAGE10Q_DECORATIVE_MINERALS.gpkg
-            CIV_GAME_MAP_STAGE10Q_DECORATIVE_MINERALS_LAND_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10Q_MANUAL_GEMS.gpkg
+            CIV_GAME_MAP_STAGE10Q_MANUAL_GEMS_LAND_EVIDENCE.csv
             CIV_GAME_MAP_STAGE10Q_DECORATIVE_MINERALS_SUMMARY.json
           if-no-files-found: error
           retention-days: 30
