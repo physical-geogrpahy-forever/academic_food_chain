@@ -1,0 +1,85 @@
+name: CIV Stage 10 UThDEPO spreadsheet probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_uthdepo_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Playwright
+        run: |
+          python -m pip install playwright pandas openpyxl
+          python -m playwright install --with-deps chromium
+
+      - name: Download UThDEPO public spreadsheet
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p uthdepo_probe
+          python - <<'PY'
+          from pathlib import Path
+          from playwright.sync_api import sync_playwright
+          import pandas as pd, json, os
+
+          out=Path("uthdepo_probe")
+          with sync_playwright() as p:
+              browser=p.chromium.launch(headless=True)
+              page=browser.new_page(accept_downloads=True)
+              page.goto("https://infcis.iaea.org/UTHDEPO/Deposits",wait_until="networkidle",timeout=120000)
+              page.get_by_text("Download Spreadsheet",exact=True).wait_for(timeout=60000)
+              with page.expect_download(timeout=120000) as di:
+                  page.get_by_text("Download Spreadsheet",exact=True).click()
+              dl=di.value
+              suggested=dl.suggested_filename or "uthdepo.xlsx"
+              path=out/suggested
+              dl.save_as(str(path))
+              (out/"download_meta.json").write_text(json.dumps({
+                  "suggested_filename":suggested,
+                  "url":page.url,
+                  "bytes":path.stat().st_size,
+              },indent=2),encoding="utf-8")
+              browser.close()
+
+          files=[x for x in out.iterdir() if x.suffix.lower() in {".xlsx",".xls",".csv"}]
+          if not files:
+              raise SystemExit("no spreadsheet downloaded")
+          f=files[0]
+          if f.suffix.lower()==".csv":
+              df=pd.read_csv(f)
+              sheets=["csv"]
+          else:
+              xl=pd.ExcelFile(f)
+              sheets=xl.sheet_names
+              df=pd.read_excel(f,sheet_name=sheets[0])
+          info={
+              "file":f.name,
+              "sheets":sheets,
+              "rows_first_sheet":len(df),
+              "columns":[str(c) for c in df.columns],
+              "sample":df.head(5).astype(str).to_dict(orient="records"),
+          }
+          (out/"spreadsheet_structure.json").write_text(json.dumps(info,indent=2),encoding="utf-8")
+          print(json.dumps(info,indent=2))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10_UTHDEPO_SPREADSHEET_PROBE
+          path: uthdepo_probe
+          if-no-files-found: error
+          retention-days: 30
