@@ -1,0 +1,94 @@
+name: CIV Stage 2B biomes high-res
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage2b/**"
+      - ".github/workflows/civ-stage2b.yml"
+  workflow_dispatch:
+
+jobs:
+  stage2b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+      actions: read
+    env:
+      RELIEF_QA_SHA: 9b59fc8397df8053697ac35fd665eb20d3b5799c
+      RELIEF_QA_WORKFLOW: civ-stage1b-qa.yml
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve final Stage 1B QA artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          DATA=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/${RELIEF_QA_WORKFLOW}/runs?branch=civ-game-map-stage1b-etopo2022&per_page=50")
+          RID=$(echo "$DATA" | jq -r --arg sha "$RELIEF_QA_SHA" '.workflow_runs[] | select(.head_sha==$sha and .status=="completed" and .conclusion=="success") | .id' | head -1)
+          test -n "$RID"
+          echo "RELIEF_RUN_ID=$RID" >> "$GITHUB_ENV"
+          echo "Using Stage1B QA run $RID"
+
+      - name: Download final Stage 1B classified relief
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p stage1b
+          gh run download "$RELIEF_RUN_ID" -n CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_QA -D stage1b
+          test -s stage1b/CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_CLASSIFIED.csv
+          echo "Stage1B gate:"
+          cat stage1b/CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_QA_GATE.txt
+          grep -q '^PASS' stage1b/CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_QA_GATE.txt
+
+      - name: Install geospatial dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas shapely pyproj pyogrio matplotlib
+
+      - name: Build Stage 2B
+        shell: bash
+        run: |
+          set -o pipefail
+          /usr/bin/time -v python civ_map_stage2b/build_stage2b_biomes_highres.py             stage1b/CIV_GAME_MAP_STAGE1B_RELIEF_HIGHRES_CLASSIFIED.csv             --outdir stage2b_out             2>&1 | tee stage2b_run.log
+
+      - name: Check audit gates
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          a=pd.read_csv('stage2b_out/CIV_GAME_MAP_STAGE2B_AUDIT.csv')
+          bad=a[a['pass'].astype(str).str.lower()!='true']
+          if len(bad):
+              print(bad.to_string(index=False))
+              raise SystemExit(1)
+          print(a.to_string(index=False))
+          PY
+
+      - name: Add provenance
+        run: |
+          {
+            echo "Stage 2B high-resolution relief integration"
+            echo "No Stage 1A / 1-degree relief used."
+            echo "Stage1B QA run: $RELIEF_RUN_ID"
+            echo "Workflow commit: $GITHUB_SHA"
+            date -u +"UTC: %Y-%m-%dT%H:%M:%SZ"
+          } > stage2b_out/CIV_GAME_MAP_STAGE2B_PROVENANCE.txt
+          sha256sum stage2b_out/* > stage2b_out/CIV_GAME_MAP_STAGE2B_SHA256.txt
+
+      - name: Upload Stage 2B artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE2B_BIOMES_HIGHRES
+          path: |
+            stage2b_out/**
+            stage2b_run.log
+          if-no-files-found: error
+          retention-days: 30
