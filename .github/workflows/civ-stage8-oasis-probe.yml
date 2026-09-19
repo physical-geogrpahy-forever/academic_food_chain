@@ -18,7 +18,27 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -L --fail --retry 5 --retry-delay 2             -o peerj_oasis_supp9.zip             https://doi.org/10.7717/peerj.18884/supp-9
+          curl -L --fail --retry 5 --retry-delay 2 -o PMC_OA.xml "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=PMC11874939"
+          cat PMC_OA.xml
+          HREF=$(grep -o 'href="[^"]*"' PMC_OA.xml | sed 's/^href="//;s/"$//' | grep -E '\\.(tar\\.gz|tgz)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE8_OASIS_SOURCE_PROBE
+          path: |
+            OASIS_FILETYPE.txt
+            OASIS_SHA256.txt
+            OASIS_ZIP_LIST.txt
+          if-no-files-found: error
+          retention-days: 30
+ | head -1)
+          test -n "$HREF"
+          HTTPS_HREF=${HREF/ftp:\/\//https://}
+          curl -L --fail --retry 5 --retry-delay 2 -o article.tar.gz "$HTTPS_HREF"
+          mkdir oa
+          tar -xzf article.tar.gz -C oa
+          SUPP=$(find oa -type f -name 'peerj-13-18884-s009.zip' | head -1)
+          test -n "$SUPP"
+          cp "$SUPP" peerj_oasis_supp9.zip
           file peerj_oasis_supp9.zip | tee OASIS_FILETYPE.txt
           sha256sum peerj_oasis_supp9.zip | tee OASIS_SHA256.txt
           unzip -l peerj_oasis_supp9.zip | tee OASIS_ZIP_LIST.txt
