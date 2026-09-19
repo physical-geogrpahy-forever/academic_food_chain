@@ -1,0 +1,103 @@
+name: CIV Stage 10 strategic source probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_strategic_source_probe.txt"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Probe current source endpoints
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p probe
+          python - <<'PY'
+          import re, requests, pathlib, json
+          urls = {
+            "gem_coal":"https://globalenergymonitor.org/projects/global-coal-mine-tracker/",
+            "iaea_uthdepo":"https://infcis.iaea.org/UTHDEPO/Deposits",
+          }
+          out={}
+          for k,u in urls.items():
+              r=requests.get(u,timeout=60,headers={"User-Agent":"Mozilla/5.0"})
+              r.raise_for_status()
+              pathlib.Path(f"probe/{k}.html").write_text(r.text,encoding="utf-8")
+              links=sorted(set(re.findall(r'https?://[^"\'<> ]+',r.text)))
+              out[k]={
+                "status":r.status_code,
+                "bytes":len(r.content),
+                "interesting":[x for x in links if any(t in x.lower() for t in [
+                  "xlsx","xls","csv","spreadsheet","export","download","google.com","api/"
+                ])][:200]
+              }
+          pathlib.Path("probe/probe_links.json").write_text(json.dumps(out,indent=2),encoding="utf-8")
+          print(json.dumps(out,indent=2))
+          PY
+
+      - name: Probe page JS and endpoint strings
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from bs4 import BeautifulSoup
+          import requests, pathlib, urllib.parse, re, json
+          targets = {
+            "gem_coal":"https://globalenergymonitor.org/projects/global-coal-mine-tracker/",
+            "iaea_uthdepo":"https://infcis.iaea.org/UTHDEPO/Deposits",
+          }
+          report={}
+          for name,url in targets.items():
+              html=pathlib.Path(f"probe/{name}.html").read_text(encoding="utf-8",errors="ignore")
+              soup=BeautifulSoup(html,"html.parser")
+              scripts=[]
+              for s in soup.find_all("script"):
+                  src=s.get("src")
+                  if src:
+                      scripts.append(urllib.parse.urljoin(url,src))
+              hits=[]
+              for i,src in enumerate(scripts[:80]):
+                  try:
+                      txt=requests.get(src,timeout=30,headers={"User-Agent":"Mozilla/5.0"}).text
+                  except Exception:
+                      continue
+                  pathlib.Path(f"probe/{name}_script_{i}.js").write_text(txt,encoding="utf-8",errors="ignore")
+                  for m in re.findall(r'[^\n]{0,120}(?:spreadsheet|download|export|xlsx|csv|UTHDEPO|Deposit)[^\n]{0,180}',txt,re.I):
+                      if m not in hits: hits.append(m[:500])
+              report[name]={"scripts":scripts,"hits":hits[:300]}
+          pathlib.Path("probe/script_probe.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
+          print(json.dumps(report,indent=2)[:30000])
+          PY
+
+      - name: Test known/likely downloadable endpoints
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo "MRDS"
+            curl -L -sS -o /dev/null -w "%{http_code} %{size_download} %{content_type}\n" https://mrdata.usgs.gov/mrds/mrds-csv.zip || true
+            echo "HORSE"
+            curl -L -sS -o /dev/null -w "%{http_code} %{size_download} %{content_type}\n" https://dataverse.harvard.edu/api/access/datafile/6769681 || true
+            echo "GOGET"
+            curl -L -sS -o /dev/null -w "%{http_code} %{size_download} %{content_type}\n" "https://raw.githubusercontent.com/Asefidi/Overpower/eb3a7229a5ec6e6bb567160971316f3147bdee81/src/raw-input-data/Global-Oil-and-Gas-Extraction-Tracker-March-2026__Field-level_main_data.csv" || true
+            echo "OLD_COAL_SHEET"
+            curl -L -sS -o /dev/null -w "%{http_code} %{size_download} %{content_type}\n" "https://docs.google.com/spreadsheets/d/1YSlF9ADnRZH2ug9NwUGjp2bphbFZxkz1FnxSO1NV-ks/export?format=xlsx" || true
+          } | tee probe/endpoint_status.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_STAGE10_STRATEGIC_SOURCE_PROBE
+          path: probe
+          if-no-files-found: error
+          retention-days: 30
