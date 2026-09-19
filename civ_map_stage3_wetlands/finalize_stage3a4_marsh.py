@@ -97,7 +97,7 @@ def main():
       "qa_failures":failures,
       "rule":"PALUSTRINE_OPEN + PEATLAND_OPEN + COASTAL_MARSH >= threshold; exclude MOUNTAIN and SNOW",
       "excluded_from_marsh":["LACUSTRINE_OPEN","RIVERINE_DELTA","FOREST_WET","EPHEMERAL_SALINE"],
-      "policy":"Lacustrine remains lake-associated wetland; riverine/delta reserved for Flood Plains; forested wetland remains a separate ecological flag."
+      "policy":"Lacustrine remains lake-associated wetland; riverine/delta reserved for Flood Plains; forested wetland remains a separate ecological flag. Dry-region QA uses interior desert boxes so genuine coastal marshes are not mislabeled as false positives."
     }
     df.to_csv(a.prefix+"_CLASSIFIED.csv",index=False)
     scan.to_csv(a.prefix+"_THRESHOLD_SCAN.csv",index=False)
