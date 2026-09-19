@@ -1,0 +1,56 @@
+name: CIV Stage 10 OBIS marine V
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_stage10v.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests pandas geopandas pyogrio shapely
+
+      - name: Download Stage 10U board
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/u
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10586242491/zip > input/u.zip
+          unzip -q input/u.zip -d input/u
+          BOARD="$(find input/u -type f -name 'CIV_GAME_MAP_STAGE10U_PHYLACINE_WHALES.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Aggregate OBIS marine evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10v_obis_marine.py             "$BOARD"             --layer game_map_stage10u_phylacine_whales             --prefix CIV_GAME_MAP_STAGE10V_OBIS_MARINE
+
+      - name: Audit
+        run: cat CIV_GAME_MAP_STAGE10V_OBIS_MARINE_SUMMARY.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10V_OBIS_MARINE
+          path: |
+            CIV_GAME_MAP_STAGE10V_OBIS_MARINE.gpkg
+            CIV_GAME_MAP_STAGE10V_OBIS_MARINE_WATER_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10V_OBIS_MARINE_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
