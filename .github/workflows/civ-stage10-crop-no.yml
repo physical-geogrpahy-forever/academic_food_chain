@@ -1,0 +1,81 @@
+name: CIV Stage 10 crop resources N-O
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_stage10no.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install geospatial dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas pyogrio shapely rasterio exactextract
+
+      - name: Download strategic V5 board
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/v5
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10584569131/zip > input/v5.zip
+          unzip -q input/v5.zip -d input/v5
+          BOARD="$(find input/v5 -type f -name 'CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V5.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Add MAPSPAM maize and tobacco
+        run: |
+          python civ_map_stage10_resources/build_stage10n_mapspam_extra.py             "$BOARD"             "https://digital-atlas.s3.amazonaws.com/cdh/data/mapspam2020-v2r2/cog/spam2020-physical_area-all.tif"             --layer game_map_stage10_strategic_candidates             --prefix CIV_GAME_MAP_STAGE10N_MAPSPAM_EXTRA
+
+      - name: Download selected Monfreda crop rasters
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p input/monfreda
+          base="https://s3.us-east-2.amazonaws.com/earthstatdata/HarvestedAreaYield175Crops_Indvidual_Geotiff"
+          crops=(olive grape pepper clove nutmeg cinnamon ginger spicenes pimento aniseetc vanilla)
+          for crop in "${crops[@]}"; do
+            echo "Downloading $crop"
+            curl -L --fail --retry 4 "$base/${crop}_HarvAreaYield_Geotiff.zip"               -o "input/monfreda/${crop}.zip"
+            unzip -q -o "input/monfreda/${crop}.zip" -d input/monfreda
+          done
+          find input/monfreda -type f -name '*HarvestedAreaHectares.tif' -print
+
+      - name: Add Monfreda olive wine spices evidence
+        run: |
+          python civ_map_stage10_resources/build_stage10o_monfreda_evidence.py             CIV_GAME_MAP_STAGE10N_MAPSPAM_EXTRA.gpkg input/monfreda             --layer game_map_stage10n_mapspam_extra             --prefix CIV_GAME_MAP_STAGE10O_MONFREDA_EVIDENCE
+
+      - name: Audit
+        run: |
+          echo "=== MAPSPAM EXTRA ==="
+          cat CIV_GAME_MAP_STAGE10N_MAPSPAM_EXTRA_SUMMARY.json
+          echo "=== MONFREDA ==="
+          cat CIV_GAME_MAP_STAGE10O_MONFREDA_EVIDENCE_SUMMARY.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10_CROP_EVIDENCE_NO
+          path: |
+            CIV_GAME_MAP_STAGE10N_MAPSPAM_EXTRA_SUMMARY.json
+            CIV_GAME_MAP_STAGE10N_MAPSPAM_EXTRA_LAND_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10O_MONFREDA_EVIDENCE.gpkg
+            CIV_GAME_MAP_STAGE10O_MONFREDA_EVIDENCE_SUMMARY.json
+            CIV_GAME_MAP_STAGE10O_MONFREDA_EVIDENCE_LAND_EVIDENCE.csv
+          if-no-files-found: error
+          retention-days: 30
