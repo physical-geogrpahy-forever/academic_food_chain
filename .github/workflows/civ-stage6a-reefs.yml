@@ -1,0 +1,100 @@
+name: CIV Stage 6A reef candidates
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage6_reefs/build_stage6a_reef_candidates.py"
+      - ".github/workflows/civ-stage6a-reefs.yml"
+  workflow_dispatch:
+
+jobs:
+  reefs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE5_RUN: "35438517099"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Wait for audited Stage 5A
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 360); do
+            DATA=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${STAGE5_RUN}")
+            STATUS=$(echo "$DATA" | jq -r .status)
+            CONCLUSION=$(echo "$DATA" | jq -r .conclusion)
+            echo "attempt=$i status=$STATUS conclusion=$CONCLUSION"
+            if [ "$STATUS" = "completed" ]; then
+              test "$CONCLUSION" = "success"
+              exit 0
+            fi
+            sleep 10
+          done
+          exit 1
+
+      - name: Download Stage 5A
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p stage5
+          gh run download "$STAGE5_RUN" -n CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES -D stage5
+          test -s stage5/CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES.gpkg
+
+      - name: Download Natural Earth reefs
+        run: |
+          curl -L --retry 5 --retry-delay 3             -o ne_10m_reefs.zip             https://naturalearth.s3.amazonaws.com/10m_physical/ne_10m_reefs.zip
+          sha256sum ne_10m_reefs.zip | tee NE_REEF_SHA256.txt
+          mkdir reef
+          unzip -q ne_10m_reefs.zip -d reef
+          REEF_SHP=$(find reef -name '*.shp' | head -1)
+          test -s "$REEF_SHP"
+          echo "REEF_SHP=$REEF_SHP" >> "$GITHUB_ENV"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas shapely pyproj pyogrio
+
+      - name: Build reef candidates
+        run: |
+          python civ_map_stage6_reefs/build_stage6a_reef_candidates.py             stage5/CIV_GAME_MAP_STAGE5A_HYDRO_FEATURES.gpkg             "$REEF_SHP"             --prefix CIV_GAME_MAP_STAGE6A_REEFS             | tee CIV_GAME_MAP_STAGE6A_REEFS_RUN.log
+
+      - name: Hard audit
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open('CIV_GAME_MAP_STAGE6A_REEFS_SUMMARY.json'))
+          assert s['nonwater_candidates']==0, s
+          assert s['qa_pass']>=5, s
+          assert s['Stage1A_1deg_used'] is False, s
+          print(json.dumps(s,indent=2))
+          PY
+
+      - name: Package
+        run: |
+          sha256sum CIV_GAME_MAP_STAGE6A_REEFS* NE_REEF_SHA256.txt > CIV_GAME_MAP_STAGE6A_SHA256.txt
+          zip -9 CIV_GAME_MAP_STAGE6A_REEFS_PACKAGE.zip             CIV_GAME_MAP_STAGE6A_REEFS.gpkg             CIV_GAME_MAP_STAGE6A_REEFS_CANDIDATES.csv             CIV_GAME_MAP_STAGE6A_REEFS_QA.csv             CIV_GAME_MAP_STAGE6A_REEFS_SUMMARY.json             CIV_GAME_MAP_STAGE6A_REEFS_RUN.log             CIV_GAME_MAP_STAGE6A_SHA256.txt             NE_REEF_SHA256.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE6A_REEFS
+          path: |
+            CIV_GAME_MAP_STAGE6A_REEFS_PACKAGE.zip
+            CIV_GAME_MAP_STAGE6A_REEFS.gpkg
+            CIV_GAME_MAP_STAGE6A_REEFS_CANDIDATES.csv
+            CIV_GAME_MAP_STAGE6A_REEFS_QA.csv
+            CIV_GAME_MAP_STAGE6A_REEFS_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
