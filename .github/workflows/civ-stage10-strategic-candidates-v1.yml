@@ -1,0 +1,129 @@
+name: CIV Stage 10 strategic candidates v1
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_strategic_candidates_v1.txt"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: read
+      actions: read
+    env:
+      STAGE9_RUN: "35439673753"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install geospatial stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas shapely pyproj pyogrio rasterio exactextract requests
+
+      - name: Download canonical Stage 9
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p stage9
+          gh run download "$STAGE9_RUN" -n CIV_GAME_MAP_STAGE9A_CONSOLIDATED -D stage9
+          test -s stage9/CIV_GAME_MAP_STAGE9A_CONSOLIDATED.gpkg
+
+      - name: Download strategic source data
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 5 --retry-delay 3 -o mrds-csv.zip https://mrdata.usgs.gov/mrds/mrds-csv.zip
+          curl -L --fail --retry 5 --retry-delay 3 -o horse_2015_da.tif https://dataverse.harvard.edu/api/access/datafile/6769681
+          curl -L --fail --retry 5 --retry-delay 3 -o goget_fields.csv "https://raw.githubusercontent.com/Asefidi/Overpower/eb3a7229a5ec6e6bb567160971316f3147bdee81/src/raw-input-data/Global-Oil-and-Gas-Extraction-Tracker-March-2026__Field-level_main_data.csv"
+          sha256sum mrds-csv.zip horse_2015_da.tif goget_fields.csv | tee STRATEGIC_SOURCE_SHA256.txt
+
+      - name: Aggregate improved MRDS evidence
+        shell: bash
+        run: |
+          set -o pipefail
+          python civ_map_stage10_resources/build_stage10c_mrds_evidence.py \
+            stage9/CIV_GAME_MAP_STAGE9A_CONSOLIDATED.gpkg mrds-csv.zip \
+            --prefix CIV_GAME_MAP_STAGE10S1_MRDS \
+            2>&1 | tee STAGE10S1_RUN.log
+
+      - name: Aggregate improved GOGET evidence
+        shell: bash
+        run: |
+          set -o pipefail
+          python civ_map_stage10_resources/build_stage10f_goget_evidence.py \
+            CIV_GAME_MAP_STAGE10S1_MRDS.gpkg goget_fields.csv \
+            --layer game_map_stage10c_mrds_evidence \
+            --prefix CIV_GAME_MAP_STAGE10S2_GOGET \
+            2>&1 | tee STAGE10S2_RUN.log
+
+      - name: Aggregate horse evidence
+        shell: bash
+        run: |
+          set -o pipefail
+          python civ_map_stage10_resources/build_stage10i_horse_evidence.py \
+            CIV_GAME_MAP_STAGE10S2_GOGET.gpkg horse_2015_da.tif \
+            --layer game_map_stage10f_goget_evidence \
+            --prefix CIV_GAME_MAP_STAGE10S3_HORSE \
+            2>&1 | tee STAGE10S3_RUN.log
+
+      - name: Aggregate provisional global coal evidence
+        shell: bash
+        run: |
+          set -o pipefail
+          python civ_map_stage10_resources/build_stage10k_coal_overwatts.py \
+            CIV_GAME_MAP_STAGE10S3_HORSE.gpkg \
+            --layer game_map_stage10i_horse_evidence \
+            --prefix CIV_GAME_MAP_STAGE10S4_COAL \
+            2>&1 | tee STAGE10S4_RUN.log
+
+      - name: Build strategic candidate quantities
+        shell: bash
+        run: |
+          set -o pipefail
+          python civ_map_stage10_resources/build_strategic_candidates.py \
+            CIV_GAME_MAP_STAGE10S4_COAL.gpkg \
+            --layer game_map_stage10k_coal_overwatts \
+            --prefix CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V1 \
+            2>&1 | tee STRATEGIC_CANDIDATES_RUN.log
+
+      - name: Package
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V1* > STRATEGIC_OUTPUT_SHA256.txt
+          zip -9 CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V1_PACKAGE.zip \
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V1.gpkg \
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V1_EVIDENCE.csv \
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V1_SUMMARY.json \
+            CIV_GAME_MAP_STAGE10S1_MRDS_AUDIT.csv \
+            CIV_GAME_MAP_STAGE10S1_MRDS_SUMMARY.json \
+            CIV_GAME_MAP_STAGE10S2_GOGET_SUMMARY.json \
+            CIV_GAME_MAP_STAGE10S3_HORSE_SUMMARY.json \
+            CIV_GAME_MAP_STAGE10S4_COAL_SUMMARY.json \
+            STRATEGIC_SOURCE_SHA256.txt STRATEGIC_OUTPUT_SHA256.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V1
+          path: |
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V1_PACKAGE.zip
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V1.gpkg
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V1_EVIDENCE.csv
+            CIV_GAME_MAP_STAGE10_STRATEGIC_CANDIDATES_V1_SUMMARY.json
+            CIV_GAME_MAP_STAGE10S1_MRDS_AUDIT.csv
+            CIV_GAME_MAP_STAGE10S1_MRDS_SUMMARY.json
+            CIV_GAME_MAP_STAGE10S2_GOGET_SUMMARY.json
+            CIV_GAME_MAP_STAGE10S3_HORSE_SUMMARY.json
+            CIV_GAME_MAP_STAGE10S4_COAL_SUMMARY.json
+          if-no-files-found: error
+          retention-days: 30
