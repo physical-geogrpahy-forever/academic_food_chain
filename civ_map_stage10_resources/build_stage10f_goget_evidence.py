@@ -121,6 +121,8 @@ def main():
       "gas_surface_counts":board.loc[board.GAS_GEM_ANY.eq(1),"SURFACE"].value_counts().to_dict(),
       "status_weights":STATUS_W,
       "oil_fuels":["oil","oil and gas"],
+      "reserve_column":reserve_col,
+      "production_column":production_col,
       "gas_fuels":["gas","gas and condensate","oil and gas"],
       "placement_policy":"Evidence only; no random placement and no gameplay thinning.",
       "Stage1A_1deg_used":False
