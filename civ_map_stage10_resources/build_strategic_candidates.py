@@ -72,32 +72,36 @@ def build(board):
     iron_raw,iron_s=mrds_resource("IRON")
     alu_raw,alu_s=mrds_resource("ALUMINUM")
 
-    # OIL: preserve both reserves and production. Use the strongest percentile
-    # among quantitative measures and field/status evidence.
-    oil_res=col(board,"OIL_GEM_RESERVE_EV")
-    oil_prod=col(board,"OIL_GEM_PRODUCTION_EV")
+    # OIL: current official GEM public-map oil production is the primary
+    # quantitative evidence. The older field-level register is retained only as
+    # fallback evidence for known oil fields that have no current production.
+    oil_prod=col(board,"OIL_GEM_PROD_MBBL_Y")
+    oil_live_n=col(board,"OIL_GEM_LIVE_PRODUCING_UNITS")
+    oil_live_status=col(board,"OIL_GEM_LIVE_STATUS_SCORE")
     oil_fields=col(board,"OIL_GEM_FIELDS")
     oil_status=col(board,"OIL_GEM_SCORE")
-    oil_raw=np.log1p(oil_res)+np.log1p(oil_prod)+0.25*np.log1p(oil_fields)+0.10*np.log1p(oil_status)
-    oil_s=max_pct(oil_res,oil_prod,oil_raw)
+    oil_raw=(
+        2.0*np.log1p(oil_prod)
+        +0.30*np.log1p(oil_live_n)
+        +0.10*np.log1p(oil_live_status)
+        +0.20*np.log1p(oil_fields)
+        +0.05*np.log1p(oil_status)
+    )
+    oil_s=max_pct(oil_prod,oil_raw)
 
-    # COAL: production/capacity dominate; reserve/resource fields are used when
-    # a later evidence stage provides them.
+    # COAL: current GCMT 2026-08 public-map production and capacity dominate.
+    # Mine count/status retain low-weight evidence for currently idle deposits.
     coal_prod=col(board,"COAL_GEM_PROD_MT")
     coal_cap=col(board,"COAL_GEM_CAP_MTPA")
-    coal_res=col(board,"COAL_GEM_RESERVE_MT")
-    coal_resource=col(board,"COAL_GEM_RESOURCE_MT")
+    coal_mines=col(board,"COAL_GEM_MINES")
     coal_score=col(board,"COAL_GEM_SCORE")
-    # Public OverWatts derivative is a provisional fallback when the current
-    # GEM mine-level original cannot be retrieved automatically.
-    coal_ow_prod=col(board,"COAL_OW_PROD_MTPA")
-    coal_ow_score=col(board,"COAL_OW_SCORE")
     coal_raw=(
-        np.log1p(coal_prod)+np.log1p(coal_cap)+np.log1p(coal_res)
-        +0.5*np.log1p(coal_resource)+0.10*np.log1p(coal_score)
-        +np.log1p(coal_ow_prod)+0.10*np.log1p(coal_ow_score)
+        2.0*np.log1p(coal_prod)
+        +1.0*np.log1p(coal_cap)
+        +0.25*np.log1p(coal_mines)
+        +0.05*np.log1p(coal_score)
     )
-    coal_s=max_pct(coal_prod,coal_cap,coal_res,coal_resource,coal_ow_prod,coal_raw)
+    coal_s=max_pct(coal_prod,coal_cap,coal_raw)
 
     # URANIUM: UThDEPO resource-range evidence takes priority when available.
     # MRDS remains a fallback so the pipeline is auditable while the IAEA
