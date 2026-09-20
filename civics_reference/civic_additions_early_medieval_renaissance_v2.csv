@@ -1,0 +1,13 @@
+PROJECT_ERA,CIVIC,STATUS,SOURCE,PRIMARY_PREREQUISITE_IDEA,PRIMARY_SUCCESSOR_IDEA,NOTES
+Early Medieval,Feudalism,KEEP,Civ VI,Defensive Tactics,Medieval Faires / Guilds,"Original Civ VI civic"
+Early Medieval,Mercenaries,KEEP,Civ VI,Military Training + Feudalism,Exploration,"Original Civ VI civic"
+Early Medieval,Written Culture,ADOPTED,New historical insertion,Civil Service,Scholasticism,"Written administration/legal/manuscript culture"
+Early Medieval,Court Culture,RECOMMENDED,Historical synthesis,Civil Service + Written Culture,Patronage,"Strongest remaining Early Medieval candidate; awaiting user lock"
+High Medieval,Medieval Faires,KEEP,Civ VI,Feudalism,Humanism,"Original Civ VI civic"
+High Medieval,Guilds,KEEP,Civ VI,Feudalism + Civil Service,Diplomatic Service / Reformed Church,"Original Civ VI civic"
+High Medieval,Divine Right,KEEP,Civ VI,Theology + Civil Service,Reformed Church,"Original Civ VI civic"
+High Medieval,Scholasticism,STRONG_CANDIDATE,Civ V BNW,Written Culture + Theology,Humanism,"Previously identified strong candidate"
+Renaissance,Humanism,KEEP,Civ VI,Medieval Faires,Print Culture / Patronage,"Original Civ VI civic"
+Renaissance,Diplomatic Service,KEEP,Civ VI,Guilds,Sovereignty / Enlightenment,"Original Civ VI civic"
+Renaissance,Patronage,ADOPTED,Civ V concept,Court Culture + Humanism,Print Culture / Exploration-era cultural content,"Adopted by user"
+Renaissance,Print Culture,ADOPTED,New historical insertion,Humanism,Scientific Revolution / Reformed Church,"Printing Press itself remains a technology"
