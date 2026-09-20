@@ -1,33 +1,27 @@
 # Deferred Generic Unlock Queue V1
 
 Date: 2026-09-21
-Status: ACTIVE
+Status: **CLOSED**
 
-Remaining deferred items: **18**
+Remaining deferred generic items: **0**
 
-## Queue counts
-- NUMERIC_BALANCE: 13
-- OPTIONAL_ENDGAME: 5
+Completed:
+- UNIT_ROSTER: 0 remaining
+- BUILDING_INFRA_ROSTER: 0 remaining
+- HEALTH_BALANCE qualitative items: 0 remaining
+- GOVERNMENT_SYSTEM: 0 remaining
+- SYSTEM_DESIGN: 0 remaining
+- POLICY_BALANCE qualitative ownership: 0 remaining
+- NUMERIC_BALANCE tracked items: 0 remaining
+- OPTIONAL_ENDGAME: resolved into an optional GDR module
 
-## Completed qualitative queues
-- UNIT_ROSTER: 0
-- BUILDING_INFRA_ROSTER: 0
-- HEALTH_BALANCE qualitative design: 0
-- GOVERNMENT_SYSTEM: 0
-- SYSTEM_DESIGN: 0
-- POLICY_BALANCE qualitative ownership: 0
-
-Policy authority:
-- `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.csv`
-- `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.md`
+Current authorities:
+- `tech_reference/MASTER_TECHNOLOGY_UNLOCKS_109_V1.csv`
 - `civics_reference/MASTER_CIVIC_UNLOCKS_72_V2.csv`
+- `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.csv`
+- `tech_reference/NUMERIC_BALANCE_DECISIONS_V1.csv`
+- `tile_system/FORMER_GREAT_PERSON_TILE_IMPROVEMENTS_V1.md`
+- `optional_endgame/GDR_OPTIONAL_MODULE_V1.md`
 
-Final policy cards: **127**
-Duplicate policy ownership: **0**
-
-## Remaining
-- NUMERIC_BALANCE: exact yields, percentages, caps and thresholds.
-- OPTIONAL_ENDGAME: Giant Death Robot and associated upgrades.
-
-## Source rule
+Source rule:
 **Civ V first -> historical/functional reconciliation -> Civ VI fallback -> minimal historical invention**
