@@ -1,7 +1,7 @@
-TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"TECH_EN","UNITS","CITY_BUILDINGS","TILE_IMPROVEMENTS","ROUTES_INFRASTRUCTURE","RESOURCE_REVEAL","RESOURCE_EXPLOITATION","SYSTEMS_NOTES"
 "Flight","Triplane; Great War Bomber; Observation Balloon with Mobilization","Hangar","Airstrip","","","","Aerospace corporation gate with Capitalism; Aerodrome district removed"
-"Radio","","Broadcast Center + Film Studio with Mass Media","Seaside Resort remapped to Advanced Flight + Mass Media","","Aluminum moved to Electricity","","Film/Media sector upgrade"
+"Radio","","Broadcast Center + Film Studio with Mass Media","","","","","Film/Media sector upgrade; Seaside Resort owned by Advanced Flight + Mass Media; Aluminum reveal owned by Electricity"
 "Combustion","Landship; Supply Convoy with Mobilization","","","","","","Motorized land trade with Capitalism; automotive/machinery corporate upgrades"
-"Advanced Flight","Fighter; Bomber; Paratrooper with Mobilization","Airport remapped to Radar","","","","","Aerospace/Airlines and travel/logistics upgrades"
+"Advanced Flight","Fighter; Bomber; Paratrooper with Mobilization","","Seaside Resort with Mass Media","","","","Aerospace/Airlines and travel/logistics upgrades; Airport owned by Radar + Mass Media"
 "Rocketry","Rocket Artillery with Military Science","","","","","","Mobile SAM/missile silo/space program moved later"
 "Advanced Ballistics","Machine Gun; Anti-Air Gun","","","","","","Guided/nuclear missiles and spaceship booster moved later"
