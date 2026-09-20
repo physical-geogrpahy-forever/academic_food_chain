@@ -137,7 +137,7 @@ State separation:
 Detailed design:
 `civ_map_stage10_resources/contact_dynamic_resource_system_v1.md`
 
-## 7. GitHub file inventory added in this update
+## 7. GitHub file inventory synced in this update
 
 ### Resource audit
 `civ_map_stage10_resources/audit_2026-09-20/`
@@ -145,49 +145,70 @@ Detailed design:
 - `RESOURCE_AUDIT_SUMMARY.md`
 - `RESOURCE_FIX_PLAN_V1.md`
 - `heuristic_fix_smoke_test_v1.csv`
+- `korea_land_resource_audit.csv`
 - `problem_resource_summary_v1.csv`
 - `resource_audit_status.csv`
 - `resource_fix_plan_v1.csv`
 - `resource_tie_plateau_audit.csv`
+- `world_land_resource_density_by_region.csv`
+- `world_resource_surface_summary.csv`
 - `world_resource_technical_audit.csv`
 - `world_resource_technical_checks.json`
-- `korea_land_resource_audit.csv`
 
 ### Resource fix
 `civ_map_stage10_resources/resource_fix_v1/`
 
 - `README.md`
+- `plateau_comparison_v1.csv`
 - `replacement_comparison_summary_v1.csv`
 - `replacement_pool_counts_v1.csv`
 - `replacement_region_comparison_v1.csv`
-- `plateau_comparison_v1.csv`
-- package archive with the full fixed placement CSV and replacement selections
+- `RECONSTRUCT_FIXED_PLACEMENT.md`
+- `replacement_ids_v1.json`
+
+The repository stores the exact BISON/IVORY/WHALES replacement cell IDs as a compact reproducible patch. The large 12,500-row fixed CSV remains a working artifact; it can be rebuilt by replacing those three resources in the Stage10Y V2 table using `replacement_ids_v1.json`.
 
 ### Icons
 `civ_map_stage10_resources/icons_v4/`
 
 - `README.md`
 - `resource_manifest_v4.csv`
-- `resource_manifest_v4.json`
-- `resource_atlas_v4.svg`
-- V4 package ZIP containing the individual SVG icons
+- `resource_icons_v4_sprite_1.svg`
+- `resource_icons_v4_sprite_2.svg`
+- `resource_icons_v4_sprite_3.svg`
+- `resource_icons_v4_sprite_4.svg`
+- `resource_icons_v4_sprite_5.svg`
+
+The five sprite sheets contain all 47 V4 resource symbols exactly once.
 
 ### Dynamic resource system
+
 - `civ_map_stage10_resources/contact_dynamic_resource_system_v1.md`
+- `civ_map_stage10_resources/resource_transfer_classes_v1.csv`
+
+The transfer-class table covers all 47 resources and separates geological fixed resources, transferable domesticated plants, transferable domesticated animals, wild biological resources, processed/composite display resources, and technology-sensitive niter.
 
 ## 8. Immediate next work
 
-1. Verify the new BISON/IVORY/WHALES placement against source evidence and broad geography.
-2. Replace the three old selections in the Stage10Y review board.
-3. Re-run the one-resource-per-hex and surface audits.
-4. Build regional maps directly from source GPKG/placement coordinates rather than cropping a misaligned whole-world raster.
-5. Build the first data table for contact-based transfer classes across all 47 resources.
-6. Research native/source areas and historical transfer pathways for crops/livestock so the default historical path can be reconstructed without blocking alternate-history contact.
+1. Research all 47 resources for native/source geography, domestication or original exploitation zone, historical transfer pathways, and resource-specific transferability.
+2. Treat historical dates as validation/default-path priors, not global hard locks.
+3. Implement contact-driven transfer events:
+   - civilization contact
+   - trade
+   - exploration/discovery
+   - settlement/colonization
+   - conquest/occupation
+4. Add environmental-suitability checks before introduced biological resources can establish.
+5. Keep geological resources spatially fixed while letting knowledge and extraction technology spread.
+6. Reconstruct and re-audit the Stage10Y fixed placement after the dynamic-resource data model is ready.
+7. Only then rebuild regional/world maps directly from source GPKG geometry. Do not return to the old image-coordinate overlay.
 
 ## 9. Canonical status warning
 
 Stage10Y remains a preview/review placement.
+
 Do not promote it to canonical final until:
-- the three repaired biological resources pass review,
+- the repaired BISON/IVORY/WHALES placement passes final review,
 - direct-coordinate map rendering is fixed,
-- the contact-based transfer model is integrated for movable resources.
+- the contact-based transfer model has resource-specific data for all transferable resources,
+- the default historical path can be reconstructed without preventing alternate-history contacts.
