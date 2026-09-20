@@ -85,3 +85,5 @@
 "C029","Ancient","WONDER","Oracle","","Mysticism","CIVIC","Civ6 GS","Mysticism","DEFER_WONDER","Wonder audit separate",""
 "C030","Ancient","CITY_BUILDING","Barracks","","Military Tradition","CIVIC","Civ5 BNW remap; Civ6 military-building family","Bronze Working / Encampment","KEEP","Permanent training institution belongs to Military Tradition rather than metalworking alone","First military-training building; Armory follows later"
 "C031","Ancient","CITY_BUILDING","Shrine","","Mysticism","CIVIC","Civ6 GS remap; Civ5 religion system","Astrology","KEEP","Early organized worship institution belongs to Mysticism while Astrology supplies the material/religious discovery side","Temple follows at Theology"
+"BLD_A001","Ancient","CITY_BUILDING","Palace","","","START","Civ5 BNW; Civ6 GS","Capital default","KEEP","Baseline capital institution","Capital only; automatically present in the capital"
+"BLD_A002","Ancient","CITY_BUILDING","Monument","","","START","Civ5 BNW; Civ6 GS","Monument","KEEP","Core early cultural city building exists without a technology gate","Buildable from game start"
