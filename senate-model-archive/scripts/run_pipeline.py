@@ -18,6 +18,8 @@ STEPS = [
     'fetch_congress_legislators.py',
     'crosscheck_congress_service.py',
     'build_congress_experience_overrides.py',
+    'fetch_nga_former_governors.py',
+    'audit_governor_experience.py',
     'audit_presidential_national_margin.py',
     'audit_presidential_2000_duplicates.py',
 ]
