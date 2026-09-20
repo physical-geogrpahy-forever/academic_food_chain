@@ -150,7 +150,6 @@ Allowed DECISION values:
 - ADAPT_TILE
 - REMAP_TECH
 - MERGE
-- REMOVE_GP_IMPROVEMENT
 - REMOVE_DISTRICT
 - DEFER_WONDER
 - DEFER
@@ -344,7 +343,7 @@ For each era:
 - collect relevant Civ VI GS additions;
 - classify;
 - remap;
-- remove district/GP-improvement/Wonder content;
+- remove districts; adapt former Great Person improvements into nerfed Worker-built tile improvements; defer Wonders;
 - run duplicate and empty-tech QA.
 
 Do not research all 109 technologies in one giant pass.
