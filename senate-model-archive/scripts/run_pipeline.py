@@ -21,6 +21,7 @@ STEPS = [
     'fetch_nga_former_governors.py',
     'audit_governor_experience.py',
     'build_outparty_incumbent.py',
+    'build_personal_vote_sufficient_stats.py',
     'audit_presidential_national_margin.py',
     'audit_presidential_2000_duplicates.py',
 ]
