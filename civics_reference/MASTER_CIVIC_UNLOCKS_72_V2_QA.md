@@ -27,3 +27,24 @@ Status: **PASS — QUALITATIVE CIVIC/POLICY OWNERSHIP COMPLETE**
 - `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.csv`
 
 Remaining policy work is **numeric balance only**, not ownership/content selection.
+
+
+## Policy effect completion
+
+- **127/127 policy effects locked**
+- missing slots: 0
+- missing final effects: 0
+- duplicate policy names: 0
+- all policies: `NUMERIC_STATUS=LOCKED_V1`
+
+Slot distribution:
+- Military 35
+- Economic 46
+- Wildcard 26
+- Diplomatic 20
+
+Effect authority:
+`civics_reference/FINAL_POLICY_CARD_ROSTER_V1.csv`
+
+QA authority:
+`civics_reference/FINAL_POLICY_CARD_ROSTER_V1_QA.md`
