@@ -1,0 +1,4 @@
+test_cycle,pv_threshold,personal_k,gamma,train_n,train_correct,train_accuracy_pct,train_flips
+2014,0,1,1,0,,,0
+2018,3,2,6,33,33,100.0,1
+2022,5,2,10,66,65,98.48484848484848,6
