@@ -1,6 +1,6 @@
 # GitHub Actions run: headline validation sample-size inference
 
-- Generated UTC: 2026-09-20T16:51:53.993738+00:00
+- Generated UTC: 2026-09-20T16:58:31.976293+00:00
 - Execution: GitHub Actions
 - 2014/2018/2022 general-election race_id total: 104
 - Preserved direction accuracies: 90.9% and 91.9%

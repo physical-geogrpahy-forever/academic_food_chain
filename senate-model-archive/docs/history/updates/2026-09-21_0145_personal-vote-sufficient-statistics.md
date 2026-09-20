@@ -1,6 +1,6 @@
 # GitHub Actions run: PersonalVote sufficient statistics v1
 
-- Generated UTC: 2026-09-20T16:53:02.296343+00:00
+- Generated UTC: 2026-09-20T16:59:39.152285+00:00
 - Headline candidate-side rows: 198
 - Candidate-side rows with at least one prior statewide Senate/Governor election: 82
 - Candidate-side rows with cycle-adjusted prior overperformance available: 80
