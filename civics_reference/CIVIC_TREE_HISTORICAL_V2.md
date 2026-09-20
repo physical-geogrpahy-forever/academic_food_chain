@@ -58,7 +58,7 @@ The old requirement Feudalism -> Court Culture is removed. Court-centered admini
 ### Renaissance
 
 V2:
-- Scholasticism + Medieval Faires -> Humanism
+- Scholasticism + Guilds -> Humanism
 - Court Culture -> Diplomatic Service
 - Court Culture + Humanism -> Patronage
 - Humanism -> Print Culture
@@ -68,7 +68,7 @@ Diplomatic Service is no longer derived from Guilds. Renaissance permanent diplo
 ### Exploration
 
 V2:
-- Naval Tradition + Medieval Faires -> Exploration
+- Naval Tradition + Mercenaries -> Exploration
 - Theology + Print Culture -> Reformed Church
 - Print Culture -> Scientific Revolution
 - Diplomatic Service + Humanism -> Sovereignty
@@ -188,3 +188,12 @@ First review V2's social-only relationships. After approval:
 - mark which social civics need hard technology gates;
 - mark which only receive technology-based Inspiration/boost;
 - keep the two trees parallel but cross-linked.
+
+
+## Guilds and Mercenaries successor cleanup
+
+After the first V2 QA pass:
+- Humanism was changed from Scholasticism + Medieval Faires to **Scholasticism + Guilds**.
+- Exploration was changed from Naval Tradition + Medieval Faires to **Naval Tradition + Mercenaries**.
+
+This removes two unnecessary dead-end branches while remaining close to Civilization VI's original structure.
