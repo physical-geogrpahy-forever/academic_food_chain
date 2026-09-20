@@ -1,0 +1,31 @@
+RESOURCE_ID,REGION_ID,LON_MIN,LON_MAX,LAT_MIN,LAT_MAX,DESIGN_NOTE
+MAIZE,MESOAMERICA_BROAD,-107,-85,8,24,Balsas domestication core plus broad Mesoamerican early-source envelope
+WHEAT,EUROPE_ANATOLIA_BROAD,-11,42,30,57,4000 BCE broad farming/wheat envelope across Europe and Anatolia
+WHEAT,FERTILE_IRAN_BALUCHISTAN,25,74,23,42,Fertile Crescent through Iranian plateau to Baluchistan/Mehrgarh
+RICE,CENTRAL_SOUTH_CHINA_BROAD,98,123,20,35,Yangtze core plus broad central/southern Chinese wild/cultivation source envelope
+BANANAS,ISEA_NEW_GUINEA_BROAD,95,155,-12,18,New Guinea core plus broad Island/Mainland Southeast Asian Musa source envelope
+CITRUS,NE_INDIA_MYANMAR_YUNNAN,88,106,20,32,Genomic citrus origin triangle and immediately adjacent source belt
+COCOA,UPPER_AMAZON_BROAD,-82,-60,-15,7,Upper Amazon/NW South America cacao source envelope
+COTTON,INDUS_BALUCHISTAN,60,78,20,34,Old World Gossypium arboreum source/domestication zone
+COTTON,NE_AFRICA_ARABIA_BROAD,25,52,5,25,Broad Old World G. herbaceum source envelope; game-expansive mask
+COTTON,MESOAMERICA,-108,-83,7,25,New World cotton source/domestication zone
+COTTON,NW_SOUTH_AMERICA_PERU,-82,-66,-22,8,Andean/NW South American cotton source/domestication zone
+COFFEE,ETHIOPIA_SOUTH_SUDAN,33,42,3,13,Wild Arabica Ethiopian Highlands and Boma Plateau source
+TEA,SW_CHINA_ASSAM_NMYANMAR,91,108,20,32,Broad southwest-China-centered tea source belt
+TOBACCO,NORTH_AMERICA_NATIVE,-125,-65,25,50,Broad native Nicotiana/human-use envelope
+TOBACCO,MESOAMERICA,-117,-80,8,30,Mesoamerican native tobacco envelope
+TOBACCO,SOUTH_AMERICA_NATIVE,-82,-50,-45,12,Broad South American Nicotiana source envelope
+OLIVES,MEDITERRANEAN_OLEASTER,-10,42,28,46,Mediterranean wild-olive source plus early cultivation envelope
+WINE,MEDITERRANEAN_SW_ASIA_GRAPE,-10,55,28,48,Wild grape and early grape-use/source envelope; WINE represented by grape basis
+DYES,EUROPE_MEDITERRANEAN_SW_ASIA,-12,55,25,58,Composite dye-source envelope: woad/madder/safflower and other local sources
+DYES,SOUTH_ASIA,60,90,5,32,Composite South Asian dye-source envelope
+DYES,EAST_SE_ASIA,90,125,5,35,Composite East/Southeast Asian dye-source envelope
+DYES,ANDEAN_PERU,-82,-65,-30,5,Andean indigoid and other dye-source envelope
+SPICES,SOUTH_ASIA,68,90,5,30,Black pepper/cinnamon and other South Asian spice-source envelope
+SPICES,SOUTHEAST_ASIA_MALUKU,90,140,-12,25,Southeast Asian spice-source envelope including Maluku/Banda
+HORSES,EURASIAN_WILD_HORSE,-10,125,30,60,Broad 4000 BCE Eurasian wild-horse source envelope; Americas excluded
+CATTLE,EUROPE_SW_ASIA_INDUS,-12,80,20,60,Taurine expansion plus Indus zebu source by 4000 BCE
+CATTLE,NORTH_AFRICA_SAHARA,-17,40,10,37,Broad North African/Saharan early cattle envelope
+SHEEP,EURASIA_BROAD,-12,110,25,60,SW Asian sheep expansion through Europe/Central Asia to NW China by ~4000 BCE
+SHEEP,NORTH_AFRICA,-17,40,10,37,North African early sheep/livestock envelope
+SUGAR,NEW_GUINEA_ISEA_BROAD,95,130,-10,20,Game-expansive 4000 BCE source belt: New Guinea origin plus ISEA/Southeast Asian early Saccharum source/dispersal zone; capped at 20N to keep South China latent
