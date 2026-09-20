@@ -1,4 +1,5 @@
 # 99-row performance pipeline
+# rerun national+approval 2026-09-21
 #!/usr/bin/env python3
 from pathlib import Path
 import runpy
