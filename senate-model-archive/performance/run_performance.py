@@ -10,6 +10,7 @@ STEPS=[
     'run_economic_growth_oos.py',
     'run_national_oos.py',
     'run_approval_99row_oos.py',
+    'run_full_partial_pooling_oos.py',
 ]
 for name in STEPS:
     print('=== PERFORMANCE RUN',name,'===')
