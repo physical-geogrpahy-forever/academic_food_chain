@@ -1,0 +1,73 @@
+CIVIC_EN,CIVIC_KO,PROJECT_ERA,ERA_INDEX,PREREQUISITES_AND,SOURCE,EDGE_STATUS,SUCCESSORS
+Code of Laws,법전,Ancient,1,,CIV6,ROOT,Craftsmanship; Foreign Trade
+Craftsmanship,장인 정신,Ancient,1,Code of Laws,CIV6,ORIGINAL,Military Tradition; State Workforce
+Foreign Trade,외국 무역,Ancient,1,Code of Laws,CIV6,ORIGINAL,Early Empire; Mysticism
+Military Tradition,군사 전통,Ancient,1,Craftsmanship,CIV6,ORIGINAL,Military Training
+State Workforce,국가 노동력,Ancient,1,Craftsmanship,CIV6,ORIGINAL,Games and Recreation; Political Philosophy
+Early Empire,초기 제국,Ancient,1,Foreign Trade,CIV6,ORIGINAL,Political Philosophy; Drama and Poetry
+Mysticism,신비주의,Ancient,1,Foreign Trade,CIV6,ORIGINAL,Theology
+Games and Recreation,오락과 여가,Classical,2,State Workforce,CIV6,ORIGINAL,Military Training; Defensive Tactics
+Political Philosophy,정치 철학,Classical,2,State Workforce; Early Empire,CIV6,ORIGINAL,Recorded History; Defensive Tactics
+Drama and Poetry,드라마와 시,Classical,2,Early Empire,CIV6,ORIGINAL,Recorded History; Theology
+Military Training,군사 훈련,Classical,2,Military Tradition; Games and Recreation,CIV6,ORIGINAL,Mercenaries
+Recorded History,역사 기록,Classical,2,Political Philosophy; Drama and Poetry,CIV6,ORIGINAL,Civil Service
+Defensive Tactics,방어술,Late Antiquity,3,Games and Recreation; Political Philosophy,CIV6,ORIGINAL_MOVED_ERA,Naval Tradition; Civil Service; Feudalism
+Theology,신학,Late Antiquity,3,Mysticism; Drama and Poetry,CIV6,ORIGINAL_MOVED_ERA,Written Culture; Divine Right
+Naval Tradition,해군 전통,Late Antiquity,3,Defensive Tactics,CIV6,ORIGINAL_MOVED_ERA,Mercantilism
+Civil Service,공무원 제도,Late Antiquity,3,Defensive Tactics; Recorded History,CIV6,ORIGINAL_MOVED_ERA,Written Culture; Guilds; Divine Right
+Feudalism,봉건제,Early Medieval,4,Defensive Tactics,CIV6,ORIGINAL_MOVED_ERA,Mercenaries; Court Culture; Medieval Faires; Guilds
+Mercenaries,용병,Early Medieval,4,Military Training; Feudalism,CIV6,ORIGINAL_MOVED_ERA,Exploration
+Written Culture,문자문화,Early Medieval,4,Civil Service; Theology,ADDED,INSERTED,Court Culture; Scholasticism
+Court Culture,궁정 문화,Early Medieval,4,Written Culture; Feudalism,ADDED,INSERTED,Patronage
+Medieval Faires,중세 시장,High Medieval,5,Feudalism,CIV6,ORIGINAL_MOVED_ERA,Humanism; Exploration
+Guilds,길드,High Medieval,5,Feudalism; Civil Service,CIV6,ORIGINAL_MOVED_ERA,Scholasticism; Diplomatic Service
+Divine Right,왕권신수설,High Medieval,5,Theology; Civil Service,CIV6,ORIGINAL_MOVED_ERA,Reformed Church
+Scholasticism,스콜라주의,High Medieval,5,Written Culture; Guilds,ADDED,INSERTED,Humanism
+Humanism,인본주의,Renaissance,6,Medieval Faires; Scholasticism,CIV6+INSERT,INSERTED_ON_GUILDS_EDGE,Patronage; Print Culture; Mercantilism; The Enlightenment
+Diplomatic Service,외교부,Renaissance,6,Guilds,CIV6,ORIGINAL,Sovereignty; The Enlightenment
+Patronage,후원,Renaissance,6,Court Culture; Humanism,ADDED,INSERTED,Opera and Ballet
+Print Culture,인쇄문화,Renaissance,6,Humanism,ADDED,INSERTED,Reformed Church; Scientific Revolution; Public Sphere
+Exploration,탐험,Exploration,7,Mercenaries; Medieval Faires,CIV6,ORIGINAL_MOVED_ERA,Colonialism; Scientific Revolution
+Reformed Church,개혁 교회,Exploration,7,Divine Right; Print Culture,CIV6+INSERT,INSERTED_ON_GUILDS_EDGE,Sovereignty
+Mercantilism,중상주의,Exploration,7,Humanism; Naval Tradition,CIV6+INSERT,ORIGINAL_PLUS_NAVAL,Colonialism; Civil Engineering
+Colonialism,식민주의,Exploration,7,Mercantilism; Exploration,CIV6+INSERT,ORIGINAL_PLUS_EXPLORATION,Natural History
+Scientific Revolution,과학혁명,Exploration,7,Print Culture; Exploration,ADDED,INSERTED,Natural History
+Sovereignty,주권,Exploration,7,Diplomatic Service; Reformed Church,ADDED,INSERTED,Constitutionalism
+The Enlightenment,계몽주의,Enlightenment,8,Humanism; Diplomatic Service,CIV6,ORIGINAL_MOVED_ERA,Opera and Ballet; Constitutionalism; Public Sphere
+Opera and Ballet,오페라와 발레,Enlightenment,8,The Enlightenment; Patronage,CIV6+INSERT,ORIGINAL_PLUS_PATRONAGE,Romanticism
+Natural History,자연사,Enlightenment,8,Colonialism; Scientific Revolution,CIV6+INSERT,ORIGINAL_PLUS_SCI_REV,Conservation; Mass Media; Romanticism
+Constitutionalism,헌정주의,Enlightenment,8,The Enlightenment; Sovereignty,ADDED,INSERTED,Suffrage
+Public Sphere,공론장,Enlightenment,8,The Enlightenment; Print Culture,ADDED,INSERTED,Nationalism
+Civil Engineering,토목 공학,Industrial,9,Mercantilism,CIV6,ORIGINAL_MOVED_ERA,Urbanization
+Nationalism,민족주의,Industrial,9,Public Sphere,CIV6+INSERT,INSERTED_ON_ENLIGHTENMENT_EDGE,Scorched Earth; Urbanization
+Scorched Earth,초토화,Industrial,9,Nationalism,CIV6,ORIGINAL,Mobilization
+Urbanization,도시화,Industrial,9,Civil Engineering; Nationalism,CIV6,ORIGINAL,Mass Media; Mobilization
+Conservation,보존,Industrial,9,Natural History,CIV6,ORIGINAL_MOVED_ERA,Cultural Heritage
+Mass Media,대중 매체,Industrial,9,Natural History; Urbanization,CIV6,ORIGINAL_MOVED_ERA,Capitalism; Ideology
+Capitalism,자본주의,Industrial,9,Mass Media,CIV6,ORIGINAL_MOVED_ERA,Labor Movement
+Romanticism,낭만주의,Industrial,9,Opera and Ballet; Natural History,ADDED,INSERTED,Cultural Heritage
+Labor Movement,노동운동,Industrial,9,Capitalism,ADDED,INSERTED,Class Struggle
+Mobilization,동원령,Modern,10,Urbanization; Scorched Earth,CIV6,ORIGINAL,Ideology
+Ideology,이데올로기,Modern,10,Mass Media; Mobilization,CIV6,ORIGINAL,Suffrage; Totalitarianism; Class Struggle; Professional Sports; Nuclear Program; Cold War
+Suffrage,참정권,Modern,10,Ideology; Constitutionalism,CIV6+INSERT,ORIGINAL_PLUS_CONSTITUTIONALISM,
+Totalitarianism,전체주의,Modern,10,Ideology,CIV6,ORIGINAL,
+Class Struggle,계급 투쟁,Modern,10,Ideology; Labor Movement,CIV6+INSERT,ORIGINAL_PLUS_LABOR,
+Professional Sports,프로 스포츠,Modern,10,Ideology,CIV6,ORIGINAL_MOVED_ERA,Social Media
+Nuclear Program,핵 프로그램,Atomic,11,Ideology,CIV6,ORIGINAL_MOVED_ERA,Cold War
+Cultural Heritage,문화 유산,Atomic,11,Conservation; Romanticism,CIV6+INSERT,ORIGINAL_PLUS_ROMANTICISM,Environmentalism
+Cold War,냉전,Atomic,11,Ideology; Nuclear Program,CIV6+INSERT,ORIGINAL_PLUS_NUCLEAR,Rapid Deployment; Space Race
+Rapid Deployment,신속한 배치,Atomic,11,Cold War,CIV6,ORIGINAL,Environmentalism; Globalization
+Space Race,우주 경쟁,Atomic,11,Cold War,CIV6,ORIGINAL,Globalization; Social Media
+Environmentalism,환경주의,Atomic,11,Cultural Heritage; Rapid Deployment,CIV6,ORIGINAL_MOVED_ERA,Near Future Governance
+Globalization,세계화,Information,12,Rapid Deployment; Space Race,CIV6,ORIGINAL,Near Future Governance; Venture Politics; Distributed Sovereignty; Optimization Imperative
+Social Media,소셜 미디어,Information,12,Space Race; Professional Sports,CIV6,ORIGINAL,Venture Politics; Distributed Sovereignty; Optimization Imperative
+Near Future Governance,근미래 통치,Information,12,Environmentalism; Globalization,CIV6,ORIGINAL,Information Warfare
+Venture Politics,벤처 정치,Information,12,Globalization; Social Media,CIV6,ORIGINAL,Information Warfare; Smart Power Doctrine
+Distributed Sovereignty,분산 주권,Information,12,Globalization; Social Media,CIV6,ORIGINAL,Global Warming Mitigation; Cultural Hegemony
+Optimization Imperative,최적화 명령,Information,12,Globalization; Social Media,CIV6,ORIGINAL,Global Warming Mitigation
+Information Warfare,정보전,Information,12,Near Future Governance; Venture Politics,CIV6_FUTURE,RANDOM_TEMPLATE_A,Cultural Hegemony
+Global Warming Mitigation,지구온난화 완화,Information,12,Distributed Sovereignty; Optimization Imperative,CIV6_FUTURE,RANDOM_TEMPLATE_B,Smart Power Doctrine
+Cultural Hegemony,문화적 패권,Information,12,Information Warfare; Distributed Sovereignty,CIV6_FUTURE,RANDOM_TEMPLATE_C,Exodus Imperative
+Smart Power Doctrine,스마트 파워 독트린,Information,12,Global Warming Mitigation; Venture Politics,CIV6_FUTURE,RANDOM_TEMPLATE_D,Exodus Imperative
+Exodus Imperative,강제 대이동,Information,12,Cultural Hegemony; Smart Power Doctrine,CIV6_FUTURE,RANDOM_TEMPLATE_E,Future Civic
+Future Civic,미래 사회제도,Information,12,Exodus Imperative,CIV6_FUTURE,REPEATABLE_TERMINAL,
