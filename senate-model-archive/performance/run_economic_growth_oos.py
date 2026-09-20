@@ -11,7 +11,7 @@ HEADSS=ROOT/'data/processed/core_v2r_headline_same_seat_features.csv'
 CAND=ROOT/'data/processed/core_v2r_headline_design_matrix_with_outparty_incumbent.csv'
 OUTDIR=ROOT/'performance/results'
 DOC=ROOT/'docs/history/updates/2026-09-21_0210_relative-economic-growth-oos.md'
-URL='https://apps.bea.gov/regional/zip/SQINC1.zip'
+URL='https://apps.bea.gov/regional/zip/SQINC.zip'
 OUTDIR.mkdir(parents=True,exist_ok=True)
 
 STATE_ABBR={
