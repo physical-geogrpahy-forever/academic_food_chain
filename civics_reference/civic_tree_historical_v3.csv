@@ -6,7 +6,7 @@ Military Tradition,군사 전통,Ancient,1,Craftsmanship,CIV6,KEEP,Military Trai
 State Workforce,국가 노동력,Ancient,1,Craftsmanship,CIV6,KEEP,Games and Recreation; Political Philosophy; Military Training
 Early Empire,초기 제국,Ancient,1,Foreign Trade,CIV6,KEEP,Political Philosophy; Drama and Poetry; Recorded History; Civil Service
 Mysticism,신비주의,Ancient,1,Foreign Trade,CIV6,KEEP,Drama and Poetry; Theology
-Games and Recreation,오락과 여가,Classical,2,State Workforce,CIV6,KEEP,
+Games and Recreation,오락과 여가,Classical,2,State Workforce,CIV6,KEEP,Professional Sports
 Political Philosophy,정치 철학,Classical,2,State Workforce; Early Empire,CIV6,KEEP,Recorded History; Defensive Tactics
 Drama and Poetry,드라마와 시,Classical,2,Mysticism; Early Empire,CIV6_MOD,HISTORICAL_ADJUST,Court Culture
 Military Training,군사 훈련,Classical,2,Military Tradition; State Workforce,CIV6_MOD,HISTORICAL_ADJUST,Defensive Tactics; Mercenaries
@@ -38,7 +38,7 @@ Opera and Ballet,오페라와 발레,Enlightenment,8,Patronage,CIV6_MOD,KEEP_V2,
 Natural History,자연사,Enlightenment,8,Scientific Revolution; Exploration,CIV6_MOD,KEEP_V2,Conservation
 Public Sphere,공론장,Enlightenment,8,Print Culture; The Enlightenment,ADDED,KEEP_V2,Constitutionalism; Nationalism; Mass Media; Social Media
 Constitutionalism,헌정주의,Enlightenment,8,Public Sphere; Sovereignty,ADDED,KEEP_V2,Suffrage
-Capitalism,자본주의,Industrial,9,Mercantilism,CIV6_MOD,KEEP_V2,Urbanization; Labor Movement; Professional Sports; Globalization
+Capitalism,자본주의,Industrial,9,Mercantilism,CIV6_MOD,KEEP_V2,Urbanization; Labor Movement; Globalization
 Civil Engineering,토목 공학,Industrial,9,Civil Service; Sovereignty,CIV6_MOD,HISTORICAL_ADJUST,Urbanization
 Nationalism,민족주의,Industrial,9,Sovereignty; Public Sphere,CIV6_MOD,KEEP_V2,Scorched Earth; Mobilization; Ideology
 Romanticism,낭만주의,Industrial,9,Opera and Ballet; The Enlightenment,ADDED,KEEP_V2,Conservation
@@ -52,7 +52,7 @@ Ideology,이데올로기,Modern,10,Nationalism; Mass Media,CIV6_MOD,HISTORICAL_A
 Suffrage,참정권,Modern,10,Constitutionalism,CIV6_MOD,HISTORICAL_ADJUST_OPTIONAL_BRANCH,
 Totalitarianism,전체주의,Modern,10,Ideology,CIV6,KEEP_OPTIONAL_BRANCH,
 Class Struggle,계급 투쟁,Modern,10,Ideology; Labor Movement,CIV6_MOD,KEEP_V2_OPTIONAL_BRANCH,
-Professional Sports,프로 스포츠,Modern,10,Urbanization; Capitalism,CIV6_MOD,KEEP_V2_OPTIONAL_BRANCH,
+Professional Sports,프로 스포츠,Modern,10,Games and Recreation; Urbanization,CIV6_MOD,HISTORICAL_ADJUST_OPTIONAL_BRANCH,
 Nuclear Program,핵 프로그램,Atomic,11,Mobilization,CIV6_MOD,HISTORICAL_ADJUST_TECH_GATE_LATER,Cold War
 Cultural Heritage,문화 유산,Atomic,11,Conservation,CIV6_MOD,KEEP_V2_OPTIONAL_BRANCH,
 Cold War,냉전,Atomic,11,Ideology; Nuclear Program,CIV6_MOD,KEEP_V2,Rapid Deployment; Space Race; Globalization
