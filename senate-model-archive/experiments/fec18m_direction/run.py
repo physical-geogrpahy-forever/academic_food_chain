@@ -19,7 +19,10 @@ API='https://api.open.fec.gov/v1/reports/house-senate/'
 def load(p):
     with p.open('r',encoding='utf-8-sig',newline='') as f:return list(csv.DictReader(f))
 def norm(s):
-    s=(s or '').lower().replace(',',' ')
+    s=(s or '').strip().lower()
+    if ',' in s:
+        left,right=s.split(',',1)
+        s=right+' '+left
     s=re.sub(r'\b(jr|sr|ii|iii|iv)\b',' ',s)
     s=re.sub(r'[^a-z0-9 ]+',' ',s)
     return re.sub(r'\s+',' ',s).strip()
@@ -74,14 +77,20 @@ def match_candidate(year,state,name,side):
     scored=[]
     for x in pool:
         n=norm(x['cand_name'])
-        sim=1.0 if q==n else SequenceMatcher(None,q,n).ratio()
-        qlast=q.split()[-1] if q else '';nlast=n.split()[-1] if n else ''
-        if qlast and qlast==nlast:sim+=0.16
+        seq=1.0 if q==n else SequenceMatcher(None,q,n).ratio()
+        qt=q.split();nt=n.split()
+        qlast=qt[-1] if qt else '';nlast=nt[-1] if nt else ''
+        qfirst=qt[0] if qt else '';nfirst=nt[0] if nt else ''
+        surname=1.0 if qlast and qlast==nlast else 0.0
+        first=1.0 if qfirst and nfirst and (qfirst==nfirst or qfirst[0]==nfirst[0]) else 0.0
+        qset=set(qt);nset=set(nt)
+        jacc=len(qset & nset)/max(len(qset | nset),1)
+        sim=0.50*seq+0.25*surname+0.15*first+0.10*jacc
         if party_ok(x['party'],side):sim+=0.08
         elif x['party']:sim-=0.12
         scored.append((sim,x))
     scored.sort(key=lambda z:z[0],reverse=True)
-    if not scored or scored[0][0]<0.82:return None,(scored[0][0] if scored else 0)
+    if not scored or scored[0][0]<0.72:return None,(scored[0][0] if scored else 0)
     if len(scored)>1 and scored[0][0]-scored[1][0]<0.04:return None,scored[0][0]
     return scored[0][1],scored[0][0]
 
