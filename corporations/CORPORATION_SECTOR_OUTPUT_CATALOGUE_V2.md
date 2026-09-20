@@ -90,18 +90,16 @@ This follows the previously locked rule that cars/electronics can have both cons
 | Film, Media & Entertainment | PENDING_FILM_TECH_DECISION | Radio | Service | 0 |
 | Airlines & Travel | Advanced Flight | - | Service | 0 |
 
-## 5. Film/media exception
+## 5. Film/media gate — FINAL
 
-`MEDIA_FILM_ENTERTAINMENT` is deliberately **not** given a fake current gate.
+The project keeps the locked **109-tech V2** tree.
 
-The project still has the unresolved 109-tech vs 111-tech decision:
-- keep 109 technologies and map Film/Great Director to an existing technology; or
-- add Photography and Cinematography.
+- `Electricity` = base gate for Great Director, Cinema, Director-specialist infrastructure and Great Works of Film.
+- `Radio` = later Film/Media sector upgrade for broadcast and mass-media expansion.
+- Photography and Cinematography are represented inside this implementation package rather than added as standalone technology nodes.
 
-Therefore its base technology is recorded as:
-`PENDING_FILM_TECH_DECISION`
-
-Do not silently convert this to Radio or another technology until that earlier project decision is made.
+Therefore `MEDIA_FILM_ENTERTAINMENT` now uses:
+`Electricity -> Radio`.
 
 ## 6. Conglomerate handling
 
@@ -121,8 +119,8 @@ Before the 109-tech unit/building table:
 1. reconcile founder-specific gate exceptions against this catalogue;
 2. assign quantitative production/branch effects by sector;
 3. define corporate diversification rules;
-4. resolve the Film/Cinematography technology decision;
-5. freeze the signature-founder subset.
+4. use the locked Film/Media gate `Electricity -> Radio`;
+5. use the locked signature-founder roster.
 
 
 ## 8. Historical gate reconciliation note
