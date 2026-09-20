@@ -68,7 +68,13 @@ def parse_workbook(year,b):
             if any('candidate' in x for x in low) and any('receipt' in x for x in low):
                 score=sum(bool(x) for x in txt)
                 if best is None or score>best[0]:best=(score,ws.title,i,vals)
-    if best is None:raise RuntimeError(f'No header row detected in {year} workbook')
+    if best is None:
+        dump=[]
+        for ws in wb.worksheets:
+            dump.append('SHEET='+ws.title)
+            for row in list(ws.iter_rows(values_only=True))[:25]:
+                dump.append(' || '.join('' if x is None else str(x) for x in row))
+        raise RuntimeError(f"No header row detected in {year} workbook\n"+'\n'.join(dump))
     _,sheet,hi,vals=best
     rawheaders=[str(x).strip() if x is not None else '' for x in vals[hi]]
     headers=[];seen={}
