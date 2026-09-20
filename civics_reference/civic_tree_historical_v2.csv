@@ -16,18 +16,18 @@ Theology,신학,Late Antiquity,3,Mysticism; Recorded History,CIV6_MOD,HISTORICAL
 Naval Tradition,해군 전통,Late Antiquity,3,Military Tradition; Foreign Trade,CIV6_MOD,HISTORICAL_ADJUST,Exploration
 Civil Service,공무원 제도,Late Antiquity,3,Early Empire; Recorded History,CIV6_MOD,HISTORICAL_ADJUST,Written Culture; Guilds
 Feudalism,봉건제,Early Medieval,4,Defensive Tactics,CIV6,KEEP,Medieval Faires
-Mercenaries,용병,Early Medieval,4,Military Training; Foreign Trade,CIV6_MOD,HISTORICAL_ADJUST,
+Mercenaries,용병,Early Medieval,4,Military Training; Foreign Trade,CIV6_MOD,HISTORICAL_ADJUST,Exploration
 Written Culture,문자문화,Early Medieval,4,Civil Service,ADDED,HISTORICAL_ADJUST,Court Culture; Scholasticism
 Court Culture,궁정 문화,Early Medieval,4,Written Culture,ADDED,HISTORICAL_ADJUST,Divine Right; Diplomatic Service; Patronage
-Medieval Faires,중세 시장,High Medieval,5,Feudalism; Foreign Trade,CIV6_MOD,HISTORICAL_ADJUST,Guilds; Humanism; Exploration
-Guilds,길드,High Medieval,5,Medieval Faires; Civil Service,CIV6_MOD,HISTORICAL_ADJUST,
+Medieval Faires,중세 시장,High Medieval,5,Feudalism; Foreign Trade,CIV6_MOD,HISTORICAL_ADJUST,Guilds
+Guilds,길드,High Medieval,5,Medieval Faires; Civil Service,CIV6_MOD,HISTORICAL_ADJUST,Humanism
 Divine Right,왕권신수설,High Medieval,5,Theology; Court Culture,CIV6_MOD,HISTORICAL_ADJUST,
 Scholasticism,스콜라주의,High Medieval,5,Theology; Written Culture,ADDED,HISTORICAL_ADJUST,Humanism
-Humanism,인본주의,Renaissance,6,Scholasticism; Medieval Faires,CIV6_MOD,HISTORICAL_ADJUST,Patronage; Print Culture; Sovereignty
+Humanism,인본주의,Renaissance,6,Scholasticism; Guilds,CIV6_MOD,HISTORICAL_ADJUST,Patronage; Print Culture; Sovereignty
 Diplomatic Service,외교부,Renaissance,6,Court Culture,CIV6_MOD,HISTORICAL_ADJUST,Sovereignty
 Patronage,후원,Renaissance,6,Court Culture; Humanism,ADDED,KEEP,Opera and Ballet
 Print Culture,인쇄문화,Renaissance,6,Humanism,ADDED,KEEP,Reformed Church; Scientific Revolution; Public Sphere
-Exploration,탐험,Exploration,7,Naval Tradition; Medieval Faires,CIV6_MOD,HISTORICAL_ADJUST,Mercantilism; Natural History
+Exploration,탐험,Exploration,7,Naval Tradition; Mercenaries,CIV6_MOD,HISTORICAL_ADJUST,Mercantilism; Natural History
 Reformed Church,개혁 교회,Exploration,7,Theology; Print Culture,CIV6_MOD,HISTORICAL_ADJUST,
 Scientific Revolution,과학혁명,Exploration,7,Print Culture,ADDED,HISTORICAL_ADJUST,The Enlightenment; Natural History
 Sovereignty,주권,Exploration,7,Diplomatic Service; Humanism,ADDED,HISTORICAL_ADJUST,Mercantilism; The Enlightenment; Constitutionalism; Civil Engineering; Nationalism
