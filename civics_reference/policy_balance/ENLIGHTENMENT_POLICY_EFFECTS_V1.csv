@@ -1,0 +1,10 @@
+POLICY_EN,CIVIC_EN,POLICY_SLOT,FINAL_EFFECT,SOURCE_BASIS
+"Rationalism","The Enlightenment","Economic","Science output from University, Public School, and Research Lab +50%","Civ6 +100% Campus-building Science adapted conservatively"
+"Free Market","The Enlightenment","Economic","Gold output from Market, Bank, and Stock Exchange +50%","Civ6 +100% Commercial-Hub-building Gold adapted conservatively"
+"Liberalism","The Enlightenment","Economic","+1 Amenity in cities with at least 2 institutional building chains","Civ6 district threshold adapted"
+"Grand Opera","Opera and Ballet","Economic","Culture output from Amphitheater, Opera House, Museum, and Broadcast Center +50%","Civ6 +100% Theater-building Culture adapted conservatively"
+"Symphonies","Opera and Ballet","Wildcard","+4 Great Musician Points per turn","Civ6 direct"
+"Separation of Powers","Constitutionalism","Wildcard","Courthouse and government-administration buildings each provide +1 Culture and +1 Gold","Project historical policy"
+"Bill of Rights","Constitutionalism","Economic","+1 Amenity in cities with a Courthouse; occupation/unrest pressure -25%","Project historical policy"
+"Coffeehouse Debate","Public Sphere","Wildcard","University, Opera House, and Newspaper Office each provide +1 Science and +1 Culture","Project historical policy"
+"Pamphleteering","Public Sphere","Diplomatic","Newspaper Office +1 Culture; international Trade Routes provide +1 Culture","Project historical/public-sphere policy"
