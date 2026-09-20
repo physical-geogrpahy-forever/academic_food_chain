@@ -1,6 +1,6 @@
-TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"TECH_EN","UNITS","CITY_BUILDINGS","TILE_IMPROVEMENTS","ROUTES_INFRASTRUCTURE","RESOURCE_REVEAL","RESOURCE_EXPLOITATION","SYSTEMS_NOTES"
 "Mass Production","","Shipyard","","","","","Assembly-Line Production; four corporation sector gates with Capitalism"
-"Fertilizer","","","","","","","Non-fresh Farm +1 Food; Plantation +1 Food; Pasture bonus deferred; chemical-sector fertilizer upgrade"
+"Fertilizer","","","","","","","Non-fresh Farm +1 Food; Plantation +1 Food; Pasture +1 Food; chemical-sector fertilizer upgrade"
 "Biology","","Hospital with Urbanization","","","","","Medical Biology; Pharmaceuticals corp gate; Oil moved to Refining"
 "Dynamite","Artillery with Military Science","","","","","","High-Explosive Mining; Mining corp gate"
 "Railroad","","","Railroad route","","","","Rail-network production/logistics bonus; hospitality corp gate; mining/logistics upgrades"
