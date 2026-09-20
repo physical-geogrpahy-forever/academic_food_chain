@@ -143,13 +143,13 @@ Changed:
 - Constitutionalism -> Suffrage
 - Ideology -> Totalitarianism
 - Ideology + Labor Movement -> Class Struggle
-- Urbanization + Capitalism -> Professional Sports
+- Games and Recreation + Urbanization -> Professional Sports
 
 Critical fixes:
 - Scorched Earth no longer causes Mobilization.
 - Mobilization no longer causes Ideology.
 - Labor Movement is no longer a mandatory prerequisite for Suffrage.
-- Professional Sports has no ideological prerequisite.
+- Professional Sports has no ideological prerequisite; it now continues the older public-recreation branch through urban mass society.
 
 Labor movements historically contributed to franchise expansion in many societies, but because they were not universally necessary they belong better as an Inspiration/boost for Suffrage than as a hard prerequisite.
 
@@ -223,3 +223,10 @@ A missing technology should never be replaced by an unrelated civic prerequisite
 The social tree may have optional terminal branches. "Connected" means every node is reachable from the root, not that every civic must be a mandatory step toward a later civic.
 
 That distinction prevents artificial links such as Mercenaries -> Exploration or Professional Sports -> Social Media.
+
+
+### Public recreation continuity
+
+Post-QA cleanup:
+- Professional Sports now requires **Games and Recreation + Urbanization**, not Capitalism + Urbanization.
+- This preserves a long cultural line from organized public recreation to urban mass spectator sport without making capitalism a universal hard prerequisite.
