@@ -44,10 +44,10 @@ Examples:
 ### Region
 - Europe/North America: 44
 - East Asia: 23
-- Southeast Asia/Middle East: 9
+- Southeast Asia: 9
 - South Asia: 7
 - Latin America: 6
-- Southeast Asia: 5
+- Middle East: 5
 - Africa: 4
 - Oceania: 1
 
