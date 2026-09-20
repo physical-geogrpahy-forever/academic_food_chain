@@ -1,0 +1,48 @@
+RESOURCE_ID,RESOURCE_CLASS,AUDIT_STATUS,AUDIT_COMMENT,N,LAND,COAST,OCEAN,MIN_STRENGTH,MAX_STRENGTH,POSITIVE_CANDIDATES,TOP_TIE_CANDIDATES,TOP_TIE_SHARE_OF_CANDIDATES,TOP_TIE_MULTIPLE_OF_SELECTED,SURFACE_RULE_OK
+BANANAS,bonus,PASS,No technical issue found in surface placement or tie plateau.,421,421,0,0,0.8924173282490467,1.0,15997,1,6.25117209476777e-05,0.002375296912114,True
+CATTLE,bonus,PASS,No technical issue found in surface placement or tie plateau.,621,621,0,0,0.94258299289368,0.999982834975454,58258,1,1.71650245459851e-05,0.001610305958132,True
+DEER,bonus,PASS,No technical issue found in surface placement or tie plateau.,554,554,0,0,0.914884818409594,1.0,41109,7,0.0001702790143277,0.0126353790613718,True
+FISH,bonus,PASS,No technical issue found in surface placement or tie plateau.,667,0,278,389,0.9634528861575146,1.0,70457,1,1.419305391941184e-05,0.0014992503748125,True
+MAIZE,bonus,PASS,No technical issue found in surface placement or tie plateau.,513,513,0,0,0.92493690212819,0.9999065216713924,32093,1,3.11594428691615e-05,0.0019493177387914,True
+RICE,bonus,PASS,No technical issue found in surface placement or tie plateau.,449,449,0,0,0.8957320367368989,0.999803545994794,20361,1,4.911350130150779e-05,0.0022271714922048,True
+SHEEP,bonus,PASS,No technical issue found in surface placement or tie plateau.,613,613,0,0,0.9504856795943148,0.9999285765302478,56004,1,1.785586743804014e-05,0.0016313213703099,True
+STONE,bonus,PASS,No technical issue found in surface placement or tie plateau.,290,290,0,0,0.503725782414307,0.9996274217585692,2684,1,0.0003725782414307,0.0034482758620689,True
+WHEAT,bonus,PASS,No technical issue found in surface placement or tie plateau.,482,482,0,0,0.9143427058958916,0.9999232805247612,26069,1,3.8359737619394685e-05,0.0020746887966804,True
+AMBER,luxury,PASS,No technical issue found in surface placement or tie plateau.,54,54,0,0,0.1034482758620689,1.0,87,1,0.0114942528735632,0.0185185185185185,True
+CITRUS,luxury,PASS,No technical issue found in surface placement or tie plateau.,266,266,0,0,0.9378146898520632,1.0,19265,1,5.190760446405398e-05,0.0037593984962406,True
+COCOA,luxury,PASS,No technical issue found in surface placement or tie plateau.,170,170,0,0,0.874157655539884,1.0,6381,1,0.0001567152483936,0.0058823529411764,True
+COFFEE,luxury,PASS,No technical issue found in surface placement or tie plateau.,200,200,0,0,0.9025779066155916,1.0,9659,1,0.0001035303861683,0.005,True
+COPPER,luxury,PASS,No technical issue found in surface placement or tie plateau.,144,144,0,0,0.8414011189491608,0.9985405010946242,4111,1,0.0002432498175626,0.0069444444444444,True
+CORAL,luxury,PASS,No technical issue found in surface placement or tie plateau.,136,0,64,72,0.9234752589182968,1.0,3476,1,0.0002876869965477,0.0073529411764705,True
+COTTON,luxury,PASS,No technical issue found in surface placement or tie plateau.,235,235,0,0,0.921610756861658,1.0,14428,1,6.930967563071805e-05,0.0042553191489361,True
+CRAB,luxury,PASS,No technical issue found in surface placement or tie plateau.,262,0,162,100,0.9571143796131674,1.0,18561,1,5.387640752114649e-05,0.0038167938931297,True
+DYES,luxury,PASS,No technical issue found in surface placement or tie plateau.,83,83,0,0,0.1650211565585331,1.0,709,1,0.001410437235543,0.0120481927710843,True
+FURS,luxury,PASS,No technical issue found in surface placement or tie plateau.,350,350,0,0,0.9435214626391096,1.0,50320,14,0.0002782193958664,0.04,True
+GEMS,luxury,PASS,No technical issue found in surface placement or tie plateau.,87,87,0,0,0.7458823529411764,1.0,850,1,0.0011764705882352,0.0114942528735632,True
+GOLD,luxury,PASS,No technical issue found in surface placement or tie plateau.,146,146,0,0,0.8161487758945386,0.9974105461393596,4248,1,0.0002354048964218,0.0068493150684931,True
+INCENSE,luxury,PASS,No technical issue found in surface placement or tie plateau.,81,81,0,0,0.106544901065449,1.0,657,1,0.0015220700152207,0.0123456790123456,True
+JADE,luxury,PASS,No technical issue found in surface placement or tie plateau.,65,65,0,0,0.2419354838709677,1.0,248,1,0.0040322580645161,0.0153846153846153,True
+LAPIS_LAZULI,luxury,PASS,No technical issue found in surface placement or tie plateau.,54,54,0,0,0.1176470588235294,1.0,85,1,0.0117647058823529,0.0185185185185185,True
+MARBLE,luxury,PASS,No technical issue found in surface placement or tie plateau.,64,64,0,0,0.5625,1.0,240,1,0.0041666666666666,0.015625,True
+OLIVES,luxury,PASS,No technical issue found in surface placement or tie plateau.,231,231,0,0,0.8814188943113118,1.0,13729,1,7.283851700779372e-05,0.0043290043290043,True
+PEARLS,luxury,PASS,No technical issue found in surface placement or tie plateau.,105,0,68,37,0.8681318681318682,1.0,1638,1,0.0006105006105006,0.0095238095238095,True
+PERFUME,luxury,PASS,No technical issue found in surface placement or tie plateau.,90,90,0,0,0.3130165289256198,1.0,968,1,0.0010330578512396,0.0111111111111111,True
+SALT,luxury,PASS,No technical issue found in surface placement or tie plateau.,70,70,0,0,0.644808743169399,1.0,366,1,0.0027322404371584,0.0142857142857142,True
+SILK,luxury,PASS,No technical issue found in surface placement or tie plateau.,78,78,0,0,0.048695652173913,1.0,575,1,0.0017391304347826,0.0128205128205128,True
+SILVER,luxury,PASS,No technical issue found in surface placement or tie plateau.,131,131,0,0,0.823751178133836,1.0,3183,1,0.0003141690229343,0.0076335877862595,True
+SPICES,luxury,PASS,No technical issue found in surface placement or tie plateau.,312,312,0,0,0.904646147814154,0.9999607920015684,25505,1,3.920799843168007e-05,0.0032051282051282,True
+SUGAR,luxury,PASS,No technical issue found in surface placement or tie plateau.,230,230,0,0,0.9264024704065876,0.9999264759944122,13601,1,7.352400558782443e-05,0.0043478260869565,True
+TEA,luxury,PASS,No technical issue found in surface placement or tie plateau.,156,156,0,0,0.8172297964829085,1.0,5061,1,0.0001975894092076,0.0064102564102564,True
+TOBACCO,luxury,PASS,No technical issue found in surface placement or tie plateau.,233,233,0,0,0.9128795960458004,1.0,14061,1,7.111869710546903e-05,0.0042918454935622,True
+TRUFFLES,luxury,PASS,No technical issue found in surface placement or tie plateau.,77,77,0,0,0.1780575539568345,1.0,556,1,0.0017985611510791,0.0129870129870129,True
+WINE,luxury,PASS,No technical issue found in surface placement or tie plateau.,292,292,0,0,0.9198851884681948,0.9999155797560256,23691,1,4.221012198725255e-05,0.0034246575342465,True
+ALUMINUM,strategic,PASS,No technical issue found in surface placement or tie plateau.,196,196,0,0,0.0863239573229874,1.0,1031,1,0.0009699321047526,0.0051020408163265,True
+COAL,strategic,PASS,No technical issue found in surface placement or tie plateau.,219,219,0,0,0.1268115942028985,1.0,1380,2,0.0014492753623188,0.0091324200913242,True
+HORSES,strategic,PASS,No technical issue found in surface placement or tie plateau.,1123,1123,0,0,0.3227523875736397,1.0,54658,1,1.8295583446156097e-05,0.0008904719501335,True
+IRON,strategic,PASS,No technical issue found in surface placement or tie plateau.,296,296,0,0,0.0940611053896326,1.0,2913,1,0.0003432887058015,0.0033783783783783,True
+NITER,strategic,PASS,No technical issue found in surface placement or tie plateau.,131,131,0,0,0.0605095541401273,1.0,314,1,0.0031847133757961,0.0076335877862595,True
+OIL,strategic,PASS,No technical issue found in surface placement or tie plateau.,262,178,22,62,0.0715613382899628,1.0,2152,1,0.0004646840148698,0.0038167938931297,True
+URANIUM,strategic,PASS,No technical issue found in surface placement or tie plateau.,273,273,0,0,0.209205020920502,1.0,2390,1,0.000418410041841,0.0036630036630036,True
+BISON,bonus,REVIEW_PLATEAU,Top-strength tie plateau too large: 10738 top-tie candidates for 390 selected cells.,390,390,0,0,1.0,1.0,11885,10738,0.903491796381994,27.53333333333333,True
+IVORY,luxury,REVIEW_PLATEAU,Top-strength tie plateau too large: 15552 top-tie candidates for 248 selected cells.,248,248,0,0,1.0,1.0,16388,15552,0.94898706370515,62.70967741935484,True
+WHALES,luxury,REVIEW_PLATEAU,Top-strength tie plateau too large: 3695 top-tie candidates for 350 selected cells.,350,0,45,305,0.970733304948744,1.0,152665,3695,0.0242033209969541,10.557142857142855,True
