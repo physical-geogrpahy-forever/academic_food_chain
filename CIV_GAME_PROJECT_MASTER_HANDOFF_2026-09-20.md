@@ -1,0 +1,1590 @@
+# CIV GAME PROJECT MASTER HANDOFF — 2026-09-20
+
+Repository: `physical-geogrpahy-forever/academic_food_chain`  
+Authoritative branch: `civ-game-map-stage1b-etopo2022`
+
+Status: **MASTER HANDOFF / 다음 채팅 인계용**
+
+이 문서는 현재 프로젝트 전체 상태를 한 번에 이어가기 위한 통합 인계문서다.  
+기존의 지도/자원 handoff, 사회제도, 기술, 도시 시스템, 위대한 감독, 기업 시스템 문서를 하나의 작업 순서로 묶는다.
+
+---
+
+# 0. 가장 중요한 현재 위치
+
+현재 프로젝트는 다음 순서까지 진행됐다.
+
+1. 세계지도 기본 격자와 지형/바이옴 기반 확정
+2. 47개 지도 자원 로스터 확정
+3. Stage10Y 12,500개 자원 배치 프리뷰 생성
+4. BISON / IVORY / WHALES 문제를 수정한 `resource_fix_v1` 검토본 생성
+5. **4000 BCE 기준 자원 발견/전파 시스템 V2 + 역사 마스크 V3 확정**
+6. 72개 사회제도 로스터 확정
+7. 사회제도 간 역사 흐름 V3 확정
+8. 109개 과학기술 로스터와 기술 DAG V2 확정
+9. 사회제도-과학기술 HARD/BOOST 교차조건 검증
+10. 도시 운영은 **Civilization V식 비지구형 도시 시스템**으로 확정
+11. 위대한 감독 / 영화 명작 시스템 포함 확정
+12. 기업은 Wonder형이 아니라 **위대한 상인/위대한 기술자가 설립하는 비독점 업종 시스템**으로 설계 중
+13. 기업 창업가 1차 대규모 후보조사는 실제로 저장돼 있음
+14. **기술별 유닛/건물/시설/자원 해금을 붙이려다가, 기업이 건물과 자원가공 구조에 직접 영향을 주므로 기업 시스템을 먼저 확정하기로 하고 중단한 상태**
+
+따라서 다음 채팅에서는 **기업 시스템 확정 및 창업가 풀 확장**부터 이어가야 한다.
+
+---
+
+# 1. GitHub 기준
+
+## Repository
+
+`physical-geogrpahy-forever/academic_food_chain`
+
+## Branch
+
+`civ-game-map-stage1b-etopo2022`
+
+이 branch를 현재 권위 있는 작업 branch로 사용한다.
+
+## 기존 종합 handoff
+
+`CIV_GAME_MAP_STAGE10_CURRENT_HANDOFF_2026-09-20.md`
+
+이 파일은 지도/자원 작업에서 시작해 사회제도, 기술, 도시, 기업까지 계속 누적돼 있다.
+
+## 이 문서
+
+`CIV_GAME_PROJECT_MASTER_HANDOFF_2026-09-20.md`
+
+앞으로 다음 채팅은 우선 이 문서를 읽고, 세부 수치나 구현이 필요할 때 아래 권위 파일을 읽는 방식으로 진행한다.
+
+---
+
+# 2. 세계지도 제작 기준
+
+## 기본 격자
+
+- CRS: EPSG:8857
+- Parent grid: 335 x 781
+- 전체 hex: 261,635
+
+Surface:
+- LAND: 68,048
+- LAKE: 882
+- COAST: 8,781
+- OCEAN: 156,201
+- VOID: 27,723
+
+## 지형/고도 기준
+
+- Stage1A의 1-degree 자료는 폐기됨
+- Stage1B relief는 **NOAA ETOPO 2022 v1 60 arc-second**
+- Stage2B terrain/biome이 현재 지형/바이옴 기준
+
+## 중요한 위치 검증 원칙
+
+과거 TIFF/PNG 프리뷰에서 자원 아이콘 위치가 틀어진 문제가 있었다.
+
+원인:
+- source GPKG geometry를 직접 렌더링하지 않고 image-coordinate 변환으로 overlay
+
+따라서:
+- 위치 검증은 반드시 **source GPKG geometry 기준**
+- old image-coordinate overlay는 positional QA에 사용하지 않는다
+
+한국 지역 검증에서 실제 LAND 자원이 존재했으므로, 옛 PNG에서 안 보이던 것은 배치 부재가 아니라 렌더링 오류였다.
+
+---
+
+# 3. 지도 자원 로스터 — 47개 확정
+
+## Strategic 7
+
+- HORSES
+- IRON
+- NITER
+- COAL
+- OIL
+- ALUMINUM
+- URANIUM
+
+## Bonus 10
+
+- BANANAS
+- BISON
+- CATTLE
+- DEER
+- FISH
+- SHEEP
+- STONE
+- WHEAT
+- MAIZE
+- RICE
+
+## Luxury 30
+
+- CITRUS
+- COCOA
+- COPPER
+- COTTON
+- CRAB
+- DYES
+- FURS
+- GEMS
+- GOLD
+- INCENSE
+- IVORY
+- MARBLE
+- PEARLS
+- SALT
+- SILK
+- SILVER
+- SPICES
+- SUGAR
+- TRUFFLES
+- WHALES
+- WINE
+- COFFEE
+- TEA
+- TOBACCO
+- OLIVES
+- PERFUME
+- AMBER
+- JADE
+- LAPIS_LAZULI
+- CORAL
+
+Display:
+- COCOA는 내부 ID 유지, 아이콘은 chocolate 형태
+- PERFUME 한국어 표기는 향수
+- internal ID는 바꾸지 않는다
+
+---
+
+# 4. Stage10Y 자원 배치 상태
+
+## 목표 및 실제
+
+총 12,500 cells.
+
+- Strategic: 2,500
+- Bonus: 5,000
+- Luxury: 5,000
+
+one-resource-per-hex: PASS
+
+Surface:
+- LAND: 10,896
+- COAST: 639
+- OCEAN: 965
+- LAKE: 0
+- VOID: 0
+
+## 현재 상태
+
+**아직 canonical final이 아니다.**
+
+현재 핵심 검토본:
+`civ_map_stage10_resources/resource_fix_v1/CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_PLACED_FIXED_V1.csv`
+
+이 파일은 12,500-row 통합 배치표다.
+
+## resource_fix_v1
+
+BISON, IVORY, WHALES만 교체했다.
+
+기존 문제:
+- BISON top plateau 후보가 너무 많아 desert 선택 발생
+- IVORY도 plateau 때문에 desert/temperate 오류
+- WHALES가 남반구에 지나치게 편중
+
+수정:
+- BISON desert: 21 -> 0
+- IVORY desert: 44 -> 0
+- IVORY temperate: 8 -> 0
+- WHALES north/south: 14/336 -> 174/176 수준으로 균형 보정
+
+Status:
+- **review build**
+- final canonical placement 아님
+
+## 자원 아이콘
+
+`civ_map_stage10_resources/icons_v4/`
+
+V4가 현재 아이콘 기준.
+
+---
+
+# 5. 가장 중요한 시스템 — 자원 발견/전파 V2
+
+권위 파일:
+- `civ_map_stage10_resources/contact_dynamic_resource_system_v2.md`
+- `civ_map_stage10_resources/resource_transfer_classes_v2.csv`
+
+**V1 확률확산/stock 시스템은 폐기. 다시 도입하지 않는다.**
+
+## 설계 철학
+
+Stage10의 현대 잠재분포 셀은 그대로 유지한다.
+
+그러나 4000 BCE에 역사적으로 존재하지 않았던 지역에서는 처음부터 보이지 않는다.
+
+플레이어가 자원을 임의로 지도에 생성하거나 심는 시스템이 아니다.
+
+## Cell state
+
+### START_VISIBLE
+
+4000 BCE 무렵 실제 자원 또는 직접 이용 가능한 source population이 존재.
+
+- 탐험하면 누구나 아이콘 확인 가능
+- 단순 발견만으로 civilization-wide possession은 얻지 않음
+
+### LATENT
+
+현대 잠재분포로는 존재하지만 4000 BCE에는 아직 해당 지역에 없던 cell.
+
+- 해당 자원을 획득하지 않은 문명에게는 숨김
+
+### ACTIVE_INTRODUCED
+
+LATENT였지만 플레이 과정에서 실제로 도입된 cell.
+
+- 물리적으로 현실화됨
+- 이후 탐험하는 모든 문명에게 보임
+
+## Civilization state
+
+핵심:
+`has_resource[civ][resource]`
+
+V2는 단순화 시스템이므로 다음은 사용하지 않는다.
+
+- city stock
+- regional stock
+- 확률 확산
+- adjacency spread
+- neighbor diffusion
+- 복잡한 population diffusion
+
+## 획득 방법
+
+- START_VISIBLE source 지역을 정착/영유
+- 이미 가진 문명과 무역
+- 가진 문명의 도시 정복
+- 첫 접촉만으로는 획득되지 않음
+
+한 번 획득한 resource possession은 V2에서 지속된다.
+
+## LATENT visibility
+
+문명이 어떤 동적 자원을 획득하면:
+
+**그 자원의 Stage10 현대 잠재분포 중 이미 탐험한 LATENT cell을 해당 문명이 볼 수 있다.**
+
+핵심 해석:
+
+> 자원 획득 = 그 자원의 현대 잠재분포를 해당 문명에게 해금
+
+단:
+- 자원을 새 좌표에 생성하는 것이 아니다
+- Stage10에 이미 선택된 cell만 사용한다
+
+## Settlement introduction
+
+자원을 이미 가진 문명이 LATENT cell을 포함한 지역에 정착하면:
+- 그 이미 존재하는 Stage10 LATENT cell을 ACTIVE_INTRODUCED로 전환 가능
+
+이후 해당 cell은 세계적으로 실제 존재하는 자원으로 취급한다.
+
+## 대표 예시 — 말
+
+- 아메리카 HORSES modern-potential cell은 4000 BCE LATENT
+- 스페인이 말을 보유하고 아메리카를 탐험하면 자기에게 latent horse potential이 보임
+- 스페인이 그 영역에 정착하면 해당 Stage10 HORSES cell을 ACTIVE_INTRODUCED로 현실화 가능
+- Native 문명이 식민도시를 점령하면 HORSES 획득 가능
+- 이후 Native 문명도 자기 explored HORSES latent cell을 볼 수 있음
+- 다시 다른 문명과 무역으로 전달 가능
+
+역사 연도를 hard-code하지 않는다.
+
+Alternate history에서 접촉이 빨라지면 자원 전파도 빨라질 수 있다.
+
+---
+
+# 6. 동적 전파 대상 18개
+
+다음 18개만 현재 V2 dynamic set.
+
+Plants/composite:
+- BANANAS
+- CITRUS
+- COCOA
+- COFFEE
+- COTTON
+- DYES
+- MAIZE
+- OLIVES
+- RICE
+- SPICES
+- SUGAR
+- TEA
+- TOBACCO
+- WHEAT
+- WINE
+
+Domestic animals:
+- HORSES
+- CATTLE
+- SHEEP
+
+Important:
+- DYES 하나로 유지
+- SPICES 하나로 유지
+- PERFUME dynamic에서 제외
+- SILK, INCENSE는 현재 18개 set에서 제외 및 deferred
+- wild biological resources는 이동 시스템 대상 아님
+- geological/mineral resources는 fixed
+
+특수:
+- NITER 자연 cell은 fixed. 별도 기술/시설로 saltpetre 제조 가능성
+- SALT 자연 cell은 fixed. 해안 saltworks 같은 개선/시설로 생산 가능. 일반 city building으로 처리하지 않는 방향
+
+---
+
+# 7. 4000 BCE 역사 마스크 V3
+
+권위 directory:
+`civ_map_stage10_resources/history_4000bce_v3/`
+
+Files:
+- `README.md`
+- `resource_start_visible_4000bce_mask_regions_v3.csv`
+- `apply_resource_history_4000bce_v3.py`
+- `resource_history_4000bce_exact_summary_v3.csv`
+- `resource_history_4000bce_critical_checks_v3.csv`
+
+V1은 superseded.
+
+## Exact result
+
+18 dynamic resource cells:
+- total: 6,630
+- START_VISIBLE: 1,950 = 29.4%
+- LATENT: 4,680 = 70.6%
+
+| Resource | START_VISIBLE | LATENT | Total |
+|---|---:|---:|---:|
+| BANANAS | 48 | 373 | 421 |
+| CATTLE | 155 | 466 | 621 |
+| CITRUS | 17 | 249 | 266 |
+| COCOA | 24 | 146 | 170 |
+| COFFEE | 8 | 192 | 200 |
+| COTTON | 40 | 195 | 235 |
+| DYES | 71 | 12 | 83 |
+| HORSES | 293 | 830 | 1123 |
+| MAIZE | 22 | 491 | 513 |
+| OLIVES | 152 | 79 | 231 |
+| RICE | 62 | 387 | 449 |
+| SHEEP | 357 | 256 | 613 |
+| SPICES | 215 | 97 | 312 |
+| SUGAR | 39 | 191 | 230 |
+| TEA | 45 | 111 | 156 |
+| TOBACCO | 34 | 199 | 233 |
+| WHEAT | 195 | 287 | 482 |
+| WINE | 173 | 119 | 292 |
+
+Critical PASS:
+- Americas HORSES: 472 checked, START_VISIBLE 0
+- Americas CATTLE: 267, 0
+- Americas SHEEP: 32, 0
+- Korea RICE: 7, 0
+- Mesoamerica MAIZE: 23, 22 visible
+- Upper Amazon COCOA: 24/24 visible
+- Ethiopia/Boma COFFEE: 8/8 visible
+- China RICE: 62/62 visible
+
+## Korea
+
+현재 Korea window의 dynamic cells는 전부 4000 BCE LATENT:
+- CATTLE 1
+- CITRUS 2
+- HORSES 6
+- MAIZE 1
+- RICE 7
+- TOBACCO 4
+- WINE 4
+
+이것은 한국에 자원이 없다는 뜻이 아니다.
+static mineral/wild resource는 별도다.
+
+예:
+Yangtze 지역 RICE를 가진 문명과 접촉/무역하면 한국 문명도 RICE possession을 획득하고 자기 LATENT RICE를 확인할 수 있다.
+
+## SUGAR special
+
+New Guinea only mask는 현재 Stage10 selected SUGAR cell과 겹치지 않아 0 visible이 됐다.
+
+V3는 broad gameplay envelope:
+- 95–130E
+- 10S–20N
+
+결과:
+- START_VISIBLE 39
+- LATENT 191
+
+---
+
+# 8. 사회제도 — 72개 확정
+
+권위 roster:
+- `civics_reference/CIVIC_ROSTER_LOCKED_V1.md`
+- `civics_reference/civic_roster_locked_v1.csv`
+
+사회제도 기본 철학:
+1. Civ VI Gathering Storm 우선
+2. Civ V BNW에서 실제 gap만 보충
+3. Civ V era-mod에서 gap 보충
+4. 새로운 original civic은 최후 수단
+5. Civ VI에 같은 이름/기능 또는 상위 개념이 있으면 Civ VI 우선
+
+## Era counts
+
+- Ancient: 7
+- Classical: 5
+- Late Antiquity: 4
+- Early Medieval: 4
+- High Medieval: 4
+- Renaissance: 4
+- Exploration: 6
+- Enlightenment: 5
+- Industrial: 9
+- Modern: 6
+- Atomic: 6
+- Information: 12
+
+Total: **72**
+
+## Civ VI 외 추가 11개
+
+- Written Culture
+- Court Culture
+- Scholasticism
+- Patronage
+- Print Culture
+- Scientific Revolution
+- Sovereignty
+- Constitutionalism
+- Public Sphere
+- Romanticism
+- Labor Movement
+
+## 시대별 핵심 추가
+
+Early Medieval:
+- Written Culture
+- Court Culture
+
+High Medieval:
+- Scholasticism
+
+Renaissance:
+- Patronage
+- Print Culture
+
+Exploration:
+- Scientific Revolution
+- Sovereignty
+
+Enlightenment:
+- Constitutionalism
+- Public Sphere
+
+Industrial:
+- Romanticism
+- Labor Movement
+
+---
+
+# 9. 사회제도 역사 흐름 — V3가 권위
+
+권위:
+- `civics_reference/CIVIC_TREE_HISTORICAL_V3.md`
+- `civics_reference/civic_tree_historical_v3.csv`
+- `civics_reference/validate_civic_tree_historical_v3.py`
+
+구형:
+- CIVIC_TREE_LOCKED_V1: Civ VI 연결 보존형
+- Historical V2: 1차 역사보정
+- **Historical V3: 현재 기준**
+
+## QA
+
+- 72 nodes
+- root = Code of Laws 하나
+- 72/72 reachable
+- missing refs 0
+- cycle 0
+- backward-era edges 0
+- max direct social prerequisites 2
+
+## 중요한 수정 철학
+
+사회제도 선행조건은:
+- 사회
+- 제도
+- 문화
+- 사상
+의 인과만 담당한다.
+
+과학기술이 필요한 부분을 억지 사회제도로 연결하지 않는다.
+
+예:
+- Reformed Church -> Sovereignty 제거
+- Exploration -> Scientific Revolution 제거
+- Mass Media -> Capitalism 제거
+- Ideology -> Professional Sports 제거
+- Scorched Earth -> Mobilization 제거
+- Ideology -> Nuclear Program 제거
+- Professional Sports -> Social Media 제거
+
+## 중요 흐름 예
+
+### Early Medieval / High Medieval
+
+Civil Service -> Written Culture  
+Written Culture + Drama and Poetry -> Court Culture  
+Theology + Written Culture -> Scholasticism  
+Medieval Faires + Written Culture -> Guilds
+
+### Renaissance
+
+Scholasticism + Court Culture -> Humanism  
+Court Culture -> Diplomatic Service  
+Humanism + Guilds -> Patronage  
+Humanism -> Print Culture
+
+### Exploration
+
+Naval Tradition + Medieval Faires -> Exploration  
+Theology + Print Culture -> Reformed Church  
+Print Culture -> Scientific Revolution  
+Diplomatic Service + Humanism -> Sovereignty  
+Exploration + Sovereignty -> Mercantilism  
+Mercantilism -> Colonialism
+
+### Enlightenment
+
+Scientific Revolution + Sovereignty -> The Enlightenment  
+Patronage -> Opera and Ballet  
+Scientific Revolution + Exploration -> Natural History  
+Print Culture + The Enlightenment -> Public Sphere  
+Public Sphere + Sovereignty -> Constitutionalism
+
+### Industrial
+
+Mercantilism -> Capitalism  
+Civil Service + Sovereignty -> Civil Engineering  
+Sovereignty + Public Sphere -> Nationalism  
+Opera and Ballet + The Enlightenment -> Romanticism  
+Civil Engineering + Capitalism -> Urbanization  
+Natural History + Romanticism -> Conservation  
+Public Sphere + Urbanization -> Mass Media  
+Capitalism + Urbanization -> Labor Movement
+
+### Modern
+
+Nationalism + Urbanization -> Mobilization  
+Nationalism + Mass Media -> Ideology  
+Constitutionalism -> Suffrage  
+Ideology -> Totalitarianism  
+Ideology + Labor Movement -> Class Struggle  
+Games and Recreation + Urbanization -> Professional Sports
+
+### Atomic / Information
+
+Mobilization -> Nuclear Program  
+Ideology + Nuclear Program -> Cold War  
+Cold War -> Rapid Deployment  
+Cold War -> Space Race  
+Conservation + Mass Media -> Environmentalism
+
+Capitalism + Mass Media -> Globalization  
+Mass Media + Public Sphere -> Social Media
+
+중요:
+Globalization에서 Cold War hard prerequisite를 제거했다.
+이유는 Cold War가 Nuclear Program을 통해 Nuclear Fission을 상속하여 세계화까지 핵분열을 강제하는 문제가 발생했기 때문.
+
+---
+
+# 10. 과학기술 — 109개 V2 확정
+
+권위:
+- `tech_reference/TECHNOLOGY_ROSTER_TREE_LOCKED_V2.md`
+- `tech_reference/technology_roster_locked_v2.csv`
+- `tech_reference/technology_tree_historical_v2.csv`
+- `tech_reference/validate_technology_tree_historical_v2.py`
+
+103-node V1은 superseded.
+
+## 소스 우선순위
+
+1. Civilization VI Gathering Storm
+2. Civilization V Brave New World
+3. Pouakai Civilization V Enlightenment Era
+4. game-source merge가 명백한 역사 공백을 만들 때만 최소 historical addition
+
+사회제도와 중복되는 Civ V 기술은 science tree에서 제외.
+
+예:
+- Theology
+- Civil Service
+- Mass Media
+- Globalization
+- Humanism
+- Sovereignty
+- Natural History
+- Romanticism
+
+## Total
+
+**109 technologies**
+
+## Era counts
+
+- Ancient: 14
+- Classical: 10
+- Late Antiquity: 5
+- Early Medieval: 5
+- High Medieval: 6
+- Renaissance: 5
+- Exploration: 8
+- Enlightenment: 6
+- Industrial: 16
+- Modern: 12
+- Atomic: 13
+- Information: 9
+
+## Historical additions 6
+
+- Papermaking
+- Horse Collar
+- Alchemy
+- Block Printing
+- Algebra
+- Astrolabe
+
+## Historical moves
+
+- Stirrups -> Late Antiquity
+- Gunpowder -> Early Medieval
+- Metallurgy -> Renaissance
+
+## 중요 기술 흐름
+
+Writing + Agriculture -> Papermaking  
+Papermaking + Writing -> Block Printing  
+Block Printing + Machinery -> Printing
+
+Bronze Working + Astrology -> Alchemy  
+Alchemy + Military Engineering -> Gunpowder  
+Metal Casting + Alchemy -> Metallurgy  
+Alchemy + Scientific Theory -> Chemistry
+
+Mathematics + Writing -> Algebra  
+Writing + Algebra -> Education  
+Algebra + Engineering -> Physics
+
+Celestial Navigation + Optics -> Astrolabe  
+Astrolabe + Optics -> Astronomy
+
+Animal Husbandry + Wheel -> Horse Collar  
+Horseback Riding + Iron Working -> Stirrups
+
+Manufacturing + Scientific Theory -> Steam Power  
+Steam Power + Manufacturing -> Industrialization  
+Replaceable Parts + Industrialization -> Mass Production
+
+Electricity + Printing -> Telegraph  
+Electricity + Radio -> Electronics  
+Electronics + Mathematics -> Computers  
+Electronics + Computers -> Telecommunications
+
+Atomic Theory + Chemistry -> Nuclear Fission  
+Rocketry + Electronics -> Satellites  
+Computers + Electronics -> Robotics  
+Nuclear Fission + Particle Physics -> Nuclear Fusion
+
+## QA
+
+- 109 nodes
+- roots: Agriculture, Pottery, Animal Husbandry, Mining, Sailing, Archery
+- 109/109 reachable
+- missing prerequisites 0
+- cycles 0
+- backward-era edges 0
+- max direct prerequisites 2
+
+---
+
+# 11. 중요 미해결 기술 예외 — Photography / Cinematography
+
+위대한 감독 시스템을 채택한 뒤 다음 파일에서 문제를 명시했다.
+
+`city_system/CIV5_STYLE_CITY_AND_GREAT_DIRECTOR_BASELINE_V1.md`
+
+MoreTech 계열 참고에서는 Great Director / Film을 Cinematography에서 연다.
+
+현재 109-tech V2에는:
+- Photography 없음
+- Cinematography 없음
+
+따라서 둘 중 하나를 선택해야 한다.
+
+A. 109-tech lock을 절대 유지
+- 기존 기술에 Great Director/Film unlock을 매핑
+
+B. 실제 구현 gap을 인정
+- Photography
+- Cinematography
+를 추가하여 111-tech로 확장
+
+현재는 **추가하지 않은 상태**다.
+
+다음 채팅에서 임의로 추가하지 말고 먼저 결정해야 한다.
+
+---
+
+# 12. 사회제도-과학기술 병렬 시스템
+
+권위:
+- `civics_reference/civic_tech_crosslinks_v1.csv`
+- `civics_reference/CIVIC_TECH_CROSSLINK_RECONCILIATION_V3.md`
+
+두 트리는 병렬이지만 상호 연결한다.
+
+## Direct relation 3종
+
+### HARD
+
+그 기술이 없으면 해당 사회제도 자체가 물질적으로 성립 불가능.
+
+### BOOST
+
+기술이 없어도 사회제도 연구 가능하지만 큰 가속/영감.
+
+### NONE
+
+별도 기술 조건 없음.
+
+## 현재 분류
+
+- HARD: 11
+- BOOST: 31
+- NONE: 30
+
+## HARD 11
+
+- Recorded History <- Writing
+- Naval Tradition <- Sailing
+- Print Culture <- Printing
+- Exploration <- Cartography
+- Civil Engineering <- Engineering
+- Nuclear Program <- Nuclear Fission
+- Rapid Deployment <- Flight
+- Space Race <- Rocketry
+- Social Media <- Telecommunications
+- Optimization Imperative <- Robotics
+- Exodus Imperative <- Satellites
+
+## 대표 BOOST
+
+- Scientific Revolution <- Astronomy
+- Mass Media <- Telegraph
+- Environmentalism <- Ecology
+
+## 검증
+
+109-tech V2 기준:
+- civic crosslink 72 rows 검증
+- missing technology refs 0
+- later-era HARD/BOOST 0
+- combined cycle 0
+
+현재 technology tree에는 civic prerequisite가 없으므로 cross-tree cycle 없음.
+
+---
+
+# 13. 도시 운영 — Civilization V식으로 확정
+
+권위:
+`city_system/CIV5_STYLE_CITY_AND_GREAT_DIRECTOR_BASELINE_V1.md`
+
+## 핵심
+
+**Civilization VI식 district city puzzle은 사용하지 않는다.**
+
+즉:
+- Campus map district 없음
+- Commercial Hub map district 없음
+- Industrial Zone map district 없음
+- Theater Square map district 없음
+- Encampment map district 없음
+
+건물은 Civ V처럼 도시 내부에 직접 건설.
+
+시민:
+- 주변 타일 작업
+- specialist slot 작업
+
+Tile improvement는 지도에 존재.
+
+## Civ VI 콘텐츠 변환
+
+Campus 제거:
+- Library -> University -> Research Lab은 city building으로 유지
+
+Commercial Hub 제거:
+- Market -> Bank -> Stock Exchange
+
+Industrial Zone 제거:
+- Workshop -> Factory -> Power Plant
+
+Theater Square 제거:
+- Amphitheater -> Museum -> Broadcast 계열
+
+Encampment 제거:
+- Barracks -> Armory -> Military Academy
+
+Aqueduct / Dam / Canal / Neighborhood 같은 Civ VI district/infrastructure는 그대로 복사하지 않고:
+- city infrastructure
+- tile improvement
+- special project
+등으로 재해석해야 한다.
+
+---
+
+# 14. 위대한 감독 / 영화 명작
+
+위대한 감독 시스템 포함 확정.
+
+기준:
+JFD Great Works of Film + MoreTech 참고.
+
+## 구성
+
+- Great Director
+- Director specialist
+- Director's Guild / Film School / Studio 계열
+- Cinema
+- Great Works of Film
+- Film slot
+
+## 방향
+
+Great Director:
+- 주 행동: Great Work of Film 생성
+- 2차 능력은 미확정
+
+Director specialist:
+- Culture/Tourism
+- Great Director points
+
+Film:
+- Music과 별개 Great Work category
+- 전용 slot
+- Culture/Tourism
+- 테마 보너스는 추후
+
+## World Wonder
+
+Hollywood를 자동 채택하지 않는다.
+
+**모든 불가사의는 별도 엄격 심사.**
+
+평가기준:
+- 세계사적 위상
+- 독창성
+- 건축/문화적 식별성
+- 실제로 World Wonder급인지
+- 게임플레이 독자성
+
+현재 기술/건물 해금 작업에서도 불가사의는 제외한다.
+
+---
+
+# 15. 기업 시스템 — 현재 가장 중요한 다음 작업
+
+권위:
+`corporations/CORPORATION_FOUNDING_AND_OUTPUT_SYSTEM_V1.md`
+
+## 핵심 철학
+
+기업은 World Wonder가 아니다.
+
+- 업종은 비독점
+- 어느 문명이든 조건 충족 시 같은 업종 기업 설립 가능
+- 역사적 named firm은 unique 가능
+- unique firm이 있어도 sector는 막히지 않음
+
+예:
+Ford, Toyota, Honda, Hyundai가 모두 자동차 sector에서 공존 가능.
+
+## 기업 설립 위인
+
+### Great Merchant
+
+주력:
+- finance
+- trade
+- retail
+- food
+- clothing/fashion
+- cosmetics
+- hospitality
+- commercial services
+
+### Great Engineer
+
+주력:
+- automotive
+- machinery
+- electrical
+- chemicals
+- electronics
+- telecommunications
+- precision engineering
+- industrial energy
+- advanced manufacturing
+
+## Signature Founder
+
+특정 위인은 고유 기업을 설립 가능.
+
+예:
+- Thomas Edison -> Edison/GE lineage
+- Carl Benz -> Benz & Cie.
+- Henry Ford -> Ford
+- Robert Bosch -> Bosch
+- Levi Strauss -> Levi Strauss & Co.
+- Estée Lauder -> Estée Lauder
+- Milton Hershey -> Hershey
+- Fritz Hoffmann-La Roche -> Roche
+
+위인을 기업 설립에 쓰지 않고 일반 Great Person 능력으로 쓰는 선택도 가능하게 할 방향.
+
+---
+
+# 16. 기업 산출물 3종
+
+## A. Manufactured Luxury
+
+소비재/브랜드 상품.
+
+예:
+- Jeans
+- Cosmetics
+- Chocolate
+- Furniture
+- Automobiles
+- Consumer Electronics
+- Watches
+- Fashion Goods
+- Soft Drinks
+
+효과:
+- Amenities/Happiness
+- Gold
+- export demand
+- 일부 iconic product는 Culture/Tourism
+
+중요:
+같은 product category 여러 brand가 Amenities를 무한 중첩하지 않는다.
+
+예:
+Ford + Toyota + Honda + Hyundai 모두 Automobile 생산 가능.
+
+하지만:
+- 첫 Automobile category가 주 Amenity 제공
+- 추가 brand는 Gold, Tourism, demand, market share, 기업 경쟁에 기여
+
+## B. Functional Corporate Good
+
+실제 공급량을 가진 기능성 상품.
+
+예:
+
+| Product | Main effect |
+|---|---|
+| Refined Petroleum Products | Production + logistics |
+| Steel Products | Production + construction |
+| Machine Tools | Production + factory efficiency |
+| Fertilizer | Food + farm productivity |
+| Pharmaceuticals | Growth/Health + healing |
+| Electrical Equipment | Production + Science |
+| Precision Components | Production + advanced units |
+| Semiconductors | Science + Production |
+| Construction Materials | infrastructure Production |
+| Processed Food | Food + Growth |
+| Industrial Chemicals | Production + advanced industry |
+| Paper Products | Culture/education/admin |
+
+### 정유 예
+
+Oil
+-> refinery corporation
+-> Refined Petroleum Products
+-> supplied city
+
+효과:
+- Production
+- transport/logistics
+- industrial infrastructure
+- civilian fuel burden 감소 등
+
+Raw Oil은 strategic resource 그대로.
+Refined Petroleum Products가 value-added corporate output.
+
+## C. Service
+
+물리 resource stock이 아니라:
+- branch
+- network
+- trade connection
+- service coverage
+로 제공.
+
+예:
+
+| Service | Main effect |
+|---|---|
+| Finance | Gold + investment |
+| Retail | Gold + product distribution |
+| Hospitality | Tourism + Culture + Gold |
+| Film/Entertainment | Culture + Tourism + Great Director |
+| Media | Culture + Tourism + civic spread |
+| Telecommunications | Science + network/trade |
+| Logistics | trade route + movement + Gold |
+| Insurance | risk/loss reduction |
+| Advertising | demand + Gold + Tourism |
+| Software | Science + Production + Gold |
+| Airlines/Travel | Tourism + connectivity |
+
+**서비스를 전부 Culture/Tourism으로 만들지 않는다.**
+
+---
+
+# 17. 기업 공급과 지점
+
+기능성 상품:
+- 본사/공장이 quantity 생산
+- 도시가 실제 공급을 받아야 bonus
+- 국내/해외 수출 가능
+- 공급 안 된 도시는 bonus 없음
+
+서비스:
+- branch/network coverage로 적용
+
+기업 상태에 들어갈 것:
+- founder
+- HQ city
+- sector
+- required civic
+- required technology
+- inputs
+- output class
+- product/service
+- branches
+- production capacity
+- domestic demand
+- foreign demand
+- profit
+- branding
+- foreign market presence
+
+Foreign branch:
+- trade access/open borders/경제 허가
+- network/trade route
+- demand
+등을 고려
+
+## 일반 unlock 방향
+
+기업 시스템 일반 기반:
+- civic: Capitalism
+- + sector technology
+
+예:
+- apparel: Capitalism + Mass Production
+- petroleum: Capitalism + Refining
+- automotive: Capitalism + Combustion / Mass Production
+- electrical: Capitalism + Electricity
+- pharmaceuticals: Capitalism + Chemistry/Biology
+- electronics: Capitalism + Electronics
+- telecom: Capitalism + Telecommunications
+- software: Capitalism + Computers
+
+Corporations라는 별도 civic은 현재 추가하지 않는다.
+
+---
+
+# 18. 기업 창업가 조사 — 실제 진행됨
+
+권위:
+`corporations/CORPORATE_FOUNDER_POOL_RESEARCH_V1.md`
+
+Status:
+**RESEARCH POOL**
+모든 후보가 final lock은 아니다.
+
+## 현재 이미 수집된 주요 후보
+
+### Europe / North America
+
+- Levi Strauss
+- Estée Lauder
+- Milton Hershey
+- Henri Nestlé
+- Henry J. Heinz
+- Gabrielle Chanel
+- Ingvar Kamprad
+- Conrad Hilton
+- J. Willard Marriott
+- Marcus Goldman
+- J. Pierpont Morgan
+- John D. Rockefeller
+- Carl Benz
+- Henry Ford
+- Robert Bosch
+- Werner von Siemens
+- Gerard Philips
+- Lars Magnus Ericsson
+- John Deere
+- Herbert H. Dow
+- Johann Friedrich Weskott
+- Friedrich Bayer
+- Fritz Hoffmann-La Roche
+- Charles Pfizer
+- Adi Dassler
+- Robert Noyce
+- Gordon Moore
+- Jensen Huang
+- Larry Ellison
+
+### East Asia
+
+- Yataro Iwasaki
+- Kiichiro Toyoda
+- Soichiro Honda
+- Namihei Odaira
+- Konosuke Matsushita
+- Masaru Ibuka
+- Shojiro Ishibashi
+- Torakusu Yamaha
+- Koo In-hwoi
+- Lee Byung-chul
+- Pony Ma
+- Jack Ma
+- Liu Chuanzhi
+- Terry Gou
+- Stan Shih
+
+### South Asia
+
+- Jamsetji Tata
+- J. C. Mahindra
+- K. C. Mahindra
+- Sunil Bharti Mittal
+- Dilip Shanghvi
+
+### Southeast Asia / Middle East
+
+- Chia Ek Chor
+- Chia Seow Hui
+- Anthony Tan
+- Tan Hooi Ling
+- Mudassir Sheikha
+- Magnus Olsson
+- Fadi Ghandour
+
+### Africa
+
+- Aliko Dangote
+- Strive Masiyiwa
+- Mo Ibrahim
+
+### Latin America
+
+- Ozires Silva
+- Lorenzo Servitje
+
+## 재검증 필요 후보
+
+다음은 유력하지만 founder/co-founder role을 더 확인해야 함.
+
+- Apple: Steve Jobs / Steve Wozniak / Ronald Wayne
+- Disney: Walt / Roy Disney
+- Coca-Cola
+- Microsoft: Bill Gates / Paul Allen
+- TSMC: Morris Chang
+- BYD: Wang Chuanfu
+- Reliance: Dhirubhai Ambani
+- Godrej
+- Walmart: Sam Walton
+- Nike
+- FedEx
+- Maersk
+- Mercado Libre
+- Nubank
+- Gojek
+- Jollibee
+- Amorepacific
+- Lotte
+- Naver
+- Kakao
+
+## 다음 founder target
+
+80-100 audited candidates까지 확대.
+
+특히 부족한 영역:
+- Latin America
+- Africa
+- Middle East
+- Southeast Asia
+- women founders
+- shipping/logistics
+- mining/materials
+- insurance
+- aviation
+- pharmaceuticals
+- software/digital
+
+각 후보에 붙여야 할 것:
+- project era
+- Great Merchant / Great Engineer
+- exact firm
+- founder/co-founder wording
+- sector
+- input
+- output class
+- product/service
+- civic gate
+- technology gate
+- signature ability
+- HQ effect
+- branch effect
+- supply quantity rules
+
+---
+
+# 19. 왜 지금 기술별 건물/유닛 해금 작업을 멈췄는가
+
+원래 다음 단계는 109개 기술 각각에:
+
+- Unit
+- City Building
+- Tile Improvement
+- Resource reveal/use
+- System unlock
+
+을 붙이는 것이었다.
+
+그리고 불가사의는 별도 심사 때문에 제외하기로 했다.
+
+하지만 도시 시스템을 Civ V식으로 확정했고 기업 시스템이 추가되면서 다음 문제가 생겼다.
+
+## 기업이 기술 해금에 직접 영향을 줌
+
+예:
+- Refining -> refinery-related corporate production
+- Mass Production -> apparel/automobile corporation
+- Electricity -> electrical corporation
+- Electronics -> electronics firms
+- Telecommunications -> telecom corporation/network
+- Computers -> software/digital services
+- Film technology -> cinema/director/film corporation
+
+기업을 먼저 정의하지 않고 기술 unlock table을 만들면:
+- 기업 building
+- branch
+- factory
+- service network
+- functional product
+를 나중에 전부 다시 뜯어고쳐야 한다.
+
+따라서 현재 작업 순서는 의도적으로:
+
+**기술 확정 -> 기업 시스템 확정 -> 기술별 실제 unlock 배치**
+
+로 바뀌었다.
+
+---
+
+# 20. 기술별 해금 작업의 규칙
+
+기업이 어느 정도 확정된 뒤 시작.
+
+각 기술에 대해 다음만 우선 정리:
+
+1. Units
+2. City Buildings
+3. Tile Improvements
+4. Resource reveal / resource exploitation
+5. Corporate sector/product unlock
+6. Infrastructure/system unlock
+
+World Wonders는 제외.
+
+## 소스 우선
+
+- Civ VI content를 쓸 때 district 자체는 제거
+- 건물/유닛/시설/효과만 Civ V-style city system으로 변환
+- Civ V BNW와 Enlightenment Era는 gap fill
+- 중복이면 Civ VI 우선
+- 실제 역사 흐름에 맞지 않으면 시대/선행관계를 이미 만든 V2 technology tree에 맞춤
+
+---
+
+# 21. 불가사의 정책
+
+현재 **불가사의 목록은 확정하지 않는다.**
+
+기업, 기술, 건물에 source game Wonder가 있다고 자동 추가하지 않는다.
+
+별도 Wonder audit 예정.
+
+평가:
+- 세계사적 가치
+- 실제 건축/문화적 독창성
+- 특정 국가의 유명 랜드마크일 뿐인지
+- World Wonder급인지
+- 게임에서 고유 효과가 필요한지
+
+Hollywood 같은 항목도 자동 채택 금지.
+
+---
+
+# 22. 현재 권위 파일 목록
+
+## Map / resources
+
+- `CIV_GAME_MAP_STAGE10_CURRENT_HANDOFF_2026-09-20.md`
+- `civ_map_stage10_resources/resource_fix_v1/CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_PLACED_FIXED_V1.csv`
+- `civ_map_stage10_resources/icons_v4/`
+
+## Dynamic resource discovery
+
+- `civ_map_stage10_resources/contact_dynamic_resource_system_v2.md`
+- `civ_map_stage10_resources/resource_transfer_classes_v2.csv`
+
+## 4000 BCE history
+
+- `civ_map_stage10_resources/history_4000bce_v3/README.md`
+- `civ_map_stage10_resources/history_4000bce_v3/resource_start_visible_4000bce_mask_regions_v3.csv`
+- `civ_map_stage10_resources/history_4000bce_v3/apply_resource_history_4000bce_v3.py`
+- `civ_map_stage10_resources/history_4000bce_v3/resource_history_4000bce_exact_summary_v3.csv`
+- `civ_map_stage10_resources/history_4000bce_v3/resource_history_4000bce_critical_checks_v3.csv`
+
+## Civics
+
+- `civics_reference/CIVIC_ROSTER_LOCKED_V1.md`
+- `civics_reference/civic_roster_locked_v1.csv`
+- `civics_reference/CIVIC_TREE_HISTORICAL_V3.md`
+- `civics_reference/civic_tree_historical_v3.csv`
+- `civics_reference/validate_civic_tree_historical_v3.py`
+
+## Civic-tech
+
+- `civics_reference/civic_tech_crosslinks_v1.csv`
+- `civics_reference/CIVIC_TECH_CROSSLINK_RECONCILIATION_V3.md`
+
+## Technologies
+
+- `tech_reference/TECHNOLOGY_ROSTER_TREE_LOCKED_V2.md`
+- `tech_reference/technology_roster_locked_v2.csv`
+- `tech_reference/technology_tree_historical_v2.csv`
+- `tech_reference/validate_technology_tree_historical_v2.py`
+
+## City / Great Director
+
+- `city_system/CIV5_STYLE_CITY_AND_GREAT_DIRECTOR_BASELINE_V1.md`
+
+## Corporations
+
+- `corporations/CORPORATION_FOUNDING_AND_OUTPUT_SYSTEM_V1.md`
+- `corporations/CORPORATE_FOUNDER_POOL_RESEARCH_V1.md`
+
+Superseded/reference only:
+- `corporations/SIGNATURE_GREAT_MERCHANT_FOUNDERS_REVIEW_V1.md` — merchant-only framework superseded
+- 103-tech V1 docs — superseded
+- civic historical V2 — superseded by V3
+- dynamic resource V1 — DO NOT IMPLEMENT
+- history_4000bce_v1 — superseded
+
+---
+
+# 23. 다음 채팅에서 절대 잊으면 안 되는 결정
+
+1. **자원 배치와 자원 발견은 별개다.**
+   - Stage10 현대 잠재분포
+   - 4000 BCE START_VISIBLE/LATENT
+   - contact-based acquisition
+   를 구분한다.
+
+2. 자원 발견은 fixed-year unlock이 아니다.
+   - alternate history 접촉과 교역이 전파 시기를 바꿀 수 있다.
+
+3. dynamic resources는 현재 18개만.
+   - geological/mineral은 fixed.
+
+4. 사회제도는 72개.
+   - historical V3가 선행관계 권위.
+
+5. 과학기술은 109개 V2.
+   - 103 V1 사용 금지.
+
+6. 사회제도와 기술은 병렬.
+   - HARD / BOOST crosslinks 사용.
+
+7. 도시는 Civ V식.
+   - Civ VI district 심시티 사용 안 함.
+
+8. Great Director / Film 포함.
+   - Photography/Cinematography 문제는 아직 별도 결정 필요.
+
+9. 기업은 Wonder가 아니다.
+   - sector 비독점
+   - named firm만 unique 가능.
+
+10. Great Merchant와 Great Engineer 모두 기업 설립 가능.
+
+11. 기업 산출물은:
+   - Manufactured Luxury
+   - Functional Good
+   - Service
+   로 나눔.
+
+12. 기능성 상품은 실제 공급량을 갖는 방향.
+   - 정유제품은 Production/logistics 등
+
+13. 서비스는 sector별 효과.
+   - 호텔/영화는 Culture/Tourism
+   - 금융은 Gold/investment
+   - telecom은 Science/network
+   - logistics는 trade/movement
+
+14. 기업 창업가 조사는 이미 일부 진행됨.
+   - V1 pool 존재
+   - 다음 목표 80-100 candidates
+
+15. **현재 즉시 다음 작업은 기업 시스템 확정이다.**
+   - 기업이 확정되기 전에 109개 기술에 건물/유닛 unlock을 붙이지 않는다.
+
+16. World Wonders는 지금 다루지 않는다.
+   - 나중에 별도 엄격 심사.
+
+---
+
+# 24. 다음 작업 순서 — 권장
+
+## Step A. 기업 founder pool 확대 및 확정
+
+목표:
+80-100명 수준의 Great Merchant / Great Engineer 후보.
+
+각 founder:
+- historical verification
+- founder/co-founder
+- region
+- era
+- GP class
+- firm
+- sector
+- output
+- technology gate
+- civic gate
+- HQ effect
+- branch effect
+
+## Step B. 기업 업종과 산출물 catalogue 확정
+
+예:
+- Petroleum
+- Steel
+- Chemicals
+- Pharmaceuticals
+- Automotive
+- Electronics
+- Telecom
+- Apparel
+- Cosmetics
+- Food
+- Furniture
+- Finance
+- Retail
+- Hospitality
+- Logistics
+- Film/Media
+- Software
+
+각 sector에:
+- inputs
+- output class
+- product/service
+- supply model
+- yield effects
+- trade behavior
+
+## Step C. 기업 unlock 조건을 109-tech + 72-civic tree에 연결
+
+General:
+Capitalism + sector technology
+
+단, sector별 예외 검토.
+
+## Step D. 기술별 실제 unlock table 작성
+
+109 technologies x:
+- units
+- buildings
+- improvements
+- resource reveal/exploitation
+- corporation unlock
+- systems
+
+Civ V city model 사용.
+
+## Step E. 사회제도 unlock content
+
+72 civics x:
+- governments
+- policy cards
+- buildings/system unlocks
+- specialists
+- Inspirations
+
+## Step F. resource runtime implementation
+
+V2 dynamic resource state 실제 게임 레이어 구현.
+
+## Step G. Stage10 placement finalization
+
+- resource_fix_v1 + V3 history layer visual QA
+- direct GPKG map
+- alternate history runtime test
+- 이후 canonical final promotion 여부 결정
+
+## Step H. World Wonder audit
+
+가장 마지막 별도 작업.
+
+---
+
+# 25. 다음 채팅 시작 문구 권장
+
+다음 ChatGPT에게는 이 문서를 먼저 읽힌 뒤 다음처럼 지시:
+
+> `CIV_GAME_PROJECT_MASTER_HANDOFF_2026-09-20.md`를 기준으로 이어가라. 현재 immediate task는 corporation founder pool을 80-100명 수준으로 확대하고, Great Merchant / Great Engineer, firm, sector, output class, product/service, technology gate, civic gate를 검증하는 것이다. 기업을 확정하기 전에는 technology unlock building table로 넘어가지 마라. 자원 발견 시스템 V2와 4000 BCE V3, 72 civic historical V3, 109-tech V2는 유지하라.
+
