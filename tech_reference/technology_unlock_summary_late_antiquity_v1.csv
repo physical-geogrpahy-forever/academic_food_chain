@@ -1,0 +1,6 @@
+TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"Military Tactics","Pikeman","","","","","","Pikeman moved from Civ5 Civil Service"
+"Military Engineering","Military Engineer with Military Training","Armory with Military Training","Fort construction specialization","Military Road construction","Niter","Niter mining via Mine","Trebuchet remapped to later Physics"
+"Stirrups","Knight","","","","","","Pasture yield bonus moved to Horse Collar; defensive pact moved to Civil Service"
+"Horse Collar","","","","","","","Draft Animal Labor; Farm +1 Production; provisional Pasture +1 Food"
+"Alchemy","","Apothecary","","","","","Early chemical/medicinal processing; health effects tuned later"
