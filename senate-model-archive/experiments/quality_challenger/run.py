@@ -42,54 +42,99 @@ for r in cands:
         name=r[f'{side}_candidate']
         people[(int(r['cycle']),r['state_abbrev'],name)]={'cycle':int(r['cycle']),'state_abbrev':r['state_abbrev'],'name':name,'politician_id':r.get(f'{side}_politician_id','')}
 
-matches={}
-for idx,(key,p) in enumerate(people.items(),1):
-    name=p['name']; st=STATE_FULL.get(p['state_abbrev'],p['state_abbrev'])
-    js=api({'action':'wbsearchentities','search':name,'language':'en','format':'json','limit':8})
-    best=None
-    for x in js.get('search',[]):
-        label=x.get('label',''); desc=x.get('description','') or ''; score=0
-        if norm(label)==norm(name):score+=12
-        nt=norm(name).split(); lt=norm(label).split()
-        if nt and lt and nt[0]==lt[0] and nt[-1]==lt[-1]:score+=5
-        dl=desc.lower()
-        if any(w in dl for w in ['politician','senator','representative','governor','attorney general','mayor','legislator']):score+=4
-        if st.lower() in dl:score+=2
-        if best is None or score>best[0]:best=(score,x)
-    if best and best[0]>=9:
-        x=best[1];matches[key]={'qid':x['id'],'label':x.get('label',''),'description':x.get('description',''),'match_score':best[0],'status':'MATCHED'}
-    else:
-        matches[key]={'qid':'','label':'','description':'','match_score':best[0] if best else 0,'status':'NO_CONFIDENT_MATCH'}
-    if idx%30==0:time.sleep(.15)
+# Resolve candidate identities and P39 positions in a single Wikidata SPARQL request.
+# This avoids per-candidate API rate limits from GitHub Actions.
+variant_to_keys={}
+def variants(name):
+    out=[name]
+    x=re.sub(r'\b(Jr\.?|Sr\.?|II|III|IV)\b','',name,flags=re.I)
+    x=re.sub(r'\s+',' ',x.replace(',',' ')).strip()
+    out.append(x)
+    toks=x.split()
+    toks2=[t for t in toks if not re.fullmatch(r'[A-Z]\.?',t)]
+    if toks2:out.append(' '.join(toks2))
+    if len(toks)>=2:out.append(toks[0]+' '+toks[-1])
+    return list(dict.fromkeys(v for v in out if v))
+for key,p in people.items():
+    for v in variants(p['name']):
+        variant_to_keys.setdefault(v,[]).append(key)
 
-qids=sorted({m['qid'] for m in matches.values() if m['qid']})
-entities={}; office_ids=set()
-for i in range(0,len(qids),35):
-    batch=qids[i:i+35]
-    js=api({'action':'wbgetentities','ids':'|'.join(batch),'props':'claims','format':'json'})
-    for qid,e in js.get('entities',{}).items():
-        entities[qid]=e
-        for cl in e.get('claims',{}).get('P39',[]):
-            try:office_ids.add(cl['mainsnak']['datavalue']['value']['id'])
-            except:pass
+def sparql_escape(s):
+    return s.replace('\\','\\\\').replace('"','\\"')
+vals=' '.join('"'+sparql_escape(v)+'"@en' for v in variant_to_keys)
+query='''SELECT ?needle ?person ?personLabel ?personDescription ?position ?positionLabel ?start ?end WHERE {
+  VALUES ?needle { %s }
+  ?person (rdfs:label|skos:altLabel) ?needle .
+  OPTIONAL {
+    ?person p:P39 ?statement .
+    ?statement ps:P39 ?position .
+    OPTIONAL { ?statement pq:P580 ?start . }
+    OPTIONAL { ?statement pq:P582 ?end . }
+  }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}''' % vals
 
-labels={}
-ids=sorted(office_ids)
-for i in range(0,len(ids),40):
-    batch=ids[i:i+40]
-    js=api({'action':'wbgetentities','ids':'|'.join(batch),'props':'labels','languages':'en','format':'json'})
-    for qid,e in js.get('entities',{}).items():
-        labels[qid]=e.get('labels',{}).get('en',{}).get('value',qid)
-
-def qdate(cl,prop):
-    vals=cl.get('qualifiers',{}).get(prop,[])
-    if not vals:return None
+body=urlencode({'query':query,'format':'json'}).encode()
+req=Request('https://query.wikidata.org/sparql',data=body,headers={
+    'User-Agent':'CoreV2R-quality-audit/1.0 research',
+    'Content-Type':'application/x-www-form-urlencoded',
+    'Accept':'application/sparql-results+json'
+})
+sparql=None
+for t in range(5):
     try:
-        s=vals[0]['datavalue']['value']['time']
-        m=re.match(r'[+-](\d{4})-(\d{2})-(\d{2})',s)
-        if not m:return None
-        y,mo,da=map(int,m.groups());mo=max(mo,1);da=max(da,1)
-        return date(y,mo,da)
+        with urlopen(req,timeout=180) as resp:sparql=json.load(resp)
+        break
+    except Exception:
+        if t==4:raise
+        time.sleep(5*(t+1))
+
+raw_candidates={}
+for b in sparql.get('results',{}).get('bindings',[]):
+    needle=b.get('needle',{}).get('value','')
+    pqid=b.get('person',{}).get('value','').rsplit('/',1)[-1]
+    if not needle or not pqid:continue
+    rec=raw_candidates.setdefault((needle,pqid),{
+        'qid':pqid,'label':b.get('personLabel',{}).get('value',''),
+        'description':b.get('personDescription',{}).get('value',''),'claims':[]
+    })
+    pos=b.get('positionLabel',{}).get('value','')
+    if pos:
+        rec['claims'].append({
+            'label':pos,
+            'start':b.get('start',{}).get('value',''),
+            'end':b.get('end',{}).get('value','')
+        })
+
+matches={}
+entity_claims={}
+for key,p in people.items():
+    name=p['name'];st=STATE_FULL.get(p['state_abbrev'],p['state_abbrev'])
+    options=[]
+    for v in variants(name):
+        for (needle,qid),rec in raw_candidates.items():
+            if needle!=v:continue
+            score=0
+            if norm(rec['label'])==norm(name):score+=12
+            nt=norm(name).split();lt=norm(rec['label']).split()
+            if nt and lt and nt[0]==lt[0] and nt[-1]==lt[-1]:score+=5
+            dl=rec['description'].lower()
+            if any(w in dl for w in ['politician','senator','representative','governor','attorney general','mayor','legislator']):score+=4
+            if st.lower() in dl:score+=2
+            if norm(v)==norm(name):score+=2
+            options.append((score,qid,rec))
+    options.sort(key=lambda z:-z[0])
+    if options and options[0][0]>=9:
+        score,qid,rec=options[0]
+        matches[key]={'qid':qid,'label':rec['label'],'description':rec['description'],'match_score':score,'status':'MATCHED'}
+        entity_claims[qid]=rec['claims']
+    else:
+        matches[key]={'qid':'','label':'','description':'','match_score':options[0][0] if options else 0,'status':'NO_CONFIDENT_MATCH'}
+
+def iso_date(s):
+    if not s:return None
+    try:
+        return datetime.fromisoformat(s.replace('Z','+00:00')).date()
     except:return None
 
 def classify(label):
@@ -106,13 +151,10 @@ def classify(label):
 audit=[]
 for key,p in people.items():
     cyc,st,name=key;m=matches[key];cut=ELECTION[cyc];eligible=[];undated=[]
-    ent=entities.get(m['qid'],{}) if m['qid'] else {}
-    for cl in ent.get('claims',{}).get('P39',[]):
-        try:oid=cl['mainsnak']['datavalue']['value']['id']
-        except:continue
-        lab=labels.get(oid,oid);cls=classify(lab)
+    for cl in entity_claims.get(m['qid'],[]) if m['qid'] else []:
+        lab=cl['label'];cls=classify(lab)
         if not cls:continue
-        start=qdate(cl,'P580');end=qdate(cl,'P582')
+        start=iso_date(cl.get('start',''));end=iso_date(cl.get('end',''))
         prior=(start is not None and start<cut) or (start is None and end is not None and end<cut)
         if prior:eligible.append((cls,lab,start.isoformat() if start else '',end.isoformat() if end else ''))
         elif start is None and end is None:undated.append((cls,lab))
