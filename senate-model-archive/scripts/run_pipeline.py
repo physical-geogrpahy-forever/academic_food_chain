@@ -14,6 +14,7 @@ STEPS = [
     'build_same_seat_features.py',
     'build_design_matrix_skeleton.py',
     'audit_presidential_national_margin.py',
+    'audit_presidential_2000_duplicates.py',
 ]
 
 for name in STEPS:
