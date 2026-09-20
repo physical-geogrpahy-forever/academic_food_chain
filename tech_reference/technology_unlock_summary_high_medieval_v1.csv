@@ -1,6 +1,6 @@
 "TECH_EN","UNITS","CITY_BUILDINGS","TILE_IMPROVEMENTS","ROUTES_INFRASTRUCTURE","RESOURCE_REVEAL","RESOURCE_EXPLOITATION","SYSTEMS_NOTES"
 "Apprenticeship","Man-at-Arms with Military Training","Workshop","","","","","Mine +1 Production; Industrial Zone removed"
-"Machinery","Crossbowman","","","Improved Road Movement","","","Lumber Mill +1 Production upgrade; Ironworks deferred"
+"Machinery","Crossbowman","Windmill","","Improved Road Movement","","","Lumber Mill +1 Production upgrade; Windmill moved here from Civ5 Economics; Ironworks remains national-building/wonder audit"
 "Buttress","","","Dam (river-linked infrastructure)","","","","Buttressed Masonry; monumental religious complex deferred"
 "Education","","University","Academy","","","","Production→Science; Research Agreement with Scholasticism; Academy is Worker-built and no longer consumes a Great Scientist"
 "Compass","Galleass","","","","","","Harbor sea-trade range upgrade with Foreign Trade; Fishing Boats +1 Gold; maritime trade capacity candidate"
