@@ -11,6 +11,10 @@ permissions:
   contents: write
   pull-requests: read
 
+concurrency:
+  group: senate-model-archive
+  cancel-in-progress: true
+
 jobs:
   run-senate-archive:
     if: github.head_ref == 'archive-2026-us-senate-model'
@@ -39,5 +43,7 @@ jobs:
             echo 'No generated changes'
           else
             git commit -m 'data: refresh Senate archive pipeline outputs [skip ci]'
+            git fetch origin archive-2026-us-senate-model
+            git rebase origin/archive-2026-us-senate-model
             git push origin HEAD:archive-2026-us-senate-model
           fi
