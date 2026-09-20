@@ -109,3 +109,28 @@ This prevents source mods from determining the project's wonder roster automatic
 
 - JFD — Great Works of Film (Civilization V mod)
 - MoreTech — integrates Great Works of Film and unlocks Great Directors at Cinematography
+
+
+## Former Great Person tile improvements — UPDATED
+
+The earlier design assumption that Great Person tile improvements should be removed is superseded.
+
+The project now keeps five former Civ V Great Person improvements as **nerfed ordinary Worker-built tile improvements**:
+
+- Academy — Education
+- Manufactory — Manufacturing
+- Customs House — Economics + Mercantilism
+- Holy Site — Theology
+- Landmark — Humanism
+
+Great People are not required or consumed.
+
+The Great General **Citadel is the sole excluded former Great Person improvement**.
+
+Military tile defense instead follows:
+Fort -> Bastion Fort -> Advanced Fortification.
+
+Natural History may also create archaeological Historic Landmarks from Antiquity Sites, distinct from the generic Humanism Landmark.
+
+Authority:
+`tile_system/FORMER_GREAT_PERSON_TILE_IMPROVEMENTS_V1.md`
