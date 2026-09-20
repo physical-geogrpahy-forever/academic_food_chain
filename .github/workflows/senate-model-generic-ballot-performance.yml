@@ -1,0 +1,44 @@
+name: Senate model Generic Ballot performance
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'senate-model-archive/performance/run_generic_ballot_oos.py'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: senate-model-generic-ballot-performance
+  cancel-in-progress: true
+
+jobs:
+  generic-ballot-oos:
+    if: github.head_ref == 'archive-2026-us-senate-model'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: archive-2026-us-senate-model
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Run generic-ballot rolling OOS
+        run: python senate-model-archive/performance/run_generic_ballot_oos.py
+      - name: Commit performance outputs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add senate-model-archive/performance/results senate-model-archive/docs/history/updates
+          if git diff --cached --quiet; then
+            echo 'No performance changes'
+          else
+            git commit -m 'perf: generic-ballot National rolling OOS results [skip ci]'
+            git fetch origin archive-2026-us-senate-model
+            git rebase origin/archive-2026-us-senate-model
+            git push origin HEAD:archive-2026-us-senate-model
+          fi
