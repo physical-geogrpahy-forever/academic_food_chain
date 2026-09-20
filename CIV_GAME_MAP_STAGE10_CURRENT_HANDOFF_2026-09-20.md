@@ -655,3 +655,30 @@ Cinematography is now a strong new technology candidate because the Great Direct
 
 Reference:
 - `city_system/CIV5_STYLE_CITY_AND_GREAT_DIRECTOR_BASELINE_V1.md`
+
+
+## Corporation system baseline
+
+Locked core direction:
+- corporations are not Wonders;
+- sectors are non-exclusive;
+- named historical firms may be unique;
+- both Great Merchants and Great Engineers may found corporations;
+- Great Merchants favor commercial/service/consumer sectors;
+- Great Engineers favor technical/industrial sectors;
+- signature founders may create predetermined historical firms;
+- outputs are split into Manufactured Luxuries, Functional Corporate Goods and Services;
+- functional goods use quantity/supply rather than simple permanent empire-wide modifiers;
+- services grant sector-specific effects, not universally Culture/Tourism.
+
+Examples:
+- Refined Petroleum Products -> Production/logistics
+- Pharmaceuticals -> Growth/Health
+- Finance -> Gold/investment
+- Hotels/Film/Travel -> Culture/Tourism
+- Telecommunications/Software -> Science/economic efficiency
+
+Thomas Edison and Carl Benz are strong Great Engineer founder candidates.
+
+Reference:
+- `corporations/CORPORATION_FOUNDING_AND_OUTPUT_SYSTEM_V1.md`
