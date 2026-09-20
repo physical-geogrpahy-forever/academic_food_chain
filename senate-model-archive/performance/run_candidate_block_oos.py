@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import csv, math, re, unicodedata
+import csv, math, re, unicodedata, itertools
 from urllib.request import urlopen
 from collections import defaultdict
 from pathlib import Path
@@ -275,7 +275,29 @@ def tune_lambda(train_rows):
     scores.sort()
     return scores[0][1],scores
 
-variants=['structural_only','candidate_fixed','candidate_ridge_nested']
+def tune_subset(train_rows):
+    grid=[0.0,0.1,0.5,1.0,4.0,16.0,64.0,256.0]
+    cycles=sorted(set(r['cycle'] for r in train_rows))
+    candidates=[]
+    subsets=[()]
+    for k in range(1,len(CAND)+1): subsets.extend(itertools.combinations(CAND,k))
+    for subset in subsets:
+        lambdas=[0.0] if not subset else grid
+        for lam in lambdas:
+            yy=[]; pp=[]
+            features=STRUCT+list(subset)
+            for vc in cycles[1:]:
+                tr=[r for r in train_rows if r['cycle']<vc]; va=[r for r in train_rows if r['cycle']==vc]
+                if len(tr)<10 or not va: continue
+                pred,_=fit_predict(tr,va,features,lam)
+                yy.extend([r['y'] for r in va]); pp.extend(pred.tolist())
+            score=rmse(yy,pp) if yy else 1e9
+            candidates.append((score,len(subset),-lam,subset,lam))
+    candidates.sort(key=lambda z:(z[0],z[1],z[2]))
+    best=candidates[0]
+    return list(best[3]),best[4],candidates[:20]
+
+variants=['structural_only','candidate_fixed','candidate_ridge_nested','candidate_subset_nested']
 pred_rows=[]; hyper=[]
 for tc in OUTER_TEST:
     train=[r for r in panel if r['cycle']<tc]; test=[r for r in panel if r['cycle']==tc]
@@ -285,9 +307,13 @@ for tc in OUTER_TEST:
             features=STRUCT; lam=0.0
         elif variant=='candidate_fixed':
             features=STRUCT+CAND; lam=0.0
-        else:
+        elif variant=='candidate_ridge_nested':
             features=STRUCT+CAND; lam,trace=tune_lambda(train)
-            hyper.append({'test_cycle':tc,'variant':variant,'lambda_candidate':lam,'inner_trace':' | '.join(f'{x[1]}:{x[0]:.4f}' for x in trace)})
+            hyper.append({'test_cycle':tc,'variant':variant,'lambda_candidate':lam,'selected_features':';'.join(CAND),'inner_trace':' | '.join(f'{x[1]}:{x[0]:.4f}' for x in trace)})
+        else:
+            subset,lam,trace=tune_subset(train)
+            features=STRUCT+subset
+            hyper.append({'test_cycle':tc,'variant':variant,'lambda_candidate':lam,'selected_features':';'.join(subset),'inner_trace':' | '.join(f"{x[3]}@{x[4]}:{x[0]:.4f}" for x in trace[:10])})
         pred,beta=fit_predict(train,test,features,lam)
         for r,p in zip(test,pred):
             pred_rows.append({'variant':variant,'test_cycle':tc,'race_id':r['race_id'],'state_abbrev':r['state_abbrev'],'actual_margin':r['y'],'predicted_margin':float(p),'error':float(p-r['y']),'lambda_candidate':lam})
@@ -310,14 +336,16 @@ with (OUTDIR/'candidate_block_oos_predictions.csv').open('w',encoding='utf-8',ne
 with (OUTDIR/'candidate_block_oos_summary.csv').open('w',encoding='utf-8',newline='') as f:
     w=csv.DictWriter(f,fieldnames=list(summary[0].keys())); w.writeheader(); w.writerows(summary)
 with (OUTDIR/'candidate_block_oos_hyperparams.csv').open('w',encoding='utf-8',newline='') as f:
-    fields=['test_cycle','variant','lambda_candidate','inner_trace']; w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(hyper)
+    fields=['test_cycle','variant','lambda_candidate','selected_features','inner_trace']; w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(hyper)
 
 comb={r['variant']:r for r in summary if r['scope']=='2014_2018_2022_combined'}
 best=min(comb.values(),key=lambda r:r['rmse'])
 fixed=comb['candidate_fixed']; ridge=comb['candidate_ridge_nested']; base=comb['structural_only']
 delta_ridge_fixed=float(fixed['rmse'])-float(ridge['rmse'])
 delta_ridge_base=float(base['rmse'])-float(ridge['rmse'])
-status='KEEP_FOR_CORE_V2R_NEXT_STAGE' if delta_ridge_fixed>0 else 'REJECT_RIDGE_CANDIDATE_BLOCK'
+status='KEEP_RIDGE' if (delta_ridge_fixed>0 and delta_ridge_base>0) else 'REJECT_RIDGE_CANDIDATE_BLOCK'
+subset=comb['candidate_subset_nested']; delta_subset_base=float(base['rmse'])-float(subset['rmse'])
+subset_status='KEEP_SUBSET_ARCHITECTURE' if delta_subset_base>0 else 'REJECT_SUBSET_ARCHITECTURE'
 lines=[
  '# Performance experiment: candidate-block rolling OOS','',
  '- Generated UTC: '+datetime.now(timezone.utc).isoformat(),
@@ -335,7 +363,9 @@ lines += [
  '','## Decision','',
  f'- Nested candidate ridge improvement vs unregularized candidate block: {delta_ridge_fixed:+.4f} RMSE points.',
  f'- Nested candidate ridge improvement vs structural-only diagnostic: {delta_ridge_base:+.4f} RMSE points.',
- f'- Decision: {status}','',
+ f'- Decision: {status}',
+ f'- Nested subset-selection improvement vs structural-only diagnostic: {delta_subset_base:+.4f} RMSE points.',
+ f'- Subset decision: {subset_status}','',
  '## Important limitation','',
  'This is a focused candidate-block performance experiment, not the complete preserved Core V2 reconstruction. National_t, RelativeEconomicGrowth, poll updating, and final PersonalVoteDiff are intentionally absent. Therefore its absolute RMSE must not be compared as if it were the preserved Core V2 7.99%p fundamentals benchmark. The valid comparison here is fixed candidate coefficients versus nested OOS candidate-block shrinkage under an identical structural base.','',
  '## Next performance step','',
