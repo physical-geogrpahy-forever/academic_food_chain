@@ -471,3 +471,35 @@ Important removed hard links include:
 
 Next step after review:
 classify every civic as social-only, hard-tech-gated, or tech-boosted.
+
+
+## Civic historical-flow V3 — full audit
+
+Historical V3 supersedes V2 for social-to-social prerequisite design.
+
+Authoritative social-flow files:
+- `civics_reference/CIVIC_TREE_HISTORICAL_V3.md`
+- `civics_reference/civic_tree_historical_v3.csv`
+- `civics_reference/validate_civic_tree_historical_v3.py`
+
+V3 removes remaining game-shaped causal links including:
+- Games and Recreation -> Military Training
+- Drama and Poetry -> Recorded History
+- Mercenaries -> Exploration
+- Scorched Earth -> Mobilization
+- Mobilization -> Ideology
+- Ideology -> Nuclear Program
+- Labor Movement -> Suffrage as a mandatory link
+- Professional Sports -> Social Media
+- Cultural Heritage -> Environmentalism as a mandatory link
+
+QA:
+- 72 nodes
+- 72 reachable from Code of Laws
+- one root
+- zero cycles
+- zero missing references
+- zero backward-era edges
+- max 2 direct social prerequisites
+
+Next: technology cross-gate classification.
