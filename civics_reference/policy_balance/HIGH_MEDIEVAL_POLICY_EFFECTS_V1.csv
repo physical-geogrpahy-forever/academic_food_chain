@@ -1,0 +1,9 @@
+POLICY_EN,CIVIC_EN,POLICY_SLOT,FINAL_EFFECT,SOURCE_BASIS
+"Chivalry","Divine Right","Military","+50% Production toward Industrial-era and earlier light and heavy cavalry units","Civ6 direct"
+"Gothic Architecture","Divine Right","Economic","+15% Production toward Ancient through Renaissance Wonders","Civ6 direct"
+"Craftsmen","Guilds","Economic","Workshop, Factory, and Power Plant each provide +1 Production","Civ6 Industrial Zone adjacency adapted"
+"Town Charters","Guilds","Economic","Market, Bank, and Stock Exchange each provide +1 Gold","Civ6 Commercial Hub adjacency adapted"
+"Traveling Merchants","Guilds","Wildcard","+2 Great Merchant Points per turn","Civ6 direct"
+"Aesthetics","Medieval Faires","Economic","Each cultural building provides +1 Culture","Civ6 Theater Square adjacency adapted"
+"Medina Quarter","Medieval Faires","Economic","+2 Housing in cities with at least 3 institutional building chains","Civ6 direct threshold adapted"
+"Merchant Confederation","Medieval Faires","Diplomatic","+1 Gold from each Envoy you have assigned to city-states","Civ6 direct"
