@@ -1856,3 +1856,25 @@ generic corporation:
 Photography / Cinematography를 추가하여 111-tech로 갈지,
 109-tech를 유지하고 기존 기술에 매핑할지 결정한 뒤
 109-tech unit/building/improvement/corporation unlock table로 넘어간다.
+
+
+## Former Great Person tile improvements — 2026-09-21 update
+
+Supersedes the previous blanket removal rule.
+
+Five former Civ V Great Person improvements return as **nerfed Worker-buildable tile improvements** with no Great Person consumption:
+
+- Academy -> Education
+- Manufactory -> Manufacturing
+- Customs House -> Economics + Mercantilism
+- Holy Site -> Theology
+- Landmark -> Humanism
+
+The Great General Citadel remains excluded.
+
+The city institution previously called Customs House is renamed **Customs Office** so that Customs House remains the tile-improvement name.
+
+Natural History archaeology retains a separate archaeological Historic Landmark pathway.
+
+Authority:
+`tile_system/FORMER_GREAT_PERSON_TILE_IMPROVEMENTS_V1.md`
