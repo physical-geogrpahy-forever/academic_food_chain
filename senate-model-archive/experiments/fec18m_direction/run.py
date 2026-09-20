@@ -1,163 +1,164 @@
 #!/usr/bin/env python3
-import csv, io, math, re, urllib.request, urllib.parse, itertools
+import csv, io, json, re, urllib.request, urllib.parse, zipfile, itertools
 from pathlib import Path
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
-from openpyxl import load_workbook
 
 ROOT=Path(__file__).resolve().parents[2]
 BASE=ROOT/'experiments/poll_direction/results/poll_fixed_predictions.csv'
 DM=ROOT/'data/processed/core_v2r_headline_design_matrix_with_personal_vote_audit.csv'
 OUT=ROOT/'experiments/fec18m_direction/results'
-DOC=ROOT/'docs/history/updates/2026-09-21_0380_fec18m-fundraising-direction.md'
-OUT.mkdir(parents=True,exist_ok=True); DOC.parent.mkdir(parents=True,exist_ok=True)
+DOC=ROOT/'docs/history/updates/2026-09-21_0382_fec-form3-june30-fundraising-direction.md'
+OUT.mkdir(parents=True,exist_ok=True);DOC.parent.mkdir(parents=True,exist_ok=True)
 
 YEARS=[2014,2018,2022]
 GAMMA=[0,0.5,1,2,3,4,5,6,8,10,12,15,20]
-SIGNALS=['individual_share','receipts_share','cash_share','candidate_money_share']
+SIGNALS=['individual_share','receipts_share','cash_share']
+API='https://api.open.fec.gov/v1/reports/house-senate/'
 
 def load(p):
     with p.open('r',encoding='utf-8-sig',newline='') as f:return list(csv.DictReader(f))
 def norm(s):
-    s=(s or '').lower()
-    s=s.replace(',',' ')
+    s=(s or '').lower().replace(',',' ')
     s=re.sub(r'\b(jr|sr|ii|iii|iv)\b',' ',s)
     s=re.sub(r'[^a-z0-9 ]+',' ',s)
     return re.sub(r'\s+',' ',s).strip()
-def num(v):
-    if v is None:return 0.0
-    if isinstance(v,(int,float)):return float(v)
-    s=str(v).replace('$','').replace(',','').replace('(','-').replace(')','').strip()
-    try:return float(s)
-    except:return 0.0
-def fetch(url):
-    req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 CoreV2R-FEC18M/1.0'})
+def get(url):
+    req=urllib.request.Request(url,headers={'User-Agent':'CoreV2R-FEC-Form3/1.0'})
     return urllib.request.urlopen(req,timeout=120).read()
+def fnum(v):
+    try:return float(v or 0)
+    except:return 0.0
 
-def discover_xlsx(year):
-    candidates=[
-      f'https://www.fec.gov/resources/campaign-finance-statistics/{year}/tables/congressional/ConCand2_{year}_18m.xlsx',
-      f'https://www.fec.gov/resources/campaign-finance-statistics/{year}/tables/congressional/ConCand2_{year}_18M.xlsx',
-    ]
-    for u in candidates:
-        try:
-            b=fetch(u)
-            if b[:2]==b'PK':return u,b
-        except:pass
-    page=f'https://www.fec.gov/campaign-finance-data/congressional-candidate-data-summary-tables/?year={year}&segment=18'
-    html=fetch(page).decode('utf-8','replace')
-    links=re.findall(r'href=["\']([^"\']+\.xlsx)["\']',html,re.I)
-    links=[urllib.parse.urljoin(page,x) for x in links]
-    ranked=[u for u in links if f'ConCand2_{year}_' in u and ('18m' in u.lower() or '18M' in u)]
-    ranked += [u for u in links if f'ConCand2_{year}_' in u and u not in ranked]
-    for u in ranked:
-        try:
-            b=fetch(u)
-            if b[:2]==b'PK':return u,b
-        except:pass
-    raise RuntimeError(f'Could not locate FEC Table 2 18M xlsx for {year}; links sample={links[:10]}')
-
-def parse_workbook(year,b):
-    wb=load_workbook(io.BytesIO(b),data_only=True,read_only=True)
-    best=None
-    for ws in wb.worksheets:
-        vals=list(ws.iter_rows(values_only=True))
-        for i,row in enumerate(vals[:40]):
-            txt=[str(x).strip() if x is not None else '' for x in row]
-            low=[x.lower() for x in txt]
-            if any('candidate' in x for x in low) and any('receipt' in x for x in low):
-                score=sum(bool(x) for x in txt)
-                if best is None or score>best[0]:best=(score,ws.title,i,vals)
-    if best is None:
-        dump=[]
-        for ws in wb.worksheets:
-            dump.append('SHEET='+ws.title)
-            for row in list(ws.iter_rows(values_only=True))[:25]:
-                dump.append(' || '.join('' if x is None else str(x) for x in row))
-        raise RuntimeError(f"No header row detected in {year} workbook\n"+'\n'.join(dump))
-    _,sheet,hi,vals=best
-    rawheaders=[str(x).strip() if x is not None else '' for x in vals[hi]]
-    headers=[];seen={}
-    for j,h in enumerate(rawheaders):
-        key=h or f'col{j}'
-        if key in seen:seen[key]+=1;key=f'{key}_{seen[key]}'
-        else:seen[key]=0
-        headers.append(key)
-    rows=[]
-    for row in vals[hi+1:]:
-        if not any(x is not None and str(x).strip() for x in row):continue
-        d={headers[j]:(row[j] if j<len(row) else None) for j in range(len(headers))}
-        rows.append(d)
-    return sheet,headers,rows
-
-def col(headers,patterns):
-    for p in patterns:
-        for h in headers:
-            if p in h.lower():return h
-    return None
-
-fec_rows=[];source_meta=[]
+# FEC candidate master: pipe-delimited bulk files.
+CAND_COLS=['cand_id','cand_name','party','election_year','state','office','district','ici','status','pcc',
+           'st1','st2','city','mail_state','zip']
+masters=[]
+source_meta=[]
 for year in YEARS:
-    url,b=discover_xlsx(year)
-    sheet,headers,rr=parse_workbook(year,b)
-    hc={
-      'candidate':col(headers,['candidate name','candidate']),
-      'state':col(headers,['state']),
-      'party':col(headers,['party']),
-      'receipts':col(headers,['total receipts','receipts']),
-      'individual':col(headers,['individual']),
-      'cash':col(headers,['cash on hand','cash']),
-      'candidate_money':col(headers,['candidate contributions','contrib & loans','candidate contrib','loans from candidate'])
-    }
-    if not hc['candidate'] or not hc['state'] or not hc['receipts']:
-        raise RuntimeError(f'{year} missing columns: {hc}; headers={headers}')
-    for r in rr:
-        name=str(r.get(hc['candidate']) or '').strip()
-        state=str(r.get(hc['state']) or '').strip().upper()
-        if not name or len(state)!=2:continue
-        fec_rows.append({'year':year,'name':name,'state':state,'party':str(r.get(hc['party']) or '').strip(),
-                         'receipts':num(r.get(hc['receipts'])),'individual':num(r.get(hc['individual'])) if hc['individual'] else 0.0,
-                         'cash':num(r.get(hc['cash'])) if hc['cash'] else 0.0,
-                         'candidate_money':num(r.get(hc['candidate_money'])) if hc['candidate_money'] else 0.0})
-    source_meta.append({'year':year,'url':url,'sheet':sheet,'headers':' | '.join(headers)})
+    yy=str(year)[-2:]
+    urls=[
+      f'https://www.fec.gov/files/bulk-downloads/{year}/cn{yy}.zip',
+      f'https://www.fec.gov/files/bulk-downloads/{year}/cn{year}.zip'
+    ]
+    raw=None;used=None
+    for u in urls:
+        try:
+            b=get(u)
+            if b[:2]==b'PK':raw=b;used=u;break
+        except Exception:pass
+    if raw is None:raise RuntimeError(f'FEC candidate master not found for {year}')
+    z=zipfile.ZipFile(io.BytesIO(raw))
+    member=next((n for n in z.namelist() if n.lower().endswith('.txt')),z.namelist()[0])
+    txt=z.read(member).decode('latin-1','replace')
+    count=0
+    for line in txt.splitlines():
+        parts=line.split('|')
+        if len(parts)<10:continue
+        d={CAND_COLS[i]:(parts[i].strip() if i<len(parts) else '') for i in range(len(CAND_COLS))}
+        try:ey=int(d['election_year'] or 0)
+        except:ey=0
+        if d['office']!='S' or ey!=year:continue
+        d['year']=year;masters.append(d);count+=1
+    source_meta.append({'year':year,'source':'candidate_master','url':used,'rows_senate':count})
 
-base=[r for r in load(BASE) if r['variant']=='w30_h14_all']
-dm=load(DM);dby={r['race_id']:r for r in dm}
 byys={}
-for x in fec_rows:byys.setdefault((x['year'],x['state']),[]).append(x)
+for x in masters:byys.setdefault((x['year'],x['state']),[]).append(x)
 
-def match_candidate(year,state,name,party_side):
+def party_ok(code,side):
+    p=(code or '').upper()
+    return ('DEM' in p or p in {'D','DFL'}) if side=='D' else ('REP' in p or p=='R')
+
+def match_candidate(year,state,name,side):
     q=norm(name);pool=byys.get((year,state),[])
     scored=[]
     for x in pool:
-        n=norm(x['name'])
-        s=1.0 if q==n else SequenceMatcher(None,q,n).ratio()
-        # surname equality is a strong guard
+        n=norm(x['cand_name'])
+        sim=1.0 if q==n else SequenceMatcher(None,q,n).ratio()
         qlast=q.split()[-1] if q else '';nlast=n.split()[-1] if n else ''
-        if qlast and nlast and qlast==nlast:s+=0.15
-        p=x['party'].upper()
-        if party_side=='D' and ('DEM' in p or p=='D'):s+=0.05
-        if party_side=='R' and ('REP' in p or p=='R'):s+=0.05
-        scored.append((s,x))
+        if qlast and qlast==nlast:sim+=0.16
+        if party_ok(x['party'],side):sim+=0.08
+        elif x['party']:sim-=0.12
+        scored.append((sim,x))
     scored.sort(key=lambda z:z[0],reverse=True)
-    if not scored or scored[0][0]<0.80:return None,0.0
-    if len(scored)>1 and scored[0][0]-scored[1][0]<0.03:return None,scored[0][0]
+    if not scored or scored[0][0]<0.82:return None,(scored[0][0] if scored else 0)
+    if len(scored)>1 and scored[0][0]-scored[1][0]<0.04:return None,scored[0][0]
     return scored[0][1],scored[0][0]
 
-rows=[];review=[]
+base=[r for r in load(BASE) if r['variant']=='w30_h14_all']
+dm=load(DM);dby={r['race_id']:r for r in dm}
+matches=[];committee_ids={y:set() for y in YEARS}
 for r in base:
-    cyc=int(r['test_cycle']);d=dby[r['race_id']]
-    dn=d['d_side_candidate'];rn=d['r_side_candidate'];st=r['state_abbrev']
-    dmch,ds=match_candidate(cyc,st,dn,'D');rmch,rs=match_candidate(cyc,st,rn,'R')
-    review.append({'cycle':cyc,'state':st,'race_id':r['race_id'],'d_candidate':dn,'d_match':'' if not dmch else dmch['name'],'d_score':ds,
-                   'r_candidate':rn,'r_match':'' if not rmch else rmch['name'],'r_score':rs})
-    if not dmch or not rmch:continue
-    def share(key):
-        a=max(dmch[key],0.0);b=max(rmch[key],0.0)
-        return 0.0 if a+b<=0 else (a-b)/(a+b)
-    rows.append({'cycle':cyc,'race_id':r['race_id'],'state':st,'actual':float(r['actual']),'posterior':float(r['posterior']),
+    year=int(r['test_cycle']);d=dby[r['race_id']];state=r['state_abbrev']
+    for side in ['D','R']:
+        name=d['d_side_candidate'] if side=='D' else d['r_side_candidate']
+        m,score=match_candidate(year,state,name,side)
+        rec={'cycle':year,'race_id':r['race_id'],'state':state,'side':side,'candidate':name,'score':score,
+             'fec_candidate_id':'','fec_candidate_name':'','party':'','pcc':''}
+        if m:
+            rec.update({'fec_candidate_id':m['cand_id'],'fec_candidate_name':m['cand_name'],'party':m['party'],'pcc':m['pcc']})
+            if m['pcc']:committee_ids[year].add(m['pcc'])
+        matches.append(rec)
+
+# Fetch Form 3 committee summaries in batches. API accepts repeated committee_id.
+reports={}
+api_keys_seen=set()
+for year in YEARS:
+    ids=sorted(committee_ids[year])
+    for i in range(0,len(ids),20):
+        batch=ids[i:i+20]
+        params=[('api_key','DEMO_KEY'),('cycle',str(year)),('year',str(year)),('per_page','100'),
+                ('most_recent','true'),('sort','-coverage_end_date')]
+        params += [('committee_id',x) for x in batch]
+        url=API+'?'+urllib.parse.urlencode(params)
+        payload=json.loads(get(url).decode('utf-8'))
+        results=payload.get('results',[])
+        if results:api_keys_seen.update(results[0].keys())
+        for x in results:
+            cid=str(x.get('committee_id') or '')
+            cov=str(x.get('coverage_end_date') or '')[:10]
+            if cid not in batch or cov!=f'{year}-06-30':continue
+            oldr=reports.get((year,cid))
+            # Prefer the highest file number / newest receipt among duplicate amendments.
+            rank=(int(x.get('file_number') or 0),str(x.get('receipt_date') or ''))
+            oldrank=(-1,'') if oldr is None else (int(oldr.get('file_number') or 0),str(oldr.get('receipt_date') or ''))
+            if rank>oldrank:reports[(year,cid)]=x
+        source_meta.append({'year':year,'source':'openfec_form3_batch','url':url.replace('DEMO_KEY','REDACTED_DEMO_KEY'),
+                            'rows_senate':len(results)})
+
+def firstnum(r,names):
+    for k in names:
+        if k in r and r.get(k) is not None:return fnum(r.get(k))
+    return 0.0
+
+def finance(r):
+    # Form 3 field aliases vary somewhat across OpenFEC versions.
+    individual=firstnum(r,['individual_contributions_ytd','contributions_from_individuals_ytd',
+                           'individual_itemized_contributions_ytd'])
+    if individual==0:
+        individual=firstnum(r,['individual_itemized_contributions_ytd'])+firstnum(r,['individual_unitemized_contributions_ytd'])
+    receipts=firstnum(r,['total_receipts_ytd','receipts_ytd'])
+    cash=firstnum(r,['cash_on_hand_end_period','cash_on_hand_end_period_amount'])
+    return {'individual':individual,'receipts':receipts,'cash':cash}
+
+match_by={(m['cycle'],m['race_id'],m['side']):m for m in matches}
+rows=[]
+for b in base:
+    year=int(b['test_cycle']);rid=b['race_id'];state=b['state_abbrev']
+    dmch=match_by[(year,rid,'D')];rmch=match_by[(year,rid,'R')]
+    dr=reports.get((year,dmch['pcc'])) if dmch['pcc'] else None
+    rr=reports.get((year,rmch['pcc'])) if rmch['pcc'] else None
+    if not dr or not rr:continue
+    df=finance(dr);rf=finance(rr)
+    def share(k):
+        a=max(df[k],0);c=max(rf[k],0)
+        return 0.0 if a+c<=0 else (a-c)/(a+c)
+    rows.append({'cycle':year,'race_id':rid,'state':state,'actual':float(b['actual']),'posterior':float(b['posterior']),
                  'individual_share':share('individual'),'receipts_share':share('receipts'),'cash_share':share('cash'),
-                 'candidate_money_share':share('candidate_money')})
+                 'd_pcc':dmch['pcc'],'r_pcc':rmch['pcc'],
+                 'd_individual':df['individual'],'r_individual':rf['individual'],
+                 'd_receipts':df['receipts'],'r_receipts':rf['receipts'],
+                 'd_cash':df['cash'],'r_cash':rf['cash']})
 
 def evalset(dat,signal,gamma):
     ok=flips=0
@@ -187,7 +188,6 @@ for tc in YEARS:
                      'baseline_correct':int((r['posterior']>0)==(r['actual']>0)),
                      'adjusted_correct':int((q>0)==(r['actual']>0))})
 
-# For unmatched races, preserve baseline rather than dropping them.
 pmap={(r['cycle'],r['race_id']):r for r in pred}
 allpred=[]
 for b in base:
@@ -195,35 +195,37 @@ for b in base:
     if key in pmap:allpred.append(pmap[key]);continue
     act=float(b['actual']);post=float(b['posterior'])
     allpred.append({'cycle':key[0],'race_id':key[1],'state':b['state_abbrev'],'actual':act,'posterior':post,
-                    'individual_share':'','receipts_share':'','cash_share':'','candidate_money_share':'',
-                    'selected_signal':'UNMATCHED_BASELINE','gamma':0,'adjusted_posterior':post,
+                    'individual_share':'','receipts_share':'','cash_share':'','d_pcc':'','r_pcc':'',
+                    'd_individual':'','r_individual':'','d_receipts':'','r_receipts':'','d_cash':'','r_cash':'',
+                    'selected_signal':'UNMATCHED_OR_NO_Q2_BASELINE','gamma':0,'adjusted_posterior':post,
                     'baseline_correct':int((post>0)==(act>0)),'adjusted_correct':int((post>0)==(act>0))})
 
 summary=[]
 for scope in ['combined','2014','2018','2022']:
     rr=allpred if scope=='combined' else [r for r in allpred if r['cycle']==int(scope)]
     n=len(rr);b=sum(r['baseline_correct'] for r in rr);a=sum(r['adjusted_correct'] for r in rr)
-    summary.append({'scope':scope,'n':n,'finance_covered':sum(r['selected_signal']!='UNMATCHED_BASELINE' for r in rr),
+    summary.append({'scope':scope,'n':n,'finance_covered':sum(r['selected_signal']!='UNMATCHED_OR_NO_Q2_BASELINE' for r in rr),
                     'baseline_correct':b,'baseline_accuracy_pct':100*b/n,'adjusted_correct':a,
                     'adjusted_accuracy_pct':100*a/n,'net_correct_gain':a-b})
 
-for fn,data in [('fec18m_summary.csv',summary),('fec18m_choices.csv',choices),('fec18m_predictions.csv',allpred),('fec18m_match_review.csv',review),('fec18m_source_meta.csv',source_meta)]:
+for fn,data in [('fec_form3_summary.csv',summary),('fec_form3_choices.csv',choices),('fec_form3_predictions.csv',allpred),
+                ('fec_form3_candidate_matches.csv',matches),('fec_form3_source_meta.csv',source_meta)]:
     with (OUT/fn).open('w',encoding='utf-8',newline='') as f:
-        fields=list(data[0].keys());w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(data)
+        fields=list(data[0].keys()) if data else ['empty'];w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(data)
 
 changed=[r for r in allpred if r['baseline_correct']!=r['adjusted_correct']]
-lines=['# FEC 18-month fundraising direction experiment','',
+lines=['# Candidate-level FEC Form 3 June-30 fundraising direction experiment','',
 '- Generated UTC: '+datetime.now(timezone.utc).isoformat(),
-'- FEC Table 2 uses campaign finance activity through June 30 of each election year.',
-'- The same 18-month filing stage is used for 2014, 2018, 2022, before the 45-day polling snapshot.',
-'- Tested signals: individual-contribution share, total-receipts share, cash-on-hand share, candidate contributions/loans share.',
-'- For 2018, signal and gamma are selected using 2014 only; for 2022, using 2014+2018 only.',
-'- Races without a confident FEC candidate match keep the 94/99 baseline prediction unchanged.','',
-'## Result','',
-'| scope | N | finance-covered | baseline correct | baseline acc | adjusted correct | adjusted acc | net |',
+'- The discarded FEC Table 2 aggregate workbook is not used.',
+'- Senate candidates are matched to the FEC candidate master and principal campaign committee (PCC).',
+'- Finance values come from the latest Form 3 report whose coverage_end_date is June 30 of the election year.',
+'- Candidate matching/report gaps preserve the 94/99 baseline unchanged.',
+'- Signal/gamma for each outer cycle is selected only from prior outer cycles with finance coverage.','',
+'## Coverage and result','',
+'| scope | N | finance-covered | baseline correct | baseline acc | finance correct | finance acc | net |',
 '|---|---:|---:|---:|---:|---:|---:|---:|']
 for r in summary:lines.append(f"| {r['scope']} | {r['n']} | {r['finance_covered']} | {r['baseline_correct']} | {r['baseline_accuracy_pct']:.1f}% | {r['adjusted_correct']} | {r['adjusted_accuracy_pct']:.1f}% | {r['net_correct_gain']:+d} |")
-lines += ['','## Selected finance signal','',
+lines += ['','## Selected signal','',
 '| test | signal | gamma | train N | train accuracy | test finance coverage |',
 '|---:|---|---:|---:|---:|---:|']
 for r in choices:
@@ -231,12 +233,13 @@ for r in choices:
     lines.append(f"| {r['test_cycle']} | {r['signal']} | {r['gamma']} | {r['train_n']} | {ta} | {r['test_finance_covered']} |")
 lines += ['','## Correctness changes','']
 for r in changed:lines.append(f"- {r['cycle']} {r['state']} {r['race_id']}: baseline {'correct' if r['baseline_correct'] else 'wrong'} -> finance {'correct' if r['adjusted_correct'] else 'wrong'}")
-lines += ['','## Decision','',
-'Adopt only if combined direction accuracy exceeds 94/99 and candidate matching coverage is adequate.','',
+lines += ['','## API field audit','',f"- OpenFEC report keys observed: {', '.join(sorted(api_keys_seen))}",'',
+'## Decision','',
+'Adopt only if candidate-level June-30 fundraising exceeds 94/99 without outer-test tuning and finance coverage is adequate.','',
 '## Outputs','',
-'- experiments/fec18m_direction/results/fec18m_summary.csv',
-'- experiments/fec18m_direction/results/fec18m_choices.csv',
-'- experiments/fec18m_direction/results/fec18m_predictions.csv',
-'- experiments/fec18m_direction/results/fec18m_match_review.csv',
-'- experiments/fec18m_direction/results/fec18m_source_meta.csv']
+'- experiments/fec18m_direction/results/fec_form3_summary.csv',
+'- experiments/fec18m_direction/results/fec_form3_choices.csv',
+'- experiments/fec18m_direction/results/fec_form3_predictions.csv',
+'- experiments/fec18m_direction/results/fec_form3_candidate_matches.csv',
+'- experiments/fec18m_direction/results/fec_form3_source_meta.csv']
 DOC.write_text('\n'.join(lines)+'\n',encoding='utf-8');print('\n'.join(lines))
