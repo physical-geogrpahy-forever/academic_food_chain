@@ -1,4 +1,4 @@
-RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOURCE,SOURCE_UNLOCK,DECISION,REASON,NOTES
+"RECORD_ID","PROJECT_ERA","UNLOCK_TYPE","CONTENT_EN","TECH_GATE","CIVIC_GATE","GATE_MODE","SOURCE","SOURCE_UNLOCK","DECISION","REASON","NOTES"
 "MB001","Modern","UNIT","Tank","Combined Arms","","TECH","Civ5 BNW; Civ6 Combustion remap","Combined Arms / Combustion","KEEP","Civ V priority preserves Landship -> Tank progression","Requires Oil"
 "MB002","Modern","UNIT","Anti-Tank Gun","Combined Arms","Military Science","TECH+CIVIC","Civ5 BNW","Combined Arms","CROSS_GATE","Dedicated anti-armor warfare depends on combined-arms doctrine and organized modern artillery training",""
 "MB003","Modern","UNIT","Destroyer","Combined Arms","","TECH","Civ6 GS; Civ5 Combustion remap","Combined Arms / Combustion","KEEP","Modern fleet coordination and anti-submarine/escort role fit Combined Arms better than internal-combustion technology alone","Requires Oil"
@@ -34,7 +34,7 @@ RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOUR
 "MB033","Modern","UNIT","Fighter","Advanced Flight","","TECH","Civ5 Radar remap; Civ6 GS","Radar / Advanced Flight","MOVE_TO_TECH","Already assigned to Advanced Flight in Part A",""
 "MB034","Modern","UNIT","Bomber","Advanced Flight","","TECH","Civ5 Radar remap; Civ6 GS","Radar / Advanced Flight","MOVE_TO_TECH","Already assigned to Advanced Flight",""
 "MB035","Modern","UNIT","Paratrooper","Advanced Flight","Mobilization","TECH+CIVIC","Civ5 Radar remap","Radar","MOVE_TO_TECH","Already assigned to aviation technology plus mass military organization",""
-"MB036","Modern","UNIT","Spec Ops","Radar","Mobilization","TECH+CIVIC","Civ6 Plastics remap; project synthesis","Radar","DEFER_SYSTEM","Modern reconnaissance/communications fit, but final unit tier should be reconciled with Atomic Rapid Deployment",""
+"MB036","Modern","UNIT","Spec Ops","Radar","Rapid Deployment","TECH+CIVIC","Civ6 Plastics remap; project synthesis","Radar","MOVE_TO_CIVIC","Final unlock resolved in Atomic audit as Radar + Rapid Deployment -> Spec Ops","Civ6 unit is Plastics, but project uses communications/surveillance technology plus rapid-deployment doctrine"
 "MB037","Modern","RESOURCE_REVEAL","Uranium","Atomic Theory","","TECH","Civ5 BNW","Atomic Theory","KEEP","Civ V placement and direct scientific fit","Extracted with Mine"
 "MB038","Modern","RESOURCE_EXPLOITATION","Uranium mining","Mining","","TECH","Civ5 BNW resource logic","Mine","KEEP","Existing Mine extracts Uranium after reveal",""
 "MB039","Modern","SYSTEM","Atomic Physics Framework","Atomic Theory","","TECH","Historical/project adaptation","Atomic Theory","KEEP","Provides conceptual basis for later Nuclear Fission and nuclear technologies",""
