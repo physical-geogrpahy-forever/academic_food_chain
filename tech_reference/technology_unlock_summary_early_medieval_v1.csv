@@ -1,0 +1,6 @@
+TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"Castles","","Castle","","","","","Castle merges Civ5 Castle + Civ6 Medieval Walls; Courser moved away; Alhambra deferred"
+"Gunpowder","Fire Lance","","","","","Niter as military input","Gunpowder Munitions; Musketman deferred/remapped to later firearms stage"
+"Block Printing","","Woodblock Printing House with Written Culture","","","","","Mass Text Reproduction with Written Culture; later Printing Press remains Printing"
+"Algebra","","","","","","","Advanced Algebraic Calculation; institutional science/admin bonuses deferred for balance"
+"Astrolabe","","","","","","","Celestial-navigation, naval sight/trade-range upgrade; ocean crossing remains Astronomy"
