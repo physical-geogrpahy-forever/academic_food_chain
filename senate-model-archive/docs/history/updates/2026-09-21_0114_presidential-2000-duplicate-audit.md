@@ -1,6 +1,6 @@
 # GitHub Actions run: 2000 presidential duplicate-row audit
 
-- Generated UTC: 2026-09-20T17:01:38.459534+00:00
+- Generated UTC: 2026-09-20T17:03:58.604154+00:00
 - Execution: GitHub Actions
 - Reason: 2000 state-summed national D-R margin differs from the source national row and FEC official aggregate.
 

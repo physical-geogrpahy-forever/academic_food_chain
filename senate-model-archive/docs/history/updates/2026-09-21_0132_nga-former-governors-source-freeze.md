@@ -1,9 +1,9 @@
 # GitHub Actions run: NGA former-governors source freeze
 
-- Generated UTC: 2026-09-20T17:01:37.336842+00:00
+- Generated UTC: 2026-09-20T17:03:57.707682+00:00
 - Source: National Governors Association former-governors search page
 - URL: https://www.nga.org/former-governors/search/
-- HTML sha256: `06de28f10cf47eb18a73181c50ce8c9b4a42a55186960e1eac58d17988da0f91`
+- HTML sha256: `409ae8ca4cc4e47dff59c20a53f34370a81c20b4830f53e6b5e494a4465c9602`
 - Parsed governor-term rows: 2625
 
 ## Use
