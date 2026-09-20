@@ -1,0 +1,104 @@
+TECH,PROJECT_ERA,ERA_INDEX,PREREQUISITES_AND,SUCCESSORS
+Agriculture,Ancient,1,,Irrigation; Wheel; Calendar
+Pottery,Ancient,1,,Irrigation; Writing
+Animal Husbandry,Ancient,1,,Trapping; Horseback Riding
+Mining,Ancient,1,,Masonry; Bronze Working; Wheel
+Sailing,Ancient,1,,Celestial Navigation; Shipbuilding
+Archery,Ancient,1,,
+Irrigation,Ancient,1,Agriculture; Pottery,
+Writing,Ancient,1,Pottery,Currency; Mathematics; Education
+Masonry,Ancient,1,Mining,Construction
+Bronze Working,Ancient,1,Mining,Iron Working; Shipbuilding
+Wheel,Ancient,1,Agriculture; Mining,Horseback Riding; Construction
+Calendar,Ancient,1,Agriculture,Astrology; Currency; Mathematics
+Astrology,Ancient,1,Calendar,Celestial Navigation
+Trapping,Ancient,1,Animal Husbandry,
+Celestial Navigation,Classical,2,Sailing; Astrology,Compass
+Currency,Classical,2,Writing; Calendar,Apprenticeship; Banking
+Horseback Riding,Classical,2,Animal Husbandry; Wheel,Stirrups
+Iron Working,Classical,2,Bronze Working,Military Tactics; Stirrups; Apprenticeship; Compass
+Shipbuilding,Classical,2,Sailing; Bronze Working,Square Rigging
+Mathematics,Classical,2,Writing; Calendar,Engineering; Optics; Military Tactics; Education; Physics; Ballistics; Computers
+Construction,Classical,2,Masonry; Wheel,Engineering; Castles; Buttress
+Engineering,Classical,2,Construction; Mathematics,Military Engineering; Machinery; Physics; Sanitation; Combustion
+Optics,Classical,2,Mathematics,Astronomy
+Military Tactics,Late Antiquity,3,Mathematics; Iron Working,Military Engineering; Military Science
+Military Engineering,Late Antiquity,3,Engineering; Military Tactics,Castles; Gunpowder; Fortification
+Stirrups,Early Medieval,4,Horseback Riding; Iron Working,
+Castles,Early Medieval,4,Construction; Military Engineering,Buttress; Siege Tactics
+Apprenticeship,High Medieval,5,Currency; Iron Working,Machinery; Metal Casting; Manufacturing
+Machinery,High Medieval,5,Engineering; Apprenticeship,Printing; Metal Casting; Replaceable Parts
+Buttress,High Medieval,5,Construction; Castles,
+Education,High Medieval,5,Writing; Mathematics,Banking; Gunpowder; Printing; Astronomy; Acoustics; Biology
+Compass,High Medieval,5,Celestial Navigation; Iron Working,Navigation
+Physics,High Medieval,5,Mathematics; Engineering,Acoustics; Scientific Theory; Electricity; Flight; Atomic Theory
+Banking,Renaissance,6,Currency; Education,Economics; Manufacturing
+Gunpowder,Renaissance,6,Military Engineering; Education,Siege Tactics; Metallurgy; Flintlock; Ballistics; Chemistry
+Printing,Renaissance,6,Machinery; Education,Cartography; Economics; Telegraph
+Metal Casting,Renaissance,6,Apprenticeship; Machinery,Metallurgy
+Siege Tactics,Renaissance,6,Castles; Gunpowder,Fortification
+Astronomy,Exploration,7,Optics; Education,Navigation; Scientific Theory
+Navigation,Exploration,7,Compass; Astronomy,Cartography; Square Rigging
+Cartography,Exploration,7,Printing; Navigation,
+Square Rigging,Exploration,7,Shipbuilding; Navigation,Warships
+Metallurgy,Exploration,7,Metal Casting; Gunpowder,Flintlock; Warships; Steel
+Acoustics,Exploration,7,Physics; Education,Radio
+Flintlock,Exploration,7,Gunpowder; Metallurgy,Military Science; Rifling
+Warships,Exploration,7,Square Rigging; Metallurgy,Armor Plating
+Fortification,Exploration,7,Siege Tactics; Military Engineering,
+Scientific Theory,Enlightenment,8,Astronomy; Physics,Chemistry; Steam Power; Electricity; Biology; Atomic Theory
+Ballistics,Enlightenment,8,Mathematics; Gunpowder,Rifling; Dynamite; Rocketry; Advanced Ballistics
+Military Science,Enlightenment,8,Military Tactics; Flintlock,Combined Arms
+Economics,Enlightenment,8,Banking; Printing,
+Chemistry,Enlightenment,8,Gunpowder; Scientific Theory,Sanitation; Refining; Fertilizer; Dynamite; Refrigeration; Rocketry; Plastics; Penicillin; Nuclear Fission; Synthetic Materials
+Manufacturing,Enlightenment,8,Apprenticeship; Banking,Steam Power; Industrialization; Replaceable Parts
+Steam Power,Industrial,9,Manufacturing; Scientific Theory,Industrialization; Railroad
+Industrialization,Industrial,9,Steam Power; Manufacturing,Steel; Refining; Mass Production; Refrigeration
+Sanitation,Industrial,9,Chemistry; Engineering,
+Rifling,Industrial,9,Flintlock; Ballistics,Advanced Ballistics
+Replaceable Parts,Industrial,9,Manufacturing; Machinery,Mass Production
+Steel,Industrial,9,Metallurgy; Industrialization,Railroad; Armor Plating
+Refining,Industrial,9,Chemistry; Industrialization,Combustion; Plastics
+Electricity,Industrial,9,Scientific Theory; Physics,Telegraph; Radio; Electronics
+Mass Production,Industrial,9,Replaceable Parts; Industrialization,
+Biology,Industrial,9,Scientific Theory; Education,Fertilizer; Penicillin; Ecology
+Fertilizer,Industrial,9,Chemistry; Biology,
+Dynamite,Industrial,9,Chemistry; Ballistics,
+Railroad,Industrial,9,Steam Power; Steel,
+Refrigeration,Industrial,9,Chemistry; Industrialization,
+Telegraph,Industrial,9,Electricity; Printing,
+Armor Plating,Industrial,9,Steel; Warships,
+Combustion,Modern,10,Refining; Engineering,Flight; Combined Arms
+Flight,Modern,10,Combustion; Physics,Advanced Flight
+Radio,Modern,10,Electricity; Acoustics,Advanced Flight; Electronics; Radar
+Advanced Flight,Modern,10,Flight; Radio,Composites
+Rocketry,Modern,10,Ballistics; Chemistry,Satellites; Guidance Systems
+Advanced Ballistics,Modern,10,Ballistics; Rifling,
+Combined Arms,Modern,10,Combustion; Military Science,
+Plastics,Modern,10,Refining; Chemistry,Synthetic Materials
+Penicillin,Modern,10,Biology; Chemistry,
+Electronics,Modern,10,Electricity; Radio,Radar; Computers; Telecommunications; Satellites; Guidance Systems; Lasers; Robotics; Particle Physics
+Radar,Modern,10,Radio; Electronics,Stealth Technology
+Atomic Theory,Modern,10,Scientific Theory; Physics,Nuclear Fission; Lasers; Particle Physics
+Computers,Atomic,11,Electronics; Mathematics,Telecommunications; Robotics; Ecology
+Nuclear Fission,Atomic,11,Atomic Theory; Chemistry,Nuclear Fusion
+Synthetic Materials,Atomic,11,Plastics; Chemistry,Composites
+Telecommunications,Atomic,11,Electronics; Computers,Advanced AI; Predictive Systems
+Satellites,Atomic,11,Rocketry; Electronics,
+Guidance Systems,Atomic,11,Rocketry; Electronics,
+Lasers,Atomic,11,Atomic Theory; Electronics,
+Composites,Atomic,11,Synthetic Materials; Advanced Flight,Stealth Technology; Nanotechnology
+Stealth Technology,Atomic,11,Radar; Composites,
+Robotics,Atomic,11,Computers; Electronics,Advanced AI; Cybernetics
+Particle Physics,Atomic,11,Atomic Theory; Electronics,Nuclear Fusion; Nanotechnology
+Nuclear Fusion,Atomic,11,Nuclear Fission; Particle Physics,Advanced Power Cells
+Ecology,Atomic,11,Biology; Computers,
+Nanotechnology,Information,12,Composites; Particle Physics,Advanced Power Cells; Smart Materials
+Advanced AI,Information,12,Robotics; Telecommunications,Cybernetics; Predictive Systems
+Advanced Power Cells,Information,12,Nuclear Fusion; Nanotechnology,Seasteads; Offworld Mission
+Cybernetics,Information,12,Robotics; Advanced AI,Smart Materials
+Smart Materials,Information,12,Nanotechnology; Cybernetics,Seasteads
+Predictive Systems,Information,12,Advanced AI; Telecommunications,Offworld Mission
+Seasteads,Information,12,Smart Materials; Advanced Power Cells,Future Tech
+Offworld Mission,Information,12,Advanced Power Cells; Predictive Systems,Future Tech
+Future Tech,Information,12,Seasteads; Offworld Mission,
