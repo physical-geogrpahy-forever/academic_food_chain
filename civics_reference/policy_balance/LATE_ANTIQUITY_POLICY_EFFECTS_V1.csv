@@ -1,0 +1,8 @@
+POLICY_EN,CIVIC_EN,POLICY_SLOT,FINAL_EFFECT,SOURCE_BASIS
+"Bastions","Defensive Tactics","Military","+6 City Defense Strength and +5 City Ranged Strength","Civ6 direct"
+"Limes","Defensive Tactics","Military","+100% Production toward defensive buildings","Civ6 direct"
+"Scripture","Theology","Economic","Shrine, Temple, and Holy Site tile each provide +1 Faith","Civ6 Holy Site adjacency doubled, adapted to Civ V-style religious assets"
+"Naval Infrastructure","Naval Tradition","Economic","Gold output from Harbor, Lighthouse, and Seaport buildings +50%","Civ6 Harbor adjacency doubled, adapted"
+"Navigation","Naval Tradition","Wildcard","+2 Great Admiral Points per turn","Civ6 direct"
+"Meritocracy","Civil Service","Economic","+1 Culture per distinct institutional building chain in a city, maximum +4 Culture per city","Civ6 vanilla district Culture adapted; GS removed source card"
+"Retainers","Civil Service","Military","+1 Amenity in cities with a garrisoned unit","Civ6 direct"
