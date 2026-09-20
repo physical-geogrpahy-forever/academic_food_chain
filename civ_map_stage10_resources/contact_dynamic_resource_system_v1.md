@@ -1,4 +1,4 @@
-# Contact-Based Dynamic Resource System V1
+> **SUPERSEDED — DO NOT IMPLEMENT THIS VERSION.** Current reviewed baseline: `civ_map_stage10_resources/contact_dynamic_resource_system_v2.md`\n\n# Contact-Based Dynamic Resource System V1
 
 Date: 2026-09-20
 Project: CIV game world map resource system
