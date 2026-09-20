@@ -117,8 +117,8 @@ This resolves most of the V1 deferred list while deliberately avoiding candidate
 
 ## 6. Remaining flagged cases
 
-- **Liu Chuanzhi** — REVIEW_COFOUNDER_DETAIL: PRIMARY SOURCE identifies company founder; co-founding team details require audit
-- **Ozires Silva** — SPECIAL_CREATOR_NOT_STRICT_FOUNDER: PRIMARY VERIFIED as key creator/first managing director; company was state-created, so "founder" wording needs special handling
+- **Liu Chuanzhi** — LOCK_CANDIDATE: treated as representative founding-team leader / co-founder; not as sole founder
+- **Ozires Silva** — REFERENCE_ONLY_INSTITUTIONAL_CREATOR: state-created Embraer key creator / first managing director; excluded from ordinary signature-founder roster
 
 These flagged cases may remain in the research pool but should not be promoted to an unqualified signature-founder lock until wording is settled.
 
@@ -157,9 +157,9 @@ Result after canonical-sector reconciliation:
 - sectors populated by current founders: **30**
 - Great Merchant: **53**
 - Great Engineer: **46**
-- LOCK_CANDIDATE: **97**
-- REVIEW_COFOUNDER_DETAIL: **1** — Liu Chuanzhi
-- SPECIAL_CREATOR_NOT_STRICT_FOUNDER: **1** — Ozires Silva
+- LOCK_CANDIDATE: **98**
+- Liu Chuanzhi: **promoted to LOCK_CANDIDATE**
+- REFERENCE_ONLY_INSTITUTIONAL_CREATOR: **1** — Ozires Silva
 - missing technology references: **0**
 - missing civic references: **0**
 - technology gates later than founder project era: **0**
@@ -172,3 +172,16 @@ Result after canonical-sector reconciliation:
 Canonical sector authority:
 - `corporations/CORPORATION_SECTOR_OUTPUT_CATALOGUE_V2.csv`
 - `corporations/CORPORATION_SECTOR_OUTPUT_CATALOGUE_V2.md`
+
+
+## 9. Edge-case resolution
+
+The two remaining founder-status edge cases are now resolved for gameplay purposes:
+
+- **Liu Chuanzhi**: keep as a normal signature-founder candidate. Use the wording **Founding-team leader / co-founder**. Do not present him as a sole founder.
+- **Ozires Silva**: keep in the 99-row historical research pool, but **exclude from the ordinary signature-founder roster**. His role is recorded as **Institutional creator / first managing director** because Embraer was state-created.
+
+Therefore:
+- historical research pool = **99**
+- ordinary signature-founder eligible pool = **98**
+- institutional reference-only = **1**
