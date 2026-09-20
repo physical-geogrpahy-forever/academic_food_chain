@@ -1,0 +1,162 @@
+cycle,snapshot_date,page_date,state_abbrev,democrat,d_pct,republican,r_pct,third_name,third_pct,start,end,pollster,source_url
+2014,2014-09-20,2014-09-20,IA,Bruce Braley,43.0,Joni Ernst,43.0,,,Sep 17,Sep 18,Rasmussen,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep20.html
+2014,2014-09-20,2014-09-20,KS,Chad Taylor,0.0,Pat Roberts*,40.0,Greg Orman,45.0,Sep 16,Sep 17,Rasmussen,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep20.html
+2014,2014-09-20,2014-09-19,CO,Mark Udall*,40.0,Cory Gardner,48.0,,,Sep 10,Sep 15,Quinnipiac U.,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep19.html
+2014,2014-09-20,2014-09-19,GA,Michelle Nunn,41.0,David Perdue,46.0,,,Sep 15,Sep 16,Rasmussen,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep19.html
+2014,2014-09-20,2014-09-19,MA,Ed Markey*,49.0,Brian Herr,31.0,,,Sep 16,Sep 17,Rasmussen,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep19.html
+2014,2014-09-20,2014-09-19,MA,Ed Markey*,53.0,Brian Herr,27.0,,,Sep 14,Sep 16,Social Sphere,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep19.html
+2014,2014-09-20,2014-09-19,OR,Jeff Merkley*,42.0,Monica Wehby,34.0,,,Sep 09,Sep 11,Polling Company,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep19.html
+2014,2014-09-20,2014-09-18,CO,Mark Udall*,42.0,Cory Gardner,43.0,,,Sep 13,Sep 16,Suffolk U.,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep18.html
+2014,2014-09-20,2014-09-18,IA,Bruce Braley,41.0,Joni Ernst,41.0,,,Sep 14,Sep 16,Fox News,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep18.html
+2014,2014-09-20,2014-09-18,IA,Bruce Braley,44.0,Joni Ernst,50.0,,,Sep 10,Sep 15,Quinnipiac U.,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep18.html
+2014,2014-09-20,2014-09-18,KS,Chad Taylor,11.0,Pat Roberts*,40.0,Greg Orman,38.0,Sep 14,Sep 16,Fox News,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep18.html
+2014,2014-09-20,2014-09-18,LA,Mary Landrieu*,38.0,Bill Cassidy,51.0,,,Sep 14,Sep 16,Fox News,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep18.html
+2014,2014-09-20,2014-09-18,MI,Gary Peters,45.0,Terri Land,38.0,,,Sep 11,Sep 13,Denno Research,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep18.html
+2014,2014-09-20,2014-09-18,NC,Kay Hagan*,41.0,Thom Tillis,36.0,Sean Haugh (L),6.0,Sep 14,Sep 16,Fox News,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep18.html
+2014,2014-09-20,2014-09-18,NH,Jeanne Shaheen*,51.0,Scott Brown,40.0,,,Sep 10,Sep 11,New England College,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep18.html
+2014,2014-09-20,2014-09-17,AK,Mark Begich*,41.0,Dan Sullivan,36.0,,,Sep 13,Sep 14,Hays Research,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep17.html
+2014,2014-09-20,2014-09-17,KS,Chad Taylor,6.0,Pat Roberts*,34.0,Greg Orman,41.0,Sep 11,Sep 14,PPP,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep17.html
+2014,2014-09-20,2014-09-17,NC,Kay Hagan*,44.0,Thom Tillis,40.0,,,Sep 11,Sep 14,PPP,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep17.html
+2014,2014-09-20,2014-09-17,NH,Jeanne Shaheen*,50.0,Scott Brown,45.0,,,Sep 12,Sep 15,ARG,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep17.html
+2014,2014-09-20,2014-09-16,GA,Michelle Nunn,46.0,David Perdue,43.0,,,Sep 09,Sep 11,Landmark Comm.,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep16.html
+2014,2014-09-20,2014-09-16,HI,Brian Schatz*,60.0,Cam Cavasso,28.0,,,Sep 09,Sep 10,Rasmussen,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep16.html
+2014,2014-09-20,2014-09-16,IL,Dick Durbin*,55.0,Jim Oberweis,32.0,,,Sep 03,Sep 12,APC Research,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep16.html
+2014,2014-09-20,2014-09-16,MN,Al Franken*,49.0,Mike McFadden,36.0,,,Sep 08,Sep 09,Mason Dixon,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep16.html
+2014,2014-09-20,2014-09-16,NC,Kay Hagan*,45.0,Thom Tillis,41.0,,,Sep 05,Sep 09,Elon U.,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep16.html
+2014,2014-09-20,2014-09-16,NC,Kay Hagan*,46.0,Thom Tillis,36.0,Sean Haugh (L),6.0,Sep 05,Sep 10,American Insights,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep16.html
+2014,2014-09-20,2014-09-16,NH,Jeanne Shaheen*,48.0,Scott Brown,42.0,,,Sep 10,Sep 11,Rasmussen,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep16.html
+2014,2014-09-20,2014-09-16,NH,Jeanne Shaheen*,48.0,Scott Brown,48.0,,,Sep 08,Sep 11,ORC International,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep16.html
+2014,2014-09-20,2014-09-16,NM,Tom Udall*,51.0,Allen Weh,38.0,,,Sep 09,Sep 11,Research and Polling,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep16.html
+2014,2014-09-20,2014-09-15,DE,Chris Coons*,49.0,Kevin Wade,34.0,,,Sep 10,Sep 12,Rasmussen,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep15.html
+2014,2014-09-20,2014-09-13,GA,Michelle Nunn,40.0,David Perdue,50.0,,,Sep 10,Sep 11,Insider Advantage,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep13.html
+2014,2014-09-20,2014-09-13,GA,Michelle Nunn,41.0,David Perdue,45.0,,,Sep 08,Sep 11,Abt SRBI,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep13.html
+2014,2014-09-20,2014-09-13,IA,Bruce Braley,49.0,Joni Ernst,48.0,,,Sep 08,Sep 10,ORC International,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep13.html
+2014,2014-09-20,2014-09-12,CO,Mark Udall*,46.0,Cory Gardner,42.0,,,Sep 08,Sep 10,SurveyUSA,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep12.html
+2014,2014-09-20,2014-09-12,MI,Gary Peters,46.0,Terri Land,37.0,,,Sep 06,Sep 10,Suffolk U.,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep12.html
+2014,2014-09-20,2014-09-12,NC,Kay Hagan*,45.0,Thom Tillis,39.0,Sean Haugh (L),6.0,Sep 08,Sep 10,Rasmussen,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep12.html
+2014,2014-09-20,2014-09-12,NC,Kay Hagan*,46.0,Thom Tillis,43.0,Sean Haugh (L),5.0,Sep 09,Sep 10,SurveyUSA,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep12.html
+2014,2014-09-20,2014-09-12,NH,Jeanne Shaheen*,48.0,Scott Brown,41.0,,,Sep 10,Sep 10,Global Strategy,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep12.html
+2014,2014-09-20,2014-09-11,GA,Michelle Nunn,44.0,David Perdue,47.0,,,Sep 05,Sep 08,SurveyUSA,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep11.html
+2014,2014-09-20,2014-09-11,IA,Bruce Braley,43.0,Joni Ernst,45.0,,,Aug 28,Aug 30,PPP,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep11.html
+2014,2014-09-20,2014-09-11,NJ,Cory Booker*,42.0,Jeff Bell,29.0,,,Sep 01,Sep 07,Fairleigh Dickinson U.,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep11.html
+2014,2014-09-20,2014-09-11,NJ,Cory Booker*,49.0,Jeff Bell,36.0,,,Sep 05,Sep 08,Stockton Polling Institute,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep11.html
+2014,2014-09-20,2014-09-11,VA,Mark Warner*,53.0,Ed Gillespie,31.0,,,Sep 02,Sep 07,Christopher Newport U.,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep11.html
+2014,2014-09-20,2014-09-10,MI,Gary Peters,43.0,Terri Land,36.0,,,Sep 04,Sep 07,PPP,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep10.html
+2014,2014-09-20,2014-09-10,SD,Rick Weiland,28.0,Mike Rounds,39.0,Larry Pressler,25.0,Sep 03,Sep 07,SurveyUSA,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep10.html
+2014,2014-09-20,2014-09-09,IA,Bruce Braley,45.0,Joni Ernst,41.0,,,Sep 02,Sep 05,Loras College,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep09.html
+2014,2014-09-20,2014-09-09,KS,Chad Taylor,10.0,Pat Roberts*,36.0,Greg Orman,37.0,Sep 04,Sep 07,SurveyUSA,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep09.html
+2014,2014-09-20,2014-09-08,AK,Mark Begich*,38.0,Dan Sullivan,44.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,AR,Mark Pryor*,39.0,Tom Cotton,43.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,AR,Mark Pryor*,40.0,Tom Cotton,45.0,,,Sep 02,Sep 04,Marist Coll.,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,CO,Mark Udall*,46.0,Cory Gardner,43.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,CO,Mark Udall*,48.0,Cory Gardner,42.0,,,Sep 02,Sep 04,Marist Coll.,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,DE,Chris Coons*,48.0,Kevin Wade,35.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,GA,Michelle Nunn,41.0,David Perdue,47.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,HI,Brian Schatz*,62.0,Cam Cavasso,27.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,IA,Bruce Braley,44.0,Joni Ernst,42.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,ID,Nels Mitchell,25.0,Jim Risch*,59.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,IL,Dick Durbin*,50.0,Jim Oberweis,38.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,KY,Alison L. Grimes,39.0,Mitch McConnell*,47.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,KY,Alison L. Grimes,39.0,Mitch McConnell*,47.0,,,Sep 02,Sep 04,Marist Coll.,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,LA,Mary Landrieu*,36.0,Bill Cassidy,38.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,MA,Ed Markey*,53.0,Frank Addvinola,28.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,ME,Shenna Bellows,26.0,Susan Collins*,58.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,MI,Gary Peters,42.0,Terri Land,43.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,MN,Al Franken*,49.0,Mike McFadden,41.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,MS,Travis Childers,31.0,Thad Cochran*,46.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,MT,Amanda Curtis,35.0,Steve Daines,53.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,NC,Kay Hagan*,42.0,Thom Tillis,43.0,Sean Haugh (L),5.0,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,NE,Dave Domina,30.0,Ben Sasse,56.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,NH,Jeanne Shaheen*,47.0,Scott Brown,41.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,NJ,Cory Booker*,52.0,Jeff Bell,37.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,NM,Tom Udall*,54.0,Allen Weh,36.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,OR,Jeff Merkley*,51.0,Monica Wehby,39.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,RI,Jack Reed*,52.0,Mark Zaccaria,32.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,SC,Brad Hutto,29.0,Lindsey Graham*,42.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,SD,Rick Weiland,29.0,Mike Rounds,43.0,Larry Pressler,6.0,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,TN,Gordon Ball,32.0,Lamar Alexander*,47.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,TX,David Alameel,34.0,John Cornyn*,55.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,VA,Mark Warner*,51.0,Ed Gillespie,39.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,WV,Natalie Tennant,32.0,Shelley Moore-Capito,55.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-08,WY,Charlie Hardy,21.0,Michael Enzi*,66.0,,,Aug 18,Sep 02,YouGov,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep08.html
+2014,2014-09-20,2014-09-07,IL,Dick Durbin*,49.0,Jim Oberweis,39.0,,,Sep 04,Sep 04,We Ask America,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep07.html
+2014,2014-09-20,2014-09-07,ME,Shenna Bellows,31.0,Susan Collins*,59.0,,,Sep 03,Sep 04,Rasmussen,https://www.electoral-vote.com/evp2014/Senate/Maps/Sep07.html
+2018,2018-09-22,2018-09-22,MI,Debbie Stabenow*,56.0,John James,33.0,,,Sep 05,Sep 07,Glengariff Group,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep22.html
+2018,2018-09-22,2018-09-22,OH,Sherrod Brown*,53.0,Jim Renacci,42.0,,,Sep 18,Sep 20,Triton Polling and Res.,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep22.html
+2018,2018-09-22,2018-09-22,PA,Bob Casey*,53.0,Lou Barletta,35.0,,,Sep 13,Sep 19,Muhlenberg Coll.,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep22.html
+2018,2018-09-22,2018-09-21,RI,Sheldon Whitehouse*,54.0,Robert Flanders,35.0,,,Sep 14,Sep 17,Fleming and Assocs.,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep21.html
+2018,2018-09-22,2018-09-21,TX,Beto O`Rourke,45.0,Ted Cruz*,48.0,,,Sep 19,Sep 20,PPP,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep21.html
+2018,2018-09-22,2018-09-20,AZ,Kyrsten Sinema,47.0,Martha McSally,44.0,,,Sep 05,Sep 14,Ipsos,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep20.html
+2018,2018-09-22,2018-09-20,CA,Dianne Feinstein*,44.0,Kevin de Leon (D),24.0,,,Sep 05,Sep 14,Ipsos,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep20.html
+2018,2018-09-22,2018-09-20,FL,Bill Nelson*,41.0,Rick Scott,42.0,,,Sep 13,Sep 16,Florida Atlantic U.,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep20.html
+2018,2018-09-22,2018-09-20,FL,Bill Nelson*,45.0,Rick Scott,46.0,,,Sep 05,Sep 12,Ipsos,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep20.html
+2018,2018-09-22,2018-09-20,MA,Elizabeth Warren*,54.0,Geoff Diehl,24.0,,,Sep 13,Sep 17,Suffolk U.,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep20.html
+2018,2018-09-22,2018-09-20,NV,Jacky Rosen,43.0,Dean Heller*,46.0,,,Sep 07,Sep 17,Ipsos,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep20.html
+2018,2018-09-22,2018-09-20,PA,Bob Casey*,52.0,Lou Barletta,38.0,,,Sep 12,Sep 13,Pulse Opinion Research,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep20.html
+2018,2018-09-22,2018-09-20,TN,Phil Bredesen,45.0,Marsha Blackburn,48.0,,,Sep 10,Sep 12,Triton Polling and Res.,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep20.html
+2018,2018-09-22,2018-09-20,TX,Beto O`Rourke,47.0,Ted Cruz*,45.0,,,Sep 06,Sep 14,Ipsos,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep20.html
+2018,2018-09-22,2018-09-19,MD,Ben Cardin*,56.0,Tony Campbell,17.0,,,Sep 11,Sep 16,Goucher College,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep19.html
+2018,2018-09-22,2018-09-19,OH,Sherrod Brown*,49.0,Jim Renacci,32.0,,,Sep 05,Sep 15,Baldwin Wallace University,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep19.html
+2018,2018-09-22,2018-09-19,TX,Beto O`Rourke,45.0,Ted Cruz*,54.0,,,Sep 11,Sep 17,Quinnipiac U.,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep19.html
+2018,2018-09-22,2018-09-19,VA,Tim Kaine*,52.0,Corey Stewart,36.0,,,Sep 04,Sep 09,SSRS,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep19.html
+2018,2018-09-22,2018-09-19,WI,Tammy Baldwin*,53.0,Leah Vukmir,42.0,,,Sep 12,Sep 16,Marquette Law School,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep19.html
+2018,2018-09-22,2018-09-18,AZ,Kyrsten Sinema,50.0,Martha McSally,43.0,,,Sep 11,Sep 15,SSRS,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep18.html
+2018,2018-09-22,2018-09-18,TN,Phil Bredesen,50.0,Marsha Blackburn,45.0,,,Sep 11,Sep 15,SSRS,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep18.html
+2018,2018-09-22,2018-09-18,WV,Joe Manchin*,45.0,Patrick Morrisey,33.0,,,Sep 13,Sep 15,Emerson Coll.,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep18.html
+2018,2018-09-22,2018-09-17,MN,Amy Klobuchar*,60.0,Jim Newberger,30.0,,,Sep 10,Sep 12,Mason Dixon,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep17.html
+2018,2018-09-22,2018-09-17,MO,Claire McCaskill*,45.0,Josh Hawley,45.0,,,Sep 10,Sep 14,YouGov,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep17.html
+2018,2018-09-22,2018-09-17,MT,Jon Tester*,47.0,Matt Rosendale,45.0,,,Sep 10,Sep 14,YouGov,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep17.html
+2018,2018-09-22,2018-09-17,NM,Martin Heinrich*,47.0,Mick Rich,26.0,,,Sep 07,Sep 13,Research and Polling,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep17.html
+2018,2018-09-22,2018-09-15,VA,Tim Kaine*,54.0,Corey Stewart,39.0,,,Sep 05,Sep 12,Princeton Survey,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep15.html
+2018,2018-09-22,2018-09-14,FL,Bill Nelson*,45.0,Rick Scott,44.0,,,Sep 10,Sep 11,Pulse Opinion Research,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep14.html
+2018,2018-09-22,2018-09-14,MN,Amy Klobuchar*,53.0,Jim Newberger,38.0,,,Sep 06,Sep 08,SurveyUSA,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep14.html
+2018,2018-09-22,2018-09-14,RI,Sheldon Whitehouse*,54.0,Robert Flanders,32.0,,,May 30,Jun 04,SocialSphere,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep14.html
+2018,2018-09-22,2018-09-13,AZ,Kyrsten Sinema,46.0,Martha McSally,49.0,,,Sep 05,Sep 06,OH Predictive Insights,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep13.html
+2018,2018-09-22,2018-09-13,AZ,Kyrsten Sinema,47.0,Martha McSally,44.0,,,Sep 08,Sep 11,Fox News,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep13.html
+2018,2018-09-22,2018-09-13,FL,Bill Nelson*,44.0,Rick Scott,46.0,,,Sep 07,Sep 09,SurveyUSA,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep13.html
+2018,2018-09-22,2018-09-13,IN,Joe Donnelly*,43.0,Mike Braun,45.0,,,Sep 08,Sep 11,Fox News,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep13.html
+2018,2018-09-22,2018-09-13,MO,Claire McCaskill*,44.0,Josh Hawley,41.0,,,Sep 08,Sep 11,Fox News,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep13.html
+2018,2018-09-22,2018-09-13,ND,Heidi Heitkamp*,44.0,Kevin Cramer,48.0,,,Sep 08,Sep 11,Fox News,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep13.html
+2018,2018-09-22,2018-09-13,TN,Phil Bredesen,44.0,Marsha Blackburn,47.0,,,Sep 08,Sep 11,Fox News,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep13.html
+2018,2018-09-22,2018-09-13,TX,Beto O`Rourke,44.0,Ted Cruz*,47.0,,,Sep 06,Sep 09,Crosswind Media,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep13.html
+2018,2018-09-22,2018-09-12,NV,Jacky Rosen,42.0,Dean Heller*,41.0,,,Sep 05,Sep 10,Suffolk U.,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep12.html
+2018,2018-09-22,2018-09-12,TX,Beto O`Rourke,44.0,Ted Cruz*,47.0,,,Sep 06,Sep 09,Pulse Opinion Research,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep12.html
+2018,2018-09-22,2018-09-10,UT,Jenny Wilson,19.0,Mitt Romney,59.0,,,Aug 11,Aug 27,Lighthouse Research,https://www.electoral-vote.com/evp2018/Senate/Maps/Sep10.html
+2022,2022-09-24,2022-09-24,AZ,Mark Kelly*,50.0,Blake Masters,42.0,,,Sep 08,Sep 15,Fabrizio + Anzalone,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep24.html
+2022,2022-09-24,2022-09-24,OH,Tim Ryan,48.0,J.D. Vance,45.0,,,Sep 12,Sep 15,Baldwin Wallace U.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep24.html
+2022,2022-09-24,2022-09-23,CO,Michael Bennet*,46.0,Joe O`Dea,36.0,,,Sep 18,Sep 19,Emerson Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep23.html
+2022,2022-09-24,2022-09-23,NH,Maggie Hassan*,49.0,Don Bolduc,41.0,,,Sep 15,Sep 19,U. of New Hampshire,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep23.html
+2022,2022-09-24,2022-09-23,NV,Catherine Cortez_Masto*,43.0,Adam Laxalt,46.0,,,Sep 20,Sep 20,InsiderAdvantage,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep23.html
+2022,2022-09-24,2022-09-23,PA,John Fetterman,49.0,Mehmet Oz,44.0,,,Sep 13,Sep 16,Muhlenberg Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep23.html
+2022,2022-09-24,2022-09-23,UT,Evan McMullin (I),34.0,Mike Lee*,36.0,,,Sep 03,Sep 21,Dan Jones,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep23.html
+2022,2022-09-24,2022-09-23,WA,Patty Murray*,50.0,Tiffany Smiley,38.0,,,Sep 12,Sep 15,Elway Research,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep23.html
+2022,2022-09-24,2022-09-22,AZ,Mark Kelly*,47.0,Blake Masters,35.0,,,Sep 06,Sep 09,OH Predictive Insights,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep22.html
+2022,2022-09-24,2022-09-22,CT,Richard Blumenthal*,57.0,Leora Levy,40.0,,,Sep 15,Sep 19,Quinnipiac U.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep22.html
+2022,2022-09-24,2022-09-22,FL,Val Demings,41.0,Marco Rubio*,45.0,,,Sep 15,Sep 18,Suffolk U.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep22.html
+2022,2022-09-24,2022-09-22,FL,Val Demings,47.0,Marco Rubio*,49.0,,,Sep 17,Sep 20,Civiqs,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep22.html
+2022,2022-09-24,2022-09-22,GA,Raphael Warnock*,45.0,Herschel Walker,41.0,,,Sep 15,Sep 19,Monmouth U.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep22.html
+2022,2022-09-24,2022-09-22,GA,Raphael Warnock*,51.0,Herschel Walker,49.0,,,Sep 14,Sep 19,YouGov,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep22.html
+2022,2022-09-24,2022-09-22,KS,Mark Holland,33.0,Jerry Moran*,45.0,,,Sep 15,Sep 18,Emerson Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep22.html
+2022,2022-09-24,2022-09-22,NC,Cheri Beasley,49.0,Ted Budd,48.0,,,Sep 17,Sep 20,Civiqs,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep22.html
+2022,2022-09-24,2022-09-22,OH,Tim Ryan,47.0,J.D. Vance,48.0,,,Sep 12,Sep 15,Marist Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep22.html
+2022,2022-09-24,2022-09-21,GA,Raphael Warnock*,44.0,Herschel Walker,46.0,,,Sep 05,Sep 16,U. of Georgia.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep21.html
+2022,2022-09-24,2022-09-21,GA,Raphael Warnock*,47.0,Herschel Walker,45.0,,,Sep 12,Sep 15,Marist Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep21.html
+2022,2022-09-24,2022-09-21,NC,Cheri Beasley,43.0,Ted Budd,46.0,,,Sep 15,Sep 16,Emerson Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep21.html
+2022,2022-09-24,2022-09-21,WI,Mandela Barnes,44.0,Ron Johnson*,48.0,,,Sep 16,Sep 18,Emerson Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep21.html
+2022,2022-09-24,2022-09-20,MD,Chris Van Hollen*,56.0,Chris Chaffee,33.0,,,Sep 08,Sep 12,Goucher Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep20.html
+2022,2022-09-24,2022-09-20,MO,Trudy Valentine,36.0,Eric Schmitt,47.0,,,Sep 14,Sep 18,SurveyUSA,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep20.html
+2022,2022-09-24,2022-09-20,PA,John Fetterman,49.0,Mehmet Oz,39.0,,,Sep 08,Sep 12,Monmouth U.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep20.html
+2022,2022-09-24,2022-09-20,WI,Mandela Barnes,48.0,Ron Johnson*,47.0,,,Sep 14,Sep 15,Siena Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep20.html
+2022,2022-09-24,2022-09-19,AR,Natalie James,31.0,John Boozman*,44.0,,,Sep 12,Sep 12,Hendrix Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep19.html
+2022,2022-09-24,2022-09-17,NH,Maggie Hassan*,51.0,Don Bolduc,40.0,,,Sep 14,Sep 15,Emerson Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep17.html
+2022,2022-09-24,2022-09-17,OH,Tim Ryan,40.0,J.D. Vance,44.0,,,Sep 12,Sep 13,Emerson Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep17.html
+2022,2022-09-24,2022-09-16,OH,Tim Ryan,45.0,J.D. Vance,48.0,,,Sep 10,Sep 13,Civiqs,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep16.html
+2022,2022-09-24,2022-09-16,WI,Mandela Barnes,48.0,Ron Johnson*,49.0,,,Sep 10,Sep 13,Civiqs,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep16.html
+2022,2022-09-24,2022-09-15,CT,Richard Blumenthal*,49.0,Leora Levy,36.0,,,Sep 07,Sep 09,Emerson Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep15.html
+2022,2022-09-24,2022-09-15,GA,Raphael Warnock*,52.0,Herschel Walker,46.0,,,Sep 08,Sep 12,Quinnipiac U.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep15.html
+2022,2022-09-24,2022-09-15,OK,Madison Horn,35.0,James Lankford*,52.0,,,Sep 02,Sep 07,Sooner Poll,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep15.html
+2022,2022-09-24,2022-09-15,PA,John Fetterman,52.0,Mehmet Oz,47.0,,,Sep 06,Sep 12,YouGov,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep15.html
+2022,2022-09-24,2022-09-15,WI,Mandela Barnes,48.0,Ron Johnson*,49.0,,,Sep 06,Sep 11,Marquette Law School,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep15.html
+2022,2022-09-24,2022-09-14,NC,Cheri Beasley,46.0,Ted Budd,49.0,,,Sep 07,Sep 10,East Carolina U.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep14.html
+2022,2022-09-24,2022-09-14,NV,Catherine Cortez_Masto*,41.0,Adam Laxalt,42.0,,,Sep 08,Sep 10,Emerson Coll.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep14.html
+2022,2022-09-24,2022-09-13,OH,Tim Ryan,47.0,J.D. Vance,46.0,,,Sep 05,Sep 07,Suffolk U.,https://www.electoral-vote.com/evp2022/Senate/Maps/Sep13.html

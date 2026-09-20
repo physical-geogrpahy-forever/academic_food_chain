@@ -1,0 +1,4 @@
+context,n,direction_accuracy_pct,mean_abs_error,mean_signed_error
+two_party_or_under3,66,93.93939393939394,6.095436382621386,-3.0872708305178
+minor_third_3_to_15,1,0.0,6.056899364849283,-6.056899364849283
+major_independent_or_party_replacement,4,100.0,65.21592556127547,-25.215925561275466
