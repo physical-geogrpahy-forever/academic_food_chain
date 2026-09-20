@@ -1,5 +1,5 @@
-CIVIC_EN,FINAL_UNLOCKS_SYSTEMS,POLICY_CANDIDATES,NOTES
+"CIVIC_EN","FINAL_UNLOCKS_SYSTEMS","POLICY_CANDIDATES","NOTES"
 "Feudalism","Feudal Field System","Feudal Contract; Serfdom","Serfdom converted from Builder charges to Civ V Worker-speed concept; Estate/Manor not yet locked"
-"Mercenaries","Mercenary/professional military policy layer","Professional Army; Retinues; Sack; Trade Confederation","Mercenary Recruitment system deferred; Jong remains Indonesian unique"
+"Mercenaries","Mercenary Recruitment","Professional Army; Retinues; Sack; Trade Confederation","Eligible land combat units purchased in a city with Barracks cost 15% less Gold but have +1 Gold maintenance for 20 turns"
 "Written Culture","Scriptorium with Writing; Manuscript Culture; Great Work of Writing storage/support","Manuscript Patronage candidate","Block Printing later upgrades the manuscript chain to Woodblock Printing House"
-"Court Culture","Court national city building; Court Patronage","Court Patronage candidate","Court is Palace-linked and one per civilization; Great Person/Great Work effects tuned later"
+"Court Culture","Court Culture; Palace collection expansion","Court Patronage candidate","Palace gains +1 Great Work of Writing slot and +1 Great Work of Art slot"
