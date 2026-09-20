@@ -58,7 +58,7 @@
 "IC010","Industrial","UNIT","Infantry","Replaceable Parts","Nationalism","TECH+CIVIC","Project synthesis","Infantry","CROSS_GATE","Modern national mass army plus standardized weapons production",""
 "IC011","Industrial","POLICY","Total War","","Scorched Earth","CIVIC","Civ6 GS","Scorched Earth","KEEP","Pillage/raid intensification policy retained",""
 "IC012","Industrial","POLICY","Military Organization","","Scorched Earth","CIVIC","Civ6 GS","Scorched Earth","KEEP","Great General/academy organizational policy retained",""
-"IC013","Industrial","POLICY","Expropriation","","Scorched Earth","CIVIC","Civ6 GS","Scorched Earth","DEFER_SYSTEM","Historically later/ideologically broad; keep candidate but do not make core identity",""
+"IC013","Industrial","POLICY","Expropriation","","Scorched Earth","CIVIC","Civ6 GS","Scorched Earth","KEEP","Direct Civ6 Scorched Earth economic policy retained","Expropriation combines late settler expansion and tile-purchase efficiency; exact values later"
 "IC014","Industrial","SYSTEM","Envoys +2","","Scorched Earth","CIVIC","Civ6 GS","Scorched Earth","DROP","Envoy reward has weak functional relation to scorched-earth doctrine",""
 "IC015","Industrial","SYSTEM","Urban Housing / Neighborhood system","","Urbanization","CIVIC","Civ6 GS adapted","Neighborhood district","ADAPT_CITY","Remove district placement; represent urban housing through city housing stock and building/infrastructure system",""
 "IC016","Industrial","POLICY","Public Transport","","Urbanization","CIVIC","Civ6 GS","Urbanization","ADAPT","Apply to urban housing and transport infrastructure rather than Neighborhood districts",""
