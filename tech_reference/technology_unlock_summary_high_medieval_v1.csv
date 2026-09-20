@@ -1,0 +1,7 @@
+TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"Apprenticeship","Man-at-Arms with Military Training","Workshop","","","","","Mine +1 Production; Industrial Zone removed"
+"Machinery","Crossbowman","","","Improved Road Movement","","","Lumber Mill +1 Production upgrade; Ironworks deferred"
+"Buttress","","","Dam (river-linked infrastructure)","","","","Buttressed Masonry; monumental religious complex deferred"
+"Education","","University","","","","","Production→Science; Research Agreement with Scholasticism; Academy GP improvement removed"
+"Compass","Galleass","","","","","","Harbor sea-trade range upgrade with Foreign Trade; Fishing Boats +1 Gold; maritime trade capacity candidate"
+"Physics","Trebuchet","","","","","","Siege mechanics upgrade; Notre Dame deferred"
