@@ -81,5 +81,5 @@
 "C025","Ancient","POLICY","Inspiration; Revelation","","Mysticism","CIVIC","Civ6 GS","Mysticism","DEFER_SYSTEM","Great Scientist/Prophet policy candidates","Exact values later"
 "C026","Ancient","SYSTEM","Envoy +1","","Mysticism","CIVIC","Civ6 GS","Mysticism","DEFER_SYSTEM","City-state diplomacy reward candidate; audit later",""
 "C027","Ancient","DISTRICT","Preserve","","Mysticism","CIVIC","Civ6 GS","Mysticism","REMOVE_DISTRICT","No map-placed specialty districts","Grove evaluated separately"
-"C028","Ancient","CITY_BUILDING","Grove","","Mysticism","CIVIC","Civ6 GS","Mysticism","DEFER_SYSTEM","Potential nature/religion city building, but may fit later Conservation better","Do not force into Ancient roster yet"
+"C028","Ancient","CITY_BUILDING","Grove","","Mysticism","CIVIC","Civ6 GS","Mysticism","ADAPT_CITY","Civ6 Preserve content adapted to Civ V-style city structure: Mysticism unlocks Grove directly; Preserve district removed","Grove interacts with nearby unimproved attractive/natural tiles; exact yields later"
 "C029","Ancient","WONDER","Oracle","","Mysticism","CIVIC","Civ6 GS","Mysticism","DEFER_WONDER","Wonder audit separate",""
