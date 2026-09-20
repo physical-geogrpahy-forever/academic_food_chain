@@ -1,0 +1,10 @@
+region,rmse_pctpt,mean_signed_residual_direction,mean_signed_residual_pctpt
+New England,11.92,R,1.17
+Upper Midwest,8.76,R,3.55
+Pacific/AK/HI,8.51,D,3.84
+Deep South,8.29,R,5.12
+Mountain West,7.53,R,2.09
+Mid-Atlantic,6.82,R,3.35
+Great Lakes,6.76,R,2.42
+Southeast,6.14,R,3.05
+Texas/Southwest,5.02,R,1.94
