@@ -1,0 +1,7 @@
+TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"Combined Arms","Tank; Anti-Tank Gun with Military Science; Destroyer; Marine with Mobilization","","","","","","Aircraft Carrier moved to Electronics; Uranium moved to Atomic Theory"
+"Plastics","","Research Lab","Offshore Oil Rig","","","Offshore Oil","Infantry remains Replaceable Parts + Nationalism; Spec Ops deferred"
+"Penicillin","","Medical Lab with Urbanization","","","","","Antibiotic Medicine; bacterial-disease treatment; Pharmaceutical sector upgrade"
+"Electronics","Aircraft Carrier","","","","","","Electronic Control Systems; four electronics-sector founding gates + machinery upgrade"
+"Radar","Spec Ops deferred","Airport with Mass Media; Radar Station with Mobilization","","","","","Air Detection/Interception Network; Fighter/Bomber remain Advanced Flight"
+"Atomic Theory","","","","","Uranium","Uranium via Mine","Atomic Physics Framework; Manhattan Project moved to Nuclear Fission + Nuclear Program"
