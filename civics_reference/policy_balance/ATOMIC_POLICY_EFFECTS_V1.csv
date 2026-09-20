@@ -1,0 +1,13 @@
+POLICY_EN,CIVIC_EN,POLICY_SLOT,FINAL_EFFECT,SOURCE_BASIS
+"Containment","Cold War","Diplomatic","Each Envoy sent to a city-state counts as 2 if its current Suzerain/leading patron has a different government from you","Civ6 direct"
+"Cryptography","Cold War","Diplomatic","Enemy Spy level -2 in your territory; your Spies gain +1 level for offensive operations","Civ6 direct"
+"International Waters","Cold War","Military","+100% Production toward all naval units except Carriers","Civ6 direct"
+"Second Strike Capability","Cold War","Military","Nuclear Device maintenance cost -50%","Civ6 direct"
+"Heritage Tourism","Cultural Heritage","Economic","Tourism from Great Works of Art and Artifacts +100%","Civ6 direct"
+"Nuclear Espionage","Nuclear Program","Diplomatic","An undetected successful technology-steal mission grants one additional technology boost","Civ6 direct"
+"Science Foundations","Nuclear Program","Wildcard","University +2 Great Scientist Points; Research Lab +4 Great Scientist Points; Factory +2 Great Engineer Points; Power Plant +4 Great Engineer Points","Civ6 GS direct"
+"After Action Reports","Rapid Deployment","Military","All units gain +25% combat experience","Civ6 direct"
+"Military First","Rapid Deployment","Military","+50% Production toward all melee, anti-cavalry, and ranged units","Civ6 direct"
+"Integrated Space Cell","Space Race","Military","+15% Production toward space projects in cities with a Military Academy, Seaport, or Space Launch Center","Civ6 adapted to Space Launch Center"
+"Music Censorship","Space Race","Diplomatic","Foreign Rock Bands cannot enter your territory; cities with Population 10+ suffer -1 Amenity","Civ6 GS direct"
+"Satellite Broadcasts","Space Race","Economic","Tourism from Great Works of Music +200%","Civ6 direct"
