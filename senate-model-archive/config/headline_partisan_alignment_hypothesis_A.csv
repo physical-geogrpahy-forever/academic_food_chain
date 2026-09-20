@@ -1,0 +1,8 @@
+cycle,state_abbrev,seat,action,d_side_name,r_side_name,reason,source
+2014,AL,Class II,EXCLUDE,,,no Democratic-side opponent in general election; implied by 99-race denominator,https://www.fec.gov/documents/1698/2014senate.pdf
+2014,KS,Class II,EXCLUDE,,,independent Greg Orman faced Republican Pat Roberts after Democratic withdrawal; Hypothesis A excludes rather than partisan-aligns,https://www.fec.gov/documents/1698/2014senate.pdf
+2018,CA,Class I,EXCLUDE,,,top-two general election was Democrat versus Democrat,https://www.fec.gov/documents/2705/federalelections2018.pdf
+2018,ME,Class I,ALIGN,Angus S. King Jr.,Eric L. Brakey,King served as an Independent caucusing with Democrats; Hypothesis A treats King as Democratic-aligned candidate,https://www.senate.gov/history/partydiv.htm/
+2018,VT,Class I,ALIGN,Bernie Sanders,Lawrence Zupan,Sanders served as an Independent caucusing with Democrats; Hypothesis A treats Sanders as Democratic-aligned candidate,https://www.senate.gov/history/partydiv.htm/
+2022,AK,Class III,EXCLUDE,,,ranked-choice contest with multiple Republican candidates; Hypothesis A excludes from headline reconstruction,https://www.elections.alaska.gov/election-results/e/?id=22genr
+2022,UT,Class III,EXCLUDE,,,unaffiliated Evan McMullin faced Republican Mike Lee with no Democratic ballot nominee; Hypothesis A excludes rather than partisan-aligns,https://www.fec.gov/documents/5675/federalelections2022.pdf
