@@ -1,6 +1,6 @@
-CIVIC_EN,FINAL_UNLOCKS_SYSTEMS,POLICY_CANDIDATES,NOTES
-"Exploration","Merchant Republic; Navigation School with Cartography; Explorer with Cartography; Galleon with Astronomy; naval exploration bonus","Maritime Infrastructure; Native Conquest candidate","Colonial Offices moved to Colonialism"
-"Reformed Church","Theocracy","Wars of Religion; Religious Orders; Simultaneum","Holy Site conditions converted to Temple/religious-building conditions"
+"CIVIC_EN","FINAL_UNLOCKS_SYSTEMS","POLICY_CANDIDATES","NOTES"
+"Exploration","Merchant Republic; Navigation School with Cartography; Explorer with Cartography; Galleon with Astronomy; naval exploration bonus; Tier-2 government building choice eligibility","Maritime Infrastructure; Native Conquest candidate","Colonial Offices moved to Colonialism"
+"Reformed Church","Theocracy; Tier-2 government building choice eligibility","Wars of Religion; Religious Orders; Simultaneum","Holy Site conditions converted to Temple/religious-building conditions"
 "Mercantilism","Privateer with Warships; Merchant Navy and Treasure Fleets with Navigation","Logistics; Triangular Trade","Civ6 Camp yield bonus dropped as functionally weak"
 "Colonialism","Overseas Colonial Administration with Astronomy; +2 Envoys","Colonial Offices; Colonial Taxes; Raj; Native Conquest","Fishing Boats yield bonus dropped; civilization uniques remain unique"
 "Scientific Revolution","Research Agreement science bonus with Education; Observational Scientific Method with Astronomy","","Civ5 Rationalism Scientific Revolution adapted; no free-tech reward"
