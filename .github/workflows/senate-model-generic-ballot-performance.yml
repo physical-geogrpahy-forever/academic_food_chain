@@ -15,12 +15,12 @@ concurrency:
 
 jobs:
   generic-ballot-oos:
-    if: github.head_ref == 'archive-2026-us-senate-model'
+    if: github.head_ref == 'senate-perf-generic'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: archive-2026-us-senate-model
+          ref: senate-perf-generic
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
@@ -38,7 +38,7 @@ jobs:
             echo 'No performance changes'
           else
             git commit -m 'perf: generic-ballot National rolling OOS results [skip ci]'
-            git fetch origin archive-2026-us-senate-model
-            git rebase origin/archive-2026-us-senate-model
-            git push origin HEAD:archive-2026-us-senate-model
+            git fetch origin senate-perf-generic
+            git rebase origin/senate-perf-generic
+            git push origin HEAD:senate-perf-generic
           fi
