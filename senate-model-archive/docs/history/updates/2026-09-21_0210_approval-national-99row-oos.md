@@ -1,6 +1,6 @@
 # Performance experiment: presidential approval National proxy on 99 rows
 
-- Generated UTC: 2026-09-20T17:20:43.044063+00:00
+- Generated UTC: 2026-09-20T17:21:33.628256+00:00
 - Baseline: PVI + last-prior SameSeat + year gap.
 - National inputs are fixed at 45 days before each federal general election.
 - signed_net_approval = president-party sign in D-minus-R direction multiplied by net approval.

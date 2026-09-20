@@ -1,6 +1,6 @@
 # Performance experiment: National generic-ballot signal OOS
 
-- Generated UTC: 2026-09-20T17:20:43.008757+00:00
+- Generated UTC: 2026-09-20T17:21:33.575589+00:00
 - Historical source bytes: 754089
 - 2018+ average source bytes: 266194
 - BEA member: SQINC1__ALL_AREAS_1948_2026.csv
@@ -27,14 +27,14 @@
 | structural_econ_national_ridge4 | 99 | 9.5074 | 7.6936 | 87.9% |
 | structural_econ_national_ridge16 | 99 | 9.1774 | 7.2766 | 86.9% |
 | structural_econ_national_ridge64 | 99 | 8.9084 | 6.6580 | 89.9% |
-| nested_training_only | 99 | 9.1994 | 7.3458 | 87.9% |
+| nested_training_only | 99 | 9.1890 | 7.3299 | 87.9% |
 
 ## Decision
 
 - Structural baseline RMSE: 10.6055.
 - Structural + fixed economic signal RMSE: 10.4571.
 - Lowest fixed diagnostic architecture: structural_econ_national_ridge64 with RMSE 8.9084; fixed-grid test comparison is descriptive only.
-- Leakage-safe nested training-only RMSE: 9.1994.
+- Leakage-safe nested training-only RMSE: 9.1890.
 - Improvement vs structural: +1.6971.
 - Improvement vs structural+econ: +1.5487.
 - This is still a reconstruction diagnostic, not the preserved 7.99 headline Core V2, because candidate and PersonalVote architecture are not yet fully restored.
