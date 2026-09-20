@@ -37,8 +37,8 @@ for s in ss:
 raw=urlopen(Request(URL,headers={'User-Agent':'CoreV2R-performance/1.0'}),timeout=120).read()
 zf=zipfile.ZipFile(io.BytesIO(raw))
 names=zf.namelist()
-csvnames=[n for n in names if n.lower().endswith('.csv') and 'sqinc1' in n.lower()]
-if not csvnames: raise RuntimeError('No SQINC1 CSV in zip; files='+str(names[:30]))
+csvnames=[n for n in names if n.lower().endswith('.csv') and Path(n).name.upper().startswith('SQINC1__ALL_AREAS_')]
+if not csvnames: raise RuntimeError('No exact SQINC1__ALL_AREAS CSV in zip; matching candidates='+str([n for n in names if 'SQINC1' in n.upper()][:30]))
 name=max(csvnames,key=lambda n:zf.getinfo(n).file_size)
 bea=list(csv.DictReader(io.StringIO(zf.read(name).decode('utf-8-sig','replace'))))
 if not bea: raise RuntimeError('Empty SQINC1 CSV')
