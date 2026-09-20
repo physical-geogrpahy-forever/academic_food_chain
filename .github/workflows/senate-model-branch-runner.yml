@@ -33,6 +33,9 @@ jobs:
       - name: Run OOS exception-race audit
         run: python senate-model-archive/scripts/audit_oos_exception_races.py
 
+      - name: Infer headline validation sample size
+        run: python senate-model-archive/scripts/infer_headline_sample_size.py
+
       - name: Commit generated outputs and worklogs
         run: |
           git config user.name 'github-actions[bot]'
