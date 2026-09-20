@@ -1,5 +1,5 @@
-TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
-"Cartography","Caravel with Exploration","","","","","","Cartographic Surveying; Caravel/ocean role follows Civ5 Astronomy priority"
+"TECH_EN","UNITS","CITY_BUILDINGS","TILE_IMPROVEMENTS","ROUTES_INFRASTRUCTURE","RESOURCE_REVEAL","RESOURCE_EXPLOITATION","SYSTEMS_NOTES"
+"Cartography","","","","","","","Cartographic Surveying; Caravel/ocean role owned by Astronomy + Exploration under Civ V priority"
 "Square Rigging","","","","","","","Embarked movement +1; Advanced Sailing Rig; Frigate moved to Warships"
 "Astronomy","Caravel with Exploration","Observatory","","","","","Ocean Crossing with Exploration"
 "Navigation","Ship of the Line","Seaport","","","","","Advanced Naval Navigation; Navigation School with Exploration"
