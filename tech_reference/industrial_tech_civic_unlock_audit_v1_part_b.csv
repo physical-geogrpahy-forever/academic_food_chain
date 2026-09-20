@@ -8,7 +8,7 @@
 "IB007","Industrial","CORPORATION_SECTOR","Textiles, Apparel & Sporting Goods corporations","Mass Production","Capitalism","TECH+CIVIC","Project corporation map","TEXTILES_APPAREL_SPORTING","KEEP",""
 "IB008","Industrial","YIELD_UPGRADE","Non-fresh-water Farm +1 Food","Fertilizer","","TECH","Civ5 BNW","Fertilizer","KEEP","Preserves Civ5 distinction: Irrigation helps fresh-water Farms earlier; Fertilizer lifts dry-land farming later",""
 "IB009","Industrial","YIELD_UPGRADE","Plantation +1 Food","Fertilizer","","TECH","Civ5 BNW","Fertilizer","KEEP","Direct agricultural-chemistry fit",""
-"IB010","Industrial","YIELD_UPGRADE","Pasture +1 Food","Fertilizer","","TECH","Civ5 BNW","Fertilizer","DEFER_SYSTEM","Potentially excessive when stacked with Horse Collar and Replaceable Parts; retain candidate but do not lock numeric stack yet",""
+"IB010","Industrial","YIELD_UPGRADE","Pasture +1 Food","Fertilizer","","TECH","Civ5 BNW","Fertilizer","KEEP","Direct Civ5 Fertilizer effect retained","Pasture +1 Food"
 "IB011","Industrial","CORPORATION_SECTOR","Chemicals & Industrial Materials fertilizer upgrade","Fertilizer","","TECH","Project corporation map","CHEMICALS_MATERIALS upgrade","KEEP","Existing sector upgrade imported unchanged",""
 "IB012","Industrial","CITY_BUILDING","Hospital","Biology","Urbanization","TECH+CIVIC","Civ5 BNW + Health & Plague synthesis","Biology","CROSS_GATE","Biological medicine plus large urban institutional demand fit a modern hospital","Requires Aqueduct/Sewer chain to be finalized"
 "IB013","Industrial","SYSTEM","Medical Biology","Biology","","TECH","Civ5 BNW + project adaptation","Biology","KEEP","Improves city Health and disease recovery through biological understanding","Exact Health value later"
