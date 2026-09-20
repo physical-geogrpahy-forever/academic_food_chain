@@ -17,6 +17,7 @@ STEPS = [
     'audit_candidate_experience.py',
     'fetch_congress_legislators.py',
     'crosscheck_congress_service.py',
+    'build_congress_experience_overrides.py',
     'audit_presidential_national_margin.py',
     'audit_presidential_2000_duplicates.py',
 ]
