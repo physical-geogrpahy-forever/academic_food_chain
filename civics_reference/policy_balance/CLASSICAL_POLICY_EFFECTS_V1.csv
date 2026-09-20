@@ -1,0 +1,9 @@
+POLICY_EN,CIVIC_EN,POLICY_SLOT,FINAL_EFFECT,SOURCE_BASIS
+"Insulae","Games and Recreation","Economic","+1 Housing in cities with at least 2 institutional building chains","Civ6 +1 Housing / 2 specialty districts adapted"
+"Charismatic Leader","Political Philosophy","Diplomatic","+2 Influence points per turn toward earning Envoys","Civ6 GS direct"
+"Diplomatic League","Political Philosophy","Diplomatic","The first Envoy sent to each city-state counts as 2 Envoys","Civ6 GS direct"
+"Literary Tradition","Drama and Poetry","Wildcard","+2 Great Writer Points per turn","Civ6 GS direct"
+"Raid","Military Training","Military","Pillage and coastal-raid yields +50%","Civ6 RF/GS"
+"Veterancy","Military Training","Military","+30% Production toward Barracks, Armory, Military Academy, Harbor, Lighthouse, and Seaport","Civ6 Encampment/Harbor +30% adapted"
+"Equestrian Orders","Military Training","Military","Each improved Horses and Iron source yields +1 strategic resource per turn","Civ6 GS direct"
+"Natural Philosophy","Recorded History","Economic","Library and University each provide +1 Science","Civ6 Campus adjacency adapted"
