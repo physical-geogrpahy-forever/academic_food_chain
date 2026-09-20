@@ -12,7 +12,7 @@ DOC=ROOT/'docs/history/updates/2026-09-21_0400_538-deluxe-minus-classic-signal.m
 OUT.mkdir(parents=True,exist_ok=True);DOC.parent.mkdir(parents=True,exist_ok=True)
 
 URL2018='https://raw.githubusercontent.com/vincentarelbundock/Rdatasets/1dcc2bf5f955cc1224a3e1307256e1fe86b68dae/csv/fivethirtyeight/senate_seat_forecast.csv'
-URL2022='https://projects.fivethirtyeight.com/2022-general-election-forecast-data/senate_state_toplines_2022.csv'
+URL2022='https://raw.githubusercontent.com/stephensond/election-night-2022/83f2c9867f319b921fa10ad04bc256d8106bc8f4/input/senate_state_toplines_2022.csv'
 ELECTION={2014:date(2014,11,4),2018:date(2018,11,6),2022:date(2022,11,8)}
 
 def load(p):
