@@ -1,0 +1,35 @@
+name: Senate third-party poll source audit
+on:
+  push:
+    branches: [archive-2026-us-senate-model]
+    paths:
+      - 'senate-model-archive/experiments/third_party_poll_audit/**'
+      - '.github/workflows/senate-third-party-poll-audit.yml'
+permissions:
+  contents: write
+concurrency:
+  group: senate-third-party-poll-audit
+  cancel-in-progress: true
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: archive-2026-us-senate-model
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python senate-model-archive/experiments/third_party_poll_audit/run.py
+      - name: Commit results
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add senate-model-archive/experiments/third_party_poll_audit/results senate-model-archive/docs/history/updates/2026-09-21_0480_third-party-poll-source-audit.md
+          if git diff --cached --quiet; then echo 'No changes'; else
+            git commit -m 'audit: third-party Senate poll source [skip ci]'
+            git fetch origin archive-2026-us-senate-model
+            git rebase --autostash origin/archive-2026-us-senate-model
+            git push origin HEAD:archive-2026-us-senate-model
+          fi
