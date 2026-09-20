@@ -235,6 +235,30 @@ def tune(train):
     grid.sort(key=lambda z:(z[0],z[1],z[2],z[3]+z[4]+z[5]+z[6]))
     return grid[0],grid[:20]
 
+# Prequential fundamentals priors for poll-layer tuning.
+# Every cycle is predicted using only earlier cycles; no target-cycle outcome enters its hyperparameter selection.
+preq=[]; preq_choices=[]
+for tc in [2010,2012,2014,2016,2018,2020,2022]:
+    tr=[r for r in rows if int(r['cycle'])<tc];te=[r for r in rows if int(r['cycle'])==tc]
+    if not tr or not te: continue
+    try:
+        best,trace=tune(tr)
+    except RuntimeError:
+        continue
+    negcorrect,inner_mae,inner_rmse,lp,ll,le,ln,folds,inner_acc,inner_n=best
+    q=fitpred(tr,te,lp,ll,le,ln)
+    preq_choices.append({'test_cycle':tc,'lambda_pvi':lp,'lambda_local':ll,'lambda_econ':le,'lambda_national':ln,
+                         'inner_correct':-negcorrect,'inner_n':inner_n,'inner_direction_pct':inner_acc,
+                         'inner_mae':inner_mae,'inner_rmse':inner_rmse,'inner_folds':folds,'train_n':len(tr),'test_n':len(te)})
+    for r,p in zip(te,q):
+        preq.append({'test_cycle':tc,'race_id':r['race_id'],'state_abbrev':r['state_abbrev'],
+                     'actual':r['y'],'predicted':float(p),'error':float(p)-r['y']})
+
+for fn,data in [('prequential_priors.csv',preq),('prequential_prior_choices.csv',preq_choices)]:
+    if data:
+        with (OUTDIR/fn).open('w',encoding='utf-8',newline='') as f:
+            w=csv.DictWriter(f,fieldnames=list(data[0].keys()));w.writeheader();w.writerows(data)
+
 pred=[];choices=[]
 for tc in OUTER:
     tr=[r for r in rows if int(r['cycle'])<tc];te=[r for r in rows if int(r['cycle'])==tc]
