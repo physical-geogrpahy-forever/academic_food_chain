@@ -26,6 +26,7 @@ ELECTION={
 }
 PRES_SIGN={2006:-1,2008:-1,2010:1,2012:1,2014:1,2016:1,2018:-1,2020:-1,2022:1}
 OUTER=[2014,2018,2022]
+LAG_SOURCE_CYCLES={2000,2002,2004}
 
 STATE_ABBR={'Alabama':'AL','Alaska':'AK','Arizona':'AZ','Arkansas':'AR','California':'CA','Colorado':'CO','Connecticut':'CT','Delaware':'DE','Florida':'FL','Georgia':'GA','Hawaii':'HI','Idaho':'ID','Illinois':'IL','Indiana':'IN','Iowa':'IA','Kansas':'KS','Kentucky':'KY','Louisiana':'LA','Maine':'ME','Maryland':'MD','Massachusetts':'MA','Michigan':'MI','Minnesota':'MN','Mississippi':'MS','Missouri':'MO','Montana':'MT','Nebraska':'NE','Nevada':'NV','New Hampshire':'NH','New Jersey':'NJ','New Mexico':'NM','New York':'NY','North Carolina':'NC','North Dakota':'ND','Ohio':'OH','Oklahoma':'OK','Oregon':'OR','Pennsylvania':'PA','Rhode Island':'RI','South Carolina':'SC','South Dakota':'SD','Tennessee':'TN','Texas':'TX','Utah':'UT','Vermont':'VT','Virginia':'VA','Washington':'WA','West Virginia':'WV','Wisconsin':'WI','Wyoming':'WY'}
 
@@ -102,7 +103,7 @@ races=[]
 for rid,rr in by.items():
     try:
         x=extract(rr)
-        if x and x['cycle'] in ELECTION: races.append(x)
+        if x and (x['cycle'] in ELECTION or x['cycle'] in LAG_SOURCE_CYCLES): races.append(x)
     except: pass
 
 # Preserve exact 99 headline margins.
