@@ -230,7 +230,7 @@ def tune(train):
         yy=[]; pp=[]
         for vc in cycles[1:]:
             tr=[r for r in train if int(r['cycle'])<vc]; va=[r for r in train if int(r['cycle'])==vc]
-            if len(tr)<25 or not va: continue
+            if len(tr)<10 or not va: continue
             q=fitpred(tr,va,ll,le,ln)
             yy.extend(r['y'] for r in va); pp.extend(q.tolist())
         cand.append((rmse(yy,pp) if yy else 1e9,ll,le,ln))
