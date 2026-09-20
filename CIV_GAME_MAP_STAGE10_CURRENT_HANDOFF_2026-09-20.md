@@ -703,3 +703,27 @@ Key design findings:
 - multiple brands in the same product category do not stack full Amenity bonuses infinitely.
 
 Founder pool now explicitly includes many Great Engineers as well as Great Merchants. Further pass should expand toward 80-100 audited candidates.
+
+
+## MASTER HANDOFF POINTER
+
+A comprehensive cross-system handoff now exists:
+
+`CIV_GAME_PROJECT_MASTER_HANDOFF_2026-09-20.md`
+
+Use that file first when starting a new chat. It integrates:
+- GitHub/branch state
+- world map and terrain baseline
+- Stage10 resource placement
+- dynamic resource discovery V2
+- 4000 BCE historical mask V3
+- 72-civic historical V3
+- 109-tech V2
+- civic-tech crosslinks
+- Civ V-style city system
+- Great Director / Film
+- corporation system
+- founder research pool
+- exact current work order
+
+The immediate task is corporation founder/sector/output finalization before assigning technology-by-technology building/unit/improvement unlocks.
