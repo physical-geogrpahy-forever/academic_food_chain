@@ -22,6 +22,7 @@ STEPS = [
     'audit_governor_experience.py',
     'build_outparty_incumbent.py',
     'build_personal_vote_sufficient_stats.py',
+    'join_personal_vote_audit.py',
     'audit_presidential_national_margin.py',
     'audit_presidential_2000_duplicates.py',
 ]
