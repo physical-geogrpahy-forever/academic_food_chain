@@ -437,3 +437,37 @@ Written Culture; Court Culture; Scholasticism; Patronage; Print Culture; Scienti
 
 Next civic task:
 governments/policy cards/Inspirations/unlocks/culture costs. Do not add more civic nodes without a concrete implementation gap.
+
+
+## Civic historical-flow revision V2 — 2026-09-20
+
+The 72-node civic roster remains locked, but the old Civ-VI-heavy prerequisite graph is superseded for social-to-social prerequisite design by:
+
+- `civics_reference/CIVIC_TREE_HISTORICAL_V2.md`
+- `civics_reference/civic_tree_historical_v2.csv`
+- `civics_reference/validate_civic_tree_historical_v2.py`
+
+Purpose:
+- remove historically implausible social causation while keeping the Civ VI-based roster;
+- reserve material/technical necessities for later technology cross-gates.
+
+QA:
+- 72/72 reachable from Code of Laws
+- one root
+- zero missing references
+- zero cycles
+- zero backward-era edges
+- maximum two direct social prerequisites
+
+Important removed hard links include:
+- Theology -> Written Culture
+- Feudalism -> Court Culture
+- Reformed Church -> Sovereignty
+- Exploration -> Scientific Revolution
+- Mass Media -> Capitalism
+- Ideology -> Professional Sports
+- Rapid Deployment -> Environmentalism
+- Space Race -> Social Media
+
+Next step after review:
+classify every civic as social-only, hard-tech-gated, or tech-boosted.
