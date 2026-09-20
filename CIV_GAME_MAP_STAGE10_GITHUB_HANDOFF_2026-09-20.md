@@ -165,8 +165,10 @@ Detailed design:
 - `replacement_region_comparison_v1.csv`
 - `RECONSTRUCT_FIXED_PLACEMENT.md`
 - `replacement_ids_v1.json`
+- `replacement_selections_v1.csv`
+- `CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_PLACED_FIXED_V1.csv` — full 12,500-row integrated review-build table
 
-The repository stores the exact BISON/IVORY/WHALES replacement cell IDs as a compact reproducible patch. The large 12,500-row fixed CSV remains a working artifact; it can be rebuilt by replacing those three resources in the Stage10Y V2 table using `replacement_ids_v1.json`.
+The repository stores both the compact reproducible patch and the **full integrated 12,500-row fixed placement table**. The authoritative review-build table is `civ_map_stage10_resources/resource_fix_v1/CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_PLACED_FIXED_V1.csv`. The compact `replacement_ids_v1.json` and reconstruction instructions are retained only as reproducibility aids, not as substitutes for the integrated table.
 
 ### Icons
 `civ_map_stage10_resources/icons_v4/`
@@ -219,6 +221,9 @@ Do not promote it to canonical final until:
 Verified directly against branch `civ-game-map-stage1b-etopo2022` on 2026-09-20.
 
 Confirmed present:
+- `CIV_GAME_MAP_STAGE10_INTEGRATED_HANDOFF_2026-09-20.md`
+- full integrated 12,500-row fixed placement CSV
+- full BISON/IVORY/WHALES replacement selection CSV
 - Stage10 status MD
 - this handoff MD
 - source-GPKG audit tables
@@ -233,3 +238,21 @@ Latest inventory correction commit before this handoff update:
 - message: `Fix resource_fix_v1 inventory documentation`
 
 The branch must be treated as the authoritative handoff location for the next chat.
+
+
+## 11. Integrated full-table sync correction
+
+User decision: the GitHub handoff must include the actual integrated placement table, not only a compact patch.
+
+Now committed on this branch:
+- `civ_map_stage10_resources/resource_fix_v1/CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_PLACED_FIXED_V1.csv`
+  - 12,500 selected rows plus header
+  - commit: `1a822065b259f5f169ad40ba487aa7c3b805f7e4`
+- `civ_map_stage10_resources/resource_fix_v1/replacement_selections_v1.csv`
+  - complete 988-row BISON/IVORY/WHALES replacement set plus header
+  - commit: `68f476b89697142c5262611dafd19378415c77c3`
+- `CIV_GAME_MAP_STAGE10_INTEGRATED_HANDOFF_2026-09-20.md`
+  - unified current-state handoff
+  - commit: `700c1fbf127e0c6284749ed5b14c6a02a91d6d7e`
+
+The integrated CSV is the primary handoff artifact for the current resource_fix_v1 review build. Compact patches remain secondary reproducibility tools.
