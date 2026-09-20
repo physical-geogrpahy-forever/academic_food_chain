@@ -1,0 +1,4 @@
+test_cycle,gamma_outparty,delta_personal,personal_k,posterior_threshold,train_n,train_correct,train_accuracy_pct,train_flips
+2014,0,0,1,999,0,,,0
+2018,6,0,0.5,999,33,33,100.0,1
+2022,6,0.1,0.5,999,66,65,98.48484848484848,4
