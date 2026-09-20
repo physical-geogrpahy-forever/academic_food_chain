@@ -1,6 +1,6 @@
 # GitHub Actions run: congressional service cross-check
 
-- Generated UTC: 2026-09-20T16:49:57.570910+00:00
+- Generated UTC: 2026-09-20T16:53:01.392064+00:00
 - Candidate-side rows: 198
 - Candidates matched to a Congress term record: 116/198
 - Review rows: 61
