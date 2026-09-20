@@ -682,3 +682,24 @@ Thomas Edison and Carl Benz are strong Great Engineer founder candidates.
 
 Reference:
 - `corporations/CORPORATION_FOUNDING_AND_OUTPUT_SYSTEM_V1.md`
+
+
+## Corporate founder pool research V1
+
+A broad founder research pool has been assembled across Great Merchants and Great Engineers.
+
+Reference:
+- `corporations/CORPORATE_FOUNDER_POOL_RESEARCH_V1.md`
+
+Key design findings:
+- functional goods use supplied quantities, not empire-wide permanent modifiers;
+- services use branch/network coverage;
+- Refined Petroleum Products -> Production/logistics;
+- Finance -> Gold/investment;
+- Hotels -> Tourism/Culture/Gold;
+- Telecom -> Science/network efficiency;
+- Logistics -> trade/branch reach;
+- Automobiles and Consumer Electronics are hybrid manufactured-luxury + functional categories;
+- multiple brands in the same product category do not stack full Amenity bonuses infinitely.
+
+Founder pool now explicitly includes many Great Engineers as well as Great Merchants. Further pass should expand toward 80-100 audited candidates.
