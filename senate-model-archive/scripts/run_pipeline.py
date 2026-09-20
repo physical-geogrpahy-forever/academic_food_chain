@@ -13,6 +13,8 @@ STEPS = [
     'build_historical_pvi.py',
     'build_same_seat_features.py',
     'build_design_matrix_skeleton.py',
+    'fetch_candidate_experience_sources.py',
+    'audit_candidate_experience.py',
     'audit_presidential_national_margin.py',
     'audit_presidential_2000_duplicates.py',
 ]
