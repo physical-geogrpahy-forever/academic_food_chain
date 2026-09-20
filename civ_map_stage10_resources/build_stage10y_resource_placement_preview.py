@@ -64,6 +64,93 @@ def allocate_targets(evidence_counts,total,min_per,max_per):
         rem-=n
     return alloc,total
 
+
+def allocate_stratum_targets(counts,total):
+    """Allocate an exact target across existing quantity strata in proportion
+    to candidate availability, while preserving every non-empty stratum when
+    the resource target is large enough."""
+    keys=sorted(int(k) for k,v in counts.items() if int(v)>0)
+    caps={k:int(counts[k]) for k in keys}
+    total=min(int(total),sum(caps.values()))
+    alloc={k:0 for k in keys}
+    if total<=0:
+        return alloc
+    # Preserve all observed quantity levels whenever possible.
+    if total>=len(keys):
+        for k in keys:
+            alloc[k]=1
+        rem=total-len(keys)
+    else:
+        rem=total
+    while rem>0:
+        active=[k for k in keys if alloc[k]<caps[k]]
+        if not active: break
+        capacity_weight={k:max(0,caps[k]-alloc[k]) for k in active}
+        sw=sum(capacity_weight.values())
+        ideal={k:(rem*capacity_weight[k]/sw if sw else 0) for k in active}
+        adds={k:min(caps[k]-alloc[k],int(math.floor(ideal[k]))) for k in active}
+        n=sum(adds.values())
+        if n==0:
+            k=max(active,key=lambda z:(ideal[z]-math.floor(ideal[z]),capacity_weight[z],-z))
+            adds[k]=1; n=1
+        for k,v in adds.items():
+            alloc[k]+=v
+        rem-=n
+    return alloc
+
+def spaced_select_stratified(cand,target,spacing_km,occupied,floor_km,relax_factor):
+    """Strategic-resource selector preserving candidate quantity strata."""
+    counts={int(k):int(v) for k,v in cand["QTY"].value_counts().to_dict().items() if int(k)>0}
+    quotas=allocate_stratum_targets(counts,target)
+    spacing=max(float(spacing_km),float(floor_km))
+    last=[]
+    last_actual={k:0 for k in quotas}
+    used_spacing=spacing
+
+    while True:
+        cell=max(spacing*1000.0,1.0)
+        d2=cell*cell
+        buckets={}
+        selected=[]
+        actual={k:0 for k in quotas}
+
+        for row in cand.itertuples(index=False):
+            hid=int(row.id)
+            q=int(row.QTY)
+            if q not in quotas or actual[q]>=quotas[q]:
+                continue
+            if hid in occupied:
+                continue
+            x=float(row.X); y=float(row.Y)
+            bx=int(math.floor(x/cell)); by=int(math.floor(y/cell))
+            ok=True
+            for ix in range(bx-1,bx+2):
+                for iy in range(by-1,by+2):
+                    for sx,sy in buckets.get((ix,iy),()):
+                        if (x-sx)*(x-sx)+(y-sy)*(y-sy) < d2:
+                            ok=False; break
+                    if not ok: break
+                if not ok: break
+            if not ok:
+                continue
+            selected.append(hid)
+            actual[q]+=1
+            buckets.setdefault((bx,by),[]).append((x,y))
+            if len(selected)>=target:
+                break
+
+        last=selected
+        last_actual=actual
+        used_spacing=spacing
+        if len(selected)>=target or spacing<=floor_km+1e-9:
+            break
+        new_spacing=max(float(floor_km),spacing*float(relax_factor))
+        if abs(new_spacing-spacing)<1e-9:
+            break
+        spacing=new_spacing
+
+    return last,used_spacing,quotas,last_actual
+
 def allowed_surfaces(cfg,rid):
     rules=cfg.get("surface_rules",{})
     if rid in rules and isinstance(rules[rid],list):
@@ -192,9 +279,16 @@ def main():
 
     for klass,rid in placement_order:
         base=float(overrides.get(rid,scfg[f"{klass}_default"]))
-        ids,used=spaced_select(
-            candidates[rid],targets[rid],base,occupied,floor,relax
-        )
+        if klass=="strategic":
+            ids,used,qty_targets,qty_actual=spaced_select_stratified(
+                candidates[rid],targets[rid],base,occupied,floor,relax
+            )
+        else:
+            ids,used=spaced_select(
+                candidates[rid],targets[rid],base,occupied,floor,relax
+            )
+            qty_targets=None
+            qty_actual=None
         idset=set(ids)
         chosen=candidates[rid].loc[candidates[rid].id.isin(idset)].copy()
         # Restore resource evidence ranking in output.
@@ -218,6 +312,8 @@ def main():
           "configured_spacing_km":base,
           "used_spacing_km":float(used),
           "candidate_to_target_ratio":float(evidence_counts[rid]/max(1,targets[rid])),
+          "quantity_target_counts":({str(k):int(v) for k,v in qty_targets.items()} if qty_targets is not None else None),
+          "quantity_placed_counts":({str(k):int(v) for k,v in qty_actual.items()} if qty_actual is not None else None),
         })
 
     sel=pd.DataFrame(selected_rows)
