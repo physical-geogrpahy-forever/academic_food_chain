@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # RUN_TAG_GENERIC_V1
 # RUN_TAG_GENERIC_V2
-import csv, io, hashlib
+import csv, io, hashlib, json
 from pathlib import Path
 from datetime import datetime, date, timedelta, timezone
 from urllib.request import Request, urlopen
@@ -27,8 +27,9 @@ raw=urlopen(Request(URL,headers={'User-Agent':'Mozilla/5.0 CoreV2R-performance/1
 sha=hashlib.sha256(raw).hexdigest()
 polls=list(csv.DictReader(io.StringIO(raw.decode('utf-8-sig','replace'))))
 if not polls: raise RuntimeError('generic ballot historical file returned no rows')
-print('GENERIC_HEADER='+','.join(polls[0].keys()))
-print('GENERIC_ROW0='+repr(polls[0]))
+print('RAW_PREFIX='+repr(raw.decode('utf-8-sig','replace')[:2500]))
+print('GENERIC_KEYS='+repr(list(polls[0].keys()) if polls else []))
+print('GENERIC_ROW0='+repr(polls[0] if polls else {}))
 
 def parse_date(s):
     s=(s or '').strip()
@@ -200,4 +201,7 @@ lines += [
  '- performance/results/generic_ballot_oos_hyperparams.csv'
 ]
 DOC.write_text('\n'.join(lines)+'\n',encoding='utf-8')
+print('SUMMARY_JSON='+json.dumps(summary))
+print('HYPER_JSON='+json.dumps(hyper))
+print('SNAP_JSON='+json.dumps(snapshots))
 print('\n'.join(lines))
