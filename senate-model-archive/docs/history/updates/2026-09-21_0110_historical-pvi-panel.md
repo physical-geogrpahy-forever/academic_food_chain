@@ -1,8 +1,9 @@
-# GitHub Actions run: historical PVI panel v2 — state filter fix
+# GitHub Actions run: historical PVI panel v3 — geography + exact-duplicate fix
 
-- Generated UTC: 2026-09-20T16:14:17.718838+00:00
+- Generated UTC: 2026-09-20T16:14:40.956222+00:00
 - Execution: GitHub Actions
-- Fix: exclude presidential congressional-district rows such as M1/M2/N1/N2/N3 from state and national presidential margins
+- Fix 1: exclude presidential congressional-district rows such as M1/M2/N1/N2/N3 from state and national presidential margins
+- Fix 2: remove exact duplicate source result lines before candidate aggregation
 - Presidential source repo: fivethirtyeight/election-results
 - Source commit: d7a7cff101da28f4ff77114450a964874800ca54
 - Source blob SHA: 0e4171053b71363a31669137cb9a86289e58d438
@@ -18,6 +19,12 @@ The presidential source includes non-state congressional-district result rows us
 
 The v1 worklog is retained as an audit trail; its generated PVI files are superseded by this run.
 
+## Exact duplicate correction
+
+- Exact duplicate source rows removed: 8
+- Duplicate state-cycles: 2000-AL:8
+- 2000 Alabama de-duplication is separately audited against FEC certified results.
+
 ## Reconstruction rule
 
 For each Senate election cycle, use the two most recent presidential general elections strictly earlier than that Senate election. This prevents same-year presidential final results from leaking into a pre-election Senate forecast.
@@ -32,7 +39,7 @@ The 0.67/0.33 weights are preserved handoff defaults, not claimed recovered exac
 
 | presidential cycle | state + DC rows | national D-R two-party margin |
 |---:|---:|---:|
-| 2000 | 51 | 0.2826 |
+| 2000 | 51 | 0.5322 |
 | 2004 | 51 | -2.4880 |
 | 2008 | 51 | 7.3777 |
 | 2012 | 51 | 3.9166 |

@@ -1,12 +1,12 @@
 # GitHub Actions run: presidential national-margin audit
 
-- Generated UTC: 2026-09-20T16:14:18.234625+00:00
+- Generated UTC: 2026-09-20T16:14:41.239920+00:00
 - Execution: GitHub Actions
 - Purpose: compare 50-state+DC aggregation against explicit national general-election rows in the same pinned source.
 
 | cycle | state-sum D-R two-party margin | explicit national margin | difference | status |
 |---:|---:|---:|---:|---|
-| 2000 | 0.2826 | 0.5322 | -0.2496 | MISMATCH |
+| 2000 | 0.5322 | 0.5322 | 0.0000 | OK |
 | 2004 | -2.4880 | -2.4880 | 0.0000 | OK |
 | 2008 | 7.3777 | 7.3777 | 0.0000 | OK |
 | 2012 | 3.9166 | 3.9166 | 0.0000 | OK |
@@ -18,7 +18,7 @@
 
 A mismatch means the state-level source cannot be assumed to reproduce the official national popular-vote total for that cycle. Such a cycle requires official FEC cross-check or correction before its national baseline is locked.
 
-- Mismatch cycles: 2000
+- Mismatch cycles: none
 
 ## Output
 
