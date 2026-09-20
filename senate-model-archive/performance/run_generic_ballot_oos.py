@@ -59,7 +59,10 @@ questions=[]
 for g in groups.values():
     if g['dem'] is None or g['rep'] is None: continue
     g['margin']=g['dem']-g['rep']; questions.append(g)
-if len(questions)<100: raise RuntimeError(f'Only {len(questions)} usable generic-ballot questions parsed')
+if len(questions)<100:
+    sample_text=raw[:800].decode('utf-8','replace').replace('\n',' || ')
+    fields=list(polls[0].keys()) if polls else []
+    raise RuntimeError(f'Only {len(questions)} usable generic-ballot questions parsed; fields={fields}; raw_head={sample_text}')
 
 def snapshot_value(cycle,window):
     snap=ELECTION[cycle]-timedelta(days=45)
