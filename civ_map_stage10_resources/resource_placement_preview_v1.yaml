@@ -1,0 +1,83 @@
+version: CIV_RESOURCE_PLACEMENT_PREVIEW_V1
+status: preview_not_final
+
+class_targets:
+  strategic: 2500
+  bonus: 5000
+  luxury: 5000
+
+allocation:
+  method: sqrt_positive_evidence_hex_count
+  class_minimum_per_resource:
+    strategic: 50
+    bonus: 200
+    luxury: 40
+  class_maximum_per_resource:
+    strategic: 1300
+    bonus: 750
+    luxury: 350
+
+spacing_km:
+  strategic_default: 100
+  bonus_default: 90
+  luxury_default: 120
+  overrides:
+    HORSES: 125
+    NITER: 75
+    OIL: 100
+    URANIUM: 100
+    BISON: 120
+    FISH: 100
+    WHALES: 150
+    PEARLS: 100
+    CORAL: 100
+    TRUFFLES: 100
+    AMBER: 100
+    JADE: 100
+    LAPIS_LAZULI: 100
+  adaptive_floor_km: 50
+  relaxation_factor: 0.85
+
+conflict_resolution:
+  one_resource_per_hex: true
+  class_priority:
+    - strategic
+    - luxury
+    - bonus
+  within_class_order: scarcity_first
+  scarcity_metric: evidence_hexes_divided_by_target
+  deterministic: true
+  random_seed_used: false
+
+surface_rules:
+  land_only_default: true
+  OIL:
+    - LAND
+    - COAST
+    - OCEAN
+  FISH:
+    - COAST
+    - OCEAN
+  CRAB:
+    - COAST
+    - OCEAN
+  PEARLS:
+    - COAST
+    - OCEAN
+  WHALES:
+    - COAST
+    - OCEAN
+  CORAL:
+    - COAST
+    - OCEAN
+
+quantity:
+  strategic: preserve_selected_hex_CANDIDATE_QTY
+  bonus: 1
+  luxury: 1
+
+notes:
+  - This is a review placement, not the canonical final resource map.
+  - Targets are class-level and deliberately editable after visual QA.
+  - Physical magnitudes are never compared across different resource types.
+  - Selection is deterministic and evidence-ranked.
