@@ -1,4 +1,4 @@
-RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOURCE,SOURCE_UNLOCK,DECISION,REASON,NOTES
+"RECORD_ID","PROJECT_ERA","UNLOCK_TYPE","CONTENT_EN","TECH_GATE","CIVIC_GATE","GATE_MODE","SOURCE","SOURCE_UNLOCK","DECISION","REASON","NOTES"
 "MA001","Modern","UNIT","Triplane","Flight","","TECH","Civ5 BNW","Flight","KEEP","Civ V priority; early military aviation","Requires Oil if retained from source"
 "MA002","Modern","UNIT","Great War Bomber","Flight","","TECH","Civ5 BNW","Flight","KEEP","Civ V priority; early bomber stage",""
 "MA003","Modern","UNIT","Observation Balloon","Flight","Mobilization","TECH+CIVIC","Civ6 GS","Flight","CROSS_GATE","Aerial reconnaissance support requires flight technology and organized modern army doctrine",""
@@ -44,8 +44,8 @@ RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOUR
 "MC005","Modern","UNIT","Supply Convoy","Combustion","Mobilization","TECH+CIVIC","Project synthesis","Mobilization","CROSS_GATE","Motorized logistics of mass armies",""
 "MC006","Modern","POLICY","Five-Year Plan","","Ideology","CIVIC","Civ6 GS","Ideology","ADAPT","Convert Campus/Industrial Zone adjacency into science-building and factory/industrial-building bonuses","Government-specific final ownership reviewed with Class Struggle"
 "MC007","Modern","POLICY","Gunboat Diplomacy","","Ideology","CIVIC","Civ6 GS","Ideology","KEEP","Diplomatic-military pressure policy retained",""
-"MC008","Modern","POLICY","Lightning Warfare","","Ideology","CIVIC","Civ6 GS","Ideology","KEEP","Armored/mobility production policy retained","May become Fascism-only after Totalitarianism"
-"MC009","Modern","POLICY","Economic Union","","Ideology","CIVIC","Civ6 GS","Ideology","KEEP","Trade/economic policy retained","May become Democracy-specific after Suffrage"
+"MC008","Modern","POLICY","Lightning Warfare","","Totalitarianism","CIVIC","Civ6 GS","Ideology","MOVE_TO_CIVIC","Final owner is Totalitarianism, the Fascism/armored-warfare branch","Removed from generic Ideology"
+"MC009","Modern","POLICY","Economic Union","","Suffrage","CIVIC","Civ6 GS","Ideology","MOVE_TO_CIVIC","Final owner is Suffrage/Democracy branch","Removed from generic Ideology"
 "MC010","Modern","POLICY","Police State","","Ideology","CIVIC","Civ6 GS","Ideology","KEEP","Espionage/loyalty policy retained","Exact values later"
 "MC011","Modern","DIPLOMACY","Ideological War","","Ideology","CIVIC","Civ6 GS","Ideology","KEEP","Direct source casus belli",""
 "MC012","Modern","SYSTEM","Additional Spy capacity","","Ideology","CIVIC","Civ6 GS","Ideology","KEEP","Direct source concept",""
