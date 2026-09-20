@@ -3,7 +3,7 @@ from pathlib import Path
 import runpy
 
 ROOT=Path(__file__).resolve().parent
-STEPS=['run_fullcycle_national_econ_oos.py']
+STEPS=['run_fullcycle_inc_era_oos.py']
 
 for name in STEPS:
     print('=== PERFORMANCE RUN',name,'===')
