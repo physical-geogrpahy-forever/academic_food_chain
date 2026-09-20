@@ -1,4 +1,4 @@
-RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOURCE,SOURCE_UNLOCK,DECISION,REASON,NOTES
+"RECORD_ID","PROJECT_ERA","UNLOCK_TYPE","CONTENT_EN","TECH_GATE","CIVIC_GATE","GATE_MODE","SOURCE","SOURCE_UNLOCK","DECISION","REASON","NOTES"
 "RN001","Renaissance","CITY_BUILDING","Bank","Banking","","TECH","Civ5 BNW; Civ6 GS","Banking","KEEP","Both source games agree; direct financial-institution fit","Requires Market"
 "RN002","Renaissance","CITY_BUILDING","Constabulary","","Diplomatic Service","CIVIC","Civ5 BNW remap","Banking","MOVE_TO_CIVIC","Counter-espionage/policing institution is administrative rather than banking technology","Exact anti-spy modifier later"
 "RN003","Renaissance","SYSTEM","Additional Trade Route Capacity","Banking","Foreign Trade","TECH+CIVIC","Civ5 BNW","Banking","CROSS_GATE","Financial infrastructure expands an existing trade system","Exact +1 capacity provisional"
@@ -45,7 +45,7 @@ RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOUR
 "RC017","Renaissance","POLICY","Philanthropy","","Patronage","CIVIC","Civ5 Patronage","Philanthropy","KEEP","Gold gifts produce more city-state influence","Exact 25% not locked"
 "RC018","Renaissance","POLICY","Cultural Diplomacy","","Patronage","CIVIC","Civ5 Patronage","Cultural Diplomacy","KEEP","City-state resource/luxury benefits and cultural relations fit this civic","Exact resource/happiness values later"
 "RC019","Renaissance","POLICY","Merchant Confederacy","","Patronage","CIVIC","Civ5 BNW Patronage","Merchant Confederacy","KEEP","Trade routes with city-states gain Gold","Exact +2 Gold may be tuned"
-"RC020","Renaissance","SYSTEM","City-State Great Person gifts","","Patronage","CIVIC","Civ5 Patronage finisher concept","Patronage","DEFER_SYSTEM","Potential high-tier Patronage reward; do not grant automatically at civic unlock","Could become late policy/finisher mechanic"
+"RC020","Renaissance","SYSTEM","City-State Great Person support","","Patronage","CIVIC","Civ5 Patronage finisher concept","Patronage","ADAPT","Adapt Civ5 Patronage finisher: allied city-states support Great Person generation rather than randomly gifting a complete Great Person","Exact GPP contribution/frequency later"
 "RC021","Renaissance","SYSTEM","Mass Print Culture","Printing","Print Culture","TECH+CIVIC","Civ6 Printing + project civic","Print Culture","KEEP","Separates print technology from widespread readership and cultural circulation",""
 "RC022","Renaissance","YIELD_UPGRADE","Great Works of Writing Tourism x2","Printing","Print Culture","TECH+CIVIC","Civ6 GS Printing","Printing","CROSS_GATE","Retains Civ6 effect but requires societal print adoption",""
 "RC023","Renaissance","POLICY","Vernacular Print","","Print Culture","CIVIC","Historical/project addition","Print Culture","DEFER_SYSTEM","Candidate for literacy/culture spread; exact yield later",""
