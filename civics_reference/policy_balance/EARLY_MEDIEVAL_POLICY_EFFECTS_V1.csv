@@ -1,0 +1,8 @@
+POLICY_EN,CIVIC_EN,POLICY_SLOT,FINAL_EFFECT,SOURCE_BASIS
+"Feudal Contract","Feudalism","Military","+50% Production toward Ancient through Renaissance melee, ranged, and anti-cavalry units","Civ6 direct"
+"Serfdom","Feudalism","Economic","Workers construct tile improvements 25% faster","Civ6 +2 Builder charges adapted to Civ V Worker model"
+"Professional Army","Mercenaries","Military","Gold cost to upgrade units -50%","Civ6 direct"
+"Retinues","Mercenaries","Military","Strategic-resource cost to upgrade units -50%","Civ6 GS direct"
+"Sack","Mercenaries","Military","Pillage yields from city-linked infrastructure, roads, forts, and port infrastructure +100%","Civ6 district pillage doubled, adapted"
+"Trade Confederation","Mercenaries","Economic","International Trade Routes provide +1 Science and +1 Culture","Civ6 direct"
+"Manuscript Patronage","Written Culture","Wildcard","Scriptorium and Woodblock Printing House each provide +1 Culture; +1 Great Writer Point per turn","Project historical policy"
