@@ -579,3 +579,19 @@ QA:
 
 Next:
 reconcile civic HARD/BOOST crosslinks against this exact technology tree.
+
+
+## Civic-tech reconciliation V2
+
+Civic-tech crosslinks were validated against the locked 103-node technology DAG.
+
+Results:
+- 72 civic crosslink rows checked
+- HARD 11, BOOST 31, NONE 30
+- zero unknown tech names
+- zero hard/boost links to a later project era
+- Mass Media boost corrected: Radio -> Telegraph
+- Globalization social prerequisite corrected: Cold War + Capitalism -> Capitalism + Mass Media, avoiding unintended Nuclear Fission inheritance
+
+Reference:
+- `civics_reference/CIVIC_TECH_CROSSLINK_RECONCILIATION_V2.md`
