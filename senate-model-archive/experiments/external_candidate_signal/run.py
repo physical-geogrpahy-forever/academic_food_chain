@@ -11,7 +11,7 @@ OUT=ROOT/'experiments/external_candidate_signal/results'
 DOC=ROOT/'docs/history/updates/2026-09-21_0400_538-deluxe-minus-classic-signal.md'
 OUT.mkdir(parents=True,exist_ok=True);DOC.parent.mkdir(parents=True,exist_ok=True)
 
-URL2018='https://projects.fivethirtyeight.com/congress-model-2018/senate_seat_forecast.csv'
+URL2018='https://raw.githubusercontent.com/vincentarelbundock/Rdatasets/1dcc2bf5f955cc1224a3e1307256e1fe86b68dae/csv/fivethirtyeight/senate_seat_forecast.csv'
 URL2022='https://projects.fivethirtyeight.com/2022-general-election-forecast-data/senate_state_toplines_2022.csv'
 ELECTION={2014:date(2014,11,4),2018:date(2018,11,6),2022:date(2022,11,8)}
 
@@ -66,32 +66,59 @@ dm=load(DM)
 dm_by={r['race_id']:r for r in dm}
 
 sources={}
-for cyc,url in [(2018,URL2018),(2022,URL2022)]:
-    rows,nbytes=fetch(url)
-    target=ELECTION[cyc]-timedelta(days=45)
-    fields=list(rows[0].keys()) if rows else []
-    # latest available forecast date <= 45-day snapshot, separately by expression/district
-    usable=[]
-    for r in rows:
-        d=pdate(r.get('forecastdate') or r.get('date') or '')
-        if d is None or d>target:continue
-        ex=branch_expression(r)
-        if ex not in {'classic','deluxe'}:continue
-        m=get_margin(r)
-        if m is None:continue
-        usable.append((d,r,ex,m))
-    if not usable:raise RuntimeError(f'No classic/deluxe rows for {cyc}; fields={fields}')
-    latest=max(x[0] for x in usable)
-    day=[x for x in usable if x[0]==latest]
-    bydist=defaultdict(dict)
-    for d,r,ex,m in day:
-        dist=normseat(get_district(r))
-        bydist[dist][ex]=m
-    adj={}
-    for dist,v in bydist.items():
-        if 'classic' in v and 'deluxe' in v:
-            adj[dist]=v['deluxe']-v['classic']
-    sources[cyc]={'date':latest,'fields':fields,'adjustment':adj,'bytes':nbytes,'districts':len(adj)}
+
+# 2018 static archived candidate-level forecast.
+rows18,nbytes18=fetch(URL2018)
+target18=ELECTION[2018]-timedelta(days=45)
+u18=[]
+for r in rows18:
+    d=pdate(r.get('forecastdate') or '')
+    if d is None or d>target18: continue
+    model=(r.get('model') or '').strip().lower()
+    if model not in {'classic','deluxe'}: continue
+    try: vs=float(r.get('voteshare') or '')
+    except: continue
+    state=(r.get('state') or '').strip().upper()
+    cls=str(r.get('class') or '').strip()
+    party=(r.get('party') or '').strip().upper()
+    if not state or not cls or party not in {'D','R'}: continue
+    u18.append((d,state,cls,model,party,vs))
+if not u18:
+    raise RuntimeError('No usable 2018 archived forecast rows')
+latest18=max(x[0] for x in u18)
+g18=defaultdict(dict)
+for d,state,cls,model,party,vs in u18:
+    if d!=latest18: continue
+    g18[(state,cls,model)][party]=vs
+m18=defaultdict(dict)
+for (state,cls,model),v in g18.items():
+    if 'D' in v and 'R' in v:
+        m18[f'{state}-S{cls}'][model]=v['D']-v['R']
+adj18={dist:v['deluxe']-v['classic'] for dist,v in m18.items() if 'classic' in v and 'deluxe' in v}
+sources[2018]={'date':latest18,'fields':list(rows18[0].keys()),'adjustment':adj18,'bytes':nbytes18,'districts':len(adj18)}
+
+# 2022 state-level forecast already exposes mean_netpartymargin by expression.
+rows22,nbytes22=fetch(URL2022)
+target22=ELECTION[2022]-timedelta(days=45)
+u22=[]
+for r in rows22:
+    d=pdate(r.get('forecastdate') or '')
+    if d is None or d>target22: continue
+    ex=(r.get('expression') or '').strip().lower()
+    if ex not in {'classic','deluxe'}: continue
+    try: m=float(r.get('mean_netpartymargin') or '')
+    except: continue
+    dist=normseat(r.get('district') or '')
+    if not dist: continue
+    u22.append((d,dist,ex,m))
+if not u22:
+    raise RuntimeError('No usable 2022 forecast rows; fields='+str(list(rows22[0].keys()) if rows22 else []))
+latest22=max(x[0] for x in u22)
+m22=defaultdict(dict)
+for d,dist,ex,m in u22:
+    if d==latest22:m22[dist][ex]=m
+adj22={dist:v['deluxe']-v['classic'] for dist,v in m22.items() if 'classic' in v and 'deluxe' in v}
+sources[2022]={'date':latest22,'fields':list(rows22[0].keys()),'adjustment':adj22,'bytes':nbytes22,'districts':len(adj22)}
 
 # map our race to external district. DM seat is commonly "Class 1" etc.
 def ourdist(r):
