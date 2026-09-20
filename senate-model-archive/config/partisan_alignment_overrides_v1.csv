@@ -1,0 +1,16 @@
+cycle,state_abbrev,seat,action,d_side_name,r_side_name,status,reason,source
+2006,CT,Class I,ALIGN,Joseph I. Lieberman,Alan Schlesinger,SOURCE_SUPPORTED,Lieberman won as an Independent Democrat and caucused with Democrats,https://www.senate.gov/senators/SenatorsWhoChangedPartiesDuringSenateService.htm
+2006,VT,Class I,ALIGN,Bernie Sanders,Rich Tarrant,SOURCE_SUPPORTED,Sanders elected Independent and caucused with Democrats,https://www.senate.gov/history/partydiv.htm/
+2008,MS,Class I,ALIGN,Ronnie Musgrove,Roger F. Wicker,SOURCE_SUPPORTED,FEC candidate record identifies Musgrove as Democratic Party despite nonpartisan special-election ballot label,https://www.fec.gov/data/candidate/S8MS00212/
+2010,AK,Class III,REVIEW,Lisa Murkowski,Scott T. McAdams,NOT_LOCKED,FEC lists Murkowski as R/W but race had another Republican candidate Joe Miller; do not force alignment yet,https://www.fec.gov/documents/1673/2010senate.pdf
+2012,ME,Class I,ALIGN,Angus S. King Jr.,Charlie Summers,SOURCE_SUPPORTED,King served as Independent caucusing with Democrats,https://www.king.senate.gov/newsroom/in-the-news/king-reflects-on-his-first-four-months-in-senate
+2012,VT,Class I,ALIGN,Bernie Sanders,John MacGovern,SOURCE_SUPPORTED,Sanders Independent caucusing with Democrats,https://www.senate.gov/history/partydiv.htm/
+2014,AL,Class II,EXCLUDE,,,RECONSTRUCTION_HYPOTHESIS,no Democratic-side general-election opponent; exclusion consistent with inferred 99-race headline denominator,https://www.fec.gov/documents/1698/2014senate.pdf
+2014,KS,Class II,EXCLUDE,,,RECONSTRUCTION_HYPOTHESIS,Greg Orman ran as Independent after Democratic withdrawal; do not force Democratic alignment without benchmark evidence,https://www.fec.gov/documents/1698/2014senate.pdf
+2016,CA,Class III,EXCLUDE,,,STRUCTURAL,two Democratic candidates in top-two general election; no Republican-side candidate,https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/
+2018,CA,Class I,EXCLUDE,,,STRUCTURAL,two Democratic candidates in top-two general election,https://www.fec.gov/documents/2705/federalelections2018.pdf
+2018,ME,Class I,ALIGN,Angus S. King Jr.,Eric L. Brakey,SOURCE_SUPPORTED,King Independent caucusing with Democrats,https://www.senate.gov/history/partydiv.htm/
+2018,VT,Class I,ALIGN,Bernie Sanders,Lawrence Zupan,SOURCE_SUPPORTED,Sanders Independent caucusing with Democrats,https://www.senate.gov/history/partydiv.htm/
+2020,AR,Class II,EXCLUDE,,,STRUCTURAL,no Democratic candidate in general election,https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/
+2022,AK,Class III,EXCLUDE,,,RECONSTRUCTION_HYPOTHESIS,ranked-choice race with multiple Republican candidates; excluded pending exact Core V2 rule recovery,https://www.elections.alaska.gov/election-results/e/?id=22genr
+2022,UT,Class III,EXCLUDE,,,RECONSTRUCTION_HYPOTHESIS,Evan McMullin was unaffiliated and no Democratic nominee appeared; do not force alignment without benchmark evidence,https://www.fec.gov/documents/5675/federalelections2022.pdf
