@@ -130,3 +130,6 @@ Before the 109-tech unit/building table:
 - **Carl Benz** uses `Mass Production` as the earliest Industrial-era automotive-sector gate because the locked `Combustion` technology sits in the project Modern Era. Later automotive founders use `Combustion`.
 - **J. C. Mahindra** and **K. C. Mahindra** are mapped to `STEEL_HEAVY_MATERIALS` at founding because Mahindra began as a steel-trading company before later automotive diversification.
 - `SHIPPING_LOGISTICS` uses a progression of `Steam Power -> Railroad -> Advanced Flight`, allowing shipping, parcel delivery and express-air logistics founders to enter at historically appropriate stages.
+
+- **Robert Bosch** uses `Replaceable Parts` rather than `Combustion`, keeping the 1886 founder gate inside the Industrial Era.
+- The machinery/components sector recognizes `Combustion` as a mature vehicle-component path (e.g. tires) and `Electronics` as a later precision-component path.
