@@ -1,0 +1,7 @@
+IMPROVEMENT_EN,IMPROVEMENT_KO,FORMER_GREAT_PERSON,STATUS,BUILD_UNIT,TECH_GATE,CIVIC_GATE,PRIMARY_ROLE,NUMERIC_STATUS,NOTES
+"Academy","아카데미","Great Scientist","KEEP_NERFED","Worker","Education","","Science","TBD","Scientific Theory and Atomic Theory provide later upgrades; Great Scientist is not consumed"
+"Manufactory","제조단지","Great Engineer","KEEP_NERFED","Worker","Manufacturing","","Production","TBD","Chemistry provides later Production upgrade; Great Engineer is not consumed"
+"Customs House","세관","Great Merchant","KEEP_NERFED","Worker","Economics","Mercantilism","Gold / trade","TBD","City institution renamed Customs Office to avoid name collision; Great Merchant is not consumed"
+"Holy Site","성지","Great Prophet","KEEP_NERFED","Worker","","Theology","Faith","TBD","Requires an established religion in the working city; Great Prophet is not consumed"
+"Landmark","랜드마크","Great Artist (pre-BNW)","KEEP_NERFED","Worker","","Humanism","Culture / Tourism","TBD","Generic cultural Landmark; Natural History retains separate archaeological Historic Landmark pathway"
+"Citadel","성채","Great General","EXCLUDED","","","","Military defense / territory","","Not Worker-buildable and not restored; Fort -> Bastion Fort -> Advanced Fortification remains the military improvement chain"
