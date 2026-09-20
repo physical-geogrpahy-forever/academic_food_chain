@@ -1,0 +1,5 @@
+scope,n,baseline_correct,baseline_accuracy_pct,adjusted_correct,adjusted_accuracy_pct,net_correct_gain,direction_flips
+combined,99,94,94.94949494949495,90,90.9090909090909,-4,4
+2014,33,32,96.96969696969697,29,87.87878787878788,-3,3
+2018,33,29,87.87878787878788,28,84.84848484848484,-1,1
+2022,33,33,100.0,33,100.0,0,0
