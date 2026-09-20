@@ -11,6 +11,7 @@ STEPS = [
     'build_headline_target_panel.py',
     'fetch_presidential_source.py',
     'build_historical_pvi.py',
+    'audit_presidential_national_margin.py',
 ]
 
 for name in STEPS:
