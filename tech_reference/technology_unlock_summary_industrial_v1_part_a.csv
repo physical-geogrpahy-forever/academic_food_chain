@@ -1,0 +1,9 @@
+TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"Industrialization","Gatling Gun with Military Science","Factory","","","","","Mine +1 Production; Coal reveal already Manufacturing; corporate gates"
+"Steam Power","Ironclad","","Canal with Civil Engineering","","","","Embarked movement; Lumber Mill +1 Production; Railroad moved to Railroad tech; Shipping/Logistics corp gate"
+"Sanitation","Medic with Military Training","Sewer with Civil Engineering","","","","","Modern Public Health with Urbanization; plague-risk reduction"
+"Rifling","Rifleman","","","","","","Rifled Firearms; Ranger deferred"
+"Replaceable Parts","Infantry with Nationalism","Food Market with Urbanization","","","","","Mechanized Agriculture; Pasture +1 Production; Machinery corp gate"
+"Steel","Artillery with Military Science","Steelworks with Industrialization","","","","","Urban Defenses with Civil Engineering; heavy-material corp gate"
+"Refining","","","Oil Well","","Oil","Oil","Petroleum Refining corp gate"
+"Electricity","Submarine deferred","Power Plant with Civil Engineering; Coal Power Plant with Industrialization","Hydroelectric Dam upgrade","","","","Great Director/Film gate; Electrical Equipment and Film corp gates"
