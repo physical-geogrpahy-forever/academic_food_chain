@@ -387,7 +387,7 @@ Current repository files include:
 
 The V4 icon directory contains five SVG sprite sheets covering all 47 resource symbols plus the V4 manifest.
 
-The resource-fix directory stores an exact compact patch in `replacement_ids_v1.json` for BISON, IVORY and WHALES, together with before/after audit summaries and reconstruction instructions. The large full fixed placement table remains a reproducible working artifact rather than the repository handoff primitive.
+The resource-fix directory stores both the exact compact patch and the **full integrated 12,500-row fixed placement table**. The integrated table is `civ_map_stage10_resources/resource_fix_v1/CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_PLACED_FIXED_V1.csv`. `replacement_ids_v1.json` and reconstruction instructions remain secondary reproducibility aids.
 
 ## 17. Contact-driven resource research is the next main stage
 
@@ -421,6 +421,26 @@ Geological resources remain fixed in place; contact changes knowledge and techno
 2. Mark which resources are fixed, transferable, wild-range constrained, processed/composite, or technology-sensitive.
 3. Encode environmental suitability and event requirements for transferable resources.
 4. Validate the default historical timeline, including cases such as pre-Columbian America and historically introduced East Asian crops/livestock.
-5. Reconstruct the Stage10Y fixed placement with the three biological fixes.
+5. Use the already committed integrated Stage10Y fixed placement table as the review baseline, and re-run its audits after any further biological-resource changes.
 6. Re-run one-resource-per-hex, surface, plateau, and geographic plausibility audits.
 7. Rebuild regional/world visual maps directly from GPKG geometry only.
+
+
+## 19. Integrated full-table GitHub sync
+
+User requirement locked:
+- Do not leave the current fixed placement only as fragmented patches or a local reconstruction target.
+- Keep the full integrated review-build table directly in GitHub.
+
+Committed files:
+- `civ_map_stage10_resources/resource_fix_v1/CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_PLACED_FIXED_V1.csv`
+  - 12,500 selected resource rows plus header
+  - upload commit: `1a822065b259f5f169ad40ba487aa7c3b805f7e4`
+- `civ_map_stage10_resources/resource_fix_v1/replacement_selections_v1.csv`
+  - complete BISON/IVORY/WHALES replacement set
+  - upload commit: `68f476b89697142c5262611dafd19378415c77c3`
+- `CIV_GAME_MAP_STAGE10_INTEGRATED_HANDOFF_2026-09-20.md`
+  - integrated current-state handoff covering fixed placement, audits, V4 icons, and contact-based dynamic resource design
+  - commit: `700c1fbf127e0c6284749ed5b14c6a02a91d6d7e`
+
+The full fixed CSV is now the primary resource_fix_v1 handoff artifact. Compact patches remain for reproducibility and diagnostics only.
