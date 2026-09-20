@@ -1,8 +1,9 @@
 name: Senate model Generic Ballot performance
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, reopened, synchronize]
+    branches: [main]
 
 permissions:
   contents: read
@@ -13,7 +14,7 @@ concurrency:
 
 jobs:
   generic-ballot-oos:
-    if: github.event.pull_request.head.ref == 'senate-perf-generic'
+    if: github.head_ref == 'senate-perf-generic'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
