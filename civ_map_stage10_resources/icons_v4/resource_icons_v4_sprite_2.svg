@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+<symbol id="resource_coral" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M32 45 V31 M32 38 L26 34 M32 38 L38 34 M32 33 L28 26 M32 33 L36 26 M28 26 L25 22 M36 26 L39 22" fill="none" stroke="#AB5059" stroke-width="3" stroke-linecap="round"/></g>
+</symbol>
+<symbol id="resource_cotton" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M32 30 C29 26 24 26 22 29 C20 32 22 36 26 36 C27 41 31 42.5 34 40.5 C37 42.5 42 40.5 42 36.5 C46 34.5 45 29.5 41 28.5 C38.5 26 35 26.5 33.5 29 Z" fill="#F3F1EB" stroke="#202020" stroke-width="2"/><path d="M32 36 V44" stroke="#728465" stroke-width="2"/></g>
+</symbol>
+<symbol id="resource_crab" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol">
+      <path d="M25 36 C26 30 29 27 32 27 C35 27 38 30 39 36 C37 40 35 42 32 42 C29 42 27 40 25 36 Z" fill="#E57B6B" stroke="#202020" stroke-width="2"/>
+      <path d="M26 30 L21 26 M38 30 L43 26 M24.5 34 L18.5 33 M39.5 34 L45.5 33 M25 37 L20 39 M39 37 L44 39 M28 28 L24 23 M36 28 L40 23" stroke="#202020" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="29" cy="33" r="1" fill="#202020"/><circle cx="35" cy="33" r="1" fill="#202020"/></g>
+</symbol>
+<symbol id="resource_deer" viewBox="0 0 64 64">
+<g id="badge"><circle cx="32" cy="32" r="29" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><circle cx="32" cy="32" r="25" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M25 28 C27 24 29 22 32 22 C35 22 37 24 39 28 L38 39 C36 42 34 44 32 44 C30 44 28 42 26 39 Z" fill="#CBA16E" stroke="#202020" stroke-width="2"/><path d="M27 27 L23 22 L20 18 M23 22 L19 23 M37 27 L41 22 L44 18 M41 22 L45 23" fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round"/></g>
+</symbol>
+<symbol id="resource_dyes" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M25 26 H39 L41 32 L39 43 C36.5 45.5 27.5 45.5 25 43 L23 32 Z" fill="#CD8ADC" stroke="#202020" stroke-width="2"/><path d="M28 26 C28 22.5 29.5 20.5 32 20.5 C34.5 20.5 36 22.5 36 26" fill="none" stroke="#76478D" stroke-width="1.8"/></g>
+</symbol>
+<symbol id="resource_fish" viewBox="0 0 64 64">
+<g id="badge"><circle cx="32" cy="32" r="29" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><circle cx="32" cy="32" r="25" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M19 34 C24 26 32 24 39 28 C42 29.5 44 31.5 46 34 C42 39 37 42 31 42 C26 42 22 39 19 34 Z" fill="#84C8E0" stroke="#202020" stroke-width="2"/><path d="M46 34 L51 30 L51 38 Z" fill="#3E7E9D" stroke="#202020" stroke-width="2"/><circle cx="27" cy="32" r="1.1" fill="#202020"/></g>
+</symbol>
+<symbol id="resource_furs" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol">
+      <path d="M24 21 L29 24 L32 22 L35 24 L40 21 L39 28 C42 33 40.5 40 36.5 44 C34 46.5 30 46.5 27.5 44 C23.5 40 22 33 25 28 Z" fill="#B98C69" stroke="#202020" stroke-width="2"/>
+      <path d="M28 27 C29.5 29 31 30 33 31 C34.8 32 36.2 33.5 37.3 36
+               M26.8 33 C29.5 33.5 31.3 35 32.6 37.2
+               M31 24.7 C33 26.3 35 27.5 37.7 28" 
+            fill="none" stroke="#715036" stroke-width="1.2" stroke-linecap="round"/></g>
+</symbol>
+<symbol id="resource_gems" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M32 20 L42 29 L32 45 L22 29 Z" fill="#8FD8D9" stroke="#202020" stroke-width="2"/><path d="M22 29 H42 L36 24 H28 Z M28 24 L32 45 L36 24" fill="none" stroke="#3A7F87" stroke-width="1.2"/></g>
+</symbol>
+<symbol id="resource_gold" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol">
+      <path d="M21 34 L25 28 H38 L41 34 L37 39 H24 Z" fill="#EACB54" stroke="#202020" stroke-width="2"/>
+      <path d="M28 24 H41 L44 30 H31 Z" fill="#AA830C" stroke="#202020" stroke-width="2"/>
+      <path d="M25 28 H38 M31 24 H41" stroke="#fff" stroke-width="1" opacity=".35"/></g>
+</symbol>
+<symbol id="resource_horses" viewBox="0 0 64 64">
+<g id="badge"><polygon points="32,3 57,18 57,46 32,61 7,46 7,18" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><polygon points="32,7 53,20 53,44 32,57 11,44 11,20" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol">
+      <path d="M24 45
+        C24 41 24 36 26 32
+        C28 28 31 25 31 21
+        C34 22 36 24 38 26
+        C40 26 42 27 44 29
+        L42 32
+        C40 35 38 37 36 39
+        L36.5 45
+        L32.5 45 L31.8 39.2
+        L28.8 39.2 L28 45
+        Z"
+        fill="#D7B08A" stroke="#202020" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M31 21 L28.5 16 M38 26 L41.5 21" stroke="#202020" stroke-width="2" stroke-linecap="round"/>
+      <path d="M30.8 25.2 C27.5 28.2 25.8 31.8 25 36.3" fill="none" stroke="#7A5436" stroke-width="1.5"/>
+      <path d="M40.3 29.1 C38.8 30 37.3 30.5 35.7 30.6" fill="none" stroke="#202020" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="36.8" cy="28.2" r="1.1" fill="#202020"/></g>
+</symbol>
+</svg>
