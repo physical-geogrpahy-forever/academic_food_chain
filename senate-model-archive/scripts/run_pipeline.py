@@ -8,6 +8,8 @@ STEPS = [
     'build_historical_senate_audit.py',
     'audit_oos_exception_races.py',
     'infer_headline_sample_size.py',
+    'fetch_presidential_source.py',
+    'build_historical_pvi.py',
 ]
 
 for name in STEPS:
