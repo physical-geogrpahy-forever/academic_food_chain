@@ -1,0 +1,16 @@
+ITEM,SOURCE,DECISION,RATIONALE
+Philosophy,Civ5,EXCLUDE,Political Philosophy civic already covers the institutional/intellectual role; avoid name/function collision
+Theology,Civ5,EXCLUDE,Civ6 Theology is a locked civic
+Civil Service,Civ5,EXCLUDE,Civ6 Civil Service is a locked civic
+Chivalry,Civ5,EXCLUDE,Civ6 already uses Chivalry as policy content; do not duplicate as project technology
+Printing Press,Civ5,EXCLUDE,merged into Civ6 Printing
+Archaeology,Civ5,EXCLUDE,archaeology gameplay is carried by Natural History civic and related unlocks
+Mass Media,Civ5,EXCLUDE,Civ6 Mass Media is a locked civic
+Globalization,Civ5,EXCLUDE,Civ6 Globalization is a locked civic
+Stealth,Civ5,EXCLUDE,merged into Civ6 Stealth Technology
+Exploration,Enlightenment Era,EXCLUDE,Civ6 Exploration is a locked civic
+Sovereignty,Enlightenment Era,EXCLUDE,Sovereignty is a locked project civic
+Humanism,Enlightenment Era,EXCLUDE,Civ6 Humanism is a locked civic
+Imperialism,Enlightenment Era,EXCLUDE,overlaps Colonialism/Mercantilism and is not retained as a science technology
+Natural History,Enlightenment Era,EXCLUDE,Civ6 Natural History is a locked civic
+Romanticism,Enlightenment Era,EXCLUDE,Romanticism is a locked project civic
