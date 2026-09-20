@@ -1,6 +1,6 @@
 # Performance experiment: PersonalVote rolling OOS
 
-- Generated UTC: 2026-09-20T17:06:55.091730+00:00
+- Generated UTC: 2026-09-20T17:07:22.515464+00:00
 - Same 91-race modern validation universe as the candidate-block diagnostic.
 - 2006/2010 rows have no reconstructed headline PersonalVote sufficient-statistics file and therefore receive the zero prior, not a fabricated score.
 
