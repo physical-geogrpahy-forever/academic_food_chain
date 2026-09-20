@@ -146,3 +146,29 @@ The next design task is therefore **not further indiscriminate founder collectio
 5. then freeze the signature-founder subset used by the game.
 
 Do not move to the 109-tech building/unit unlock table until the corporation sector/output catalogue and gates are reconciled.
+
+
+## 8. Final V2 integrity QA
+
+Result after canonical-sector reconciliation:
+
+- founder rows: **99**
+- canonical sectors: **32**
+- sectors populated by current founders: **30**
+- Great Merchant: **53**
+- Great Engineer: **46**
+- LOCK_CANDIDATE: **97**
+- REVIEW_COFOUNDER_DETAIL: **1** — Liu Chuanzhi
+- SPECIAL_CREATOR_NOT_STRICT_FOUNDER: **1** — Ozires Silva
+- missing technology references: **0**
+- missing civic references: **0**
+- technology gates later than founder project era: **0**
+- missing canonical-sector references: **0**
+- sector/gate mismatches: **0**
+- non-hybrid output-class mismatches: **0**
+- duplicate founders: **0**
+- missing source fields: **0**
+
+Canonical sector authority:
+- `corporations/CORPORATION_SECTOR_OUTPUT_CATALOGUE_V2.csv`
+- `corporations/CORPORATION_SECTOR_OUTPUT_CATALOGUE_V2.md`
