@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+<symbol id="resource_tea" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M27 42 C22 39 20 34 21 29 C22 24 26 20 32 18 C34 24 33 31 30 36 C29 38 28 40 27 42 Z" fill="#98BC70" stroke="#202020" stroke-width="2"/><path d="M37 44 C33 40 31 35 31 30 C31 25 34 21 39 19 C43 24 44 30 42 35 C41 39 39 42 37 44 Z" fill="#98BC70" stroke="#202020" stroke-width="2"/><path d="M27 22 C27.5 28 27.8 34 27 40 M39 22 C38.5 28 38 34 37.5 41" fill="none" stroke="#51783D" stroke-width="1.4" stroke-linecap="round"/></g>
+</symbol>
+<symbol id="resource_tobacco" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M32 20 C25 22.5 21 27.5 21 33.5 C20.5 39 24 43 29 45 C29 48.5 30.5 51 32 53 C33.5 51 35 48.5 35 45 C40 43 43.5 39 43 33.5 C43 27.5 39 22.5 32 20 Z" fill="#B7AA71" stroke="#202020" stroke-width="2"/><path d="M32 22 V48 M32 31 L25 27 M32 36 L39 31" fill="none" stroke="#73673E" stroke-width="1.1"/></g>
+</symbol>
+<symbol id="resource_truffles" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M22 37 C22 31 25.5 27.5 31 27.5 C37 27.5 41 31.5 41 38 C39 42 36 44 32 44 C28 44 24.8 42.3 22 37 Z" fill="#A17A59" stroke="#202020" stroke-width="2"/><path d="M34 31 C37 31.5 39 33.5 40 36.5 C38.2 39.2 36.5 40.6 34.5 41.3 C33.2 38.3 32.8 35 34 31 Z" fill="#604833" stroke="#202020" stroke-width="1.2"/><circle cx="27.5" cy="33.5" r="1.1" fill="#604833"/><circle cx="30.5" cy="31.8" r="1.1" fill="#604833"/><circle cx="28.8" cy="38.8" r="1.1" fill="#604833"/></g>
+</symbol>
+<symbol id="resource_uranium" viewBox="0 0 64 64">
+<g id="badge"><polygon points="32,3 57,18 57,46 32,61 7,46 7,18" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><polygon points="32,7 53,20 53,44 32,57 11,44 11,20" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><circle cx="32" cy="32" r="4.5" fill="#202020"/><path d="M32 26 L35.5 20 A14 14 0 0 1 44 28 L37.3 30.2 A6 6 0 0 0 32 26 Z" fill="#C8DF81" stroke="#202020" stroke-width="1.3"/><path d="M27.2 34.3 L19.9 36 A14 14 0 0 1 21.4 23.7 L27.8 26.5 A6 6 0 0 0 27.2 34.3 Z" fill="#C8DF81" stroke="#202020" stroke-width="1.3"/><path d="M36.8 34.3 L42.6 39.1 A14 14 0 0 1 30.1 45.9 L30.8 38.9 A6 6 0 0 0 36.8 34.3 Z" fill="#C8DF81" stroke="#202020" stroke-width="1.3"/></g>
+</symbol>
+<symbol id="resource_whales" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M18 35 C20.5 30 25 27 31 26 C37 25 42 27 46 31 C47 32 47.5 32.2 49 31.6 L53 30.2 L51.8 34.2 L56 35.2 L51.8 36.8 L53 40.6 L49 38.8 C47.5 38.2 47 38.4 46 39.2 C42.5 42.3 38.2 44 33 44 C26.7 44 21.5 40.7 18 35 Z" fill="#76AEC9" stroke="#202020" stroke-width="2" stroke-linejoin="round"/><path d="M31 25.8 C31.2 22.8 30.8 21 29.8 19.2" fill="none" stroke="#202020" stroke-width="1.6" stroke-linecap="round"/><circle cx="27.2" cy="33.2" r="1.1" fill="#202020"/><path d="M34 38 C37 39.3 40.5 39 43.2 37.5" fill="none" stroke="#315F79" stroke-width="1.3" stroke-linecap="round"/></g>
+</symbol>
+<symbol id="resource_wheat" viewBox="0 0 64 64">
+<g id="badge"><circle cx="32" cy="32" r="29" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><circle cx="32" cy="32" r="25" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M32 19 V46" stroke="#AF821B" stroke-width="2.5" stroke-linecap="round"/><path d="M31 23 C26 22 23 20 22 17 C26 18 29 20 31.5 22.5 Z M33 27 C38 26 41 24 42 21 C38 22 35 24 32.5 26.5 Z M31 31 C26 30 23 28 22 25 C26 26 29 28 31.5 30.5 Z M33 35 C38 34 41 32 42 29 C38 30 35 32 32.5 34.5 Z" fill="#E6C95E" stroke="#202020" stroke-width="1.2"/></g>
+</symbol>
+<symbol id="resource_wine" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M25 21 H39 L37.5 31 C36.7 36 35 39 32 39 C29 39 27.3 36 26.5 31 Z" fill="#BD6E8A" stroke="#202020" stroke-width="2"/><path d="M32 39 V45 M27 46 H37" stroke="#202020" stroke-width="2" stroke-linecap="round"/></g>
+</symbol>
+</svg>
