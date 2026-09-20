@@ -557,3 +557,25 @@ Civ/social duplicates such as Theology, Civil Service, Mass Media, Globalization
 
 Next:
 build and validate the 103-node technology prerequisite DAG, then reconcile civic HARD/BOOST technology crosslinks.
+
+
+## Technology prerequisite DAG V1
+
+The locked 103-technology roster now has a historical/technical prerequisite DAG.
+
+Authoritative files:
+- `tech_reference/TECHNOLOGY_TREE_HISTORICAL_V1.md`
+- `tech_reference/technology_tree_historical_v1.csv`
+- `tech_reference/validate_technology_tree_historical_v1.py`
+
+QA:
+- 103 technologies
+- roots: Agriculture, Pottery, Animal Husbandry, Mining, Sailing, Archery
+- 103/103 reachable from a root
+- zero missing prerequisite references
+- zero cycles
+- zero backward-era prerequisite edges
+- maximum 2 direct prerequisites
+
+Next:
+reconcile civic HARD/BOOST crosslinks against this exact technology tree.
