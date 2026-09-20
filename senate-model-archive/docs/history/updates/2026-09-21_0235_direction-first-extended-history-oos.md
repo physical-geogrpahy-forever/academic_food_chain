@@ -1,6 +1,6 @@
 # Performance experiment: extended-history National + economic nested OOS
 
-- Generated UTC: 2026-09-20T17:31:00.622795+00:00
+- Generated UTC: 2026-09-20T17:37:23.851171+00:00
 - Model rows: 297
 - Earliest modeled cycle: 2006
 - PVI is rebuilt directly from the two most recent completed presidential-election state leans before each Senate cycle.
