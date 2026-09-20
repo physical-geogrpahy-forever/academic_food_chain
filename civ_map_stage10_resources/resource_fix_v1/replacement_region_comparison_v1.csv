@@ -1,0 +1,22 @@
+RESOURCE_ID,REGION,CURRENT_N,NEW_N
+BISON,Central + South Asia,41,79
+BISON,East Asia,11,35
+BISON,Europe,99,70
+BISON,North Africa + Middle East,0,2
+BISON,North America,155,176
+BISON,Other,84,28
+IVORY,Central + South Asia,31,19
+IVORY,East Asia,16,1
+IVORY,Europe,2,0
+IVORY,North Africa + Middle East,98,168
+IVORY,Southeast Asia,15,30
+IVORY,SubSaharan Africa,86,30
+WHALES,East Asia,14,66
+WHALES,Europe,0,19
+WHALES,North Africa + Middle East,0,6
+WHALES,North America,0,53
+WHALES,Oceania,130,64
+WHALES,Other,108,114
+WHALES,South America,12,12
+WHALES,Southern Ocean,5,0
+WHALES,SubSaharan Africa,81,16
