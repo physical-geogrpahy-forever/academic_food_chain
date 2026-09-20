@@ -1,0 +1,48 @@
+RESOURCE_ID,TRANSFER_CLASS,TRANSFERABLE,VALID_EVENT_TYPES,DESIGN_NOTE
+ALUMINUM,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+AMBER,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+BANANAS,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+BISON,D_wild_biological,normally_no,discovery;contact_knowledge;technology,"Natural range is primary; contact normally changes knowledge/exploitation, not presence."
+CATTLE,C_transferable_domesticated_animal,yes,trade;migration;settlement;conquest;expedition,Introduced population can spread from suitable occupied or connected cells.
+CITRUS,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+COAL,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+COCOA,E_processed_or_composite_display,conditional,trade;settlement;conquest;knowledge_transfer,Player-facing good may depend on source ingredient plus processing knowledge; needs resource-specific historical/source audit.
+COFFEE,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+COPPER,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+CORAL,D_wild_biological,normally_no,discovery;contact_knowledge;technology,"Natural range is primary; contact normally changes knowledge/exploitation, not presence."
+COTTON,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+CRAB,D_wild_biological,normally_no,discovery;contact_knowledge;technology,"Natural range is primary; contact normally changes knowledge/exploitation, not presence."
+DEER,D_wild_biological,normally_no,discovery;contact_knowledge;technology,"Natural range is primary; contact normally changes knowledge/exploitation, not presence."
+DYES,E_processed_or_composite_display,conditional,trade;settlement;conquest;knowledge_transfer,Player-facing good may depend on source ingredient plus processing knowledge; needs resource-specific historical/source audit.
+FISH,D_wild_biological,normally_no,discovery;contact_knowledge;technology,"Natural range is primary; contact normally changes knowledge/exploitation, not presence."
+FURS,D_wild_biological,normally_no,discovery;contact_knowledge;technology,"Natural range is primary; contact normally changes knowledge/exploitation, not presence."
+GEMS,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+GOLD,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+HORSES,C_transferable_domesticated_animal,yes,trade;migration;settlement;conquest;expedition,Introduced population can spread from suitable occupied or connected cells.
+INCENSE,E_processed_or_composite_display,conditional,trade;settlement;conquest;knowledge_transfer,Player-facing good may depend on source ingredient plus processing knowledge; needs resource-specific historical/source audit.
+IRON,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+IVORY,D_wild_biological,normally_no,discovery;contact_knowledge;technology,"Natural range is primary; contact normally changes knowledge/exploitation, not presence."
+JADE,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+LAPIS_LAZULI,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+MAIZE,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+MARBLE,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+NITER,F_technology_sensitive_natural_or_manufactured,conditional,discovery;technology;knowledge_transfer,"Natural nitrate sources are fixed, but manufactured saltpetre availability depends on technology and production system."
+OIL,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+OLIVES,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+PEARLS,D_wild_biological,normally_no,discovery;contact_knowledge;technology,"Natural range is primary; contact normally changes knowledge/exploitation, not presence."
+PERFUME,E_processed_or_composite_display,conditional,trade;settlement;conquest;knowledge_transfer,Player-facing good may depend on source ingredient plus processing knowledge; needs resource-specific historical/source audit.
+RICE,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+SALT,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+SHEEP,C_transferable_domesticated_animal,yes,trade;migration;settlement;conquest;expedition,Introduced population can spread from suitable occupied or connected cells.
+SILK,E_processed_or_composite_display,conditional,trade;settlement;conquest;knowledge_transfer,Player-facing good may depend on source ingredient plus processing knowledge; needs resource-specific historical/source audit.
+SILVER,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+SPICES,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+STONE,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+SUGAR,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+TEA,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+TOBACCO,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+TRUFFLES,D_wild_biological,normally_no,discovery;contact_knowledge;technology,"Natural range is primary; contact normally changes knowledge/exploitation, not presence."
+URANIUM,A_geological_fixed,no,discovery;contact_knowledge;technology,"Deposit location fixed; contact can reveal knowledge, technology activates extraction."
+WHALES,D_wild_biological,normally_no,discovery;contact_knowledge;technology,"Natural range is primary; contact normally changes knowledge/exploitation, not presence."
+WHEAT,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
+WINE,B_transferable_domesticated_plant,yes,trade;settlement;conquest;expedition,Requires source-civ knowledge and destination environmental suitability.
