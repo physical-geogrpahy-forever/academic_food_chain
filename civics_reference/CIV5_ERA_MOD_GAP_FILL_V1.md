@@ -298,3 +298,25 @@ Reason:
 Industrial-era count therefore rises from 7 to 8 before selecting one final additional civic.
 
 Imperialism remains the leading candidate for the ninth Industrial-era civic, pending user approval.
+
+
+## Industrial Era final-fill recommendation
+
+Romanticism is already ADOPTED.
+
+Recommended ninth Industrial-era civic:
+**Labor Movement**
+
+Rationale:
+- no exact Civilization VI civic duplicates it;
+- it represents a major nineteenth-century social development tied to industrialization, urbanization, trade unionism and organized labor;
+- it provides a clean historical and gameplay bridge into Civilization VI's later Class Struggle civic;
+- it avoids the duplication problem of Imperialism, because Civilization VI Colonialism already uses a broad historical scope extending from sixteenth-century colonization into later direct imperial control.
+
+Suggested graph insertion:
+Urbanization + Capitalism -> Labor Movement
+Ideology + Labor Movement -> Class Struggle
+
+This keeps the Civilization VI Class Struggle node while giving it a historically useful nineteenth-century precursor.
+
+Imperialism should remain a policy/effect/government-content candidate unless the final graph later shows a distinct need for it.
