@@ -1897,3 +1897,25 @@ Results:
 - Governor-dependent policy content is removed/adapted because baseline Governors are not adopted
 - district conditions are translated to Civ V-style city buildings/infrastructure
 - exact percentages/yields/caps remain for numerical balance
+
+
+## Unlock deferred queue closed — 2026-09-21
+
+All tracked generic technology/civic unlock deferrals are resolved.
+
+Current baseline:
+- 109 technology master complete
+- 72 civic master V2 complete
+- 127 policy-card ownership entries, duplicate 0
+- former Great Person improvements restored as nerfed Worker-built tiles except Citadel
+- Governor system not adopted
+- GDR moved to an optional endgame module
+- tracked numeric/system deferrals resolved
+- deferred generic queue remaining: 0
+
+Authorities:
+- `tech_reference/MASTER_TECHNOLOGY_UNLOCKS_109_V1.csv`
+- `civics_reference/MASTER_CIVIC_UNLOCKS_72_V2.csv`
+- `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.csv`
+- `tech_reference/NUMERIC_BALANCE_DECISIONS_V1.csv`
+- `tech_reference/DEFERRED_GENERIC_UNLOCK_QUEUE_V1.md`
