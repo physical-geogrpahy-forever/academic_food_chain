@@ -49,7 +49,7 @@
 "MC010","Modern","POLICY","Police State","","Ideology","CIVIC","Civ6 GS","Ideology","KEEP","Espionage/loyalty policy retained","Exact values later"
 "MC011","Modern","DIPLOMACY","Ideological War","","Ideology","CIVIC","Civ6 GS","Ideology","KEEP","Direct source casus belli",""
 "MC012","Modern","SYSTEM","Additional Spy capacity","","Ideology","CIVIC","Civ6 GS","Ideology","KEEP","Direct source concept",""
-"MC013","Modern","CITY_BUILDING","Tier-3 Government Building choice","","Ideology","CIVIC","Civ6 government system","Tier-3 Government","DEFER_SYSTEM","National History Museum / Royal Society / War Department must be audited together after Democracy/Fascism/Communism are all available",""
+"MC013","Modern","SYSTEM","Tier-3 Government Building choice","","Ideology","CIVIC","Civ6 government system","Tier-3 Government","KEEP","Adopt Civ6 Tier-3 government-building choice after Democracy, Fascism, or Communism is adopted","Choose one per civilization: National History Museum, Royal Society, or War Department; Government Plaza district removed"
 "MC014","Modern","GOVERNMENT","Democracy","","Suffrage","CIVIC","Civ6 GS","Suffrage","KEEP","Direct Civ6 Tier-3 government unlock",""
 "MC015","Modern","POLICY","New Deal","","Suffrage","CIVIC","Civ6 GS","Suffrage","ADAPT","Replace specialty-district threshold with developed-city building/infrastructure threshold","Housing/Amenity concept retained"
 "MC016","Modern","POLICY","Economic Union","","Suffrage","CIVIC","Civ6 GS","Suffrage","KEEP","Democratic trade/economic policy association retained","Avoid duplicate generic Ideology version in final policy cleanup"
