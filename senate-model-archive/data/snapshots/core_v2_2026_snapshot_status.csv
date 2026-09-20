@@ -1,0 +1,18 @@
+variable,model_layer,2026_source_status,snapshot_45d_value_or_cutoff,status
+PVI,Core,"2024+2020 official presidential results","2024 and 2020",LOCKED
+SameSeat,Core,"2020 same Senate class result","2020",LOCKED
+Incumbency,Core,"2026 candidate/incumbent status","as of 2026-09-19",LOCKED_SCHEMA
+OutPartyIncumbent,Core,"incumbency + president party","as of 2026-09-19",LOCKED_SCHEMA
+SenateExperienceDiff,Core,"official candidate career records","as of 2026-09-19",LOCKED_SCHEMA
+GovernorExperienceDiff,Core,"official candidate career records","as of 2026-09-19",LOCKED_SCHEMA
+HouseExperienceDiff,Core,"official candidate career records","as of 2026-09-19",LOCKED_SCHEMA
+PersonalVoteDiff,Core,"prior election overperformance","through 2024 prior races",LOCKED_SCHEMA
+National,Core,"generic ballot/approval/national economy","public by 2026-09-19",SOURCE_NOT_FULLY_LOCKED
+RelativeEconomicGrowth,Core,"BEA state personal income","2026 Q1",LOCKED
+PollObservation,Core,"raw Senate polls","public by 2026-09-19",SOURCE_NOT_FULLY_LOCKED
+FundraisingShare,V3,"FEC 2026 cycle","July Quarterly close 2026-06-30",READY_FOR_OOS_TEST
+StateEmploymentGrowth,V3,"BLS state employment","Aug 2026 release published 2026-09-18",READY_FOR_OOS_TEST
+PopulationMigration,V3,"Census Vintage 2025","2025-07-01 estimates",READY_FOR_OOS_TEST
+AgeRaceChange,V3,"Census Vintage 2025 characteristics","2025-07-01 estimates",READY_FOR_OOS_TEST
+ACSComposition,V3,"ACS 2024 1-year","2024 ACS",READY_LAGGED
+IdeologyFit,V3,"DIME/CFscore candidate coverage","2026 coverage unresolved",HOLD

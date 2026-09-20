@@ -1,0 +1,35 @@
+{
+  "model_name": "Core V2",
+  "status": "best_surviving_baseline_not_guaranteed_latest",
+  "headline_validation_cycles": [2014, 2018, 2022],
+  "headline_snapshot_days_before_election": 45,
+  "headline_rmse_pctpt": 7.85,
+  "headline_mae_pctpt": 5.79,
+  "headline_direction_pct": 91.9,
+  "poll_weight": {
+    "w_max": 0.75,
+    "k": 0.5
+  },
+  "required_terms": [
+    "PVI",
+    "National",
+    "SameSeat",
+    "Incumbency",
+    "OutPartyIncumbent",
+    "SenateExperienceDiff",
+    "GovernorExperienceDiff",
+    "HouseExperienceDiff",
+    "PersonalVoteDiff",
+    "RelativeEconomicGrowth",
+    "EraInteractions"
+  ],
+  "regional_residual_direct_correction": false,
+  "regional_effect_usage": "correlated uncertainty only",
+  "exact_implementation_recovered": false,
+  "reconstruction_label": "Core V2-R",
+  "notes": [
+    "Do not replace RelativeEconomicGrowth with BLS employment/unemployment.",
+    "Do not use post-snapshot releases in 45-day validation.",
+    "Do not claim this archive is guaranteed to include lost post-handoff chat progress."
+  ]
+}

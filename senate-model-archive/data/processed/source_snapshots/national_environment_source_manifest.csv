@@ -1,0 +1,6 @@
+source,president,url,sha256,bytes,parsed_rows
+FiveThirtyEight generic ballot,,https://raw.githubusercontent.com/fivethirtyeight/data/4c1ff5e3aef1816ae04af63218015066e186c147/congress-generic-ballot/generic_topline_historical.csv,b6d5b398b819e822e910a538974161bcec7e83c7785573ef406a35704e8962b9,754089,
+American Presidency Project,George W. Bush,https://www.presidency.ucsb.edu/statistics/data/george-w-bush-public-approval,750737c49498407044c347553d2752e490f9578cedfbb43e96518895867f66bc,200682,282
+American Presidency Project,Barack Obama,https://www.presidency.ucsb.edu/statistics/data/barack-obama-public-approval,fbe66d85c1cc547777255160fbfc5ede42398aaa746d783846e53d587f15a6ec,386387,418
+American Presidency Project,Donald J. Trump I,https://www.presidency.ucsb.edu/statistics/data/donald-j-trump-public-approval,a91fc001e47f01d05481dc02b22b78c233254813b35fc6c006e5793c3922175e,156160,141
+American Presidency Project,Joseph R. Biden Jr.,https://www.presidency.ucsb.edu/statistics/data/joseph-r-biden-public-approval,6177ef2ef3c72f785ef17191a42cf9e6f4be77163e7e49301d11aa0deb6d2198,77274,50

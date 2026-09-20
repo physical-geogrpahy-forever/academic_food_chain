@@ -1,0 +1,27 @@
+name: Generic Ballot OOS direct
+
+on:
+  push:
+    branches:
+      - senate-perf-generic
+
+permissions:
+  contents: read
+
+concurrency:
+  group: generic-ballot-oos-direct
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: senate-perf-generic
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy
+      - run: python senate-model-archive/performance/run_generic_ballot_oos.py

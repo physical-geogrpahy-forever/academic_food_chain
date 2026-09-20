@@ -1,0 +1,199 @@
+target_race_id,target_cycle,target_state,side,candidate_name,politician_id,prior_statewide_count,prior_senate_count,prior_governor_count,mean_own_party_overperf_vs_pvi_pctpt,mean_own_party_overperf_cycle_adjusted_pctpt,latest_prior_statewide_cycle,personal_vote_finalized
+12,2014,AK,D,Mark Begich,1526,1,1,0,29.38978512,18.13085216,2008,false
+12,2014,AK,R,Dan Sullivan,4545,0,0,0,,,,false
+32,2014,AR,D,Mark L. Pryor,1541,0,0,0,,,,false
+32,2014,AR,R,Tom Cotton,3066,0,0,0,,,,false
+23,2014,CO,D,Mark Udall,1543,1,1,0,15.45318271,3.77192846,2008,false
+23,2014,CO,R,Cory Gardner,2816,0,0,0,,,,false
+24,2014,DE,D,Christopher A. Coons,1299,1,1,0,1.81227669,8.05939310,2010,false
+24,2014,DE,R,Kevin Wade,4515,1,1,0,-23.94153690,-14.79461934,2012,false
+17,2014,GA,D,Mary Michelle Nunn,4488,0,0,0,,,,false
+17,2014,GA,R,David A. Perdue,4489,0,0,0,,,,false
+34,2014,HI,D,Brian Schatz,2654,0,0,0,,,,false
+34,2014,HI,R,Cam Cavasso,505,1,1,0,-25.64067602,-32.54969242,2010,false
+26,2014,IA,D,Bruce L. Braley,2736,0,0,0,,,,false
+26,2014,IA,R,Joni K. Ernst,4518,0,0,0,,,,false
+27,2014,ID,D,Nels Mitchell,4483,0,0,0,,,,false
+27,2014,ID,R,James E. Risch,2710,1,1,0,-12.49702250,-0.72618764,2008,false
+4,2014,IL,D,Richard J. Durbin,1574,1,1,0,28.24144108,16.94770981,2008,false
+4,2014,IL,R,James D. Oberweis,4526,0,0,0,,,,false
+15,2014,KY,D,Alison Lundergan Grimes,4676,0,0,0,,,,false
+15,2014,KY,R,Mitch McConnell,1585,1,1,0,-11.08786792,0.72566860,2008,false
+31,2014,MA,D,Edward J. Markey,2711,1,1,0,-9.18373426,,2013,false
+31,2014,MA,R,Brian J. Herr,4672,0,0,0,,,,false
+9,2014,ME,D,Shenna Bellows,4668,0,0,0,,,,false
+9,2014,ME,R,Susan M. Collins,1602,1,1,0,32.21317160,45.33886083,2008,false
+2,2014,MI,D,Gary C. Peters,2948,0,0,0,,,,false
+2,2014,MI,R,Terri Lynn Land,4475,0,0,0,,,,false
+6,2014,MN,D,Al Franken,1610,1,1,0,-4.68711556,-16.97868188,2008,false
+6,2014,MN,R,Mike McFadden,4506,0,0,0,,,,false
+18,2014,MS,D,Travis W. Childers,4695,0,0,0,,,,false
+18,2014,MS,R,Thad Cochran,1626,1,1,0,5.38308692,17.69574328,2008,false
+5,2014,MT,D,Amanda G. Curtis,6351,0,0,0,,,,false
+5,2014,MT,R,Steve Daines,3105,0,0,0,,,,false
+14,2014,NC,D,Kay R. Hagan,1636,1,1,0,19.88502110,8.33806499,2008,false
+14,2014,NC,R,Thomas Roland Tillis,4539,0,0,0,,,,false
+1,2014,NE,D,Dave Domina,4653,0,0,0,,,,false
+1,2014,NE,R,Ben Sasse,4659,0,0,0,,,,false
+8,2014,NH,D,Jeanne Shaheen,1649,1,1,0,4.56906852,-7.44200737,2008,false
+8,2014,NH,R,Scott Brown,976,2,2,0,20.60236019,23.04883659,2012,false
+10,2014,NJ,D,Cory A. Booker,2713,1,1,0,-1.10720435,,2013,false
+10,2014,NJ,R,Jeff Bell,4686,0,0,0,,,,false
+3,2014,NM,D,Tom Udall,1662,1,1,0,21.68003172,10.18746986,2008,false
+3,2014,NM,R,Allen E. Weh,4671,0,0,0,,,,false
+29,2014,OK,D,Matt Silverstein,4648,0,0,0,,,,false
+29,2014,OK,R,James M. Inhofe,1663,1,1,0,-8.43538077,3.45853414,2008,false
+35,2014,OK,D,Constance N. Johnson,4642,0,0,0,,,,false
+35,2014,OK,R,James Lankford,2881,0,0,0,,,,false
+20,2014,OR,D,Jeff Merkley,1667,1,1,0,-0.92473684,-13.10229169,2008,false
+20,2014,OR,R,Monica Wehby,4570,0,0,0,,,,false
+33,2014,RI,D,Jack Reed,1675,1,1,0,20.81535801,9.29659393,2008,false
+33,2014,RI,R,Mark S. Zaccaria,4572,0,0,0,,,,false
+11,2014,SC,D,Charles Bradley Hutto,4581,0,0,0,,,,false
+11,2014,SC,R,Lindsey Graham,1680,1,1,0,-0.15427889,11.99057850,2008,false
+36,2014,SC,D,Joyce Dickerson,4579,0,0,0,,,,false
+36,2014,SC,R,Tim Scott,2712,0,0,0,,,,false
+22,2014,SD,D,Richard P. Weiland,4594,0,0,0,,,,false
+22,2014,SD,R,M. Michael Rounds,4593,1,0,1,5.33216292,14.35229508,2006,false
+28,2014,TN,D,William Gordon Ball,4612,0,0,0,,,,false
+28,2014,TN,R,Lamar Alexander,167,1,1,0,25.17919994,38.09173851,2008,false
+19,2014,TX,D,David M. Alameel,4595,0,0,0,,,,false
+19,2014,TX,R,John Cornyn,1699,1,1,0,-8.89318790,2.98685408,2008,false
+16,2014,VA,D,Mark R. Warner,67,1,1,0,38.48169903,27.49827861,2008,false
+16,2014,VA,R,Ed W. Gillespie,4683,0,0,0,,,,false
+30,2014,WV,D,Natalie E. Tennant,4627,0,0,0,,,,false
+30,2014,WV,R,Shelley Moore Capito,2708,0,0,0,,,,false
+13,2014,WY,D,Charlie Hardy,4633,0,0,0,,,,false
+13,2014,WY,R,Michael B. Enzi,1712,1,1,0,11.85643645,24.36525492,2008,false
+96,2018,AZ,D,Kyrsten Sinema,3067,0,0,0,,,,false
+96,2018,AZ,R,Martha McSally,3888,0,0,0,,,,false
+98,2018,CT,D,Christopher S. Murphy,446,1,1,0,-2.51993853,-12.49377719,2012,false
+98,2018,CT,R,Matthew M. Corey,3430,0,0,0,,,,false
+99,2018,DE,D,Thomas R. Carper,951,2,2,0,27.41433491,16.30267869,2012,false
+99,2018,DE,R,Rob Arlett,9149,0,0,0,,,,false
+100,2018,FL,D,Bill Nelson,953,2,2,0,20.84561639,9.52544855,2012,false
+100,2018,FL,R,Rick Scott,6506,2,0,2,-2.54679737,-8.61084044,2014,false
+101,2018,HI,D,Mazie K. Hirono,502,1,1,0,-4.39342411,-14.42580919,2012,false
+101,2018,HI,R,Ronald C. Curtis,10927,0,0,0,,,,false
+102,2018,IN,D,Joe Donnelly,547,1,1,0,16.41274105,7.03054863,2012,false
+102,2018,IN,R,Mike Braun,8549,0,0,0,,,,false
+105,2018,MA,D,Elizabeth Ann Warren,975,1,1,0,-14.41787305,-24.76352217,2012,false
+105,2018,MA,R,Geoff Diehl,9150,0,0,0,,,,false
+104,2018,MD,D,Benjamin L. Cardin,981,2,2,0,6.40194224,-5.38478312,2012,false
+104,2018,MD,R,Tony Campbell,9207,0,0,0,,,,false
+103,2018,ME,D,Angus S. King Jr.,1187,1,1,0,15.74801245,6.34504726,2012,false
+103,2018,ME,R,Eric L. Brakey,8680,0,0,0,,,,false
+106,2018,MI,D,Debbie Stabenow,984,2,2,0,11.83633427,0.22754021,2012,false
+106,2018,MI,R,John James,8689,0,0,0,,,,false
+107,2018,MN,D,Amy Klobuchar,992,2,2,0,24.22545300,13.00677159,2012,false
+107,2018,MN,R,Jim Newberger,9092,0,0,0,,,,false
+129,2018,MN,D,Tina Smith,9090,0,0,0,,,,false
+129,2018,MN,R,Karin Housley,9091,0,0,0,,,,false
+109,2018,MO,D,Claire McCaskill,997,2,2,0,15.07448300,3.56508175,2012,false
+109,2018,MO,R,Josh Hawley,8690,0,0,0,,,,false
+108,2018,MS,D,David Baria,8693,0,0,0,,,,false
+108,2018,MS,R,Roger F. Wicker,1001,2,2,0,-5.07271868,5.79465356,2012,false
+110,2018,MT,D,Jon Tester,1002,2,2,0,19.54466819,8.18285305,2012,false
+110,2018,MT,R,Matt Rosendale,3291,0,0,0,,,,false
+116,2018,ND,D,Heidi Heitkamp,1005,1,1,0,20.12804339,10.86195417,2012,false
+116,2018,ND,R,Kevin Cramer,3110,0,0,0,,,,false
+111,2018,NE,D,Jane Raybould,8552,0,0,0,,,,false
+111,2018,NE,R,Deb Fischer,1007,1,1,0,-9.88855519,-0.30248196,2012,false
+113,2018,NJ,D,Bob Menendez,1012,2,2,0,8.02645760,-3.70419146,2012,false
+113,2018,NJ,R,Bob Hugin,8553,0,0,0,,,,false
+114,2018,NM,D,Martin Heinrich,707,1,1,0,0.06686295,-9.82613817,2012,false
+114,2018,NM,R,Mick Rich,8556,0,0,0,,,,false
+112,2018,NV,D,Jacky S. Rosen,8322,0,0,0,,,,false
+112,2018,NV,R,Dean Heller,1021,1,1,0,4.84750253,14.89407757,2012,false
+115,2018,NY,D,Kirsten E. Gillibrand,748,2,2,0,17.25241662,15.92817764,2012,false
+115,2018,NY,R,Chele Farley,8584,0,0,0,,,,false
+117,2018,OH,D,Sherrod Brown,1025,2,2,0,10.73791146,-0.90365050,2012,false
+117,2018,OH,R,Jim Renacci,2964,0,0,0,,,,false
+118,2018,PA,D,Robert P. Casey Jr.,1032,2,2,0,9.15889817,-2.53237102,2012,false
+118,2018,PA,R,Lou Barletta,2718,0,0,0,,,,false
+119,2018,RI,D,Sheldon Whitehouse,1038,2,2,0,-5.46420542,-17.62843875,2012,false
+119,2018,RI,R,Bob Flanders,9190,0,0,0,,,,false
+120,2018,TN,D,Phil Bredesen,8671,1,0,1,48.94619807,41.47687622,2006,false
+120,2018,TN,R,Marsha Blackburn,2729,0,0,0,,,,false
+121,2018,TX,D,Beto O'Rourke,3128,0,0,0,,,,false
+121,2018,TX,R,Ted Cruz,1052,1,1,0,-3.36380323,6.42616850,2012,false
+122,2018,UT,D,Jenny Wilson,8597,0,0,0,,,,false
+122,2018,UT,R,Mitt Romney,9,0,0,0,,,,false
+124,2018,VA,D,Timothy Michael Kaine,80,2,1,1,10.57382825,-1.12845169,2012,false
+124,2018,VA,R,Corey Stewart,8554,0,0,0,,,,false
+123,2018,VT,D,Bernie Sanders,37,2,2,0,17.48998406,6.06014047,2012,false
+123,2018,VT,R,Lawrence Zupan,9595,0,0,0,,,,false
+125,2018,WA,D,Maria Cantwell,1066,2,2,0,10.02472274,-1.64131010,2012,false
+125,2018,WA,R,Susan Hutchison,9106,0,0,0,,,,false
+127,2018,WI,D,Tammy Baldwin,1067,1,1,0,0.24512006,-9.64231052,2012,false
+127,2018,WI,R,Leah Vukmir,9105,0,0,0,,,,false
+126,2018,WV,D,"Joe Manchin, III",925,3,2,1,41.79122246,39.38491115,2012,false
+126,2018,WV,R,Patrick Morrisey,6828,0,0,0,,,,false
+128,2018,WY,D,Gary Trauner,6432,0,0,0,,,,false
+128,2018,WY,R,John Barrasso,1069,2,2,0,11.54061216,22.92010846,2012,false
+8917,2022,AL,D,Will Boyd,16112,0,0,0,,,,false
+8917,2022,AL,R,Katie Britt,18466,0,0,0,,,,false
+8920,2022,AR,D,Natalie James,18465,0,0,0,,,,false
+8920,2022,AR,R,John Boozman,376,2,2,0,-1.18692374,-5.77457308,2016,false
+8919,2022,AZ,D,Mark Kelly,9705,1,1,0,10.71132935,5.62698094,2020,false
+8919,2022,AZ,R,Blake Masters,17695,0,0,0,,,,false
+9480,2022,CA,D,Alex Padilla,17803,0,0,0,,,,false
+9480,2022,CA,R,Mark P. Meuser,17867,0,0,0,,,,false
+8921,2022,CA,D,Alex Padilla,17803,0,0,0,,,,false
+8921,2022,CA,R,Mark P. Meuser,17867,0,0,0,,,,false
+8922,2022,CO,D,Michael Bennet,429,2,2,0,2.84571386,7.48150520,2016,false
+8922,2022,CO,R,Joe O'Dea,18627,0,0,0,,,,false
+8923,2022,CT,D,Richard Blumenthal,447,2,2,0,6.32890597,11.08533978,2016,false
+8923,2022,CT,R,Leora R. Levy,18449,0,0,0,,,,false
+8924,2022,FL,D,Val Demings,4735,0,0,0,,,,false
+8924,2022,FL,R,Marco Rubio,481,2,2,0,21.04012745,17.08757612,2016,false
+8925,2022,GA,D,Raphael Warnock,10220,0,0,0,,,,false
+8925,2022,GA,R,Herschel Junior Walker,11490,0,0,0,,,,false
+8926,2022,HI,D,Brian Schatz,2654,2,2,0,9.17210069,11.31581835,2016,false
+8926,2022,HI,R,Bob McDermott,14961,0,0,0,,,,false
+8930,2022,IA,D,Michael Franken,18383,0,0,0,,,,false
+8930,2022,IA,R,Chuck Grassley,517,2,2,0,30.78758166,27.15775421,2016,false
+8927,2022,ID,D,David Roth,17997,0,0,0,,,,false
+8927,2022,ID,R,Mike Crapo,525,2,2,0,9.52756722,5.25707777,2016,false
+8928,2022,IL,D,Tammy Duckworth,3090,1,1,0,1.09537349,4.02778791,2016,false
+8928,2022,IL,R,Kathy Salvi,18619,0,0,0,,,,false
+8929,2022,IN,D,Thomas McDermott,18027,0,0,0,,,,false
+8929,2022,IN,R,Todd Young,3050,1,1,0,-1.42144099,-4.36437371,2016,false
+8931,2022,KS,D,Mark R. Holland,18040,0,0,0,,,,false
+8931,2022,KS,R,Jerry Moran,566,2,2,0,14.61658631,10.49075976,2016,false
+8932,2022,KY,D,Charles Booker,10283,0,0,0,,,,false
+8932,2022,KY,R,Rand Paul,30,2,2,0,-10.84496108,-15.71869995,2016,false
+8935,2022,MD,D,Chris Van Hollen,3028,1,1,0,4.78431470,7.83572722,2016,false
+8935,2022,MD,R,Chris Chaffee,4264,0,0,0,,,,false
+8936,2022,MO,D,Trudy Busch Valentine,18422,0,0,0,,,,false
+8936,2022,MO,R,Eric Schmitt,13297,0,0,0,,,,false
+8940,2022,NC,D,Cheri Beasley,17724,0,0,0,,,,false
+8940,2022,NC,R,Ted Budd,8570,0,0,0,,,,false
+8941,2022,ND,D,Katrina Christiansen,18197,0,0,0,,,,false
+8941,2022,ND,R,John Hoeven,669,3,2,1,34.56043802,36.87603766,2016,false
+8938,2022,NH,D,Maggie Hassan,6712,3,1,2,3.59664969,5.26282888,2016,false
+8938,2022,NH,R,Donald C. Bolduc,9712,0,0,0,,,,false
+8937,2022,NV,D,Catherine Cortez Masto,6829,1,1,0,-1.07626792,1.78609355,2016,false
+8937,2022,NV,R,Adam Paul Laxalt,6830,1,0,1,-3.11406748,-1.27889183,2018,false
+8939,2022,NY,D,Charles E. Schumer,744,2,2,0,17.49391676,22.57287480,2016,false
+8939,2022,NY,R,Joe Pinion,18148,0,0,0,,,,false
+8942,2022,OH,D,Tim Ryan,2984,0,0,0,,,,false
+8942,2022,OH,R,JD Vance,13265,0,0,0,,,,false
+9482,2022,OK,D,Kendra Horn,8968,0,0,0,,,,false
+9482,2022,OK,R,Markwayne Mullin,3122,0,0,0,,,,false
+8943,2022,OK,D,Madison Horn,18705,0,0,0,,,,false
+8943,2022,OK,R,James Lankford,2881,2,2,0,5.58628407,3.91549957,2016,false
+8944,2022,OR,D,Ron Wyden,788,2,2,0,13.52115549,18.48165010,2016,false
+8944,2022,OR,R,Jo Rae Perkins,4569,1,1,0,-8.67132159,-3.52116647,2020,false
+8945,2022,PA,D,John Fetterman,8074,0,0,0,,,,false
+8945,2022,PA,R,Mehmet Oz,17731,0,0,0,,,,false
+8946,2022,SC,D,Krystle Matthews,18263,0,0,0,,,,false
+8946,2022,SC,R,Tim Scott,2712,2,2,0,8.22720357,6.63903969,2016,false
+8947,2022,SD,D,Brian L. Bengs,18275,0,0,0,,,,false
+8947,2022,SD,R,John R. Thune,22,1,1,0,23.40900118,21.26705047,2016,false
+8949,2022,VT,D,Peter Welch,3038,0,0,0,,,,false
+8949,2022,VT,R,Gerald Malloy,18827,0,0,0,,,,false
+8950,2022,WA,D,Patty Murray,907,2,2,0,0.90188460,5.48973939,2016,false
+8950,2022,WA,R,Tiffany Smiley,14330,0,0,0,,,,false
+8951,2022,WI,D,Mandela Barnes,17690,0,0,0,,,,false
+8951,2022,WI,R,Ron Johnson,919,2,2,0,9.02861974,4.74974858,2016,false

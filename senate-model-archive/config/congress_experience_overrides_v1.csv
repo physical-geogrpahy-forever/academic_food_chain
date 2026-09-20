@@ -1,0 +1,13 @@
+race_id,cycle,state_abbrev,side,candidate_name,bioguide,changed_fields,auto_prior_senate,term_prior_senate,auto_prior_house,term_prior_house,auto_incumbency_proxy,term_senate_incumbent,evidence
+34,2014,HI,D,Brian Schatz,S001194,SenateExperience;Incumbency,0,1,0,0,0,1,unitedstates/congress-legislators term dates
+4,2014,IL,D,Richard J. Durbin,D000563,HouseExperience,1,1,0,1,1,1,unitedstates/congress-legislators term dates
+29,2014,OK,R,James M. Inhofe,I000024,HouseExperience,1,1,0,1,1,1,unitedstates/congress-legislators term dates
+33,2014,RI,D,Jack Reed,R000122,HouseExperience,1,1,0,1,1,1,unitedstates/congress-legislators term dates
+36,2014,SC,R,Tim Scott,S001184,SenateExperience;Incumbency,0,1,1,1,0,1,unitedstates/congress-legislators term dates
+99,2018,DE,D,Thomas R. Carper,C000174,HouseExperience,1,1,0,1,1,1,unitedstates/congress-legislators term dates
+129,2018,MN,D,Tina Smith,S001203,SenateExperience;Incumbency,0,1,0,0,0,1,unitedstates/congress-legislators term dates
+125,2018,WA,D,Maria Cantwell,C000127,HouseExperience,1,1,0,1,1,1,unitedstates/congress-legislators term dates
+9480,2022,CA,D,Alex Padilla,P000145,SenateExperience;Incumbency,0,1,0,0,0,1,unitedstates/congress-legislators term dates
+8921,2022,CA,D,Alex Padilla,P000145,SenateExperience;Incumbency,0,1,0,0,0,1,unitedstates/congress-legislators term dates
+8925,2022,GA,D,Raphael Warnock,W000790,SenateExperience;Incumbency,0,1,0,0,0,1,unitedstates/congress-legislators term dates
+8927,2022,ID,R,Mike Crapo,C000880,HouseExperience,1,1,0,1,1,1,unitedstates/congress-legislators term dates

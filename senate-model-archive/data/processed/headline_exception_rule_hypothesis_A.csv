@@ -1,0 +1,8 @@
+cycle,state_abbrev,seat,reasons,winner,hypothesis_A_decision
+2014,AL,Class II,non_unique_or_missing_D_R,Jeff Sessions [REP] 795606,EXCLUDE_HYPOTHESIS
+2014,KS,Class II,non_unique_or_missing_D_R,Pat Roberts [REP] 460350,EXCLUDE_HYPOTHESIS
+2018,CA,Class I,non_unique_or_missing_D_R,Dianne Feinstein [DEM] 6019422,EXCLUDE_HYPOTHESIS
+2018,ME,Class I,winner_not_major_party;ranked_choice,Angus S. King Jr. [IND] 344575,INCLUDE_AS_DEM_ALIGNED_INDEPENDENT_HYPOTHESIS
+2018,VT,Class I,non_unique_or_missing_D_R;winner_not_major_party,Bernie Sanders [IND] 183649,INCLUDE_AS_DEM_ALIGNED_INDEPENDENT_HYPOTHESIS
+2022,AK,Class III,non_unique_or_missing_D_R;ranked_choice;fusion_or_multiline,Lisa Murkowski [REP] 366207,EXCLUDE_HYPOTHESIS
+2022,UT,Class III,non_unique_or_missing_D_R,Mike Lee [REP] 571974,EXCLUDE_HYPOTHESIS
