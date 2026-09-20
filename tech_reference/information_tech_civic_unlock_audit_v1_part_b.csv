@@ -38,5 +38,5 @@
 "ICB021","Information","SYSTEM","Exodus Program","","Exodus Imperative","CIVIC","Civ6 GS; project adaptation","Exodus Imperative","KEEP","Long-term offworld settlement policy/state-capacity system",""
 "ICB022","Information","SYSTEM","Repeatable Future Civic","","Future Civic","CIVIC","Civ6 GS","Future Civic","KEEP","Civ6 repeatable terminal civic provides a natural Culture sink",""
 "ICB023","Information","SYSTEM","Diplomatic Favor +50 per completion","","Future Civic","CIVIC","Civ6 GS","Future Civic","KEEP","Direct Civ6 repeatable reward can be retained if Diplomatic Favor exists",""
-"ICB024","Information","SYSTEM","Governor Title +1 per completion","","Future Civic","CIVIC","Civ6 GS","Future Civic","DEFER_SYSTEM","Only meaningful if project later adopts Governors",""
+"ICB024","Information","SYSTEM","Governor Title +1 per completion","","Future Civic","CIVIC","Civ6 GS","Future Civic","DROP","Future Civic Governor Title reward is omitted because baseline Governors are not adopted","Repeatable Diplomatic Favor remains"
 "ICB025","Information","SYSTEM","Score Victory points from Future Civic","","Future Civic","CIVIC","Civ6 GS","Future Civic","DROP","Do not bind repeatable civic research to Score Victory unless that victory condition is explicitly adopted",""
