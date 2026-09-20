@@ -1,3 +1,5 @@
+# SUPERSEDED — use TECHNOLOGY_ROSTER_TREE_LOCKED_V2.md
+
 # Technology Roster Locked V1 — Civ VI + Civ V BNW + Civ V Enlightenment Era
 
 Date: 2026-09-20
