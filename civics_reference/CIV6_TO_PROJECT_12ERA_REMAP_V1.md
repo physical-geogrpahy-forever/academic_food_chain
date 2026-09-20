@@ -66,7 +66,7 @@ Only their era labels move. Their prerequisite graph remains the Civ VI graph.
 
 ### Renaissance / Exploration / Enlightenment redistribution
 Mercenaries + Medieval Faires -> Exploration
-Medieval Faires -> Humanism
+Medieval Faires + Guilds -> Humanism
 Guilds -> Diplomatic Service
 Guilds + Divine Right -> Reformed Church
 Humanism -> Mercantilism
