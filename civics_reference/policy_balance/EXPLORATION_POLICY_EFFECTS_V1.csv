@@ -1,0 +1,10 @@
+POLICY_EN,CIVIC_EN,POLICY_SLOT,FINAL_EFFECT,SOURCE_BASIS
+"Colonial Taxes","Colonialism","Economic","+25% Gold in cities not on the original Capital's continent","Civ6 direct"
+"Native Conquest","Colonialism","Military","Victories over units from earlier eras grant Gold equal to 50% of the defeated unit's Combat Strength","Civ6 direct"
+"Raj","Colonialism","Diplomatic","+2 Science, Culture, Faith, and Gold for each city-state you are Suzerain/allied patron of","Civ6 direct"
+"Maritime Infrastructure","Exploration","Economic","+3 Production in every coastal city","Civ5 BNW direct"
+"Logistics","Mercantilism","Military","+1 Movement to units that start their turn in friendly territory","Civ6 direct"
+"Triangular Trade","Mercantilism","Economic","All Trade Routes provide +4 Gold and +1 Faith","Civ6 direct"
+"Religious Orders","Reformed Church","Economic","Religious units gain +5 Religious Strength in theological combat","Civ6 direct"
+"Simultaneum","Reformed Church","Economic","Base Faith output from Shrine and Temple is doubled","Civ6 Holy Site building Faith doubled, adapted"
+"Wars of Religion","Reformed Church","Military","+4 Combat Strength when fighting a civilization following a different religion","Civ6 direct"
