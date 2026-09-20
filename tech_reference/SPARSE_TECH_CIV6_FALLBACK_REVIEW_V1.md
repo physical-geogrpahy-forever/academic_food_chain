@@ -42,3 +42,17 @@ Important examples:
 - Satellites: Civ6 content is distributed by function rather than duplicated.
 - Advanced AI/Cybernetics: Civ6 mostly provides Giant Death Robot upgrades; because GDR is optional, the project uses broader general-purpose systems.
 - Offworld Mission and Future Tech use Civ6 directly and are no longer content-empty.
+
+
+## Additional sparse nodes created by cleanup
+
+After removing moved/deferred placeholders from live unlock columns, three additional technologies became correctly classified as system-only sparse nodes.
+
+| Technology | Source status | Source content checked | Project resolution | Result |
+|---|---|---|---|---|
+| Telecommunications | CIV6_DIRECT | Nuclear Submarine | Nuclear Submarine -> Nuclear Fission + Cold War; telecommunications retains network/system role | REVIEWED_NO_DUPLICATE |
+| Robotics | CIV6_DIRECT | Giant Death Robot; Mars Habitation; Pasture yield | GDR optional; Mars Habitation -> Offworld Mission; automation role retained | REVIEWED_NO_DUPLICATE |
+| Particle Physics | CIV5_DIRECT / NO SAME CIV6 NODE | SS Engine | SS Engine retained with Space Race; particle-physics system remains general scientific role | REVIEWED_CIV5 |
+
+Current sparse reviewed set: **18 technologies**.
+All are reviewed against Civ VI where a same or adjacent node exists, otherwise against the adopted Civ V source hierarchy.
