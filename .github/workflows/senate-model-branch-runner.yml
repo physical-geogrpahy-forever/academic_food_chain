@@ -27,14 +27,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Run historical Senate audit
-        run: python senate-model-archive/scripts/build_historical_senate_audit.py
-
-      - name: Run OOS exception-race audit
-        run: python senate-model-archive/scripts/audit_oos_exception_races.py
-
-      - name: Infer headline validation sample size
-        run: python senate-model-archive/scripts/infer_headline_sample_size.py
+      - name: Run archive pipeline
+        run: python senate-model-archive/scripts/run_pipeline.py
 
       - name: Commit generated outputs and worklogs
         run: |
@@ -44,6 +38,6 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No generated changes'
           else
-            git commit -m 'data: refresh Senate archive audits [skip ci]'
+            git commit -m 'data: refresh Senate archive pipeline outputs [skip ci]'
             git push origin HEAD:archive-2026-us-senate-model
           fi
