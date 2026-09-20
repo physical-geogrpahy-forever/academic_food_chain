@@ -1,4 +1,4 @@
-RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOURCE,SOURCE_UNLOCK,DECISION,REASON,NOTES
+"RECORD_ID","PROJECT_ERA","UNLOCK_TYPE","CONTENT_EN","TECH_GATE","CIVIC_GATE","GATE_MODE","SOURCE","SOURCE_UNLOCK","DECISION","REASON","NOTES"
 "CL001","Classical","CITY_BUILDING","Harbor","Celestial Navigation","","TECH","Civ6 GS; Civ5 structural adaptation","Harbor district / later Civ5 Harbor","ADAPT_CITY","Ancient/classical maritime navigation supports permanent port infrastructure; convert district to city building","Trade effects still require actual trade access"
 "CL002","Classical","SYSTEM","Naval Movement +1","Celestial Navigation","","TECH","Civ6 GS remap","Mathematics +1 naval movement","REMAP_TECH","Navigation, not abstract mathematics, is the stronger functional fit","Exact balance may be tuned later"
 "CL003","Classical","CITY_BUILDING","Lighthouse","Optics","","TECH","Civ5 BNW; Civ6 GS","Optics / Celestial Navigation","KEEP","Civ V priority and optical beacon function both support Optics","Coastal city building"
@@ -74,6 +74,6 @@ RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOUR
 "CC025","Classical","WONDER","Heroic Epic","","Military Training","CIVIC","Civ5 BNW remap","Iron Working","DEFER_WONDER","If retained as national wonder, Military Training is stronger institutional gate","National-wonder audit later"
 "CC026","Classical","WONDER","Statue of Zeus","","Military Training","CIVIC","Civ6 GS","Military Training","DEFER_WONDER","World Wonder audit separate",""
 "CC027","Classical","POLICY","Natural Philosophy; Praetorium","","Recorded History","CIVIC","Civ6 GS","Recorded History","DEFER_SYSTEM","Science/administration policy candidates","Exact values later"
-"CC028","Classical","SYSTEM","Governor Title","","Recorded History","CIVIC","Civ6 GS","Recorded History","DEFER_SYSTEM","Governor system not adopted wholesale yet",""
+"CC028","Classical","SYSTEM","Governor Title","","Recorded History","CIVIC","Civ6 GS","Recorded History","DROP","Baseline project does not adopt Governors; Recorded History already has science/administration policies","Governor Title reward not replaced"
 "CC029","Classical","WONDER","Great Library","","Recorded History","CIVIC","Civ6 GS","Recorded History","DEFER_WONDER","World Wonder audit separate",""
 "CC030","Classical","SYSTEM","Paper-record synergy","Papermaking","Recorded History","TECH+CIVIC","Project synthesis","Papermaking + Recorded History","DEFER_SYSTEM","Papermaking and historical bureaucracy are complementary, but exact yield/system should be designed later","Do not invent final numeric bonus now"
