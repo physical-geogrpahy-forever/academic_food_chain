@@ -15,6 +15,8 @@ STEPS = [
     'build_design_matrix_skeleton.py',
     'fetch_candidate_experience_sources.py',
     'audit_candidate_experience.py',
+    'fetch_congress_legislators.py',
+    'crosscheck_congress_service.py',
     'audit_presidential_national_margin.py',
     'audit_presidential_2000_duplicates.py',
 ]
