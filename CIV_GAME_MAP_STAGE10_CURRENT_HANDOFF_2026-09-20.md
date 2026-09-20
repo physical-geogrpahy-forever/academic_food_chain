@@ -525,3 +525,35 @@ Principle:
 - inherited hard gates are calculated through the social prerequisite DAG and not redundantly repeated.
 
 Exact technology names remain provisional until the science tree is locked.
+
+
+## Technology roster locked V1
+
+Technology roster is now locked at **103 nodes**, sourced from:
+- Civ VI Gathering Storm: 77
+- non-duplicating Civ V BNW additions: 21
+- technical Pouakai Enlightenment Era additions: 5
+
+Authoritative files:
+- `tech_reference/TECHNOLOGY_ROSTER_LOCKED_V1.md`
+- `tech_reference/technology_roster_locked_v1.csv`
+- `tech_reference/technology_merge_exclusions_v1.csv`
+
+Era counts:
+- Ancient: 14
+- Classical: 9
+- Late Antiquity: 2
+- Early Medieval: 2
+- High Medieval: 6
+- Renaissance: 5
+- Exploration: 9
+- Enlightenment: 6
+- Industrial: 16
+- Modern: 12
+- Atomic: 13
+- Information: 9
+
+Civ/social duplicates such as Theology, Civil Service, Mass Media, Globalization, Sovereignty, Humanism, Natural History and Romanticism are excluded from the science tree.
+
+Next:
+build and validate the 103-node technology prerequisite DAG, then reconcile civic HARD/BOOST technology crosslinks.
