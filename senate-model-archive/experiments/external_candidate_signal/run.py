@@ -104,7 +104,7 @@ u22=[]
 for r in rows22:
     d=pdate(r.get('forecastdate') or '')
     if d is None or d>target22: continue
-    ex=(r.get('expression') or '').strip().lower()
+    ex=(r.get('expression') or '').strip().lower().lstrip('_')
     if ex not in {'classic','deluxe'}: continue
     try: m=float(r.get('mean_netpartymargin') or '')
     except: continue
