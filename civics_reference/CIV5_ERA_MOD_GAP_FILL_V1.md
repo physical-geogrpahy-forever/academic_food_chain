@@ -295,7 +295,7 @@ Reason:
 - it is distinct from Opera and Ballet, Natural History, Conservation and Mass Media;
 - it represents a major 19th-century cultural/intellectual movement and provides a useful cultural branch in an otherwise heavily state/economic Industrial Era.
 
-Industrial-era count therefore rises from 7 to 8 before selecting one final additional civic.
+Industrial-era count rises from 7 to 8 with Romanticism; Labor Movement is adopted separately as the ninth Industrial-era civic.
 
 Imperialism remains the leading candidate for the ninth Industrial-era civic, pending user approval.
 
@@ -304,7 +304,7 @@ Imperialism remains the leading candidate for the ninth Industrial-era civic, pe
 
 Romanticism is already ADOPTED.
 
-Recommended ninth Industrial-era civic:
+Adopted ninth Industrial-era civic:
 **Labor Movement**
 
 Rationale:
