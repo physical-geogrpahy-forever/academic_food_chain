@@ -1,4 +1,4 @@
-RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOURCE,SOURCE_UNLOCK,DECISION,REASON,NOTES
+"RECORD_ID","PROJECT_ERA","UNLOCK_TYPE","CONTENT_EN","TECH_GATE","CIVIC_GATE","GATE_MODE","SOURCE","SOURCE_UNLOCK","DECISION","REASON","NOTES"
 "A001","Ancient","TILE_IMPROVEMENT","Farm","Agriculture","","TECH","Civ5 BNW","Agriculture","KEEP","Civ V baseline and direct functional fit",""
 "A002","Ancient","UNIT","Worker","Agriculture","","TECH","Civ5 BNW","Agriculture/start","KEEP","Retain worker-based Civ V tile-improvement model","Starting roster"
 "A003","Ancient","CITY_BUILDING","Granary","Pottery","","TECH","Civ5 BNW; Civ6 GS","Pottery","KEEP","Storage technology directly supports granary construction","Health value tuned later"
@@ -41,7 +41,7 @@ RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOUR
 "A040","Ancient","ROUTE_INFRASTRUCTURE","Road","Wheel","","TECH","Civ5 BNW","The Wheel","KEEP","Direct transport-infrastructure fit",""
 "A041","Ancient","CITY_BUILDING","Water Mill","Wheel","","TECH","Civ5 BNW; Civ6 GS","The Wheel / Wheel","KEEP","Wheel-powered river machinery",""
 "A042","Ancient","UNIT","Chariot Archer","Wheel","","TECH","Civ5 BNW","The Wheel","KEEP","Use Civ V ancient chariot baseline","Requires Horses"
-"A043","Ancient","UNIT","Heavy Chariot","Wheel","","TECH","Civ6 GS","Wheel","DEFER_SYSTEM","Role overlaps Chariot Archer; decide in unit-roster audit",""
+"A043","Ancient","UNIT","Heavy Chariot","Wheel","","TECH","Civ6 GS","Wheel","DROP","Civ6 Heavy Chariot checked, but project keeps Civ5-style Chariot Archer + Horseman structure to avoid an overcrowded Ancient mounted roster","No separate generic Heavy Chariot; civilization-specific chariot variants remain possible"
 "A044","Ancient","SYSTEM","Seasonal Agriculture","Calendar","","TECH","Historical adaptation; Civ5 context","Calendar","ADAPT","Calendar remains a substantive agricultural technology after Plantation moves to Irrigation",""
 "A045","Ancient","YIELD_UPGRADE","Improved Wheat/Rice/Maize +1 Food","Calendar","","TECH","Project adaptation","Calendar","ADAPT","Seasonal planning directly improves annual staple-crop management","Initial value subject to balance testing"
 "A046","Ancient","TILE_IMPROVEMENT","Camp","Trapping","","TECH","Civ5 BNW; Civ6 remap","Trapping / Animal Husbandry","KEEP","Civ V baseline and functional fit",""
