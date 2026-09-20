@@ -161,28 +161,49 @@ Allowed DECISION values:
 - DEFER_CIV_UNIQUE
 - DEFER_SYSTEM
 
-## 4. Great Person tile-improvement rule
+## 4. Former Great Person tile-improvement rule
 
-Great-Person-consumed tile improvements are removed from the normal project baseline.
+Former Civilization V Great Person tile improvements are **not deleted wholesale**.
 
-Default removal:
-- Academy — Great Scientist
-- Manufactory — Great Engineer
-- Customs House — Great Merchant
-- Citadel — Great General
-- Holy Site — Great Prophet
+The project converts them into **nerfed ordinary Worker-buildable tile improvements** that do not require or consume a Great Person.
 
-Reason:
-- the project does not want Great People to be primarily consumed as permanent yield tiles;
-- Great People already have stronger active/system roles;
-- corporations, Great Works, research bursts, engineering actions, trade actions and military command are cleaner than one-off super-tiles.
+Retained:
+- Academy — former Great Scientist improvement
+- Manufactory — former Great Engineer improvement
+- Customs House — former Great Merchant improvement
+- Holy Site — former Great Prophet improvement
+- Landmark — former Great Artist improvement before Brave New World
 
-Important BNW distinction:
-- Landmark is **not automatically removed** merely because older Civ V versions associated it with Great Artists.
-- In Brave New World, Landmark belongs to the archaeology layer and must be audited separately with Archaeology/Antiquity Site mechanics.
+Excluded:
+- Citadel — former Great General improvement
 
-Thus:
-**remove Great-Person tile placement, not every historically related improvement name.**
+Final qualitative gates:
+- Education -> Academy
+- Manufacturing -> Manufactory
+- Economics + Mercantilism -> Customs House
+- Theology -> Holy Site
+- Humanism -> Landmark
+
+Later source-game upgrades may remain:
+- Scientific Theory -> Academy Science upgrade
+- Atomic Theory -> Academy Science upgrade
+- Chemistry -> Manufactory Production upgrade
+
+Landmark distinction:
+- Humanism unlocks the generic Worker-built cultural Landmark.
+- Natural History may preserve an Antiquity Site as an archaeological Historic Landmark.
+- These are related but distinct mechanics.
+
+Citadel remains excluded because the project already has:
+Fort -> Bastion Fort -> Advanced Fortification,
+and Civ5 Citadel's territory seizure / adjacent damage is too specialized for an ordinary Worker improvement.
+
+Great People retain active/system roles and are not consumed to construct these improvements.
+
+Exact yields, build times, placement restrictions and caps are numerical balance items.
+
+Authority:
+`tile_system/FORMER_GREAT_PERSON_TILE_IMPROVEMENTS_V1.md`
 
 ## 5. Civilization VI district conversion rule
 
