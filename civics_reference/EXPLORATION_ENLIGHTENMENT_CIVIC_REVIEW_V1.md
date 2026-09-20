@@ -1,7 +1,7 @@
 # Exploration and Enlightenment civic review V1
 
 Date: 2026-09-20
-Status: REVIEW — not locked
+Status: LOCKED
 
 ## Locked source precedence
 
@@ -105,7 +105,7 @@ Imperialism:
 - current 16th-17th century gameplay role overlaps Mercantilism + Colonialism
 - HOLD for a possible distinct 19th-century Industrial civic, not Exploration
 
-### Recommended Exploration-era roster for review
+### Locked Exploration-era roster
 
 1. Exploration — Civ VI
 2. Reformed Church — Civ VI
@@ -204,7 +204,7 @@ Free Speech:
 Enlightened Absolutism:
 - better handled as a government/policy configuration, not a universal civic
 
-### Recommended Enlightenment-era roster for review
+### Locked Enlightenment-era roster
 
 1. The Enlightenment — Civ VI
 2. Opera and Ballet — Civ VI
@@ -252,7 +252,7 @@ Constitutionalism -> later representative-politics line toward Suffrage
 
 ## Current recommendation
 
-Strongest candidates to lock next:
+Locked additions:
 - Scientific Revolution
 - Sovereignty
 - Constitutionalism
@@ -267,3 +267,22 @@ Do NOT add:
 - Absolutism
 
 as separate civic nodes at this stage, because they are either already represented by Civ VI civic content/policy cards or are better reserved for government/policy mechanics.
+
+
+## Locked total civic counts by project era
+
+- Ancient: 7
+- Classical: 5
+- Late Antiquity: 4
+- Early Medieval: 4
+- High Medieval: 4
+- Renaissance: 4
+- Exploration: 6
+- Enlightenment: 5
+- Industrial: 7
+- Modern: 6
+- Atomic: 6
+- Information: 12
+- Total: 70
+
+Romanticism remains an unadopted Industrial-era candidate and is not included in the 70.
