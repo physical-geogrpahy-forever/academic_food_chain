@@ -380,3 +380,7 @@ if dropped:
     lines += ['','## Dropped rows','']+[f'- {x[0]} {x[1]} race {x[2]}: {x[3]}' for x in dropped]
 DOC.write_text('\n'.join(lines)+'\n',encoding='utf-8')
 print('\n'.join(lines))
+
+# Run the next focused performance experiment in the same stable workflow.
+import runpy
+runpy.run_path(str(ROOT/'performance/run_generic_ballot_oos.py'), run_name='__main__')
