@@ -1,0 +1,4 @@
+test_cycle,history_cycles,chosen_family,inc_correct,inc_n,noinc_correct,noinc_n
+2014,2010;2012,no_incumbency,56,68,57,68
+2018,2010;2012;2014;2016,incumbency_era,117,133,115,133
+2022,2010;2012;2014;2016;2018;2020,incumbency_era,175,198,174,198
