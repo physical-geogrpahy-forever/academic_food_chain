@@ -1945,3 +1945,32 @@ Current authorities:
 - `civics_reference/policy_balance/*_POLICY_EFFECTS_V1.csv`
 
 Civ VI is the main fallback source for policy content when Civ V/project content is sparse. District/Builder/Governor/GDR-dependent effects are translated to the project's Civ V-style structure.
+
+
+## Generic building roster locked — 2026-09-21
+
+The generic/national building roster is now consolidated and QA-passed.
+
+- final buildings: 102
+- duplicate names: 0
+- missing gates: 0
+- broken prerequisites: 0
+
+Authorities:
+- `city_system/FINAL_GENERIC_BUILDING_ROSTER_V1.csv`
+- `city_system/FINAL_GENERIC_BUILDING_ROSTER_V1.md`
+- `city_system/FINAL_GENERIC_BUILDING_ROSTER_V1_QA.md`
+
+Important additions/recoveries:
+Palace, Monument, Stone Works, Barracks, Shrine, Windmill, Artists' Guild, Director's Guild, Cinema, Consulate, Constabulary, Military Base, Ferris Wheel and Aquarium.
+
+Important merges:
+generic Museum -> Art/Archaeological Museum branch;
+Gallery -> Art Museum;
+Menagerie -> Zoo;
+Bastion -> Star Fort;
+Broadcast Tower -> Broadcast Center;
+Hydro Plant -> Hydroelectric Dam infrastructure;
+Spaceship Factory -> Space Launch Center.
+
+Government building choices and Civ6 Water Park content are converted into Civ V-style city buildings without districts.
