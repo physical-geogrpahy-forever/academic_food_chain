@@ -104,10 +104,7 @@ for r in target:
     # target panel fields are inspected dynamically; candidate names expected from side candidate columns
     candidates=[]
     for side in ['D','R']:
-        name = r.get(f'{side.lower()}_candidate_name') or r.get(f'candidate_{side}') or r.get(f'{side}_candidate_name') or ''
-        if not name:
-            # fallback from aligned display fields if present
-            name = r.get(f'{side.lower()}_side_candidate') or ''
+        name = r.get(f'{side.lower()}_side_candidate') or r.get(f'{side.lower()}_candidate_name') or r.get(f'candidate_{side}') or r.get(f'{side}_candidate_name') or ''
         candidates.append((side,name))
     for side,name in candidates:
         p,top,second=match(name,state) if name else (None,0,0)
