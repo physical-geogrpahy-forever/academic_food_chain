@@ -1,4 +1,4 @@
-# CIV resource history mask — 4000 BCE V1
+> **SUPERSEDED — DO NOT IMPLEMENT THIS VERSION.** Current reviewed baseline: `civ_map_stage10_resources/history_4000bce_v3/README.md`\n\n# CIV resource history mask — 4000 BCE V1
 
 ## Status
 Broad game-design mask for the 18 dynamic biological resources discussed in chat.
