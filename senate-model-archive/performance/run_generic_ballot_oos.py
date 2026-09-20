@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# RUN_TAG_GENERIC_V1
 import csv, io, hashlib
 from pathlib import Path
 from datetime import datetime, date, timedelta, timezone
