@@ -77,19 +77,20 @@ Use:
 
 Great Works of Film should NOT simply make Great Works of Music obsolete. Film and Music need differentiated slot/building bonuses.
 
-## Technology integration
+## Technology integration — FINAL
 
-JFD's base Great Works of Film mod does not require the project to copy a specific tech name, but MoreTech explicitly unlocks the Great Director / Great Works of Film system at **Cinematography**.
+The project keeps the locked **109-technology V2 tree**.
 
-This creates a concrete implementation gap in the current technology tree.
+**Photography and Cinematography are not added as separate technology nodes.**
 
-Therefore:
-- Cinematography is now a **strong technology-addition candidate**.
-- It should be evaluated together with Photography before inserting it into the locked technology DAG.
-- likely placement: late Industrial / early Modern boundary.
-- Great Director availability should begin only after the film-production technology gate is reached.
+For implementation:
+- **Electricity** absorbs the late-19th-century photography / motion-picture production technology package.
+- **Electricity unlocks the Great Director system, Cinema, Director specialist infrastructure, and Great Works of Film.**
+- **Radio** is the later upgrade gate for broadcast/media expansion and later film/media corporate effects.
 
-No technology is added in this document yet; the technology tree must be updated in a separate audited step.
+This preserves the 109-tech lock while giving film a historically usable late-Industrial entry point and keeping Radio for the later mass-media phase.
+
+MoreTech remains a design reference for the Great Director / Cinematography concept, but the project does not copy its standalone Cinematography node.
 
 ## Wonder policy
 
