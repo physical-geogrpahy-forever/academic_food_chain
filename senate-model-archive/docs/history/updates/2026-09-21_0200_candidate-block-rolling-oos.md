@@ -1,6 +1,6 @@
 # Performance experiment: candidate-block rolling OOS
 
-- Generated UTC: 2026-09-20T16:58:52.227603+00:00
+- Generated UTC: 2026-09-20T17:00:47.988164+00:00
 - Training is strictly chronological: 2014<-2006/2010; 2018<-earlier cycles; 2022<-earlier cycles.
 - Historical panel rows after required PVI + same-seat coverage: 153
 - Modern validation rows retained: 91
@@ -13,12 +13,15 @@
 | structural_only | 91 | 11.1097 | 8.4058 | 85.7% |
 | candidate_fixed | 91 | 12.0664 | 9.1801 | 87.9% |
 | candidate_ridge_nested | 91 | 11.9132 | 8.9331 | 87.9% |
+| candidate_subset_nested | 91 | 12.9710 | 9.6580 | 87.9% |
 
 ## Decision
 
 - Nested candidate ridge improvement vs unregularized candidate block: +0.1533 RMSE points.
 - Nested candidate ridge improvement vs structural-only diagnostic: -0.8035 RMSE points.
-- Decision: KEEP_FOR_CORE_V2R_NEXT_STAGE
+- Decision: REJECT_RIDGE_CANDIDATE_BLOCK
+- Nested subset-selection improvement vs structural-only diagnostic: -1.8613 RMSE points.
+- Subset decision: REJECT_SUBSET_ARCHITECTURE
 
 ## Important limitation
 
