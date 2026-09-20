@@ -108,7 +108,7 @@ for year in YEARS:
     for i in range(0,len(ids),20):
         batch=ids[i:i+20]
         params=[('api_key','DEMO_KEY'),('cycle',str(year)),('year',str(year)),('per_page','100'),
-                ('most_recent','true'),('sort','-coverage_end_date')]
+                ('most_recent','true'),('report_type','Q2'),('sort','-coverage_end_date')]
         params += [('committee_id',x) for x in batch]
         url=API+'?'+urllib.parse.urlencode(params)
         payload=json.loads(get(url).decode('utf-8'))
@@ -116,8 +116,10 @@ for year in YEARS:
         if results:api_keys_seen.update(results[0].keys())
         for x in results:
             cid=str(x.get('committee_id') or '')
-            cov=str(x.get('coverage_end_date') or '')[:10]
-            if cid not in batch or cov!=f'{year}-06-30':continue
+            cov_raw=str(x.get('coverage_end_date') or '')
+            cov=cov_raw[:10]
+            valid_cov=(cov==f'{year}-06-30' or cov_raw.startswith(f'06/30/{year}'))
+            if cid not in batch or not valid_cov:continue
             oldr=reports.get((year,cid))
             # Prefer the highest file number / newest receipt among duplicate amendments.
             rank=(int(x.get('file_number') or 0),str(x.get('receipt_date') or ''))
