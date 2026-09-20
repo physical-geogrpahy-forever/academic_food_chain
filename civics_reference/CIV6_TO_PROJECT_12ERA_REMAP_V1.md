@@ -157,3 +157,19 @@ The next civic-design task should therefore be:
 - `civ6_gs_civics_reference.csv`: imported Civ VI content reference
 - `civ6_to_project_12era_remap_v1.csv`: exact 61-row era mapping
 - this file: design/audit explanation
+
+## Source precedence rule
+
+When filling gaps with Civilization V material, use this precedence:
+
+1. Civilization VI Gathering Storm civic takes priority whenever a Civ V policy/technology has the same name, substantially overlapping function, or is a narrower concept already contained inside the Civ VI civic.
+2. Civilization V BNW social policies are used only for genuinely missing social/institutional concepts.
+3. Civilization V BNW technologies are primarily technology-tree references and should become civics only when the concept is clearly institutional/social rather than scientific/technical.
+4. If a Civ V candidate duplicates a Civ VI unlock or civic function, do not add a second civic. Keep the Civ VI civic and, if useful, reuse the Civ V idea as a policy card, Inspiration condition, flavor text, or unlock detail.
+5. New original civics are added only after both Civ VI and Civ V reference pools have been checked.
+
+Examples:
+- Civ V Rationalism should not replace or duplicate Civ VI The Enlightenment if the intended function is already represented there; Rationalism can instead inform policy-card or content design.
+- Civ V Monarchy should not create a duplicate civic if the government role is already handled by Civ VI Divine Right -> Monarchy.
+- Civ V Legalism should not become a separate civic if its intended role is adequately contained by Code of Laws / Civil Service; it may be reused as a policy-card concept.
+- Civ V Merchant Confederacy/merchant-oriented ideas should be checked against Guilds, Mercantilism, Exploration and Merchant Republic before any new civic is created.
