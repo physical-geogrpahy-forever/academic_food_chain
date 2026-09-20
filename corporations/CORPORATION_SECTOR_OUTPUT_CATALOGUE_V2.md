@@ -133,3 +133,8 @@ Before the 109-tech unit/building table:
 
 - **Robert Bosch** uses `Replaceable Parts` rather than `Combustion`, keeping the 1886 founder gate inside the Industrial Era.
 - The machinery/components sector recognizes `Combustion` as a mature vehicle-component path (e.g. tires) and `Electronics` as a later precision-component path.
+
+
+## 9. Founder specialization rule
+
+A founder row may use one component of a hybrid sector rather than the sector-wide hybrid label. For example, Hershey can remain a Manufactured Luxury specialist inside the hybrid processed-food sector, while Nestlé can remain a Functional Corporate Good specialist. Non-hybrid founder rows were reconciled to their canonical sector in the V2 matrix.
