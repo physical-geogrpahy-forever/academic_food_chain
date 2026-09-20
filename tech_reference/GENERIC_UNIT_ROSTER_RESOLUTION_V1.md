@@ -38,3 +38,25 @@ Use the Civ6-style strategic device model:
 
 Giant Death Robot and its four future upgrades are not baseline units.
 They remain in the **OPTIONAL_ENDGAME** queue and do not block the generic unit roster.
+
+
+## Final consolidation status — 2026-09-21
+
+The generic unit existence/gate roster is now consolidated at:
+
+- `city_system/FINAL_GENERIC_UNIT_ROSTER_V1.csv`
+- `city_system/FINAL_GENERIC_UNIT_ROSTER_V1.md`
+- `city_system/FINAL_GENERIC_UNIT_ROSTER_V1_QA.md`
+
+Current baseline:
+- 85 generic non-Great-Person units
+- 73 technology-master units
+- 7 civic-only/civic-owned units
+- 5 recovered game-start/religion-system units
+- GitHub Actions QA: PASS
+
+The consolidation also recovered two audit-to-master omissions:
+- Mechanized Infantry -> Combined Arms
+- Missile Cruiser -> Guidance Systems + Warships
+
+Great People remain separate. Giant Death Robot remains optional. Nuclear Missile remains replaced by the strategic-device delivery model.
