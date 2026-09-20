@@ -70,7 +70,7 @@
 "CC021","Classical","WONDER","National Epic / Parthenon","","Drama and Poetry","CIVIC","Civ5 BNW","Drama and Poetry","DEFER_WONDER","National/World Wonder audit separate",""
 "CC022","Classical","CITY_BUILDING","Marae / Rock-Hewn Church","","Drama and Poetry","CIVIC","Civ6 GS","Drama and Poetry","DEFER_CIV_UNIQUE","Civilization-specific buildings remain unique",""
 "CC023","Classical","POLICY","Raid; Veterancy; Equestrian Orders","","Military Training","CIVIC","Civ6 GS","Military Training","DEFER_SYSTEM","Military training/logistics policy candidates","Exact values later"
-"CC024","Classical","SYSTEM","Envoy +1","","Military Training","CIVIC","Civ6 GS","Military Training","DEFER_SYSTEM","Retain as diplomacy-system candidate, not automatic final",""
+"CC024","Classical","SYSTEM","Envoy +1","","Military Training","CIVIC","Civ6 GS","Military Training","KEEP","Civ6 directly grants an Envoy at Military Training","+1 Envoy"
 "CC025","Classical","WONDER","Heroic Epic","","Military Training","CIVIC","Civ5 BNW remap","Iron Working","DEFER_WONDER","If retained as national wonder, Military Training is stronger institutional gate","National-wonder audit later"
 "CC026","Classical","WONDER","Statue of Zeus","","Military Training","CIVIC","Civ6 GS","Military Training","DEFER_WONDER","World Wonder audit separate",""
 "CC027","Classical","POLICY","Natural Philosophy; Praetorium","","Recorded History","CIVIC","Civ6 GS","Recorded History","DEFER_SYSTEM","Science/administration policy candidates","Exact values later"
