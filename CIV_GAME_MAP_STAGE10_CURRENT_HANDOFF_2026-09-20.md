@@ -628,3 +628,30 @@ Civic crosslinks were revalidated against the 109-tech tree:
 - zero missing referenced technologies
 - zero later-era HARD/BOOST references
 - reference: `civics_reference/CIVIC_TECH_CROSSLINK_RECONCILIATION_V3.md`
+
+
+## Civ V-style city system and Great Directors
+
+Locked design direction:
+- city management follows Civ V rather than Civ VI district placement;
+- normal buildings are constructed directly in cities;
+- specialists remain a core city-management mechanic;
+- Civ VI district unlocks must be translated into Civ V-style buildings/infrastructure.
+
+Great Director system is included:
+- Great Director
+- Director specialist
+- Director's Guild / film-production building line
+- Cinema
+- Great Works of Film with dedicated Film slots
+
+Reference implementation:
+JFD Great Works of Film; MoreTech integration.
+
+World wonders such as Hollywood are NOT automatically imported and remain subject to separate wonder-quality audit.
+
+Technology implication:
+Cinematography is now a strong new technology candidate because the Great Director/Film mechanic creates a concrete technical prerequisite gap. Evaluate together with Photography before modifying the locked technology tree.
+
+Reference:
+- `city_system/CIV5_STYLE_CITY_AND_GREAT_DIRECTOR_BASELINE_V1.md`
