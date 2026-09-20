@@ -1,0 +1,65 @@
+name: CIV Stage 10 resource placement preview Y
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "civ_map_stage10_resources/trigger_stage10y.txt"
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas geopandas pyogrio shapely pyyaml matplotlib
+
+      - name: Download corrected Stage 10X board
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input/x
+          gh api /repos/physical-geogrpahy-forever/academic_food_chain/actions/artifacts/10594977300/zip > input/x.zip
+          unzip -q input/x.zip -d input/x
+          BOARD="$(find input/x -type f -name 'CIV_GAME_MAP_STAGE10X_ALL_RESOURCE_STRENGTH.gpkg' | head -1)"
+          test -n "$BOARD"
+          echo "BOARD=$BOARD" >> "$GITHUB_ENV"
+
+      - name: Build placement preview
+        run: |
+          python civ_map_stage10_resources/build_stage10y_resource_placement_preview.py             "$BOARD"             civ_map_stage10_resources/resource_placement_preview_v1.yaml             --layer game_map_stage10x_all_resource_strength             --prefix CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW
+
+      - name: Render preview maps
+        run: |
+          python civ_map_stage10_resources/render_stage10y_preview.py             CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW.gpkg             --outdir stage10y_maps
+
+      - name: Audit
+        run: |
+          cat CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_SUMMARY.json
+          echo "=== placement audit ==="
+          cat CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_AUDIT.csv
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW
+          path: |
+            CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW.gpkg
+            CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_PLACED.csv
+            CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_AUDIT.csv
+            CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_SUMMARY.json
+            stage10y_maps/
+          if-no-files-found: error
+          retention-days: 30
