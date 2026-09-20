@@ -1,0 +1,29 @@
+name: Civ Final Unit Roster QA
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "city_system/FINAL_GENERIC_UNIT_ROSTER_V1.csv"
+      - "city_system/FINAL_GENERIC_UNIT_ROSTER_V1.md"
+      - "city_system/validate_final_generic_unit_roster_v1.py"
+      - "tech_reference/MASTER_TECHNOLOGY_UNLOCKS_109_V1.csv"
+      - "civics_reference/MASTER_CIVIC_UNLOCKS_72_V2.csv"
+      - ".github/workflows/civ-final-unit-roster-qa.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout authoritative branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate final generic unit roster
+        run: python city_system/validate_final_generic_unit_roster_v1.py
