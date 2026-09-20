@@ -1,4 +1,4 @@
-TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"TECH_EN","UNITS","CITY_BUILDINGS","TILE_IMPROVEMENTS","ROUTES_INFRASTRUCTURE","RESOURCE_REVEAL","RESOURCE_EXPLOITATION","SYSTEMS_NOTES"
 "Celestial Navigation","","Harbor","","","","","Naval Movement +1; maritime infrastructure"
 "Currency","","Market; Mint with Code of Laws","","","","","Wealth process; Commercial Hub removed"
 "Horseback Riding","Horseman","Stable; Caravansary with Foreign Trade","","","","",""
@@ -8,4 +8,4 @@ TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_RE
 "Construction","Composite Bowman; Siege Tower","Arena with Games and Recreation","Lumber Mill","","","",""
 "Engineering","","Aqueduct","Fort","Road bridges","","","Additional trade-route capacity with Foreign Trade provisionally"
 "Optics","","Lighthouse","","","","","Embarkation moved to Shipbuilding"
-"Papermaking","","Paper Workshop","","","","","Paper-supported scholarship/administration"
+"Papermaking","","Paper Workshop","","","","","Paper-supported scholarship/administration; with Recorded History, Paper Workshop gains +1 Science and +1 Culture"
