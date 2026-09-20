@@ -1,0 +1,10 @@
+TIER,CHOICE,PROJECT_FORM,ELIGIBILITY,NOTES
+"1","Ancestral Hall","one-per-civilization city building","any Tier-1 government","mutually exclusive with Audience Chamber and Warlord's Throne"
+"1","Audience Chamber","one-per-civilization city building","any Tier-1 government","mutually exclusive with Ancestral Hall and Warlord's Throne"
+"1","Warlord's Throne","one-per-civilization city building","any Tier-1 government","mutually exclusive with Ancestral Hall and Audience Chamber"
+"2","Foreign Ministry","one-per-civilization city building","any Tier-2 government","mutually exclusive with Grand Master's Chapel and Intelligence Agency"
+"2","Grand Master's Chapel","one-per-civilization city building","any Tier-2 government","mutually exclusive with Foreign Ministry and Intelligence Agency"
+"2","Intelligence Agency","one-per-civilization city building","any Tier-2 government","mutually exclusive with Foreign Ministry and Grand Master's Chapel"
+"3","National History Museum","one-per-civilization city building","any Tier-3 government","mutually exclusive with Royal Society and War Department"
+"3","Royal Society","one-per-civilization city building","any Tier-3 government","mutually exclusive with National History Museum and War Department"
+"3","War Department","one-per-civilization city building","any Tier-3 government","mutually exclusive with National History Museum and Royal Society"
