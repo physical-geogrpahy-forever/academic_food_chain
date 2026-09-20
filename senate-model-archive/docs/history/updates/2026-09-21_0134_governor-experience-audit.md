@@ -1,6 +1,6 @@
 # GitHub Actions run: GovernorExperience audit
 
-- Generated UTC: 2026-09-20T16:59:39.091350+00:00
+- Generated UTC: 2026-09-20T17:01:37.369441+00:00
 - Candidate-side rows: 198
 - Accepted NGA name matches: 13/198
 - Election-history governor positives: 12

@@ -1,6 +1,6 @@
 # GitHub Actions run: Core V2-R design matrix skeleton
 
-- Generated UTC: 2026-09-20T16:58:32.189283+00:00
+- Generated UTC: 2026-09-20T17:00:24.450618+00:00
 - Execution: GitHub Actions
 - Rows: 99
 
