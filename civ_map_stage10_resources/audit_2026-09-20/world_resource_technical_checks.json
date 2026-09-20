@@ -1,0 +1,21 @@
+{
+  "total_selected": 12500,
+  "unique_selected_cell_ids": 12500,
+  "duplicate_selected_cell_ids": 0,
+  "class_counts": {
+    "luxury": 5000,
+    "bonus": 5000,
+    "strategic": 2500
+  },
+  "surface_counts": {
+    "LAND": 10896,
+    "OCEAN": 965,
+    "COAST": 639
+  },
+  "selected_zero_or_negative_strength": 0,
+  "selected_null_strength": 0,
+  "selected_zero_or_negative_evidence": 0,
+  "selected_null_evidence": 0,
+  "surface_rule_fail_resources": [],
+  "all_selected_surface_rules_ok": true
+}
