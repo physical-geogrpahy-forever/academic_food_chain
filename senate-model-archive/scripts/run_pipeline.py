@@ -25,6 +25,7 @@ STEPS = [
     'join_personal_vote_audit.py',
     'fetch_national_environment_sources.py',
     'audit_national_components_45d.py',
+    'discover_bea_regional_archive.py',
     'audit_presidential_national_margin.py',
     'audit_presidential_2000_duplicates.py',
 ]
