@@ -1,0 +1,4 @@
+test_cycle,signal,gamma,posterior_threshold,train_n,train_correct,train_accuracy_pct,train_flips,train_signal_covered,test_signal_covered
+2014,receipts_share,0,999,0,,,0,0,10
+2018,cash_share,0,999,33,32,96.96969696969697,0,12,9
+2022,cash_share,0,999,66,61,92.42424242424242,0,21,7

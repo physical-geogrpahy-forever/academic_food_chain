@@ -1,0 +1,298 @@
+cycle,race_id,state,metric,d_candidate,d_match,d_score,r_candidate,r_match,r_score
+2014,23,CO,receipts,Mark Udall,"UDALL, MARK E",0.9812121212121212,Cory Gardner,"GARDNER, CORY",1.06
+2014,23,CO,individual,Mark Udall,"UDALL, MARK E",0.9812121212121212,Cory Gardner,"GARDNER, CORY",1.06
+2014,23,CO,cash,Mark Udall,"UDALL, MARK E",0.9812121212121212,Cory Gardner,"GARDNER, CORY",1.06
+2014,24,DE,receipts,Christopher A. Coons,"COONS, CHRISTOPHER A",1.06,Kevin Wade,,0.06896551724137931
+2014,24,DE,individual,Christopher A. Coons,"COONS, CHRISTOPHER A",1.06,Kevin Wade,,0.06896551724137931
+2014,24,DE,cash,Christopher A. Coons,"COONS, CHRISTOPHER A",1.06,Kevin Wade,,0.06896551724137931
+2014,17,GA,receipts,Mary Michelle Nunn,"NUNN, MARY MICHELLE",1.06,David A. Perdue,"PERDUE, DAVID",0.9882051282051283
+2014,17,GA,individual,Mary Michelle Nunn,"NUNN, MARY MICHELLE",1.06,David A. Perdue,,0.125
+2014,17,GA,cash,Mary Michelle Nunn,"NUNN, MARY MICHELLE",1.06,David A. Perdue,,0.125
+2014,27,ID,receipts,Nels Mitchell,,0,James E. Risch,,0
+2014,27,ID,individual,Nels Mitchell,,0,James E. Risch,,0
+2014,27,ID,cash,Nels Mitchell,,0.23076923076923078,James E. Risch,"RISCH, JAMES E",1.06
+2014,4,IL,receipts,Richard J. Durbin,"DURBIN, RICHARD J",1.06,James D. Oberweis,,0.15625
+2014,4,IL,individual,Richard J. Durbin,"DURBIN, RICHARD J",1.06,James D. Oberweis,,0.15625
+2014,4,IL,cash,Richard J. Durbin,"DURBIN, RICHARD J",1.06,James D. Oberweis,"OBERWEIS, JAMES D ""JIM""",0.9794444444444446
+2014,26,IA,receipts,Bruce L. Braley,"BRALEY, BRUCE L",1.06,Joni K. Ernst,,0.18
+2014,26,IA,individual,Bruce L. Braley,"BRALEY, BRUCE L",1.06,Joni K. Ernst,"ERNST, JONI K",1.06
+2014,26,IA,cash,Bruce L. Braley,"BRALEY, BRUCE L",1.06,Joni K. Ernst,"ERNST, JONI K",1.06
+2014,15,KY,receipts,Alison Lundergan Grimes,"GRIMES, ALISON  LUNDERGAN",1.06,Mitch McConnell,"MCCONNELL, MITCH",1.06
+2014,15,KY,individual,Alison Lundergan Grimes,"GRIMES, ALISON  LUNDERGAN",1.06,Mitch McConnell,"MCCONNELL, MITCH",1.06
+2014,15,KY,cash,Alison Lundergan Grimes,"GRIMES, ALISON  LUNDERGAN",1.06,Mitch McConnell,"MCCONNELL, MITCH",1.06
+2014,5,MT,receipts,Amanda G. Curtis,,0.17857142857142858,Steve Daines,"DAINES, STEVEN",0.9733333333333334
+2014,5,MT,individual,Amanda G. Curtis,,0.17857142857142858,Steve Daines,"DAINES, STEVEN",0.9733333333333334
+2014,5,MT,cash,Amanda G. Curtis,,0.17857142857142858,Steve Daines,"DAINES, STEVEN",0.9733333333333334
+2014,1,NE,receipts,Dave Domina,,0.18518518518518517,Ben Sasse,"SASSE, BENJAMIN E",0.845
+2014,1,NE,individual,Dave Domina,,0.18518518518518517,Ben Sasse,"SASSE, BENJAMIN E",0.845
+2014,1,NE,cash,Dave Domina,,0.18518518518518517,Ben Sasse,"SASSE, BENJAMIN E",0.845
+2014,9,ME,receipts,Shenna Bellows,,0.3568965517241379,Susan M. Collins,"COLLINS, SUSAN M",1.06
+2014,9,ME,individual,Shenna Bellows,,0.3568965517241379,Susan M. Collins,"COLLINS, SUSAN M",1.06
+2014,9,ME,cash,Shenna Bellows,,0.3568965517241379,Susan M. Collins,"COLLINS, SUSAN M",1.06
+2014,10,NJ,receipts,Cory A. Booker,"BOOKER, CORY A",1.06,Jeff Bell,,0.18181818181818182
+2014,10,NJ,individual,Cory A. Booker,"BOOKER, CORY A",1.06,Jeff Bell,,0.18
+2014,10,NJ,cash,Cory A. Booker,"BOOKER, CORY A",1.06,Jeff Bell,,0.13636363636363635
+2014,8,NH,receipts,Jeanne Shaheen,"SHAHEEN, JEANNE",1.06,Scott Brown,,0.08
+2014,8,NH,individual,Jeanne Shaheen,"SHAHEEN, JEANNE",1.06,Scott Brown,"BROWN, SCOTT",1.06
+2014,8,NH,cash,Jeanne Shaheen,"SHAHEEN, JEANNE",1.06,Scott Brown,"BROWN, SCOTT",1.06
+2014,30,WV,receipts,Natalie E. Tennant,,0.10810810810810811,Shelley Moore Capito,"CAPITO, SHELLEY MOORE",1.06
+2014,30,WV,individual,Natalie E. Tennant,,0.10810810810810811,Shelley Moore Capito,"CAPITO, SHELLEY MOORE",1.06
+2014,30,WV,cash,Natalie E. Tennant,"TENNANT, NATALIE",0.9954166666666666,Shelley Moore Capito,"CAPITO, SHELLEY MOORE",1.06
+2014,16,VA,receipts,Mark R. Warner,"WARNER, MARK ROBERT",0.9293548387096775,Ed W. Gillespie,"GILLESPIE, EDWARD W",0.9475
+2014,16,VA,individual,Mark R. Warner,"WARNER, MARK ROBERT",0.9293548387096775,Ed W. Gillespie,"GILLESPIE, EDWARD W",0.9475
+2014,16,VA,cash,Mark R. Warner,"WARNER, MARK ROBERT",0.9293548387096775,Ed W. Gillespie,"GILLESPIE, EDWARD W",0.9475
+2014,19,TX,receipts,David M. Alameel,"ALAMEEL, DAVID M",1.06,John Cornyn,"CORNYN, JOHN",1.06
+2014,19,TX,individual,David M. Alameel,,0.038461538461538464,John Cornyn,"CORNYN, JOHN",1.06
+2014,19,TX,cash,David M. Alameel,,0.038461538461538464,John Cornyn,"CORNYN, JOHN",1.06
+2014,28,TN,receipts,William Gordon Ball,,0.17647058823529413,Lamar Alexander,"ALEXANDER, LAMAR",1.06
+2014,28,TN,individual,William Gordon Ball,,0.17647058823529413,Lamar Alexander,"ALEXANDER, LAMAR",1.06
+2014,28,TN,cash,William Gordon Ball,,0.17647058823529413,Lamar Alexander,"ALEXANDER, LAMAR",1.06
+2014,22,SD,receipts,Richard P. Weiland,,0.21052631578947367,M. Michael Rounds,"ROUNDS, MARION MICHAEL",0.9424324324324325
+2014,22,SD,individual,Richard P. Weiland,,0.21052631578947367,M. Michael Rounds,"ROUNDS, MARION MICHAEL",0.9424324324324325
+2014,22,SD,cash,Richard P. Weiland,,0.21052631578947367,M. Michael Rounds,"ROUNDS, MARION MICHAEL",0.9424324324324325
+2014,11,SC,receipts,Charles Bradley Hutto,,0.15,Lindsey Graham,"GRAHAM, LINDSEY OLIN",0.9509090909090909
+2014,11,SC,individual,Charles Bradley Hutto,,0.15,Lindsey Graham,"GRAHAM, LINDSEY OLIN",0.9509090909090909
+2014,11,SC,cash,Charles Bradley Hutto,,0.15,Lindsey Graham,"GRAHAM, LINDSEY OLIN",0.9509090909090909
+2014,33,RI,receipts,Jack Reed,,0,Mark S. Zaccaria,,0
+2014,33,RI,individual,Jack Reed,,0,Mark S. Zaccaria,,0
+2014,33,RI,cash,Jack Reed,"REED, JACK F",0.9766666666666666,Mark S. Zaccaria,,0.19230769230769232
+2014,20,OR,receipts,Jeff Merkley,"MERKLEY, JEFFREY ALAN",0.8600000000000001,Monica Wehby,,0.09375
+2014,20,OR,individual,Jeff Merkley,"MERKLEY, JEFFREY ALAN",0.8600000000000001,Monica Wehby,,0.09375
+2014,20,OR,cash,Jeff Merkley,"MERKLEY, JEFFREY ALAN",0.8600000000000001,Monica Wehby,,0.09375
+2014,29,OK,receipts,Matt Silverstein,,0.13333333333333333,James M. Inhofe,"INHOFE, JAMES M",1.06
+2014,29,OK,individual,Matt Silverstein,,0.14814814814814814,James M. Inhofe,,0.5027272727272727
+2014,29,OK,cash,Matt Silverstein,,0.13333333333333333,James M. Inhofe,"INHOFE, JAMES M",1.06
+2014,14,NC,receipts,Kay R. Hagan,"HAGAN, KAY R",1.06,Thomas Roland Tillis,"TILLIS, THOM R",0.873939393939394
+2014,14,NC,individual,Kay R. Hagan,"HAGAN, KAY R",1.06,Thomas Roland Tillis,"TILLIS, THOM R",0.873939393939394
+2014,14,NC,cash,Kay R. Hagan,"HAGAN, KAY R",1.06,Thomas Roland Tillis,"TILLIS, THOM R",0.873939393939394
+2014,3,NM,receipts,Tom Udall,"UDALL, TOM",1.06,Allen E. Weh,,0.15
+2014,3,NM,individual,Tom Udall,"UDALL, TOM",1.06,Allen E. Weh,,0.15
+2014,3,NM,cash,Tom Udall,"UDALL, TOM",1.06,Allen E. Weh,,0.15
+2014,18,MS,receipts,Travis W. Childers,,0.253448275862069,Thad Cochran,"COCHRAN, THAD",1.06
+2014,18,MS,individual,Travis W. Childers,,0.253448275862069,Thad Cochran,"COCHRAN, THAD",1.06
+2014,18,MS,cash,Travis W. Childers,,0,Thad Cochran,,0
+2014,6,MN,receipts,Al Franken,"FRANKEN, AL",1.06,Mike McFadden,"MCFADDEN, MICHAEL",0.9071264367816092
+2014,6,MN,individual,Al Franken,"FRANKEN, AL",1.06,Mike McFadden,"MCFADDEN, MICHAEL",0.9071264367816092
+2014,6,MN,cash,Al Franken,"FRANKEN, AL",1.06,Mike McFadden,"MCFADDEN, MICHAEL",0.9071264367816092
+2014,2,MI,receipts,Gary C. Peters,"PETERS, GARY",0.9849999999999999,Terri Lynn Land,"LAND, TERRI LYNN",1.06
+2014,2,MI,individual,Gary C. Peters,"PETERS, GARY",0.9849999999999999,Terri Lynn Land,"LAND, TERRI LYNN",1.06
+2014,2,MI,cash,Gary C. Peters,"PETERS, GARY",0.9849999999999999,Terri Lynn Land,"LAND, TERRI LYNN",1.06
+2014,12,AK,receipts,Mark Begich,"BEGICH, MARK",1.06,Dan Sullivan,"SULLIVAN, DAN",1.06
+2014,12,AK,individual,Mark Begich,"BEGICH, MARK",1.06,Dan Sullivan,"SULLIVAN, DAN",1.06
+2014,12,AK,cash,Mark Begich,"BEGICH, MARK",1.06,Dan Sullivan,"SULLIVAN, DAN",1.06
+2014,32,AR,receipts,Mark L. Pryor,"PRYOR, MARK LUNSFORD",0.8970967741935485,Tom Cotton,"COTTON, THOMAS",0.9281159420289855
+2014,32,AR,individual,Mark L. Pryor,"PRYOR, MARK LUNSFORD",0.8970967741935485,Tom Cotton,"COTTON, THOMAS",0.9281159420289855
+2014,32,AR,cash,Mark L. Pryor,"PRYOR, MARK LUNSFORD",0.8970967741935485,Tom Cotton,"COTTON, THOMAS",0.9281159420289855
+2014,34,HI,receipts,Brian Schatz,"SCHATZ, BRIAN",1.06,Cam Cavasso,,0.08695652173913043
+2014,34,HI,individual,Brian Schatz,"SCHATZ, BRIAN",1.06,Cam Cavasso,,0.3264705882352941
+2014,34,HI,cash,Brian Schatz,"SCHATZ, BRIAN",1.06,Cam Cavasso,,0.08695652173913043
+2014,35,OK,receipts,Constance N. Johnson,,0.06060606060606061,James Lankford,,0.5207142857142857
+2014,35,OK,individual,Constance N. Johnson,,0.10526315789473684,James Lankford,"LANKFORD, JAMES PAUL",0.9509090909090909
+2014,35,OK,cash,Constance N. Johnson,,0.06060606060606061,James Lankford,,0.5207142857142857
+2014,13,WY,receipts,Charlie Hardy,,0.18518518518518517,Michael B. Enzi,"ENZI, MICHAEL B",1.06
+2014,13,WY,individual,Charlie Hardy,,0,Michael B. Enzi,,0
+2014,13,WY,cash,Charlie Hardy,,0.18518518518518517,Michael B. Enzi,"ENZI, MICHAEL B",1.06
+2014,31,MA,receipts,Edward J. Markey,"MARKEY, EDWARD JOHN MR",0.9645454545454546,Brian J. Herr,,0.26
+2014,31,MA,individual,Edward J. Markey,"MARKEY, EDWARD JOHN MR",0.9645454545454546,Brian J. Herr,,0.26
+2014,31,MA,cash,Edward J. Markey,"MARKEY, EDWARD JOHN MR",0.9645454545454546,Brian J. Herr,,0.13333333333333333
+2014,36,SC,receipts,Joyce Dickerson,,0.2,Tim Scott,"SCOTT, TIMOTHY E",0.8600000000000001
+2014,36,SC,individual,Joyce Dickerson,,0.2,Tim Scott,"SCOTT, TIMOTHY E",0.8600000000000001
+2014,36,SC,cash,Joyce Dickerson,,0.2,Tim Scott,"SCOTT, TIMOTHY E",0.8600000000000001
+2018,112,NV,receipts,Jacky S. Rosen,"ROSEN, JACKY",0.9849999999999999,Dean Heller,"HELLER, DEAN",1.06
+2018,112,NV,individual,Jacky S. Rosen,"ROSEN, JACKY",0.9849999999999999,Dean Heller,"HELLER, DEAN",1.06
+2018,112,NV,cash,Jacky S. Rosen,"ROSEN, JACKY",0.9849999999999999,Dean Heller,"HELLER, DEAN",1.06
+2018,107,MN,receipts,Amy Klobuchar,"KLOBUCHAR, AMY",1.06,Jim Newberger,,0.15384615384615385
+2018,107,MN,individual,Amy Klobuchar,"KLOBUCHAR, AMY",1.06,Jim Newberger,,0.15384615384615385
+2018,107,MN,cash,Amy Klobuchar,"KLOBUCHAR, AMY",1.06,Jim Newberger,,0.15384615384615385
+2018,116,ND,receipts,Heidi Heitkamp,"HEITKAMP, HEIDI",1.06,Kevin Cramer,,0.11538461538461539
+2018,116,ND,individual,Heidi Heitkamp,"HEITKAMP, HEIDI",1.06,Kevin Cramer,,0.11538461538461539
+2018,116,ND,cash,Heidi Heitkamp,"HEITKAMP, HEIDI",1.06,Kevin Cramer,"CRAMER, KEVIN",1.06
+2018,119,RI,receipts,Sheldon Whitehouse,"WHITEHOUSE, SHELDON II",1.06,Bob Flanders,,0.13333333333333333
+2018,119,RI,individual,Sheldon Whitehouse,"WHITEHOUSE, SHELDON II",1.06,Bob Flanders,,0.13333333333333333
+2018,119,RI,cash,Sheldon Whitehouse,"WHITEHOUSE, SHELDON II",1.06,Bob Flanders,,0.13333333333333333
+2018,123,VT,receipts,Bernie Sanders,"SANDERS, BERNARD",0.8471264367816091,Lawrence Zupan,,0.1724137931034483
+2018,123,VT,individual,Bernie Sanders,"SANDERS, BERNARD",0.8471264367816091,Lawrence Zupan,,0.1724137931034483
+2018,123,VT,cash,Bernie Sanders,"SANDERS, BERNARD",0.8471264367816091,Lawrence Zupan,,0.1724137931034483
+2018,128,WY,receipts,Gary Trauner,,0.14814814814814814,John Barrasso,"BARRASSO, JOHN A",0.990952380952381
+2018,128,WY,individual,Gary Trauner,,0.14814814814814814,John Barrasso,"BARRASSO, JOHN A",0.990952380952381
+2018,128,WY,cash,Gary Trauner,,0.14814814814814814,John Barrasso,"BARRASSO, JOHN A",0.990952380952381
+2018,124,VA,receipts,Timothy Michael Kaine,"KAINE, TIMOTHY MICHAEL",1.06,Corey Stewart,,0.14705882352941177
+2018,124,VA,individual,Timothy Michael Kaine,"KAINE, TIMOTHY MICHAEL",1.06,Corey Stewart,,0.14705882352941177
+2018,124,VA,cash,Timothy Michael Kaine,"KAINE, TIMOTHY MICHAEL",1.06,Corey Stewart,,0.14705882352941177
+2018,129,MN,receipts,Tina Smith,"SMITH, TINA FLINT",0.9112820512820512,Karin Housley,,0.13793103448275862
+2018,129,MN,individual,Tina Smith,"SMITH, TINA FLINT",0.9112820512820512,Karin Housley,,0.13793103448275862
+2018,129,MN,cash,Tina Smith,"SMITH, TINA FLINT",0.9112820512820512,Karin Housley,,0.13793103448275862
+2018,125,WA,receipts,Maria Cantwell,"CANTWELL, MARIA",1.06,Susan Hutchison,,0.10344827586206896
+2018,125,WA,individual,Maria Cantwell,"CANTWELL, MARIA",1.06,Susan Hutchison,,0.10344827586206896
+2018,125,WA,cash,Maria Cantwell,"CANTWELL, MARIA",1.06,Susan Hutchison,,0.10344827586206896
+2018,122,UT,receipts,Jenny Wilson,,0.1935483870967742,Mitt Romney,"ROMNEY, MITT WILLARD MR",0.8933333333333333
+2018,122,UT,individual,Jenny Wilson,,0.1935483870967742,Mitt Romney,"ROMNEY, MITT WILLARD MR",0.8933333333333333
+2018,122,UT,cash,Jenny Wilson,,0,Mitt Romney,,0
+2018,104,MD,receipts,Benjamin L. Cardin,,0,Tony Campbell,,0
+2018,104,MD,individual,Benjamin L. Cardin,"CARDIN, BENJAMIN L",1.06,Tony Campbell,,0.13333333333333333
+2018,104,MD,cash,Benjamin L. Cardin,"CARDIN, BENJAMIN L",1.06,Tony Campbell,,0.1988888888888889
+2018,101,HI,receipts,Mazie K. Hirono,,0,Ronald C. Curtis,,0
+2018,101,HI,individual,Mazie K. Hirono,,0,Ronald C. Curtis,,0
+2018,101,HI,cash,Mazie K. Hirono,"HIRONO, MAZIE K",1.06,Ronald C. Curtis,,0.10344827586206896
+2018,99,DE,receipts,Thomas R. Carper,,0,Rob Arlett,,0
+2018,99,DE,individual,Thomas R. Carper,,0,Rob Arlett,,0
+2018,99,DE,cash,Thomas R. Carper,,0,Rob Arlett,,0
+2018,127,WI,receipts,Tammy Baldwin,"BALDWIN, TAMMY",1.06,Leah Vukmir,,0.08333333333333333
+2018,127,WI,individual,Tammy Baldwin,"BALDWIN, TAMMY",1.06,Leah Vukmir,,0.09846153846153846
+2018,127,WI,cash,Tammy Baldwin,"BALDWIN, TAMMY",1.06,Leah Vukmir,,0.08333333333333333
+2018,114,NM,receipts,Martin Heinrich,"HEINRICH, MARTIN TREVOR",0.9320720720720721,Mick Rich,,0.3758064516129032
+2018,114,NM,individual,Martin Heinrich,"HEINRICH, MARTIN TREVOR",0.9320720720720721,Mick Rich,,0.3758064516129032
+2018,114,NM,cash,Martin Heinrich,"HEINRICH, MARTIN TREVOR",0.9320720720720721,Mick Rich,,0.3758064516129032
+2018,113,NJ,receipts,Bob Menendez,"MENENDEZ, ROBERT",0.7507407407407407,Bob Hugin,"HUGIN, ROBERT",0.7242857142857142
+2018,113,NJ,individual,Bob Menendez,"MENENDEZ, ROBERT",0.7507407407407407,Bob Hugin,,0.16666666666666666
+2018,113,NJ,cash,Bob Menendez,"MENENDEZ, ROBERT",0.7507407407407407,Bob Hugin,"HUGIN, ROBERT",0.7242857142857142
+2018,105,MA,receipts,Elizabeth Ann Warren,"WARREN, ELIZABETH",0.971111111111111,Geoff Diehl,,0.1433333333333333
+2018,105,MA,individual,Elizabeth Ann Warren,"WARREN, ELIZABETH",0.971111111111111,Geoff Diehl,,0.1111111111111111
+2018,105,MA,cash,Elizabeth Ann Warren,"WARREN, ELIZABETH",0.971111111111111,Geoff Diehl,,0.1433333333333333
+2018,115,NY,receipts,Kirsten E. Gillibrand,"GILLIBRAND, KIRSTEN ELIZABETH",0.9266666666666667,Chele Farley,,0.125
+2018,115,NY,individual,Kirsten E. Gillibrand,"GILLIBRAND, KIRSTEN ELIZABETH",0.9266666666666667,Chele Farley,,0.125
+2018,115,NY,cash,Kirsten E. Gillibrand,"GILLIBRAND, KIRSTEN ELIZABETH",0.9266666666666667,Chele Farley,,0.125
+2018,111,NE,receipts,Jane Raybould,,0,Deb Fischer,,0
+2018,111,NE,individual,Jane Raybould,,0.10714285714285714,Deb Fischer,"FISCHER, DEBRA S",0.9080769230769232
+2018,111,NE,cash,Jane Raybould,,0.10714285714285714,Deb Fischer,"FISCHER, DEBRA S",0.9080769230769232
+2018,108,MS,receipts,David Baria,,0.08,Roger F. Wicker,"WICKER, ROGER F",1.06
+2018,108,MS,individual,David Baria,,0.08,Roger F. Wicker,"WICKER, ROGER F",1.06
+2018,108,MS,cash,David Baria,,0.08,Roger F. Wicker,"WICKER, ROGER F",1.06
+2018,109,MO,receipts,Claire McCaskill,"MCCASKILL, CLAIRE",1.06,Josh Hawley,"HAWLEY, JOSHUA DAVID",0.8516666666666668
+2018,109,MO,individual,Claire McCaskill,"MCCASKILL, CLAIRE",1.06,Josh Hawley,"HAWLEY, JOSHUA DAVID",0.8516666666666668
+2018,109,MO,cash,Claire McCaskill,"MCCASKILL, CLAIRE",1.06,Josh Hawley,"HAWLEY, JOSHUA DAVID",0.8516666666666668
+2018,110,MT,receipts,Jon Tester,"TESTER, JON",1.06,Matt Rosendale,,0.125
+2018,110,MT,individual,Jon Tester,"TESTER, JON",1.06,Matt Rosendale,,0.125
+2018,110,MT,cash,Jon Tester,"TESTER, JON",1.06,Matt Rosendale,,0.125
+2018,117,OH,receipts,Sherrod Brown,"BROWN, SHERROD",1.06,Jim Renacci,"RENACCI, JAMES B",0.8696153846153847
+2018,117,OH,individual,Sherrod Brown,"BROWN, SHERROD",1.06,Jim Renacci,,0.3463636363636364
+2018,117,OH,cash,Sherrod Brown,"BROWN, SHERROD",1.06,Jim Renacci,"RENACCI, JAMES B",0.8696153846153847
+2018,118,PA,receipts,Robert P. Casey Jr.,"CASEY, ROBERT P JR",1.06,Lou Barletta,"BARLETTA, LOU",1.06
+2018,118,PA,individual,Robert P. Casey Jr.,"CASEY, ROBERT P JR",1.06,Lou Barletta,"BARLETTA, LOU",1.06
+2018,118,PA,cash,Robert P. Casey Jr.,"CASEY, ROBERT P JR",1.06,Lou Barletta,"BARLETTA, LOU",1.06
+2018,120,TN,receipts,Phil Bredesen,"BREDESEN, PHILIP",0.9576190476190476,Marsha Blackburn,"BLACKBURN, MARSHA MRS",1.06
+2018,120,TN,individual,Phil Bredesen,"BREDESEN, PHILIP",0.9576190476190476,Marsha Blackburn,"BLACKBURN, MARSHA MRS",1.06
+2018,120,TN,cash,Phil Bredesen,"BREDESEN, PHILIP",0.9576190476190476,Marsha Blackburn,"BLACKBURN, MARSHA MRS",1.06
+2018,121,TX,receipts,Beto O'Rourke,"O'ROURKE, ROBERT (BETO)",0.778939393939394,Ted Cruz,,0.6266666666666667
+2018,121,TX,individual,Beto O'Rourke,"O'ROURKE, ROBERT (BETO)",0.778939393939394,Ted Cruz,,0.6266666666666667
+2018,121,TX,cash,Beto O'Rourke,"O'ROURKE, ROBERT (BETO)",0.778939393939394,Ted Cruz,,0.6266666666666667
+2018,96,AZ,receipts,Kyrsten Sinema,"SINEMA, KYRSTEN",1.06,Martha McSally,"MCSALLY, MARTHA",1.06
+2018,96,AZ,individual,Kyrsten Sinema,"SINEMA, KYRSTEN",1.06,Martha McSally,"MCSALLY, MARTHA",1.06
+2018,96,AZ,cash,Kyrsten Sinema,"SINEMA, KYRSTEN",1.06,Martha McSally,"MCSALLY, MARTHA",1.06
+2018,126,WV,receipts,"Joe Manchin, III","MANCHIN III, JOE",1.06,Patrick Morrisey,,0.1111111111111111
+2018,126,WV,individual,"Joe Manchin, III","MANCHIN III, JOE",1.06,Patrick Morrisey,"MORRISEY, PATRICK MR",1.06
+2018,126,WV,cash,"Joe Manchin, III","MANCHIN III, JOE",1.06,Patrick Morrisey,,0.1111111111111111
+2018,98,CT,receipts,Christopher S. Murphy,"MURPHY, CHRISTOPHER S MR",1.06,Matthew M. Corey,,0.2
+2018,98,CT,individual,Christopher S. Murphy,"MURPHY, CHRISTOPHER S MR",1.06,Matthew M. Corey,,0.2
+2018,98,CT,cash,Christopher S. Murphy,"MURPHY, CHRISTOPHER S MR",1.06,Matthew M. Corey,,0.2
+2018,100,FL,receipts,Bill Nelson,"NELSON, BILL",1.06,Rick Scott,"SCOTT, RICK",1.06
+2018,100,FL,individual,Bill Nelson,"NELSON, BILL",1.06,Rick Scott,"SCOTT, RICK",1.06
+2018,100,FL,cash,Bill Nelson,"NELSON, BILL",1.06,Rick Scott,"SCOTT, RICK",1.06
+2018,102,IN,receipts,Joe Donnelly,"DONNELLY, JOSEPH S",0.8987931034482759,Mike Braun,"BRAUN, MIKE",1.06
+2018,102,IN,individual,Joe Donnelly,"DONNELLY, JOSEPH S",0.8987931034482759,Mike Braun,,0.185
+2018,102,IN,cash,Joe Donnelly,"DONNELLY, JOSEPH S",0.8987931034482759,Mike Braun,,0.1111111111111111
+2018,106,MI,receipts,Debbie Stabenow,"STABENOW, DEBBIE",1.06,John James,,0.23391304347826086
+2018,106,MI,individual,Debbie Stabenow,"STABENOW, DEBBIE",1.06,John James,"JAMES, JOHN",1.06
+2018,106,MI,cash,Debbie Stabenow,"STABENOW, DEBBIE",1.06,John James,,0.23391304347826086
+2018,103,ME,receipts,Angus S. King Jr.,"KING, ANGUS STANLEY JR",0.8500000000000001,Eric L. Brakey,,0.12903225806451613
+2018,103,ME,individual,Angus S. King Jr.,"KING, ANGUS STANLEY JR",0.8500000000000001,Eric L. Brakey,,0.12903225806451613
+2018,103,ME,cash,Angus S. King Jr.,"KING, ANGUS STANLEY JR",0.8500000000000001,Eric L. Brakey,,0.12903225806451613
+2022,8926,HI,receipts,Brian Schatz,,0,Bob McDermott,,0
+2022,8926,HI,individual,Brian Schatz,,0,Bob McDermott,,0
+2022,8926,HI,cash,Brian Schatz,"SCHATZ, BRIAN",1.06,Bob McDermott,,0.31
+2022,8927,ID,receipts,David Roth,,0,Mike Crapo,,0
+2022,8927,ID,individual,David Roth,,0,Mike Crapo,,0
+2022,8927,ID,cash,David Roth,,0.2,Mike Crapo,"CRAPO, MICHAEL D",0.845
+2022,8931,KS,receipts,Mark R. Holland,,0,Jerry Moran,,0
+2022,8931,KS,individual,Mark R. Holland,,0,Jerry Moran,,0
+2022,8931,KS,cash,Mark R. Holland,,0.16,Jerry Moran,"MORAN, JERRY",1.06
+2022,8919,AZ,receipts,Mark Kelly,"KELLY, MARK",1.06,Blake Masters,,0.19636363636363635
+2022,8919,AZ,individual,Mark Kelly,"KELLY, MARK",1.06,Blake Masters,"MASTERS, BLAKE",1.06
+2022,8919,AZ,cash,Mark Kelly,"KELLY, MARK",1.06,Blake Masters,"MASTERS, BLAKE",1.06
+2022,8922,CO,receipts,Michael Bennet,"BENNET, MICHAEL F.",0.9933333333333334,Joe O'Dea,,0.16
+2022,8922,CO,individual,Michael Bennet,"BENNET, MICHAEL F.",0.9933333333333334,Joe O'Dea,,0.16
+2022,8922,CO,cash,Michael Bennet,"BENNET, MICHAEL F.",0.9933333333333334,Joe O'Dea,,0.16
+2022,8924,FL,receipts,Val Demings,"DEMINGS, VAL",1.06,Marco Rubio,"RUBIO, MARCO",1.06
+2022,8924,FL,individual,Val Demings,"DEMINGS, VAL",1.06,Marco Rubio,"RUBIO, MARCO",1.06
+2022,8924,FL,cash,Val Demings,"DEMINGS, VAL",1.06,Marco Rubio,"RUBIO, MARCO",1.06
+2022,8940,NC,receipts,Cheri Beasley,"BEASLEY, CHERI",1.06,Ted Budd,"BUDD, THEODORE P",0.8328260869565218
+2022,8940,NC,individual,Cheri Beasley,"BEASLEY, CHERI",1.06,Ted Budd,"BUDD, THEODORE P",0.8328260869565218
+2022,8940,NC,cash,Cheri Beasley,"BEASLEY, CHERI",1.06,Ted Budd,"BUDD, THEODORE P",0.8328260869565218
+2022,8937,NV,receipts,Catherine Cortez Masto,"CORTEZ MASTO, CATHERINE",1.06,Adam Paul Laxalt,"LAXALT, ADAM",0.9340740740740741
+2022,8937,NV,individual,Catherine Cortez Masto,"CORTEZ MASTO, CATHERINE",1.06,Adam Paul Laxalt,"LAXALT, ADAM",0.9340740740740741
+2022,8937,NV,cash,Catherine Cortez Masto,"CORTEZ MASTO, CATHERINE",1.06,Adam Paul Laxalt,"LAXALT, ADAM",0.9340740740740741
+2022,8928,IL,receipts,Tammy Duckworth,"DUCKWORTH, L. TAMMY",0.8454166666666667,Kathy Salvi,,0.10714285714285714
+2022,8928,IL,individual,Tammy Duckworth,"DUCKWORTH, L. TAMMY",0.8454166666666667,Kathy Salvi,,0.10714285714285714
+2022,8928,IL,cash,Tammy Duckworth,"DUCKWORTH, L. TAMMY",0.8454166666666667,Kathy Salvi,,0.10714285714285714
+2022,8943,OK,receipts,Madison Horn,,0.16129032258064516,James Lankford,"LANKFORD, JAMES PAUL",0.9509090909090909
+2022,8943,OK,individual,Madison Horn,,0,James Lankford,,0
+2022,8943,OK,cash,Madison Horn,,0.16129032258064516,James Lankford,"LANKFORD, JAMES PAUL",0.9509090909090909
+2022,9482,OK,receipts,Kendra Horn,,0.1,Markwayne Mullin,,0.23142857142857143
+2022,9482,OK,individual,Kendra Horn,,0,Markwayne Mullin,,0
+2022,9482,OK,cash,Kendra Horn,,0.1,Markwayne Mullin,,0.23142857142857143
+2022,8946,SC,receipts,Krystle Matthews,,0.16129032258064516,Tim Scott,"SCOTT, TIMOTHY E.",0.8600000000000001
+2022,8946,SC,individual,Krystle Matthews,,0.16129032258064516,Tim Scott,"SCOTT, TIMOTHY E.",0.8600000000000001
+2022,8946,SC,cash,Krystle Matthews,,0.16129032258064516,Tim Scott,"SCOTT, TIMOTHY E.",0.8600000000000001
+2022,8951,WI,receipts,Mandela Barnes,"BARNES, MANDELA",1.06,Ron Johnson,"JOHNSON, RON HAROLD MR.",0.9059770114942529
+2022,8951,WI,individual,Mandela Barnes,"BARNES, MANDELA",1.06,Ron Johnson,"JOHNSON, RON HAROLD MR.",0.9059770114942529
+2022,8951,WI,cash,Mandela Barnes,"BARNES, MANDELA",1.06,Ron Johnson,"JOHNSON, RON HAROLD MR.",0.9059770114942529
+2022,8938,NH,receipts,Maggie Hassan,"HASSAN, MARGARET WOOD",0.8183333333333334,Donald C. Bolduc,,0.08571428571428572
+2022,8938,NH,individual,Maggie Hassan,"HASSAN, MARGARET WOOD",0.8183333333333334,Donald C. Bolduc,,0.08571428571428572
+2022,8938,NH,cash,Maggie Hassan,"HASSAN, MARGARET WOOD",0.8183333333333334,Donald C. Bolduc,,0.13407407407407407
+2022,8941,ND,receipts,Katrina Christiansen,,0,John Hoeven,,0
+2022,8941,ND,individual,Katrina Christiansen,,0,John Hoeven,,0
+2022,8941,ND,cash,Katrina Christiansen,,0.16129032258064516,John Hoeven,"HOEVEN, JOHN",1.06
+2022,8947,SD,receipts,Brian L. Bengs,,0.16,John R. Thune,"THUNE, JOHN R.",1.06
+2022,8947,SD,individual,Brian L. Bengs,,0,John R. Thune,,0
+2022,8947,SD,cash,Brian L. Bengs,,0.16,John R. Thune,"THUNE, JOHN R.",1.06
+2022,8950,WA,receipts,Patty Murray,"MURRAY, PATTY",1.06,Tiffany Smiley,"SMILEY, TIFFANY",1.06
+2022,8950,WA,individual,Patty Murray,"MURRAY, PATTY",1.06,Tiffany Smiley,"SMILEY, TIFFANY",1.06
+2022,8950,WA,cash,Patty Murray,"MURRAY, PATTY",1.06,Tiffany Smiley,"SMILEY, TIFFANY",1.06
+2022,8949,VT,receipts,Peter Welch,,0,Gerald Malloy,,0
+2022,8949,VT,individual,Peter Welch,,0,Gerald Malloy,,0
+2022,8949,VT,cash,Peter Welch,"WELCH, PETER",1.06,Gerald Malloy,,0.125
+2022,8935,MD,receipts,Chris Van Hollen,"VAN HOLLEN, CHRIS",1.06,Chris Chaffee,,0.4508620689655173
+2022,8935,MD,individual,Chris Van Hollen,"VAN HOLLEN, CHRIS",1.06,Chris Chaffee,,0.4508620689655173
+2022,8935,MD,cash,Chris Van Hollen,"VAN HOLLEN, CHRIS",1.06,Chris Chaffee,,0.4508620689655173
+2022,8932,KY,receipts,Charles Booker,,0.08695652173913043,Rand Paul,"PAUL, RAND",1.06
+2022,8932,KY,individual,Charles Booker,"BOOKER, CHARLES",1.06,Rand Paul,"PAUL, RAND",1.06
+2022,8932,KY,cash,Charles Booker,,0.08695652173913043,Rand Paul,"PAUL, RAND",1.06
+2022,8942,OH,receipts,Tim Ryan,"RYAN, TIMOTHY",0.8933333333333333,JD Vance,,0.4205263157894737
+2022,8942,OH,individual,Tim Ryan,"RYAN, TIMOTHY",0.8933333333333333,JD Vance,,0.4205263157894737
+2022,8942,OH,cash,Tim Ryan,"RYAN, TIMOTHY",0.8933333333333333,JD Vance,,0.16
+2022,8944,OR,receipts,Ron Wyden,"WYDEN, RONALD LEE",0.845,Jo Rae Perkins,,0.2
+2022,8944,OR,individual,Ron Wyden,"WYDEN, RONALD LEE",0.845,Jo Rae Perkins,,0.2
+2022,8944,OR,cash,Ron Wyden,"WYDEN, RONALD LEE",0.845,Jo Rae Perkins,,0.2
+2022,8939,NY,receipts,Charles E. Schumer,"SCHUMER, CHARLES E.",1.06,Joe Pinion,,0.07407407407407407
+2022,8939,NY,individual,Charles E. Schumer,"SCHUMER, CHARLES E.",1.06,Joe Pinion,,0.07407407407407407
+2022,8939,NY,cash,Charles E. Schumer,"SCHUMER, CHARLES E.",1.06,Joe Pinion,,0.07407407407407407
+2022,8930,IA,receipts,Michael Franken,"FRANKEN, MICHAEL T",0.9954166666666666,Chuck Grassley,"GRASSLEY, CHARLES E",0.8287500000000001
+2022,8930,IA,individual,Michael Franken,"FRANKEN, MICHAEL T",0.9954166666666666,Chuck Grassley,"GRASSLEY, CHARLES E",0.8287500000000001
+2022,8930,IA,cash,Michael Franken,,0.24242424242424243,Chuck Grassley,"GRASSLEY, CHARLES E",0.8287500000000001
+2022,9480,CA,receipts,Alex Padilla,"PADILLA, ALEX",1.06,Mark P. Meuser,,0.13043478260869565
+2022,9480,CA,individual,Alex Padilla,"PADILLA, ALEX",1.06,Mark P. Meuser,,0.12
+2022,9480,CA,cash,Alex Padilla,"PADILLA, ALEX",1.06,Mark P. Meuser,,0.12
+2022,8921,CA,receipts,Alex Padilla,"PADILLA, ALEX",1.06,Mark P. Meuser,,0.13043478260869565
+2022,8921,CA,individual,Alex Padilla,"PADILLA, ALEX",1.06,Mark P. Meuser,,0.12
+2022,8921,CA,cash,Alex Padilla,"PADILLA, ALEX",1.06,Mark P. Meuser,,0.12
+2022,8945,PA,receipts,John Fetterman,"FETTERMAN, JOHN KARL",0.9509090909090909,Mehmet Oz,"OZ, MEHMET DR",1.06
+2022,8945,PA,individual,John Fetterman,"FETTERMAN, JOHN KARL",0.9509090909090909,Mehmet Oz,"OZ, MEHMET DR",1.06
+2022,8945,PA,cash,John Fetterman,"FETTERMAN, JOHN KARL",0.9509090909090909,Mehmet Oz,,0.10714285714285714
+2022,8923,CT,receipts,Richard Blumenthal,"BLUMENTHAL, RICHARD",1.06,Leora R. Levy,,0.13333333333333333
+2022,8923,CT,individual,Richard Blumenthal,"BLUMENTHAL, RICHARD",1.06,Leora R. Levy,,0.13333333333333333
+2022,8923,CT,cash,Richard Blumenthal,"BLUMENTHAL, RICHARD",1.06,Leora R. Levy,,0.13333333333333333
+2022,8929,IN,receipts,Thomas McDermott,,0.3078947368421052,Todd Young,"YOUNG, TODD CHRISTOPHER",0.8391666666666666
+2022,8929,IN,individual,Thomas McDermott,,0.3078947368421052,Todd Young,"YOUNG, TODD CHRISTOPHER",0.8391666666666666
+2022,8929,IN,cash,Thomas McDermott,,0.3078947368421052,Todd Young,"YOUNG, TODD CHRISTOPHER",0.8391666666666666
+2022,8936,MO,receipts,Trudy Busch Valentine,,0,Eric Schmitt,,0
+2022,8936,MO,individual,Trudy Busch Valentine,,0.21625,Eric Schmitt,"SCHMITT, ERIC",1.06
+2022,8936,MO,cash,Trudy Busch Valentine,,0.21875,Eric Schmitt,"SCHMITT, ERIC",1.06
+2022,8925,GA,receipts,Raphael Warnock,"WARNOCK, RAPHAEL",1.06,Herschel Junior Walker,"WALKER, HERSCHEL MR.",0.9320720720720721
+2022,8925,GA,individual,Raphael Warnock,"WARNOCK, RAPHAEL",1.06,Herschel Junior Walker,"WALKER, HERSCHEL MR.",0.9320720720720721
+2022,8925,GA,cash,Raphael Warnock,"WARNOCK, RAPHAEL",1.06,Herschel Junior Walker,"WALKER, HERSCHEL MR.",0.9320720720720721
+2022,8920,AR,receipts,Natalie James,,0.08,John Boozman,"BOOZMAN, SEN. JOHN",1.06
+2022,8920,AR,individual,Natalie James,,0,John Boozman,,0
+2022,8920,AR,cash,Natalie James,,0.08,John Boozman,"BOOZMAN, SEN. JOHN",1.06
+2022,8917,AL,receipts,Will Boyd,,0.265,Katie Britt,"BRITT, KATIE BOYD",0.9340740740740741
+2022,8917,AL,individual,Will Boyd,,0.265,Katie Britt,"BRITT, KATIE BOYD",0.9340740740740741
+2022,8917,AL,cash,Will Boyd,,0.16,Katie Britt,,0.13407407407407407

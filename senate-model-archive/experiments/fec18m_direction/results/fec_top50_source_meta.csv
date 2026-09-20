@@ -1,0 +1,10 @@
+year,metric,url,rows
+2014,receipts,https://www.fec.gov/resources/campaign-finance-statistics/2014/tables/congressional/ConCand6a_2014_18m.xlsx,50
+2014,individual,https://www.fec.gov/resources/campaign-finance-statistics/2014/tables/congressional/ConCand6b_2014_18m.xlsx,50
+2014,cash,https://www.fec.gov/resources/campaign-finance-statistics/2014/tables/congressional/ConCand6f_2014_18m.xlsx,50
+2018,receipts,https://www.fec.gov/resources/campaign-finance-statistics/2018/tables/congressional/ConCand6a_2018_18m.xlsx,50
+2018,individual,https://www.fec.gov/resources/campaign-finance-statistics/2018/tables/congressional/ConCand6b_2018_18m.xlsx,50
+2018,cash,https://www.fec.gov/resources/campaign-finance-statistics/2018/tables/congressional/ConCand6f_2018_18m.xlsx,50
+2022,receipts,https://www.fec.gov/resources/campaign-finance-statistics/2022/tables/congressional/ConCand6a_2022_18m.xlsx,50
+2022,individual,https://www.fec.gov/resources/campaign-finance-statistics/2022/tables/congressional/ConCand6b_2022_18m.xlsx,50
+2022,cash,https://www.fec.gov/resources/campaign-finance-statistics/2022/tables/congressional/ConCand6f_2022_18m.xlsx,50
