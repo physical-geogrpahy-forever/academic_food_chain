@@ -19,6 +19,17 @@ Use:
 
 Do not use map-placed Civ VI district puzzles as final gameplay objects.
 
+**Structural baseline does not mean source-game unlock placement is binding.**
+
+When Civ V, Civ VI, adopted mods and historical logic disagree, choose the final technology by:
+1. historical and functional fit;
+2. coherence with the locked 109-tech project tree;
+3. avoidance of duplicate unlocks;
+4. gameplay progression and era balance;
+5. source-game placement only after the above.
+
+Therefore Civ V defines the city/tile **form**, while the project may deliberately move an improvement, building, unit or system to a different technology when that is more coherent. Plantation -> Irrigation is an explicit example.
+
 ## 2. Source priority and adopted mod sources
 
 For every technology and every unlock candidate, audit in this order:
