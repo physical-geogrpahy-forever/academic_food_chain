@@ -1,6 +1,6 @@
 TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
-"Agriculture","Farm; Worker(starting framework)","","","","","Core farm/worker structure"
-"Pottery","","Granary","","","","Shrine moved to Mysticism civic"
+"Agriculture","Worker","","Farm","","","","Core farm/worker structure"
+"Pottery","","Granary","","","","","Shrine moved to Mysticism civic"
 "Animal Husbandry","Caravan with Foreign Trade","","Pasture","","Horses","Horses; Cattle; Sheep","Land trade requires Foreign Trade civic"
 "Mining","","","Mine","","","Mineable minerals","Forest clearing"
 "Sailing","Work Boat; Trireme; Cargo Ship with Foreign Trade","","Fishing Boats","","","Fish; Crab; Pearls; Whales","Maritime trade requires Foreign Trade; embarkation moved to Shipbuilding"
