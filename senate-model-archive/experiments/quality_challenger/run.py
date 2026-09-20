@@ -162,6 +162,72 @@ for key,p in people.items():
     tier=3 if 'statewide' in cs else (2 if 'state_legislative' in cs else (1 if 'local' in cs else 0))
     audit.append({'cycle':cyc,'state_abbrev':st,'candidate_name':name,'politician_id':p['politician_id'],'wikidata_qid':m['qid'],'match_status':m['status'],'match_score':m['match_score'],'wikidata_label':m['label'],'wikidata_description':m['description'],'state_local_quality_tier':tier,'prior_eligible_offices':' | '.join(f'{a}:{b}[{c},{d}]' for a,b,c,d in eligible),'undated_eligible_offices_review':' | '.join(f'{a}:{b}' for a,b in undated)})
 
+
+# Systematic Wikipedia-intro fallback for unresolved/undated state or local office histories.
+def wiki_intro(name,state):
+    params={
+      'action':'query','generator':'search','gsrsearch':name+' '+STATE_FULL.get(state,state)+' politician',
+      'gsrlimit':4,'prop':'extracts|info','exintro':1,'explaintext':1,'inprop':'url','format':'json'
+    }
+    url='https://en.wikipedia.org/w/api.php?'+urlencode(params)
+    req=Request(url,headers={'User-Agent':'CoreV2R-quality-audit/1.0 research'})
+    for t in range(4):
+        try:
+            with urlopen(req,timeout=60) as resp:js=json.load(resp)
+            pages=list(js.get('query',{}).get('pages',{}).values())
+            if not pages:return None
+            def pscore(p):
+                title=p.get('title','');txt=(p.get('extract','') or '').lower();score=0
+                nt=norm(name).split();tt=norm(title).split()
+                if norm(title)==norm(name):score+=12
+                if nt and tt and nt[0]==tt[0] and nt[-1]==tt[-1]:score+=6
+                if any(w in txt for w in ['politician','senator','representative','governor','attorney general','mayor','legislator']):score+=4
+                if STATE_FULL.get(state,state).lower() in txt:score+=2
+                return score
+            pages.sort(key=pscore,reverse=True)
+            p=pages[0]
+            if pscore(p)<8:return None
+            return p
+        except Exception:
+            if t==3:return None
+            time.sleep(1.5*(t+1))
+
+def fallback_tier(text,cycle):
+    if not text:return 0,[]
+    sent=re.split(r'(?<=[.!?])\s+',text)
+    found=[]
+    cats=[
+      (3,['attorney general','lieutenant governor','secretary of state','state treasurer','state auditor','comptroller','superintendent of public instruction','commissioner of agriculture','commissioner of insurance']),
+      (2,['state senate','state senator','house of representatives','house of delegates','state assembly','general assembly','legislative assembly','speaker of the']),
+      (1,['mayor of','county executive','county commissioner','city council','board of supervisors'])
+    ]
+    best=0
+    for s in sent:
+        low=s.lower()
+        years=[int(y) for y in re.findall(r'\b(19\d{2}|20\d{2})\b',s)]
+        if not any(y<cycle for y in years):continue
+        for tier,terms in cats:
+            hits=[term for term in terms if term in low and not (term=='house of representatives' and ('u.s. house' in low or 'united states house' in low))]
+            if hits:
+                best=max(best,tier);found.append((tier,hits[0],min(y for y in years if y<cycle)))
+    return best,found
+
+fallback_count=0
+for r in audit:
+    if int(r['state_local_quality_tier'])>0 and not r['undated_eligible_offices_review']:
+        r['wikipedia_fallback']=''
+        continue
+    p=wiki_intro(r['candidate_name'],r['state_abbrev'])
+    if not p:
+        r['wikipedia_fallback']='NO_MATCH'
+        continue
+    tier,found=fallback_tier(p.get('extract',''),int(r['cycle']))
+    r['wikipedia_fallback']=p.get('title','')+' | '+p.get('fullurl','')+' | '+'; '.join(f'tier{t}:{term}:{yr}' for t,term,yr in found)
+    if tier>int(r['state_local_quality_tier']):
+        r['state_local_quality_tier']=tier
+        fallback_count+=1
+
+
 aby={(int(r['cycle']),r['state_abbrev'],r['candidate_name']):r for r in audit}
 raceq=[]
 for r in cands:
