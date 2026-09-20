@@ -1,6 +1,6 @@
 # GitHub Actions run: historical PVI panel v3 — geography + exact-duplicate fix
 
-- Generated UTC: 2026-09-20T16:39:00.921858+00:00
+- Generated UTC: 2026-09-20T16:43:08.423680+00:00
 - Execution: GitHub Actions
 - Fix 1: exclude presidential congressional-district rows such as M1/M2/N1/N2/N3 from state and national presidential margins
 - Fix 2: remove exact duplicate source result lines before candidate aggregation

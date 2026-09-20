@@ -1,0 +1,19 @@
+race_id,cycle,state_abbrev,seat,d_candidate,r_candidate,pvi_default_067_033_pctpt,d_incumbency,r_incumbency,d_outparty_incumbent,r_outparty_incumbent,OutPartyIncumbent
+12,2014,AK,Class II,Mark Begich,Dan Sullivan,-22.16401365,1,0,1,0,1
+32,2014,AR,Class II,Mark L. Pryor,Tom Cotton,-28.05900513,1,0,1,0,1
+9,2014,ME,Class II,Shenna Bellows,Susan M. Collins,11.30101480,0,1,0,1,-1
+14,2014,NC,Class II,Kay R. Hagan,Thomas Roland Tillis,-6.33483735,1,0,1,0,1
+16,2014,VA,Class II,Mark R. Warner,Ed W. Gillespie,-0.32197589,1,0,1,0,1
+100,2018,FL,Class I,Bill Nelson,Rick Scott,-3.32169744,1,0,1,0,1
+102,2018,IN,Class I,Joe Donnelly,Mike Braun,-19.77378631,1,0,1,0,1
+109,2018,MO,Class I,Claire McCaskill,Josh Hawley,-19.09513611,1,0,1,0,1
+110,2018,MT,Class I,Jon Tester,Matt Rosendale,-22.31388753,1,0,1,0,1
+116,2018,ND,Class I,Heidi Heitkamp,Kevin Cramer,-36.00212727,1,0,1,0,1
+112,2018,NV,Class I,Jacky S. Rosen,Dean Heller,1.19820414,0,1,0,1,-1
+117,2018,OH,Class I,Sherrod Brown,Jim Renacci,-7.50376418,1,0,1,0,1
+118,2018,PA,Class I,Robert P. Casey Jr.,Lou Barletta,-1.48448586,1,0,1,0,1
+127,2018,WI,Class I,Tammy Baldwin,Leah Vukmir,-1.04518584,1,0,1,0,1
+126,2018,WV,Class I,"Joe Manchin, III",Patrick Morrisey,-41.50519077,1,0,1,0,1
+8919,2022,AZ,Class III,Mark Kelly,Blake Masters,-4.81116472,1,0,1,0,1
+8925,2022,GA,Class III,Raphael Warnock,Herschel Junior Walker,-5.37037589,1,0,1,0,1
+8937,2022,NV,Class III,Catherine Cortez Masto,Adam Paul Laxalt,-1.28107827,1,0,1,0,1
