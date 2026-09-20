@@ -2044,3 +2044,75 @@ The following large generic content sets are now consolidated:
 - 32 corporation sectors / 98 signature founders
 
 The next clean consolidation target is the **full generic tile-improvement / route / infrastructure roster**, because technology and civic masters contain these unlocks but there is not yet a building-style canonical roster for the complete set.
+
+
+---
+
+## Generic map improvement / infrastructure roster locked — 2026-09-21
+
+The complete generic map-side improvement, route and infrastructure unlock layer is now consolidated and GitHub-Actions QA-passed.
+
+Authorities:
+- `tile_system/FINAL_GENERIC_MAP_IMPROVEMENT_INFRASTRUCTURE_ROSTER_V1.csv`
+- `tile_system/FINAL_GENERIC_MAP_IMPROVEMENT_INFRASTRUCTURE_ROSTER_V1.md`
+- `tile_system/FINAL_GENERIC_MAP_IMPROVEMENT_INFRASTRUCTURE_ROSTER_V1_QA.md`
+- `tile_system/validate_final_generic_map_roster_v1.py`
+- `.github/workflows/civ-final-map-roster-qa.yml`
+
+Exact state:
+- canonical records: **39**
+- technology-master map entries: **32**
+- civic/special entries: **7**
+- directly buildable rows: **28**
+- rule/capability/upgrade/special rows: **11**
+- duplicate names: **0**
+- forbidden/nonbaseline items present: **0**
+- GitHub Actions QA: **PASS**
+- workflow run: **35527902714**
+- validated head: `efd057e0042e04dd7c832369f5154f5518983cbd`
+
+Important consolidation rules:
+- Road bridges, military-road construction and improved road movement are route capabilities/upgrades, not new route objects.
+- Hill Farm is a Farm placement rule, not a second Farm improvement.
+- Reforestation is a Worker action, not a permanent improvement type.
+- National Park is a Naturalist-created special protected area.
+- Historic Landmark is an Archaeologist-created special improvement and remains distinct from the Worker-built Humanism Landmark.
+- Dam -> Hydroelectric Dam is infrastructure progression.
+- Canal is Steam Power + Civil Engineering.
+- Aerodrome/Preserve districts remain excluded from the Civ V-style map/city baseline.
+
+Former Great Person improvements integrated:
+- Academy
+- Manufactory
+- Customs House
+- Holy Site
+- Landmark
+
+Citadel remains excluded.
+
+Environmental cross-gates are explicit:
+- Wind Farm -> Composites + Environmentalism
+- Solar Farm -> Ecology + Environmentalism
+- Geothermal Plant -> Ecology + Environmentalism
+- Offshore Wind Farm -> Predictive Systems + Environmentalism
+
+The Ecology technology master was synchronized so Solar Farm explicitly carries Environmentalism, matching the already-locked civic rule.
+
+### Consolidated generic content state after this pass
+
+- 109 technologies
+- 72 civics
+- 127 policy cards
+- 102 generic/national buildings
+- 85 generic non-Great-Person units
+- 39 generic map improvement/route/infrastructure records
+- 32 corporation sectors
+- 98 signature corporate founders
+
+The core generic **existence + unlock ownership** layer is therefore substantially consolidated. Remaining large design layers are now primarily numerical/gameplay layers rather than missing generic-content ownership:
+- military stats and strict upgrade edges
+- tile yields/build times/terrain constraints
+- building numerical yields/costs
+- Great Person and specialist numerical rules/rosters
+- World Wonder audit
+- civilization-specific unique content
