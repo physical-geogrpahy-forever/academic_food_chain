@@ -372,7 +372,55 @@ If Korea reaches South America in 1000 CE and establishes a settlement, resource
 Detailed design:
 `civ_map_stage10_resources/contact_dynamic_resource_system_v1.md`
 
-## 16. GitHub handoff
+## 16. GitHub sync status
 
-The current Stage10 file inventory and next-work checklist are maintained in:
-`CIV_GAME_MAP_STAGE10_GITHUB_HANDOFF_2026-09-20.md`
+The branch now contains the audit, resource-fix review summaries, V4 icon representation, and contact-based dynamic-resource design needed to continue the project without relying on this chat state.
+
+Current repository files include:
+
+- `CIV_GAME_MAP_STAGE10_GITHUB_HANDOFF_2026-09-20.md`
+- `civ_map_stage10_resources/contact_dynamic_resource_system_v1.md`
+- `civ_map_stage10_resources/resource_transfer_classes_v1.csv`
+- `civ_map_stage10_resources/audit_2026-09-20/`
+- `civ_map_stage10_resources/resource_fix_v1/`
+- `civ_map_stage10_resources/icons_v4/`
+
+The V4 icon directory contains five SVG sprite sheets covering all 47 resource symbols plus the V4 manifest.
+
+The resource-fix directory stores an exact compact patch in `replacement_ids_v1.json` for BISON, IVORY and WHALES, together with before/after audit summaries and reconstruction instructions. The large full fixed placement table remains a reproducible working artifact rather than the repository handoff primitive.
+
+## 17. Contact-driven resource research is the next main stage
+
+Do not implement movable biological resources with a single calendar-date switch.
+
+For each of the 47 resources, the next dataset must distinguish as applicable:
+
+- native/source geography
+- domestication or original exploitation zone
+- civilization knowledge
+- environmental suitability
+- valid transfer routes
+- historical/default transfer pathways
+- introduced presence
+- exploitation technology
+
+Historical dates are priors for reconstructing the real-world default timeline. Actual game transfer is caused by contact events.
+
+Example locked rule:
+If Korea reaches and settles suitable South American cells in 1000 CE, Korean-known transferable resources such as horses or cattle may be introduced there. The game does not wait for the historical 1492 route.
+
+The first implementation should remain simple enough for game use:
+
+`known by source civilization + transferable class + valid contact/trade/settlement/conquest/expedition event + suitable destination -> introduction queue -> local activation/spread`
+
+Geological resources remain fixed in place; contact changes knowledge and technology, not the deposit location.
+
+## 18. Next-work order
+
+1. Build a cited native/source/transfer evidence table for all 47 resources.
+2. Mark which resources are fixed, transferable, wild-range constrained, processed/composite, or technology-sensitive.
+3. Encode environmental suitability and event requirements for transferable resources.
+4. Validate the default historical timeline, including cases such as pre-Columbian America and historically introduced East Asian crops/livestock.
+5. Reconstruct the Stage10Y fixed placement with the three biological fixes.
+6. Re-run one-resource-per-hex, surface, plateau, and geographic plausibility audits.
+7. Rebuild regional/world visual maps directly from GPKG geometry only.
