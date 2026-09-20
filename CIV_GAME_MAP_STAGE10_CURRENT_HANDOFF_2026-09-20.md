@@ -291,6 +291,18 @@ Files:
 - `civ_map_stage10_resources/contact_dynamic_resource_system_v1.md`
 - `civ_map_stage10_resources/resource_transfer_classes_v1.csv`
 
+### 4000 BCE historical mask
+
+Directory:
+`civ_map_stage10_resources/history_4000bce_v1/`
+
+Files:
+- `README.md`
+- `resource_start_visible_4000bce_mask_regions_v1.csv`
+- `apply_resource_history_4000bce_v1.py`
+
+The mask is intentionally broad and applies only to already-selected Stage10 resource cells. It never creates a new resource location.
+
 ## 12. Current progress
 
 Completed:
@@ -349,7 +361,7 @@ Current state:
 - canonical final placement = not yet established
 
 Do not promote to canonical until:
-1. all 47 resource contact/native/transfer records are researched,
+1. the 18 dynamic-resource 4000 BCE mask has been applied and regionally QA-checked,
 2. fixed BISON/IVORY/WHALES selection is re-audited,
 3. one-resource-per-hex and surface rules are rechecked,
 4. direct source-GPKG rendering is used,
