@@ -1,0 +1,2 @@
+source_url,bytes,rows,field_count,multi_candidate_capable,multi_candidate_reason,nc2014_senate_rows,nc2014_haugh_or_libertarian_rows
+https://raw.githubusercontent.com/fivethirtyeight/data/master/pollster-ratings/raw_polls.csv,4961378,20466,30,False,,0,0
