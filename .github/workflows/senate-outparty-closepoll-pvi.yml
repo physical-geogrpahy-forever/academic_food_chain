@@ -21,6 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy
       - run: python senate-model-archive/experiments/outparty_closepoll_pvi/run.py
       - name: Commit results
         run: |
