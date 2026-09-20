@@ -1919,3 +1919,29 @@ Authorities:
 - `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.csv`
 - `tech_reference/NUMERIC_BALANCE_DECISIONS_V1.csv`
 - `tech_reference/DEFERRED_GENERIC_UNLOCK_QUEUE_V1.md`
+
+
+## Policy effects fully locked — 2026-09-21
+
+The civic-policy pass is complete.
+
+- 72/72 civics present
+- 127 final policy cards
+- 127/127 have a locked policy slot
+- 127/127 have a locked final effect
+- 127/127 are `NUMERIC_STATUS=LOCKED_V1`
+- duplicate policy names: 0
+
+Slot distribution:
+- Military: 35
+- Economic: 46
+- Wildcard: 26
+- Diplomatic: 20
+
+Current authorities:
+- `civics_reference/MASTER_CIVIC_UNLOCKS_72_V2.csv`
+- `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.csv`
+- `civics_reference/FINAL_POLICY_CARD_ROSTER_V1_QA.md`
+- `civics_reference/policy_balance/*_POLICY_EFFECTS_V1.csv`
+
+Civ VI is the main fallback source for policy content when Civ V/project content is sparse. District/Builder/Governor/GDR-dependent effects are translated to the project's Civ V-style structure.
