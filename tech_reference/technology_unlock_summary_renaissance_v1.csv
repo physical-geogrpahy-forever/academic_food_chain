@@ -1,4 +1,4 @@
-TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"TECH_EN","UNITS","CITY_BUILDINGS","TILE_IMPROVEMENTS","ROUTES_INFRASTRUCTURE","RESOURCE_REVEAL","RESOURCE_EXPLOITATION","SYSTEMS_NOTES"
 "Banking","","Bank","","","","","Additional trade capacity with Foreign Trade; Finance/Banking and Insurance corporation gates with Capitalism"
 "Printing","","Printing Press","","","","","Mass Print Circulation with Print Culture; Diplomatic Visibility and World Congress with Diplomatic Service"
 "Metal Casting","Bombard; Pike and Shot with Military Training","","","","","","Advanced Cannon Casting; generic Forge rejected as too late"
