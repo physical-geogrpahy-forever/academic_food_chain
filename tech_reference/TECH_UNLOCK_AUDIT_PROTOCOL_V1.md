@@ -19,7 +19,7 @@ Use:
 
 Do not use map-placed Civ VI district puzzles as final gameplay objects.
 
-## 2. Source priority
+## 2. Source priority and adopted mod sources
 
 For every technology and every unlock candidate, audit in this order:
 
@@ -27,17 +27,43 @@ For every technology and every unlock candidate, audit in this order:
    - primary structural source for city buildings, units, routes and tile improvements;
    - use BNW-era behavior where expansion rules differ from vanilla/Gods & Kings.
 
-2. **Civilization VI: Gathering Storm**
+2. **Adopted Civilization V expansion/system mods**
+   These are not optional afterthoughts. If the project already used a mod to build the technology/system design, its relevant unlock content must also be audited.
+
+   ### Enlightenment Era
+   - full content source for the Enlightenment and adjacent transition;
+   - audit its technologies, units and buildings, not only the technology names;
+   - Wonders remain DEFER_WONDER;
+   - remap content to the locked project technologies where the mod's standalone nodes were merged or renamed.
+
+   ### Health & Plague for BNW
+   - system/content source for Health, sanitation, epidemic and disease mechanics;
+   - especially audit against Sanitation, Biology and Penicillin, and earlier supporting buildings/resources where historically appropriate;
+   - candidate mechanics include city Health, fresh-water/building/resource modifiers, plague spawning/spread and disease effects;
+   - do not automatically copy its entire balance model: extract useful buildings, technology effects and systems, then adapt them to this project.
+
+   ### Great Works of Film / MoreTech
+   - selective adopted source only for Great Director, Cinema, Great Works of Film and directly related media infrastructure;
+   - do not import MoreTech's entire technology/building tree.
+   - project mapping remains Electricity -> Radio for film/media.
+
+3. **Civilization VI: Gathering Storm**
    - secondary content source;
    - keep useful buildings, units, infrastructure and systems;
    - convert district-dependent content into Civ V-style city buildings/infrastructure where possible;
    - never import a district simply because the source game uses one.
 
-3. **Civilization V Enlightenment Era / already adopted project references**
-   - gap filling only.
+4. **Other specifically approved Civ V mods**
+   - may be added to the source registry when they solve a real content/system gap;
+   - approval is source-specific: using one element from a mod does not automatically import the whole mod.
 
-4. **Historical addition**
-   - only when the locked 109-tech tree has a real implementation gap that the source games do not cover.
+5. **Historical addition**
+   - only when the locked 109-tech tree has a real implementation gap that the source games and adopted mods do not cover.
+
+The source registry is:
+`tech_reference/TECH_UNLOCK_SOURCE_REGISTRY_V1.csv`
+
+Mod content is a **candidate source, not an automatic KEEP**. Every object still passes the same KEEP / ADAPT / REMAP / DROP audit.
 
 ## 3. Audit unit
 
@@ -243,6 +269,7 @@ Audit by era, not by content type:
 
 For each era:
 - collect Civ V BNW unlocks;
+- collect relevant adopted-mod unlocks (especially Enlightenment Era and any system-specific source such as Health & Plague);
 - collect relevant Civ VI GS additions;
 - classify;
 - remap;
