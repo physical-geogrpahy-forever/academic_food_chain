@@ -246,3 +246,28 @@ They must be reviewed for gameplay density before promotion to canonical final.
    - sparse/abundant multipliers
 3. Adjust preview class totals/spacing only if QA shows over- or under-density.
 4. Do NOT call Stage 10Y canonical final until density and distribution are visually approved.
+
+
+## 10. Density QA policy locked 2026-09-20
+
+User decision:
+- Regional resource over-density or under-density is NOT a balancing defect by itself.
+- Geographic concentration and scarcity are intended consequences of real-world spatial evidence.
+- Do not smooth, equalize, normalize, or compensate resource density by world region.
+- Density QA should check only overall/class/surface density and technical artifacts.
+- Regional inspection is allowed only for detecting clear data/processing errors, not for enforcing geographic balance.
+
+Stage 10Y V2 density:
+- all selected resource hexes: 12,500
+- LAND: 10,896 / 68,048 = 16.012%
+- COAST: 639 / 8,781 = 7.277%
+- OCEAN: 965 / 156,201 = 0.618%
+- LAND+COAST: 11,535 / 76,829 = 15.014%
+- all playable non-VOID surfaces including lakes: 12,500 / 233,912 = 5.344%
+- LAND class density:
+  - strategic 2,416 / 68,048 = 3.550%
+  - bonus 4,333 / 68,048 = 6.368%
+  - luxury 4,147 / 68,048 = 6.094%
+- 83.988% of LAND hexes remain resource-free.
+
+No regional-density correction should be applied unless a technical source/processing error is demonstrated.
