@@ -39,7 +39,7 @@
 "MB038","Modern","RESOURCE_EXPLOITATION","Uranium mining","Mining","","TECH","Civ5 BNW resource logic","Mine","KEEP","Existing Mine extracts Uranium after reveal",""
 "MB039","Modern","SYSTEM","Atomic Physics Framework","Atomic Theory","","TECH","Historical/project adaptation","Atomic Theory","KEEP","Provides conceptual basis for later Nuclear Fission and nuclear technologies",""
 "MB040","Modern","PROJECT","Manhattan Project","Nuclear Fission","Nuclear Program","TECH+CIVIC","Civ5 Atomic Theory remap; Civ6 Nuclear Fission","Atomic Theory / Nuclear Fission","REMAP_TECH","Project Atomic Theory is early 20C and should not by itself enable nuclear weapons",""
-"MB041","Modern","TILE_IMPROVEMENT","Academy Science upgrade","Atomic Theory","","NONE","Civ5 BNW","Academy +2 Science","REMOVE_GP_IMPROVEMENT","Great Scientist Academy tile is absent",""
+"MB041","Modern","YIELD_UPGRADE","Academy Science upgrade","Atomic Theory","","TECH","Civ5 BNW","Academy +2 Science","KEEP","Academy is restored as a Worker-built improvement, so Atomic Theory may provide its late Science upgrade","Exact additional Science later"
 "MCB001","Modern","GOVERNMENT","Fascism","","Totalitarianism","CIVIC","Civ6 GS","Totalitarianism","KEEP","Direct Civ6 Tier-3 government unlock",""
 "MCB002","Modern","POLICY","Lightning Warfare","","Totalitarianism","CIVIC","Civ6 GS","Totalitarianism","KEEP","Armored-unit production policy fits fascist/total-war branch","Moved from generic Ideology cleanup"
 "MCB003","Modern","POLICY","Martial Law","","Totalitarianism","CIVIC","Civ6 GS","Totalitarianism","KEEP","War-weariness/loyalty policy retained",""
