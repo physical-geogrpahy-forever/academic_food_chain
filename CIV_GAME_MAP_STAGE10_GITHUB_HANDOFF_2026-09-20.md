@@ -212,3 +212,24 @@ Do not promote it to canonical final until:
 - direct-coordinate map rendering is fixed,
 - the contact-based transfer model has resource-specific data for all transferable resources,
 - the default historical path can be reconstructed without preventing alternate-history contacts.
+
+
+## 10. GitHub inventory verification
+
+Verified directly against branch `civ-game-map-stage1b-etopo2022` on 2026-09-20.
+
+Confirmed present:
+- Stage10 status MD
+- this handoff MD
+- source-GPKG audit tables
+- Korea LAND-only audit
+- BISON/IVORY/WHALES plateau diagnostics and repair plan
+- `resource_fix_v1` compact patch and reconstruction instructions
+- Resource icon V4 manifests and five SVG sprite files
+- contact-based dynamic resource system design
+
+Latest inventory correction commit before this handoff update:
+- `0e2d1a41580a9dfe0bb57c01414fd3de56298af0`
+- message: `Fix resource_fix_v1 inventory documentation`
+
+The branch must be treated as the authoritative handoff location for the next chat.
