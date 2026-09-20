@@ -595,3 +595,36 @@ Results:
 
 Reference:
 - `civics_reference/CIVIC_TECH_CROSSLINK_RECONCILIATION_V2.md`
+
+
+## Technology roster/tree locked V2 — 109 nodes
+
+The earlier 103-node technology baseline is superseded.
+
+Authoritative technology files:
+- `tech_reference/TECHNOLOGY_ROSTER_TREE_LOCKED_V2.md`
+- `tech_reference/technology_roster_locked_v2.csv`
+- `tech_reference/technology_tree_historical_v2.csv`
+- `tech_reference/validate_technology_tree_historical_v2.py`
+
+Final roster: **109 technologies**.
+
+Historical additions:
+Papermaking; Horse Collar; Alchemy; Block Printing; Algebra; Astrolabe.
+
+Historical moves:
+- Stirrups -> Late Antiquity
+- Gunpowder -> Early Medieval
+- Metallurgy -> Renaissance
+
+QA:
+- 109/109 reachable
+- zero missing prerequisites
+- zero cycles
+- zero backward-era edges
+- maximum two direct prerequisites
+
+Civic crosslinks were revalidated against the 109-tech tree:
+- zero missing referenced technologies
+- zero later-era HARD/BOOST references
+- reference: `civics_reference/CIVIC_TECH_CROSSLINK_RECONCILIATION_V3.md`
