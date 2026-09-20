@@ -1,6 +1,6 @@
 # Performance experiment: full-cycle National + economic group-ridge OOS
 
-- Generated UTC: 2026-09-20T17:22:59.244168+00:00
+- Generated UTC: 2026-09-20T17:23:44.955746+00:00
 - Total modeling rows: 199
 - Training uses all available Senate cycles from 2006 through 2022, including presidential-election years.
 - Outer headline validation remains exactly the preserved 99 races in 2014, 2018, 2022.
