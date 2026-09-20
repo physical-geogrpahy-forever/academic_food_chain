@@ -73,11 +73,6 @@ lines=[
  '|---:|---|---|---:|---|---:|'
 ]
 for r in out:
-    gm=r['generic_margin_d_minus_r']; na=r['net_approval']
-    lines.append(f"| {r['cycle']} | {r['snapshot_45d']} | {r['generic_modeldate'] or 'MISSING'} | {float(gm):.2f if False else gm or 'MISSING'} | {r['approval_end_date'] or 'MISSING'} | {na or 'MISSING'} |")
-# replace invalid formatting artifact above by rebuilding table rows safely
-lines=lines[:-len(out)]
-for r in out:
     gm='MISSING' if not r['generic_margin_d_minus_r'] else f"{float(r['generic_margin_d_minus_r']):.2f}"
     na='MISSING' if not r['net_approval'] else f"{float(r['net_approval']):.2f}"
     lines.append(f"| {r['cycle']} | {r['snapshot_45d']} | {r['generic_modeldate'] or 'MISSING'} | {gm} | {r['approval_end_date'] or 'MISSING'} | {na} |")
