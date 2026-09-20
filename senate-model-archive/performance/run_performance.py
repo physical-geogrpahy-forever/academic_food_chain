@@ -6,7 +6,7 @@ import runpy
 ROOT=Path(__file__).resolve().parent
 STEPS=[
     'run_same_seat_99row_oos.py',
-    'run_generic_ballot_oos.py',
+    'run_economic_growth_oos.py',
 ]
 for name in STEPS:
     print('=== PERFORMANCE RUN',name,'===')
