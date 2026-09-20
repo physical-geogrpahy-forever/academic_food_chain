@@ -1,0 +1,7 @@
+TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"Computers","Drone with Rapid Deployment","","","","","","Digital information processing; spy/tourism systems with Cold War/Mass Media; computing/software corporation gates"
+"Nuclear Fission","","Nuclear Power Plant with Civil Engineering","","","","Uranium fuel","Manhattan/Build Nuclear Device with Nuclear Program"
+"Telecommunications","Nuclear Submarine moved to Nuclear Fission + Cold War","","","","","","Global Telecommunications Network; Digital Platforms corp gate; Telecom upgrade"
+"Satellites","","","","","","","Orbital Satellite Network and Moon Landing with Space Race; global mapping; Solar Farm moved to Ecology"
+"Guidance Systems","Mobile SAM with Mobilization; Guided Missile","Missile Silo with Nuclear Program","","","","","Rocket Artillery precision upgrade rather than duplicate unlock"
+"Lasers","Jet Fighter with Advanced Flight","","","","","","Laser Systems; air targeting/interception upgrade; Missile Cruiser moved to Guidance Systems + Warships"
