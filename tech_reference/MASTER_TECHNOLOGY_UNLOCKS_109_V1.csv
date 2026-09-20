@@ -44,7 +44,7 @@
 "Metal Casting","금속 주조","Renaissance","Bombard; Pike and Shot with Military Training","","","","","","Advanced Cannon Casting; generic Forge rejected as too late","OK","tech_reference/technology_unlock_summary_renaissance_v1.csv"
 "Siege Tactics","공성 전술","Renaissance","","Renaissance/Bastion Walls","Bastion Fort upgrade","","","","Fortification-vs-bombardment upgrade","OK","tech_reference/technology_unlock_summary_renaissance_v1.csv"
 "Metallurgy","야금학","Renaissance","Arquebusier; Lancer","Arsenal with Military Training","","","","","Musketman moved to later Flintlock stage","OK","tech_reference/technology_unlock_summary_renaissance_v1.csv"
-"Cartography","지도 제작","Exploration","Caravel with Exploration","","","","","","Cartographic Surveying; Caravel/ocean role follows Civ5 Astronomy priority","OK","tech_reference/technology_unlock_summary_exploration_v1.csv"
+"Cartography","지도 제작","Exploration","","","","","","","Cartographic Surveying; Caravel/ocean role owned by Astronomy + Exploration under Civ V priority","OK","tech_reference/technology_unlock_summary_exploration_v1.csv"
 "Square Rigging","횡범장","Exploration","","","","","","","Embarked movement +1; Advanced Sailing Rig; Frigate moved to Warships","SPARSE_REVIEWED_CIV6_OR_SOURCE","tech_reference/technology_unlock_summary_exploration_v1.csv"
 "Astronomy","천문학","Exploration","Caravel with Exploration","Observatory","","","","","Ocean Crossing with Exploration","OK","tech_reference/technology_unlock_summary_exploration_v1.csv"
 "Navigation","항법","Exploration","Ship of the Line","Seaport","","","","","Advanced Naval Navigation; Navigation School with Exploration","OK","tech_reference/technology_unlock_summary_exploration_v1.csv"
