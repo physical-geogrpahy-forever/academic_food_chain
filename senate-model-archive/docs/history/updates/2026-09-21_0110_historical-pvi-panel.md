@@ -1,6 +1,6 @@
 # GitHub Actions run: historical PVI panel v2 — state filter fix
 
-- Generated UTC: 2026-09-20T16:10:50.549605+00:00
+- Generated UTC: 2026-09-20T16:11:33.398761+00:00
 - Execution: GitHub Actions
 - Fix: exclude presidential congressional-district rows such as M1/M2/N1/N2/N3 from state and national presidential margins
 - Presidential source repo: fivethirtyeight/election-results
