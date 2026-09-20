@@ -409,3 +409,31 @@ Current authoritative design baseline:
 - Stage10 placement: resource_fix_v1 review build, not yet canonical final
 
 The current branch remains the authoritative handoff location for continuing work.
+
+
+## Civic system milestone — 2026-09-20
+
+Civic design now has a locked 72-node roster and prerequisite DAG.
+
+Authoritative files:
+- `civics_reference/CIVIC_ROSTER_LOCKED_V1.md`
+- `civics_reference/civic_roster_locked_v1.csv`
+- `civics_reference/CIVIC_TREE_LOCKED_V1.md`
+- `civics_reference/civic_tree_locked_v1.csv`
+- `civics_reference/validate_civic_tree_v1.py`
+
+QA baseline:
+- 72/72 civics reachable from Code of Laws
+- one root only: Code of Laws
+- zero missing prerequisite references
+- zero cycles
+- zero backward-era prerequisite edges
+- zero isolated civics
+- maximum two direct prerequisites
+- Future-like civics remain randomized through a fixed acyclic A-E template inspired by Gathering Storm
+
+New civics beyond the imported Civ VI roster:
+Written Culture; Court Culture; Scholasticism; Patronage; Print Culture; Scientific Revolution; Sovereignty; Constitutionalism; Public Sphere; Romanticism; Labor Movement.
+
+Next civic task:
+governments/policy cards/Inspirations/unlocks/culture costs. Do not add more civic nodes without a concrete implementation gap.
