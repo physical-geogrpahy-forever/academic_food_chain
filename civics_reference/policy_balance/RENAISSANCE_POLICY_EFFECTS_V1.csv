@@ -1,0 +1,9 @@
+POLICY_EN,CIVIC_EN,POLICY_SLOT,FINAL_EFFECT,SOURCE_BASIS
+"Machiavellianism","Diplomatic Service","Diplomatic","+50% Production toward Spies; Spy operations take 25% less time","Civ6 direct"
+"Wisselbanken","Diplomatic Service","Diplomatic","Trade Routes to Allies and allied/suzerain city-states give both endpoint cities +2 Food and +2 Production; Alliance growth +25%","Civ6 GS direct"
+"Frescoes","Humanism","Wildcard","+2 Great Artist Points per turn","Civ6 direct"
+"Invention","Humanism","Wildcard","+2 Great Engineer Points per turn","Civ6 direct"
+"Cultural Diplomacy","Patronage","Diplomatic","Strategic resources gifted by allied city-states +100%; Happiness/Amenity benefit from gifted Luxuries +50%","Civ5 BNW direct"
+"Merchant Confederacy","Patronage","Diplomatic","+2 Gold from Trade Routes with city-states","Civ5 BNW direct"
+"Philanthropy","Patronage","Diplomatic","Gold gifts to city-states generate +25% Influence","Civ5 direct"
+"Vernacular Print","Print Culture","Economic","Great Works of Writing provide +1 Culture and +1 Tourism","Project historical policy"
