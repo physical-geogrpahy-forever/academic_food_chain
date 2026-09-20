@@ -284,3 +284,17 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=85949525
 
 MoreTech:
 https://forums.civfanatics.com/threads/moretech.656168/
+
+
+## Romanticism adoption update
+
+Romanticism is now ADOPTED for the project's Industrial Era (19C).
+
+Reason:
+- no exact Civilization VI civic duplicates it;
+- it is distinct from Opera and Ballet, Natural History, Conservation and Mass Media;
+- it represents a major 19th-century cultural/intellectual movement and provides a useful cultural branch in an otherwise heavily state/economic Industrial Era.
+
+Industrial-era count therefore rises from 7 to 8 before selecting one final additional civic.
+
+Imperialism remains the leading candidate for the ninth Industrial-era civic, pending user approval.
