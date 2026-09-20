@@ -1,18 +1,12 @@
-# 99-row performance pipeline
-# rerun national+approval 2026-09-21
 #!/usr/bin/env python3
 from pathlib import Path
 import runpy
 
 ROOT=Path(__file__).resolve().parent
-STEPS=[
-    'run_same_seat_99row_oos.py',
-    'run_economic_growth_oos.py',
-    'run_national_oos.py',
-    'run_approval_99row_oos.py',
-    'run_full_partial_pooling_oos.py',
-]
+STEPS=['run_fullcycle_national_econ_oos.py']
+
 for name in STEPS:
     print('=== PERFORMANCE RUN',name,'===')
     runpy.run_path(str(ROOT/name),run_name='__main__')
+
 print('=== PERFORMANCE PIPELINE COMPLETE ===')
