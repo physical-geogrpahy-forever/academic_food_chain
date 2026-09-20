@@ -1,7 +1,7 @@
-TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"TECH_EN","UNITS","CITY_BUILDINGS","TILE_IMPROVEMENTS","ROUTES_INFRASTRUCTURE","RESOURCE_REVEAL","RESOURCE_EXPLOITATION","SYSTEMS_NOTES"
 "Scientific Theory","","Public School with The Enlightenment","","","","","Lumber Mill +1 Production; Academy GP improvement removed; Plantation bonus moved to Fertilizer"
 "Ballistics","","","","","","","Applied Ballistics; upgrades existing Field Gun rather than duplicating it"
-"Military Science","Cavalry; Cuirassier candidate with Military Training","Military Academy with Military Training","","","","","Line Infantry stays Flintlock; Medic moved to Sanitation"
+"Military Science","Cavalry","Military Academy with Military Training","","","","","Line Infantry stays Flintlock; Medic moved to Sanitation; Cuirassier remains deferred to final unit-roster audit"
 "Economics","","Stock Exchange; Customs House with Mercantilism","","","","","Windmill remapped to Machinery; GP Customs House tile removed"
 "Chemistry","","Chemical Laboratory","","","","","Mine/Quarry +1 Production; chemical/cosmetics corporation gates with Capitalism; Research Lab/AT Crew moved later"
 "Manufacturing","","Cloth Mill with Guilds","","","Coal","Coal via Mine","Proto-industrial Manufacturing; GP Manufactory removed"
