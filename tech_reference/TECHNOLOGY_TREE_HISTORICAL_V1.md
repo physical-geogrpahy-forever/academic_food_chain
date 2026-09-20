@@ -1,3 +1,5 @@
+# SUPERSEDED — use TECHNOLOGY_ROSTER_TREE_LOCKED_V2.md
+
 # Technology Tree Historical V1 — 103-node DAG
 
 Date: 2026-09-20
