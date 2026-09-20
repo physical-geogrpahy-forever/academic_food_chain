@@ -1,0 +1,48 @@
+RESOURCE_ID,RUNTIME_GROUP,DYNAMIC_TRANSFER_V2,START_MASK_4000BCE,VALID_ACQUISITION,DESIGN_NOTE
+ALUMINUM,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+AMBER,GEOLOGICAL_FIXED,no,no,discovery,Fixed natural/deposit distribution.
+BANANAS,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,4000 BCE history mask V3 applies.
+BISON,WILD_FIXED,no,no,discovery,Wild range; not part of transfer V2.
+CATTLE,DYNAMIC_ANIMAL,yes,yes,source_settlement;trade;conquest,4000 BCE history mask V3 applies.
+CITRUS,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,4000 BCE history mask V3 applies.
+COAL,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+COCOA,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,Unified COCOA internal resource; chocolate display does not change geography.
+COFFEE,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,4000 BCE history mask V3 applies.
+COPPER,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+CORAL,WILD_FIXED,no,no,discovery,Marine natural range.
+COTTON,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,Multiple Old/New World source regions in V3.
+CRAB,WILD_FIXED,no,no,discovery,Marine natural range.
+DEER,WILD_FIXED,no,no,discovery,Wild range.
+DYES,DYNAMIC_COMPOSITE_PLANT,yes,yes,source_settlement;trade;conquest,Keep one unified DYES resource; V3 source mask is union of dye-source regions.
+FISH,WILD_FIXED,no,no,discovery,Marine natural range.
+FURS,WILD_FIXED,no,no,discovery,Wild biological range.
+GEMS,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+GOLD,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+HORSES,DYNAMIC_ANIMAL,yes,yes,source_settlement;trade;conquest,Eurasian source visible at 4000 BCE; Americas latent.
+INCENSE,DEFERRED_V2,no,no,none,Not in reviewed 18-resource dynamic V2 set.
+IRON,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+IVORY,WILD_FIXED,no,no,discovery,Wild biological range.
+JADE,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+LAPIS_LAZULI,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+MAIZE,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,Mesoamerican source visible; Old World latent.
+MARBLE,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+NITER,FIXED_PLUS_MANUFACTURE,no,no,discovery;technology,Natural source fixed; separate production facility can manufacture saltpetre.
+OIL,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+OLIVES,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,Mediterranean source belt in V3.
+PEARLS,WILD_FIXED,no,no,discovery,Marine natural range.
+PERFUME,EXCLUDED_FROM_TRANSFER,no,no,discovery,Raw/source luxury retained but explicitly excluded from movement.
+RICE,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,Yangtze-centered start mask; Korea latent at 4000 BCE.
+SALT,FIXED_PLUS_SALTWORKS,no,no,discovery;technology,Natural SALT fixed; coastal SALTWORKS is a separate tile improvement/facility.
+SHEEP,DYNAMIC_ANIMAL,yes,yes,source_settlement;trade;conquest,4000 BCE history mask V3 applies.
+SILK,DEFERRED_V2,no,no,none,Not in reviewed 18-resource dynamic V2 set.
+SILVER,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+SPICES,DYNAMIC_COMPOSITE_PLANT,yes,yes,source_settlement;trade;conquest,Keep one unified SPICES resource; V3 uses union source mask.
+STONE,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+SUGAR,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,V3 uses New Guinea plus ISEA broad source belt capped at 20N.
+TEA,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,Southwest-China-centered source belt.
+TOBACCO,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,American sources visible; Old World latent.
+TRUFFLES,WILD_FIXED,no,no,discovery,Not part of transfer V2.
+URANIUM,GEOLOGICAL_FIXED,no,no,discovery;technology,Fixed deposit.
+WHALES,WILD_FIXED,no,no,discovery,Marine natural range.
+WHEAT,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,4000 BCE Europe/SW Asia expansion mask.
+WINE,DYNAMIC_PLANT,yes,yes,source_settlement;trade;conquest,Grape-basis resource; Mediterranean/SW Asian source mask.
