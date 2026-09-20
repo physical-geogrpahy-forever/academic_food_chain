@@ -327,3 +327,24 @@ For each era:
 - run duplicate and empty-tech QA.
 
 Do not research all 109 technologies in one giant pass.
+
+
+## Civ VI fallback rule
+
+When a project technology or civic remains materially empty after:
+1. checking Civilization V BNW,
+2. checking already adopted Civilization V mods,
+3. resolving source conflicts by historical and functional fit,
+
+**actively use Civilization VI technology/civic content to fill the gap.**
+
+Priority:
+- preserve Civ V-style city and tile structure;
+- convert Civ VI districts into direct city buildings, tile infrastructure, national buildings or systems;
+- keep generic Civ VI units/buildings/policies when they fit;
+- keep civilization-unique content unique;
+- do not import Governor-only, Giant Death Robot-only, district-adjacency, or victory-only effects literally when they do not fit the project;
+- adapt those effects into ordinary systems where possible before inventing brand-new content.
+
+In short:
+**Civ V first -> historical/functional reconciliation -> Civ VI fallback -> minimal historical invention.**
