@@ -57,3 +57,4 @@
 "HC025","High Medieval","SYSTEM","Allied City-State Science Share","","Scholasticism","CIVIC","Civ5 BNW policy","Scholasticism","ADAPT","Preserve Civ5 concept but tune percentage for the project's city-state/diplomatic scale","Civ5 source uses 25%"
 "HC026","High Medieval","CITY_BUILDING","Scholastic Academy","","Scholasticism","CIVIC","Project candidate","Scholasticism","DROP","Do not invent a redundant generic science building when University already fills the institutional role",""
 "HC027","High Medieval","CITY_BUILDING","Artists' Guild","","Guilds","CIVIC","Civ5 BNW","Guilds","KEEP","Completes the Civ5 cultural Great Person guild set","Generates Great Artist points; Great Artist no longer builds Landmark"
+"BLD_HM001","High Medieval","CITY_BUILDING","Windmill","Machinery","","TECH","Civ5 BNW remap","Economics","KEEP","Mechanical milling belongs to Machinery rather than later Economics","Production/food-processing city building; exact terrain restriction later"
