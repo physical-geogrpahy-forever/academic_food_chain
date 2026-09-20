@@ -76,6 +76,35 @@ The source registry is:
 
 Mod content is a **candidate source, not an automatic KEEP**. Every object still passes the same KEEP / ADAPT / REMAP / DROP audit.
 
+## 2A. Parallel civic audit rule
+
+Technology unlock research must audit the project's **72-civic tree in parallel**, with Civilization VI civics used as a major source for institutional content.
+
+Every candidate unlock must be assigned to one of three gate modes:
+- **TECH** — material/scientific capability is sufficient;
+- **CIVIC** — institution, doctrine, law, culture or organization is the real prerequisite;
+- **TECH+CIVIC** — both material capability and institutional organization are necessary.
+
+Examples:
+- Library -> Writing (TECH)
+- Barracks -> Military Tradition (CIVIC; source-game Bronze Working placement may be overridden)
+- Caravan -> Animal Husbandry + Foreign Trade (TECH+CIVIC)
+- Great Prophet access -> Astrology + Mysticism (TECH+CIVIC)
+- Courthouse -> Writing + Code of Laws (TECH+CIVIC)
+
+Civilization VI civic unlocks to audit include:
+- city/infrastructure candidates;
+- governments;
+- policy cards;
+- diplomacy and border rules;
+- trade permissions/capacity;
+- combat doctrine;
+- governor-style systems where relevant.
+
+Civilization-specific unique improvements/buildings found on the Civ VI civic tree are **not** promoted into the generic roster. Record them as civilization-unique/deferred references.
+
+Districts remain subject to the Civ V-style conversion rule: remove district placement, then separately assess any useful building or institution.
+
 ## 3. Audit unit
 
 Do not make only one wide row per technology during research.
@@ -109,6 +138,11 @@ Allowed UNLOCK_TYPE values:
 - PROJECT
 - GREAT_PERSON_SYSTEM
 - WONDER
+- POLICY
+- GOVERNMENT
+- DIPLOMACY
+- YIELD_UPGRADE
+- DISTRICT
 
 Allowed DECISION values:
 - KEEP
@@ -121,6 +155,11 @@ Allowed DECISION values:
 - DEFER_WONDER
 - DEFER
 - DROP
+- CROSS_GATE
+- MOVE_TO_CIVIC
+- MOVE_TO_TECH
+- DEFER_CIV_UNIQUE
+- DEFER_SYSTEM
 
 ## 4. Great Person tile-improvement rule
 
