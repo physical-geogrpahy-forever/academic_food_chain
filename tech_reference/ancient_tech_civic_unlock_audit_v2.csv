@@ -31,7 +31,7 @@
 "A030","Ancient","TILE_IMPROVEMENT","Quarry","Masonry","","TECH","Civ5 BNW; Civ6 remap","Masonry / Mining","KEEP","Civ V placement and functional fit agree",""
 "A031","Ancient","RESOURCE_EXPLOITATION","Stone; Marble","Masonry","","TECH","Civ5 BNW","Quarry","KEEP","Direct quarry exploitation",""
 "A032","Ancient","CITY_BUILDING","Walls","Masonry","","TECH","Civ5 BNW; Civ6 GS","Masonry","KEEP","Material construction technology",""
-"A033","Ancient","CITY_BUILDING","Stone Works","Masonry","","TECH","Civ5 BNW remap","Calendar","MOVE_TO_TECH","Stone processing belongs with masonry/quarrying",""
+"A033","Ancient","CITY_BUILDING","Stone Works","Masonry","","TECH","Civ5 BNW remap","Calendar","KEEP","Stone/Marble processing is canonically owned by Masonry in the project","Requires an improved Stone or Marble source"
 "A034","Ancient","UNIT","Battering Ram","Masonry","","TECH","Civ6 GS","Masonry","KEEP","Wall-breaching construction fits Masonry","Generic version subject to unit-roster balance later"
 "A035","Ancient","UNIT","Spearman","Bronze Working","","TECH","Civ5 BNW; Civ6 GS","Bronze Working","KEEP","Direct military metallurgy fit",""
 "A036","Ancient","RESOURCE_REVEAL","Iron","Bronze Working","","TECH","Civ5 BNW; Civ6 GS","Bronze Working","KEEP","Shared source placement",""
