@@ -1878,3 +1878,22 @@ Natural History archaeology retains a separate archaeological Historic Landmark 
 
 Authority:
 `tile_system/FORMER_GREAT_PERSON_TILE_IMPROVEMENTS_V1.md`
+
+
+## Civic policy finalization — 2026-09-21
+
+Qualitative policy ownership is complete.
+
+Current authorities:
+- `civics_reference/MASTER_CIVIC_UNLOCKS_72_V2.csv`
+- `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.csv`
+- `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.md`
+
+Results:
+- 72/72 civics present
+- 127 final policy cards
+- duplicate policy ownership 0
+- Civ VI direct policy content is the main fallback source when Civ V/project content is sparse
+- Governor-dependent policy content is removed/adapted because baseline Governors are not adopted
+- district conditions are translated to Civ V-style city buildings/infrastructure
+- exact percentages/yields/caps remain for numerical balance
