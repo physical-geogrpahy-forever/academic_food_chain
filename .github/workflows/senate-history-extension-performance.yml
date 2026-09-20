@@ -33,7 +33,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add senate-model-archive/experiments/history_extension/results senate-model-archive/docs/history/updates/2026-09-21_0230_extended-history-national-econ-oos.md
+          git add senate-model-archive/experiments/history_extension/results senate-model-archive/experiments/history_extension/direction_results senate-model-archive/docs/history/updates/2026-09-21_0230_extended-history-national-econ-oos.md senate-model-archive/docs/history/updates/2026-09-21_0235_direction-first-extended-history-oos.md
           if git diff --cached --quiet; then
             echo 'No experiment changes'
           else
