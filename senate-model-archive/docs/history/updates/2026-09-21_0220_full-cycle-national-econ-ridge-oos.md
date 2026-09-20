@@ -1,7 +1,7 @@
 # Performance experiment: full-cycle National + economic group-ridge OOS
 
-- Generated UTC: 2026-09-20T17:23:44.955746+00:00
-- Total modeling rows: 199
+- Generated UTC: 2026-09-20T17:25:05.496241+00:00
+- Total modeling rows: 290
 - Training uses all available Senate cycles from 2006 through 2022, including presidential-election years.
 - Outer headline validation remains exactly the preserved 99 races in 2014, 2018, 2022.
 
@@ -9,16 +9,16 @@
 
 | variant | N | RMSE | MAE | direction |
 |---|---:|---:|---:|---:|
-| fullcycle_nested_group_ridge | 99 | 9.0712 | 6.9215 | 90.9% |
-| fullcycle_fixed_N64 | 99 | 9.5017 | 6.9987 | 89.9% |
+| fullcycle_nested_group_ridge | 99 | 8.8467 | 6.9936 | 89.9% |
+| fullcycle_fixed_N64 | 99 | 9.1875 | 7.0571 | 90.9% |
 
 ## Nested choices
 
 | test cycle | lambda local | lambda econ | lambda national | inner RMSE |
 |---:|---:|---:|---:|---:|
-| 2014 | 0.0 | 0.0 | 0.0 | 1000000000.0000 |
-| 2018 | 0.0 | 0.0 | 0.0 | 10.6796 |
-| 2022 | 0.0 | 0.0 | 4.0 | 9.5393 |
+| 2014 | 64.0 | 256.0 | 0.0 | 16.6283 |
+| 2018 | 64.0 | 256.0 | 0.0 | 15.2194 |
+| 2022 | 64.0 | 256.0 | 0.0 | 13.5731 |
 
 ## Comparison target
 
