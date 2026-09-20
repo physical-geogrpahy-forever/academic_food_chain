@@ -1,0 +1,11 @@
+TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+"Celestial Navigation","","Harbor","","","","","Naval Movement +1; maritime infrastructure"
+"Currency","","Market; Mint with Code of Laws","","","","","Wealth process; Commercial Hub removed"
+"Horseback Riding","Horseman","Stable; Caravansary with Foreign Trade","","","","",""
+"Iron Working","Swordsman","","","","","","Iron reveal remains Bronze Working from Ancient V2"
+"Shipbuilding","Quadrireme","","","","","","General land-unit embarkation"
+"Mathematics","Catapult","","","","","","Courthouse removed; Consulate moved to Political Philosophy"
+"Construction","Composite Bowman; Siege Tower","Arena with Games and Recreation","Lumber Mill","","","",""
+"Engineering","","Aqueduct","Fort","Road bridges","","","Additional trade-route capacity with Foreign Trade provisionally"
+"Optics","","Lighthouse","","","","","Embarkation moved to Shipbuilding"
+"Papermaking","","Paper Workshop","","","","","Paper-supported scholarship/administration"
