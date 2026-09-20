@@ -1,0 +1,100 @@
+race_id,cycle,state_abbrev,seat,d_candidate,d_politician_id,r_candidate,r_politician_id,d_senate_prior_election_win,r_senate_prior_election_win,SenateExperienceDiff_auto,d_governor_prior_election_win,r_governor_prior_election_win,GovernorExperienceDiff_auto,d_house_prior_election_win,r_house_prior_election_win,HouseExperienceDiff_auto,d_incumbency_election_history_proxy,r_incumbency_election_history_proxy,IncumbencyDiff_proxy,d_latest_prior_same_seat_winner_cycle,r_latest_prior_same_seat_winner_cycle,d_latest_prior_same_seat_winner_name,r_latest_prior_same_seat_winner_name
+12,2014,AK,Class II,Mark Begich,1526,Dan Sullivan,4545,true,false,1,false,false,0,false,false,0,true,false,1,2008,2008,Mark Begich,Mark Begich
+32,2014,AR,Class II,Mark L. Pryor,1541,Tom Cotton,3066,true,false,1,false,false,0,false,true,-1,true,false,1,2008,2008,Mark L. Pryor,Mark L. Pryor
+23,2014,CO,Class II,Mark Udall,1543,Cory Gardner,2816,true,false,1,false,false,0,true,true,0,true,false,1,2008,2008,Mark Udall,Mark Udall
+24,2014,DE,Class II,Christopher A. Coons,1299,Kevin Wade,4515,true,false,1,false,false,0,false,false,0,true,false,1,2010,2010,Christopher A. Coons,Christopher A. Coons
+17,2014,GA,Class II,Mary Michelle Nunn,4488,David A. Perdue,4489,false,false,0,false,false,0,false,false,0,false,false,0,2008,2008,Saxby Chambliss,Saxby Chambliss
+34,2014,HI,Class III,Brian Schatz,2654,Cam Cavasso,505,false,false,0,false,false,0,false,false,0,false,false,0,2010,2010,Daniel K. Inouye,Daniel K. Inouye
+26,2014,IA,Class II,Bruce L. Braley,2736,Joni K. Ernst,4518,false,false,0,false,false,0,true,false,1,false,false,0,2008,2008,Tom Harkin,Tom Harkin
+27,2014,ID,Class II,Nels Mitchell,4483,James E. Risch,2710,false,true,-1,false,false,0,false,false,0,false,true,-1,2008,2008,James E. Risch,James E. Risch
+4,2014,IL,Class II,Richard J. Durbin,1574,James D. Oberweis,4526,true,false,1,false,false,0,false,false,0,true,false,1,2008,2008,Richard J. Durbin,Richard J. Durbin
+15,2014,KY,Class II,Alison Lundergan Grimes,4676,Mitch McConnell,1585,false,true,-1,false,false,0,false,false,0,false,true,-1,2008,2008,Mitch McConnell,Mitch McConnell
+31,2014,MA,Class II,Edward J. Markey,2711,Brian J. Herr,4672,true,false,1,false,false,0,true,false,1,true,false,1,2013,2013,Edward J. Markey,Edward J. Markey
+9,2014,ME,Class II,Shenna Bellows,4668,Susan M. Collins,1602,false,true,-1,false,false,0,false,false,0,false,true,-1,2008,2008,Susan M. Collins,Susan M. Collins
+2,2014,MI,Class II,Gary C. Peters,2948,Terri Lynn Land,4475,false,false,0,false,false,0,true,false,1,false,false,0,2008,2008,Carl Levin,Carl Levin
+6,2014,MN,Class II,Al Franken,1610,Mike McFadden,4506,true,false,1,false,false,0,false,false,0,true,false,1,2008,2008,Al Franken,Al Franken
+18,2014,MS,Class II,Travis W. Childers,4695,Thad Cochran,1626,false,true,-1,false,false,0,true,true,0,false,true,-1,2008,2008,Thad Cochran,Thad Cochran
+5,2014,MT,Class II,Amanda G. Curtis,6351,Steve Daines,3105,false,false,0,false,false,0,false,true,-1,false,false,0,2008,2008,Max Baucus,Max Baucus
+14,2014,NC,Class II,Kay R. Hagan,1636,Thomas Roland Tillis,4539,true,false,1,false,false,0,false,false,0,true,false,1,2008,2008,Kay R. Hagan,Kay R. Hagan
+1,2014,NE,Class II,Dave Domina,4653,Ben Sasse,4659,false,false,0,false,false,0,false,false,0,false,false,0,2008,2008,Mike Johanns,Mike Johanns
+8,2014,NH,Class II,Jeanne Shaheen,1649,Scott Brown,976,true,true,0,true,false,1,false,false,0,true,false,1,2008,2008,Jeanne Shaheen,Jeanne Shaheen
+10,2014,NJ,Class II,Cory A. Booker,2713,Jeff Bell,4686,true,false,1,false,false,0,false,false,0,true,false,1,2013,2013,Cory A. Booker,Cory A. Booker
+3,2014,NM,Class II,Tom Udall,1662,Allen E. Weh,4671,true,false,1,false,false,0,true,false,1,true,false,1,2008,2008,Tom Udall,Tom Udall
+29,2014,OK,Class II,Matt Silverstein,4648,James M. Inhofe,1663,false,true,-1,false,false,0,false,false,0,false,true,-1,2008,2008,James M. Inhofe,James M. Inhofe
+35,2014,OK,Class III,Constance N. Johnson,4642,James Lankford,2881,false,false,0,false,false,0,false,true,-1,false,false,0,2010,2010,Tom Coburn,Tom Coburn
+20,2014,OR,Class II,Jeff Merkley,1667,Monica Wehby,4570,true,false,1,false,false,0,false,false,0,true,false,1,2008,2008,Jeff Merkley,Jeff Merkley
+33,2014,RI,Class II,Jack Reed,1675,Mark S. Zaccaria,4572,true,false,1,false,false,0,false,false,0,true,false,1,2008,2008,Jack Reed,Jack Reed
+11,2014,SC,Class II,Charles Bradley Hutto,4581,Lindsey Graham,1680,false,true,-1,false,false,0,false,true,-1,false,true,-1,2008,2008,Lindsey Graham,Lindsey Graham
+36,2014,SC,Class III,Joyce Dickerson,4579,Tim Scott,2712,false,false,0,false,false,0,false,true,-1,false,false,0,2010,2010,Jim DeMint,Jim DeMint
+22,2014,SD,Class II,Richard P. Weiland,4594,M. Michael Rounds,4593,false,false,0,false,true,-1,false,false,0,false,false,0,2008,2008,Tim Johnson,Tim Johnson
+28,2014,TN,Class II,William Gordon Ball,4612,Lamar Alexander,167,false,true,-1,false,false,0,false,false,0,false,true,-1,2008,2008,Lamar Alexander,Lamar Alexander
+19,2014,TX,Class II,David M. Alameel,4595,John Cornyn,1699,false,true,-1,false,false,0,false,false,0,false,true,-1,2008,2008,John Cornyn,John Cornyn
+16,2014,VA,Class II,Mark R. Warner,67,Ed W. Gillespie,4683,true,false,1,true,false,1,false,false,0,true,false,1,2008,2008,Mark R. Warner,Mark R. Warner
+30,2014,WV,Class II,Natalie E. Tennant,4627,Shelley Moore Capito,2708,false,false,0,false,false,0,false,true,-1,false,false,0,2008,2008,"John D. Rockefeller, IV","John D. Rockefeller, IV"
+13,2014,WY,Class II,Charlie Hardy,4633,Michael B. Enzi,1712,false,true,-1,false,false,0,false,false,0,false,true,-1,2008,2008,Michael B. Enzi,Michael B. Enzi
+96,2018,AZ,Class I,Kyrsten Sinema,3067,Martha McSally,3888,false,false,0,false,false,0,true,true,0,false,false,0,2012,2012,Jeff Flake,Jeff Flake
+98,2018,CT,Class I,Christopher S. Murphy,446,Matthew M. Corey,3430,true,false,1,false,false,0,true,false,1,true,false,1,2012,2012,Christopher S. Murphy,Christopher S. Murphy
+99,2018,DE,Class I,Thomas R. Carper,951,Rob Arlett,9149,true,false,1,true,false,1,false,false,0,true,false,1,2012,2012,Thomas R. Carper,Thomas R. Carper
+100,2018,FL,Class I,Bill Nelson,953,Rick Scott,6506,true,false,1,false,true,-1,true,false,1,true,false,1,2012,2012,Bill Nelson,Bill Nelson
+101,2018,HI,Class I,Mazie K. Hirono,502,Ronald C. Curtis,10927,true,false,1,false,false,0,true,false,1,true,false,1,2012,2012,Mazie K. Hirono,Mazie K. Hirono
+102,2018,IN,Class I,Joe Donnelly,547,Mike Braun,8549,true,false,1,false,false,0,true,false,1,true,false,1,2012,2012,Joe Donnelly,Joe Donnelly
+105,2018,MA,Class I,Elizabeth Ann Warren,975,Geoff Diehl,9150,true,false,1,false,false,0,false,false,0,true,false,1,2012,2012,Elizabeth Ann Warren,Elizabeth Ann Warren
+104,2018,MD,Class I,Benjamin L. Cardin,981,Tony Campbell,9207,true,false,1,false,false,0,true,false,1,true,false,1,2012,2012,Benjamin L. Cardin,Benjamin L. Cardin
+103,2018,ME,Class I,Angus S. King Jr.,1187,Eric L. Brakey,8680,true,false,1,true,false,1,false,false,0,true,false,1,2012,2012,Angus S. King Jr.,Angus S. King Jr.
+106,2018,MI,Class I,Debbie Stabenow,984,John James,8689,true,false,1,false,false,0,true,false,1,true,false,1,2012,2012,Debbie Stabenow,Debbie Stabenow
+107,2018,MN,Class I,Amy Klobuchar,992,Jim Newberger,9092,true,false,1,false,false,0,false,false,0,true,false,1,2012,2012,Amy Klobuchar,Amy Klobuchar
+129,2018,MN,Class II,Tina Smith,9090,Karin Housley,9091,false,false,0,false,false,0,false,false,0,false,false,0,2014,2014,Al Franken,Al Franken
+109,2018,MO,Class I,Claire McCaskill,997,Josh Hawley,8690,true,false,1,false,false,0,false,false,0,true,false,1,2012,2012,Claire McCaskill,Claire McCaskill
+108,2018,MS,Class I,David Baria,8693,Roger F. Wicker,1001,false,true,-1,false,false,0,false,true,-1,false,true,-1,2012,2012,Roger F. Wicker,Roger F. Wicker
+110,2018,MT,Class I,Jon Tester,1002,Matt Rosendale,3291,true,false,1,false,false,0,false,false,0,true,false,1,2012,2012,Jon Tester,Jon Tester
+116,2018,ND,Class I,Heidi Heitkamp,1005,Kevin Cramer,3110,true,false,1,false,false,0,false,true,-1,true,false,1,2012,2012,Heidi Heitkamp,Heidi Heitkamp
+111,2018,NE,Class I,Jane Raybould,8552,Deb Fischer,1007,false,true,-1,false,false,0,false,false,0,false,true,-1,2012,2012,Deb Fischer,Deb Fischer
+113,2018,NJ,Class I,Bob Menendez,1012,Bob Hugin,8553,true,false,1,false,false,0,true,false,1,true,false,1,2012,2012,Bob Menendez,Bob Menendez
+114,2018,NM,Class I,Martin Heinrich,707,Mick Rich,8556,true,false,1,false,false,0,true,false,1,true,false,1,2012,2012,Martin Heinrich,Martin Heinrich
+112,2018,NV,Class I,Jacky S. Rosen,8322,Dean Heller,1021,false,true,-1,false,false,0,true,true,0,false,true,-1,2012,2012,Dean Heller,Dean Heller
+115,2018,NY,Class I,Kirsten E. Gillibrand,748,Chele Farley,8584,true,false,1,false,false,0,true,false,1,true,false,1,2012,2012,Kirsten E. Gillibrand,Kirsten E. Gillibrand
+117,2018,OH,Class I,Sherrod Brown,1025,Jim Renacci,2964,true,false,1,false,false,0,true,true,0,true,false,1,2012,2012,Sherrod Brown,Sherrod Brown
+118,2018,PA,Class I,Robert P. Casey Jr.,1032,Lou Barletta,2718,true,false,1,false,false,0,false,true,-1,true,false,1,2012,2012,Robert P. Casey Jr.,Robert P. Casey Jr.
+119,2018,RI,Class I,Sheldon Whitehouse,1038,Bob Flanders,9190,true,false,1,false,false,0,false,false,0,true,false,1,2012,2012,Sheldon Whitehouse,Sheldon Whitehouse
+120,2018,TN,Class I,Phil Bredesen,8671,Marsha Blackburn,2729,false,false,0,true,false,1,false,true,-1,false,false,0,2012,2012,Bob Corker,Bob Corker
+121,2018,TX,Class I,Beto O'Rourke,3128,Ted Cruz,1052,false,true,-1,false,false,0,true,false,1,false,true,-1,2012,2012,Ted Cruz,Ted Cruz
+122,2018,UT,Class I,Jenny Wilson,8597,Mitt Romney,9,false,false,0,false,true,-1,false,false,0,false,false,0,2012,2012,Orrin G. Hatch,Orrin G. Hatch
+124,2018,VA,Class I,Timothy Michael Kaine,80,Corey Stewart,8554,true,false,1,true,false,1,false,false,0,true,false,1,2012,2012,Timothy Michael Kaine,Timothy Michael Kaine
+123,2018,VT,Class I,Bernie Sanders,37,Lawrence Zupan,9595,true,false,1,false,false,0,true,false,1,true,false,1,2012,2012,Bernie Sanders,Bernie Sanders
+125,2018,WA,Class I,Maria Cantwell,1066,Susan Hutchison,9106,true,false,1,false,false,0,false,false,0,true,false,1,2012,2012,Maria Cantwell,Maria Cantwell
+127,2018,WI,Class I,Tammy Baldwin,1067,Leah Vukmir,9105,true,false,1,false,false,0,true,false,1,true,false,1,2012,2012,Tammy Baldwin,Tammy Baldwin
+126,2018,WV,Class I,"Joe Manchin, III",925,Patrick Morrisey,6828,true,false,1,true,false,1,false,false,0,true,false,1,2012,2012,"Joe Manchin, III","Joe Manchin, III"
+128,2018,WY,Class I,Gary Trauner,6432,John Barrasso,1069,false,true,-1,false,false,0,false,false,0,false,true,-1,2012,2012,John Barrasso,John Barrasso
+8917,2022,AL,Class III,Will Boyd,16112,Katie Britt,18466,false,false,0,false,false,0,false,false,0,false,false,0,2016,2016,Richard C. Shelby,Richard C. Shelby
+8920,2022,AR,Class III,Natalie James,18465,John Boozman,376,false,true,-1,false,false,0,false,true,-1,false,true,-1,2016,2016,John Boozman,John Boozman
+8919,2022,AZ,Class III,Mark Kelly,9705,Blake Masters,17695,true,false,1,false,false,0,false,false,0,true,false,1,2020,2020,Mark Kelly,Mark Kelly
+9480,2022,CA,Class III,Alex Padilla,17803,Mark P. Meuser,17867,false,false,0,false,false,0,false,false,0,false,false,0,2016,2016,Kamala Harris,Kamala Harris
+8921,2022,CA,Class III,Alex Padilla,17803,Mark P. Meuser,17867,false,false,0,false,false,0,false,false,0,false,false,0,2016,2016,Kamala Harris,Kamala Harris
+8922,2022,CO,Class III,Michael Bennet,429,Joe O'Dea,18627,true,false,1,false,false,0,false,false,0,true,false,1,2016,2016,Michael Bennet,Michael Bennet
+8923,2022,CT,Class III,Richard Blumenthal,447,Leora R. Levy,18449,true,false,1,false,false,0,false,false,0,true,false,1,2016,2016,Richard Blumenthal,Richard Blumenthal
+8924,2022,FL,Class III,Val Demings,4735,Marco Rubio,481,false,true,-1,false,false,0,true,false,1,false,true,-1,2016,2016,Marco Rubio,Marco Rubio
+8925,2022,GA,Class III,Raphael Warnock,10220,Herschel Junior Walker,11490,false,false,0,false,false,0,false,false,0,false,false,0,2016,2016,Johnny Isakson,Johnny Isakson
+8926,2022,HI,Class III,Brian Schatz,2654,Bob McDermott,14961,true,false,1,false,false,0,false,false,0,true,false,1,2016,2016,Brian Schatz,Brian Schatz
+8930,2022,IA,Class III,Michael Franken,18383,Chuck Grassley,517,false,true,-1,false,false,0,false,true,-1,false,true,-1,2016,2016,Chuck Grassley,Chuck Grassley
+8927,2022,ID,Class III,David Roth,17997,Mike Crapo,525,false,true,-1,false,false,0,false,false,0,false,true,-1,2016,2016,Mike Crapo,Mike Crapo
+8928,2022,IL,Class III,Tammy Duckworth,3090,Kathy Salvi,18619,true,false,1,false,false,0,true,false,1,true,false,1,2016,2016,Tammy Duckworth,Tammy Duckworth
+8929,2022,IN,Class III,Thomas McDermott,18027,Todd Young,3050,false,true,-1,false,false,0,false,true,-1,false,true,-1,2016,2016,Todd Young,Todd Young
+8931,2022,KS,Class III,Mark R. Holland,18040,Jerry Moran,566,false,true,-1,false,false,0,false,true,-1,false,true,-1,2016,2016,Jerry Moran,Jerry Moran
+8932,2022,KY,Class III,Charles Booker,10283,Rand Paul,30,false,true,-1,false,false,0,false,false,0,false,true,-1,2016,2016,Rand Paul,Rand Paul
+8935,2022,MD,Class III,Chris Van Hollen,3028,Chris Chaffee,4264,true,false,1,false,false,0,true,false,1,true,false,1,2016,2016,Chris Van Hollen,Chris Van Hollen
+8936,2022,MO,Class III,Trudy Busch Valentine,18422,Eric Schmitt,13297,false,false,0,false,false,0,false,false,0,false,false,0,2016,2016,Roy Blunt,Roy Blunt
+8940,2022,NC,Class III,Cheri Beasley,17724,Ted Budd,8570,false,false,0,false,false,0,false,true,-1,false,false,0,2016,2016,Richard Burr,Richard Burr
+8941,2022,ND,Class III,Katrina Christiansen,18197,John Hoeven,669,false,true,-1,false,true,-1,false,false,0,false,true,-1,2016,2016,John Hoeven,John Hoeven
+8938,2022,NH,Class III,Maggie Hassan,6712,Donald C. Bolduc,9712,true,false,1,true,false,1,false,false,0,true,false,1,2016,2016,Maggie Hassan,Maggie Hassan
+8937,2022,NV,Class III,Catherine Cortez Masto,6829,Adam Paul Laxalt,6830,true,false,1,false,false,0,false,false,0,true,false,1,2016,2016,Catherine Cortez Masto,Catherine Cortez Masto
+8939,2022,NY,Class III,Charles E. Schumer,744,Joe Pinion,18148,true,false,1,false,false,0,true,false,1,true,false,1,2016,2016,Charles E. Schumer,Charles E. Schumer
+8942,2022,OH,Class III,Tim Ryan,2984,JD Vance,13265,false,false,0,false,false,0,true,false,1,false,false,0,2016,2016,Rob Portman,Rob Portman
+9482,2022,OK,Class II,Kendra Horn,8968,Markwayne Mullin,3122,false,false,0,false,false,0,true,true,0,false,false,0,2020,2020,James M. Inhofe,James M. Inhofe
+8943,2022,OK,Class III,Madison Horn,18705,James Lankford,2881,false,true,-1,false,false,0,false,true,-1,false,true,-1,2016,2016,James Lankford,James Lankford
+8944,2022,OR,Class III,Ron Wyden,788,Jo Rae Perkins,4569,true,false,1,false,false,0,true,false,1,true,false,1,2016,2016,Ron Wyden,Ron Wyden
+8945,2022,PA,Class III,John Fetterman,8074,Mehmet Oz,17731,false,false,0,false,false,0,false,false,0,false,false,0,2016,2016,Patrick J. Toomey,Patrick J. Toomey
+8946,2022,SC,Class III,Krystle Matthews,18263,Tim Scott,2712,false,true,-1,false,false,0,false,true,-1,false,true,-1,2016,2016,Tim Scott,Tim Scott
+8947,2022,SD,Class III,Brian L. Bengs,18275,John R. Thune,22,false,true,-1,false,false,0,false,true,-1,false,true,-1,2016,2016,John R. Thune,John R. Thune
+8949,2022,VT,Class III,Peter Welch,3038,Gerald Malloy,18827,false,false,0,false,false,0,true,false,1,false,false,0,2016,2016,Patrick J. Leahy,Patrick J. Leahy
+8950,2022,WA,Class III,Patty Murray,907,Tiffany Smiley,14330,true,false,1,false,false,0,false,false,0,true,false,1,2016,2016,Patty Murray,Patty Murray
+8951,2022,WI,Class III,Mandela Barnes,17690,Ron Johnson,919,false,true,-1,false,false,0,false,false,0,false,true,-1,2016,2016,Ron Johnson,Ron Johnson

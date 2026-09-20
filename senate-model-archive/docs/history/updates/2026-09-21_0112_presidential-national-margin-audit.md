@@ -1,6 +1,6 @@
 # GitHub Actions run: presidential national-margin audit
 
-- Generated UTC: 2026-09-20T16:13:42.566532+00:00
+- Generated UTC: 2026-09-20T16:14:18.234625+00:00
 - Execution: GitHub Actions
 - Purpose: compare 50-state+DC aggregation against explicit national general-election rows in the same pinned source.
 
