@@ -1,0 +1,6 @@
+model,validation_window,rmse_pctpt,mae_pctpt,direction_pct,notes
+previous_candidate_effect_model,"2014;2018;2022",8.76,,91.9,pre-Core-V2 benchmark
+Core_V2_fundamentals,"2014;2018;2022",7.99,6.18,90.9,modern midterms
+Core_V2_plus_45d_poll,"2014;2018;2022",7.85,5.79,91.9,headline benchmark
+Core_V2_plus_poll_midterms_2006_2022,"2006;2010;2014;2018;2022",9.50,6.66,92.8,all midterms
+Core_V2_plus_poll_all_OOS_2006_2022,"2006-2022 OOS",10.14,7.32,91.2,all OOS elections
