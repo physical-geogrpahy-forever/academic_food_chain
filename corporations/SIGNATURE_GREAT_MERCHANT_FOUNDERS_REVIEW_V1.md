@@ -1,3 +1,5 @@
+# SUPERSEDED AS MERCHANT-ONLY FRAMEWORK — candidate names remain useful; use CORPORATION_FOUNDING_AND_OUTPUT_SYSTEM_V1.md for founder-class rules.
+
 # Signature Great Merchant Founders — Review V1
 
 Date: 2026-09-20
