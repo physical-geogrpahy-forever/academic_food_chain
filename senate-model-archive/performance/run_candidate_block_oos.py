@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import csv, math, re, unicodedata
+from urllib.request import urlopen
 from collections import defaultdict
 from pathlib import Path
 from datetime import date, datetime, timezone
@@ -14,6 +15,7 @@ HEAD=ROOT/'data/processed/core_v2r_headline_target_hypothesis_A.csv'
 ALIGN=ROOT/'config/partisan_alignment_overrides_v1.csv'
 CURRENT=ROOT/'data/raw/congress-legislators/legislators-current.yaml'
 HIST=ROOT/'data/raw/congress-legislators/legislators-historical.yaml'
+CONGRESS_COMMIT='8a3c7e6987f890b32e56058f7ddbdf380860b4a3'
 NGA=ROOT/'data/processed/source_snapshots/nga_former_governors_snapshot.csv'
 GOV=ROOT/'data/processed/source_snapshots/election_results_gubernatorial_d7a7cff101da.csv'
 OUTDIR=ROOT/'performance/results'
@@ -119,7 +121,13 @@ for rid,h in head_by.items():
 
 # Congress term index.
 people=[]
-for path in [CURRENT,HIST]: people.extend(yaml.safe_load(path.read_text(encoding='utf-8')) or [])
+for path,name in [(CURRENT,'legislators-current.yaml'),(HIST,'legislators-historical.yaml')]:
+    if path.exists():
+        txt=path.read_text(encoding='utf-8')
+    else:
+        url=f'https://raw.githubusercontent.com/unitedstates/congress-legislators/{CONGRESS_COMMIT}/{name}'
+        txt=urlopen(url,timeout=90).read().decode('utf-8')
+    people.extend(yaml.safe_load(txt) or [])
 leg_index=defaultdict(list)
 def variants(p):
     n=p.get('name',{}); vals=set()
