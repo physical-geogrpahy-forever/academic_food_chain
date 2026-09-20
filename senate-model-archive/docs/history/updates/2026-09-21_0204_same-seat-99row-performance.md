@@ -1,6 +1,6 @@
 # Performance experiment: SameSeat handling on full 99-row headline sample
 
-- Generated UTC: 2026-09-20T17:16:38.843155+00:00
+- Generated UTC: 2026-09-20T17:18:15.350515+00:00
 - Outer validation rows: 99 exactly (2014, 2018, 2022 preserved headline universe).
 
 ## Results
