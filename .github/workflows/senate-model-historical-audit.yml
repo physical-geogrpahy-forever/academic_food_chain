@@ -1,0 +1,44 @@
+name: Senate model historical data audit
+
+on:
+  push:
+    branches:
+      - archive-2026-us-senate-model
+    paths:
+      - 'senate-model-archive/scripts/**'
+      - 'senate-model-archive/data/raw/**'
+      - '.github/workflows/senate-model-historical-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  historical-senate-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout archive branch
+        uses: actions/checkout@v4
+        with:
+          ref: archive-2026-us-senate-model
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run historical Senate audit
+        run: python senate-model-archive/scripts/build_historical_senate_audit.py
+
+      - name: Commit generated outputs and worklog
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add senate-model-archive/data/processed senate-model-archive/docs/history/updates/2026-09-21_0110_github-actions-historical-senate-audit.md
+          if git diff --cached --quiet; then
+            echo 'No generated changes'
+          else
+            git commit -m 'data: generate historical Senate race audit [skip ci]'
+            git push origin HEAD:archive-2026-us-senate-model
+          fi
