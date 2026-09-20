@@ -15,13 +15,13 @@ This pass audits the project's 14 Ancient technologies against Civ V BNW, releva
 | Mining | Mine, forest clearing, mineral exploitation |
 | Sailing | Work Boat, Trireme, Fishing Boats, Cargo Ship with Foreign Trade civic |
 | Astrology | Shrine; early religion/Great Prophet access with Mysticism |
-| Irrigation | marsh clearing; fresh-water Farm +1 Food |
+| Irrigation | Plantation; marsh clearing; fresh-water Farm +1 Food |
 | Archery | Archer |
 | Writing | Library |
 | Masonry | Quarry, Walls, Stone Works, Battering Ram |
 | Bronze Working | Spearman, Barracks, Iron reveal, jungle/rainforest clearing |
 | Wheel | Road, Water Mill, Chariot Archer |
-| Calendar | Plantation |
+| Calendar | calendar/agricultural knowledge; no exclusive tile improvement |
 | Trapping | Camp; Circus with Games and Recreation civic |
 
 ## Key reconciliation decisions
@@ -30,10 +30,12 @@ This pass audits the project's 14 Ancient technologies against Civ V BNW, releva
 Civ V BNW places Plantation at Calendar, while Civ VI places it at Irrigation.
 
 Final:
-**Calendar -> Plantation**
+**Irrigation -> Plantation**
 
 Reason:
-Civ V is the structural baseline and this keeps Irrigation available for actual water-management effects.
+Civ V remains the structural baseline for the city/tile model, but source-game unlock placement is not binding. Plantation establishment is more naturally grouped with managed water, cultivated perennial/cash crops and agricultural intensification. The project therefore follows functional and historical fit rather than mechanically copying Civ V's Calendar placement.
+
+Calendar remains useful as a knowledge prerequisite/node in the technology tree without needing to own Plantation.
 
 ### Irrigation
 The project has a dedicated Irrigation technology while Civ V put the fresh-water Farm bonus on Civil Service.
