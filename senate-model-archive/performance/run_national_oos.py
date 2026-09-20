@@ -135,6 +135,49 @@ for lam in (1.0,4.0,16.0,64.0):
   variants[f'structural_econ_national_ridge{lam:g}']=(BASEFEAT+['econ','national'],{'national':lam})
 
 summary=[]; predrows=[]
+
+# Leakage-safe nested selection among National ridge strengths and optional economy.
+# Hyperparameters are chosen using only cycles earlier than each outer test cycle.
+NAT_LAM=[0.0,1.0,4.0,16.0,64.0,256.0,1024.0]
+
+def inner_eval(train,use_econ,nat_lam):
+  cycles=sorted(set(int(r['cycle']) for r in train))
+  yy=[]; pp=[]
+  for vc in cycles[1:]:
+    itr=[r for r in train if int(r['cycle'])<vc]
+    iva=[r for r in train if int(r['cycle'])==vc]
+    if len(itr)<10 or not iva:
+      continue
+    feats=BASEFEAT+(['econ'] if use_econ else [])+([] if nat_lam is None else ['national'])
+    pens={} if nat_lam is None else {'national':nat_lam}
+    q=pred(itr,iva,feats,pens)
+    yy.extend(r['y'] for r in iva); pp.extend(q.tolist())
+  return rmse(yy,pp) if yy else 1e9
+
+nested_rows=[]; nested_choices=[]
+for tc in OUTER:
+  tr=[r for r in rows if int(r['cycle'])<tc]
+  te=[r for r in rows if int(r['cycle'])==tc]
+  grid=[]
+  for use_econ in (False,True):
+    grid.append((inner_eval(tr,use_econ,None),use_econ,None))
+    for lam in NAT_LAM:
+      grid.append((inner_eval(tr,use_econ,lam),use_econ,lam))
+  grid.sort(key=lambda z:(z[0], 1 if z[2] is not None else 0, 0 if z[2] is None else z[2]))
+  sc,use_econ,lam=grid[0]
+  feats=BASEFEAT+(['econ'] if use_econ else [])+([] if lam is None else ['national'])
+  pens={} if lam is None else {'national':lam}
+  q=pred(tr,te,feats,pens)
+  nested_choices.append({
+    'test_cycle':tc,
+    'use_econ':int(use_econ),
+    'national_lambda':'NONE' if lam is None else lam,
+    'inner_rmse':sc,
+    'top10':' | '.join(f"econ={int(z[1])},nat={'NONE' if z[2] is None else z[2]}:{z[0]:.4f}" for z in grid[:10])
+  })
+  for r,pv in zip(te,q):
+    nested_rows.append({'variant':'nested_training_only','test_cycle':tc,'race_id':r['race_id'],'state_abbrev':r['state_abbrev'],'actual':r['y'],'predicted':float(pv),'error':float(pv)-r['y']})
+
 for name,(feats,pens) in variants.items():
   yy=[];pp=[]
   for tc in OUTER:
@@ -144,9 +187,18 @@ for name,(feats,pens) in variants.items():
     for r,p in zip(te,q):predrows.append({'variant':name,'test_cycle':tc,'race_id':r['race_id'],'state_abbrev':r['state_abbrev'],'actual':r['y'],'predicted':float(p),'error':float(p)-r['y']})
   summary.append({'variant':name,'n':len(yy),'rmse':rmse(yy,pp),'mae':mae(yy,pp),'direction_pct':acc(yy,pp)})
 
+# Add leakage-safe nested result after all fixed diagnostics.
+yy=[float(r['actual']) for r in nested_rows]
+pp=[float(r['predicted']) for r in nested_rows]
+summary.append({'variant':'nested_training_only','n':len(yy),'rmse':rmse(yy,pp),'mae':mae(yy,pp),'direction_pct':acc(yy,pp)})
+predrows.extend(nested_rows)
+
 for fn,data in [('national_oos_summary.csv',summary),('national_oos_predictions.csv',predrows)]:
   with (OUTDIR/fn).open('w',encoding='utf-8',newline='') as f:
     w=csv.DictWriter(f,fieldnames=list(data[0].keys()));w.writeheader();w.writerows(data)
+
+with (OUTDIR/'national_oos_nested_choices.csv').open('w',encoding='utf-8',newline='') as f:
+  w=csv.DictWriter(f,fieldnames=list(nested_choices[0].keys()));w.writeheader();w.writerows(nested_choices)
 
 with (OUTDIR/'national_45d_values.csv').open('w',encoding='utf-8',newline='') as f:
   fields=['cycle','election_date','target_date','source_date','national_margin_d_minus_r','source']
@@ -170,13 +222,15 @@ for z in summary:lines.append(f"| {z['variant']} | {z['n']} | {float(z['rmse']):
 lines += ['','## Decision','',
 f'- Structural baseline RMSE: {float(basev["rmse"]):.4f}.',
 f'- Structural + fixed economic signal RMSE: {float(econv["rmse"]):.4f}.',
-f'- Best tested National architecture: {best["variant"]} with RMSE {float(best["rmse"]):.4f}.',
+f'- Lowest fixed diagnostic architecture: {best["variant"]} with RMSE {float(best["rmse"]):.4f}; fixed-grid test comparison is descriptive only.',
+f'- Leakage-safe nested training-only RMSE: {float(next(z for z in summary if z["variant"]=="nested_training_only")["rmse"]):.4f}.',
 f'- Improvement vs structural: {float(basev["rmse"])-float(best["rmse"]):+.4f}.',
 f'- Improvement vs structural+econ: {float(econv["rmse"])-float(best["rmse"]):+.4f}.',
 '- This is still a reconstruction diagnostic, not the preserved 7.99 headline Core V2, because candidate and PersonalVote architecture are not yet fully restored.','',
 '## Outputs','',
 '- performance/results/national_oos_summary.csv',
 '- performance/results/national_oos_predictions.csv',
+'- performance/results/national_oos_nested_choices.csv',
 '- performance/results/national_45d_values.csv']
 DOC.write_text('\n'.join(lines)+'\n',encoding='utf-8')
 print('\n'.join(lines))
