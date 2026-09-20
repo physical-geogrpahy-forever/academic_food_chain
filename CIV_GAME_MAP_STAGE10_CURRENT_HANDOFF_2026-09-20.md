@@ -173,198 +173,239 @@ Important V4 corrections:
 
 The five sprite files collectively contain all 47 resources exactly once.
 
-## 9. Contact-based dynamic resource system
+## 9. Contact-based dynamic resource system — reviewed V2
 
-Core design file:
-`civ_map_stage10_resources/contact_dynamic_resource_system_v1.md`
+Canonical current design:
+`civ_map_stage10_resources/contact_dynamic_resource_system_v2.md`
 
-47-resource transfer-class table:
-`civ_map_stage10_resources/resource_transfer_classes_v1.csv`
+Transfer-class table:
+`civ_map_stage10_resources/resource_transfer_classes_v2.csv`
 
-Core principle:
-Historical introduction dates are historical/default-path priors, not global hard locks.
+The old V1 design is superseded and is explicitly marked DO NOT IMPLEMENT.
 
-The game must distinguish:
-1. native/source presence
-2. civilization knowledge
-3. introduced presence
-4. exploitable/active state
+V2 intentionally removes the earlier probability, city-stock, regional-stock, diffusion and neighbor-spread machinery.
 
-Transfer events can include:
-- civilization contact
-- trade
-- exploration/discovery
-- settlement/colonization
-- conquest/occupation
+Minimal state:
+- map cell: START_VISIBLE / LATENT, plus optional ACTIVE_INTRODUCED after gameplay introduction
+- civilization: `has_resource[civ][resource]`
 
-Locked alternate-history example:
-If Korea reaches South America in 1000 CE and establishes a settlement, transferable resources already known and carried by Korea, such as horses or cattle, may be introduced to environmentally suitable cells. The game must not wait for the historical year 1492.
+Visibility on an explored tile:
+1. START_VISIBLE -> visible to everyone
+2. ACTIVE_INTRODUCED -> visible to everyone
+3. LATENT + civilization possesses resource -> visible to that civilization
+4. otherwise hidden
 
-Geological resources do not move with contact:
-- contact can reveal them,
-- knowledge can spread,
-- extraction technology can activate them,
-- deposit geography remains fixed.
+Fog of war remains unchanged.
 
-## 10. Resource transfer classes
+Acquisition routes:
+- explore a START_VISIBLE source: icon becomes visible, but possession is not granted yet
+- settle/claim a START_VISIBLE source region: civilization acquires resource
+- trade with a civilization that possesses the resource: acquire resource
+- capture a city from a civilization that possesses the resource: valid V2 acquisition route
+- first contact alone: no automatic transfer
 
-Current broad classes:
+Once acquired, possession persists in V2.
 
-A. Geological fixed resources  
-Examples: IRON, COAL, OIL, ALUMINUM, URANIUM, COPPER, GOLD, SILVER, MARBLE, SALT, GEMS, JADE, LAPIS_LAZULI, AMBER, STONE
+Settlement never creates an arbitrary new resource cell. It can only activate already-selected Stage10 LATENT cells inside the settlement/city territory as ACTIVE_INTRODUCED.
 
-B. Transferable domesticated plants  
-Examples: WHEAT, RICE, MAIZE, BANANAS, CITRUS, COTTON, SUGAR, COFFEE, TEA, TOBACCO, OLIVES, WINE/grape basis, transportable SPICES components
+Locked example:
+- American HORSES cells start LATENT
+- Spain with HORSES can see its explored American HORSES latent cells
+- horse cells introduced within a Spanish colony can become ACTIVE_INTRODUCED and are then physically visible to other explorers
+- a Native civilization capturing the Spanish colony acquires HORSES
+- that Native civilization can then see its explored American HORSES latent cells and can transfer HORSES onward through trade
 
-C. Transferable domesticated animals  
-HORSES, CATTLE, SHEEP
+## 10. Reviewed dynamic resource set
 
-D. Wild biological resources  
-BISON, DEER, FURS, IVORY, FISH, CRAB, PEARLS, WHALES, CORAL, TRUFFLES
+V2 dynamic-transfer resources, 18 total:
 
-E. Processed/composite display resources  
-COCOA/Chocolate, PERFUME/향수, plus other resources that need ingredient-specific interpretation such as DYES or INCENSE
+Plants/composite plant resources:
+- BANANAS
+- CITRUS
+- COCOA
+- COFFEE
+- COTTON
+- DYES
+- MAIZE
+- OLIVES
+- RICE
+- SPICES
+- SUGAR
+- TEA
+- TOBACCO
+- WHEAT
+- WINE
 
-F. Technology-sensitive natural/manufactured resource  
-NITER
+Domestic animals:
+- HORSES
+- CATTLE
+- SHEEP
 
-## 11. GitHub inventory
+Important locks:
+- DYES stays one unified resource.
+- SPICES stays one unified resource.
+- COCOA internal ID remains COCOA even though the icon/display may be chocolate.
+- PERFUME is explicitly excluded from dynamic transfer.
+- SILK and INCENSE are not in the reviewed 18-resource V2 dynamic set and remain deferred.
+- wild biological resources are not moved by this system.
+- geological/mineral resources remain fixed.
 
-### Root handoff/status
+Special fixed-production exceptions:
+- NITER natural cells remain fixed; separate technology/facility may manufacture saltpetre.
+- SALT natural cells remain fixed; coastal salt production uses a separate tile improvement/facility such as SALTWORKS, not a city building.
 
-- `CIV_GAME_MAP_RESOURCE_STAGE10_STATUS_2026-09-20.md`
-- `CIV_GAME_MAP_STAGE10_GITHUB_HANDOFF_2026-09-20.md`
-- `CIV_GAME_MAP_STAGE10_INTEGRATED_HANDOFF_2026-09-20.md`
-- `CIV_GAME_MAP_STAGE10_CURRENT_HANDOFF_2026-09-20.md` (this file)
+## 11. 4000 BCE historical start mask — reviewed V3
 
-### Stage10 audit
-
-Directory:
-`civ_map_stage10_resources/audit_2026-09-20/`
-
-Files:
-- `RESOURCE_AUDIT_SUMMARY.md`
-- `RESOURCE_FIX_PLAN_V1.md`
-- `heuristic_fix_smoke_test_v1.csv`
-- `korea_land_resource_audit.csv`
-- `problem_resource_summary_v1.csv`
-- `resource_audit_status.csv`
-- `resource_fix_plan_v1.csv`
-- `resource_tie_plateau_audit.csv`
-- `world_land_resource_density_by_region.csv`
-- `world_resource_surface_summary.csv`
-- `world_resource_technical_audit.csv`
-- `world_resource_technical_checks.json`
-
-### resource_fix_v1
-
-Directory:
-`civ_map_stage10_resources/resource_fix_v1/`
-
-Files:
-- `CIV_GAME_MAP_STAGE10Y_RESOURCE_PLACEMENT_PREVIEW_PLACED_FIXED_V1.csv`
-- `replacement_selections_v1.csv`
-- `replacement_comparison_summary_v1.csv`
-- `replacement_pool_counts_v1.csv`
-- `replacement_region_comparison_v1.csv`
-- `plateau_comparison_v1.csv`
-- `replacement_ids_v1.json`
-- `RECONSTRUCT_FIXED_PLACEMENT.md`
-- `README.md`
-
-### Icon V4
-
-Directory:
-`civ_map_stage10_resources/icons_v4/`
+Canonical current directory:
+`civ_map_stage10_resources/history_4000bce_v3/`
 
 Files:
 - `README.md`
-- `resource_manifest_v4.csv`
-- `resource_icons_v4_sprite_1.svg`
-- `resource_icons_v4_sprite_2.svg`
-- `resource_icons_v4_sprite_3.svg`
-- `resource_icons_v4_sprite_4.svg`
-- `resource_icons_v4_sprite_5.svg`
+- `resource_start_visible_4000bce_mask_regions_v3.csv`
+- `apply_resource_history_4000bce_v3.py`
+- `resource_history_4000bce_exact_summary_v3.csv`
+- `resource_history_4000bce_critical_checks_v3.csv`
 
-### Dynamic resource system
+The old `history_4000bce_v1` README is marked superseded.
 
-- `civ_map_stage10_resources/contact_dynamic_resource_system_v1.md`
-- `civ_map_stage10_resources/resource_transfer_classes_v1.csv`
+Design principle:
+- use about 4000 BCE as the single initial-history baseline
+- intentionally use broad source/early-spread envelopes for gameplay
+- only classify already-selected Stage10 cells; never create new resource locations
+- direct wild source populations that could plausibly be discovered and exploited are allowed as START_VISIBLE
+- modern distributions that did not yet physically exist are LATENT
 
-### 4000 BCE historical mask
+## 12. Exact Stage10Y V3 mask result
 
+The V3 mask was applied to the exact Stage10Y 12,500-cell placement artifact.
+
+Dynamic-resource cells:
+- total: 6,630
+- START_VISIBLE: 1,950 (29.4%)
+- LATENT: 4,680 (70.6%)
+
+Per-resource result:
+
+| Resource | START_VISIBLE | LATENT | Total | Visible % |
+|---|---:|---:|---:|---:|
+| BANANAS | 48 | 373 | 421 | 11.4 |
+| CATTLE | 155 | 466 | 621 | 25.0 |
+| CITRUS | 17 | 249 | 266 | 6.4 |
+| COCOA | 24 | 146 | 170 | 14.1 |
+| COFFEE | 8 | 192 | 200 | 4.0 |
+| COTTON | 40 | 195 | 235 | 17.0 |
+| DYES | 71 | 12 | 83 | 85.5 |
+| HORSES | 293 | 830 | 1,123 | 26.1 |
+| MAIZE | 22 | 491 | 513 | 4.3 |
+| OLIVES | 152 | 79 | 231 | 65.8 |
+| RICE | 62 | 387 | 449 | 13.8 |
+| SHEEP | 357 | 256 | 613 | 58.2 |
+| SPICES | 215 | 97 | 312 | 68.9 |
+| SUGAR | 39 | 191 | 230 | 17.0 |
+| TEA | 45 | 111 | 156 | 28.8 |
+| TOBACCO | 34 | 199 | 233 | 14.6 |
+| WHEAT | 195 | 287 | 482 | 40.5 |
+| WINE | 173 | 119 | 292 | 59.2 |
+
+Critical QA:
+- Americas HORSES: 472 checked, 0 START_VISIBLE — PASS
+- Americas CATTLE: 267 checked, 0 START_VISIBLE — PASS
+- Americas SHEEP: 32 checked, 0 START_VISIBLE — PASS
+- Korea RICE: 7 checked, 0 START_VISIBLE — PASS
+- Mesoamerica MAIZE: 23 checked, 22 START_VISIBLE — PASS
+- Upper Amazon COCOA: 24 checked, 24 START_VISIBLE — PASS
+- Ethiopia/Boma COFFEE: 8 checked, 8 START_VISIBLE — PASS
+- China RICE: 62 checked, 62 START_VISIBLE — PASS
+
+Korea dynamic-resource cells under V3:
+- CATTLE 1: LATENT
+- CITRUS 2: LATENT
+- HORSES 6: LATENT
+- MAIZE 1: LATENT
+- RICE 7: LATENT
+- TOBACCO 4: LATENT
+- WINE 4: LATENT
+
+Thus the current Korea window has no START_VISIBLE cells among the reviewed 18 dynamic resources at 4000 BCE. This is not equivalent to Korea having no map resources overall; static minerals/wild resources are separate.
+
+## 13. SUGAR V3 correction
+
+A New-Guinea-only source mask produced zero START_VISIBLE SUGAR cells because the current Stage10 SUGAR placement contains no selected modern cells in New Guinea itself.
+
+V3 therefore uses a broad game envelope:
+- New Guinea origin
+- Island Southeast Asia / Southeast Asian early Saccharum source-dispersal zone
+- longitude 95–130E
+- latitude 10S–20N
+
+The 20N cap keeps South China LATENT.
+
+Final V3 result:
+- SUGAR START_VISIBLE 39
+- SUGAR LATENT 191
+
+## 14. GitHub inventory additions
+
+### Current dynamic system
+- `civ_map_stage10_resources/contact_dynamic_resource_system_v2.md`
+- `civ_map_stage10_resources/resource_transfer_classes_v2.csv`
+
+### 4000 BCE V3
 Directory:
-`civ_map_stage10_resources/history_4000bce_v1/`
+`civ_map_stage10_resources/history_4000bce_v3/`
 
 Files:
 - `README.md`
-- `resource_start_visible_4000bce_mask_regions_v1.csv`
-- `apply_resource_history_4000bce_v1.py`
+- `resource_start_visible_4000bce_mask_regions_v3.csv`
+- `apply_resource_history_4000bce_v3.py`
+- `resource_history_4000bce_exact_summary_v3.csv`
+- `resource_history_4000bce_critical_checks_v3.csv`
 
-The mask is intentionally broad and applies only to already-selected Stage10 resource cells. It never creates a new resource location.
+Legacy files retained only for provenance:
+- `contact_dynamic_resource_system_v1.md` — superseded warning added
+- `history_4000bce_v1/README.md` — superseded warning added
+- `resource_transfer_classes_v1.csv` — legacy; use V2
 
-## 12. Current progress
+## 15. Current progress
 
 Completed:
 - 47-resource roster locked
-- current real-world evidence layers assembled
-- Stage10X evidence audit completed
-- Stage10Y 12,500-cell preview completed
-- one-resource-per-hex check completed
-- source-GPKG surface and Korea audit completed
-- BISON/IVORY/WHALES plateau diagnosis completed
-- resource_fix_v1 integrated 12,500-row review table committed
+- Stage10X evidence layers assembled
+- Stage10Y exact 12,500-cell preview completed
+- one-resource-per-hex audit completed
+- source-GPKG/Korea audit completed
+- BISON/IVORY/WHALES plateau diagnosis and resource_fix_v1 review build completed
 - Resource Icon V4 committed
-- contact-based dynamic resource-system baseline committed
-- 47-resource transfer-class table committed
+- simple contact-based dynamic system V2 reviewed and committed
+- 18-resource dynamic set reviewed and committed
+- 4000 BCE broad historical mask V3 reviewed and committed
+- V3 applied to exact Stage10Y 12,500-cell artifact
+- exact per-resource summary and critical QA committed
 
-Not yet complete:
-- resource-by-resource historical/native/contact-transfer research for all 47 resources
-- resource-specific environmental establishment rules for transferable biological resources
-- default historical path validation
-- final re-audit of resource_fix_v1 under the dynamic model
-- direct GPKG-coordinate world/regional rendering
-- final regional visual QA
-- canonical final Stage10 placement
+Still not canonical final placement:
+- `resource_fix_v1` remains a review build
+- direct source-GPKG regional visual QA of final combined historical display remains desirable
+- final canonical Stage10 placement has not yet been promoted
 
-## 13. Next work
+## 16. Next work
 
 Highest priority:
-Build the 47-resource historical/contact dataset.
+1. implement V2 runtime visibility/acquisition events in the actual game layer
+2. generate direct-GPKG maps showing START_VISIBLE versus LATENT for regional visual QA
+3. test alternate-history cases:
+   - Spain -> American colony -> Native conquest -> Native trade
+   - Yangtze RICE -> intermediary trade -> Korea
+   - source civilization destroyed but source tile remains discoverable
+4. re-audit resource_fix_v1 with the V3 historical display layer
+5. only then decide whether to promote the integrated Stage10 placement to canonical final
 
-For each resource record:
-- native/source geography
-- domestication or original exploitation zone
-- wild vs domesticated distinction
-- environmental suitability
-- historical/default transfer paths
-- transportability
-- knowledge-transfer behavior
-- trade transfer
-- settlement transfer
-- conquest transfer
-- expedition/discovery behavior
-- establishment conditions
-- extraction/cultivation technology
-- historical validation points
+Do not reintroduce the V1 probability/diffusion/stock model unless explicitly requested.
 
-Do not implement a simple fixed-year unlock table.
+## 17. Canonical warning
 
-Minimum gameplay rule:
-`known by source civilization + transferable class + valid contact/trade/settlement/conquest/expedition event + suitable destination -> introduction queue -> local activation/spread`
+Current authoritative design baseline:
+- dynamic transfer: V2
+- historical start mask: 4000 BCE V3
+- Stage10 placement: resource_fix_v1 review build, not yet canonical final
 
-## 14. Canonical warning
-
-Current state:
-- Stage10Y V2 original = preview
-- resource_fix_v1 integrated placement = review build
-- canonical final placement = not yet established
-
-Do not promote to canonical until:
-1. the 18 dynamic-resource 4000 BCE mask has been applied and regionally QA-checked,
-2. fixed BISON/IVORY/WHALES selection is re-audited,
-3. one-resource-per-hex and surface rules are rechecked,
-4. direct source-GPKG rendering is used,
-5. regional visual QA passes.
-
-This branch is the authoritative handoff location for continuing work.
+The current branch remains the authoritative handoff location for continuing work.
