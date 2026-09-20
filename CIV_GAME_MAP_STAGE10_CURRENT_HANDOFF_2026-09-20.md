@@ -503,3 +503,25 @@ QA:
 - max 2 direct social prerequisites
 
 Next: technology cross-gate classification.
+
+
+## Civic–technology crosslinks V1
+
+Added provisional direct technology relations for all 72 civics.
+
+Authoritative crosslink files:
+- `civics_reference/CIVIC_TECH_CROSSLINKS_V1.md`
+- `civics_reference/civic_tech_crosslinks_v1.csv`
+- `civics_reference/validate_civic_tech_crosslinks_v1.py`
+
+Classification:
+- HARD: 11
+- BOOST: 31
+- NONE: 30
+
+Principle:
+- HARD only for near-material impossibility;
+- BOOST for enabling/accelerating technologies;
+- inherited hard gates are calculated through the social prerequisite DAG and not redundantly repeated.
+
+Exact technology names remain provisional until the science tree is locked.
