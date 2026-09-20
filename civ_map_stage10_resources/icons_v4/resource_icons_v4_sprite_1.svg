@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+<symbol id="resource_aluminum" viewBox="0 0 64 64">
+<g id="badge"><polygon points="32,3 57,18 57,46 32,61 7,46 7,18" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><polygon points="32,7 53,20 53,44 32,57 11,44 11,20" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M21 42 L32 22 L43 42 Z" fill="#E2E7EB" stroke="#202020" stroke-width="2"/><path d="M26 35 H38 M28 30 H36" stroke="#8B969F" stroke-width="1.4"/></g>
+</symbol>
+<symbol id="resource_amber" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M32 20 L40 24 L42 33 L38 41 L29.5 44.5 L23 39.5 L22 30.5 L26 22 Z" fill="#EAA749" stroke="#202020" stroke-width="2"/><path d="M27 26 C30.5 29.5 32.5 33 34 37 C35 39.5 37.5 41 39 42" fill="none" stroke="#AA6114" stroke-width="1.1"/></g>
+</symbol>
+<symbol id="resource_bananas" viewBox="0 0 64 64">
+<g id="badge"><circle cx="32" cy="32" r="29" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><circle cx="32" cy="32" r="25" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M24 24 C20 29 21 37 27 41 C31 44 36 44 40 42 C34 40 29 36 28 31 C28 28 29 25 31 22 Z" fill="#F0D255" stroke="#202020" stroke-width="2"/><path d="M31 22 C28 28 29 35 35 40" fill="none" stroke="#B88C1C" stroke-width="2"/></g>
+</symbol>
+<symbol id="resource_bison" viewBox="0 0 64 64">
+<g id="badge"><circle cx="32" cy="32" r="29" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><circle cx="32" cy="32" r="25" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M24 27 C26 22 30 20 32 20 C35 20 39 22 40 27 L43 29 L42 40 C39 43 36 45 32 45 C28 45 25 43 22 40 L21 29 Z" fill="#B98659" stroke="#202020" stroke-width="2" stroke-linejoin="round"/><path d="M24 26 C21 24 19 21 18 18 C22 19 25 21 27 24 M40 26 C43 24 45 21 46 18 C42 19 39 21 37 24" fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round"/><path d="M27 34 C30 32.5 34 32.5 37 34 L36 39 C34 40.5 30 40.5 28 39 Z" fill="#6C492E" stroke="#202020" stroke-width="1.2"/><path d="M29 29 H29.2 M35 29 H35.2" stroke="#202020" stroke-width="2.3" stroke-linecap="round"/></g>
+</symbol>
+<symbol id="resource_cattle" viewBox="0 0 64 64">
+<g id="badge"><circle cx="32" cy="32" r="29" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><circle cx="32" cy="32" r="25" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M24 26 C26 23 29 22 32 22 C35 22 38 23 40 26 L39 39 C37 42 35 44 32 44 C29 44 27 42 25 39 Z" fill="#D7B69A" stroke="#202020" stroke-width="2"/><path d="M25 26 L20 22 M39 26 L44 22" stroke="#202020" stroke-width="2" stroke-linecap="round"/><path d="M28 34 C30 33 34 33 36 34 L35 38 C33 39.5 31 39.5 29 38 Z" fill="#7B543D" stroke="#202020" stroke-width="1.2"/></g>
+</symbol>
+<symbol id="resource_citrus" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><circle cx="32" cy="34" r="11" fill="#F5B24B" stroke="#202020" stroke-width="2"/><path d="M32 23 V45 M21 34 H43 M24 26 L40 42 M40 26 L24 42" stroke="#C97117" stroke-width="1.1"/><path d="M31 23 C31 19 34 17 38 18 C37 21 34 23 31 23 Z" fill="#C97117" stroke="#202020" stroke-width="1"/></g>
+</symbol>
+<symbol id="resource_coal" viewBox="0 0 64 64">
+<g id="badge"><polygon points="32,3 57,18 57,46 32,61 7,46 7,18" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><polygon points="32,7 53,20 53,44 32,57 11,44 11,20" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M20 41 L18 33 L23 25 L31 22 L39 25 L44 31 L43 39 L36 43 L25 43 Z" fill="#252525" stroke="#202020" stroke-width="2"/><path d="M25 31 L31 28 L38 31 M28 38 L33 34 L39 38" fill="none" stroke="#666666" stroke-width="1.4"/></g>
+</symbol>
+<symbol id="resource_cocoa" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol">
+      <rect x="23" y="22" width="18" height="24" rx="2.2" fill="#BD794B" stroke="#202020" stroke-width="2"/>
+      <path d="M23 30 H41 M23 38 H41 M29 22 V46 M35 22 V46" stroke="#724126" stroke-width="1.4"/>
+      <path d="M24.5 23.5 H39.5 V44.5 H24.5 Z" fill="none" stroke="#fff" stroke-width=".8" opacity=".45"/></g>
+</symbol>
+<symbol id="resource_coffee" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M25 21 C31 18 37 22 38 29 C39 36 35 42 29 45 C23 47 19 43 20 37 C21 31 22.5 25 25 21 Z" fill="#A86C44" stroke="#202020" stroke-width="2"/><path d="M24.5 23 C28 28 28.8 34 28 39 M35 22.5 C31.8 27.5 31 33 31.8 38" fill="none" stroke="#5E3A27" stroke-width="1.2"/></g>
+</symbol>
+<symbol id="resource_copper" viewBox="0 0 64 64">
+<g id="badge"><path d="M32 3 Q35 3 38 6 L58 26 Q61 29 61 32 Q61 35 58 38 L38 58 Q35 61 32 61 Q29 61 26 58 L6 38 Q3 35 3 32 Q3 29 6 26 L26 6 Q29 3 32 3 Z" fill="#F8F8F8" stroke="#202020" stroke-width="2"/><path d="M32 8 L56 32 L32 56 L8 32 Z" fill="none" stroke="#B8B8B8" stroke-width="1"/></g>
+<g id="symbol"><path d="M21 37 L24 29 H42 L44 37 L41 41 H23 Z" fill="#A95A30" stroke="#202020" stroke-width="2"/><path d="M24 29 L27 25 H44 L42 29 Z" fill="#DD9564" stroke="#202020" stroke-width="1.5"/></g>
+</symbol>
+</svg>
