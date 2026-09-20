@@ -7,6 +7,7 @@ ROOT=Path(__file__).resolve().parent
 STEPS=[
     'run_same_seat_99row_oos.py',
     'run_economic_growth_oos.py',
+    'run_national_oos.py',
     'run_approval_99row_oos.py',
 ]
 for name in STEPS:
