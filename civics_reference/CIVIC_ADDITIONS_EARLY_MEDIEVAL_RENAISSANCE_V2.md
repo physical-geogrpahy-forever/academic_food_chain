@@ -1,7 +1,7 @@
 # Civic additions after Civ VI / Civ V review — V2
 
 Date: 2026-09-20
-Status: reviewed additions and one pending Early Medieval candidate
+Status: LOCKED baseline additions
 
 ## Adopted additions
 
@@ -52,9 +52,9 @@ Existing Civ VI civics assigned to Early Medieval:
 Adopted addition:
 - Written Culture
 
-### Strongest additional candidate: Court Culture
+### Adopted addition: Court Culture
 
-Status: recommended, not yet locked until user approval.
+Status: ADOPTED / LOCKED.
 
 Why it survives Civ VI precedence:
 - no Civilization VI civic named Court Culture
@@ -137,12 +137,12 @@ Vernacular Culture:
 - historically plausible, especially 8th-10th century language change and Heian kana
 - currently treat as content inside Written Culture rather than a separate node to avoid over-fragmentation
 
-## Recommended Early Medieval set if Court Culture is approved
+## Locked Early Medieval set
 
 1. Feudalism — Civ VI
 2. Mercenaries — Civ VI
 3. Written Culture — adopted new civic
-4. Court Culture — recommended new civic
+4. Court Culture — adopted new civic
 
 This produces a clean four-civic Early Medieval era without duplicating Civ VI.
 
@@ -175,3 +175,20 @@ Historical research used for the Early Medieval audit:
 
 Game-source precedence remains:
 Civ VI Gathering Storm > Civ V BNW > Civ V era mods > original additions.
+
+
+## Locked scope note
+
+Locked in this decision:
+- Early Medieval: Feudalism, Mercenaries, Written Culture, Court Culture
+- High Medieval: Medieval Faires, Guilds, Divine Right, Scholasticism
+- Renaissance: Humanism, Diplomatic Service, Patronage, Print Culture
+
+The four new/additional civics treated as locked here are:
+- Written Culture
+- Court Culture
+- Scholasticism
+- Patronage
+- Print Culture
+
+Scientific Revolution, Sovereignty and Romanticism remain separate later-era candidates and are not locked by this decision.
