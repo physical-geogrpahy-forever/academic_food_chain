@@ -1,0 +1,100 @@
+race_id,cycle,state_abbrev,seat,d_candidate,r_candidate,d_senate_experience,d_house_experience,d_incumbency,d_congress_source,r_senate_experience,r_house_experience,r_incumbency,r_congress_source,SenateExperienceDiff,HouseExperienceDiff,IncumbencyDiff
+12,2014,AK,Class II,Mark Begich,Dan Sullivan,1,0,1,term_date,0,0,0,term_date,1,0,1
+32,2014,AR,Class II,Mark L. Pryor,Tom Cotton,1,0,1,term_date,0,1,0,term_date,1,-1,1
+23,2014,CO,Class II,Mark Udall,Cory Gardner,1,1,1,term_date,0,1,0,term_date,1,0,1
+24,2014,DE,Class II,Christopher A. Coons,Kevin Wade,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+17,2014,GA,Class II,Mary Michelle Nunn,David A. Perdue,0,0,0,election_history_fallback,0,0,0,term_date,0,0,0
+34,2014,HI,Class III,Brian Schatz,Cam Cavasso,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+26,2014,IA,Class II,Bruce L. Braley,Joni K. Ernst,0,1,0,term_date,0,0,0,term_date,0,1,0
+27,2014,ID,Class II,Nels Mitchell,James E. Risch,0,0,0,election_history_fallback,1,0,1,term_date,-1,0,-1
+4,2014,IL,Class II,Richard J. Durbin,James D. Oberweis,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+15,2014,KY,Class II,Alison Lundergan Grimes,Mitch McConnell,0,0,0,election_history_fallback,1,0,1,term_date,-1,0,-1
+31,2014,MA,Class II,Edward J. Markey,Brian J. Herr,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+9,2014,ME,Class II,Shenna Bellows,Susan M. Collins,0,0,0,election_history_fallback,1,0,1,term_date,-1,0,-1
+2,2014,MI,Class II,Gary C. Peters,Terri Lynn Land,0,1,0,term_date,0,0,0,election_history_fallback,0,1,0
+6,2014,MN,Class II,Al Franken,Mike McFadden,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+18,2014,MS,Class II,Travis W. Childers,Thad Cochran,0,1,0,term_date,1,1,1,term_date,-1,0,-1
+5,2014,MT,Class II,Amanda G. Curtis,Steve Daines,0,0,0,election_history_fallback,0,1,0,term_date,0,-1,0
+14,2014,NC,Class II,Kay R. Hagan,Thomas Roland Tillis,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+1,2014,NE,Class II,Dave Domina,Ben Sasse,0,0,0,election_history_fallback,0,0,0,term_date,0,0,0
+8,2014,NH,Class II,Jeanne Shaheen,Scott Brown,1,0,1,term_date,1,0,0,term_date,0,0,1
+10,2014,NJ,Class II,Cory A. Booker,Jeff Bell,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+3,2014,NM,Class II,Tom Udall,Allen E. Weh,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+29,2014,OK,Class II,Matt Silverstein,James M. Inhofe,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+35,2014,OK,Class III,Constance N. Johnson,James Lankford,0,0,0,election_history_fallback,0,1,0,term_date,0,-1,0
+20,2014,OR,Class II,Jeff Merkley,Monica Wehby,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+33,2014,RI,Class II,Jack Reed,Mark S. Zaccaria,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+11,2014,SC,Class II,Charles Bradley Hutto,Lindsey Graham,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+36,2014,SC,Class III,Joyce Dickerson,Tim Scott,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+22,2014,SD,Class II,Richard P. Weiland,M. Michael Rounds,0,0,0,election_history_fallback,0,0,0,election_history_fallback,0,0,0
+28,2014,TN,Class II,William Gordon Ball,Lamar Alexander,0,0,0,election_history_fallback,1,0,1,term_date,-1,0,-1
+19,2014,TX,Class II,David M. Alameel,John Cornyn,0,0,0,election_history_fallback,1,0,1,term_date,-1,0,-1
+16,2014,VA,Class II,Mark R. Warner,Ed W. Gillespie,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+30,2014,WV,Class II,Natalie E. Tennant,Shelley Moore Capito,0,0,0,election_history_fallback,0,1,0,term_date,0,-1,0
+13,2014,WY,Class II,Charlie Hardy,Michael B. Enzi,0,0,0,election_history_fallback,1,0,1,term_date,-1,0,-1
+96,2018,AZ,Class I,Kyrsten Sinema,Martha McSally,0,1,0,term_date,0,1,0,term_date,0,0,0
+98,2018,CT,Class I,Christopher S. Murphy,Matthew M. Corey,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+99,2018,DE,Class I,Thomas R. Carper,Rob Arlett,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+100,2018,FL,Class I,Bill Nelson,Rick Scott,1,1,1,term_date,0,0,0,term_date,1,1,1
+101,2018,HI,Class I,Mazie K. Hirono,Ronald C. Curtis,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+102,2018,IN,Class I,Joe Donnelly,Mike Braun,1,1,1,term_date,0,0,0,term_date,1,1,1
+105,2018,MA,Class I,Elizabeth Ann Warren,Geoff Diehl,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+104,2018,MD,Class I,Benjamin L. Cardin,Tony Campbell,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+103,2018,ME,Class I,Angus S. King Jr.,Eric L. Brakey,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+106,2018,MI,Class I,Debbie Stabenow,John James,1,1,1,term_date,0,0,0,term_date,1,1,1
+107,2018,MN,Class I,Amy Klobuchar,Jim Newberger,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+129,2018,MN,Class II,Tina Smith,Karin Housley,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+109,2018,MO,Class I,Claire McCaskill,Josh Hawley,1,0,1,term_date,0,0,0,term_date,1,0,1
+108,2018,MS,Class I,David Baria,Roger F. Wicker,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+110,2018,MT,Class I,Jon Tester,Matt Rosendale,1,0,1,term_date,0,0,0,term_date,1,0,1
+116,2018,ND,Class I,Heidi Heitkamp,Kevin Cramer,1,0,1,term_date,0,1,0,term_date,1,-1,1
+111,2018,NE,Class I,Jane Raybould,Deb Fischer,0,0,0,election_history_fallback,1,0,1,term_date,-1,0,-1
+113,2018,NJ,Class I,Bob Menendez,Bob Hugin,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+114,2018,NM,Class I,Martin Heinrich,Mick Rich,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+112,2018,NV,Class I,Jacky S. Rosen,Dean Heller,0,1,0,term_date,1,1,1,term_date,-1,0,-1
+115,2018,NY,Class I,Kirsten E. Gillibrand,Chele Farley,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+117,2018,OH,Class I,Sherrod Brown,Jim Renacci,1,1,1,term_date,0,1,0,election_history_fallback,1,0,1
+118,2018,PA,Class I,Robert P. Casey Jr.,Lou Barletta,1,0,1,term_date,0,1,0,term_date,1,-1,1
+119,2018,RI,Class I,Sheldon Whitehouse,Bob Flanders,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+120,2018,TN,Class I,Phil Bredesen,Marsha Blackburn,0,0,0,election_history_fallback,0,1,0,term_date,0,-1,0
+121,2018,TX,Class I,Beto O'Rourke,Ted Cruz,0,1,0,term_date,1,0,1,term_date,-1,1,-1
+122,2018,UT,Class I,Jenny Wilson,Mitt Romney,0,0,0,election_history_fallback,0,0,0,term_date,0,0,0
+124,2018,VA,Class I,Timothy Michael Kaine,Corey Stewart,1,0,1,election_history_fallback,0,0,0,election_history_fallback,1,0,1
+123,2018,VT,Class I,Bernie Sanders,Lawrence Zupan,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+125,2018,WA,Class I,Maria Cantwell,Susan Hutchison,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+127,2018,WI,Class I,Tammy Baldwin,Leah Vukmir,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+126,2018,WV,Class I,"Joe Manchin, III",Patrick Morrisey,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+128,2018,WY,Class I,Gary Trauner,John Barrasso,0,0,0,election_history_fallback,1,0,1,term_date,-1,0,-1
+8917,2022,AL,Class III,Will Boyd,Katie Britt,0,0,0,election_history_fallback,0,0,0,term_date,0,0,0
+8920,2022,AR,Class III,Natalie James,John Boozman,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+8919,2022,AZ,Class III,Mark Kelly,Blake Masters,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+9480,2022,CA,Class III,Alex Padilla,Mark P. Meuser,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+8921,2022,CA,Class III,Alex Padilla,Mark P. Meuser,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+8922,2022,CO,Class III,Michael Bennet,Joe O'Dea,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+8923,2022,CT,Class III,Richard Blumenthal,Leora R. Levy,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+8924,2022,FL,Class III,Val Demings,Marco Rubio,0,1,0,term_date,1,0,1,term_date,-1,1,-1
+8925,2022,GA,Class III,Raphael Warnock,Herschel Junior Walker,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+8926,2022,HI,Class III,Brian Schatz,Bob McDermott,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+8930,2022,IA,Class III,Michael Franken,Chuck Grassley,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+8927,2022,ID,Class III,David Roth,Mike Crapo,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+8928,2022,IL,Class III,Tammy Duckworth,Kathy Salvi,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+8929,2022,IN,Class III,Thomas McDermott,Todd Young,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+8931,2022,KS,Class III,Mark R. Holland,Jerry Moran,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+8932,2022,KY,Class III,Charles Booker,Rand Paul,0,0,0,election_history_fallback,1,0,1,term_date,-1,0,-1
+8935,2022,MD,Class III,Chris Van Hollen,Chris Chaffee,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+8936,2022,MO,Class III,Trudy Busch Valentine,Eric Schmitt,0,0,0,election_history_fallback,0,0,0,term_date,0,0,0
+8940,2022,NC,Class III,Cheri Beasley,Ted Budd,0,0,0,election_history_fallback,0,1,0,term_date,0,-1,0
+8941,2022,ND,Class III,Katrina Christiansen,John Hoeven,0,0,0,election_history_fallback,1,0,1,term_date,-1,0,-1
+8938,2022,NH,Class III,Maggie Hassan,Donald C. Bolduc,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+8937,2022,NV,Class III,Catherine Cortez Masto,Adam Paul Laxalt,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+8939,2022,NY,Class III,Charles E. Schumer,Joe Pinion,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+8942,2022,OH,Class III,Tim Ryan,JD Vance,0,1,0,term_date,0,0,0,term_date,0,1,0
+9482,2022,OK,Class II,Kendra Horn,Markwayne Mullin,0,1,0,term_date,0,1,0,term_date,0,0,0
+8943,2022,OK,Class III,Madison Horn,James Lankford,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+8944,2022,OR,Class III,Ron Wyden,Jo Rae Perkins,1,1,1,term_date,0,0,0,election_history_fallback,1,1,1
+8945,2022,PA,Class III,John Fetterman,Mehmet Oz,0,0,0,term_date,0,0,0,election_history_fallback,0,0,0
+8946,2022,SC,Class III,Krystle Matthews,Tim Scott,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+8947,2022,SD,Class III,Brian L. Bengs,John R. Thune,0,0,0,election_history_fallback,1,1,1,term_date,-1,-1,-1
+8949,2022,VT,Class III,Peter Welch,Gerald Malloy,0,1,0,term_date,0,0,0,election_history_fallback,0,1,0
+8950,2022,WA,Class III,Patty Murray,Tiffany Smiley,1,0,1,term_date,0,0,0,election_history_fallback,1,0,1
+8951,2022,WI,Class III,Mandela Barnes,Ron Johnson,0,0,0,election_history_fallback,1,0,1,term_date,-1,0,-1
