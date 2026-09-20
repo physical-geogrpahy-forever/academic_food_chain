@@ -1779,3 +1779,80 @@ Samsung, Tata, Reliance 같은 conglomerate를 founder 시대에 후대 업종�
 - **Liu Chuanzhi**: `LOCK_CANDIDATE`. 게임 표기는 **Founding-team leader / co-founder**.
 - **Ozires Silva**: `REFERENCE_ONLY_INSTITUTIONAL_CREATOR`. 99명 research pool에는 남지만 일반 signature-founder roster에서는 제외.
 - 따라서 일반 signature-founder eligible pool은 **98명**이다.
+
+
+---
+
+# 28. Signature corporate founder roster V1 — 2026-09-20 추가
+
+권위 파일:
+- `corporations/signature_corporate_founder_roster_v1.csv`
+- `corporations/SIGNATURE_CORPORATE_FOUNDER_ROSTER_V1.md`
+
+## Exact state
+
+연구 DB:
+- `CORPORATE_FOUNDER_POOL_AUDITED_V2.csv`
+- 총 99명
+
+실제 게임 signature-founder roster:
+- 총 **98명**
+- Great Merchant **53**
+- Great Engineer **45**
+
+시대:
+- Industrial 23
+- Modern 20
+- Atomic 42
+- Information 13
+
+Ozires Silva:
+- 연구 DB에는 유지
+- `REFERENCE_ONLY_INSTITUTIONAL_CREATOR`
+- 일반 signature-founder roster에서는 제외
+
+Liu Chuanzhi:
+- 실제 roster 포함
+- 표기: `Founding-team leader / co-founder`
+- sole founder로 표기하지 않음
+
+## Gameplay rule
+
+Signature Great Person을 영입했다고 회사가 자동 설립되지는 않는다.
+
+플레이어는:
+- 일반 Great Person 능력을 사용하거나
+- 해당 기업의 gate가 충족되었을 때 Great Person을 소비해 named firm을 설립
+
+할 수 있다.
+
+named historical firm:
+- 세계적으로 unique
+
+canonical sector:
+- non-exclusive
+
+generic corporation:
+- 같은 sector에서 계속 설립 가능
+
+기업의 founder-era primary sector는 고정하며,
+후대의 업종 확장은 Diversification Project로 처리한다.
+
+## 현재 기업 작업 완료 상태
+
+완료:
+1. founder research pool 확대: 99명
+2. signature gameplay roster: 98명
+3. canonical sector catalogue: 32
+4. founder-sector 연결: 완료
+5. technology/civic gate QA: 완료
+6. quantitative SU / branch model: 완료
+7. diversification baseline: 완료
+8. Liu Chuanzhi / Ozires Silva edge case: 완료
+
+남은 핵심 blocking item:
+- **Film / Great Director 기술 gate 결정**
+
+Photography / Cinematography를 추가하여 111-tech로 갈지,
+109-tech를 유지하고 기존 기술에 매핑할지 결정한 뒤
+109-tech unit/building/improvement/corporation unlock table로 넘어간다.
