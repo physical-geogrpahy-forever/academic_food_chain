@@ -19,3 +19,16 @@ For any materially empty or weak/sparse technology:
 4. Minimal new historical content only if no usable Civ VI content remains.
 
 A system-only technology is not automatically an error; it is flagged for manual Civ VI fallback review.
+
+
+## Civ VI sparse-node fallback review
+
+All 15 system-only sparse technologies were checked against Civilization VI.
+
+- reviewed: 15/15
+- new materially empty nodes after review: 0
+- new invented unit/building required after Civ VI fallback: 0
+- duplicate source unlocks intentionally restored: 0
+
+Authority:
+`tech_reference/SPARSE_TECH_CIV6_FALLBACK_REVIEW_V1.md`
