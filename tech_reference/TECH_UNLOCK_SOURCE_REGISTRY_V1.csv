@@ -1,0 +1,8 @@
+SOURCE_ID,SOURCE_NAME,SOURCE_ROLE,AUDIT_SCOPE,PRIORITY,IMPORT_POLICY,NOTES
+CIV5_BNW,"Civilization V: Brave New World","STRUCTURAL_BASELINE","All eras; city buildings; units; ordinary tile improvements; routes; resources; systems",1,"FULL_AUDIT","Primary city/tile structure"
+CIV5_EE,"Enlightenment Era","ADOPTED_EXPANSION","Enlightenment and adjacent transition; all units/buildings/tech-linked systems",2,"FULL_RELEVANT_CONTENT_AUDIT","Wonders deferred; content remapped to locked 109-tech tree where necessary"
+CIV5_HEALTH_PLAGUE,"Health & Plague for BNW","ADOPTED_SYSTEM_MOD","Health; sanitation; plague; disease; fresh-water/resource/building/technology health effects",2,"SYSTEM_CONTENT_AUDIT","Primary targets include Sanitation, Biology, Penicillin; earlier supporting content may be remapped"
+CIV5_GWF,"JFD Great Works of Film","ADOPTED_SYSTEM_MOD","Great Director; Great Works of Film; Cinema; film slots and related cultural infrastructure",2,"SELECTIVE_AUDIT","Film/media gate locked to Electricity -> Radio"
+CIV5_MORETECH,"MoreTech","REFERENCE_MOD","Only project-adopted or specifically requested features",2,"SELECTIVE_ONLY","Do not wholesale import its large technology/building tree"
+CIV6_GS,"Civilization VI: Gathering Storm","SECONDARY_CONTENT","All eras; buildings; units; infrastructure; resource/system candidates",3,"ADAPT_TO_CIV5_STRUCTURE","Districts removed; useful district buildings converted to city buildings"
+PROJECT_HIST,"Historical additions","GAP_FILL","Only unresolved historical implementation gaps",5,"MINIMAL_ADDITION","Last resort after game/mod source audit"
