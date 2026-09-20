@@ -1,0 +1,104 @@
+TECH_EN,TECH_KO,PROJECT_ERA,SOURCE,STATUS,NOTE
+Agriculture,농업,Ancient,Civ5,ADD,Civ5 start technology; absent from Civ6
+Pottery,도예,Ancient,Civ6,KEEP,
+Animal Husbandry,목축,Ancient,Civ6,KEEP,
+Mining,채광,Ancient,Civ6,KEEP,
+Sailing,항해,Ancient,Civ6,KEEP,
+Astrology,점성술,Ancient,Civ6,KEEP,
+Irrigation,관개,Ancient,Civ6,KEEP,
+Archery,궁술,Ancient,Civ6,KEEP,
+Writing,문자,Ancient,Civ6,KEEP,
+Masonry,석조기술,Ancient,Civ6,KEEP,
+Bronze Working,청동기술,Ancient,Civ6,KEEP,
+Wheel,바퀴,Ancient,Civ6,KEEP,
+Calendar,역법,Ancient,Civ5,ADD,Civ5 technology absent from Civ6; distinct from civic system
+Trapping,덫사냥,Ancient,Civ5,ADD,Civ5 technology absent from Civ6
+Celestial Navigation,천문 항법,Classical,Civ6,KEEP,
+Currency,화폐,Classical,Civ6,KEEP,
+Horseback Riding,기마술,Classical,Civ6,KEEP,
+Iron Working,철기술,Classical,Civ6,KEEP,
+Shipbuilding,조선,Classical,Civ6,KEEP,
+Mathematics,수학,Classical,Civ6,KEEP,
+Construction,건축,Classical,Civ6,KEEP,
+Engineering,공학,Classical,Civ6,KEEP,
+Optics,광학,Classical,Civ5,ADD,Civ5 technology; retained as classical optical/maritime knowledge
+Military Tactics,군사 전술,Late Antiquity,Civ6,MOVE,Civ6 Medieval -> project Late Antiquity
+Military Engineering,군사 공학,Late Antiquity,Civ6,MOVE,Civ6 Medieval -> project Late Antiquity
+Stirrups,등자,Early Medieval,Civ6,MOVE,Civ6 Medieval -> project Early Medieval
+Castles,성곽,Early Medieval,Civ6,MOVE,Civ6 Medieval -> project Early Medieval
+Apprenticeship,도제제,High Medieval,Civ6,MOVE,Civ6 Medieval -> project High Medieval
+Machinery,기계,High Medieval,Civ6,MOVE,Civ6 Medieval -> project High Medieval
+Buttress,부벽,High Medieval,Civ6 GS,MOVE,Gathering Storm medieval technology
+Education,교육,High Medieval,Civ6,MOVE,Civ6 Medieval -> project High Medieval
+Compass,나침반,High Medieval,Civ5,ADD,Civ5 technology absent from Civ6
+Physics,물리학,High Medieval,Civ5,ADD,Civ5 technology absent from Civ6; medieval mechanics/siege context
+Banking,은행업,Renaissance,Civ6,KEEP_MOVE,14-15C
+Gunpowder,화약,Renaissance,Civ6,KEEP_MOVE,14-15C
+Printing,인쇄술,Renaissance,Civ6,KEEP_MOVE,14-15C
+Metal Casting,금속 주조,Renaissance,Civ6,KEEP_MOVE,14-15C
+Siege Tactics,공성 전술,Renaissance,Civ6,KEEP_MOVE,14-15C
+Cartography,지도 제작,Exploration,Civ6,MOVE,16-17C
+Square Rigging,횡범장,Exploration,Civ6,MOVE,16-17C
+Astronomy,천문학,Exploration,Civ6,MOVE,16-17C
+Navigation,항법,Exploration,Civ5,ADD,Civ5 Renaissance technology; distinct from Civ6 Cartography
+Metallurgy,야금학,Exploration,Civ5,ADD,Civ5 Renaissance technology absent from Civ6
+Acoustics,음향학,Exploration,Civ5,ADD,Civ5 Renaissance technology absent from Civ6
+Flintlock,플린트락,Exploration,Civ5 Enlightenment Era,ADD,Technical EE node retained
+Warships,전열함 기술,Exploration,Civ5 Enlightenment Era,ADD,Technical EE naval node retained
+Fortification,요새공학,Exploration,Civ5 Enlightenment Era,ADD,Technical EE node retained; distinct from Defensive Tactics civic
+Scientific Theory,과학 이론,Enlightenment,Civ6,MOVE,18C
+Ballistics,탄도학,Enlightenment,Civ6,MOVE,18C
+Military Science,군사학,Enlightenment,Civ6,MOVE,18C
+Economics,경제학,Enlightenment,Civ6,MOVE,18C academic/economic science
+Chemistry,화학,Enlightenment,Civ6,MOVE,Civ6 Modern -> project 18C
+Manufacturing,매뉴팩처,Enlightenment,Civ5 Enlightenment Era,ADD,EE production technology; precursor to Industrialization
+Industrialization,산업화,Industrial,Civ6,KEEP,19C
+Steam Power,증기력,Industrial,Civ6,KEEP,19C
+Sanitation,위생,Industrial,Civ6,KEEP,19C
+Rifling,강선,Industrial,Civ6,KEEP,19C
+Replaceable Parts,교환식 부품,Industrial,Civ6,MOVE,Civ6 Modern -> project 19C
+Steel,강철,Industrial,Civ6,MOVE,Civ6 Modern -> project 19C
+Refining,정제,Industrial,Civ6,MOVE,Civ6 Modern -> project 19C
+Electricity,전기,Industrial,Civ6,MOVE,Civ6 Modern -> project 19C
+Mass Production,대량생산,Industrial,Civ6,MOVE,Civ6 Renaissance name is historically late; retained but moved to 19C
+Fertilizer,비료,Industrial,Civ5,ADD,Civ5 technology absent from Civ6
+Biology,생물학,Industrial,Civ5,ADD,Civ5 technology absent from Civ6
+Dynamite,다이너마이트,Industrial,Civ5,ADD,Civ5 technology absent from Civ6
+Railroad,철도,Industrial,Civ5,ADD,Civ5 technology absent from Civ6
+Refrigeration,냉동기술,Industrial,Civ5,ADD,Civ5 technology absent from Civ6
+Telegraph,전신,Industrial,Civ5,ADD,Civ5 technology absent from Civ6
+Armor Plating,장갑판,Industrial,Civ5 Enlightenment Era,ADD,EE industrial naval technology
+Flight,비행,Modern,Civ6,KEEP_MOVE,early 20C
+Radio,라디오,Modern,Civ6,KEEP_MOVE,early 20C
+Combustion,내연기관,Modern,Civ6,KEEP_MOVE,early 20C
+Advanced Flight,고급 비행,Modern,Civ6,MOVE,Civ6 Atomic -> project early 20C
+Rocketry,로켓공학,Modern,Civ6,MOVE,Civ6 Atomic -> project early 20C
+Advanced Ballistics,고급 탄도학,Modern,Civ6,MOVE,Civ6 Atomic -> project early 20C
+Combined Arms,제병협동,Modern,Civ6,MOVE,Civ6 Atomic -> project early 20C
+Plastics,플라스틱,Modern,Civ6,MOVE,Civ6 Atomic -> project early 20C
+Penicillin,페니실린,Modern,Civ5,ADD,Civ5 Modern technology absent from Civ6
+Electronics,전자공학,Modern,Civ5,ADD,Civ5 Modern technology absent from Civ6
+Radar,레이더,Modern,Civ5,ADD,Civ5 Modern technology absent from Civ6
+Atomic Theory,원자론,Modern,Civ5,ADD,Civ5 predecessor to Nuclear Fission
+Computers,컴퓨터,Atomic,Civ6,KEEP_MOVE,mid-late 20C
+Nuclear Fission,핵분열,Atomic,Civ6,KEEP_MOVE,mid-late 20C
+Synthetic Materials,합성 소재,Atomic,Civ6,KEEP_MOVE,mid-late 20C
+Telecommunications,전기통신,Atomic,Civ6,MOVE,Civ6 Information -> project mid-late 20C
+Satellites,인공위성,Atomic,Civ6,MOVE,Civ6 Information -> project mid-late 20C
+Guidance Systems,유도 시스템,Atomic,Civ6,MOVE,Civ6 Information -> project mid-late 20C
+Lasers,레이저,Atomic,Civ6,MOVE,Civ6 Information -> project mid-late 20C
+Composites,복합재료,Atomic,Civ6,MOVE,Civ6 Information -> project mid-late 20C
+Stealth Technology,스텔스 기술,Atomic,Civ6,MOVE,Civ6 Information -> project mid-late 20C
+Robotics,로봇공학,Atomic,Civ6,MOVE,Civ6 Information -> project late 20C
+Nuclear Fusion,핵융합,Atomic,Civ6,MOVE,Civ6 Information -> project late 20C
+Ecology,생태학,Atomic,Civ5,ADD,Civ5 Modern technology absent from Civ6
+Particle Physics,입자물리학,Atomic,Civ5,ADD,Civ5 Future technology retained as late-20C advanced physics
+Nanotechnology,나노기술,Information,Civ6,KEEP_MOVE,21C
+Advanced AI,고급 AI,Information,Civ6 GS Future,ABSORB_FUTURE,Future Era folded into project Information Era
+Advanced Power Cells,고급 전력 셀,Information,Civ6 GS Future,ABSORB_FUTURE,
+Cybernetics,사이버네틱스,Information,Civ6 GS Future,ABSORB_FUTURE,
+Smart Materials,스마트 소재,Information,Civ6 GS Future,ABSORB_FUTURE,
+Predictive Systems,예측 시스템,Information,Civ6 GS Future,ABSORB_FUTURE,
+Seasteads,해상도시,Information,Civ6 GS Future,ABSORB_FUTURE,
+Offworld Mission,외계 행성 임무,Information,Civ6 GS Future,ABSORB_FUTURE,
+Future Tech,미래 기술,Information,Civ6 GS Future,ABSORB_FUTURE,repeatable terminal
