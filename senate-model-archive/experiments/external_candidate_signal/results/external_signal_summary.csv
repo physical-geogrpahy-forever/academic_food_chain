@@ -1,0 +1,5 @@
+scope,n,baseline_correct,baseline_accuracy_pct,adjusted_correct,adjusted_accuracy_pct,net_correct_gain,nonzero_external_adjustments
+combined,99,94,94.94949494949495,94,94.94949494949495,0,60
+2014,33,32,96.96969696969697,32,96.96969696969697,0,0
+2018,33,29,87.87878787878788,29,87.87878787878788,0,29
+2022,33,33,100.0,33,100.0,0,31
