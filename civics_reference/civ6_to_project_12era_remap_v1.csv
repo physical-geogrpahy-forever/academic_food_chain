@@ -1,0 +1,62 @@
+CIVIC_EN,CIVIC_KO,CIV6_ERA,PROJECT_ERA,PROJECT_RANGE,PREREQUISITES_CIV6,ACTION,CONTENT_REUSE,NOTE
+Code of Laws,법전,Ancient,고대,~8C BCE,,KEEP,KEEP_ALL,"공통 시작 노드"
+Craftsmanship,장인 정신,Ancient,고대,~8C BCE,Code of Laws,KEEP,KEEP_ALL,
+Foreign Trade,외국 무역,Ancient,고대,~8C BCE,Code of Laws,KEEP,KEEP_ALL,
+Military Tradition,군사 전통,Ancient,고대,~8C BCE,Craftsmanship,KEEP,KEEP_ALL,
+State Workforce,국가 노동력,Ancient,고대,~8C BCE,Craftsmanship,KEEP,KEEP_ALL,
+Early Empire,초기 제국,Ancient,고대,~8C BCE,Foreign Trade,KEEP,KEEP_ALL,
+Mysticism,신비주의,Ancient,고대,~8C BCE,Foreign Trade,KEEP,KEEP_ALL,
+Games and Recreation,오락과 여가,Classical,고전,8C BCE-2C CE,State Workforce,KEEP,KEEP_ALL,
+Political Philosophy,정치 철학,Classical,고전,8C BCE-2C CE,State Workforce;Early Empire,KEEP,KEEP_ALL,
+Drama and Poetry,드라마와 시,Classical,고전,8C BCE-2C CE,Early Empire,KEEP,KEEP_ALL,
+Military Training,군사 훈련,Classical,고전,8C BCE-2C CE,Military Tradition;Games and Recreation,KEEP,KEEP_ALL,
+Recorded History,역사 기록,Classical,고전,8C BCE-2C CE,Political Philosophy;Drama and Poetry,KEEP,KEEP_ALL,
+Defensive Tactics,방어술,Classical,후기 고대,3-6C,Games and Recreation;Political Philosophy,MOVE_ERA,KEEP_ALL,"후기 고대의 요새화·국경방어 계통 시작점으로 재배치"
+Theology,신학,Classical,후기 고대,3-6C,Mysticism;Drama and Poetry,MOVE_ERA,KEEP_ALL,"후기 고대 조직 신학·제도종교와 잘 맞음"
+Naval Tradition,해군 전통,Medieval,후기 고대,3-6C,Defensive Tactics,MOVE_ERA,KEEP_ALL,"Civ6 연결 보존을 위해 방어술 뒤에 유지"
+Civil Service,공무원 제도,Medieval,후기 고대,3-6C,Defensive Tactics;Recorded History,MOVE_ERA,KEEP_ALL,"후기 고대 제국 관료제에 대응"
+Feudalism,봉건제,Medieval,중세 초기,7-10C,Defensive Tactics,MOVE_ERA,KEEP_ALL,
+Mercenaries,용병,Medieval,중세 초기,7-10C,Military Training;Feudalism,MOVE_ERA,KEEP_ALL,
+Medieval Faires,중세 시장,Medieval,중세 성기,11-13C,Feudalism,MOVE_ERA,KEEP_ALL,
+Guilds,길드,Medieval,중세 성기,11-13C,Feudalism;Civil Service,MOVE_ERA,KEEP_ALL,
+Divine Right,왕권신수설,Medieval,중세 성기,11-13C,Theology;Civil Service,MOVE_ERA,KEEP_ALL,"원작 정부 해금 구조 보존. 명칭/역사시점은 추후 검토 가능"
+Humanism,인본주의,Renaissance,르네상스,14-15C,Medieval Faires,KEEP,KEEP_ALL,
+Diplomatic Service,외교부,Renaissance,르네상스,14-15C,Guilds,KEEP,KEEP_ALL,
+Exploration,탐험,Renaissance,탐험,16-17C,Mercenaries;Medieval Faires,MOVE_ERA,KEEP_ALL,
+Reformed Church,개혁 교회,Renaissance,탐험,16-17C,Guilds;Divine Right,MOVE_ERA,KEEP_ALL,
+Mercantilism,중상주의,Renaissance,탐험,16-17C,Humanism,MOVE_ERA,KEEP_ALL,
+Colonialism,식민주의,Industrial,탐험,16-17C,Mercantilism,MOVE_ERA,KEEP_ALL,"초기 해외 식민체제와 연결. 19C 제국주의는 별도 신규 노드 후보"
+The Enlightenment,계몽주의,Renaissance,계몽,18C,Humanism;Diplomatic Service,MOVE_ERA,KEEP_ALL,
+Opera and Ballet,오페라와 발레,Industrial,계몽,18C,The Enlightenment,MOVE_ERA,KEEP_ALL,
+Natural History,자연사,Industrial,계몽,18C,Colonialism,MOVE_ERA,KEEP_ALL,
+Civil Engineering,토목 공학,Industrial,산업,19C,Mercantilism,KEEP,KEEP_ALL,
+Nationalism,민족주의,Industrial,산업,19C,The Enlightenment,KEEP,KEEP_ALL,
+Scorched Earth,초토화,Industrial,산업,19C,Nationalism,KEEP,KEEP_ALL,
+Urbanization,도시화,Industrial,산업,19C,Civil Engineering;Nationalism,KEEP,KEEP_ALL,
+Conservation,보존,Modern,산업,19C,Natural History,MOVE_ERA,KEEP_ALL,"현대 Civilopedia의 GS 선행은 Natural History"
+Mass Media,대중 매체,Modern,산업,19C,Natural History;Urbanization,MOVE_ERA,KEEP_ALL,"원작 설명도 산업시대 현상으로 서술. Capitalism 선행관계 보존"
+Capitalism,자본주의,Modern,산업,19C,Mass Media,MOVE_ERA,KEEP_ALL,
+Mobilization,동원령,Modern,현대,20C early,Urbanization;Scorched Earth,KEEP,KEEP_ALL,
+Ideology,이데올로기,Modern,현대,20C early,Mass Media;Mobilization,KEEP,KEEP_ALL,
+Suffrage,참정권,Modern,현대,20C early,Ideology,KEEP,KEEP_ALL,
+Totalitarianism,전체주의,Modern,현대,20C early,Ideology,KEEP,KEEP_ALL,
+Class Struggle,계급 투쟁,Modern,현대,20C early,Ideology,KEEP,KEEP_ALL,
+Professional Sports,프로 스포츠,Atomic,현대,20C early,Ideology,MOVE_ERA,KEEP_ALL,
+Nuclear Program,핵 프로그램,Modern,원자력,20C mid-late,Ideology,MOVE_ERA,KEEP_ALL,
+Cultural Heritage,문화 유산,Atomic,원자력,20C mid-late,Conservation,KEEP,KEEP_ALL,
+Cold War,냉전,Atomic,원자력,20C mid-late,Ideology,KEEP,KEEP_ALL,
+Rapid Deployment,신속한 배치,Atomic,원자력,20C mid-late,Cold War,KEEP,KEEP_ALL,
+Space Race,우주 경쟁,Atomic,원자력,20C mid-late,Cold War,KEEP,KEEP_ALL,
+Environmentalism,환경주의,Information,원자력,20C mid-late,Cultural Heritage;Rapid Deployment,MOVE_ERA,KEEP_ALL,"20C 후반 환경운동에 맞춰 이동"
+Globalization,세계화,Information,정보화,21C,Rapid Deployment;Space Race,KEEP,KEEP_ALL,
+Social Media,소셜 미디어,Information,정보화,21C,Space Race;Professional Sports,KEEP,KEEP_ALL,
+Near Future Governance,근미래 통치,Information,정보화,21C,Environmentalism;Globalization,KEEP,KEEP_ALL,
+Venture Politics,벤처 정치,Information,정보화,21C,Globalization;Social Media,KEEP,KEEP_ALL,
+Distributed Sovereignty,분산 주권,Information,정보화,21C,Globalization;Social Media,KEEP,KEEP_ALL,
+Optimization Imperative,최적화 명령,Information,정보화,21C,Globalization;Social Media,KEEP,KEEP_ALL,
+Information Warfare,정보전,Future,정보화,21C,RANDOMIZED_FUTURE_TREE,ABSORB_FUTURE,KEEP_ALL,"별도 미래 시대가 없으므로 정보화 후반 무작위 가지로 흡수"
+Global Warming Mitigation,지구온난화 완화,Future,정보화,21C,RANDOMIZED_FUTURE_TREE,ABSORB_FUTURE,KEEP_ALL,
+Cultural Hegemony,문화적 패권,Future,정보화,21C,RANDOMIZED_FUTURE_TREE,ABSORB_FUTURE,KEEP_ALL,
+Smart Power Doctrine,스마트 파워 독트린,Future,정보화,21C,RANDOMIZED_FUTURE_TREE,ABSORB_FUTURE,KEEP_ALL,
+Exodus Imperative,강제 대이동,Future,정보화,21C,RANDOMIZED_FUTURE_TREE,ABSORB_FUTURE,KEEP_ALL,
+Future Civic,미래 사회제도,Future,정보화,21C,TERMINAL_FUTURE_BRANCHES,ABSORB_FUTURE,KEEP_ALL,"정보화 시대 최종 반복 사회제도로 사용"
