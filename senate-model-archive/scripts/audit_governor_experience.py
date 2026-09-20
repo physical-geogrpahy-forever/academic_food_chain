@@ -21,6 +21,10 @@ def norm(s):
     s=re.sub(r'\b(gov|jr|sr|ii|iii|iv)\.?\b',' ',s)
     s=re.sub(r'[^a-z0-9 ]+',' ',s)
     return re.sub(r'\s+',' ',s).strip()
+def suffix(s):
+    x=unicodedata.normalize('NFKD',s or '').encode('ascii','ignore').decode('ascii').lower()
+    m=re.findall(r'\b(jr|sr|ii|iii|iv)\.?\b',x)
+    return m[-1] if m else ''
 def b(v): return str(v).lower()=='true'
 
 with TARGET.open('r',encoding='utf-8-sig',newline='') as f: target=list(csv.DictReader(f))
@@ -57,7 +61,7 @@ for t in target:
     for side in ['D','R']:
         sl=side.lower(); cand=t[f'{sl}_side_candidate']; auto_flag=1 if b(a[f'{sl}_governor_prior_election_win']) else 0
         m,score,second,status=match(cand)
-        nga_prior=''; matched=''; term_desc=''
+        nga_prior=''; matched=''; term_desc=''; suffix_mismatch=False
         if m:
             _,matched,terms=m
             # NGA has year-level intervals. A term beginning in the election year is not used as a new override,
@@ -65,15 +69,18 @@ for t in target:
             prior=[g for g in terms if int(g['term_start_year']) < cyc]
             nga_prior=1 if prior else 0
             term_desc=';'.join(f"{g['state']}:{g['term_start_year']}-{g['term_end_year']}" for g in terms)
+            suffix_mismatch = bool((suffix(cand) or suffix(matched)) and suffix(cand) != suffix(matched))
         final=auto_flag
         source='election_history_fallback'
-        if status=='ACCEPTED' and nga_prior!='':
+        if status=='ACCEPTED' and nga_prior!='' and not suffix_mismatch:
             final=max(auto_flag,nga_prior)
             source='NGA_or_election_history'
+        elif suffix_mismatch:
+            source='election_history_fallback_identity_suffix_mismatch'
         rec={
           'race_id':rid,'cycle':cyc,'state_abbrev':t['state_abbrev'],'side':side,'candidate_name':cand,
           'auto_governor_experience':auto_flag,'match_status':status,'match_score':f'{score:.4f}','second_score':f'{second:.4f}',
-          'matched_nga_name':matched,'nga_prior_governor':nga_prior,'final_governor_experience':final,'source':source,'nga_terms':term_desc
+          'matched_nga_name':matched,'identity_suffix_mismatch':str(suffix_mismatch).lower(),'nga_prior_governor':nga_prior,'final_governor_experience':final,'source':source,'nga_terms':term_desc
         }
         rows.append(rec)
         if final!=auto_flag:
@@ -114,7 +121,7 @@ lines=[
  f'- Final governor positives after NGA cross-check: {final_pos}',
  f'- New supported overrides: {len(overrides)}','',
  '## Rule','',
- 'The election-history governor flag is never reduced by an NGA name-match failure. NGA can add a missing prior-governor flag only when the candidate-to-governor name match is accepted and the NGA term starts before the Senate election year.','',
+ 'The election-history governor flag is never reduced by an NGA name-match failure. NGA can add a missing prior-governor flag only when the candidate-to-governor name match is accepted, the NGA term starts before the Senate election year, and generational suffixes do not conflict. This prevents a Jr./Sr. parent-child collision from creating false experience.','',
  '## Supported additions','',
  '| cycle | state | side | candidate | auto | NGA | matched governor | terms |',
  '|---:|---|---|---|---:|---:|---|---|'
