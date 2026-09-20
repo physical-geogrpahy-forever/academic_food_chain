@@ -27,6 +27,8 @@ raw=urlopen(Request(URL,headers={'User-Agent':'Mozilla/5.0 CoreV2R-performance/1
 sha=hashlib.sha256(raw).hexdigest()
 polls=list(csv.DictReader(io.StringIO(raw.decode('utf-8-sig','replace'))))
 if not polls: raise RuntimeError('generic ballot historical file returned no rows')
+print('GENERIC_HEADER='+','.join(polls[0].keys()))
+print('GENERIC_ROW0='+repr(polls[0]))
 
 def parse_date(s):
     s=(s or '').strip()
