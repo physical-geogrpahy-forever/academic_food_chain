@@ -1974,3 +1974,73 @@ Hydro Plant -> Hydroelectric Dam infrastructure;
 Spaceship Factory -> Space Launch Center.
 
 Government building choices and Civ6 Water Park content are converted into Civ V-style city buildings without districts.
+
+
+---
+
+## Generic unit roster locked — 2026-09-21
+
+The generic non-Great-Person unit roster is now consolidated and GitHub-Actions QA-passed.
+
+Authorities:
+- `city_system/FINAL_GENERIC_UNIT_ROSTER_V1.csv`
+- `city_system/FINAL_GENERIC_UNIT_ROSTER_V1.md`
+- `city_system/FINAL_GENERIC_UNIT_ROSTER_V1_QA.md`
+- `city_system/validate_final_generic_unit_roster_v1.py`
+- `.github/workflows/civ-final-unit-roster-qa.yml`
+
+Exact state:
+- final generic units: **85**
+- technology-master units: **73**
+- civic-only/civic-owned units: **7**
+- recovered game-start/religion-system units: **5**
+- duplicate unit names: **0**
+- forbidden baseline units returned: **0**
+- Great People accidentally mixed into generic roster: **0**
+- GitHub Actions QA: **PASS**
+- workflow run: **35527600918**
+- validated head: `93798325946e29ffd699327bc93ba1c74c28e3ed`
+
+Baseline/system units recovered outside the unlock tables:
+- Settler
+- Warrior
+- Scout
+- Missionary
+- Inquisitor
+
+Important audit/master mismatch corrections:
+- **Mechanized Infantry -> Combined Arms**
+  - Modern/Atomic audit records already remapped it to Combined Arms, but it had been omitted from the final 109-tech UNITS field.
+- **Missile Cruiser -> Guidance Systems + Warships**
+  - Atomic audit plus the Lasers master note already moved it there, but it had been omitted from the Guidance Systems UNITS field.
+
+Explicit exclusions remain:
+- Heavy Chariot: no separate generic unit
+- Nuclear Missile: no standalone generic unit; use Nuclear/Thermonuclear Device delivery system
+- Giant Death Robot: optional endgame module only
+- Great People: separate Great Person systems
+
+Major role families now represented:
+- Recon: Scout -> Explorer -> Ranger -> Spec Ops
+- Ranged infantry: Archer -> Composite Bowman -> Crossbowman -> Skirmisher -> Gatling Gun -> Machine Gun
+- Siege: Catapult -> Trebuchet -> Bombard -> Field Gun -> Artillery -> Rocket Artillery
+- Front-line firearm infantry: Fire Lance -> Arquebusier -> Line Infantry -> Rifleman -> Infantry -> Mechanized Infantry
+- Armored: Landship -> Tank -> Modern Armor
+- Submarine: Submarine -> Nuclear Submarine
+- Fighter: Triplane -> Fighter -> Jet Fighter
+- Bomber: Great War Bomber -> Bomber -> Stealth Bomber
+
+These are role/progression families. Exact one-click upgrade edges, combat strength, cost, movement, promotions and strategic-resource quantities remain for the later military numerical-balance pass.
+
+### Current immediate content-design state
+
+The following large generic content sets are now consolidated:
+- 109 technologies
+- 72 civics
+- 127 policy cards
+- 102 generic/national buildings
+- 85 generic non-Great-Person units
+- 5 restored former-Great-Person Worker-built improvements
+- 32 corporation sectors / 98 signature founders
+
+The next clean consolidation target is the **full generic tile-improvement / route / infrastructure roster**, because technology and civic masters contain these unlocks but there is not yet a building-style canonical roster for the complete set.
