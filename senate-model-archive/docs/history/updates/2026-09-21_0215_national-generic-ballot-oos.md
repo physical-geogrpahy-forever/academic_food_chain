@@ -1,6 +1,6 @@
 # Performance experiment: National generic-ballot signal OOS
 
-- Generated UTC: 2026-09-20T17:19:24.324904+00:00
+- Generated UTC: 2026-09-20T17:20:05.374429+00:00
 - Historical source bytes: 754089
 - 2018+ average source bytes: 266194
 - BEA member: SQINC1__ALL_AREAS_1948_2026.csv
