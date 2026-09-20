@@ -36,6 +36,35 @@ with SRC.open('r', encoding='utf-8-sig', newline='') as f:
             continue
         pres_rows.append(r)
 
+# Remove exact duplicate result lines before candidate aggregation.
+# The pinned source contains eight duplicated Alabama 2000 lines; ignoring record IDs
+# yields the certified FEC Alabama vote totals after de-duplication.
+def result_signature(r):
+    return (
+        int(r['cycle']),
+        r['state_abbrev'].upper(),
+        r.get('candidate_name') or '',
+        r.get('ballot_party') or '',
+        r.get('party') or '',
+        r.get('votes') or '',
+        r.get('percent') or '',
+        r.get('winner') or '',
+        r.get('alt_result_text') or '',
+        r.get('source') or '',
+    )
+
+seen_result_lines = set()
+deduped_pres_rows = []
+duplicate_rows_removed = defaultdict(int)
+for r in pres_rows:
+    sig = result_signature(r)
+    if sig in seen_result_lines:
+        duplicate_rows_removed[(int(r['cycle']), r['state_abbrev'].upper())] += 1
+        continue
+    seen_result_lines.add(sig)
+    deduped_pres_rows.append(r)
+pres_rows = deduped_pres_rows
+
 by_state_cycle = defaultdict(list)
 for r in pres_rows:
     by_state_cycle[(int(r['cycle']), r['state_abbrev'].upper())].append(r)
@@ -181,11 +210,12 @@ with (OUTDIR / 'pvi_2026_default_067_033.csv').open('w', encoding='utf-8', newli
 
 excluded_geo_names = sorted({st for (_, st) in excluded_geos})
 lines = [
-    '# GitHub Actions run: historical PVI panel v2 — state filter fix',
+    '# GitHub Actions run: historical PVI panel v3 — geography + exact-duplicate fix',
     '',
     '- Generated UTC: ' + datetime.now(timezone.utc).isoformat(),
     '- Execution: GitHub Actions',
-    '- Fix: exclude presidential congressional-district rows such as M1/M2/N1/N2/N3 from state and national presidential margins',
+    '- Fix 1: exclude presidential congressional-district rows such as M1/M2/N1/N2/N3 from state and national presidential margins',
+    '- Fix 2: remove exact duplicate source result lines before candidate aggregation',
     '- Presidential source repo: fivethirtyeight/election-results',
     '- Source commit: d7a7cff101da28f4ff77114450a964874800ca54',
     '- Source blob SHA: 0e4171053b71363a31669137cb9a86289e58d438',
@@ -200,6 +230,12 @@ lines = [
     'The presidential source includes non-state congressional-district result rows used for electoral-vote allocation in Maine and Nebraska. The first reconstruction treated those rows as if they were additional states, producing 55 2026 PVI rows and slightly contaminating national presidential margins. v2 filters to the 50 states plus DC before calculating national margin and state lean.',
     '',
     'The v1 worklog is retained as an audit trail; its generated PVI files are superseded by this run.',
+    '',
+    '## Exact duplicate correction',
+    '',
+    f'- Exact duplicate source rows removed: {sum(duplicate_rows_removed.values())}',
+    f'- Duplicate state-cycles: {", ".join(f"{y}-{s}:{n}" for (y,s),n in sorted(duplicate_rows_removed.items())) if duplicate_rows_removed else "none"}',
+    '- 2000 Alabama de-duplication is separately audited against FEC certified results.',
     '',
     '## Reconstruction rule',
     '',
