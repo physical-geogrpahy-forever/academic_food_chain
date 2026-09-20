@@ -1,0 +1,62 @@
+CIV6_ERA,CIVIC,PREREQUISITES,INSPIRATION,POLICY_CARD_UNLOCKS,GOVERNMENT_UNLOCK,MAJOR_OTHER_UNLOCKS
+Ancient,Code of Laws,,None,"Discipline;Survey;God King;Urban Planning",Chiefdom,
+Ancient,Craftsmanship,Code of Laws,Improve 3 tiles,"Ilkum;Agoge",,"Sphinx/Chemamull civilization-specific improvements where applicable"
+Ancient,Foreign Trade,Code of Laws,Discover a second continent,"Caravansaries;Maritime Industries",,"Trader;+1 Trade Route capacity;Joint War/Join Ongoing War"
+Ancient,Military Tradition,Craftsmanship,Clear a Barbarian Encampment,"Maneuver;Strategos",,"Flanking and Support combat bonuses"
+Ancient,State Workforce,Craftsmanship,Build any specialty district,"Corvee;Conscription",,"Government Plaza;+1 Governor title"
+Ancient,Early Empire,Foreign Trade,Grow civilization to 6 population,"Colonization;Land Surveyors;Limitanei",,"Enforce borders;Open Borders;War of Retribution;+1 Governor title"
+Ancient,Mysticism,Foreign Trade,Found a Pantheon,"Inspiration;Revelation",,"Oracle;+1 Envoy"
+Classical,Games and Recreation,State Workforce,Research Construction,Insulae,,"Entertainment Complex;Arena;Colosseum and unique equivalents"
+Classical,Political Philosophy,"State Workforce;Early Empire",Meet 3 City-States,"Charismatic Leader;Diplomatic League","Autocracy;Oligarchy;Classical Republic","Apadana"
+Classical,Drama and Poetry,Early Empire,Build a Wonder,Literary Tradition,,"Theater Square;Amphitheater and unique equivalents"
+Classical,Military Training,"Military Tradition;Games and Recreation",Build an Encampment,"Raid;Veterancy;Equestrian Orders",,"+1 Envoy;Statue of Zeus"
+Classical,Defensive Tactics,"Games and Recreation;Political Philosophy",Be target of a Declaration of War,"Bastions;Limes",,"Reconquest/Protectorate wars;+1 Governor title;Mausoleum at Halicarnassus"
+Classical,Recorded History,"Political Philosophy;Drama and Poetry",Build 2 Campus districts,"Natural Philosophy;Praetorium",,"Great Library;+1 Governor title"
+Classical,Theology,"Mysticism;Drama and Poetry",Found a Religion,Scripture,,"Temple;Mahabodhi Temple and unique religious buildings;+1 Envoy"
+Medieval,Naval Tradition,Defensive Tactics,Kill a unit with a Quadrireme,"Naval Infrastructure;Navigation",,"+1 Envoy"
+Medieval,Feudalism,Defensive Tactics,Build 6 Farms,"Feudal Contract;Serfdom",,"Farm adjacency food improvement;plantation/unique improvement bonuses"
+Medieval,Civil Service,"Defensive Tactics;Recorded History",Grow a city to 10 population,"Retainers;Civil Prestige",,"Allows Alliances;Meenakshi Temple"
+Medieval,Mercenaries,"Military Training;Feudalism",Have 8 land combat units,"Professional Army;Trade Confederation",,"+1 Envoy;Jong civilization-specific unit"
+Medieval,Medieval Faires,Feudalism,Maintain 4 Trade Routes,"Aesthetics;Medina Quarter;Merchant Confederation",,"Angkor Wat;Barbary Corsair;+1 Governor title"
+Medieval,Guilds,"Feudalism;Civil Service",Build 2 Markets,"Craftsmen;Town Charters;Traveling Merchants",,"Chichen Itza;Mbanza/Outback Station/Polder unique unlocks;+1 Governor title"
+Medieval,Divine Right,"Theology;Civil Service",Build 2 Temples,"Chivalry;Gothic Architecture",Monarchy,"Mont St. Michel;Kotoku-in;Tagma"
+Renaissance,Exploration,"Mercenaries;Medieval Faires",Build 2 Caravels,"Press Gangs;Native Conquest;Colonial Offices",Merchant Republic,
+Renaissance,Humanism,Medieval Faires,Earn a Great Artist,"Frescoes;Invention",,"Taj Mahal;Art Museum;Archaeological Museum;Chateau"
+Renaissance,Diplomatic Service,Guilds,Have an Alliance,"Machiavellianism;Wisselbanken",,"+1 Spy capacity;Resident Embassies;Holy/Liberation/Reconquest/Protectorate Casus Belli"
+Renaissance,Reformed Church,"Guilds;Divine Right",Have 6 cities following your Religion,"Wars of Religion;Religious Orders;Simultaneum",Theocracy,"St. Basil's Cathedral;Golf Course"
+Renaissance,Mercantilism,Humanism,Earn a Great Merchant,"Logistics;Triangular Trade",,"Privateer;Sea Dog/Hacienda unique unlocks;Camp yield bonuses"
+Renaissance,The Enlightenment,"Humanism;Diplomatic Service",Earn 3 Great People,"Free Market;Liberalism;Rationalism",,"Religious Tourism against your civilization halved"
+Industrial,Colonialism,Mercantilism,Research Astronomy,"Colonial Taxes;Raj",,"+2 Envoys;Fishing Boat production bonus;Ice Hockey Rink"
+Industrial,Civil Engineering,Mercantilism,Build 7 different specialty districts,"Public Works;Skyscrapers",,"Farms allowed on Grassland Hills;other civ-specific hill farm effects;+1 Governor title"
+Industrial,Nationalism,The Enlightenment,Declare war using a Casus Belli,"Grande Armee;National Identity",,"Corps/Fleets;Colonial War;+1 Spy capacity;+1 Governor title"
+Industrial,Opera and Ballet,The Enlightenment,Build an Art Museum,"Grand Opera;Symphonies",,"Bolshoi Theatre;+2 Envoys"
+Industrial,Natural History,Colonialism,Build an Archaeological Museum,,,"Archaeologist;Antiquity Sites;Hermitage;Zoo and later entertainment infrastructure;+2 Envoys"
+Industrial,Scorched Earth,Nationalism,Build 2 Field Cannons,"Total War;Expropriation;Military Organization",,"+2 Envoys"
+Industrial,Urbanization,"Civil Engineering;Nationalism",Grow a city to 15 population,"Military Research;Public Transport",,"Neighborhood"
+Modern,Conservation,Natural History,Have a Neighborhood with Breathtaking Appeal,Resource Management,,"Naturalist;Builders can plant Woods;old-growth Woods appeal;+3 Envoys"
+Modern,Mass Media,"Natural History;Urbanization",Research Radio,Propaganda,,"Broadway;Cristo Redentor;+1 Governor title"
+Modern,Mobilization,"Urbanization;Scorched Earth",Have 3 Corps,"Levee en Masse",,"Defensive Pacts;Armies/Armadas;War of Territorial Expansion;+1 Governor title"
+Modern,Capitalism,Mass Media,Build 3 Stock Exchanges,"Market Economy;Laissez-Faire",,"Shopping Mall;+3 Envoys"
+Modern,Ideology,"Mass Media;Mobilization",None,"Police State;Economic Union;Five-Year Plan;Gunboat Diplomacy;Lightning Warfare",,"Ideological War;+1 Spy capacity"
+Modern,Nuclear Program,Ideology,Build a Research Lab,"Nuclear Espionage;Nobel Prize (where applicable)",,"+3 Envoys"
+Modern,Suffrage,Ideology,Build 4 Sewers,"Their Finest Hour;New Deal",Democracy,
+Modern,Totalitarianism,Ideology,Build 3 Military Academies,"Martial Law;Third Alternative",Fascism,
+Modern,Class Struggle,Ideology,Build 3 Factories,"Defense of the Motherland;Collectivization",Communism,
+Atomic,Cultural Heritage,Conservation,Have a Themed Museum,Heritage Tourism,,"Sydney Opera House;reveals Shipwrecks;+3 Envoys"
+Atomic,Cold War,Ideology,Research Nuclear Fission,"International Waters;Second Strike Capability;Containment;Cryptography",,"Rock Band;+1 Spy capacity;Amundsen-Scott Research Station"
+Atomic,Professional Sports,Ideology,Build 4 Entertainment Complex districts,Sports Media,,"Stadium;Aquatics Center;Ski Resort;Estadio do Maracana"
+Atomic,Rapid Deployment,Cold War,Build an Aerodrome or Airstrip on a foreign continent,"Military First;After Action Reports",,"Air transport between Airports"
+Atomic,Space Race,Cold War,Build a Spaceport,"Integrated Space Cell;Satellite Broadcasts",,
+Information,Environmentalism,"Cultural Heritage;Rapid Deployment",Build 2 Solar Farms,,, "+25% Tourism empire-wide"
+Information,Globalization,"Rapid Deployment;Space Race",Build Airports,"Strategic Air Force;International Space Agency;Ecommerce",,"+1 Governor title;plantation gold bonus"
+Information,Social Media,"Space Race;Professional Sports",Research Telecommunications,"Online Communities;Collective Activism;Communications Office",,"+1 Governor title"
+Information,Near Future Governance,"Environmentalism;Globalization",Adopt a government with required high-tier policy slots,,, "+3 Envoys;+1 Governor title"
+Information,Venture Politics,"Globalization;Social Media",Build a Uranium Mine,,Corporate Libertarianism,
+Information,Distributed Sovereignty,"Globalization;Social Media",Own a Rock Band,,Digital Democracy,
+Information,Optimization Imperative,"Globalization;Social Media",Research Robotics,,Synthetic Technocracy,
+Future,Information Warfare,Randomized Future-era prerequisite,None,"Integrated Attack Logistics;Rabblerousing",,
+Future,Global Warming Mitigation,Randomized Future-era prerequisite,None,,, "Carbon Recapture;+3 Envoys;+1 Diplomatic Victory point"
+Future,Cultural Hegemony,Randomized Future-era prerequisite,None,"Hallyu;Non-State Actors",,
+Future,Smart Power Doctrine,Randomized Future-era prerequisite,None,"Diplomatic Capital;Global Coalition",,
+Future,Exodus Imperative,Randomized Future-era prerequisite,None,"Aerospace Contractors;Space Tourism",,
+Future,Future Civic,All randomized Future-era branches ultimately converge,None,,, "Repeatable;score;+1 Governor title;+50 Diplomatic Favor"
