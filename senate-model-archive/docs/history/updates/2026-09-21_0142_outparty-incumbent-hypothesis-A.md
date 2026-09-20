@@ -1,6 +1,6 @@
 # GitHub Actions run: OutPartyIncumbent reconstruction hypothesis A
 
-- Generated UTC: 2026-09-20T16:46:40.709701+00:00
+- Generated UTC: 2026-09-20T16:50:03.016599+00:00
 - Headline rows: 99
 - Out-party incumbent rows: 18
 

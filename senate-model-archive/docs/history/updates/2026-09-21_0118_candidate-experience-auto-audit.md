@@ -1,6 +1,6 @@
 # GitHub Actions run: candidate experience auto-audit
 
-- Generated UTC: 2026-09-20T16:45:29.036967+00:00
+- Generated UTC: 2026-09-20T16:48:51.608894+00:00
 - Execution: GitHub Actions
 - Headline races: 99
 - Candidate politician_id matched uniquely: 198/198
