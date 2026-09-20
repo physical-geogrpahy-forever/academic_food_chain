@@ -1,0 +1,21 @@
+name: Approval OOS direct
+
+on:
+  push:
+    branches: [senate-perf-approval]
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: senate-perf-approval
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy pandas lxml requests
+      - run: python senate-model-archive/performance/run_approval_oos.py
