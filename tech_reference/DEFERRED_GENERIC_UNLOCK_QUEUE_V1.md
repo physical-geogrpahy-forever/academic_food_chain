@@ -3,10 +3,9 @@
 Date: 2026-09-21
 Status: ACTIVE
 
-Remaining deferred items: **46**
+Remaining deferred items: **18**
 
 ## Queue counts
-- POLICY_BALANCE: 28
 - NUMERIC_BALANCE: 13
 - OPTIONAL_ENDGAME: 5
 
@@ -16,14 +15,19 @@ Remaining deferred items: **46**
 - HEALTH_BALANCE qualitative design: 0
 - GOVERNMENT_SYSTEM: 0
 - SYSTEM_DESIGN: 0
+- POLICY_BALANCE qualitative ownership: 0
 
-Authority:
-`system_design/QUALITATIVE_SYSTEM_DECISIONS_V1.md`
+Policy authority:
+- `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.csv`
+- `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.md`
+- `civics_reference/MASTER_CIVIC_UNLOCKS_72_V2.csv`
+
+Final policy cards: **127**
+Duplicate policy ownership: **0**
 
 ## Remaining
-- POLICY_BALANCE: qualitative policy candidates still need final keep/drop ownership.
-- NUMERIC_BALANCE: exact yields, percentages and caps.
-- OPTIONAL_ENDGAME: GDR and associated future upgrades.
+- NUMERIC_BALANCE: exact yields, percentages, caps and thresholds.
+- OPTIONAL_ENDGAME: Giant Death Robot and associated upgrades.
 
 ## Source rule
 **Civ V first -> historical/functional reconciliation -> Civ VI fallback -> minimal historical invention**
