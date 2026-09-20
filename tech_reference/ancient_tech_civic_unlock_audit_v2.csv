@@ -57,7 +57,7 @@
 "C001","Ancient","GOVERNMENT","Chiefdom","","Code of Laws","CIVIC","Civ6 GS","Code of Laws","KEEP","Civ VI civic source; foundational government form","Exact government mechanics later"
 "C002","Ancient","SYSTEM","Policy Card system","","Code of Laws","CIVIC","Civ6 GS","Code of Laws","KEEP","Foundational legal framework opens early policy customization",""
 "C003","Ancient","POLICY","Discipline; God King; Survey; Urban Planning","","Code of Laws","CIVIC","Civ6 GS","Code of Laws","KEEP","Direct Civ6 Code of Laws policy set retained","Discipline; God King; Survey; Urban Planning; exact numeric effects later"
-"C004","Ancient","CITY_BUILDING","Courthouse","Writing","Code of Laws","TECH+CIVIC","Civ5 BNW remap","Mathematics","CROSS_GATE","Legal institution plus written recordkeeping",""
+"C004","Ancient","CITY_BUILDING","Courthouse","Writing","Code of Laws","TECH+CIVIC","Civ5 BNW remap","Mathematics","DROP","Duplicate building audit record; canonical ownership retained in the paired record","Do not create a second building instance"
 "C005","Ancient","POLICY","Ilkum; Agoge","","Craftsmanship","CIVIC","Civ6 GS","Craftsmanship","KEEP","Direct Civ6 Craftsmanship policies retained","Ilkum; Agoge; convert Builder references to Worker where needed"
 "C006","Ancient","TILE_IMPROVEMENT","Sphinx; Chemamull","","Craftsmanship","CIVIC","Civ6 GS","Craftsmanship","DEFER_CIV_UNIQUE","Civilization-specific unique improvements are not generic unlocks",""
 "C007","Ancient","SYSTEM","Trade Route capacity +1","","Foreign Trade","CIVIC","Civ6 GS","Foreign Trade","KEEP","Institutional commercial capacity belongs in civic tree","Physical trade unit still needs transport technology"
