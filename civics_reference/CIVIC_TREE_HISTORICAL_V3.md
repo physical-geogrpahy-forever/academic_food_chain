@@ -170,7 +170,7 @@ Environmentalism returns directly to Conservation plus Mass Media; Cultural Heri
 
 ### Information
 
-- Cold War + Capitalism -> Globalization
+- Capitalism + Mass Media -> Globalization
 - Mass Media + Public Sphere -> Social Media
 - Environmentalism + Globalization -> Near Future Governance
 - Globalization + Social Media -> Venture Politics / Distributed Sovereignty / Optimization Imperative
@@ -180,7 +180,7 @@ Professional Sports no longer causes Social Media.
 
 The social link Public Sphere -> Social Media is supported conceptually by scholarship that treats social media as a transformed digital public sphere. Internet/telecommunications/computing will be technology gates, not social predecessors.
 
-Cold War remains a **chronological/context gate** for the project's late-twentieth/21st-century Globalization node, not a claim that globalization can exist only because of Cold War rivalry.
+Cold War is no longer a mandatory prerequisite for Globalization. The Information-era placement supplies chronology; Capitalism + Mass Media supplies the social/economic communication lineage.
 
 ## Remaining intentional abstractions
 
@@ -230,3 +230,16 @@ That distinction prevents artificial links such as Mercenaries -> Exploration or
 Post-QA cleanup:
 - Professional Sports now requires **Games and Recreation + Urbanization**, not Capitalism + Urbanization.
 - This preserves a long cultural line from organized public recreation to urban mass spectator sport without making capitalism a universal hard prerequisite.
+
+
+### Cross-tree inheritance correction
+
+After linking the civic tree to the technology tree, Cold War -> Globalization was removed as a hard social edge.
+
+Reason:
+Cold War inherits the Nuclear Program's hard Nuclear Fission gate. If Globalization required Cold War, all globalization and much of the later Information civic branch would incorrectly inherit Nuclear Fission as a material prerequisite.
+
+V3.1 therefore uses:
+**Capitalism + Mass Media -> Globalization**
+
+Cold War remains a separate Atomic-era geopolitical branch.
