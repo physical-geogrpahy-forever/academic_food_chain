@@ -25,9 +25,9 @@ def predict_row(r,window,hl,wmax,k):
     prior=float(r['prior'])
     if agg is None:
         return prior,0.0,0,''
-    pm,neff,elist=agg
+    pm,neff,n_poll=agg
     w=wmax*neff/(neff+k)
-    return (1-w)*prior+w*pm,w,len(elist),pm
+    return (1-w)*prior+w*pm,w,int(n_poll),pm
 
 def evalset(dat,params):
     window,hl,wmax,k=params
