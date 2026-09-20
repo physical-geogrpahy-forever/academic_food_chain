@@ -12,8 +12,8 @@ PRES=ROOT/'data/processed/presidential_state_lean.csv'
 HEAD=ROOT/'data/processed/core_v2r_headline_target_hypothesis_A.csv'
 HEADSS=ROOT/'data/processed/core_v2r_headline_same_seat_features.csv'
 ALIGN=ROOT/'config/partisan_alignment_overrides_v1.csv'
-OUTDIR=ROOT/'experiments/history_extension/results'
-DOC=ROOT/'docs/history/updates/2026-09-21_0230_extended-history-national-econ-oos.md'
+OUTDIR=ROOT/'experiments/history_extension/direction_results'
+DOC=ROOT/'docs/history/updates/2026-09-21_0235_direction-first-extended-history-oos.md'
 OUTDIR.mkdir(parents=True,exist_ok=True); DOC.parent.mkdir(parents=True,exist_ok=True)
 
 HIST_URL='https://raw.githubusercontent.com/kitsbits/aiml/bc92061a0d638afac14aac3e6bd1166539985fe9/python-fundamentals/congress-generic-ballot/generic_topline_historical.csv'
@@ -227,27 +227,32 @@ def tune(train):
             tr=[r for r in train if int(r['cycle'])<vc];va=[r for r in train if int(r['cycle'])==vc]
             if len(tr)<25 or not va:continue
             q=fitpred(tr,va,lp,ll,le,ln);yy.extend(r['y'] for r in va);pp.extend(q.tolist());folds+=1
-        if folds: grid.append((rmse(yy,pp),lp,ll,le,ln,folds))
+        if folds:
+            correct=sum((a>0)==(b>0) for a,b in zip(yy,pp))
+            accuracy=100.0*correct/len(yy)
+            grid.append((-correct,mae(yy,pp),rmse(yy,pp),lp,ll,le,ln,folds,accuracy,len(yy)))
     if not grid:raise RuntimeError('No valid inner folds')
-    grid.sort(key=lambda z:(z[0],z[1]+z[2]+z[3]+z[4]))
+    grid.sort(key=lambda z:(z[0],z[1],z[2],z[3]+z[4]+z[5]+z[6]))
     return grid[0],grid[:20]
 
 pred=[];choices=[]
 for tc in OUTER:
     tr=[r for r in rows if int(r['cycle'])<tc];te=[r for r in rows if int(r['cycle'])==tc]
-    best,trace=tune(tr);sc,lp,ll,le,ln,folds=best
+    best,trace=tune(tr)
+    negcorrect,inner_mae,inner_rmse,lp,ll,le,ln,folds,inner_acc,inner_n=best
     q=fitpred(tr,te,lp,ll,le,ln)
     choices.append({'test_cycle':tc,'lambda_pvi':lp,'lambda_local':ll,'lambda_econ':le,'lambda_national':ln,
-                    'inner_rmse':sc,'inner_folds':folds,'train_n':len(tr),'test_n':len(te),
-                    'top20':' | '.join(f'P{z[1]} L{z[2]} E{z[3]} N{z[4]}:{z[0]:.3f}' for z in trace)})
+                    'inner_correct':-negcorrect,'inner_n':inner_n,'inner_direction_pct':inner_acc,
+                    'inner_mae':inner_mae,'inner_rmse':inner_rmse,'inner_folds':folds,'train_n':len(tr),'test_n':len(te),
+                    'top20':' | '.join(f'correct={-z[0]}/{z[9]} acc={z[8]:.1f}% MAE={z[1]:.3f} RMSE={z[2]:.3f} P{z[3]} L{z[4]} E{z[5]} N{z[6]}' for z in trace)})
     for r,p in zip(te,q):pred.append({'test_cycle':tc,'race_id':r['race_id'],'state_abbrev':r['state_abbrev'],
                                       'actual':r['y'],'predicted':float(p),'error':float(p)-r['y']})
 
 yy=[r['actual'] for r in pred];pp=[r['predicted'] for r in pred]
-summary=[{'variant':'extended_history_nested_group_ridge','n':len(pred),'rmse':rmse(yy,pp),'mae':mae(yy,pp),'direction_pct':acc(yy,pp),
+summary=[{'variant':'extended_history_direction_first_nested','n':len(pred),'rmse':rmse(yy,pp),'mae':mae(yy,pp),'direction_pct':acc(yy,pp),
           'model_rows':len(rows),'earliest_cycle':min(r['cycle'] for r in rows)}]
 
-for fn,data in [('extended_history_summary.csv',summary),('extended_history_choices.csv',choices),('extended_history_predictions.csv',pred)]:
+for fn,data in [('direction_first_summary.csv',summary),('direction_first_choices.csv',choices),('direction_first_predictions.csv',pred)]:
     with (OUTDIR/fn).open('w',encoding='utf-8',newline='') as f:
         w=csv.DictWriter(f,fieldnames=list(data[0].keys()));w.writeheader();w.writerows(data)
 
@@ -266,22 +271,25 @@ lines += ['','## OOS result','',
           '| N | RMSE | MAE | direction |','|---:|---:|---:|---:|',
           f"| {len(pred)} | {summary[0]['rmse']:.4f} | {summary[0]['mae']:.4f} | {summary[0]['direction_pct']:.1f}% |",'',
           '## Nested choices','',
-          '| test | train N | inner folds | PVI ridge | local ridge | econ ridge | National ridge | inner RMSE |',
-          '|---:|---:|---:|---:|---:|---:|---:|---:|']
+          '| test | train N | inner folds | inner correct | inner direction | inner MAE | inner RMSE | PVI ridge | local ridge | econ ridge | National ridge |',
+          '|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|']
 for r in choices:
-    lines.append(f"| {r['test_cycle']} | {r['train_n']} | {r['inner_folds']} | {r['lambda_pvi']} | {r['lambda_local']} | {r['lambda_econ']} | {r['lambda_national']} | {r['inner_rmse']:.4f} |")
+    lines.append(f"| {r['test_cycle']} | {r['train_n']} | {r['inner_folds']} | {r['inner_correct']}/{r['inner_n']} | {r['inner_direction_pct']:.1f}% | {r['inner_mae']:.4f} | {r['inner_rmse']:.4f} | {r['lambda_pvi']} | {r['lambda_local']} | {r['lambda_econ']} | {r['lambda_national']} |")
 lines += ['','## Benchmarks','',
           '- Previous leakage-safe midterm-only National nested RMSE: 9.1890.',
           '- Previous full-cycle attempt RMSE: 9.0712, but its 2014 inner tuning had no valid fold.',
           '- Best descriptive fixed-grid diagnostic: 8.9084.',
           '- Preserved original Core V2 fundamentals benchmark: 7.99.','',
+          '## Objective correction','',
+          'PRIMARY: maximize strictly chronological inner-OOS winner/direction correctness. Ties are broken by lower MAE, then lower RMSE.','',
+          'The outer 99-race result is judged first by correct winner count / direction percentage, not by RMSE.','',
           '## Decision rule','',
-          'Keep this architecture only if its strictly chronological outer OOS RMSE is lower than the prior leakage-safe benchmarks.','',
+          'Keep this architecture only if its strictly chronological outer OOS direction correctness exceeds the preserved benchmark; use MAE/RMSE only as tie-breakers.','',
           '## Data limitation','',
           'The BEA economic series is still the current revised SQINC1 history rather than release-vintage snapshots, so this remains a performance experiment, not final vintage-clean replication.','',
           '## Outputs','',
-          '- experiments/history_extension/results/extended_history_summary.csv',
-          '- experiments/history_extension/results/extended_history_choices.csv',
-          '- experiments/history_extension/results/extended_history_predictions.csv']
+          '- experiments/history_extension/direction_results/direction_first_summary.csv',
+          '- experiments/history_extension/direction_results/direction_first_choices.csv',
+          '- experiments/history_extension/direction_results/direction_first_predictions.csv']
 DOC.write_text('\n'.join(lines)+'\n',encoding='utf-8')
 print('\n'.join(lines))
