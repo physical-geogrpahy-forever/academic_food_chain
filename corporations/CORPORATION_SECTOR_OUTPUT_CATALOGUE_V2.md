@@ -123,3 +123,10 @@ Before the 109-tech unit/building table:
 3. define corporate diversification rules;
 4. resolve the Film/Cinematography technology decision;
 5. freeze the signature-founder subset.
+
+
+## 8. Historical gate reconciliation note
+
+- **Carl Benz** uses `Mass Production` as the earliest Industrial-era automotive-sector gate because the locked `Combustion` technology sits in the project Modern Era. Later automotive founders use `Combustion`.
+- **J. C. Mahindra** and **K. C. Mahindra** are mapped to `STEEL_HEAVY_MATERIALS` at founding because Mahindra began as a steel-trading company before later automotive diversification.
+- `SHIPPING_LOGISTICS` uses a progression of `Steam Power -> Railroad -> Advanced Flight`, allowing shipping, parcel delivery and express-air logistics founders to enter at historically appropriate stages.
