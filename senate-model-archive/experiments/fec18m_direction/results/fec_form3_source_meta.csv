@@ -1,0 +1,5 @@
+year,source,url,rows_senate
+2014,candidate_master,https://www.fec.gov/files/bulk-downloads/2014/cn14.zip,424
+2018,candidate_master,https://www.fec.gov/files/bulk-downloads/2018/cn18.zip,528
+2022,candidate_master,https://www.fec.gov/files/bulk-downloads/2022/cn22.zip,747
+2018,openfec_form3_batch,https://api.open.fec.gov/v1/reports/house-senate/?api_key=REDACTED_DEMO_KEY&cycle=2018&year=2018&per_page=100&most_recent=true&report_type=Q2&sort=-coverage_end_date&committee_id=C00492645,0
