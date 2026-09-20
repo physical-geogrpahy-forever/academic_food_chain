@@ -1,4 +1,4 @@
-RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOURCE,SOURCE_UNLOCK,DECISION,REASON,NOTES
+"RECORD_ID","PROJECT_ERA","UNLOCK_TYPE","CONTENT_EN","TECH_GATE","CIVIC_GATE","GATE_MODE","SOURCE","SOURCE_UNLOCK","DECISION","REASON","NOTES"
 "IB001","Industrial","CITY_BUILDING","Shipyard","Mass Production","","TECH","Civ6 GS","Mass Production","KEEP","Large standardized industrial ship production fits the project's 19C placement of Mass Production","Requires Seaport"
 "IB002","Industrial","SYSTEM","Assembly-Line Production","Mass Production","","TECH","Historical/Civ6 adaptation","Mass Production","KEEP","Project moves Mass Production to the 19th century, so assembly-line/standardized production becomes its main identity","Exact city production bonus later"
 "IB003","Industrial","WONDER","Venetian Arsenal","Mass Production","","TECH","Civ6 GS","Mass Production","DEFER_WONDER","Wonder audit separate",""
@@ -57,8 +57,8 @@ RECORD_ID,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,TECH_GATE,CIVIC_GATE,GATE_MODE,SOUR
 "ICB010","Industrial","WONDER","Broadway / Cristo Redentor","","Mass Media","CIVIC","Civ6 GS","Mass Media","DEFER_WONDER","Wonder audit separate",""
 "ICB011","Industrial","SYSTEM","Corporate Founding Permission","","Capitalism","CIVIC","Project corporation system","Capitalism","KEEP","General civic gate for the corporation system","All sector-specific technology gates still apply"
 "ICB012","Industrial","CITY_BUILDING","Shopping Mall","Mass Production","Capitalism","TECH+CIVIC","Civ6 GS adapted","Capitalism","CROSS_GATE","Mass-produced consumer goods plus capitalist retail organization","Direct city building; no Neighborhood district"
-"ICB013","POLICY","Industrial","Laissez-Faire","","Capitalism","CIVIC","Civ6 GS","Capitalism","KEEP","Economic policy retained",""
-"ICB014","POLICY","Industrial","Market Economy","","Capitalism","CIVIC","Civ6 GS","Capitalism","KEEP","International trade/economic policy retained",""
+"ICB013","Industrial","POLICY","Laissez-Faire","","Capitalism","CIVIC","Civ6 GS","Capitalism","KEEP","Economic policy retained",""
+"ICB014","Industrial","POLICY","Market Economy","","Capitalism","CIVIC","Civ6 GS","Capitalism","KEEP","International trade/economic policy retained",""
 "ICB015","Industrial","SYSTEM","Corporate Investment and Branch Expansion","","Capitalism","CIVIC","Project corporation system","Capitalism","KEEP","Allows full named/generic corporation founding once sector tech is met",""
 "ICB016","Industrial","SYSTEM","Romantic Landscape Aesthetics","","Romanticism","CIVIC","Pouakai EE + historical adaptation","Romanticism","KEEP","Natural/cultural landscape appreciation becomes a culture/tourism system","Exact Tourism effect later"
 "ICB017","Industrial","CITY_BUILDING","Gallery","","Humanism","CIVIC","Pouakai EE Romanticism remap","Romanticism","MERGE","EE Gallery is merged into existing Art Museum rather than creating redundant art building","Romanticism may upgrade Art Museum output"
