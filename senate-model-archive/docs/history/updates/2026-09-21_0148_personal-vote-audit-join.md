@@ -1,6 +1,6 @@
 # GitHub Actions run: PersonalVote audit-only design-matrix join
 
-- Generated UTC: 2026-09-20T17:03:57.802622+00:00
+- Generated UTC: 2026-09-20T17:06:30.727992+00:00
 - Headline rows: 99
 - Rows where both sides have cycle-adjusted prior statewide history: 5
 

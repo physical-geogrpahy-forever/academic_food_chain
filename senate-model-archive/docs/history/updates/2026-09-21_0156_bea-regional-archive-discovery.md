@@ -1,6 +1,6 @@
 # GitHub Actions run: BEA Regional Accounts archive discovery
 
-- Generated UTC: 2026-09-20T17:03:58.514905+00:00
+- Generated UTC: 2026-09-20T17:06:32.141259+00:00
 - Source: https://apps.bea.gov/histdata/RegionalAccounts.html
 - HTML bytes: 26530
 - HTML sha256: `75ea8fd76e6e9f27b15898456474e5b2cd35ed74ee5b645a0de0fccb4f57fc6f`

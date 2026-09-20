@@ -1,6 +1,6 @@
 # GitHub Actions run: Core V2-R headline target panel, Hypothesis A
 
-- Generated UTC: 2026-09-20T17:02:50.743727+00:00
+- Generated UTC: 2026-09-20T17:05:47.319197+00:00
 - Execution: GitHub Actions
 - Scope: 2014, 2018, 2022 Senate general elections
 

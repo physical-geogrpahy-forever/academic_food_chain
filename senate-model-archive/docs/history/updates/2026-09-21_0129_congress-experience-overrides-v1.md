@@ -1,6 +1,6 @@
 # GitHub Actions run: Congress experience overrides v1
 
-- Generated UTC: 2026-09-20T17:03:57.013391+00:00
+- Generated UTC: 2026-09-20T17:06:26.709001+00:00
 - Candidate-side override rows: 12
 - Unique cycle-candidate overrides: 11
 - SenateExperience corrections: 6
