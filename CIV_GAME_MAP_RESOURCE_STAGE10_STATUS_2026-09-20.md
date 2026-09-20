@@ -271,3 +271,108 @@ Stage 10Y V2 density:
 - 83.988% of LAND hexes remain resource-free.
 
 No regional-density correction should be applied unless a technical source/processing error is demonstrated.
+
+
+## 11. Source-GPKG resource audit and rendering correction
+
+The earlier whole-world/resource TIFF and regional crops are not reliable for positional QA because the resource overlay was aligned through an image-coordinate transformation rather than rendered directly from the source GPKG geometry.
+
+The Stage10Y GPKG was therefore audited directly.
+
+Global technical checks:
+- selected cells: 12,500
+- unique selected cell IDs: 12,500
+- duplicate selected cells: 0
+- LAND resource cells: 10,896
+- COAST: 639
+- OCEAN: 965
+- LAKE/VOID resource cells: 0
+- all selected surface rules: PASS
+- no selected zero/negative strength or evidence values
+
+Korea LAND-only audit:
+- audit window: 124-131E, 33-39.8N
+- resource-bearing LAND cells: 28
+- resource counts: RICE 7, HORSES 6, TOBACCO 4, WINE 4, CITRUS 2, COAL 1, IRON 1, CATTLE 1, JADE 1, MAIZE 1
+
+Therefore the apparent lack of Korean land resources in the earlier rendered image was a rendering/alignment failure, not an empty source placement table.
+
+## 12. Biological-resource plateau audit
+
+Three resources require placement repair because the top-score candidate plateau is too large:
+
+- BISON: 10,738 top-tie candidates / 390 selected
+- IVORY: 15,552 / 248
+- WHALES: 3,695 / 350
+
+Additional old-selection anomalies:
+- BISON desert-biome selections: 21
+- IVORY desert-biome selections: 44
+- IVORY temperate-biome selections: 8
+- WHALES south/north distribution: 336 / 14
+
+## 13. resource_fix_v1 review build
+
+A replacement selection was generated for BISON, IVORY and WHALES while keeping the remaining Stage10Y resource selections unchanged.
+
+Before/after diagnostics:
+- BISON desert-biome selections: 21 -> 0
+- IVORY desert-biome selections: 44 -> 0
+- IVORY temperate-biome selections: 8 -> 0
+- WHALES south/north distribution: 336/14 -> 176/174
+- WHALES tropical/subtropical selections: 11 -> 35
+
+Quota-pool review build:
+- BISON: North America 176, Europe 70, Central/South Asia 100, East Asia 44
+- IVORY: Africa 198, South+Southeast Asia 50
+- WHALES: North temperate/subpolar 123, South temperate/subpolar 158, North tropical/subtropical 17, South tropical/subtropical 18, high-latitude fringe 34
+
+This is still a review build. It is not canonical final placement.
+
+## 14. Resource icon V4
+
+The current procedural vector icon package is V4.
+
+Important V4 revisions:
+- horse side-profile redesign
+- bison face revision
+- uranium trefoil correction
+- visible maize kernels
+- recognizable tea leaves
+- perfume bottle and Korean display name 향수
+- cocoa display changed to chocolate icon
+- crab leg correction
+- fur pattern
+- gold/silver bar forms
+- marble bust/statue direction
+- silk fabric form
+- spices/sugar/truffle redesign
+- whale profile redesign
+
+## 15. Contact-based dynamic resource system
+
+Historical dates are no longer to be implemented as absolute global switches for transferable crops and livestock.
+
+The game must distinguish:
+- native presence
+- civilization knowledge
+- introduced presence
+- active/exploitable state
+
+Transfer can occur through:
+- contact
+- trade
+- exploration/discovery
+- settlement/colonization
+- conquest/occupation
+
+Locked alternate-history example:
+If Korea reaches South America in 1000 CE and establishes a settlement, resources already known and transported by Korea, such as horses or cattle, can be introduced in environmentally suitable cells. The system must not wait for the historical 1492 contact date.
+
+Detailed design:
+`civ_map_stage10_resources/contact_dynamic_resource_system_v1.md`
+
+## 16. GitHub handoff
+
+The current Stage10 file inventory and next-work checklist are maintained in:
+`CIV_GAME_MAP_STAGE10_GITHUB_HANDOFF_2026-09-20.md`
