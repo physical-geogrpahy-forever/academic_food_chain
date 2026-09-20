@@ -1588,3 +1588,113 @@ V2 dynamic resource state 실제 게임 레이어 구현.
 
 > `CIV_GAME_PROJECT_MASTER_HANDOFF_2026-09-20.md`를 기준으로 이어가라. 현재 immediate task는 corporation founder pool을 80-100명 수준으로 확대하고, Great Merchant / Great Engineer, firm, sector, output class, product/service, technology gate, civic gate를 검증하는 것이다. 기업을 확정하기 전에는 technology unlock building table로 넘어가지 마라. 자원 발견 시스템 V2와 4000 BCE V3, 72 civic historical V3, 109-tech V2는 유지하라.
 
+
+
+---
+
+# 26. 기업 창업가 / 업종 V2 완료 상태 — 2026-09-20 추가
+
+기존 immediate task였던 **80-100명 founder pool 확대**는 V2에서 완료했다.
+
+## 새 권위 파일
+
+- `corporations/CORPORATE_FOUNDER_POOL_AUDITED_V2.csv`
+- `corporations/CORPORATE_FOUNDER_POOL_AUDITED_V2.md`
+- `corporations/CORPORATION_SECTOR_OUTPUT_CATALOGUE_V2.csv`
+- `corporations/CORPORATION_SECTOR_OUTPUT_CATALOGUE_V2.md`
+
+기존:
+- `corporations/CORPORATE_FOUNDER_POOL_RESEARCH_V1.md`
+
+은 1차 출처감사 archive/reference로 유지한다.
+
+## Founder V2 exact state
+
+- 총 후보: **99**
+- Great Merchant: **53**
+- Great Engineer: **46**
+- LOCK_CANDIDATE: **97**
+- Liu Chuanzhi: `REVIEW_COFOUNDER_DETAIL`
+- Ozires Silva: `SPECIAL_CREATOR_NOT_STRICT_FOUNDER`
+
+지역:
+- Europe/North America 44
+- East Asia 23
+- Southeast Asia 9
+- South Asia 7
+- Latin America 6
+- Middle East 5
+- Africa 4
+- Oceania 1
+
+## Canonical sector V2
+
+- 총 sector: **32**
+- 현재 founder가 있는 sector: **30**
+- founder를 아직 잠그지 않은 future sector:
+  - `MEDIA_FILM_ENTERTAINMENT`
+  - `AIRLINES_TRAVEL`
+
+모든 founder row는 `CANONICAL_SECTOR_ID`로 sector catalogue에 연결돼 있다.
+
+## Gate QA
+
+99 founder rows 전체에 대해:
+
+- missing technology ref: **0**
+- missing civic ref: **0**
+- founder 시대보다 뒤의 technology gate: **0**
+- missing sector ref: **0**
+- sector/gate mismatch: **0**
+- non-hybrid output-class mismatch: **0**
+- duplicate founder: **0**
+- missing source: **0**
+
+일반 gate 원칙은 계속:
+
+**Capitalism + sector technology**
+
+이다.
+
+역사적 단계가 긴 sector는 같은 sector 내에서 base -> mature technology progression을 허용한다.
+
+예:
+- Telecommunications: `Telegraph -> Telecommunications`
+- Automotive: `Mass Production -> Combustion`
+- Shipping/Logistics: `Steam Power -> Railroad -> Advanced Flight`
+- Machinery/Components: `Replaceable Parts -> Combustion / Electronics`
+
+## 중요 역사보정
+
+- Carl Benz는 1880년대 창업을 Modern의 Combustion에 억지로 늦추지 않고 Industrial의 `Mass Production`을 초기 automotive gate로 사용.
+- Robert Bosch는 1886년 창업에 맞춰 `Replaceable Parts`.
+- Mahindra 형제는 창업 당시 steel-trading 성격을 반영해 `STEEL_HEAVY_MATERIALS`.
+- Lee Byung-chul은 Samsung Electronics의 창업자로 소급하지 않고 founder-era `TRADING_HOUSES`.
+- Jamsetji Tata도 후대 Tata Steel을 직접 창업한 것으로 소급하지 않고 founder-era `TRADING_HOUSES`.
+- Thomas Edison은 modern GE의 단독 창업자가 아니라 Edison electric-company / GE lineage로 한정.
+- Ozires Silva는 state-created Embraer의 key creator / first managing director로 별도 표시.
+
+## Film sector 예외
+
+`MEDIA_FILM_ENTERTAINMENT`의 기술 gate는 아직:
+
+`PENDING_FILM_TECH_DECISION`
+
+이다.
+
+Photography / Cinematography를 109-tech에 추가할지 여부를 아직 결정하지 않았으므로 Radio 등에 임의로 덮어씌우지 않는다.
+
+## 이제 immediate task
+
+Founder 숫자를 더 무작정 늘리는 것이 우선이 아니다.
+
+다음은 기업 시스템을 실제 플레이 가능한 수준으로 확정하는 작업이다:
+
+1. 32 sector의 **정량적 생산량 / 소비량 / branch coverage / yield 효과** 확정
+2. 기업 diversification 규칙 확정
+3. Liu Chuanzhi / Ozires Silva 두 edge case 최종 wording 결정
+4. signature founder 실제 게임 투입 subset 확정
+5. Film/Cinematography 기술 결정
+6. 그 뒤에만 109-tech의 unit/building/improvement/corporation unlock table로 이동
+
+**기업의 정량적 supply/branch mechanics가 확정되기 전에는 기술별 건물/유닛 unlock table로 넘어가지 않는다.**
