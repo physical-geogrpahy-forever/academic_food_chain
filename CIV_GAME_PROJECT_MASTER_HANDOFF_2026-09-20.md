@@ -1613,9 +1613,9 @@ V2 dynamic resource state 실제 게임 레이어 구현.
 - 총 후보: **99**
 - Great Merchant: **53**
 - Great Engineer: **46**
-- LOCK_CANDIDATE: **97**
-- Liu Chuanzhi: `REVIEW_COFOUNDER_DETAIL`
-- Ozires Silva: `SPECIAL_CREATOR_NOT_STRICT_FOUNDER`
+- LOCK_CANDIDATE: **98**
+- Liu Chuanzhi: `LOCK_CANDIDATE` — founding-team leader / co-founder
+- Ozires Silva: `REFERENCE_ONLY_INSTITUTIONAL_CREATOR` — ordinary signature-founder roster에서 제외
 
 지역:
 - Europe/North America 44
@@ -1698,3 +1698,84 @@ Founder 숫자를 더 무작정 늘리는 것이 우선이 아니다.
 6. 그 뒤에만 109-tech의 unit/building/improvement/corporation unlock table로 이동
 
 **기업의 정량적 supply/branch mechanics가 확정되기 전에는 기술별 건물/유닛 unlock table로 넘어가지 않는다.**
+
+
+---
+
+# 27. 기업 정량 supply / branch 모델 V1 — 2026-09-20 추가
+
+권위 파일:
+- `corporations/CORPORATION_QUANTITATIVE_SUPPLY_BRANCH_MODEL_V1.md`
+- `corporations/corporation_sector_effects_v1.csv`
+
+## 핵심
+
+실물 기업상품은 empire-wide permanent modifier가 아니라 **Supply Unit (SU)**로 공급한다.
+
+기본 도시 수요:
+- Functional Good: `ceil(population / 5)` SU/turn
+- Manufactured Luxury: `ceil(population / 8)` SU/turn
+- Hybrid physical product: `ceil(population / 6)` SU/turn
+
+기본 plant 생산:
+- 일반: 4 SU/turn
+- 대량 소비재/식품: 약 5 SU/turn
+- 중공업/항공/석유 등: 약 3 SU/turn
+
+공급률:
+`coverage = min(1, allocated_SU / demand_SU)`
+
+percentage bonus는 coverage에 비례한다.
+
+Manufactured Luxury Amenity 기본:
+- coverage < 0.75: Amenity 없음
+- coverage >= 0.75: 해당 product category에서 +1 Amenity
+
+동일 category의 여러 brand는 Amenity를 중복하지 않는다.
+추가 brand는 Gold, market share, Tourism, export demand 등으로 경쟁한다.
+
+## Service
+
+Finance, Hospitality, Insurance, Software, Digital Platform 등은 stock resource를 만들지 않는다.
+
+기본 service coverage:
+- 없음: 0
+- national network만 연결: 0.5
+- local branch/network node: 1.0
+- foreign city에서 명시적 branch/network access: 1.0
+
+## Foreign trade
+
+실물 corporate good의 foreign allocation 기본 throughput:
+- active trade connection당 4 SU/turn
+- Shipping/Logistics full service가 있으면 5 SU/turn
+
+## Diversification
+
+기업은 founder-era primary sector를 유지한다.
+
+다른 sector 진입은 Diversification Project:
+1. target sector tech 필요
+2. HQ 외 branch/plant 3개 이상
+3. target input/network 확보
+4. HQ project 완료
+
+기본 secondary sector 한도:
+- 최대 2개
+
+Samsung, Tata, Reliance 같은 conglomerate를 founder 시대에 후대 업종으로 소급하지 않고 게임 안에서 diversification으로 재현한다.
+
+## QA
+
+- canonical sector catalogue: 32
+- quantitative sector effect rows: 32
+- missing effect rows: 0
+- orphan effect rows: 0
+- duplicate effect rows: 0
+
+
+## Founder edge-case finalization
+
+- **Liu Chuanzhi**: `LOCK_CANDIDATE`. 게임 표기는 **Founding-team leader / co-founder**.
+- **Ozires Silva**: `REFERENCE_ONLY_INSTITUTIONAL_CREATOR`. 99명 research pool에는 남지만 일반 signature-founder roster에서는 제외.
+- 따라서 일반 signature-founder eligible pool은 **98명**이다.
