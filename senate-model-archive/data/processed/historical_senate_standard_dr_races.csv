@@ -1,0 +1,819 @@
+race_id,cycle,state_abbrev,state,seat,special,candidate_count,has_dem,has_rep,d_votes,r_votes,two_party_total,margin_d_minus_r_pctpt,standard_dr_race,flags,source_count
+15600,1976,AZ,Arizona,Class I,false,5,true,true,400334,321236,721570,10.96193024,true,none,1
+15601,1976,CA,California,Class I,false,5,true,true,3502862,3748973,7251835,-3.39377551,true,none,1
+15602,1976,CT,Connecticut,Class I,false,4,true,true,561018,785683,1346701,-16.68261923,true,none,1
+15603,1976,DE,Delaware,Class I,false,5,true,true,98042,125454,223496,-12.26509647,true,none,1
+15604,1976,FL,Florida,Class I,false,3,true,true,1799518,1057886,2857404,25.95474774,true,none,1
+15605,1976,HI,Hawaii,Class I,false,5,true,true,162305,122724,285029,13.88665715,true,none,1
+15606,1976,IN,Indiana,Class I,false,4,true,true,868522,1275833,2144355,-18.99456946,true,none,1
+15609,1976,MA,Massachusetts,Class I,false,5,true,true,1726657,722641,2449298,40.99199036,true,none,1
+15608,1976,MD,Maryland,Class I,false,3,true,true,772101,530439,1302540,18.55313464,true,none,1
+15607,1976,ME,Maine,Class I,false,2,true,true,292704,193489,486193,20.40650524,true,none,1
+15610,1976,MI,Michigan,Class I,false,7,true,true,1831031,1635087,3466118,5.65312549,true,none,1
+15611,1976,MN,Minnesota,Class I,false,6,true,true,1290736,478602,1769338,45.90044412,true,none,1
+15613,1976,MO,Missouri,Class I,false,3,true,true,813571,1090067,1903638,-14.52461025,true,none,1
+15614,1976,MT,Montana,Class I,false,2,true,true,206232,115213,321445,28.31557498,true,none,1
+15620,1976,ND,North Dakota,Class I,false,3,true,true,175772,103466,279238,25.89404021,true,none,1
+15615,1976,NE,Nebraska,Class I,false,4,true,true,313805,279284,593089,5.82054295,true,none,1
+15617,1976,NJ,New Jersey,Class I,false,5,true,true,1681140,1054508,2735648,22.90616337,true,none,1
+15618,1976,NM,New Mexico,Class I,false,4,true,true,176382,234681,411063,-14.18249757,true,none,1
+15616,1976,NV,Nevada,Class I,false,5,true,true,127214,63471,190685,33.42842908,true,none,1
+15619,1976,NY,New York,Class I,false,7,true,true,3422594,2836633,6259227,9.36155535,true,fusion_or_multiline,1
+15621,1976,OH,Ohio,Class I,false,6,true,true,1941113,1823774,3764887,3.11666725,true,none,1
+15622,1976,PA,Pennsylvania,Class I,false,7,true,true,2126977,2381891,4508868,-5.65361417,true,none,1
+15623,1976,RI,Rhode Island,Class I,false,3,true,true,167665,230329,397994,-15.74496098,true,none,1
+15624,1976,TN,Tennessee,Class I,false,6,true,true,751180,673231,1424411,5.47236717,true,none,1
+15625,1976,TX,Texas,Class I,false,4,true,true,2199956,1636370,3836326,14.69077445,true,none,1
+8736,1976,UT,Utah,Class I,false,4,true,true,223948,290221,514169,-12.88934183,true,none,1
+15626,1976,VT,Vermont,Class I,false,4,true,true,85682,94481,180163,-4.88391068,true,none,1
+15628,1976,WA,Washington,Class I,false,6,true,true,1071219,361546,1432765,49.53170967,true,none,1
+15629,1976,WI,Wisconsin,Class I,false,7,true,true,1396970,521902,1918872,45.60325024,true,none,1
+15630,1976,WY,Wyoming,Class I,false,2,true,true,70558,84810,155368,-9.17306009,true,none,1
+15568,1978,AK,Alaska,Class II,false,3,true,true,29574,92783,122357,-51.65948822,true,none,1
+15565,1978,AL,Alabama,Class III,true,4,true,true,401852,316170,718022,11.93306055,true,special,1
+15569,1978,AR,Arkansas,Class II,false,4,true,true,395506,84308,479814,64.85804916,true,none,1
+15570,1978,CO,Colorado,Class II,false,4,true,true,330148,480801,810949,-18.57737046,true,none,1
+15571,1978,DE,Delaware,Class II,false,3,true,true,93930,66479,160409,17.11312956,true,none,1
+15572,1978,GA,Georgia,Class II,false,2,true,true,536320,108808,645128,66.26777942,true,none,1
+15574,1978,IA,Iowa,Class II,false,4,true,true,395066,421598,816664,-3.24882693,true,none,1
+15573,1978,ID,Idaho,Class II,false,2,true,true,89635,194412,284047,-36.88720529,true,none,1
+8743,1978,IL,Illinois,Class II,false,6,true,true,1448187,1698711,3146898,-7.96098253,true,none,1
+15575,1978,KS,Kansas,Class II,false,4,true,true,317602,403354,720956,-11.89420714,true,none,1
+15576,1978,KY,Kentucky,Class II,false,4,true,true,290730,175766,466496,24.64415558,true,none,1
+15580,1978,MA,Massachusetts,Class II,false,3,true,true,1093283,890584,1983867,10.21736840,true,none,1
+15579,1978,ME,Maine,Class II,false,5,true,true,127327,212294,339621,-25.01818203,true,none,1
+15581,1978,MI,Michigan,Class II,false,3,true,true,1484193,1362165,2846358,4.28716275,true,none,1
+15566,1978,MN,Minnesota,Class I,true,6,true,true,538675,957908,1496583,-28.01267955,true,special,1
+15582,1978,MN,Minnesota,Class II,false,8,true,true,638375,894092,1532467,-16.68662359,true,none,1
+15583,1978,MS,Mississippi,Class II,false,4,true,true,187541,267302,454843,-17.53594097,true,none,1
+15584,1978,MT,Montana,Class II,false,2,true,true,160353,127589,287942,11.37868043,true,none,1
+15589,1978,NC,North Carolina,Class II,false,2,true,true,516663,619151,1135814,-9.02330839,true,none,1
+15585,1978,NE,Nebraska,Class II,false,2,true,true,334096,159706,493802,35.31577434,true,none,1
+15586,1978,NH,New Hampshire,Class II,false,3,true,true,127945,133745,261690,-2.21636287,true,none,1
+15587,1978,NJ,New Jersey,Class II,false,11,true,true,1082960,844200,1927160,12.38921522,true,none,1
+15588,1978,NM,New Mexico,Class II,false,2,true,true,160045,183442,343487,-6.81161150,true,none,1
+15590,1978,OK,Oklahoma,Class II,false,6,true,true,493953,247857,741810,33.17507178,true,none,1
+15591,1978,OR,Oregon,Class II,false,3,true,true,341616,550165,891781,-23.38567429,true,none,1
+15592,1978,RI,Rhode Island,Class II,false,2,true,true,229557,76061,305618,50.22479042,true,none,1
+15593,1978,SC,South Carolina,Class II,false,2,true,true,280146,351917,632063,-11.35503898,true,none,1
+15594,1978,SD,South Dakota,Class II,false,2,true,true,84767,170832,255599,-33.67188448,true,none,1
+15595,1978,TN,Tennessee,Class II,false,5,true,true,466228,642644,1108872,-15.90950083,true,none,1
+15596,1978,TX,Texas,Class II,false,5,true,true,1139149,1151376,2290525,-0.53380775,true,none,1
+15597,1978,VA,Virginia,Class II,false,3,true,true,608511,613232,1221743,-0.38641515,true,none,1
+15598,1978,WV,West Virginia,Class II,false,2,true,true,249034,244317,493351,0.95611441,true,none,1
+15599,1978,WY,Wyoming,Class II,false,2,true,true,82908,50456,133364,24.33340332,true,none,1
+15531,1980,AK,Alaska,Class III,false,3,true,true,72007,84159,156166,-7.78146331,true,none,1
+15530,1980,AL,Alabama,Class III,false,7,true,true,610175,650362,1260537,-3.18808571,true,none,1
+15533,1980,AR,Arkansas,Class III,false,3,true,true,477905,330576,808481,18.22293907,true,none,1
+15532,1980,AZ,Arizona,Class III,false,6,true,true,422972,432371,855343,-1.09885742,true,none,1
+15534,1980,CA,California,Class III,false,5,true,true,4704098,3091671,7795769,20.68336042,true,none,1
+15535,1980,CO,Colorado,Class III,false,4,true,true,590501,571295,1161796,1.65313015,true,none,1
+15536,1980,CT,Connecticut,Class III,false,5,true,true,763969,581884,1345853,13.52933790,true,none,1
+15537,1980,FL,Florida,Class III,false,3,true,true,1705409,1822460,3527869,-3.31789531,true,none,1
+15538,1980,GA,Georgia,Class III,false,2,true,true,776143,803686,1579829,-1.74341653,true,none,1
+15539,1980,HI,Hawaii,Class III,false,3,true,true,224485,53068,277553,61.76009627,true,none,1
+15543,1980,IA,Iowa,Class III,false,5,true,true,581545,683014,1264559,-8.02406214,true,none,1
+15540,1980,ID,Idaho,Class III,false,3,true,true,214439,218701,433140,-0.98397747,true,none,1
+15541,1980,IL,Illinois,Class III,false,8,true,true,2565302,1946296,4511598,13.72032703,true,none,1
+15542,1980,IN,Indiana,Class III,false,2,true,true,1015962,1182414,2198376,-7.57158921,true,none,1
+15544,1980,KS,Kansas,Class III,false,2,true,true,340271,598686,938957,-27.52149459,true,none,1
+15545,1980,KY,Kentucky,Class III,false,2,true,true,720891,386029,1106920,30.25168937,true,none,1
+15548,1980,MD,Maryland,Class III,false,2,true,true,435118,850970,1286088,-32.33464584,true,none,1
+15549,1980,MO,Missouri,Class III,false,3,true,true,1074859,985399,2060258,4.34217462,true,none,1
+15553,1980,NC,North Carolina,Class III,false,4,true,true,887653,898064,1785717,-0.58301511,true,none,1
+15554,1980,ND,North Dakota,Class III,false,4,true,true,86658,210347,297005,-41.64542684,true,none,1
+15551,1980,NH,New Hampshire,Class III,false,3,true,true,179455,195559,375014,-4.29423968,true,none,1
+15550,1980,NV,Nevada,Class III,false,3,true,true,92129,144224,236353,-22.04118416,true,none,1
+15552,1980,NY,New York,Class III,false,8,true,true,2618661,2699652,5318313,-1.52287013,true,fusion_or_multiline,1
+15555,1980,OH,Ohio,Class III,false,4,true,true,2770786,1137695,3908481,41.78326567,true,none,1
+15556,1980,OK,Oklahoma,Class III,false,5,true,true,478283,587252,1065535,-10.22669363,true,none,1
+15557,1980,OR,Oregon,Class III,false,4,true,true,501963,594290,1096253,-8.42205221,true,none,1
+15558,1980,PA,Pennsylvania,Class III,false,6,true,true,2122391,2230404,4352795,-2.48146306,true,none,1
+15559,1980,SC,South Carolina,Class III,false,2,true,true,612554,257946,870500,40.73612866,true,none,1
+15560,1980,SD,South Dakota,Class III,false,3,true,true,129018,190594,319612,-19.26585986,true,none,1
+15561,1980,UT,Utah,Class III,false,4,true,true,151454,437675,589129,-48.58375670,true,none,1
+15562,1980,VT,Vermont,Class III,false,5,true,true,104176,101421,205597,1.34000010,true,none,1
+15563,1980,WA,Washington,Class III,false,2,true,true,792052,936317,1728369,-8.34688657,true,none,1
+15564,1980,WI,Wisconsin,Class III,false,6,true,true,1065487,1106311,2171798,-1.87973283,true,none,1
+15498,1982,AZ,Arizona,Class I,false,4,true,true,411970,291749,703719,17.08366550,true,none,1
+8740,1982,CA,California,Class I,false,5,true,true,3494968,4022565,7517533,-7.01821994,true,none,1
+15499,1982,CT,Connecticut,Class I,false,4,true,true,499146,545987,1045133,-4.48182193,true,none,1
+15500,1982,DE,Delaware,Class I,false,4,true,true,84413,105357,189770,-11.03651789,true,none,1
+15501,1982,FL,Florida,Class I,false,3,true,true,1637667,1015330,2652997,23.45788555,true,none,1
+15502,1982,HI,Hawaii,Class I,false,3,true,true,245386,52071,297457,64.98922533,true,none,1
+15503,1982,IN,Indiana,Class I,false,3,true,true,828400,978301,1806701,-8.29694565,true,none,1
+15506,1982,MA,Massachusetts,Class I,false,4,true,true,1247084,784602,2031686,22.76345853,true,none,1
+15505,1982,MD,Maryland,Class I,false,2,true,true,707356,407334,1114690,26.91528586,true,none,1
+15504,1982,ME,Maine,Class I,false,3,true,true,279819,179882,459701,21.73956550,true,none,1
+15507,1982,MI,Michigan,Class I,false,7,true,true,1728793,1223288,2952081,17.12368326,true,none,1
+15508,1982,MN,Minnesota,Class I,false,5,true,true,840401,949207,1789608,-6.07987895,true,none,1
+15510,1982,MO,Missouri,Class I,false,3,true,true,758629,784876,1543505,-1.70048040,true,none,1
+15509,1982,MS,Mississippi,Class I,false,2,true,true,414099,230927,645026,28.39761498,true,none,1
+15511,1982,MT,Montana,Class I,false,3,true,true,174861,133789,308650,13.30698202,true,none,1
+15517,1982,ND,North Dakota,Class I,false,3,true,true,164873,89304,254177,29.73085684,true,none,1
+15512,1982,NE,Nebraska,Class I,false,4,true,true,363350,155760,519110,39.98959758,true,none,1
+15514,1982,NJ,New Jersey,Class I,false,8,true,true,1117549,1047626,2165175,3.22943873,true,none,1
+15515,1982,NM,New Mexico,Class I,false,2,true,true,217682,187128,404810,7.54773845,true,none,1
+15513,1982,NV,Nevada,Class I,false,2,true,true,114720,120377,235097,-2.40624083,true,none,1
+15516,1982,NY,New York,Class I,false,5,true,true,3232146,1696766,4928912,31.15048514,true,fusion_or_multiline,1
+15518,1982,OH,Ohio,Class I,false,4,true,true,1923767,1396790,3320557,15.87013865,true,none,1
+15519,1982,PA,Pennsylvania,Class I,false,5,true,true,1412965,2136418,3549383,-20.38250028,true,none,1
+15520,1982,RI,Rhode Island,Class I,false,2,true,true,167283,175495,342778,-2.39571968,true,none,1
+15521,1982,TN,Tennessee,Class I,false,3,true,true,780113,479642,1259755,23.85154256,true,none,1
+15522,1982,TX,Texas,Class I,false,5,true,true,1818223,1256759,3074982,18.25909875,true,none,1
+15523,1982,UT,Utah,Class I,false,4,true,true,219482,309332,528814,-16.99085123,true,none,1
+15525,1982,VA,Virginia,Class I,false,3,true,true,690839,724571,1415410,-2.38319639,true,none,1
+15524,1982,VT,Vermont,Class I,false,7,true,true,79340,84449,163789,-3.11925709,true,none,1
+15526,1982,WA,Washington,Class I,false,4,true,true,943655,332273,1275928,47.91665360,true,none,1
+15528,1982,WI,Wisconsin,Class I,false,5,true,true,983311,527355,1510666,30.18244933,true,none,1
+15527,1982,WV,West Virginia,Class I,false,3,true,true,387170,173910,561080,38.00884009,true,none,1
+15529,1982,WY,Wyoming,Class I,false,2,true,true,72466,94725,167191,-13.31351568,true,none,1
+15465,1984,AK,Alaska,Class II,false,3,true,true,58804,146919,205723,-42.83186615,true,none,1
+15464,1984,AL,Alabama,Class II,false,3,true,true,860535,498508,1359043,26.63837715,true,none,1
+15466,1984,AR,Arkansas,Class II,false,2,true,true,502341,373615,875956,14.69548699,true,none,1
+15467,1984,CO,Colorado,Class II,false,5,true,true,449327,833821,1283148,-29.96489883,true,none,1
+15468,1984,DE,Delaware,Class II,false,2,true,true,147831,98101,245932,20.22103671,true,none,1
+15469,1984,GA,Georgia,Class II,false,3,true,true,1344104,337196,1681300,59.88865759,true,none,1
+15472,1984,IA,Iowa,Class II,false,4,true,true,716883,564381,1281264,11.90246507,true,none,1
+15470,1984,ID,Idaho,Class II,false,3,true,true,105591,293193,398784,-47.04351228,true,none,1
+15471,1984,IL,Illinois,Class II,false,7,true,true,2397165,2308039,4705204,1.89420055,true,none,1
+15473,1984,KS,Kansas,Class II,false,6,true,true,211664,757402,969066,-56.31587529,true,none,1
+15474,1984,KY,Kentucky,Class II,false,3,true,true,639721,644990,1284711,-0.41013115,true,none,1
+15478,1984,MA,Massachusetts,Class II,false,3,true,true,1393150,1136913,2530063,10.12769247,true,none,1
+15477,1984,ME,Maine,Class II,false,4,true,true,142626,404414,547040,-47.85536707,true,none,1
+15479,1984,MI,Michigan,Class II,false,10,true,true,1915831,1745302,3661133,4.65782041,true,none,1
+15480,1984,MN,Minnesota,Class II,false,6,true,true,852844,1199926,2052770,-16.90798287,true,none,1
+15481,1984,MS,Mississippi,Class II,false,2,true,true,371926,580314,952240,-21.88397883,true,none,1
+15482,1984,MT,Montana,Class II,false,3,true,true,215704,154308,370012,16.59297536,true,none,1
+15487,1984,NC,North Carolina,Class II,false,4,true,true,1070488,1156768,2227256,-3.87382501,true,none,1
+15483,1984,NE,Nebraska,Class II,false,3,true,true,332217,307147,639364,3.92108408,true,none,1
+15484,1984,NH,New Hampshire,Class II,false,3,true,true,157447,225828,383275,-17.84123671,true,none,1
+15485,1984,NJ,New Jersey,Class II,false,7,true,true,1986644,1080100,3066744,29.56047195,true,none,1
+15486,1984,NM,New Mexico,Class II,false,3,true,true,141253,361371,502624,-43.79377029,true,none,1
+15488,1984,OK,Oklahoma,Class II,false,3,true,true,906131,280638,1186769,52.70553916,true,none,1
+15489,1984,OR,Oregon,Class II,false,3,true,true,406122,808152,1214274,-33.10867234,true,none,1
+15490,1984,RI,Rhode Island,Class II,false,2,true,true,285811,107545,393356,45.31925279,true,none,1
+15491,1984,SC,South Carolina,Class II,false,3,true,true,306982,644815,951797,-35.49422829,true,none,1
+15492,1984,SD,South Dakota,Class II,false,2,true,true,80537,235176,315713,-48.98087820,true,none,1
+15493,1984,TN,Tennessee,Class II,false,4,true,true,1000607,557016,1557623,28.47871404,true,none,1
+15494,1984,TX,Texas,Class II,false,3,true,true,2202557,3111348,5313905,-17.10213111,true,none,1
+15495,1984,VA,Virginia,Class II,false,3,true,true,601142,1406194,2007336,-40.10549305,true,none,1
+15496,1984,WV,West Virginia,Class II,false,3,true,true,374233,344680,718913,4.11078948,true,none,1
+15497,1984,WY,Wyoming,Class II,false,2,true,true,40525,146373,186898,-56.63409988,true,none,1
+15432,1986,AK,Alaska,Class III,false,4,true,true,79727,97674,177401,-10.11662843,true,none,1
+15431,1986,AL,Alabama,Class III,false,2,true,true,609360,602537,1211897,0.56300164,true,none,1
+15434,1986,AR,Arkansas,Class III,false,3,true,true,433122,262313,695435,24.56146153,true,none,1
+15433,1986,AZ,Arizona,Class III,false,3,true,true,340965,521850,862815,-20.96451731,true,none,1
+15435,1986,CA,California,Class III,false,5,true,true,3646672,3541804,7188476,1.45883495,true,none,1
+15436,1986,CO,Colorado,Class III,false,6,true,true,529449,512994,1042443,1.57850357,true,none,1
+15437,1986,CT,Connecticut,Class III,false,3,true,true,632695,340438,973133,30.03258547,true,none,1
+8741,1986,FL,Florida,Class III,false,3,true,true,1877543,1552376,3429919,9.48031134,true,none,1
+15438,1986,GA,Georgia,Class III,false,3,true,true,623707,601241,1224948,1.83403704,true,none,1
+15439,1986,HI,Hawaii,Class III,false,2,true,true,241887,86910,328797,47.13455415,true,none,1
+15442,1986,IA,Iowa,Class III,false,4,true,true,299406,588880,888286,-32.58792776,true,none,1
+15440,1986,ID,Idaho,Class III,false,2,true,true,185066,196958,382024,-3.11289343,true,none,1
+8742,1986,IL,Illinois,Class III,false,5,true,true,2033783,1053734,3087517,31.74230296,true,none,1
+15441,1986,IN,Indiana,Class III,false,4,true,true,595192,936143,1531335,-22.26495182,true,none,1
+15443,1986,KS,Kansas,Class III,false,2,true,true,246664,576902,823566,-40.09854705,true,none,1
+15444,1986,KY,Kentucky,Class III,false,3,true,true,503775,173330,677105,48.80262293,true,none,1
+15447,1986,MD,Maryland,Class III,false,3,true,true,675225,437411,1112636,21.37392642,true,none,1
+15448,1986,MO,Missouri,Class III,false,3,true,true,699624,777612,1477236,-5.27931894,true,none,1
+15430,1986,NC,North Carolina,Class II,true,2,true,true,780967,753881,1534848,1.76473501,true,special,1
+15452,1986,NC,North Carolina,Class III,false,2,true,true,823662,767668,1591330,3.51869191,true,none,1
+15453,1986,ND,North Dakota,Class III,false,3,true,true,143932,141812,285744,0.74192284,true,none,1
+15450,1986,NH,New Hampshire,Class III,false,3,true,true,79222,154090,233312,-32.08921959,true,none,1
+15449,1986,NV,Nevada,Class III,false,4,true,true,130955,116606,247561,5.79614721,true,none,1
+15451,1986,NY,New York,Class III,false,6,true,true,1723216,2378197,4101413,-15.96964266,true,fusion_or_multiline,1
+15454,1986,OH,Ohio,Class III,false,3,true,true,1949208,1171893,3121101,24.90515366,true,none,1
+15455,1986,OK,Oklahoma,Class III,false,2,true,true,400230,493436,893666,-10.42962360,true,none,1
+15456,1986,OR,Oregon,Class III,false,3,true,true,375735,656317,1032052,-27.18680842,true,none,1
+15457,1986,PA,Pennsylvania,Class III,false,3,true,true,1448219,1906537,3354756,-13.66173874,true,none,1
+15458,1986,SC,South Carolina,Class III,false,5,true,true,465500,262886,728386,27.81684437,true,none,1
+15459,1986,SD,South Dakota,Class III,false,2,true,true,152657,143173,295830,3.20589528,true,none,1
+15460,1986,UT,Utah,Class III,false,5,true,true,115523,314608,430131,-46.28473651,true,none,1
+15461,1986,VT,Vermont,Class III,false,5,true,true,124123,67798,191921,29.34801298,true,none,1
+15462,1986,WA,Washington,Class III,false,3,true,true,677471,650931,1328402,1.99788919,true,none,1
+15463,1986,WI,Wisconsin,Class III,false,6,true,true,702963,754573,1457536,-3.54090739,true,none,1
+15399,1988,AZ,Arizona,Class I,false,5,true,true,660403,478060,1138463,16.01659430,true,none,1
+15400,1988,CA,California,Class I,false,6,true,true,4287253,5143409,9430662,-9.07842949,true,none,1
+15401,1988,CT,Connecticut,Class I,false,5,true,true,688499,678454,1366953,0.73484604,true,none,1
+15402,1988,DE,Delaware,Class I,false,2,true,true,92378,151115,243493,-24.12266472,true,none,1
+8744,1988,FL,Florida,Class I,false,3,true,true,2016553,2051071,4067624,-0.84860351,true,none,1
+15403,1988,HI,Hawaii,Class I,false,3,true,true,247941,66987,314928,57.45884774,true,none,1
+15404,1988,IN,Indiana,Class I,false,2,true,true,668778,1430525,2099303,-36.28571007,true,none,1
+15407,1988,MA,Massachusetts,Class I,false,5,true,true,1693344,884267,2577611,31.38863855,true,none,1
+15406,1988,MD,Maryland,Class I,false,3,true,true,999166,617537,1616703,23.60538701,true,none,1
+15405,1988,ME,Maine,Class I,false,2,true,true,452581,104164,556745,62.58107392,true,none,1
+15408,1988,MI,Michigan,Class I,false,5,true,true,2116865,1348219,3465084,22.18260798,true,none,1
+15409,1988,MN,Minnesota,Class I,false,7,true,true,856694,1176210,2032904,-15.71722029,true,none,1
+15411,1988,MO,Missouri,Class I,false,4,true,true,660045,1407416,2067461,-36.14921878,true,none,1
+15410,1988,MS,Mississippi,Class I,false,2,true,true,436339,510380,946719,-7.82080005,true,none,1
+15412,1988,MT,Montana,Class I,false,2,true,true,175809,189445,365254,-3.73329245,true,none,1
+15418,1988,ND,North Dakota,Class I,false,3,true,true,171899,112937,284836,20.70033282,true,none,1
+15413,1988,NE,Nebraska,Class I,false,4,true,true,378717,278250,656967,15.29254894,true,none,1
+15415,1988,NJ,New Jersey,Class I,false,5,true,true,1599905,1349937,2949842,8.47394538,true,none,1
+15416,1988,NM,New Mexico,Class I,false,3,true,true,321983,186579,508562,26.62487563,true,none,1
+15414,1988,NV,Nevada,Class I,false,3,true,true,175548,161336,336884,4.21866280,true,none,1
+15417,1988,NY,New York,Class I,false,8,true,true,4048649,1875784,5924433,36.67633679,true,fusion_or_multiline,1
+15419,1988,OH,Ohio,Class I,false,3,true,true,2480038,1872716,4352754,13.95259185,true,none,1
+15420,1988,PA,Pennsylvania,Class I,false,6,true,true,1416764,2901715,4318479,-34.38597247,true,none,1
+15421,1988,RI,Rhode Island,Class I,false,2,true,true,180717,217273,397990,-9.18515541,true,none,1
+15422,1988,TN,Tennessee,Class I,false,4,true,true,1020061,541033,1561094,30.68540395,true,none,1
+15423,1988,TX,Texas,Class I,false,4,true,true,3149806,2129228,5279034,19.33266579,true,none,1
+15424,1988,UT,Utah,Class I,false,3,true,true,203364,430089,633453,-35.79192142,true,none,1
+8745,1988,VA,Virginia,Class I,false,3,true,true,1474086,593652,2067738,42.57957246,true,none,1
+15425,1988,VT,Vermont,Class I,false,5,true,true,71460,163183,234643,-39.09044804,true,none,1
+15426,1988,WA,Washington,Class I,false,2,true,true,904183,944359,1848542,-2.17338854,true,none,1
+15428,1988,WI,Wisconsin,Class I,false,6,true,true,1128625,1030440,2159065,4.54757036,true,none,1
+15427,1988,WV,West Virginia,Class I,false,2,true,true,410983,223564,634547,29.53587362,true,none,1
+15429,1988,WY,Wyoming,Class I,false,2,true,true,89821,91143,180964,-0.73053204,true,none,1
+15387,1990,AK,Alaska,Class II,false,3,true,true,61152,125806,186958,-34.58209865,true,none,1
+8427,1990,AL,Alabama,Class II,false,3,true,true,717814,467190,1185004,21.14963325,true,none,1
+8441,1990,CO,Colorado,Class II,false,4,true,true,425746,569048,994794,-14.40519344,true,none,1
+15389,1990,DE,Delaware,Class II,false,4,true,true,112918,64554,177472,27.25162279,true,none,1
+8460,1990,HI,Hawaii,Class I,true,3,true,true,188901,155978,344879,9.54624665,true,special,1
+8463,1990,IA,Iowa,Class II,false,3,true,true,535975,446869,982844,9.06613868,true,none,1
+8469,1990,ID,Idaho,Class II,false,2,true,true,122295,193641,315936,-22.58242176,true,none,1
+8472,1990,IL,Illinois,Class II,false,2,true,true,2115377,1135628,3251005,30.13680385,true,none,1
+8478,1990,IN,Indiana,Class III,true,2,true,true,696639,806048,1502687,-7.28089083,true,special,1
+15391,1990,KS,Kansas,Class II,false,3,true,true,207491,578605,786096,-47.20975555,true,none,1
+8486,1990,KY,Kentucky,Class II,false,2,true,true,437976,478034,916010,-4.37309636,true,none,1
+8496,1990,MA,Massachusetts,Class II,false,3,true,true,1321712,992917,2314629,14.20508427,true,none,1
+8504,1990,ME,Maine,Class II,false,3,true,true,201053,319167,520220,-22.70462497,true,none,1
+8508,1990,MI,Michigan,Class II,false,4,true,true,1471753,1055695,2527448,16.46158497,true,none,1
+8513,1990,MN,Minnesota,Class II,false,4,true,true,911999,864375,1776374,2.68096696,true,none,1
+8525,1990,MT,Montana,Class II,false,3,true,true,217563,93836,311399,39.73262599,true,none,1
+8531,1990,NC,North Carolina,Class II,false,3,true,true,981573,1087331,2068904,-5.11178866,true,none,1
+8540,1990,NE,Nebraska,Class II,false,3,true,true,349779,243013,592792,18.01070190,true,none,1
+8545,1990,NH,New Hampshire,Class II,false,4,true,true,91299,189792,281091,-35.03954235,true,none,1
+15393,1990,NJ,New Jersey,Class II,false,5,true,true,977810,918874,1896684,3.10731782,true,none,1
+15394,1990,NM,New Mexico,Class II,false,3,true,true,110033,296712,406745,-45.89583154,true,none,1
+8562,1990,OK,Oklahoma,Class II,false,2,true,true,735684,148814,884498,66.35063053,true,none,1
+8568,1990,OR,Oregon,Class II,false,3,true,true,507743,590095,1097838,-7.50128890,true,none,1
+8577,1990,RI,Rhode Island,Class II,false,3,true,true,225105,138947,364052,23.66639931,true,none,1
+15395,1990,SC,South Carolina,Class II,false,5,true,true,244112,482032,726144,-32.76485105,true,none,1
+8584,1990,SD,South Dakota,Class II,false,3,true,true,116727,135682,252409,-7.50963714,true,none,1
+15396,1990,TN,Tennessee,Class II,false,5,true,true,530898,233703,764601,38.86929261,true,none,1
+8594,1990,TX,Texas,Class II,false,4,true,true,1429986,2302357,3732343,-23.37328054,true,none,1
+8615,1990,WV,West Virginia,Class II,false,2,true,true,276234,128071,404305,36.64634373,true,none,1
+15398,1990,WY,Wyoming,Class II,false,2,true,true,56848,100784,157632,-27.87251320,true,none,1
+8426,1992,AK,Alaska,Class III,false,4,true,true,92065,127163,219228,-16.00981626,true,none,1
+8429,1992,AL,Alabama,Class III,false,4,true,true,1022698,522015,1544713,32.41268766,true,none,1
+8432,1992,AR,Arkansas,Class III,false,2,true,true,553635,366373,920008,20.35438822,true,none,1
+8435,1992,AZ,Arizona,Class III,false,6,true,true,436321,771395,1207716,-27.74443661,true,none,1
+8437,1992,CA,California,Class I,true,6,true,true,5853651,4093501,9947152,17.69501461,true,special,1
+8438,1992,CA,California,Class III,false,6,true,true,5173467,4644182,9817649,5.39115831,true,none,1
+8444,1992,CO,Colorado,Class III,false,6,true,true,803725,662893,1466618,9.60250045,true,none,1
+8446,1992,CT,Connecticut,Class III,false,4,true,true,882569,572036,1454605,21.34826981,true,fusion_or_multiline,1
+8452,1992,FL,Florida,Class III,false,3,true,true,3245565,1716505,4962070,30.81496230,true,none,1
+8459,1992,GA,Georgia,Class III,false,4,true,true,1108416,1073282,2181698,1.61039704,true,none,1
+8461,1992,HI,Hawaii,Class III,false,4,true,true,208266,97928,306194,36.03532401,true,none,1
+8467,1992,IA,Iowa,Class III,false,9,true,true,351561,899761,1251322,-43.80966690,true,none,1
+8471,1992,ID,Idaho,Class III,false,2,true,true,208036,270468,478504,-13.04733085,true,none,1
+8474,1992,IL,Illinois,Class III,false,9,true,true,2631229,2126833,4758062,10.60087069,true,none,1
+8479,1992,IN,Indiana,Class III,false,5,true,true,900148,1267972,2168120,-16.96511263,true,none,1
+8484,1992,KS,Kansas,Class III,false,4,true,true,349525,706246,1055771,-33.78772480,true,none,1
+8490,1992,KY,Kentucky,Class III,false,3,true,true,836888,476604,1313492,27.42947806,true,none,1
+8500,1992,MD,Maryland,Class III,false,2,true,true,1307610,533688,1841298,42.03132790,true,none,1
+8519,1992,MO,Missouri,Class III,false,3,true,true,1057967,1221901,2279868,-7.19050401,true,none,1
+8534,1992,NC,North Carolina,Class III,false,5,true,true,1194015,1297892,2491907,-4.16857451,true,none,1
+8538,1992,ND,North Dakota,Class III,false,3,true,true,179347,118162,297509,20.56576440,true,none,1
+8548,1992,NH,New Hampshire,Class III,false,6,true,true,234982,249591,484573,-3.01481923,true,none,1
+8555,1992,NV,Nevada,Class III,false,7,true,true,253150,199413,452563,11.87392694,true,none,1
+8557,1992,NY,New York,Class III,false,6,true,true,3086200,3166994,6253194,-1.29204371,true,fusion_or_multiline,1
+8559,1992,OH,Ohio,Class III,false,3,true,true,2444419,2028300,4472719,9.30349078,true,none,1
+8565,1992,OK,Oklahoma,Class III,false,4,true,true,494350,757876,1252226,-21.04460377,true,none,1
+8571,1992,OR,Oregon,Class III,false,4,true,true,639851,717455,1357306,-5.71750217,true,none,1
+8574,1992,PA,Pennsylvania,Class III,false,3,true,true,2224966,2358125,4583091,-2.90544089,true,none,1
+8582,1992,SC,South Carolina,Class III,false,5,true,true,591030,554175,1145205,3.21820111,true,none,1
+8588,1992,SD,South Dakota,Class III,false,4,true,true,217095,108733,325828,33.25742416,true,none,1
+8601,1992,UT,Utah,Class III,false,5,true,true,301228,420069,721297,-16.47601473,true,none,1
+8608,1992,VT,Vermont,Class III,false,5,true,true,154762,123854,278616,11.09340454,true,none,1
+8610,1992,WA,Washington,Class III,false,2,true,true,1197973,1020829,2218802,7.98376782,true,none,1
+8612,1992,WI,Wisconsin,Class III,false,7,true,true,1290662,1129599,2420261,6.65477814,true,none,1
+8434,1994,AZ,Arizona,Class I,false,4,true,true,442510,600999,1043509,-15.18808175,true,none,1
+8439,1994,CA,California,Class I,false,7,true,true,3979152,3817025,7796177,2.07957054,true,none,1
+8445,1994,CT,Connecticut,Class I,false,3,true,true,723842,334833,1058675,36.74489338,true,fusion_or_multiline,1
+8449,1994,DE,Delaware,Class I,false,3,true,true,84540,111074,195614,-13.56446880,true,none,1
+8451,1994,FL,Florida,Class I,false,3,true,true,1210577,2895200,4105777,-41.03055280,true,none,1
+15382,1994,HI,Hawaii,Class I,false,3,true,true,256189,86320,342509,49.59548508,true,none,1
+8477,1994,IN,Indiana,Class I,false,4,true,true,470799,1039625,1510424,-37.66002129,true,none,1
+8495,1994,MA,Massachusetts,Class I,false,5,true,true,1265997,894000,2159997,17.22210725,true,none,1
+8499,1994,MD,Maryland,Class I,false,3,true,true,809125,559908,1369033,18.20387091,true,none,1
+8503,1994,ME,Maine,Class I,false,4,true,true,186042,308244,494286,-24.72293369,true,none,1
+8507,1994,MI,Michigan,Class I,false,6,true,true,1300960,1578770,2879730,-9.64708497,true,none,1
+8512,1994,MN,Minnesota,Class I,false,7,true,true,781860,869653,1651513,-5.31591335,true,none,1
+8518,1994,MO,Missouri,Class I,false,5,true,true,633697,1060149,1693846,-25.17655088,true,none,1
+15383,1994,MS,Mississippi,Class I,false,2,true,true,189752,418333,608085,-37.59030399,true,none,1
+8524,1994,MT,Montana,Class I,false,2,true,true,131845,218542,350387,-24.74321251,true,none,1
+15384,1994,ND,North Dakota,Class I,false,2,true,true,137157,99390,236547,15.96596025,true,none,1
+8539,1994,NE,Nebraska,Class I,false,3,true,true,317297,260668,577965,9.79799815,true,none,1
+8549,1994,NJ,New Jersey,Class I,false,9,true,true,1033487,966244,1999731,3.36260227,true,none,1
+8551,1994,NM,New Mexico,Class I,false,3,true,true,249989,213025,463014,7.98334392,true,none,1
+8554,1994,NV,Nevada,Class I,false,6,true,true,193804,156020,349824,10.80085986,true,none,1
+8556,1994,NY,New York,Class I,false,7,true,true,2646541,1988308,4634849,14.20182189,true,fusion_or_multiline,1
+8558,1994,OH,Ohio,Class I,false,4,true,true,1348213,1836556,3184769,-15.33370238,true,none,1
+8563,1994,OK,Oklahoma,Class II,true,3,true,true,392488,542390,934878,-16.03439165,true,special,1
+8573,1994,PA,Pennsylvania,Class I,false,5,true,true,1648481,1735691,3384172,-2.57699668,true,none,1
+8576,1994,RI,Rhode Island,Class I,false,2,true,true,122532,222856,345388,-29.04675322,true,none,1
+8589,1994,TN,Tennessee,Class I,false,6,true,true,623164,834226,1457390,-14.48219077,true,none,1
+8590,1994,TN,Tennessee,Class II,true,10,true,true,565930,885998,1451928,-22.04434380,true,special,1
+8593,1994,TX,Texas,Class I,false,3,true,true,1639615,2604218,4243833,-22.72952305,true,none,1
+8600,1994,UT,Utah,Class I,false,6,true,true,146938,357297,504235,-41.71844477,true,none,1
+8602,1994,VA,Virginia,Class I,false,5,true,true,938376,882213,1820589,3.08488077,true,none,1
+8607,1994,VT,Vermont,Class I,false,8,true,true,85868,106505,192373,-10.72759691,true,none,1
+8609,1994,WA,Washington,Class I,false,2,true,true,752352,947821,1700173,-11.49700648,true,none,1
+8611,1994,WI,Wisconsin,Class I,false,4,true,true,912662,636989,1549651,17.78936031,true,none,1
+8614,1994,WV,West Virginia,Class I,false,2,true,true,290495,130441,420936,38.02335747,true,none,1
+8619,1994,WY,Wyoming,Class I,false,3,true,true,79287,118754,198041,-19.92870163,true,none,1
+10942,1996,AK,Alaska,Class II,false,4,true,true,23977,177893,201870,-76.24510824,true,none,1
+8428,1996,AL,Alabama,Class II,false,5,true,true,681651,786436,1468087,-7.13751978,true,none,1
+8431,1996,AR,Arkansas,Class II,false,2,true,true,400241,445942,846183,-5.40084119,true,none,1
+8442,1996,CO,Colorado,Class II,false,4,true,true,667600,750315,1417915,-5.83356548,true,none,1
+8450,1996,DE,Delaware,Class II,false,4,true,true,165465,105088,270553,22.31614508,true,none,1
+8455,1996,GA,Georgia,Class II,false,3,true,true,1103993,1073969,2177962,1.37853645,true,none,1
+8464,1996,IA,Iowa,Class II,false,7,true,true,634166,571807,1205973,5.17084545,true,none,1
+8470,1996,ID,Idaho,Class II,false,4,true,true,198422,283532,481954,-17.65936168,true,none,1
+8473,1996,IL,Illinois,Class II,false,7,true,true,2384028,1728824,4112852,15.93064861,true,none,1
+8481,1996,KS,Kansas,Class II,false,4,true,true,362380,652677,1015057,-28.59908360,true,none,1
+8485,1996,KS,Kansas,Class III,true,3,true,true,461344,574021,1035365,-10.88282876,true,special,1
+8487,1996,KY,Kentucky,Class II,false,6,true,true,560012,724794,1284806,-12.82543824,true,none,1
+8497,1996,MA,Massachusetts,Class II,false,5,true,true,1334135,1143120,2477255,7.71075243,true,none,1
+8505,1996,ME,Maine,Class II,false,5,true,true,266226,298422,564648,-5.70195945,true,none,1
+8509,1996,MI,Michigan,Class II,false,7,true,true,2195738,1500106,3695844,18.82200656,true,none,1
+8514,1996,MN,Minnesota,Class II,false,9,true,true,1098430,901194,1999624,9.86365437,true,none,1
+8521,1996,MS,Mississippi,Class II,false,3,true,true,240647,624154,864801,-44.34627157,true,none,1
+8526,1996,MT,Montana,Class II,false,4,true,true,201935,182111,384046,5.16188165,true,none,1
+8532,1996,NC,North Carolina,Class II,false,5,true,true,1173875,1345833,2519708,-6.82452094,true,none,1
+8541,1996,NE,Nebraska,Class II,false,2,true,true,281904,379933,661837,-14.81165302,true,none,1
+8546,1996,NH,New Hampshire,Class II,false,3,true,true,227355,242257,469612,-3.17325792,true,none,1
+8550,1996,NJ,New Jersey,Class II,false,9,true,true,1519154,1227351,2746505,10.62452098,true,none,1
+8553,1996,NM,New Mexico,Class II,false,4,true,true,164356,357171,521527,-36.97124022,true,none,1
+8564,1996,OK,Oklahoma,Class II,false,5,true,true,474162,670610,1144772,-17.16044767,true,none,1
+8569,1996,OR,Oregon,Class II,false,8,true,true,624370,677336,1301706,-4.06896795,true,none,1
+8578,1996,RI,Rhode Island,Class II,false,3,true,true,230676,127368,358044,28.85343701,true,none,1
+8579,1996,SC,South Carolina,Class II,false,5,true,true,510951,619859,1130810,-9.63097249,true,none,1
+8585,1996,SD,South Dakota,Class II,false,2,true,true,166533,157954,324487,2.64386555,true,none,1
+8591,1996,TN,Tennessee,Class II,false,8,true,true,654937,1091554,1746491,-24.99967077,true,none,1
+8595,1996,TX,Texas,Class II,false,4,true,true,2428776,3027680,5456456,-10.97606212,true,none,1
+8603,1996,VA,Virginia,Class II,false,3,true,true,1115982,1235744,2351726,-5.09251503,true,none,1
+8616,1996,WV,West Virginia,Class II,false,2,true,true,456526,139088,595614,53.29592656,true,none,1
+8620,1996,WY,Wyoming,Class II,false,4,true,true,89103,114116,203219,-12.30839636,true,none,1
+1718,1998,AK,Alaska,Class III,false,5,true,true,43743,165227,208970,-58.13466048,true,none,1
+1717,1998,AL,Alabama,Class III,false,3,true,true,474568,817973,1292541,-26.56820944,true,none,1
+1720,1998,AR,Arkansas,Class III,false,4,true,true,385878,295870,681748,13.20253231,true,none,1
+1719,1998,AZ,Arizona,Class III,false,5,true,true,275224,696577,971801,-43.35795086,true,none,1
+1721,1998,CA,California,Class III,false,7,true,true,4410056,3575078,7985134,10.45665608,true,none,1
+1722,1998,CO,Colorado,Class III,false,7,true,true,464754,829370,1294124,-28.17473441,true,none,1
+1723,1998,CT,Connecticut,Class III,false,5,true,true,628306,312177,940483,33.61347308,true,none,1
+1724,1998,FL,Florida,Class III,false,2,true,true,2436407,1463755,3900162,24.93875895,true,none,1
+1725,1998,GA,Georgia,Class III,false,4,true,true,791904,918540,1710444,-7.40369167,true,none,1
+1726,1998,HI,Hawaii,Class III,false,3,true,true,315252,70964,386216,63.25165193,true,none,1
+1730,1998,IA,Iowa,Class III,false,5,true,true,289049,648480,937529,-38.33812074,true,none,1
+1727,1998,ID,Idaho,Class III,false,3,true,true,107375,262966,370341,-42.01290162,true,none,1
+1728,1998,IL,Illinois,Class III,false,4,true,true,1610496,1709041,3319537,-2.96863689,true,none,1
+1729,1998,IN,Indiana,Class III,false,3,true,true,1012244,552732,1564976,29.36223942,true,none,1
+1731,1998,KS,Kansas,Class III,false,4,true,true,229718,474639,704357,-34.77228167,true,none,1
+1732,1998,KY,Kentucky,Class III,false,3,true,true,563051,569817,1132868,-0.59724522,true,none,1
+1734,1998,MD,Maryland,Class III,false,2,true,true,1062810,444637,1507447,41.00794257,true,none,1
+1735,1998,MO,Missouri,Class III,false,5,true,true,690208,830625,1520833,-9.23290065,true,none,1
+1739,1998,NC,North Carolina,Class III,false,3,true,true,1029237,945943,1975180,4.21703338,true,none,1
+1740,1998,ND,North Dakota,Class III,false,3,true,true,134747,75013,209760,28.47730740,true,none,1
+1737,1998,NH,New Hampshire,Class III,false,4,true,true,88883,213477,302360,-41.20717026,true,none,1
+1736,1998,NV,Nevada,Class III,false,5,true,true,208621,208220,416841,0.09619975,true,none,1
+1738,1998,NY,New York,Class III,false,7,true,true,2551065,2058988,4610053,10.67399876,true,fusion_or_multiline,1
+1741,1998,OH,Ohio,Class III,false,3,true,true,1482054,1922087,3404141,-12.92640346,true,none,1
+1742,1998,OK,Oklahoma,Class III,false,4,true,true,268898,570682,839580,-35.94463899,true,none,1
+1743,1998,OR,Oregon,Class III,false,7,true,true,682425,377739,1060164,28.73951577,true,none,1
+1744,1998,PA,Pennsylvania,Class III,false,4,true,true,1028839,1814180,2843019,-27.62348757,true,none,1
+1745,1998,SC,South Carolina,Class III,false,4,true,true,563377,488238,1051615,7.14510539,true,none,1
+1746,1998,SD,South Dakota,Class III,false,3,true,true,162884,95431,258315,26.11269187,true,none,1
+1747,1998,UT,Utah,Class III,false,4,true,true,163172,316652,479824,-31.98672847,true,none,1
+1748,1998,VT,Vermont,Class III,false,7,true,true,154567,48051,202618,52.56986053,true,none,1
+1749,1998,WA,Washington,Class III,false,2,true,true,1103184,785377,1888561,16.82799761,true,none,1
+1750,1998,WI,Wisconsin,Class III,false,6,true,true,890059,852272,1742331,2.16876127,true,none,1
+1684,2000,CA,California,Class I,false,7,true,true,5932522,3886853,9819375,20.83298581,true,none,1
+1685,2000,CT,Connecticut,Class I,false,4,true,true,828902,448077,1276979,29.82233850,true,none,1
+1686,2000,DE,Delaware,Class I,false,5,true,true,181566,142891,324457,11.91991543,true,none,1
+1687,2000,FL,Florida,Class I,false,8,true,true,2989487,2705348,5694835,4.98941585,true,none,1
+1689,2000,HI,Hawaii,Class I,false,5,true,true,251215,84701,335916,49.57013063,true,none,1
+1690,2000,IN,Indiana,Class I,false,3,true,true,683273,1427944,2111217,-35.27212030,true,none,1
+1693,2000,MA,Massachusetts,Class I,false,8,true,true,1889494,334341,2223835,69.93113248,true,none,1
+1692,2000,MD,Maryland,Class I,false,4,true,true,1230013,715178,1945191,26.46706673,true,none,1
+1691,2000,ME,Maine,Class I,false,2,true,true,197183,437689,634872,-37.88259681,true,none,1
+1694,2000,MI,Michigan,Class I,false,7,true,true,2061952,1994693,4056645,1.65799571,true,none,1
+1695,2000,MN,Minnesota,Class I,false,8,true,true,1181553,1047474,2229027,6.01513575,true,none,1
+1697,2000,MO,Missouri,Class I,false,7,true,true,1191812,1142852,2334664,2.09708977,true,none,1
+1696,2000,MS,Mississippi,Class I,false,5,true,true,314090,654941,969031,-35.17441650,true,none,1
+1698,2000,MT,Montana,Class I,false,3,true,true,194430,208082,402512,-3.39170012,true,none,1
+1704,2000,ND,North Dakota,Class I,false,2,true,true,176470,111069,287539,22.74508849,true,none,1
+1699,2000,NE,Nebraska,Class I,false,3,true,true,353093,337977,691070,2.18733269,true,none,1
+1701,2000,NJ,New Jersey,Class I,false,11,true,true,1511237,1420267,2931504,3.10318526,true,none,1
+1702,2000,NM,New Mexico,Class I,false,3,true,true,363744,225517,589261,23.45768683,true,none,1
+1700,2000,NV,Nevada,Class I,false,9,true,true,238260,330687,568947,-16.24527416,true,none,1
+1703,2000,NY,New York,Class I,false,9,true,true,3747310,2915730,6663040,12.48048939,true,fusion_or_multiline,1
+1705,2000,OH,Ohio,Class I,false,5,true,true,1595066,2665512,4260578,-25.12443147,true,none,1
+1706,2000,PA,Pennsylvania,Class I,false,5,true,true,2154908,2481962,4636870,-7.05333555,true,none,1
+1707,2000,RI,Rhode Island,Class I,false,4,true,true,161023,222588,383611,-16.04880986,true,none,1
+1708,2000,TN,Tennessee,Class I,false,8,true,true,621152,1255444,1876596,-33.80013599,true,none,1
+1709,2000,TX,Texas,Class I,false,4,true,true,2025024,4078954,6103978,-33.64904002,true,none,1
+1710,2000,UT,Utah,Class I,false,4,true,true,242569,504803,747372,-35.08747986,true,none,1
+1712,2000,VA,Virginia,Class I,false,3,true,true,1296093,1420460,2716553,-4.57811793,true,none,1
+1711,2000,VT,Vermont,Class I,false,8,true,true,73352,189133,262485,-44.10956817,true,none,1
+1713,2000,WA,Washington,Class I,false,3,true,true,1199437,1197208,2396645,0.09300501,true,none,1
+1715,2000,WI,Wisconsin,Class I,false,6,true,true,1563238,940744,2503982,24.86016273,true,none,1
+1714,2000,WV,West Virginia,Class I,false,3,true,true,469215,121635,590850,58.82711348,true,none,1
+1716,2000,WY,Wyoming,Class I,false,3,true,true,47087,157622,204709,-53.99616040,true,none,1
+1649,2002,AK,Alaska,Class II,false,6,true,true,24133,179438,203571,-76.29033605,true,none,1
+1648,2002,AL,Alabama,Class II,false,4,true,true,538878,792561,1331439,-19.05329497,true,none,1
+1650,2002,AR,Arkansas,Class II,false,2,true,true,433386,370735,804121,7.79124037,true,none,1
+1651,2002,CO,Colorado,Class II,false,6,true,true,648130,717893,1366023,-5.10701504,true,none,1
+1652,2002,DE,Delaware,Class II,false,5,true,true,135253,94793,230046,17.58778679,true,none,1
+1653,2002,GA,Georgia,Class II,false,3,true,true,932422,1071352,2003774,-6.93341664,true,none,1
+1656,2002,IA,Iowa,Class II,false,5,true,true,554278,447892,1002170,10.61556423,true,none,1
+1654,2002,ID,Idaho,Class II,false,3,true,true,132975,266215,399190,-33.37758962,true,none,1
+1655,2002,IL,Illinois,Class II,false,3,true,true,2103766,1325703,3429469,22.68756475,true,none,1
+1658,2002,KY,Kentucky,Class II,false,2,true,true,399634,731679,1131313,-29.35040966,true,none,1
+1661,2002,ME,Maine,Class II,false,2,true,true,209858,295041,504899,-16.87129505,true,none,1
+1663,2002,MI,Michigan,Class II,false,5,true,true,1896614,1185545,3082159,23.07048403,true,none,1
+1666,2002,MO,Missouri,Class I,true,4,true,true,913778,935032,1848810,-1.14960434,true,special,1
+1667,2002,MT,Montana,Class II,false,4,true,true,204853,103611,308464,32.82133409,true,none,1
+1672,2002,NC,North Carolina,Class II,false,4,true,true,1047983,1248664,2296647,-8.73799935,true,none,1
+1668,2002,NE,Nebraska,Class II,false,4,true,true,70290,397438,467728,-69.94407006,true,none,1
+1669,2002,NH,New Hampshire,Class II,false,5,true,true,207478,227229,434707,-4.54352012,true,none,1
+1670,2002,NJ,New Jersey,Class II,false,6,true,true,1138193,928439,2066632,10.14955735,true,none,1
+1671,2002,NM,New Mexico,Class II,false,2,true,true,168863,314193,483056,-30.08553874,true,none,1
+1673,2002,OK,Oklahoma,Class II,false,3,true,true,369789,583579,953368,-22.42470903,true,none,1
+1674,2002,OR,Oregon,Class II,false,5,true,true,501898,712287,1214185,-17.32759011,true,none,1
+1675,2002,RI,Rhode Island,Class II,false,2,true,true,253774,69808,323582,56.85297699,true,none,1
+1676,2002,SC,South Carolina,Class II,false,5,true,true,487359,600010,1087369,-10.35996060,true,none,1
+1677,2002,SD,South Dakota,Class II,false,3,true,true,167481,166949,334430,0.15907664,true,none,1
+1678,2002,TN,Tennessee,Class II,false,9,true,true,728232,891498,1619730,-10.07982812,true,none,1
+1679,2002,TX,Texas,Class II,false,5,true,true,1955758,2496243,4452001,-12.14027131,true,none,1
+1681,2002,WV,West Virginia,Class II,false,2,true,true,275281,160902,436183,26.22270928,true,none,1
+1682,2002,WY,Wyoming,Class II,false,2,true,true,49570,133710,183280,-45.90790048,true,none,1
+1615,2004,AK,Alaska,Class III,false,8,true,true,140424,149773,290197,-3.22160463,true,none,1
+1614,2004,AL,Alabama,Class III,false,3,true,true,595018,1242200,1837218,-35.22619526,true,none,1
+1617,2004,AR,Arkansas,Class III,false,4,true,true,580973,458036,1039009,11.83214005,true,none,1
+1616,2004,AZ,Arizona,Class III,false,3,true,true,404507,1505372,1909879,-57.64056257,true,none,1
+1618,2004,CA,California,Class III,false,6,true,true,6955728,4555922,11511650,20.84675959,true,none,1
+1619,2004,CO,Colorado,Class III,false,7,true,true,1081188,980668,2061856,4.87521922,true,none,1
+1620,2004,CT,Connecticut,Class III,false,4,true,true,945347,457749,1403096,34.75157794,true,none,1
+1621,2004,FL,Florida,Class III,false,7,true,true,3590201,3672864,7263065,-1.13812832,true,none,1
+1622,2004,GA,Georgia,Class III,false,5,true,true,1287690,1864202,3151892,-18.29098205,true,none,1
+1623,2004,HI,Hawaii,Class III,false,4,true,true,313629,87172,400801,56.50110653,true,none,1
+1627,2004,IA,Iowa,Class III,false,6,true,true,412365,1038175,1450540,-43.14324321,true,none,1
+1625,2004,IL,Illinois,Class III,false,5,true,true,3597456,1390690,4988146,44.24020468,true,none,1
+1626,2004,IN,Indiana,Class III,false,3,true,true,1496976,903913,2400889,24.70180837,true,none,1
+1628,2004,KS,Kansas,Class III,false,4,true,true,310337,780863,1091200,-43.12005132,true,none,1
+1629,2004,KY,Kentucky,Class III,false,2,true,true,850855,873507,1724362,-1.31364528,true,none,1
+1631,2004,MD,Maryland,Class III,false,7,true,true,1504691,783055,2287746,31.54353674,true,none,1
+1632,2004,MO,Missouri,Class III,false,4,true,true,1158261,1518089,2676350,-13.44472883,true,none,1
+1636,2004,NC,North Carolina,Class III,false,4,true,true,1632527,1791450,3423977,-4.64147394,true,none,1
+1637,2004,ND,North Dakota,Class III,false,2,true,true,212143,98553,310696,36.55985272,true,none,1
+1634,2004,NH,New Hampshire,Class III,false,4,true,true,221549,434847,656396,-32.49532295,true,none,1
+1633,2004,NV,Nevada,Class III,false,6,true,true,494805,284640,779445,26.96341628,true,none,1
+1635,2004,NY,New York,Class III,false,8,true,true,4769824,1625069,6394893,49.17603782,true,fusion_or_multiline,1
+1638,2004,OH,Ohio,Class III,false,3,true,true,1961171,3464356,5425527,-27.70578784,true,none,1
+1639,2004,OK,Oklahoma,Class III,false,3,true,true,596750,763433,1360183,-12.25445400,true,none,1
+1640,2004,OR,Oregon,Class III,false,6,true,true,1128728,565254,1693982,33.26328143,true,none,1
+1641,2004,PA,Pennsylvania,Class III,false,5,true,true,2334126,2925080,5259206,-11.23656309,true,none,1
+1642,2004,SC,South Carolina,Class III,false,7,true,true,704384,857167,1561551,-9.78405444,true,fusion_or_multiline,1
+1643,2004,SD,South Dakota,Class III,false,2,true,true,193340,197848,391188,-1.15238709,true,none,1
+1644,2004,UT,Utah,Class III,false,5,true,true,258955,626640,885595,-41.51841417,true,none,1
+1645,2004,VT,Vermont,Class III,false,7,true,true,216972,75398,292370,48.42288881,true,none,1
+1646,2004,WA,Washington,Class III,false,4,true,true,1549708,1204584,2754292,12.53040709,true,none,1
+1647,2004,WI,Wisconsin,Class III,false,5,true,true,1632697,1301183,2933880,11.29950782,true,none,1
+1581,2006,AZ,Arizona,Class I,false,4,true,true,664141,814398,1478539,-10.16253207,true,none,1
+1582,2006,CA,California,Class I,false,7,true,true,5076289,2990822,8067111,25.85147273,true,none,1
+1583,2006,CT,Connecticut,Class I,false,6,true,true,450844,109198,560042,61.00363901,true,none,1
+1584,2006,DE,Delaware,Class I,false,3,true,true,170567,69734,240301,41.96112376,true,none,1
+1585,2006,FL,Florida,Class I,false,8,true,true,2890548,1826127,4716675,22.56718981,true,none,1
+1586,2006,HI,Hawaii,Class I,false,3,true,true,210330,126097,336427,25.03752671,true,none,1
+1590,2006,MA,Massachusetts,Class I,false,4,true,true,1500738,661532,2162270,38.81134178,true,none,1
+1589,2006,MD,Maryland,Class I,false,5,true,true,965477,787182,1752659,10.17282883,true,none,1
+1588,2006,ME,Maine,Class I,false,4,true,true,113131,405596,518727,-56.38129498,true,none,1
+1591,2006,MI,Michigan,Class I,false,6,true,true,2151278,1559597,3710875,15.94451443,true,none,1
+1592,2006,MN,Minnesota,Class I,false,6,true,true,1278849,835653,2114502,20.95982884,true,none,1
+1594,2006,MO,Missouri,Class I,false,5,true,true,1055255,1006941,2062196,2.34284229,true,none,1
+1593,2006,MS,Mississippi,Class I,false,3,true,true,213000,388399,601399,-29.16516323,true,none,1
+1595,2006,MT,Montana,Class I,false,3,true,true,199845,196283,396128,0.89920430,true,none,1
+1601,2006,ND,North Dakota,Class I,false,4,true,true,150146,64417,214563,39.95516468,true,none,1
+1596,2006,NE,Nebraska,Class I,false,2,true,true,378388,213928,592316,27.76558459,true,none,1
+1598,2006,NJ,New Jersey,Class I,false,9,true,true,58333,41998,100331,16.28110953,true,none,1
+1599,2006,NM,New Mexico,Class I,false,3,true,true,394365,163826,558191,41.30109586,true,none,1
+1597,2006,NV,Nevada,Class I,false,5,true,true,238796,322501,561297,-14.91278236,true,none,1
+1600,2006,NY,New York,Class I,false,7,true,true,3008428,1392189,4400617,36.72755434,true,fusion_or_multiline,1
+1602,2006,OH,Ohio,Class I,false,3,true,true,2257369,1761037,4018406,12.35146474,true,none,1
+1603,2006,PA,Pennsylvania,Class I,false,3,true,true,2392984,1684778,4077762,17.36751679,true,none,1
+1604,2006,RI,Rhode Island,Class I,false,2,true,true,206043,178950,384993,7.03727081,true,none,1
+1605,2006,TN,Tennessee,Class I,false,11,true,true,879976,929911,1809887,-2.75901203,true,none,1
+1606,2006,TX,Texas,Class I,false,3,true,true,1555202,2661789,4216991,-26.24115157,true,none,1
+1607,2006,UT,Utah,Class I,false,6,true,true,177459,356238,533697,-33.49822090,true,none,1
+1609,2006,VA,Virginia,Class I,false,4,true,true,1175606,1166277,2341883,0.39835466,true,none,1
+1610,2006,WA,Washington,Class I,false,5,true,true,1184659,832106,2016765,17.48111456,true,none,1
+1612,2006,WI,Wisconsin,Class I,false,5,true,true,1439214,630299,2069513,39.08721520,true,none,1
+1611,2006,WV,West Virginia,Class I,false,2,true,true,159154,47408,206562,54.09804320,true,none,1
+1613,2006,WY,Wyoming,Class I,false,5,true,true,57671,135174,192845,-40.18927118,true,none,1
+1546,2008,AK,Alaska,Class II,false,6,true,true,151767,147814,299581,1.31950958,true,none,1
+1545,2008,AL,Alabama,Class II,false,3,true,true,752391,1305383,2057774,-26.87331067,true,none,1
+1548,2008,CO,Colorado,Class II,false,7,true,true,1230994,990755,2221749,10.81305764,true,none,1
+1549,2008,DE,Delaware,Class II,false,2,true,true,257539,140595,398134,29.37302516,true,none,1
+1550,2008,GA,Georgia,Class II,false,5,true,true,1757393,1867097,3624490,-3.02674307,true,none,1
+1554,2008,IA,Iowa,Class II,false,3,true,true,941665,560006,1501671,25.41562033,true,none,1
+1552,2008,ID,Idaho,Class II,false,6,true,true,219903,371744,591647,-25.66412067,true,none,1
+1553,2008,IL,Illinois,Class II,false,6,true,true,3615844,1520621,5136465,40.79114722,true,none,1
+1555,2008,KS,Kansas,Class II,false,4,true,true,441399,727121,1168520,-24.45161401,true,none,1
+1556,2008,KY,Kentucky,Class II,false,2,true,true,847005,953816,1800821,-5.93123914,true,none,1
+1557,2008,LA,Louisiana,Class II,false,5,true,true,988298,867177,1855475,6.52776243,true,none,1
+1559,2008,MA,Massachusetts,Class II,false,5,true,true,1971974,926044,2898018,36.09121820,true,none,1
+1558,2008,ME,Maine,Class II,false,3,true,true,279510,444300,723810,-22.76702450,true,none,1
+1560,2008,MI,Michigan,Class II,false,6,true,true,3038386,1641070,4679456,29.86065047,true,none,1
+1561,2008,MN,Minnesota,Class II,false,8,true,true,1212629,1212317,2424946,0.01286627,true,none,1
+1562,2008,MS,Mississippi,Class II,false,2,true,true,480915,766111,1247026,-22.87009252,true,none,1
+1564,2008,MT,Montana,Class II,false,2,true,true,348289,129369,477658,45.83195508,true,none,1
+1569,2008,NC,North Carolina,Class II,false,4,true,true,2249311,1887510,4136821,8.74587032,true,none,1
+1565,2008,NE,Nebraska,Class II,false,4,true,true,317456,455854,773310,-17.89683309,true,none,1
+1566,2008,NH,New Hampshire,Class II,false,4,true,true,358438,314403,672841,6.54463685,true,none,1
+1567,2008,NJ,New Jersey,Class II,false,7,true,true,1951218,1461025,3412243,14.36571194,true,none,1
+1568,2008,NM,New Mexico,Class II,false,2,true,true,505128,318522,823650,22.65598252,true,none,1
+1570,2008,OK,Oklahoma,Class II,false,3,true,true,527736,763375,1291111,-18.25087076,true,none,1
+1571,2008,OR,Oregon,Class II,false,4,true,true,864392,805159,1669551,3.54784011,true,none,1
+1572,2008,RI,Rhode Island,Class II,false,3,true,true,320644,116174,436818,46.80896849,true,none,1
+1573,2008,SC,South Carolina,Class II,false,3,true,true,790621,1076534,1867155,-15.31276193,true,none,1
+1574,2008,SD,South Dakota,Class II,false,2,true,true,237889,142784,380673,24.98338469,true,none,1
+1575,2008,TN,Tennessee,Class II,false,8,true,true,767236,1579477,2346713,-34.61185923,true,none,1
+1576,2008,TX,Texas,Class II,false,3,true,true,3389365,4337469,7726834,-12.27027784,true,none,1
+1577,2008,VA,Virginia,Class II,false,5,true,true,2369327,1228830,3598157,31.69669917,true,none,1
+1578,2008,WV,West Virginia,Class II,false,4,true,true,447560,254629,702189,27.47565114,true,none,1
+1579,2008,WY,Wyoming,Class II,false,4,true,true,60631,189046,249677,-51.43245073,true,none,1
+1580,2008,WY,Wyoming,Class I,true,4,true,true,66202,183063,249265,-46.88223377,true,special,1
+1507,2010,AK,Alaska,Class III,false,8,true,true,60045,90860,150905,-20.42013187,true,fusion_or_multiline,1
+1506,2010,AL,Alabama,Class III,false,3,true,true,515619,968181,1483800,-30.50020218,true,none,1
+1509,2010,AR,Arkansas,Class III,false,6,true,true,288156,451618,739774,-22.09620776,true,none,1
+1508,2010,AZ,Arizona,Class III,false,9,true,true,592011,1005615,1597626,-25.88866230,true,none,1
+1510,2010,CA,California,Class III,false,10,true,true,5218441,4217366,9435807,10.60932043,true,none,1
+1511,2010,CO,Colorado,Class III,false,10,true,true,851590,822731,1674321,1.72362408,true,none,1
+1512,2010,CT,Connecticut,Class III,false,12,true,true,636040,498341,1134381,12.13869062,true,fusion_or_multiline,1
+1513,2010,DE,Delaware,Class II,true,6,true,true,174012,123053,297065,17.15415818,true,special,1
+1514,2010,FL,Florida,Class III,false,17,true,true,1092936,2645743,3738679,-41.53357376,true,none,1
+1515,2010,GA,Georgia,Class III,false,6,true,true,996516,1489904,2486420,-19.84330885,true,none,1
+1516,2010,HI,Hawaii,Class III,false,5,true,true,277228,79939,357167,55.23718597,true,none,1
+1521,2010,IA,Iowa,Class III,false,4,true,true,371686,718215,1089901,-31.79453914,true,none,1
+1517,2010,ID,Idaho,Class III,false,4,true,true,112057,319953,432010,-48.12296012,true,none,1
+1518,2010,IL,Illinois,Class III,false,13,true,true,1719478,1778698,3498176,-1.69288223,true,none,1
+1519,2010,IL,Illinois,Class III,true,13,true,true,1719478,1778698,3498176,-1.69288223,true,special,1
+1520,2010,IN,Indiana,Class III,false,5,true,true,697775,952116,1649891,-15.41562443,true,none,1
+1522,2010,KS,Kansas,Class III,false,4,true,true,220971,587175,808146,-45.31408929,true,none,1
+1523,2010,KY,Kentucky,Class III,false,3,true,true,600052,755706,1355758,-11.48095752,true,none,1
+1524,2010,LA,Louisiana,Class III,false,12,true,true,476572,715415,1191987,-20.03738296,true,none,1
+1526,2010,MA,Massachusetts,Class I,true,5,true,true,1060861,1168178,2229039,-4.81449629,true,special,1
+1525,2010,MD,Maryland,Class III,false,12,true,true,1140531,655666,1796197,26.99397672,true,none,1
+1527,2010,MO,Missouri,Class III,false,10,true,true,789736,1054160,1843896,-14.34050510,true,none,1
+1532,2010,NC,North Carolina,Class III,false,4,true,true,1145074,1458046,2603120,-12.02295707,true,none,1
+1533,2010,ND,North Dakota,Class III,false,3,true,true,52955,181689,234644,-54.86353796,true,none,1
+1529,2010,NH,New Hampshire,Class III,false,4,true,true,167545,273218,440763,-23.97501605,true,none,1
+1528,2010,NV,Nevada,Class III,false,9,true,true,362785,321361,684146,6.05484794,true,none,1
+1530,2010,NY,New York,Class III,false,5,true,true,3047880,1480423,4528303,34.61466691,true,fusion_or_multiline,1
+1531,2010,NY,New York,Class I,true,8,true,true,2837684,1582693,4420377,28.39103995,true,special;fusion_or_multiline,1
+1534,2010,OH,Ohio,Class III,false,6,true,true,1503297,2168742,3672039,-18.12194805,true,none,1
+1535,2010,OK,Oklahoma,Class III,false,4,true,true,265814,718482,984296,-45.98901144,true,none,1
+1536,2010,OR,Oregon,Class III,false,6,true,true,825507,566199,1391706,18.63238356,true,none,1
+1537,2010,PA,Pennsylvania,Class III,false,2,true,true,1948716,2028945,3977661,-2.01698938,true,none,1
+1538,2010,SC,South Carolina,Class III,false,4,true,true,364598,810771,1175369,-37.96024908,true,none,1
+1540,2010,UT,Utah,Class III,false,3,true,true,191732,360403,552135,-30.54886939,true,none,1
+1541,2010,VT,Vermont,Class III,false,8,true,true,151281,72699,223980,35.08438253,true,none,1
+1542,2010,WA,Washington,Class III,false,2,true,true,1314930,1196164,2511094,4.72965170,true,none,1
+1544,2010,WI,Wisconsin,Class III,false,6,true,true,1020958,1125999,2146957,-4.89255258,true,none,1
+1543,2010,WV,West Virginia,Class I,true,4,true,true,283358,230013,513371,10.39112065,true,special,1
+1473,2012,AZ,Arizona,Class I,false,5,true,true,1036542,1104457,2140999,-3.17211732,true,none,1
+1474,2012,CA,California,Class I,false,2,true,true,7864624,4713887,12578511,25.04856894,true,none,1
+1475,2012,CT,Connecticut,Class I,false,8,true,true,828761,651089,1479850,12.00608170,true,fusion_or_multiline,1
+1476,2012,DE,Delaware,Class I,false,4,true,true,265415,115700,381115,39.28341839,true,none,1
+1477,2012,FL,Florida,Class I,false,9,true,true,4523451,3458267,7981718,13.34529734,true,none,1
+1478,2012,HI,Hawaii,Class I,false,4,true,true,269489,160994,430483,25.20308584,true,none,1
+1479,2012,IN,Indiana,Class I,false,5,true,true,1281181,1133621,2414802,6.11064592,true,none,1
+1482,2012,MA,Massachusetts,Class I,false,4,true,true,1696346,1458048,3154394,7.55447798,true,none,1
+1481,2012,MD,Maryland,Class I,false,9,true,true,1474028,693291,2167319,36.02316964,true,none,1
+1480,2012,ME,Maine,Class I,false,7,true,true,92900,215399,308299,-39.73382982,true,none,1
+1483,2012,MI,Michigan,Class I,false,10,true,true,2735826,1767386,4503212,21.50553871,true,none,1
+1484,2012,MN,Minnesota,Class I,false,6,true,true,1854595,867974,2722569,36.23860405,true,none,1
+1486,2012,MO,Missouri,Class I,false,9,true,true,1494125,1066159,2560284,16.71556749,true,none,1
+1485,2012,MS,Mississippi,Class I,false,4,true,true,503467,709626,1213093,-16.99449259,true,none,1
+1487,2012,MT,Montana,Class I,false,3,true,true,236123,218051,454174,3.97909171,true,none,1
+1493,2012,ND,North Dakota,Class I,false,3,true,true,161337,158401,319738,0.91825182,true,none,1
+1488,2012,NE,Nebraska,Class I,false,2,true,true,332979,455593,788572,-15.54886554,true,none,1
+1490,2012,NJ,New Jersey,Class I,false,11,true,true,1987680,1329534,3317214,19.84032384,true,none,1
+1491,2012,NM,New Mexico,Class I,false,4,true,true,395717,351260,746977,5.95158887,true,none,1
+1489,2012,NV,Nevada,Class I,false,4,true,true,446080,457656,903736,-1.28090504,true,none,1
+1492,2012,NY,New York,Class I,false,6,true,true,4808878,1755466,6564344,46.51511255,true,fusion_or_multiline,1
+1494,2012,OH,Ohio,Class I,false,3,true,true,2762690,2435712,5198402,6.28997142,true,none,1
+1495,2012,PA,Pennsylvania,Class I,false,3,true,true,3021364,2509132,5530496,9.26195408,true,none,1
+1496,2012,RI,Rhode Island,Class I,false,3,true,true,271034,146222,417256,29.91257166,true,none,1
+1497,2012,TN,Tennessee,Class I,false,19,true,true,705882,1506443,2212325,-36.18641022,true,none,1
+1498,2012,TX,Texas,Class I,false,4,true,true,3194927,4440137,7635064,-16.30909708,true,none,1
+1499,2012,UT,Utah,Class I,false,6,true,true,301873,657608,959481,-37.07577326,true,none,1
+1501,2012,VA,Virginia,Class I,false,3,true,true,2010067,1785542,3795609,5.91538802,true,none,1
+1502,2012,WA,Washington,Class I,false,2,true,true,1855493,1213924,3069417,20.90198236,true,none,1
+1504,2012,WI,Wisconsin,Class I,false,7,true,true,1547104,1380126,2927230,5.70430065,true,none,1
+1503,2012,WV,West Virginia,Class I,false,3,true,true,399898,240787,640685,24.83451306,true,none,1
+1505,2012,WY,Wyoming,Class I,false,6,true,true,53019,185250,238269,-55.49651864,true,none,1
+1472,2013,MA,Massachusetts,Class II,true,5,true,true,645429,525307,1170736,10.26038321,true,special,1
+1471,2013,NJ,New Jersey,Class II,true,8,true,true,740742,593684,1334426,11.02031885,true,special,1
+12,2014,AK,Alaska,Class II,false,5,true,true,129431,135445,264876,-2.27049638,true,none,1
+32,2014,AR,Arkansas,Class II,false,5,true,true,334174,478819,812993,-17.79166610,true,none,1
+23,2014,CO,Colorado,Class II,false,8,true,true,944203,983891,1928094,-2.05840587,true,none,1
+24,2014,DE,Delaware,Class II,false,3,true,true,130655,98823,229478,13.87148223,true,none,1
+17,2014,GA,Georgia,Class II,false,6,true,true,1160811,1358088,2518899,-7.83187416,true,none,1
+34,2014,HI,Hawaii,Class III,true,5,true,true,246827,98006,344833,43.15741243,true,special,1
+26,2014,IA,Iowa,Class II,false,7,true,true,494370,588575,1082945,-8.69896440,true,none,1
+27,2014,ID,Idaho,Class II,false,2,true,true,151574,285596,437170,-30.65672393,true,none,1
+4,2014,IL,Illinois,Class II,false,6,true,true,1929637,1538522,3468159,11.27730880,true,none,1
+15,2014,KY,Kentucky,Class II,false,7,true,true,584698,806787,1391485,-15.96057449,true,none,1
+31,2014,MA,Massachusetts,Class II,false,5,true,true,1289944,791950,2081894,23.92023801,true,none,1
+9,2014,ME,Maine,Class II,false,4,true,true,190254,413505,603759,-36.97684010,true,none,1
+2,2014,MI,Michigan,Class II,false,7,true,true,1704936,1290199,2995135,13.84702192,true,none,1
+6,2014,MN,Minnesota,Class II,false,5,true,true,1053205,850227,1903432,10.66379046,true,none,1
+18,2014,MS,Mississippi,Class II,false,3,true,true,239439,378481,617920,-22.50161833,true,none,1
+5,2014,MT,Montana,Class II,false,3,true,true,148184,213709,361893,-18.10618056,true,none,1
+14,2014,NC,North Carolina,Class II,false,7,true,true,1377651,1423259,2800910,-1.62832794,true,none,1
+1,2014,NE,Nebraska,Class II,false,5,true,true,170127,347636,517763,-34.28383256,true,none,1
+8,2014,NH,New Hampshire,Class II,false,3,true,true,251184,235347,486531,3.25508549,true,none,1
+10,2014,NJ,New Jersey,Class II,false,7,true,true,1043866,791297,1835163,13.76275568,true,none,1
+3,2014,NM,New Mexico,Class II,false,2,true,true,286409,229097,515506,11.11762036,true,none,1
+29,2014,OK,Oklahoma,Class II,false,5,true,true,234307,558166,792473,-40.86688127,true,none,1
+35,2014,OK,Oklahoma,Class III,true,3,true,true,237923,557002,794925,-40.13951002,true,special,1
+20,2014,OR,Oregon,Class II,false,6,true,true,814537,538847,1353384,20.37041963,true,none,1
+33,2014,RI,Rhode Island,Class II,false,3,true,true,223675,92684,316359,41.40580796,true,none,1
+11,2014,SC,South Carolina,Class II,false,5,true,true,480933,672941,1153874,-16.64029175,true,fusion_or_multiline,1
+36,2014,SC,South Carolina,Class III,true,4,true,true,459583,727215,1186798,-22.55076264,true,special,1
+22,2014,SD,South Dakota,Class II,false,4,true,true,82456,140741,223197,-26.11370225,true,none,1
+28,2014,TN,Tennessee,Class II,false,13,true,true,437848,850087,1287935,-32.00774884,true,none,1
+19,2014,TX,Texas,Class II,false,5,true,true,1597387,2861531,4458918,-28.35091383,true,none,1
+16,2014,VA,Virginia,Class II,false,4,true,true,1073667,1055940,2129607,0.83240711,true,none,1
+30,2014,WV,West Virginia,Class II,false,9,true,true,156360,281820,438180,-28.63206901,true,none,1
+13,2014,WY,Wyoming,Class II,false,7,true,true,29377,121554,150931,-61.07227806,true,none,1
+69,2016,AK,Alaska,Class III,false,7,true,true,36200,138149,174349,-58.47409506,true,none,1
+68,2016,AL,Alabama,Class III,false,3,true,true,748709,1335104,2083813,-28.14048094,true,none,1
+83,2016,AR,Arkansas,Class III,false,4,true,true,400602,661984,1062586,-24.59866778,true,none,1
+87,2016,AZ,Arizona,Class III,false,11,true,true,1031245,1359267,2390512,-13.72183030,true,none,1
+74,2016,CO,Colorado,Class III,false,7,true,true,1370710,1215318,2586028,6.00890632,true,none,1
+91,2016,CT,Connecticut,Class III,false,6,true,true,1008714,552621,1561335,29.21173227,true,fusion_or_multiline,1
+93,2016,FL,Florida,Class III,false,12,true,true,4122088,4835191,8957279,-7.96115651,true,none,1
+88,2016,GA,Georgia,Class III,false,4,true,true,1599726,2135806,3735532,-14.35083410,true,none,1
+64,2016,HI,Hawaii,Class III,false,7,true,true,306604,92653,399257,53.58728839,true,none,1
+92,2016,IA,Iowa,Class III,false,6,true,true,549460,926007,1475467,-25.52053011,true,none,1
+80,2016,ID,Idaho,Class III,false,3,true,true,188249,449017,637266,-40.91980429,true,none,1
+84,2016,IL,Illinois,Class III,false,10,true,true,3012940,2184692,5197632,15.93510275,true,none,1
+78,2016,IN,Indiana,Class III,false,4,true,true,1158947,1423991,2582938,-10.26133806,true,none,1
+60,2016,KS,Kansas,Class III,false,4,true,true,379740,732376,1112116,-31.70856278,true,none,1
+81,2016,KY,Kentucky,Class III,false,4,true,true,813246,1090177,1903423,-14.54910443,true,none,1
+82,2016,MD,Maryland,Class III,false,10,true,true,1659907,972557,2632464,26.11051851,true,none,1
+70,2016,MO,Missouri,Class III,false,11,true,true,1300200,1378458,2678658,-2.92153758,true,none,1
+62,2016,NC,North Carolina,Class III,false,3,true,true,2128165,2395376,4523541,-5.90712011,true,none,1
+77,2016,ND,North Dakota,Class III,false,5,true,true,58116,268788,326904,-64.44460759,true,none,1
+85,2016,NH,New Hampshire,Class III,false,5,true,true,354649,353632,708281,0.14358708,true,none,1
+63,2016,NV,Nevada,Class III,false,7,true,true,521994,495079,1017073,2.64631939,true,none,1
+61,2016,NY,New York,Class III,false,7,true,true,5116696,2009353,7126049,43.60541164,true,fusion_or_multiline,1
+67,2016,OH,Ohio,Class III,false,6,true,true,1996913,3118568,5115481,-21.92667708,true,none,1
+76,2016,OK,Oklahoma,Class III,false,5,true,true,355911,980892,1336803,-46.75191483,true,none,1
+65,2016,OR,Oregon,Class III,false,7,true,true,1105119,651106,1756225,25.85164202,true,none,1
+86,2016,PA,Pennsylvania,Class III,false,3,true,true,2865012,2951702,5816714,-1.49036036,true,none,1
+66,2016,SC,South Carolina,Class III,false,5,true,true,757022,1241609,1998631,-24.24594635,true,fusion_or_multiline,1
+79,2016,SD,South Dakota,Class III,false,2,true,true,104140,265516,369656,-43.65572316,true,none,1
+73,2016,UT,Utah,Class III,false,4,true,true,301860,760241,1062101,-43.15794826,true,none,1
+75,2016,VT,Vermont,Class III,false,8,true,true,192243,103637,295880,29.94659997,true,none,1
+72,2016,WA,Washington,Class III,false,2,true,true,1913979,1329338,3243317,18.02602089,true,none,1
+71,2016,WI,Wisconsin,Class III,false,5,true,true,1380335,1479471,2859806,-3.46652885,true,none,1
+95,2017,AL,Alabama,Class II,true,3,true,true,673896,651972,1325868,1.65355827,true,special,1
+96,2018,AZ,Arizona,Class I,false,10,true,true,1191100,1135200,2326300,2.40295749,true,none,1
+98,2018,CT,Connecticut,Class I,false,6,true,true,825579,545717,1371296,20.40857700,true,fusion_or_multiline,1
+99,2018,DE,Delaware,Class I,false,7,true,true,217385,137127,354512,22.63900799,true,none,1
+100,2018,FL,Florida,Class I,false,7,true,true,4089472,4099505,8188977,-0.12251836,true,none,1
+101,2018,HI,Hawaii,Class I,false,4,true,true,276316,112035,388351,42.30219569,true,none,1
+102,2018,IN,Indiana,Class I,false,6,true,true,1023553,1158000,2181553,-6.16290322,true,none,1
+105,2018,MA,Massachusetts,Class I,false,5,true,true,1633371,979210,2612581,25.03887918,true,none,1
+104,2018,MD,Maryland,Class I,false,8,true,true,1491614,697017,2188631,36.30566322,true,none,1
+103,2018,ME,Maine,Class I,false,5,true,true,66268,223502,289770,-54.26165580,true,ranked_choice,1
+106,2018,MI,Michigan,Class I,false,8,true,true,2214478,1938818,4153296,6.63713831,true,none,1
+107,2018,MN,Minnesota,Class I,false,5,true,true,1566174,940437,2506611,24.96346661,true,none,1
+129,2018,MN,Minnesota,Class II,true,5,true,true,1370540,1095777,2466317,11.14061980,true,special,1
+109,2018,MO,Missouri,Class I,false,8,true,true,1112935,1254927,2367862,-5.99663325,true,none,1
+108,2018,MS,Mississippi,Class I,false,4,true,true,369567,547619,917186,-19.41285628,true,none,1
+110,2018,MT,Montana,Class I,false,3,true,true,253876,235963,489839,3.65691584,true,none,1
+116,2018,ND,North Dakota,Class I,false,3,true,true,144376,179720,324096,-10.90541074,true,none,1
+111,2018,NE,Nebraska,Class I,false,4,true,true,269917,403151,673068,-19.79502814,true,none,1
+113,2018,NJ,New Jersey,Class I,false,8,true,true,1711654,1357355,3069009,11.54441059,true,none,1
+114,2018,NM,New Mexico,Class I,false,3,true,true,376998,212813,589811,27.83688334,true,none,1
+112,2018,NV,Nevada,Class I,false,6,true,true,490071,441202,931273,5.24754825,true,none,1
+115,2018,NY,New York,Class I,false,5,true,true,4056931,1998220,6055151,33.99933379,true,fusion_or_multiline,1
+117,2018,OH,Ohio,Class I,false,3,true,true,2355923,2053963,4409886,6.84734254,true,none,1
+118,2018,PA,Pennsylvania,Class I,false,4,true,true,2792437,2134848,4927285,13.34586897,true,none,1
+119,2018,RI,Rhode Island,Class I,false,3,true,true,231477,144421,375898,23.15947411,true,none,1
+120,2018,TN,Tennessee,Class I,false,8,true,true,985450,1227483,2212933,-10.93720415,true,none,1
+121,2018,TX,Texas,Class I,false,3,true,true,4045632,4260553,8306185,-2.58748150,true,none,1
+122,2018,UT,Utah,Class I,false,10,true,true,328541,665215,993756,-33.87894010,true,none,1
+124,2018,VA,Virginia,Class I,false,4,true,true,1910370,1374313,3284683,16.31990058,true,none,1
+125,2018,WA,Washington,Class I,false,2,true,true,1803364,1282804,3086168,16.86751985,true,none,1
+127,2018,WI,Wisconsin,Class I,false,5,true,true,1472914,1184885,2657799,10.83712500,true,none,1
+126,2018,WV,West Virginia,Class I,false,3,true,true,290510,271113,561623,3.45374032,true,none,1
+128,2018,WY,Wyoming,Class I,false,6,true,true,61227,136210,197437,-37.97819051,true,none,1
+6265,2020,AK,Alaska,Class II,false,4,true,true,146068,191112,337180,-13.35903672,true,none,1
+6266,2020,AL,Alabama,Class II,false,3,true,true,920478,1392076,2312554,-20.39295082,true,none,1
+6268,2020,AZ,Arizona,Class III,true,19,true,true,1716467,1637661,3354128,2.34952274,true,special,1
+6269,2020,CO,Colorado,Class II,false,8,true,true,1731114,1429492,3160606,9.54316989,true,none,1
+6270,2020,DE,Delaware,Class II,false,4,true,true,291804,186054,477858,22.13000515,true,none,1
+6271,2020,GA,Georgia,Class II,false,3,true,true,2374519,2462617,4837136,-1.82128433,true,none,1
+6272,2020,IA,Iowa,Class II,false,7,true,true,754859,864997,1619856,-6.79924635,true,none,1
+6273,2020,ID,Idaho,Class II,false,4,true,true,285864,538446,824310,-30.64162754,true,none,1
+6274,2020,IL,Illinois,Class II,false,8,true,true,3278930,2319870,5598800,17.12974209,true,none,1
+6275,2020,KS,Kansas,Class II,false,3,true,true,571530,727962,1299492,-12.03793482,true,none,1
+6276,2020,KY,Kentucky,Class II,false,8,true,true,816257,1233315,2049572,-20.34854106,true,none,1
+6278,2020,MA,Massachusetts,Class II,false,5,true,true,2357809,1177765,3535574,33.37630608,true,none,1
+6279,2020,ME,Maine,Class II,false,6,true,true,347223,417645,764868,-9.20707887,true,ranked_choice,1
+6280,2020,MI,Michigan,Class II,false,7,true,true,2734568,2642233,5376801,1.71728505,true,none,1
+6281,2020,MN,Minnesota,Class II,false,5,true,true,1566522,1398145,2964667,5.67945742,true,none,1
+6282,2020,MS,Mississippi,Class II,false,3,true,true,578691,709511,1288202,-10.15523963,true,none,1
+6283,2020,MT,Montana,Class II,false,2,true,true,272463,333174,605637,-10.02432150,true,none,1
+6284,2020,NC,North Carolina,Class II,false,4,true,true,2569965,2665598,5235563,-1.82660394,true,none,1
+6285,2020,NE,Nebraska,Class II,false,5,true,true,227191,583507,810698,-43.95175515,true,none,1
+6286,2020,NH,New Hampshire,Class II,false,4,true,true,450778,326229,777007,16.02932792,true,none,1
+6287,2020,NJ,New Jersey,Class II,false,5,true,true,2541178,1817052,4358230,16.61513963,true,none,1
+6288,2020,NM,New Mexico,Class II,false,3,true,true,474483,418483,892966,6.27123541,true,none,1
+6289,2020,OK,Oklahoma,Class II,false,5,true,true,509763,979140,1488903,-31.52502211,true,none,1
+6290,2020,OR,Oregon,Class II,false,5,true,true,1321047,912814,2233861,18.27477180,true,none,1
+6291,2020,RI,Rhode Island,Class II,false,3,true,true,328574,164855,493429,33.17984958,true,none,1
+6292,2020,SC,South Carolina,Class II,false,4,true,true,1110828,1369137,2479965,-10.41583248,true,none,1
+6293,2020,SD,South Dakota,Class II,false,2,true,true,143987,276232,420219,-31.47049515,true,none,1
+6294,2020,TN,Tennessee,Class II,false,13,true,true,1040691,1840926,2881617,-27.77034561,true,none,1
+6295,2020,TX,Texas,Class II,false,5,true,true,4888764,5962983,10851747,-9.89904206,true,none,1
+6296,2020,VA,Virginia,Class II,false,3,true,true,2466500,1934199,4400699,12.09582841,true,none,1
+6297,2020,WV,West Virginia,Class II,false,3,true,true,210309,547454,757763,-44.49214332,true,none,1
+6298,2020,WY,Wyoming,Class II,false,5,true,true,72766,198100,270866,-46.27158817,true,none,1
+8917,2022,AL,Alabama,Class III,false,4,true,true,436746,942154,1378900,-36.65298426,true,none,1
+8920,2022,AR,Arkansas,Class III,false,3,true,true,280187,592437,872624,-35.78288014,true,none,1
+8919,2022,AZ,Arizona,Class III,false,11,true,true,1322027,1196308,2518335,4.99214759,true,none,1
+8921,2022,CA,California,Class III,false,2,true,true,6621616,4222025,10843641,22.12901552,true,none,1
+9480,2022,CA,California,Class III,true,2,true,true,6559303,4212446,10771749,21.78714896,true,special,1
+8922,2022,CO,Colorado,Class III,false,5,true,true,1397170,1031693,2428863,15.04724639,true,none,1
+8923,2022,CT,Connecticut,Class III,false,4,true,true,723864,535943,1259807,14.91664993,true,fusion_or_multiline,1
+8924,2022,FL,Florida,Class III,false,9,true,true,3201522,4474847,7676369,-16.58759499,true,none,1
+8925,2022,GA,Georgia,Class III,false,3,true,true,1946117,1908442,3854559,0.97741402,true,none,1
+8926,2022,HI,Hawaii,Class III,false,7,true,true,290894,106358,397252,46.45313302,true,none,1
+8930,2022,IA,Iowa,Class III,false,5,true,true,533330,681501,1214831,-12.19684055,true,none,1
+8927,2022,ID,Idaho,Class III,false,5,true,true,169808,358539,528347,-35.72103182,true,none,1
+8928,2022,IL,Illinois,Class III,false,5,true,true,2329136,1701055,4030191,15.58439786,true,none,1
+8929,2022,IN,Indiana,Class III,false,9,true,true,704480,1090390,1794870,-21.50072150,true,none,1
+8931,2022,KS,Kansas,Class III,false,3,true,true,372214,602976,975190,-23.66328613,true,none,1
+8932,2022,KY,Kentucky,Class III,false,4,true,true,564311,913326,1477637,-23.61980649,true,none,1
+8935,2022,MD,Maryland,Class III,false,5,true,true,1316897,682293,1999190,31.74305594,true,none,1
+8936,2022,MO,Missouri,Class III,false,11,true,true,872694,1146966,2019660,-13.58010754,true,none,1
+8940,2022,NC,North Carolina,Class III,false,6,true,true,1784049,1905786,3689835,-3.29925322,true,none,1
+8941,2022,ND,North Dakota,Class III,false,4,true,true,59995,135474,195469,-38.61430713,true,none,1
+8938,2022,NH,New Hampshire,Class III,false,4,true,true,332193,275928,608121,9.25227052,true,none,1
+8937,2022,NV,Nevada,Class III,false,6,true,true,498316,490388,988704,0.80185779,true,none,1
+8939,2022,NY,New York,Class III,false,6,true,true,3320561,2501151,5821712,14.07506933,true,fusion_or_multiline,1
+8942,2022,OH,Ohio,Class III,false,7,true,true,1939489,2192114,4131603,-6.11445485,true,none,1
+8943,2022,OK,Oklahoma,Class III,false,4,true,true,369370,739960,1109330,-33.40665086,true,none,1
+9482,2022,OK,Oklahoma,Class II,true,4,true,true,405389,710643,1116032,-27.35172468,true,special,1
+8944,2022,OR,Oregon,Class III,false,5,true,true,1076424,788991,1865415,15.40852840,true,none,1
+8945,2022,PA,Pennsylvania,Class III,false,5,true,true,2751012,2487260,5238272,5.03509554,true,none,1
+8946,2022,SC,South Carolina,Class III,false,3,true,true,627616,1066274,1693890,-25.89648678,true,none,1
+8947,2022,SD,South Dakota,Class III,false,3,true,true,91007,242316,333323,-45.39410722,true,none,1
+8949,2022,VT,Vermont,Class III,false,11,true,true,196575,80468,277043,41.90937869,true,none,1
+8950,2022,WA,Washington,Class III,false,3,true,true,1741827,1299322,3041149,14.55058598,true,none,1
+8951,2022,WI,Wisconsin,Class III,false,4,true,true,1310467,1337185,2647652,-1.00912053,true,none,1
+9505,2024,AZ,Arizona,Class I,false,10,true,true,1676335,1595761,3272096,2.46245831,true,none,1
+10013,2024,CA,California,Class I,true,2,true,true,8837051,6204637,15041688,17.50078848,true,special,1
+9506,2024,CA,California,Class I,false,2,true,true,9036252,6312594,15348846,17.74503438,true,none,1
+9507,2024,CT,Connecticut,Class I,false,5,true,true,1000695,678256,1678951,19.20478918,true,fusion_or_multiline,1
+9508,2024,DE,Delaware,Class I,false,3,true,true,283298,197753,481051,17.78293778,true,none,1
+9509,2024,FL,Florida,Class I,false,6,true,true,4603077,5977706,10580783,-12.99175118,true,none,1
+9510,2024,HI,Hawaii,Class I,false,6,true,true,324194,160075,484269,33.89004871,true,none,1
+9511,2024,IN,Indiana,Class I,false,5,true,true,1097061,1659416,2756477,-20.40122228,true,none,1
+9514,2024,MA,Massachusetts,Class I,false,4,true,true,2041693,1365445,3407138,19.84797798,true,none,1
+9513,2024,MD,Maryland,Class I,false,9,true,true,1650912,1294344,2945256,12.10651977,true,none,1
+9512,2024,ME,Maine,Class I,false,5,true,true,88891,284338,373229,-52.36650957,true,none,1
+9515,2024,MI,Michigan,Class I,false,7,true,true,2712686,2693680,5406366,0.35154853,true,none,1
+9516,2024,MN,Minnesota,Class I,false,5,true,true,1792441,1291712,3084153,16.23554344,true,none,1
+9518,2024,MO,Missouri,Class I,false,6,true,true,1243728,1651907,2895635,-14.09635538,true,none,1
+9517,2024,MS,Mississippi,Class I,false,2,true,true,451981,763420,1215401,-25.62438241,true,none,1
+9519,2024,MT,Montana,Class I,false,4,true,true,276305,319682,595987,-7.27817889,true,none,1
+9525,2024,ND,North Dakota,Class I,false,3,true,true,121602,241569,363171,-33.03319924,true,none,1
+9520,2024,NE,Nebraska,Class I,false,3,true,true,436493,499124,935617,-6.69408529,true,none,1
+9553,2024,NE,Nebraska,Class II,true,2,true,true,349902,585103,935005,-25.15505265,true,special,1
+9522,2024,NJ,New Jersey,Class I,false,6,true,true,2161491,1773589,3935080,9.85753784,true,none,1
+9523,2024,NM,New Mexico,Class I,false,2,true,true,497333,405978,903311,10.11334967,true,none,1
+9521,2024,NV,Nevada,Class I,false,5,true,true,701105,677046,1378151,1.74574484,true,none,1
+9524,2024,NY,New York,Class I,false,6,true,true,4711298,3246114,7957412,18.41282065,true,fusion_or_multiline,1
+9526,2024,OH,Ohio,Class I,false,7,true,true,2650949,2857383,5508332,-3.74766808,true,none,1
+9527,2024,PA,Pennsylvania,Class I,false,5,true,true,3384180,3399295,6783475,-0.22282090,true,none,1
+9528,2024,RI,Rhode Island,Class I,false,3,true,true,294665,196039,490704,20.09887835,true,none,1
+9529,2024,TN,Tennessee,Class I,false,5,true,true,1027461,1918743,2946204,-30.25187665,true,none,1
+9530,2024,TX,Texas,Class I,false,5,true,true,5031249,5990741,11021990,-8.70525196,true,none,1
+9531,2024,UT,Utah,Class I,false,5,true,true,464515,914700,1379215,-32.64066879,true,none,1
+9504,2024,VA,Virginia,Class I,false,3,true,true,2415429,2018992,4434421,8.93999465,true,none,1
+9533,2024,WA,Washington,Class I,false,3,true,true,2252577,1549187,3801764,18.50167449,true,none,1
+9534,2024,WI,Wisconsin,Class I,false,6,true,true,1672777,1643996,3316773,0.86774102,true,none,1
+9479,2024,WV,West Virginia,Class I,false,6,true,true,207548,514079,721627,-42.47776206,true,none,1
+9535,2024,WY,Wyoming,Class I,false,5,true,true,63727,198418,262145,-51.38034294,true,none,1
