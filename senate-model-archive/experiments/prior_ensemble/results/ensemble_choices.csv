@@ -1,0 +1,4 @@
+test_cycle,seat_prior_weight,inc_prior_weight,train_n,train_correct,train_accuracy_pct,train_mae,top_weights
+2014,0.5,0.5,68,58,85.29411764705883,10.296040183861367,w=0.5 correct=58 mae=10.30 | w=0.1 correct=58 mae=10.36 | w=0.9 correct=58 mae=10.40 | w=1.0 correct=58 mae=10.44 | w=0.25 correct=57 mae=10.33 | w=0.75 correct=57 mae=10.35 | w=0.0 correct=56 mae=10.40
+2018,0.1,0.9,133,119,89.47368421052632,8.652592615040064,w=0.1 correct=119 mae=8.65 | w=0.25 correct=118 mae=8.65 | w=0.5 correct=117 mae=8.67 | w=0.0 correct=117 mae=8.67 | w=0.9 correct=117 mae=8.91 | w=1.0 correct=117 mae=9.00 | w=0.75 correct=116 mae=8.80
+2022,1.0,0.0,198,179,90.4040404040404,7.839709482442858,w=1.0 correct=179 mae=7.84 | w=0.5 correct=177 mae=7.72 | w=0.9 correct=177 mae=7.79 | w=0.25 correct=177 mae=7.79 | w=0.1 correct=177 mae=7.87 | w=0.75 correct=176 mae=7.74 | w=0.0 correct=175 mae=7.95
