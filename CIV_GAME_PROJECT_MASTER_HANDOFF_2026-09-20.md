@@ -2826,3 +2826,63 @@ After map numeric V1, the next generic system target is:
 - Great Person / specialist generation and ability values
 
 World Wonders and civilization-specific unique content remain later audits.
+
+
+---
+
+## Great Person recruitment architecture locked — 2026-09-21
+
+Authority:
+- `city_system/FINAL_GREAT_PERSON_RECRUITMENT_SYSTEM_V1.md`
+
+The project uses **Civ V-style generation sources + Civ VI-style globally unique named recruitment**.
+
+Final acquisition families:
+
+### Specialist/building GPP
+- Great Scientist
+- Great Engineer
+- Great Merchant
+- Great Writer
+- Great Artist
+- Great Musician
+- Great Director
+
+City specialists/buildings generate class GPP.
+City contributions sum into a civilization-wide class pool.
+The current named historical person is contested globally.
+
+### Great Prophet
+- **no Prophet GPP**
+- recruited directly with **Faith**
+- current named Great Prophet is globally unique
+- first eligible civilization to pay the Faith cost recruits that historical individual
+- other civilizations lose no Faith
+- next named Prophet then becomes available
+
+Do not replace this with Civ VI Great Prophet Points.
+
+The worker-built Holy Site system remains separate; Great Prophet consumption for Holy Site must not be reintroduced.
+
+### Great General
+- generated from **land combat points**
+- no specialist requirement
+- points are civilization-wide
+- named Great General candidate is globally unique
+
+### Great Admiral
+- generated from **naval combat points**
+- no specialist requirement
+- points are civilization-wide
+- named Great Admiral candidate is globally unique
+
+All ten Great Person classes therefore share one identity rule:
+**historical named individuals are globally unique once recruited**, while their generation source differs by class.
+
+Next Great Person pass:
+1. class-specific candidate rosters by era
+2. specialist yields and GPP/turn
+3. GPP/Faith/combat thresholds
+4. Pass behavior
+5. Gold/Faith patronage for non-Prophet GPP classes
+6. individual Great Person abilities
