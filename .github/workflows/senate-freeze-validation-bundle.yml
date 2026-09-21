@@ -1,0 +1,36 @@
+name: Freeze 98of99 validation bundle
+on:
+  push:
+    branches: [archive-2026-us-senate-model]
+    paths:
+      - 'senate-model-archive/scripts/freeze_98of99_validation_bundle.py'
+      - '.github/workflows/senate-freeze-validation-bundle.yml'
+permissions:
+  contents: write
+concurrency:
+  group: senate-freeze-validation-bundle
+  cancel-in-progress: true
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: archive-2026-us-senate-model
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check numpy
+      - run: python senate-model-archive/scripts/freeze_98of99_validation_bundle.py
+      - name: Commit locked bundle
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add senate-model-archive/final/validation senate-model-archive/docs/final/PRODUCTION_VALIDATION_LOCK_2026-09-21.md
+          if git diff --cached --quiet; then echo nochanges; else
+            git commit -m 'model: freeze validation bundle [skip ci]'
+            git fetch origin archive-2026-us-senate-model
+            git rebase --autostash origin/archive-2026-us-senate-model
+            git push origin HEAD:archive-2026-us-senate-model
+          fi
