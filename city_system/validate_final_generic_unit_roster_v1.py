@@ -16,6 +16,11 @@ CIVIC_ONLY = {
     "Naturalist": ("", "", "Conservation"),
     "Rock Band": ("", "", "Cold War"),
 }
+ADVANCED_SETTLERS = {
+    "Pioneer": ("Cartography", "", "Exploration"),
+    "Colonist": ("Railroad", "", "Colonialism"),
+    "Urban Planner": ("Combustion", "", "Urbanization"),
+}
 BASELINE = {
     "Settler": "GAME_START",
     "Warrior": "GAME_START",
@@ -67,6 +72,11 @@ for row in tech_rows:
 for name, gates in CIVIC_ONLY.items():
     if name in expected:
         errors.append(f"Civic-only unit duplicates technology-master unit: {name}")
+    expected[name] = gates
+
+for name, gates in ADVANCED_SETTLERS.items():
+    if name in expected:
+        errors.append(f"Advanced settler duplicates another source: {name}")
     expected[name] = gates
 
 for name in BASELINE:
@@ -128,8 +138,8 @@ bad_gp = sorted(present & GREAT_PEOPLE)
 if bad_gp:
     errors.append("Great People incorrectly included in generic roster: " + ", ".join(bad_gp))
 
-if len(unit_rows) != 85:
-    errors.append(f"Expected 85 units, got {len(unit_rows)}")
+if len(unit_rows) != 88:
+    errors.append(f"Expected 88 units, got {len(unit_rows)}")
 
 # Domain sanity for special civilian/trade units.
 expected_domains = {
@@ -147,6 +157,7 @@ print(f"unit_count={len(unit_rows)}")
 print(f"technology_master_units={sum(1 for r in unit_rows if r['SOURCE_FILE'].endswith('MASTER_TECHNOLOGY_UNLOCKS_109_V1.csv'))}")
 print(f"civic_only_units={sum(1 for r in unit_rows if r['SOURCE_FILE'].endswith('MASTER_CIVIC_UNLOCKS_72_V2.csv'))}")
 print(f"baseline_system_units={sum(1 for r in unit_rows if r['SOURCE_RECORD']=='BASELINE_RECOVERY')}")
+print(f"advanced_settler_units={sum(1 for r in unit_rows if r['SOURCE_RECORD']=='SETTLER_PROGRESSION_V1')}")
 print(f"duplicate_unit_names={len(unit_rows)-len(actual_by_name)}")
 print(f"forbidden_units_present={len(bad_forbidden)}")
 print(f"great_people_present={len(bad_gp)}")
