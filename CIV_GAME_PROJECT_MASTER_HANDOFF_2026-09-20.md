@@ -2367,3 +2367,57 @@ Next military task:
 3. healing/support aura values
 4. interception/evasion and air-sweep rules
 5. cargo eligibility and missile/air basing rules
+
+
+---
+
+## Unit promotion / innate ability / air combat V1 locked — 2026-09-21
+
+Authorities:
+- `city_system/FINAL_UNIT_PROMOTION_SYSTEM_V1.csv`
+- `city_system/FINAL_UNIT_PROMOTION_PROFILE_ASSIGNMENT_V1.csv`
+- `city_system/FINAL_UNIT_INNATE_ABILITIES_V1.csv`
+- `city_system/FINAL_UNIT_PROMOTION_INHERITANCE_V1.csv`
+- `city_system/FINAL_UNIT_PROMOTION_AND_ABILITY_SYSTEM_V1.md`
+- `city_system/FINAL_UNIT_PROMOTION_AND_ABILITY_SYSTEM_V1_QA.md`
+- `city_system/FINAL_GDR_MODULE_BALANCE_V1.csv`
+- `city_system/FINAL_AIR_INTERCEPTION_UNIT_RULES_V1.csv`
+- `city_system/FINAL_AIR_COMBAT_GLOBAL_RULES_V1.csv`
+- `city_system/FINAL_AIR_COMBAT_AND_GDR_RULES_V1.md`
+- `city_system/FINAL_AIR_COMBAT_AND_GDR_RULES_V1_QA.md`
+
+Current exact state:
+- 89/89 units assigned a promotion profile
+- 70 promotion definitions
+- 60 innate ability rules
+- 15 promotion-inheritance rules
+- structural QA: PASS
+
+Important promotion decisions:
+- Civ V-style Shock/Drill, Accuracy/Barrage, naval Targeting/Bombardment, Coastal Raider/Boarding Party, Wolfpack, air Interception/Dogfighting retained
+- Chariot Archer -> Knight converts ranged promotions to melee equivalents
+- Privateer -> Submarine converts highest surface-raider rank into same Wolfpack rank
+- GDR cannot gain ordinary XP/promotions; promotion profile NONE
+
+GDR modules:
+- Advanced AI -> AA Defense Strength 130
+- Advanced Power Cells -> city ranged strength 130 / full defense effectiveness
+- Cybernetics -> Moves 8 + Mountain Jump
+- Smart Materials -> +10 defensive strength vs land/naval
+
+Air interception:
+- Triplane 50%
+- Fighter / Jet Fighter / AA Gun / Mobile SAM / Missile Cruiser 100%
+- Destroyer 40%
+- one interceptor per attack
+- base one interception per unit/turn
+- Sortie gives fighter +1 interception
+- evasion check occurs before interception chance
+- Stealth Bomber and Guided Missile have innate 100% evasion
+- learned Evasion promotion instead reduces interception damage by 50%
+
+Next remaining military-system tasks:
+1. exact naval/air/missile cargo eligibility
+2. Prize Ships capture chance
+3. support-aura stacking/formation interaction
+4. XP thresholds / promotion acquisition cadence
