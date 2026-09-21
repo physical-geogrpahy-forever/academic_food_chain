@@ -3,6 +3,7 @@
 - Frozen information cutoff: 2026-09-19 U.S. calendar date.
 - This reproduces the weighting rule used by the canonical 98/99 production path.
 - Poll values come from the already frozen RCP snapshot; audited external sources supply sample sizes and actual field-end dates.
+- The frozen bridge file's legacy D/R labels actually preserve left-candidate/right-candidate order. The builder verifies candidate names against the structural matrix and normalizes every row to true D-minus-R before aggregation.
 - Window: 30 days before the 45-day snapshot.
 - Recency half-life: 14 days.
 - Per-poll weight: 2^(-age/14) * sqrt(clamp(sample_size,100,5000)/600).
