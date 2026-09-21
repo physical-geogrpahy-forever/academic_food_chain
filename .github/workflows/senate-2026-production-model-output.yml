@@ -1,0 +1,37 @@
+name: Build 2026 locked model output
+on:
+  push:
+    branches: [archive-2026-us-senate-model]
+    paths:
+      - 'senate-model-archive/scripts/build_2026_production_model_output.py'
+      - 'senate-model-archive/data/snapshots/2026_poll_45d_canonical_sample_weighted.csv'
+      - 'senate-model-archive/data/snapshots/2026_production_fundamentals_coefficients.csv'
+      - '.github/workflows/senate-2026-production-model-output.yml'
+permissions:
+  contents: write
+concurrency:
+  group: senate-2026-production-model-output
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: archive-2026-us-senate-model
+          fetch-depth: 0
+      - run: python senate-model-archive/scripts/build_2026_production_model_output.py
+      - name: Commit model output
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add senate-model-archive/data/snapshots/2026_PRODUCTION_MODEL_OUTPUT_45D.csv \
+                  senate-model-archive/docs/analysis/2026_PRODUCTION_MODEL_OUTPUT_45D.md
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'model: freeze 2026 locked production output [skip ci]'
+            git fetch origin archive-2026-us-senate-model
+            git rebase --autostash origin/archive-2026-us-senate-model
+            git push origin HEAD:archive-2026-us-senate-model
+          fi
