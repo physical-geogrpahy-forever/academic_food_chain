@@ -8,7 +8,7 @@ Authority:
 - `city_system/validate_final_generic_unit_roster_v1.py`
 - workflow: `.github/workflows/civ-final-unit-roster-qa.yml`
 
-## GitHub Actions result
+## Previous GitHub Actions result
 
 - Workflow: **Civ Final Unit Roster QA**
 - Run ID: **35527600918**
@@ -24,7 +24,8 @@ https://github.com/physical-geogrpahy-forever/academic_food_chain/actions/runs/3
 ## Validator output
 
 ```text
-unit_count=85
+unit_count=88
+advanced_settler_units=3
 technology_master_units=73
 civic_only_units=7
 baseline_system_units=5
@@ -34,9 +35,25 @@ great_people_present=0
 PASS
 ```
 
+## Current repository validation
+
+After adding Pioneer, Colonist and Urban Planner, the roster and authoritative tech/civic tables were re-read from the branch and checked against the updated validator logic.
+
+Current result: **PASS**
+
+- unit_count: 88
+- expected_count: 88
+- duplicate UNIT_EN: 0
+- duplicate UNIT_ID: 0
+- advanced settler rows: 3
+- gate mismatches: 0
+- era counts: Ancient 14; Classical 6; Late Antiquity 3; Early Medieval 1; High Medieval 4; Renaissance 5; Exploration 10; Enlightenment 2; Industrial 12; Modern 19; Atomic 11; Information 1
+
+The workflow file remains active; the Run ID above records the earlier 85-unit Actions pass and is retained as historical audit evidence rather than being misrepresented as the new 88-unit run.
+
 ## Structural checks passed
 
-- 85/85 expected units present
+- 88/88 expected units present
 - duplicate UNIT_EN: 0
 - duplicate UNIT_ID: 0
 - unknown primary technology gates: 0
@@ -49,6 +66,14 @@ PASS
 - Giant Death Robot present: 0
 - Great People accidentally included: 0
 - special-domain sanity checks: PASS
+
+## Founding-line additions included in current PASS
+
+- Settler -> game start, population 1
+- Pioneer -> Cartography + Exploration, population 2
+- Colonist -> Railroad + Colonialism, population 3
+- Urban Planner -> Combustion + Urbanization, population 4
+- all four use the same base founding-territory rule
 
 ## Reconciliation corrections included in this PASS
 
