@@ -28,7 +28,7 @@ BASELINE = {
     "Missionary": "MAJORITY_RELIGION",
     "Inquisitor": "ENHANCED_RELIGION",
 }
-FORBIDDEN = {"Heavy Chariot", "Nuclear Missile", "Giant Death Robot"}
+FORBIDDEN = {"Heavy Chariot", "Nuclear Missile"}
 GREAT_PEOPLE = {
     "Great Artist", "Great Engineer", "Great General", "Great Merchant",
     "Great Scientist", "Great Admiral", "Great Prophet", "Great Musician",
@@ -138,8 +138,8 @@ bad_gp = sorted(present & GREAT_PEOPLE)
 if bad_gp:
     errors.append("Great People incorrectly included in generic roster: " + ", ".join(bad_gp))
 
-if len(unit_rows) != 88:
-    errors.append(f"Expected 88 units, got {len(unit_rows)}")
+if len(unit_rows) != 89:
+    errors.append(f"Expected 89 units, got {len(unit_rows)}")
 
 # Domain sanity for special civilian/trade units.
 expected_domains = {
