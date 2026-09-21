@@ -1,0 +1,33 @@
+{
+  "as_of": "2026-09-21",
+  "primary_objective": "winner_direction_accuracy",
+  "base_prior": "fullcycle_inc_era rolling model",
+  "poll_snapshot_days_before_election": 45,
+  "poll_blend": {
+    "w_max": 0.75,
+    "k": 0.5,
+    "window_days": 30,
+    "half_life_days": 14
+  },
+  "outparty_closepoll_selector": {
+    "threshold_poll_pvi_disagree_pctpt": 2.0,
+    "threshold_poll_pvi_agree_pctpt": 0.75,
+    "min_abs_pvi_when_agree_pctpt": 15,
+    "action": "if eligible, use state PVI direction while preserving posterior magnitude"
+  },
+  "third_party": {
+    "point_margin_correction": "disabled",
+    "mode": "uncertainty_only",
+    "reason": "historical minor-third-party directional sample too sparse; only NC 2014 recovered in 3-15% ordinary minor-third context",
+    "flag_threshold_poll_share_pct": 3.0
+  },
+  "validation": {
+    "accepted_clean_nested_headline_correct": 96,
+    "accepted_clean_nested_headline_n": 99,
+    "accepted_clean_nested_accuracy_pct": 96.96969696969697,
+    "production_parameter_fit_uses_history_through": 2022,
+    "retrospective_headline_diagnostic_correct": 98,
+    "retrospective_headline_diagnostic_n": 99,
+    "retrospective_headline_diagnostic_is_oos": false
+  }
+}

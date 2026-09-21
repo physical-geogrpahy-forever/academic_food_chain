@@ -1,0 +1,89 @@
+{
+  "locked_date": "2026-09-21",
+  "headline_universe_n": 99,
+  "base_fixed_poll_correct": 94,
+  "clean_nested_oos": {
+    "correct": 96,
+    "n": 99,
+    "accuracy_pct": 96.96969696969697,
+    "canonical_file": "clean_nested_96of99_predictions.csv"
+  },
+  "production_retrospective": {
+    "correct": 98,
+    "n": 99,
+    "accuracy_pct": 98.98989898989899,
+    "is_oos": false,
+    "canonical_file": "production_98of99_predictions.csv",
+    "single_wrong_race": {
+      "cycle": 2014,
+      "state_abbrev": "NC",
+      "race_id": "14",
+      "actual_d_minus_r": -1.62832794,
+      "adjusted_margin": 5.436135306623342
+    },
+    "correctness_changes_vs_fixed_poll_baseline": [
+      {
+        "cycle": 2018,
+        "state_abbrev": "NV",
+        "race_id": "112",
+        "baseline_correct": 0,
+        "adjusted_correct": 1,
+        "override_reason": "disagree"
+      },
+      {
+        "cycle": 2018,
+        "state_abbrev": "MO",
+        "race_id": "109",
+        "baseline_correct": 0,
+        "adjusted_correct": 1,
+        "override_reason": "agree_strong_pvi"
+      },
+      {
+        "cycle": 2018,
+        "state_abbrev": "FL",
+        "race_id": "100",
+        "baseline_correct": 0,
+        "adjusted_correct": 1,
+        "override_reason": "disagree"
+      },
+      {
+        "cycle": 2018,
+        "state_abbrev": "IN",
+        "race_id": "102",
+        "baseline_correct": 0,
+        "adjusted_correct": 1,
+        "override_reason": "disagree"
+      }
+    ]
+  },
+  "base_prior": {
+    "canonical_predictions": "base_prior_99_predictions.csv",
+    "coefficients": "base_prior_coefficients_by_cycle.csv",
+    "standardization": "base_prior_standardization_by_cycle.csv",
+    "max_reconstruction_abs_error": 8.526512829121202e-14
+  },
+  "source_sha256": {
+    "production_predictions": "31e14bed18ec5ebae15d294ae271232a2a85f5c2672ed8f00d6289d8958c6a0b",
+    "selector_grid": "c402771c4adb0f99d0799478fbdf69d00a1cc4a390e3c8be99ee22a96ac8c685",
+    "production_config": "3e5fb4b1a7382cc0849b8bf96f23838a5865c5716b0533345c66f46df451a63c",
+    "clean_predictions": "31ef474d006090c69b0f9b73898a49ae01834ca9917ccab6c24ad2794186d3b6",
+    "clean_choices": "9ea5b0d6766e4c536a0604ea166ae2d102421534ef947fd56d6e36a3bef5e30b",
+    "base_predictions": "afedd2ab007423753ad7e22c61d22651bde9fa61ec00ca4c991919c8c438bda6",
+    "base_choices": "3e2466a3e1851bf8dcd1b21ea362b7316bad0fe4bb6c91e7e165113351b33cb6",
+    "base_script": "0183359b5f2ab5a7c2d3ba348015f4f88aa9c7fae52cb251c3be7dbb452dceb8",
+    "production_script": "69831571a35554d9f37e1066a165341fd976567eccea48bf69eecea39d23cca8"
+  },
+  "canonical_sha256": {
+    "base_prior_99_predictions.csv": "ccd0d4dc80a9ee7ecbff323b5ebc70cbb8a58afd1f989d78cf3d773dfdf22ffc",
+    "base_prior_choices.csv": "fc8d2c14db3ae417be9766198de952fd6b6abc1f273ff6a537e88701cee7b19d",
+    "base_prior_coefficients_by_cycle.csv": "a7dd25d71da040f91f64b2731421dc284149fed5324421bf86ebb92098dc2260",
+    "base_prior_standardization_by_cycle.csv": "f7e6e705418765b29eb122cd992ec194be5150b05d4b43b26c8337ba6dd737e5",
+    "clean_nested_96of99_choices.csv": "9ea5b0d6766e4c536a0604ea166ae2d102421534ef947fd56d6e36a3bef5e30b",
+    "clean_nested_96of99_predictions.csv": "31ef474d006090c69b0f9b73898a49ae01834ca9917ccab6c24ad2794186d3b6",
+    "core_v2r_direction_2026_production.json": "3e5fb4b1a7382cc0849b8bf96f23838a5865c5716b0533345c66f46df451a63c",
+    "production_98of99_predictions.csv": "31e14bed18ec5ebae15d294ae271232a2a85f5c2672ed8f00d6289d8958c6a0b",
+    "production_selector_top_grid.csv": "c402771c4adb0f99d0799478fbdf69d00a1cc4a390e3c8be99ee22a96ac8c685",
+    "run_fullcycle_inc_era_oos.py": "0183359b5f2ab5a7c2d3ba348015f4f88aa9c7fae52cb251c3be7dbb452dceb8",
+    "run_production_selector_2026.py": "69831571a35554d9f37e1066a165341fd976567eccea48bf69eecea39d23cca8"
+  }
+}
