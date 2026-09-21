@@ -173,7 +173,7 @@ Aircraft Carrier uses its own Flight Deck profile:
 - Flight Deck II: +1
 - Flight Deck III: +1
 
-Base cargo capacity remains 3 in the numeric table.
+Base cargo capacity is 2 in the numeric table; Flight Deck I/II/III raise it to 3/4/5.
 
 ## 10. Fighters
 
@@ -287,7 +287,7 @@ Privateer:
 Aircraft Carrier:
 - cannot initiate attacks
 - Combat value is defensive
-- base air capacity 3
+- base air capacity 2
 
 Nuclear Submarine:
 - missile cargo 2
