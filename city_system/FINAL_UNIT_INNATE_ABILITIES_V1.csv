@@ -56,3 +56,6 @@
 "INNATE_GDR_MODULE_POWER","UNIT","Giant Death Robot","Particle Beam Siege Cannon","MODULE_UNLOCK_TECH","Advanced Power Cells","UNIT_SPECIFIC","Civ6 Gathering Storm adapted","LOCKED_V1",""
 "INNATE_GDR_MODULE_CYBER","UNIT","Giant Death Robot","Enhanced Mobility","MODULE_UNLOCK_TECH","Cybernetics","UNIT_SPECIFIC","Civ6 Gathering Storm adapted","LOCKED_V1",""
 "INNATE_GDR_MODULE_MATERIAL","UNIT","Giant Death Robot","Reinforced Armor","MODULE_UNLOCK_TECH","Smart Materials","UNIT_SPECIFIC","Civ6 Gathering Storm adapted","LOCKED_V1",""
+"INNATE_GDR_NO_XP","UNIT","Giant Death Robot","Autonomous Upgrade Architecture","CANNOT_GAIN_XP_OR_PROMOTIONS","1","UNIT_SPECIFIC","Civ6 Gathering Storm","LOCKED_V1","Future technology modules replace ordinary promotions."
+"INNATE_GDR_AMPHIBIOUS","UNIT","Giant Death Robot","Amphibious Chassis","TREAT_COAST_OCEAN_AS_LAND_MOVEMENT","1","UNIT_SPECIFIC","Civ6 Gathering Storm","LOCKED_V1","May move and fight on Coast/Ocean without ordinary embarkation."
+"INNATE_GDR_FRIENDLY_HEAL","UNIT","Giant Death Robot","Specialized Maintenance","HEAL_ONLY_IN_FRIENDLY_TERRITORY","1","UNIT_SPECIFIC","Civ6 Gathering Storm","LOCKED_V1","No ordinary healing in neutral/enemy territory."
