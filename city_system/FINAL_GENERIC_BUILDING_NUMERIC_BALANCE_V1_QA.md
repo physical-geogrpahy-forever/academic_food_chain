@@ -1,7 +1,7 @@
 # Final Generic Building Numeric Balance V1 QA
 
 Date: 2026-09-21  
-Status: **PASS — current repository structural validation**
+Status: **STRUCTURAL PASS / SOURCE-FINALITY PARTIAL**
 
 Authorities:
 - `city_system/FINAL_GENERIC_BUILDING_ROSTER_V1.csv`
@@ -19,7 +19,8 @@ Authorities:
 - era mismatches between roster/numeric table: **0**
 - chain mismatches: **0**
 - invalid source grades: **0**
-- unlocked numeric rows: **0**
+- locked rows: **83**
+- mod-source re-audit rows: **19**
 - Great Work type/slot mismatches: **0**
 - specialist type/slot mismatches: **0**
 - flat GPP without a GPP type: **0**
@@ -99,3 +100,26 @@ Workflow:
 
 Do not claim a completed Actions run until one is retrieved.
 The PASS above comes from re-reading the current authoritative branch and reproducing the structural/anchor checks directly.
+
+
+## Mod-aware source re-audit
+
+The previous QA incorrectly treated all 102 numeric rows as equally final.
+
+Current authoritative distinction:
+- 83 rows remain `LOCKED_BUILDING_V1`
+- 19 rows are `MOD_SOURCE_REAUDIT_REQUIRED`
+
+Re-audit manifest:
+`city_system/BUILDING_MOD_SOURCE_REAUDIT_V2.csv`
+
+Source-precedence authority:
+`city_system/PROJECT_CONTENT_SOURCE_PRECEDENCE_V1.md`
+
+The structural validator may still PASS while these 19 rows remain under source audit.  
+Therefore **STRUCTURAL PASS is not the same as SOURCE-FINALITY PASS**.
+
+Known corrected Enlightenment Era effects:
+- Cloth Mill source effect restored
+- Gunsmith source effect restored
+- Drydock source effect restored
