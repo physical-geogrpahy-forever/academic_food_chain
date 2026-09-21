@@ -1,73 +1,73 @@
-CIVIC_EN,CIVIC_KO,PROJECT_ERA,DIRECT_TECH_RELATION,DIRECT_TECH,INHERITED_HARD_TECHS,RATIONALE
-Code of Laws,법전,Ancient,BOOST,Writing,,법의 성문화와 행정 기록을 가속하지만 관습법까지 막지는 않음
-Craftsmanship,장인 정신,Ancient,BOOST,Mining,,금속·광물 가공 기술이 전문 수공업 발달을 촉진
-Foreign Trade,외국 무역,Ancient,BOOST,Sailing,,해상 교역을 크게 넓히지만 육상 장거리 교역도 가능
-Military Tradition,군사 전통,Ancient,NONE,,,특정 물질기술이 없어도 군사 전통은 성립 가능
-State Workforce,국가 노동력,Ancient,BOOST,Masonry,,대규모 건설기술이 공공노동 조직을 촉진하지만 필수는 아님
-Early Empire,초기 제국,Ancient,BOOST,Writing,,조세·명령·기록 행정의 규모 확대를 촉진
-Mysticism,신비주의,Ancient,NONE,,,기술적 필수조건 없음
-Games and Recreation,오락과 여가,Classical,NONE,,,조직적 경기와 오락은 특정 기술 없이도 가능
-Political Philosophy,정치 철학,Classical,BOOST,Writing,,철학의 축적·전승을 가속하지만 구전 정치사상도 가능
-Drama and Poetry,드라마와 시,Classical,NONE,,,구전 연극·시 전통이 가능
-Military Training,군사 훈련,Classical,BOOST,Bronze Working,,표준화된 무기·장비가 훈련체계를 촉진하지만 필수는 아님
-Recorded History,역사 기록,Classical,HARD,Writing,,역사를 지속적으로 기록·보존하려면 문자 기록체계가 필요
-Defensive Tactics,방어술,Late Antiquity,BOOST,Engineering,,축성·공성 대응 기술이 방어교리 발전을 촉진
-Theology,신학,Late Antiquity,NONE,,Writing,사회 선행인 기록 전통을 통해 문자 조건을 이미 상속하며 별도 기술문턱은 불필요
-Naval Tradition,해군 전통,Late Antiquity,HARD,Sailing,,해군 전통은 항해·선박 운용 능력 없이는 성립할 수 없음
-Civil Service,공무원 제도,Late Antiquity,NONE,,Writing,기록기술 조건은 Recorded History를 통해 상속; 별도 문턱을 중복하지 않음
-Feudalism,봉건제,Early Medieval,NONE,,,특정 발명보다 토지·권력 관계의 사회구조가 핵심
-Mercenaries,용병,Early Medieval,BOOST,Currency,,화폐경제가 용병시장을 확대하지만 현물·토지 보상도 가능
-Written Culture,문자문화,Early Medieval,NONE,,Writing,Writing 필수조건을 Civil Service←Recorded History에서 이미 상속
-Court Culture,궁정 문화,Early Medieval,NONE,,Writing,특정 물질기술의 필수조건 없음
-Medieval Faires,중세 시장,High Medieval,BOOST,Currency,,화폐경제가 정기시장과 교역 확대를 촉진
-Guilds,길드,High Medieval,BOOST,Currency,Writing,화폐·상업경제가 길드 발전을 촉진하지만 장인조합 자체는 더 넓게 가능
-Divine Right,왕권신수설,High Medieval,NONE,,Writing,기술보다 종교·정치적 정당화가 핵심
-Scholasticism,스콜라주의,High Medieval,BOOST,Education,Writing,학교·대학 기반 교육체계가 스콜라주의의 조직화를 촉진
-Humanism,인본주의,Renaissance,BOOST,Education,Writing,교육기관과 고전학습 기반이 인문주의 확산을 촉진
-Diplomatic Service,외교부,Renaissance,NONE,,Writing,상설 외교의 핵심은 국가·궁정 제도이며 특정 기술은 필수 아님
-Patronage,후원,Renaissance,NONE,,Writing,후원은 재정·권력 관계로 성립 가능
-Print Culture,인쇄문화,Renaissance,HARD,Printing,Writing,인쇄문화는 재현 가능한 인쇄기술 없이는 성립 불가
-Exploration,탐험,Exploration,HARD,Cartography,Sailing,본 프로젝트의 16~17세기 원양 탐험 단계에는 체계적 해양 항법·지도화 능력이 필요
-Reformed Church,개혁 교회,Exploration,NONE,,Printing; Writing,Printing은 Print Culture 선행을 통해 이미 상속
-Scientific Revolution,과학혁명,Exploration,BOOST,Astronomy,Printing; Writing,천문학·관측기술이 과학혁명의 핵심 동력이지만 운동 전체를 천문학 하나로 제한하지 않음
-Sovereignty,주권,Exploration,NONE,,Writing,국가주권 개념은 특정 발명의 직접 산물이 아님
-Mercantilism,중상주의,Exploration,BOOST,Banking,Cartography; Sailing; Writing,은행·금융기술이 국가주도 상업정책을 확대하지만 필수는 아님
-Colonialism,식민주의,Exploration,NONE,,Cartography; Sailing; Writing,Cartography는 Exploration→Mercantilism을 통해 이미 상속
-The Enlightenment,계몽주의,Enlightenment,BOOST,Scientific Theory,Printing; Writing,과학적 방법과 자연철학의 발전이 계몽사상 확산을 촉진
-Opera and Ballet,오페라와 발레,Enlightenment,NONE,,Writing,공연예술 양식 자체에 특정 과학기술 필수조건 없음
-Natural History,자연사,Enlightenment,BOOST,Scientific Theory,Cartography; Printing; Sailing; Writing,체계적 관찰·분류와 자연과학 발전을 촉진
-Public Sphere,공론장,Enlightenment,NONE,,Printing; Writing,Printing 조건은 Print Culture에서 이미 상속
-Constitutionalism,헌정주의,Enlightenment,NONE,,Printing; Writing,정치제도이며 별도 물질기술 문턱 불필요
-Capitalism,자본주의,Industrial,BOOST,Banking,Cartography; Sailing; Writing,금융기관과 신용체계가 자본주의 확대를 촉진하지만 상업자본은 더 일찍 가능
-Civil Engineering,토목 공학,Industrial,HARD,Engineering,Writing,근대적 토목공학 체계는 공학적 설계·측량·구조기술을 직접 전제로 함
-Nationalism,민족주의,Industrial,NONE,,Printing; Writing,기술보다 주권·공론장·정치적 정체성의 사회적 결합이 핵심
-Romanticism,낭만주의,Industrial,NONE,,Printing; Writing,문화·사상운동으로 특정 기술문턱 불필요
-Urbanization,도시화,Industrial,BOOST,Industrialization,Cartography; Engineering; Sailing; Writing,산업화가 19세기 대규모 도시화를 가속하지만 도시화 자체는 더 오래된 현상
-Scorched Earth,초토화,Industrial,BOOST,Military Science,Printing; Writing,근대 군사과학·병참체계가 대규모 전략적 초토화를 촉진
-Conservation,보존,Industrial,BOOST,Biology,Cartography; Printing; Sailing; Writing,생물학·생태지식이 보전정책을 강화하지만 보전사상 자체는 가능
-Mass Media,대중 매체,Industrial,BOOST,Telegraph,Cartography; Engineering; Printing; Sailing; Writing,"인쇄 기반은 Print Culture에서 상속되며, 전신이 19세기 대중 통신·뉴스 네트워크의 확장을 직접 촉진"
-Labor Movement,노동운동,Industrial,BOOST,Industrialization,Cartography; Engineering; Sailing; Writing,산업화가 대규모 임금노동과 노동운동을 촉진하지만 노동조직을 완전히 불가능하게 하는 문턱은 아님
-Mobilization,동원령,Modern,BOOST,Steam Power,Cartography; Engineering; Printing; Sailing; Writing,철도·증기교통·산업병참이 국민적 동원을 크게 확대
-Ideology,이데올로기,Modern,BOOST,Radio,Cartography; Engineering; Printing; Sailing; Writing,방송기술이 대중 이념정치와 선전을 가속하지만 이데올로기 자체의 필수조건은 아님
-Suffrage,참정권,Modern,NONE,,Printing; Writing,참정권 확대는 정치·사회 제도 변화이며 특정 기술 필수조건 없음
-Totalitarianism,전체주의,Modern,BOOST,Radio,Cartography; Engineering; Printing; Sailing; Writing,현대 대중선전과 중앙집중적 정보통제가 전체주의 체제를 강화
-Class Struggle,계급 투쟁,Modern,NONE,,Cartography; Engineering; Printing; Sailing; Writing,산업화 효과는 Labor Movement 경로와 부스트에서 반영; 별도 기술문턱 없음
-Professional Sports,프로 스포츠,Modern,BOOST,Radio,Cartography; Engineering; Sailing; Writing,방송이 프로스포츠의 대중 관람시장과 상업화를 크게 확대
-Nuclear Program,핵 프로그램,Atomic,HARD,Nuclear Fission,Cartography; Engineering; Printing; Sailing; Writing,핵분열 지식 없이 핵무기·원자로 국가프로그램은 성립 불가
-Cultural Heritage,문화 유산,Atomic,NONE,,Cartography; Printing; Sailing; Writing,문화유산 제도는 특정 기술 없이도 성립 가능
-Cold War,냉전,Atomic,NONE,,Cartography; Engineering; Nuclear Fission; Printing; Sailing; Writing,Nuclear Fission 조건을 Nuclear Program 선행에서 상속
-Rapid Deployment,신속한 배치,Atomic,HARD,Flight,Cartography; Engineering; Nuclear Fission; Printing; Sailing; Writing,현대적 장거리 신속배치는 항공수송 능력을 직접 전제로 함
-Space Race,우주 경쟁,Atomic,HARD,Rocketry,Cartography; Engineering; Nuclear Fission; Printing; Sailing; Writing,우주경쟁은 로켓기술 없이는 실행 불가
-Environmentalism,환경주의,Atomic,BOOST,Ecology,Cartography; Engineering; Printing; Sailing; Writing,생태학과 환경과학이 현대 환경주의의 과학적 기반을 강화
-Globalization,세계화,Information,BOOST,Telecommunications,Cartography; Engineering; Printing; Sailing; Writing,장거리 교역·세계연결은 더 오래됐지만 현대 세계화는 통신혁명으로 크게 가속
-Social Media,소셜 미디어,Information,HARD,Telecommunications,Cartography; Engineering; Printing; Sailing; Writing,디지털 네트워크 기반 사회미디어는 전기통신·인터넷 계열 기술 없이는 성립 불가
-Near Future Governance,근미래 통치,Information,BOOST,Computers,Cartography; Engineering; Printing; Sailing; Writing,데이터 기반 행정과 디지털 거버넌스를 가속하지만 정부제도 자체를 컴퓨터에 종속시키지 않음
-Venture Politics,벤처 정치,Information,NONE,,Cartography; Engineering; Printing; Sailing; Telecommunications; Writing,Social Media를 통해 정보기술 조건을 상속하고 별도 기술문턱은 불필요
-Distributed Sovereignty,분산 주권,Information,NONE,,Cartography; Engineering; Printing; Sailing; Telecommunications; Writing,Social Media를 통해 통신 조건을 상속; 핵심은 제도적 분산
-Optimization Imperative,최적화 명령,Information,HARD,Robotics,Cartography; Engineering; Printing; Sailing; Telecommunications; Writing,고도 자동화·최적화 중심의 합성 기술관료 체계는 로봇·자동화 기술을 직접 전제로 함
-Information Warfare,정보전,Information,NONE,,Cartography; Engineering; Printing; Sailing; Telecommunications; Writing,Venture Politics→Social Media 경로를 통해 Telecommunications 조건을 이미 상속
-Global Warming Mitigation,지구온난화 완화,Information,BOOST,Satellites,Cartography; Engineering; Printing; Robotics; Sailing; Telecommunications; Writing,위성관측이 지구규모 기후감시·정책 설계를 크게 강화하지만 완화정책의 필수조건은 아님
-Cultural Hegemony,문화적 패권,Information,NONE,,Cartography; Engineering; Printing; Sailing; Telecommunications; Writing,정보기술 조건은 선행 미래 가지에서 상속; 추가 기술문턱 불필요
-Smart Power Doctrine,스마트 파워 독트린,Information,NONE,,Cartography; Engineering; Printing; Robotics; Sailing; Telecommunications; Writing,군사·외교·문화 수단의 결합은 특정 단일 기술에 종속되지 않음
-Exodus Imperative,강제 대이동,Information,HARD,Satellites,Cartography; Engineering; Printing; Robotics; Sailing; Telecommunications; Writing,우주산업·우주이주 계열 정책을 다루는 최종 미래 가지에는 성숙한 우주기술 기반이 필요
-Future Civic,미래 사회제도,Information,NONE,,Cartography; Engineering; Printing; Robotics; Sailing; Satellites; Telecommunications; Writing,선행 미래 사회제도와 그 기술조건을 모두 상속하는 반복 종착점
+"CIVIC_EN","CIVIC_KO","PROJECT_ERA","DIRECT_TECH_RELATION","DIRECT_TECH","INHERITED_HARD_TECHS","RATIONALE"
+"Code of Laws","법전","Ancient","BOOST","Writing","","법의 성문화와 행정 기록을 가속하지만 관습법까지 막지는 않음"
+"Craftsmanship","장인 정신","Ancient","BOOST","Mining","","금속·광물 가공 기술이 전문 수공업 발달을 촉진"
+"Foreign Trade","외국 무역","Ancient","BOOST","Sailing","","해상 교역을 크게 넓히지만 육상 장거리 교역도 가능"
+"Military Tradition","군사 전통","Ancient","NONE","","","특정 물질기술이 없어도 군사 전통은 성립 가능"
+"State Workforce","국가 노동력","Ancient","BOOST","Masonry","","대규모 건설기술이 공공노동 조직을 촉진하지만 필수는 아님"
+"Early Empire","초기 제국","Ancient","BOOST","Writing","","조세·명령·기록 행정의 규모 확대를 촉진"
+"Mysticism","신비주의","Ancient","NONE","","","기술적 필수조건 없음"
+"Games and Recreation","오락과 여가","Classical","NONE","","","조직적 경기와 오락은 특정 기술 없이도 가능"
+"Political Philosophy","정치 철학","Classical","BOOST","Writing","","철학의 축적·전승을 가속하지만 구전 정치사상도 가능"
+"Drama and Poetry","드라마와 시","Classical","NONE","","","구전 연극·시 전통이 가능"
+"Military Training","군사 훈련","Classical","BOOST","Bronze Working","","표준화된 무기·장비가 훈련체계를 촉진하지만 필수는 아님"
+"Recorded History","역사 기록","Classical","HARD","Writing","","역사를 지속적으로 기록·보존하려면 문자 기록체계가 필요"
+"Defensive Tactics","방어술","Late Antiquity","BOOST","Engineering","","축성·공성 대응 기술이 방어교리 발전을 촉진"
+"Theology","신학","Late Antiquity","NONE","","Writing","사회 선행인 기록 전통을 통해 문자 조건을 이미 상속하며 별도 기술문턱은 불필요"
+"Naval Tradition","해군 전통","Late Antiquity","HARD","Sailing","","해군 전통은 항해·선박 운용 능력 없이는 성립할 수 없음"
+"Civil Service","공무원 제도","Late Antiquity","NONE","","Writing","기록기술 조건은 Recorded History를 통해 상속; 별도 문턱을 중복하지 않음"
+"Feudalism","봉건제","Early Medieval","NONE","","","특정 발명보다 토지·권력 관계의 사회구조가 핵심"
+"Mercenaries","용병","Early Medieval","BOOST","Currency","","화폐경제가 용병시장을 확대하지만 현물·토지 보상도 가능"
+"Written Culture","문자문화","Early Medieval","NONE","","Writing","Writing 필수조건을 Civil Service←Recorded History에서 이미 상속"
+"Court Culture","궁정 문화","Early Medieval","NONE","","Writing","특정 물질기술의 필수조건 없음"
+"Medieval Faires","중세 시장","High Medieval","BOOST","Currency","","화폐경제가 정기시장과 교역 확대를 촉진"
+"Guilds","길드","High Medieval","BOOST","Currency","Writing","화폐·상업경제가 길드 발전을 촉진하지만 장인조합 자체는 더 넓게 가능"
+"Divine Right","왕권신수설","High Medieval","NONE","","Writing","기술보다 종교·정치적 정당화가 핵심"
+"Scholasticism","스콜라주의","High Medieval","BOOST","Education","Writing","학교·대학 기반 교육체계가 스콜라주의의 조직화를 촉진"
+"Humanism","인본주의","Renaissance","BOOST","Education","Writing","교육기관과 고전학습 기반이 인문주의 확산을 촉진"
+"Diplomatic Service","외교부","Renaissance","NONE","","Writing","상설 외교의 핵심은 국가·궁정 제도이며 특정 기술은 필수 아님"
+"Patronage","후원","Renaissance","NONE","","Writing","후원은 재정·권력 관계로 성립 가능"
+"Print Culture","인쇄문화","Renaissance","HARD","Printing","Writing","인쇄문화는 재현 가능한 인쇄기술 없이는 성립 불가"
+"Exploration","탐험","Exploration","HARD","Cartography","Sailing","본 프로젝트의 16~17세기 원양 탐험 단계에는 체계적 해양 항법·지도화 능력이 필요"
+"Reformed Church","개혁 교회","Exploration","NONE","","Printing; Writing","Printing은 Print Culture 선행을 통해 이미 상속"
+"Scientific Revolution","과학혁명","Exploration","BOOST","Astronomy","Printing; Writing","천문학·관측기술이 과학혁명의 핵심 동력이지만 운동 전체를 천문학 하나로 제한하지 않음"
+"Sovereignty","주권","Exploration","NONE","","Writing","국가주권 개념은 특정 발명의 직접 산물이 아님"
+"Mercantilism","중상주의","Exploration","BOOST","Banking","Cartography; Sailing; Writing","은행·금융기술이 국가주도 상업정책을 확대하지만 필수는 아님"
+"Colonialism","식민주의","Exploration","NONE","","Cartography; Sailing; Writing","Cartography는 Exploration→Mercantilism을 통해 이미 상속"
+"The Enlightenment","계몽주의","Enlightenment","BOOST","Scientific Theory","Printing; Writing","과학적 방법과 자연철학의 발전이 계몽사상 확산을 촉진"
+"Opera and Ballet","오페라와 발레","Enlightenment","NONE","","Writing","공연예술 양식 자체에 특정 과학기술 필수조건 없음"
+"Natural History","자연사","Enlightenment","BOOST","Scientific Theory","Cartography; Printing; Sailing; Writing","체계적 관찰·분류와 자연과학 발전을 촉진"
+"Public Sphere","공론장","Enlightenment","NONE","","Printing; Writing","Printing 조건은 Print Culture에서 이미 상속"
+"Constitutionalism","헌정주의","Enlightenment","NONE","","Printing; Writing","정치제도이며 별도 물질기술 문턱 불필요"
+"Capitalism","자본주의","Industrial","BOOST","Banking","Cartography; Sailing; Writing","금융기관과 신용체계가 자본주의 확대를 촉진하지만 상업자본은 더 일찍 가능"
+"Civil Engineering","토목 공학","Industrial","HARD","Engineering","Writing","근대적 토목공학 체계는 공학적 설계·측량·구조기술을 직접 전제로 함"
+"Nationalism","민족주의","Industrial","NONE","","Printing; Writing","기술보다 주권·공론장·정치적 정체성의 사회적 결합이 핵심"
+"Romanticism","낭만주의","Industrial","NONE","","Printing; Writing","문화·사상운동으로 특정 기술문턱 불필요"
+"Urbanization","도시화","Industrial","BOOST","Industrialization","Cartography; Engineering; Sailing; Writing","산업화가 19세기 대규모 도시화를 가속하지만 도시화 자체는 더 오래된 현상"
+"Scorched Earth","초토화","Industrial","BOOST","Military Science","Printing; Writing","근대 군사과학·병참체계가 대규모 전략적 초토화를 촉진"
+"Conservation","보존","Industrial","BOOST","Biology","Cartography; Printing; Sailing; Writing","생물학·생태지식이 보전정책을 강화하지만 보전사상 자체는 가능"
+"Mass Media","대중 매체","Industrial","BOOST","Telegraph","Cartography; Engineering; Printing; Sailing; Writing","인쇄 기반은 Print Culture에서 상속되며, 전신이 19세기 대중 통신·뉴스 네트워크의 확장을 직접 촉진"
+"Labor Movement","노동운동","Industrial","BOOST","Industrialization","Cartography; Engineering; Sailing; Writing","산업화가 대규모 임금노동과 노동운동을 촉진하지만 노동조직을 완전히 불가능하게 하는 문턱은 아님"
+"Mobilization","동원령","Modern","BOOST","Steam Power","Cartography; Engineering; Printing; Sailing; Writing","철도·증기교통·산업병참이 국민적 동원을 크게 확대"
+"Ideology","이데올로기","Modern","BOOST","Radio","Cartography; Engineering; Printing; Sailing; Writing","방송기술이 대중 이념정치와 선전을 가속하지만 이데올로기 자체의 필수조건은 아님"
+"Suffrage","참정권","Modern","NONE","","Printing; Writing","참정권 확대는 정치·사회 제도 변화이며 특정 기술 필수조건 없음"
+"Totalitarianism","전체주의","Modern","BOOST","Radio","Cartography; Engineering; Printing; Sailing; Writing","현대 대중선전과 중앙집중적 정보통제가 전체주의 체제를 강화"
+"Class Struggle","계급 투쟁","Modern","NONE","","Cartography; Engineering; Printing; Sailing; Writing","산업화 효과는 Labor Movement 경로와 부스트에서 반영; 별도 기술문턱 없음"
+"Professional Sports","프로 스포츠","Modern","BOOST","Radio","Cartography; Engineering; Sailing; Writing","방송이 프로스포츠의 대중 관람시장과 상업화를 크게 확대"
+"Nuclear Program","핵 프로그램","Atomic","HARD","Nuclear Fission","Cartography; Engineering; Printing; Sailing; Writing","핵분열 지식 없이 핵무기·원자로 국가프로그램은 성립 불가"
+"Cultural Heritage","문화 유산","Atomic","NONE","","Cartography; Printing; Sailing; Writing","문화유산 제도는 특정 기술 없이도 성립 가능"
+"Cold War","냉전","Atomic","NONE","","Cartography; Engineering; Nuclear Fission; Printing; Sailing; Writing","Nuclear Fission 조건을 Nuclear Program 선행에서 상속"
+"Rapid Deployment","신속한 배치","Atomic","HARD","Flight","Cartography; Engineering; Nuclear Fission; Printing; Sailing; Writing","현대적 장거리 신속배치는 항공수송 능력을 직접 전제로 함"
+"Space Race","우주 경쟁","Atomic","HARD","Rocketry","Cartography; Engineering; Nuclear Fission; Printing; Sailing; Writing","우주경쟁은 로켓기술 없이는 실행 불가"
+"Environmentalism","환경주의","Information","BOOST","Ecology","Cartography; Engineering; Printing; Sailing; Writing","생태학과 환경과학이 현대 환경주의의 과학적 기반을 강화"
+"Globalization","세계화","Information","BOOST","Telecommunications","Cartography; Engineering; Printing; Sailing; Writing","장거리 교역·세계연결은 더 오래됐지만 현대 세계화는 통신혁명으로 크게 가속"
+"Social Media","소셜 미디어","Information","HARD","Telecommunications","Cartography; Engineering; Printing; Sailing; Writing","디지털 네트워크 기반 사회미디어는 전기통신·인터넷 계열 기술 없이는 성립 불가"
+"Near Future Governance","근미래 통치","Information","BOOST","Computers","Cartography; Engineering; Printing; Sailing; Writing","데이터 기반 행정과 디지털 거버넌스를 가속하지만 정부제도 자체를 컴퓨터에 종속시키지 않음"
+"Venture Politics","벤처 정치","Information","NONE","","Cartography; Engineering; Printing; Sailing; Telecommunications; Writing","Social Media를 통해 정보기술 조건을 상속하고 별도 기술문턱은 불필요"
+"Distributed Sovereignty","분산 주권","Information","NONE","","Cartography; Engineering; Printing; Sailing; Telecommunications; Writing","Social Media를 통해 통신 조건을 상속; 핵심은 제도적 분산"
+"Optimization Imperative","최적화 명령","Information","HARD","Robotics","Cartography; Engineering; Printing; Sailing; Telecommunications; Writing","고도 자동화·최적화 중심의 합성 기술관료 체계는 로봇·자동화 기술을 직접 전제로 함"
+"Information Warfare","정보전","Future","NONE","","Cartography; Engineering; Printing; Sailing; Telecommunications; Writing","Venture Politics→Social Media 경로를 통해 Telecommunications 조건을 이미 상속"
+"Global Warming Mitigation","지구온난화 완화","Future","BOOST","Satellites","Cartography; Engineering; Printing; Robotics; Sailing; Telecommunications; Writing","위성관측이 지구규모 기후감시·정책 설계를 크게 강화하지만 완화정책의 필수조건은 아님"
+"Cultural Hegemony","문화적 패권","Future","NONE","","Cartography; Engineering; Printing; Sailing; Telecommunications; Writing","정보기술 조건은 선행 미래 가지에서 상속; 추가 기술문턱 불필요"
+"Smart Power Doctrine","스마트 파워 독트린","Future","NONE","","Cartography; Engineering; Printing; Robotics; Sailing; Telecommunications; Writing","군사·외교·문화 수단의 결합은 특정 단일 기술에 종속되지 않음"
+"Exodus Imperative","강제 대이동","Future","HARD","Satellites","Cartography; Engineering; Printing; Robotics; Sailing; Telecommunications; Writing","우주산업·우주이주 계열 정책을 다루는 최종 미래 가지에는 성숙한 우주기술 기반이 필요"
+"Future Civic","미래 사회제도","Future","NONE","","Cartography; Engineering; Printing; Robotics; Sailing; Satellites; Telecommunications; Writing","선행 미래 사회제도와 그 기술조건을 모두 상속하는 반복 종착점"
