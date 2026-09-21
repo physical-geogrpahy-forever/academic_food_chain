@@ -1,0 +1,10 @@
+state_abbrev,candidate_D,candidate_R,d_prior_statewide_count,r_prior_statewide_count,d_personal_vote_cycle_adjusted_pctpt,r_personal_vote_cycle_adjusted_pctpt,PersonalVoteDiff_D_minus_R_pctpt,personal_vote_status
+AK,Mary Peltola,Dan Sullivan,0,2,,-10.777594893499712,10.777594893499712,available_with_missing_side_zero_for_diff
+GA,Jon Ossoff,Mike Collins,1,0,1.940880627023354,,1.940880627023354,available_with_missing_side_zero_for_diff
+IA,Josh Turek,Ashley Hinson,0,0,,,,both_missing
+ME,Troy Jackson,Susan Collins,0,3,,37.9820694352427,-37.9820694352427,available_with_missing_side_zero_for_diff
+MI,Abdul El-Sayed,Mike Rogers,0,1,,-2.2447700600703864,2.2447700600703864,available_with_missing_side_zero_for_diff
+NC,Roy Cooper,Michael Whatley,2,0,13.663702239598738,,13.663702239598738,available_with_missing_side_zero_for_diff
+NH,Chris Pappas,John Sununu,0,1,,7.44200737155826,-7.44200737155826,available_with_missing_side_zero_for_diff
+OH,Sherrod Brown,Jon Husted,4,0,2.2667655244118703,,2.2667655244118703,available_with_missing_side_zero_for_diff
+TX,James Talarico,Ken Paxton,0,0,,,,both_missing
