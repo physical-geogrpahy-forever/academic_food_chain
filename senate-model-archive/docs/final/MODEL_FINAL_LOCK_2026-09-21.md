@@ -18,16 +18,26 @@ Tie-break order:
 4. complexity / parsimony
 
 ## Base architecture
-Fundamentals prior:
+
+The executable source that generates the canonical 98/99 production-retrospective path is authoritative.
+
+Fundamentals prior actually used by that source:
 - PVI
+- SameSeat prior margin
+- SameSeat year gap
+- RelativeEconomicGrowth
 - National environment
-- SameSeat
-- Incumbency
+- IncumbencyDiff
 - OutPartyIncumbent
+- Incumbency era interaction
+- OutPartyIncumbent era interaction
+
+Not part of the canonical 98/99 production calculation:
 - Senate / Governor / House experience
 - PersonalVote
-- RelativeEconomicGrowth
-- era interactions
+- FEC finance
+
+Those candidate and finance fields may be retained as auxiliary diagnostics, but they must not be inserted into the locked 98/99 production calculation without defining and validating a new model version.
 
 Poll layer:
 - exact benchmark lead time: election minus 45 days
