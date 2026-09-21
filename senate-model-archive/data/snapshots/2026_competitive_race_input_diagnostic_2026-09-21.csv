@@ -1,0 +1,10 @@
+state,candidate_D,candidate_R,seat_status,pvi_2026_pctpt,external_poll_avg_D_minus_R_pctpt,external_poll_source_date_basis,outparty_incumbent_flag,poll_pvi_agree,third_party_or_multicandidate_flag,notes
+AK,Mary Peltola,Dan Sullivan,R incumbent,-13.1390,1.7,RCP current average crawled 2026-09-21,0,0,1,"Alaska RCV and another Dan Sullivan on ballot; treat as multi-candidate / uncertainty case"
+GA,Jon Ossoff,Mike Collins,D incumbent,-1.8929,7.5,RCP current average crawled 2026-09-21,1,0,0,"Out-party incumbent under production definition because state PVI is R-leaning"
+IA,Josh Turek,Ashley Hinson,open R seat,-12.2613,-1.3,RCP current average crawled 2026-09-21,0,1,0,"Open seat"
+ME,Troy Jackson,Susan Collins,R incumbent,7.3400,1.8,RCP current average crawled 2026-09-21,1,1,0,"Out-party incumbent because state PVI is D-leaning"
+MI,Abdul El-Sayed,Mike Rogers,open D seat,-0.5253,2.1,RCP current average crawled 2026-09-21,0,0,0,"Open seat; state PVI near neutral"
+NH,Chris Pappas,John Sununu,open D seat,3.8726,4.8,RCP current average crawled 2026-09-21,0,1,0,"Open seat"
+NC,Roy Cooper,Michael Whatley,open R seat,-3.1280,8.3,RCP current average crawled 2026-09-21,0,0,0,"Open seat"
+OH,Sherrod Brown,Jon Husted,R appointed incumbent,-10.7623,4.8,RCP current average crawled 2026-09-21,1,0,0,"Special election; appointed R incumbent"
+TX,James Talarico,Ken Paxton,open R seat,-11.6584,2.6,RCP current average crawled 2026-09-21,0,0,0,"Open seat"
