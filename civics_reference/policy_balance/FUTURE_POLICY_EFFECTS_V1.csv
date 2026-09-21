@@ -1,0 +1,9 @@
+POLICY_EN,CIVIC_EN,POLICY_SLOT,FINAL_EFFECT,SOURCE_BASIS
+"Hallyu","Cultural Hegemony","Wildcard","Rock Bands can choose from any available Promotion","Civ6 GS direct"
+"Non-State Actors","Cultural Hegemony","Wildcard","Spies can choose from any available Promotion","Civ6 GS direct"
+"Aerospace Contractors","Exodus Imperative","Wildcard","Cities with a Space Launch Center gain +3 Aluminum per turn and +3 Power","Civ6 Spaceport adapted to Space Launch Center"
+"Space Tourism","Exodus Imperative","Wildcard","Tourism from other civilizations is reduced by 20% versus your civilization","Civ6 GS direct"
+"Integrated Attack Logistics","Information Warfare","Wildcard","+1 Movement to units that start their turn in enemy territory","Civ6 GS baseline part; GDR +50% Production omitted from baseline"
+"Rabblerousing","Information Warfare","Wildcard","+1 Diplomatic Favor per turn","Civ6 GS direct recurring part; Diplomatic-Victory-point refund omitted"
+"Diplomatic Capital","Smart Power Doctrine","Wildcard","+4 Diplomatic Favor per turn","Civ6 GS direct"
+"Global Coalition","Smart Power Doctrine","Wildcard","+7 Combat Strength for units in friendly territory","Civ6 GS direct"
