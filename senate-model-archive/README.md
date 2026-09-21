@@ -74,3 +74,13 @@ canonical bundle:
 - `docs/analysis/2026_SENATE_INPUT_DIAGNOSTIC_2026-09-21.md`
 - `data/snapshots/2026_competitive_race_input_diagnostic_2026-09-21.csv`
 
+
+
+## 2026 canonical poll input layer
+
+The legacy equal-sample poll proxy is superseded by:
+- `data/snapshots/2026_poll_sample_size_audit.csv`
+- `data/snapshots/2026_poll_45d_canonical_weight_detail.csv`
+- `data/snapshots/2026_poll_45d_canonical_sample_weighted.csv`
+
+These are poll-input artifacts only and do not themselves constitute a forecast.
