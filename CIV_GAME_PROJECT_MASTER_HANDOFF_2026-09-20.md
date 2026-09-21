@@ -460,8 +460,9 @@ V3는 broad gameplay envelope:
 - Enlightenment: 5
 - Industrial: 9
 - Modern: 6
-- Atomic: 6
-- Information: 12
+- Atomic: 5
+- Information: 7
+- Future: 6
 
 Total: **72**
 
@@ -663,8 +664,9 @@ Globalization에서 Cold War hard prerequisite를 제거했다.
 - Enlightenment: 6
 - Industrial: 16
 - Modern: 12
-- Atomic: 13
+- Atomic: 5
 - Information: 9
+- Future: 8
 
 ## Historical additions 6
 
@@ -1909,7 +1911,7 @@ Current baseline:
 - 127 policy-card ownership entries, duplicate 0
 - former Great Person improvements restored as nerfed Worker-built tiles except Citadel
 - Governor system not adopted
-- GDR moved to an optional endgame module
+- GDR restored to the baseline by the later Gathering Storm Future Era realignment
 - tracked numeric/system deferrals resolved
 - deferred generic queue remaining: 0
 
@@ -1944,7 +1946,7 @@ Current authorities:
 - `civics_reference/FINAL_POLICY_CARD_ROSTER_V1_QA.md`
 - `civics_reference/policy_balance/*_POLICY_EFFECTS_V1.csv`
 
-Civ VI is the main fallback source for policy content when Civ V/project content is sparse. District/Builder/Governor/GDR-dependent effects are translated to the project's Civ V-style structure.
+Civ VI is the main fallback source for policy content when Civ V/project content is sparse. District/Builder/Governor-dependent effects are translated to the project's Civ V-style structure; Gathering Storm GDR effects are retained where the baseline GDR now exists.
 
 
 ## Generic building roster locked — 2026-09-21
