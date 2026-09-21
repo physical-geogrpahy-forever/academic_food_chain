@@ -73,8 +73,9 @@ Horseback Riding + Iron Working -> Stirrups
 - Enlightenment: 6
 - Industrial: 16
 - Modern: 12
-- Atomic: 13
+- Atomic: 5
 - Information: 9
+- Future: 8
 - **Total: 109**
 
 The technological acceleration in Industrial/Modern/Atomic eras is intentional. The premodern middle eras are no longer nearly empty.
@@ -121,3 +122,40 @@ New technology nodes should be added only if:
 - a major historical technology cannot be represented by any existing node without distorting another node.
 
 The civic and science trees remain parallel and are connected through explicit HARD/BOOST crosslinks.
+
+
+## Gathering Storm Future Era realignment — 2026-09-21
+
+The project now restores a separate **Future Era** instead of folding Gathering Storm's future technologies into Information.
+
+Information:
+- Telecommunications
+- Satellites
+- Guidance Systems
+- Lasers
+- Composites
+- Stealth Technology
+- Robotics
+- Nuclear Fusion
+- Nanotechnology
+
+Future:
+- Advanced AI
+- Advanced Power Cells
+- Cybernetics
+- Smart Materials
+- Predictive Systems
+- Seasteads
+- Offworld Mission
+- Future Tech
+
+Late-game content moves with its technology rather than keeping the old era label.
+
+The science-victory project chain is standardized to the Gathering Storm structure:
+- Rocketry / Space Race -> Launch Earth Satellite
+- Satellites / Space Race -> Moon Landing
+- Nanotechnology / Space Race -> Launch Mars Colony
+- Smart Materials + Exodus Imperative -> Exoplanet Expedition
+- Offworld Mission + Exodus Imperative -> Terrestrial / Lagrange Laser Stations
+
+Old Civ V-style SS Engine / SS Stasis Chamber abstractions are no longer part of the authoritative project chain.
