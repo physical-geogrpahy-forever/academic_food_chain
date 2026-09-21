@@ -27,7 +27,7 @@
 "INNATE_ASW_DETECT","UNIT_LIST","Destroyer; Missile Cruiser","Anti-Submarine Detection","REVEAL_SUBMARINE","1","YES","Civ5 BNW","LOCKED_V1",""
 "INNATE_ASW_BONUS","UNIT_LIST","Destroyer; Missile Cruiser","Anti-Submarine Attack","VS_SUBMARINE_PERCENT","100","YES","Civ5 BNW","LOCKED_V1",""
 "INNATE_CARRIER_DEFENSE_ONLY","UNIT","Aircraft Carrier","Carrier Platform","CANNOT_INITIATE_ATTACK","1","UNIT_SPECIFIC","Civ5 BNW","LOCKED_V1","Combat Strength is defensive"
-"INNATE_CARRIER_AIR","UNIT","Aircraft Carrier","Air Capacity","AIR_CARGO_BASE","3","UNIT_SPECIFIC","Project numeric V1; Civ5 carrier concept","LOCKED_V1","Flight Deck promotions can increase this"
+"INNATE_CARRIER_AIR","UNIT","Aircraft Carrier","Air Capacity","AIR_CARGO_BASE","2","UNIT_SPECIFIC","Civ5 BNW","LOCKED_V1","Base air capacity 2; Flight Deck I-III increase to 3/4/5."
 "INNATE_NUCSUB_CARGO","UNIT","Nuclear Submarine","Missile Capacity","MISSILE_CARGO_BASE","2","UNIT_SPECIFIC","Civ5 BNW","LOCKED_V1",""
 "INNATE_MISSILE_CRUISER_CARGO","UNIT","Missile Cruiser","Missile Capacity","MISSILE_CARGO_BASE","3","UNIT_SPECIFIC","Civ5 BNW","LOCKED_V1",""
 "INNATE_HELI_HOVER","UNIT","Helicopter","Hovering","IGNORE_TERRAIN_COST","1","UNIT_SPECIFIC","Civ5 Helicopter Gunship","LOCKED_V1","May traverse mountains subject to project terrain safety rules"
