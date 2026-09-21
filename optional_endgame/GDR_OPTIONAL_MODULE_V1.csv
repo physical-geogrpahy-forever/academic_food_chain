@@ -1,6 +1,6 @@
 CONTENT_EN,OPTIONAL_GATE,BASELINE_STATUS,MODULE_EFFECT
-"Giant Death Robot","Robotics","EXCLUDED_BASELINE","Optional late-game super-unit"
-"Drone Air Defense","Advanced AI","EXCLUDED_BASELINE","GDR air-defense upgrade"
-"Particle Beam Siege Cannon","Advanced Power Cells","EXCLUDED_BASELINE","GDR siege/ranged upgrade"
-"Enhanced Mobility","Cybernetics","EXCLUDED_BASELINE","GDR mobility upgrade"
-"Reinforced Armor","Smart Materials","EXCLUDED_BASELINE","GDR defensive upgrade"
+"Giant Death Robot","Robotics","BASELINE_RESTORED","Baseline late-game super-unit"
+"Drone Air Defense","Advanced AI","BASELINE_RESTORED","GDR air-defense upgrade"
+"Particle Beam Siege Cannon","Advanced Power Cells","BASELINE_RESTORED","GDR siege/ranged upgrade"
+"Enhanced Mobility","Cybernetics","BASELINE_RESTORED","GDR mobility upgrade"
+"Reinforced Armor","Smart Materials","BASELINE_RESTORED","GDR defensive upgrade"
