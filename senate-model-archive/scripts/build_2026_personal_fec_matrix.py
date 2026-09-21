@@ -212,6 +212,9 @@ PVOUT.parent.mkdir(parents=True,exist_ok=True)
 with PVOUT.open('w',encoding='utf-8',newline='') as f:
     w=csv.DictWriter(f,fieldnames=list(pvrows[0].keys()));w.writeheader();w.writerows(pvrows)
 
+def get(url):
+    return urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 CoreV2R-2026-FEC/1.0'}),timeout=180).read()
+
 # FEC candidate-summary bulk, strict June-30 coverage.
 WEBALL_URL='https://www.fec.gov/files/bulk-downloads/2026/weball26.zip'
 WEBALL_HEADER_URL='https://www.fec.gov/files/bulk-downloads/data_dictionaries/weball_header_file.csv'
