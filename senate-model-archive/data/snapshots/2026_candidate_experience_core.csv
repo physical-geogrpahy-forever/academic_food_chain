@@ -1,0 +1,10 @@
+state_abbrev,candidate_D,candidate_R,SenateExperienceDiff_D_minus_R,GovernorExperienceDiff_D_minus_R,HouseExperienceDiff_D_minus_R,core_coding_notes
+AK,Mary Peltola,Dan Sullivan,-1,0,1,"Peltola former U.S. House; Sullivan incumbent U.S. senator"
+GA,Jon Ossoff,Mike Collins,1,0,-1,"Ossoff incumbent U.S. senator; Collins U.S. House"
+IA,Josh Turek,Ashley Hinson,0,0,-1,"Hinson U.S. House; Turek has no Core federal/governor experience"
+ME,Troy Jackson,Susan Collins,-1,0,0,"Collins U.S. senator; Jackson state-level offices excluded from Core experience block"
+MI,Abdul El-Sayed,Mike Rogers,0,0,-1,"Rogers former U.S. House; El-Sayed has no Core federal/governor experience"
+NH,Chris Pappas,John Sununu,-1,0,0,"Pappas U.S. House; Sununu former U.S. House and U.S. Senate"
+NC,Roy Cooper,Michael Whatley,0,1,0,"Cooper former governor; Whatley has no Core Senate/Governor/House service"
+OH,Sherrod Brown,Jon Husted,0,0,1,"Brown former U.S. senator and U.S. House; Husted incumbent U.S. senator since 2025"
+TX,James Talarico,Ken Paxton,0,0,0,"state legislature/attorney-general service is not coded as Core Senate/Governor/House experience"
