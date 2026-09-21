@@ -126,7 +126,7 @@ out=[]
 for st in states:
     rows=by_state[st]
     weights=[float(x['combined_weight']) for x in rows]
-    margins=[float(x['D_minus_R']) for x in rows]
+    margins=[float(x['normalized_D_minus_R']) for x in rows]
     s=sum(weights)
     if s<=0:
         raise RuntimeError(f'Non-positive weight sum for {st}')
