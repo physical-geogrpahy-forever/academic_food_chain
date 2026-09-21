@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 FROZEN=ROOT/'data/snapshots/2026_senate_rcp_rows_through_2026-09-19.csv'
 AUDIT=ROOT/'data/snapshots/2026_poll_sample_size_audit.csv'
+STRUCT=ROOT/'data/snapshots/2026_structural_input_matrix_45d.csv'
 DETAIL=ROOT/'data/snapshots/2026_poll_45d_canonical_weight_detail.csv'
 OUT=ROOT/'data/snapshots/2026_poll_45d_canonical_sample_weighted.csv'
 DOC=ROOT/'docs/analysis/2026_POLL_45D_CANONICAL_LAYER.md'
@@ -24,6 +25,8 @@ def read_csv(path):
 
 frozen=read_csv(FROZEN)
 audit=read_csv(AUDIT)
+struct=read_csv(STRUCT)
+party_by_state={r['state_abbrev']:{'D':r['candidate_D'],'R':r['candidate_R']} for r in struct}
 
 if len(frozen)!=42:
     raise RuntimeError(f'Expected 42 frozen RCP rows, got {len(frozen)}')
@@ -47,8 +50,32 @@ if missing or extra:
 
 detail=[]
 by_state=defaultdict(list)
+
+def surname(name):
+    return (name or '').strip().split()[-1].lower()
+
+def normalized_d_minus_r(r):
+    # IMPORTANT: the frozen RCP bridge file retained candidate-order values in
+    # columns historically named D/R/D_minus_R. Normalize here using the
+    # candidate names rather than trusting those legacy column labels.
+    st=r['state']
+    left,right=[x.strip() for x in r['race'].split(' vs ',1)]
+    d=party_by_state[st]['D']; rr=party_by_state[st]['R']
+    ls,rs=surname(left),surname(right)
+    ds,rrs=surname(d),surname(rr)
+    raw=float(r['D_minus_R'])  # actually left candidate minus right candidate
+    if ls==rrs and rs==ds:
+        return -raw,'R_vs_D_inverted'
+    if ls==ds and rs==rrs:
+        return raw,'D_vs_R_kept'
+    raise RuntimeError(
+        f'Cannot determine candidate-order party orientation for {st}: '
+        f'race={r["race"]}, candidate_D={d}, candidate_R={rr}'
+    )
+
 for r in frozen:
     a=aidx[key(r)]
+    dmr,orientation=normalized_d_minus_r(r)
     end=date.fromisoformat(a['field_end_date'])
     age=(TARGET-end).days
     if age<0:
@@ -71,9 +98,11 @@ for r in frozen:
         'state':r['state'],
         'race':r['race'],
         'pollster':r['pollster'],
-        'D':r['D'],
-        'R':r['R'],
-        'D_minus_R':r['D_minus_R'],
+        'raw_left_value':r['D'],
+        'raw_right_value':r['R'],
+        'raw_left_minus_right':r['D_minus_R'],
+        'normalized_D_minus_R':dmr,
+        'orientation_fix':orientation,
         'sample_size':a['sample_size'],
         'population':a['population'],
         'age_days':age,
@@ -131,7 +160,7 @@ lines=[
 '',
 '- Frozen information cutoff: 2026-09-19 U.S. calendar date.',
 '- This reproduces the weighting rule used by the canonical 98/99 production path.',
-'- Poll values come from the already frozen RCP snapshot; audited external sources supply sample sizes and actual field-end dates.',
+'- Poll values come from the already frozen RCP snapshot; audited external sources supply sample sizes and actual field-end dates.\n- The frozen bridge file's legacy D/R labels actually preserve left-candidate/right-candidate order. The builder verifies candidate names against the structural matrix and normalizes every row to true D-minus-R before aggregation.',
 '- Window: 30 days before the 45-day snapshot.',
 '- Recency half-life: 14 days.',
 '- Per-poll weight: 2^(-age/14) * sqrt(clamp(sample_size,100,5000)/600).',
