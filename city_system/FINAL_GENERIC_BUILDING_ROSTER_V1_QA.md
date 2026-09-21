@@ -40,3 +40,28 @@ Status: **PASS**
 ## Authority
 - `city_system/FINAL_GENERIC_BUILDING_ROSTER_V1.csv`
 - `city_system/FINAL_GENERIC_BUILDING_ROSTER_V1.md`
+
+
+## Gathering Storm late-era validation
+
+The Future Era realignment moved late environmental/energy buildings with their latest required civic/technology:
+
+Information:
+- Flood Barrier
+- Recycling Center
+- Solar Plant
+
+Future:
+- Grid Battery Storage
+
+Additional pre-existing metadata cleanup:
+- Coal Power Plant: removed invalid `CIVIC_GATE=Industrialization`
+- Steelworks: removed invalid `CIVIC_GATE=Industrialization`
+- both inherit Industrialization through the Factory / Power Plant prerequisite chain
+
+Current cross-system validation:
+- building rows: 102
+- unknown normal civic gates: 0
+- content earlier than latest technology/civic gate: 0
+- broken simple prerequisite references: 0
+- **PASS**
