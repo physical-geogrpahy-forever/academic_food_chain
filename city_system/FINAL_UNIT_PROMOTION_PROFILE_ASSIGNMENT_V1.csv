@@ -86,5 +86,5 @@
 "Nuclear Submarine","NAVAL_RAIDER","NAVAL_RAIDER","LOCKED_V1",""
 "Missile Cruiser","NAVAL_RANGED","NAVAL_RANGED","LOCKED_V1",""
 "Drone","SUPPORT_RECON","NONE","LOCKED_V1",""
-"Giant Death Robot","SUPER_HEAVY_ROBOT","LAND_MELEE","LOCKED_V1",""
+"Giant Death Robot","SUPER_HEAVY_ROBOT","NONE","LOCKED_V1","Gathering Storm: GDR does not earn ordinary XP/promotions; it receives automatic Future-tech modules only."
 "XCOM Squad","AIRBORNE_INFANTRY","LAND_MELEE","LOCKED_V1",""
