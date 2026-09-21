@@ -19,7 +19,8 @@ Duplicate policy names: **0**
 - Industrial: 14
 - Modern: 14
 - Atomic: 12
-- Information: 14
+- Information: 6
+- Future: 8
 
 ## Source mix
 
@@ -55,3 +56,22 @@ For policy cards specifically:
 ## Authority
 
 `civics_reference/FINAL_POLICY_CARD_ROSTER_V1.csv`
+
+
+## Gathering Storm Future split
+
+The total remains 127 policy cards.
+
+Policies owned by the six Future-era civics now use the Future era label. Eight policies move from Information to Future:
+- Hallyu
+- Non-State Actors
+- Aerospace Contractors
+- Space Tourism
+- Integrated Attack Logistics
+- Rabblerousing
+- Diplomatic Capital
+- Global Coalition
+
+Authority:
+- `policy_balance/INFORMATION_POLICY_EFFECTS_V1.csv`
+- `policy_balance/FUTURE_POLICY_EFFECTS_V1.csv`
