@@ -1,0 +1,2 @@
+RULE_ID,SOURCE_UNIT,ELIGIBLE_TARGET,TRIGGER,FORMULA,MIN_CHANCE_PERCENT,MAX_CHANCE_PERCENT,RATIO_MULTIPLIER,CAPTURED_HP,CAPTURED_PROMOTIONS,STATUS,SOURCE_BASIS,NOTES
+"PRIZE_SHIPS","Privateer","Enemy naval combat unit eligible for capture","Privateer deals lethal melee combat damage","min(80, 10 + int((attacker_base_combat / defender_base_combat) * 40))","10","80","40","50","NONE","LOCKED_V1","Civ5 BNW DLL/Defines","Battle preview may show actual chance. Prize Ships is lost when Privateer upgrades to Submarine in this project."
