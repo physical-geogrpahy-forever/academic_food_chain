@@ -136,3 +136,39 @@ Civ VI is used when the Civ V/project roster has a real gap:
 - other adapted generic buildings where already recorded in era audits
 
 Exact Production cost, maintenance, yields, specialist slots and building effects are **not** all locked by this roster file; those belong to the next building-balance pass.
+
+
+## Numeric balance V1 — LOCKED
+
+Authorities:
+- `FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V1.csv`
+- `FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V1.md`
+- `FINAL_GENERIC_BUILDING_NUMERIC_SOURCE_AUDIT_V1.md`
+- `FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V1_QA.md`
+
+Current state:
+- 102/102 buildings have a numeric row
+- production cost / maintenance / base yields locked
+- defense / Food carryover / percentage modifiers locked where applicable
+- specialist / Great Person / Great Work slots locked
+- structured special effects recorded
+- structural QA: PASS
+
+Source-grade distribution:
+- Civ V direct: 45
+- Civ V remap: 4
+- Civ VI adaptation: 31
+- Pouakai adaptation: 4
+- project interpolation: 18
+
+### Art Museum correction
+
+Art Museum is now **Exploration**, not Renaissance.
+
+Reason:
+- prerequisite = Opera House
+- Opera House = Exploration
+- the old Renaissance label created an impossible prerequisite order
+
+The museum branch remains:
+`Opera House -> Art Museum OR Archaeological Museum -> Broadcast Center`
