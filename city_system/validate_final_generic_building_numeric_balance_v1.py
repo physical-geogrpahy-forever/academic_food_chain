@@ -73,8 +73,8 @@ for name, r in rmap.items():
         errors.append(f"{name}: era mismatch")
     if n["CHAIN"] != r["CHAIN"]:
         errors.append(f"{name}: chain mismatch")
-    if n["NUMERIC_STATUS"] != "LOCKED_BUILDING_V1":
-        errors.append(f"{name}: numeric status not locked")
+    if n["NUMERIC_STATUS"] not in {"LOCKED_BUILDING_V1", "MOD_SOURCE_REAUDIT_REQUIRED"}:
+        errors.append(f"{name}: invalid numeric status {n['NUMERIC_STATUS']}")
     if n["SOURCE_GRADE"] not in VALID_GRADES:
         errors.append(f"{name}: invalid source grade {n['SOURCE_GRADE']}")
     for field in NUMERIC_FIELDS:
@@ -205,6 +205,17 @@ for name in ["Coal Power Plant","Nuclear Power Plant","Solar Plant"]:
     if "REPLACES_POWER_PLANT_OUTPUT=1" not in nmap[name]["SPECIAL_EFFECTS"]:
         errors.append(f"{name}: missing power-plant replacement semantics")
 
+# Adopted Enlightenment Era effects must not regress to generic interpolation.
+cloth=nmap["Cloth Mill"]
+if iv(cloth,"PRODUCTION_FLAT") != 1 or iv(cloth,"PRODUCTION_PERCENT") != 10 or "WORKED_COTTON_SHEEP_SILK_GOLD=+2" not in cloth["SPECIAL_EFFECTS"]:
+    errors.append("Cloth Mill must retain Pouakai Enlightenment Era effect")
+gunsmith=nmap["Gunsmith"]
+if iv(gunsmith,"PRODUCTION_FLAT") != 0 or "GUNPOWDER_INFANTRY_PRODUCTION_PERCENT=+25" not in gunsmith["SPECIAL_EFFECTS"]:
+    errors.append("Gunsmith must retain Pouakai Enlightenment Era effect")
+drydock=nmap["Drydock"]
+if "NAVAL_UNIT_TRAINED_COMBAT_STRENGTH_PERCENT=+15" not in drydock["SPECIAL_EFFECTS"]:
+    errors.append("Drydock must retain Pouakai Enlightenment Era effect")
+
 # Exact Art Museum chronology correction.
 if rmap["Art Museum"]["PROJECT_ERA"] != "Exploration":
     errors.append("Art Museum must be Exploration after prerequisite correction")
@@ -217,6 +228,8 @@ for n in numeric:
 
 print(f"roster_rows={len(roster)}")
 print(f"numeric_rows={len(numeric)}")
+print(f"locked_rows={sum(r['NUMERIC_STATUS']=='LOCKED_BUILDING_V1' for r in numeric)}")
+print(f"mod_reaudit_rows={sum(r['NUMERIC_STATUS']=='MOD_SOURCE_REAUDIT_REQUIRED' for r in numeric)}")
 print("source_grades="+str(grade_counts))
 print(f"errors={len(errors)}")
 if errors:
