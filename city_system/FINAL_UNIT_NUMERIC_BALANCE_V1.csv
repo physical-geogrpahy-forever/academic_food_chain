@@ -68,7 +68,7 @@
 "Landship","Modern","ARMORED","60","","0","4","350","0","0","0","","0","0","GLOBAL_CIV5_FORMULA","ONE_SUPPLY","A_CIV5_BNW_EXACT","Civ5 BNW","LOCKED_MILITARY_V1"
 "Tank","Modern","ARMORED","70","","0","5","375","0","0","0","Oil","1","0","GLOBAL_CIV5_FORMULA","ONE_SUPPLY","A_CIV5_BNW_EXACT","Civ5 BNW","LOCKED_MILITARY_V1"
 "Mechanized Infantry","Modern","GUNPOWDER_INFANTRY","70","","0","3","375","0","0","0","","0","0","GLOBAL_CIV5_FORMULA","ONE_SUPPLY","B_CIV5_STAGE_REMAP","Uses Civ5 Infantry strength as project's Combined-Arms mechanized stage","LOCKED_MILITARY_V1"
-"Aircraft Carrier","Modern","NAVAL_CARRIER","30","","0","5","375","0","0","3","","0","0","GLOBAL_CIV5_FORMULA","ONE_SUPPLY","A_CIV5_BNW_XML","Civ5 BNW","LOCKED_MILITARY_V1"
+"Aircraft Carrier","Modern","NAVAL_CARRIER","30","","0","5","375","0","0","2","","0","0","GLOBAL_CIV5_FORMULA","ONE_SUPPLY","A_CIV5_BNW_XML","Civ5 BNW exact: base air cargo 2; Flight Deck I-III add +1 each","LOCKED_MILITARY_V1"
 "Destroyer","Modern","NAVAL_MELEE","55","","0","6","375","0","0","0","Oil","1","0","GLOBAL_CIV5_FORMULA","ONE_SUPPLY","A_CIV5_BNW_EXACT","Civ5 BNW","LOCKED_MILITARY_V1"
 "Machine Gun","Modern","RANGED_INFANTRY","60","60","1","2","350","0","0","0","","0","0","GLOBAL_CIV5_FORMULA","ONE_SUPPLY","A_CIV5_BNW_EXACT","Civ5 BNW","LOCKED_MILITARY_V1"
 "Spec Ops","Atomic","RECON","60","65","2","3","375","0","7","0","","0","0","GLOBAL_CIV5_FORMULA","ONE_SUPPLY","C_CIV6_SCALED","Civ6 Spec Ops stats fit project late-game scale; cost compressed","LOCKED_MILITARY_V1"
