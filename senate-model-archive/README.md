@@ -4,8 +4,9 @@
 
 ## 현재 상태
 
-- 현재 살아남은 최선의 기준선: **Core V2**
-- 현대 중간선거 45일 OOS headline: **RMSE 7.85%p / MAE 5.79%p / 방향 91.9%**
+- 확정 production 기준선: **Core V2-R Direction Production 2026**
+- 현재 방향성 기준 clean nested OOS headline: **96/99 = 97.0%**
+- 기존 Core V2의 RMSE/MAE 수치는 역사 보존값으로 유지하되, 현재 primary objective는 winner-direction accuracy
 - 채팅 길이 제한으로 Core V2 문서 작성 이후의 일부 진전이 유실되었을 가능성이 있다.
 - 따라서 handoff의 `authoritative/latest` 표기는 작성 당시 기준이며, 더 뒤의 보존 자료가 발견되면 그 자료가 우선한다.
 - exact Core V2 산출 CSV와 설정 파일은 현재 Library 및 연결 GitHub에서 발견되지 않았다. 재구축본은 반드시 `Core V2-R`로 별도 표기한다.
@@ -47,3 +48,20 @@ k = 0.5
 3. 기존 7.85%p headline 재현 여부 확인
 4. 재현 성공 후에만 V3-A hierarchical Era partial pooling 시험
 5. 모든 실험은 새 commit으로 남기고 `CHANGELOG.md` 갱신
+
+
+## 2026 production lock
+
+현재 production 설정은 다음 파일에 고정되어 있다.
+
+- `docs/final/MODEL_FINAL_LOCK_2026-09-21.md`
+- `config/core_v2r_direction_2026_production.json`
+
+이후의 구조 변경은 실험판으로만 추가하며 이 설정을 덮어쓰지 않는다.
+
+## 2026 analysis
+
+첫 입력 진단:
+- `docs/analysis/2026_SENATE_INPUT_DIAGNOSTIC_2026-09-21.md`
+- `data/snapshots/2026_competitive_race_input_diagnostic_2026-09-21.csv`
+
