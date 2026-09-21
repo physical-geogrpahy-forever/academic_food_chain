@@ -67,3 +67,25 @@ The Ecology master text was synchronized so that both renewable improvements exp
 - Geothermal Plant -> Ecology + Environmentalism
 
 This is a text/gate synchronization with the existing Environmentalism civic decision, not a new design change.
+
+
+## Gathering Storm era-gate validation
+
+After restoring Future as a separate era, the late map infrastructure labels were revalidated against their latest technology/civic gates.
+
+Information:
+- Wind Farm
+- Solar Farm
+- Geothermal Plant
+
+Future:
+- Offshore Wind Farm
+- Seastead
+
+Current cross-system result:
+- map records: 39
+- missing technology/civic refs: 0
+- map item earlier than latest gate: 0
+- **PASS**
+
+The historical GitHub Actions run above remains valid evidence for the 39-record structure; the era-label realignment occurred afterward.
