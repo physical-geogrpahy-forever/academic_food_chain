@@ -1,0 +1,228 @@
+{
+  "generated_utc": "2026-09-21T02:31:25.819554+00:00",
+  "fit_for_cycle": 2026,
+  "historical_information_through": 2022,
+  "training_cycles": [
+    2006,
+    2008,
+    2010,
+    2012,
+    2014,
+    2016,
+    2018,
+    2020,
+    2022
+  ],
+  "train_n": 290,
+  "canonical_source_path": "performance/run_fullcycle_inc_era_oos.py",
+  "canonical_source_sha256": "0183359b5f2ab5a7c2d3ba348015f4f88aa9c7fae52cb251c3be7dbb452dceb8",
+  "manifest_expected_source_sha256": "0183359b5f2ab5a7c2d3ba348015f4f88aa9c7fae52cb251c3be7dbb452dceb8",
+  "architecture": "inc_era",
+  "features": [
+    "pvi",
+    "same_last",
+    "same_gap",
+    "econ",
+    "national",
+    "inc_diff",
+    "outparty",
+    "inc_era",
+    "outparty_era"
+  ],
+  "hyperparameters": {
+    "lambda_local": 256.0,
+    "lambda_econ": 256.0,
+    "lambda_national": 0.0,
+    "lambda_inc": 256.0,
+    "lambda_era": 1024.0,
+    "inner_rmse": 12.202270580795302
+  },
+  "training_fit_diagnostics_not_oos": {
+    "rmse": 12.276501108413262,
+    "mae": 8.71647028229266,
+    "direction_accuracy_pct": 90.0
+  },
+  "top_tuning_candidates": [
+    {
+      "inner_rmse": 12.202270580795302,
+      "architecture": "inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 0.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 1024.0
+    },
+    {
+      "inner_rmse": 12.209803632682297,
+      "architecture": "seat_inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 0.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 1024.0
+    },
+    {
+      "inner_rmse": 12.216175532512517,
+      "architecture": "inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 1.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 1024.0
+    },
+    {
+      "inner_rmse": 12.2164578158852,
+      "architecture": "seat_inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 0.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 4096.0
+    },
+    {
+      "inner_rmse": 12.217605807493243,
+      "architecture": "inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 0.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 4096.0
+    },
+    {
+      "inner_rmse": 12.224115134134518,
+      "architecture": "seat_inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 1.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 1024.0
+    },
+    {
+      "inner_rmse": 12.230331840921869,
+      "architecture": "seat_inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 1.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 4096.0
+    },
+    {
+      "inner_rmse": 12.230708501070715,
+      "architecture": "inc_level",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 0.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 256.0
+    },
+    {
+      "inner_rmse": 12.231351201327225,
+      "architecture": "inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 1.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 4096.0
+    },
+    {
+      "inner_rmse": 12.244379862168278,
+      "architecture": "inc_level",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 1.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 256.0
+    },
+    {
+      "inner_rmse": 12.257099529597134,
+      "architecture": "inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 4.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 1024.0
+    },
+    {
+      "inner_rmse": 12.266069921134331,
+      "architecture": "seat_inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 4.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 1024.0
+    },
+    {
+      "inner_rmse": 12.271244909283798,
+      "architecture": "seat_inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 4.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 4096.0
+    },
+    {
+      "inner_rmse": 12.271933320322685,
+      "architecture": "inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 4.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 4096.0
+    },
+    {
+      "inner_rmse": 12.284791366613293,
+      "architecture": "inc_level",
+      "lambda_local": 256.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 4.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 256.0
+    },
+    {
+      "inner_rmse": 12.294915546218016,
+      "architecture": "inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 64.0,
+      "lambda_national": 0.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 1024.0
+    },
+    {
+      "inner_rmse": 12.300036232661451,
+      "architecture": "inc_era",
+      "lambda_local": 64.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 0.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 4096.0
+    },
+    {
+      "inner_rmse": 12.302524911683049,
+      "architecture": "seat_inc_era",
+      "lambda_local": 256.0,
+      "lambda_econ": 64.0,
+      "lambda_national": 0.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 1024.0
+    },
+    {
+      "inner_rmse": 12.304029843287541,
+      "architecture": "inc_era",
+      "lambda_local": 64.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 0.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 1024.0
+    },
+    {
+      "inner_rmse": 12.304031662622517,
+      "architecture": "inc_level",
+      "lambda_local": 64.0,
+      "lambda_econ": 256.0,
+      "lambda_national": 0.0,
+      "lambda_inc": 256.0,
+      "lambda_era": 256.0
+    }
+  ],
+  "scope_note": "This artifact freezes the fundamentals fit only. It does not score 2026 races. The locked 30-day poll blend and selector remain separate downstream layers."
+}
