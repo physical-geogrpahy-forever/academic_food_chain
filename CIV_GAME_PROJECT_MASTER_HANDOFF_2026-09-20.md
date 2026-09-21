@@ -2245,3 +2245,66 @@ Cross-system validation:
 - backward-era edges 0
 - content-earlier-than-gate violations 0
 - **PASS**
+
+
+---
+
+## Final direct unit upgrade graph locked — 2026-09-21
+
+Authorities:
+- `city_system/FINAL_UNIT_UPGRADE_GRAPH_V1.csv`
+- `city_system/FINAL_UNIT_UPGRADE_GRAPH_V1.md`
+- `city_system/FINAL_UNIT_UPGRADE_SOURCE_AUDIT_V1.md`
+- `city_system/FINAL_UNIT_UPGRADE_GRAPH_V1_QA.md`
+- `city_system/validate_final_unit_upgrade_graph_v1.py`
+- `.github/workflows/civ-final-unit-upgrade-graph-qa.yml`
+
+Exact state:
+- generic units covered: **89/89**
+- direct graph rows: **89**
+- unknown successors: **0**
+- era-regressing edges: **0**
+- directed cycles: **0**
+- explicit branch-choice rows: **1**
+- structural validation: **PASS**
+
+Major lines:
+- Warrior -> Swordsman -> Man-at-Arms -> Arquebusier -> Line Infantry -> Rifleman -> Infantry -> Mechanized Infantry
+- Fire Lance -> Arquebusier
+- Spearman -> Pikeman -> Pike and Shot -> Anti-Tank Gun -> Modern AT
+- Archer -> Composite Bowman -> Crossbowman -> Skirmisher -> Gatling Gun -> Machine Gun
+- Catapult -> Trebuchet -> Bombard -> Field Gun -> Artillery -> Rocket Artillery
+- Scout -> Explorer -> Ranger -> Spec Ops
+- Horseman -> Cavalry -> Helicopter
+- Chariot Archer -> Knight -> Lancer -> Landship -> Tank -> Modern Armor
+- Trireme -> Caravel -> Ironclad -> Destroyer
+- Privateer -> Submarine -> Nuclear Submarine
+- Paratrooper -> XCOM Squad
+- Battering Ram -> Siege Tower -> Medic -> Supply Convoy
+- Observation Balloon -> Drone
+
+Naval ranged branch:
+- Quadrireme -> Galleass -> Frigate
+- Frigate -> Ship of the Line -> Battleship -> Missile Cruiser
+- Frigate -> Cruiser -> Missile Cruiser
+
+Special rules:
+- Settler -> Pioneer -> Colonist -> Urban Planner is **production replacement only**, not direct unit upgrading.
+- Marine remains terminal amphibious specialist rather than upgrading to XCOM.
+- Giant Death Robot has no successor unit; Future technologies apply module upgrades to the same GDR.
+- Guided Missile is consumable.
+
+### Next military task
+
+Direct upgrade ownership is finished.
+
+Next:
+1. Combat Strength / Ranged Strength
+2. Movement / Range
+3. production cost
+4. Gold maintenance
+5. strategic-resource requirement and per-turn consumption
+6. upgrade Gold cost
+7. promotion/class interactions
+
+Use Civ V BNW values as primary anchors, with Civ VI / Gathering Storm and adopted era-mod units interpolated only where Civ V has no matching unit.
