@@ -41,10 +41,13 @@ k = 0.5
 - `data/schema/`: 앞으로 생성해야 할 exact outputs의 schema
 - `config/`: 보존된 Core V2 설정과 불확실 항목
 
-## 현재 검증 기준
+## 현재 모델과 검증 기준
 
-- 공식 clean nested OOS: **96/99 = 97.0%**
-- production retrospective diagnostic: **98/99 = 99.0%**, 단 OOS 아님
+- 정식 잠금 모델: **Core V2-R Direction Production 2026**
+- 정식 production rule의 retrospective 기록: **98/99 = 99.0%**
+- clean nested OOS 검증치: **96/99 = 97.0%**
+- 96/99는 별도 production 모델이 아니라 clean nested 검증 기준이다.
+- 98/99는 OOS가 아니라 retrospective 기록이다.
 - 98/99의 유일 오답: **2014 North Carolina**
 - 94/99 대비 production selector가 교정한 경주: **2018 Nevada, Missouri, Florida, Indiana**
 
