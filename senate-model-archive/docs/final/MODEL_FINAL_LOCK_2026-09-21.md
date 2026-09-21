@@ -48,15 +48,26 @@ Third-party handling:
 - ordinary minor-party flag threshold: 3% poll share
 - major independent / party-replacement races are separate multi-candidate problems
 
-## Validation
-Accepted clean nested headline validation:
-- 96 / 99 correct
-- 96.97%
+## Production model and validation status
 
-This is the official historical OOS direction benchmark.
+There is **one locked production model**: **Core V2-R Direction Production 2026**.
 
-Production parameters were then re-fit using historical information through 2022.
-Retrospective application of the production rule to the 99 headline races gives 98 / 99, but this is explicitly NOT reported as OOS because those cycles participated in production parameter fitting.
+Its historical retrospective production-rule result is:
+- **98 / 99 correct**
+- **98.99%**
+- this is the performance record associated with the locked production rule
+- it is retrospective, not OOS, because the production parameters were fit using historical information through 2022
+
+Separately, the clean nested historical validation result is:
+- **96 / 99 correct**
+- **96.97%**
+- this is the clean nested OOS validation benchmark only
+- it is **not a second production model** and must not replace the 98/99 production-retrospective record when identifying the locked model
+
+Recovery shorthand:
+- **official locked model:** Core V2-R Direction Production 2026
+- **production retrospective record:** 98/99
+- **clean nested OOS validation:** 96/99
 
 ## Frozen production config
 config/core_v2r_direction_2026_production.json
