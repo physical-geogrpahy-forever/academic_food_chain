@@ -1,0 +1,32 @@
+name: Build 2026 structural matrix 45d
+on:
+  push:
+    branches: [archive-2026-us-senate-model]
+    paths:
+      - 'senate-model-archive/scripts/build_2026_structural_matrix.py'
+      - '.github/workflows/senate-2026-structural-matrix.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: archive-2026-us-senate-model
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python senate-model-archive/scripts/build_2026_structural_matrix.py
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add senate-model-archive/data/snapshots/2026_structural_input_matrix_45d.csv senate-model-archive/docs/analysis/2026_STRUCTURAL_INPUT_MATRIX_45D.md
+          if git diff --cached --quiet; then echo nochanges; else
+            git commit -m 'data: build exact 2026 structural 45-day matrix [skip ci]'
+            git fetch origin archive-2026-us-senate-model
+            git rebase --autostash origin/archive-2026-us-senate-model
+            git push origin HEAD:archive-2026-us-senate-model
+          fi
