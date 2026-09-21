@@ -1,0 +1,27 @@
+name: Civ Final Building Numeric Balance QA
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "city_system/FINAL_GENERIC_BUILDING_ROSTER_V1.csv"
+      - "city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V1.csv"
+      - "city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V1.md"
+      - "city_system/FINAL_GENERIC_BUILDING_NUMERIC_SOURCE_AUDIT_V1.md"
+      - "city_system/validate_final_generic_building_numeric_balance_v1.py"
+      - ".github/workflows/civ-final-building-numeric-balance-qa.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout authoritative branch
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate final building numeric balance
+        run: python city_system/validate_final_generic_building_numeric_balance_v1.py
