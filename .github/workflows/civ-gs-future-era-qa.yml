@@ -1,0 +1,35 @@
+name: Civ Gathering Storm Future Era QA
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "tech_reference/technology_tree_historical_v2.csv"
+      - "tech_reference/technology_roster_locked_v2.csv"
+      - "tech_reference/MASTER_TECHNOLOGY_UNLOCKS_109_V1.csv"
+      - "tech_reference/GATHERING_STORM_FUTURE_ERA_REALIGNMENT_V1.md"
+      - "tech_reference/validate_gathering_storm_future_era_v1.py"
+      - "civics_reference/civic_tree_historical_v3.csv"
+      - "civics_reference/civic_roster_locked_v1.csv"
+      - "civics_reference/MASTER_CIVIC_UNLOCKS_72_V2.csv"
+      - "civics_reference/civic_tech_crosslinks_v1.csv"
+      - "civics_reference/FINAL_POLICY_CARD_ROSTER_V1.csv"
+      - "city_system/FINAL_GENERIC_UNIT_ROSTER_V1.csv"
+      - "city_system/FINAL_GENERIC_BUILDING_ROSTER_V1.csv"
+      - "tile_system/FINAL_GENERIC_MAP_IMPROVEMENT_INFRASTRUCTURE_ROSTER_V1.csv"
+      - ".github/workflows/civ-gs-future-era-qa.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout authoritative branch
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate Gathering Storm Future Era
+        run: python tech_reference/validate_gathering_storm_future_era_v1.py
