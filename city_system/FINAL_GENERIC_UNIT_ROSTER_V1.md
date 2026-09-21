@@ -240,3 +240,37 @@ QA:
 - era regressions 0
 - cycles 0
 - PASS
+
+
+## 13. Numeric balance V1 — LOCKED
+
+The military numerical baseline is now separately locked in:
+
+- `city_system/FINAL_UNIT_NUMERIC_BALANCE_V1.csv`
+- `city_system/FINAL_UNIT_NUMERIC_BALANCE_V1.md`
+- `city_system/FINAL_UNIT_UPGRADE_COSTS_V1.csv`
+- `city_system/FINAL_UNIT_NUMERIC_BALANCE_V1_QA.md`
+
+Current state:
+- numeric unit rows: 89/89
+- locked military/support/trade rows: 80
+- intentionally deferred system-economy rows: 9
+- direct Gold upgrade-cost rows: 55
+- structural QA: PASS
+
+The project uses a Civ V BNW numerical scale where possible.
+
+Fixed per-unit Gold maintenance is not invented. The Civ V-style global unit-maintenance model remains the authority.
+
+Strategic resources use the current project stock-slot model:
+- explicit resource unit -> 1 slot
+- per-turn strategic upkeep -> 0 in V1
+
+The remaining nine system-economy units are priced in their own gameplay systems rather than by military production curves.
+
+Next military layer:
+- promotions
+- anti-class / special combat modifiers
+- healing/support auras
+- air interception/evasion details
+- naval cargo eligibility
