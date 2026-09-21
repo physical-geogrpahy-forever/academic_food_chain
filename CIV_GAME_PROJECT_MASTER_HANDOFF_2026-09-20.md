@@ -2114,7 +2114,7 @@ The Ecology technology master was synchronized so Solar Farm explicitly carries 
 The core generic **existence + unlock ownership** layer is therefore substantially consolidated. Remaining large design layers are now primarily numerical/gameplay layers rather than missing generic-content ownership:
 - military stats and strict upgrade edges
 - tile yields/build times/terrain constraints
-- building numerical yields/costs
+- building numerical yields/costs: **completed V1**
 - Great Person and specialist numerical rules/rosters
 - World Wonder audit
 - civilization-specific unique content
@@ -2495,3 +2495,87 @@ This closes the generic military-unit baseline for:
 - XP progression
 
 Remaining military work is now mainly civilization-specific unique units and the separate nuclear-device delivery system.
+
+
+---
+
+## Generic building numeric balance V1 locked — 2026-09-21
+
+Authorities:
+- `city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V1.csv`
+- `city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V1.md`
+- `city_system/FINAL_GENERIC_BUILDING_NUMERIC_SOURCE_AUDIT_V1.md`
+- `city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V1_QA.md`
+- `city_system/validate_final_generic_building_numeric_balance_v1.py`
+- `.github/workflows/civ-final-building-numeric-balance-qa.yml`
+
+Exact state:
+- canonical buildings: **102**
+- numeric rows: **102**
+- missing numeric rows: **0**
+- building-prerequisite era regressions: **0**
+- structural/anchor validation: **PASS**
+
+Source-grade distribution:
+- A_CIV5_BNW_EXACT: 45
+- B_CIV5_FUNCTIONAL_REMAP: 4
+- B_CIV6_ADAPTED: 31
+- B_EE_ADAPTED: 4
+- B_PROJECT_INTERPOLATED: 18
+
+Numeric fields now locked:
+- Production Cost
+- Gold maintenance
+- flat Food / Production / Gold / Science / Culture / Faith
+- Local Happiness
+- city Defense / HP
+- Food carryover
+- Production / building Production / Gold / Science / Culture modifiers
+- generic military XP
+- specialist slots
+- flat Great Person points
+- Great Work slots/types
+- structured special effects
+
+Important corrections/decisions:
+- Art Museum moved from Renaissance to **Exploration** because it requires Exploration-era Opera House.
+- Ancestral Hall keeps +50% founding-unit Production but **does not create a free Worker**.
+- Governor titles/effects are removed from adapted Government Plaza buildings.
+- Foreign Ministry does not receive an invented +Diplomatic Favor yield.
+- Grand Master's Chapel does not receive invented flat Faith.
+- Royal Society does not consume Workers; project translation = +20% city-project Production in the government-center city.
+- National History Museum = 4 ANY Great Work slots.
+- Recycling Center does not generate Aluminum.
+- Coal/Nuclear/Solar source plants replace, rather than double-stack with, generic Power Plant output.
+- exact Health/Power/pollution accounting may remain marked as external-system PENDING while each building's V1 cost, maintenance and normal yields are locked.
+
+Representative Civ V anchors retained:
+- Library 75/1, +1 Science per 2 Population
+- University 160/2, +33% Science, 2 Scientist slots
+- Workshop 120/2, +2 Production, +10% Production
+- Factory 360/3, +4 Production, +10% Production
+- Market 100/0, +1 Gold, +25% Gold
+- Bank 200/0, +2 Gold, +25% Gold
+- Stock Exchange 300/0, +3 Gold, +25% Gold
+- Public School 300/3, +3 Science, +1 Science per 2 Population
+- Research Lab 500/3, +4 Science, +50% Science
+- Walls/Castle/Arsenal/Military Base defensive progression retained
+- Barracks/Armory/Military Academy each +15 XP
+
+Project culture/film baseline:
+- Cinema: +2 Culture, 2 Film slots
+- Director's Guild: 2 Director slots, +3 Great Director points
+- Film Studio: +2 Culture, 2 Film slots, +50% Film Tourism
+
+System-level conditional bonuses already locked in `NUMERIC_BALANCE_DECISIONS_V1.csv` are not double-counted in base building yields.
+
+### Next large generic numerical layer
+
+Building numeric balance is no longer pending.
+
+The next clean generic numerical target is:
+- **tile improvement / route / infrastructure yields, build times and terrain/resource constraints**
+followed by:
+- Great Person / specialist numerical rules
+- World Wonder audit
+- civilization-specific unique content
