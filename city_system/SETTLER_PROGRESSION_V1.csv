@@ -1,0 +1,5 @@
+UNIT_EN,PROJECT_ERA,TECH_GATE,CIVIC_GATE,STARTING_POPULATION,TERRITORY_RULE,FREE_BUILDING_PACKAGE,REPLACES,STATUS,NOTES
+Settler,Ancient,,,1,SAME_BASE_TERRITORY,NONE,,LOCKED_V1,Base founding unit
+Pioneer,Exploration,Cartography,Exploration,2,SAME_BASE_TERRITORY,"Monument; Granary",Settler,LOCKED_V1,Midgame exploration-era founding unit
+Colonist,Industrial,Railroad,Colonialism,3,SAME_BASE_TERRITORY,"Monument; Granary; Library; Market; Aqueduct",Pioneer,LOCKED_V1,Industrial-era founding unit
+Urban Planner,Modern,Combustion,Urbanization,4,SAME_BASE_TERRITORY,"Monument; Granary; Library; Market; Aqueduct; Workshop; University; Sewer",Colonist,LOCKED_V1,Modern planned-city founding unit
