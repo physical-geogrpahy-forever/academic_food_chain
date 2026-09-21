@@ -1,0 +1,37 @@
+name: Build canonical 2026 Senate poll layer
+on:
+  push:
+    branches: [archive-2026-us-senate-model]
+    paths:
+      - 'senate-model-archive/scripts/build_2026_canonical_poll_layer.py'
+      - 'senate-model-archive/data/snapshots/2026_poll_sample_size_audit.csv'
+      - '.github/workflows/senate-2026-canonical-poll-layer.yml'
+permissions:
+  contents: write
+concurrency:
+  group: senate-2026-canonical-poll-layer
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: archive-2026-us-senate-model
+          fetch-depth: 0
+      - run: python senate-model-archive/scripts/build_2026_canonical_poll_layer.py
+      - name: Commit canonical poll-layer artifacts
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add senate-model-archive/data/snapshots/2026_poll_45d_canonical_weight_detail.csv \
+                  senate-model-archive/data/snapshots/2026_poll_45d_canonical_sample_weighted.csv \
+                  senate-model-archive/docs/analysis/2026_POLL_45D_CANONICAL_LAYER.md
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'model: freeze canonical 2026 poll input layer [skip ci]'
+            git fetch origin archive-2026-us-senate-model
+            git rebase --autostash origin/archive-2026-us-senate-model
+            git push origin HEAD:archive-2026-us-senate-model
+          fi
