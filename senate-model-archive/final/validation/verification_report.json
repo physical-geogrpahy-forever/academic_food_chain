@@ -1,0 +1,42 @@
+{
+  "verified_date": "2026-09-21",
+  "repository": "physical-geogrpahy-forever/academic_food_chain",
+  "branch": "archive-2026-us-senate-model",
+  "verified_branch_head": "3d33b3b74061eb4481dfafe9c5b216851386460a",
+  "clean_nested_oos": {
+    "rows": 99,
+    "correct": 96,
+    "wrong": [
+      {"cycle": 2014, "state_abbrev": "NC", "race_id": "14"},
+      {"cycle": 2018, "state_abbrev": "MT", "race_id": "110"},
+      {"cycle": 2022, "state_abbrev": "NV", "race_id": "8937"}
+    ]
+  },
+  "production_retrospective": {
+    "rows": 99,
+    "correct": 98,
+    "is_oos": false,
+    "wrong": [
+      {"cycle": 2014, "state_abbrev": "NC", "race_id": "14"}
+    ],
+    "corrected_vs_fixed_poll_94of99": [
+      {"cycle": 2018, "state_abbrev": "NV", "race_id": "112"},
+      {"cycle": 2018, "state_abbrev": "MO", "race_id": "109"},
+      {"cycle": 2018, "state_abbrev": "FL", "race_id": "100"},
+      {"cycle": 2018, "state_abbrev": "IN", "race_id": "102"}
+    ]
+  },
+  "base_prior": {
+    "prediction_rows": 99,
+    "coefficient_rows": 30,
+    "standardization_rows": 27,
+    "max_reconstruction_abs_error": 8.526512829121202e-14
+  },
+  "production_selector": {
+    "threshold_disagree_pctpt": 2.0,
+    "threshold_agree_pctpt": 0.75,
+    "min_abs_pvi_agree_pctpt": 15,
+    "top_grid_correct": 237,
+    "top_grid_n": 259
+  }
+}
