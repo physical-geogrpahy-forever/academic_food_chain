@@ -4,7 +4,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from datetime import datetime, timezone
 
-ROOT=Path(__file__).resolve().parents[2]
+ROOT=Path(__file__).resolve().parents[1]
 PVI=ROOT/'data/processed/pvi_2026_default_067_033.csv'
 SEN=ROOT/'data/raw/fivethirtyeight/election_results_senate_2026-09-21.csv'
 DIAG=ROOT/'data/snapshots/2026_competitive_race_input_diagnostic_2026-09-21.csv'
