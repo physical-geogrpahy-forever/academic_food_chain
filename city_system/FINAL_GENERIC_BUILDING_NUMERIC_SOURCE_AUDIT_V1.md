@@ -120,3 +120,22 @@ Pouakai-based rows are labeled `B_EE_ADAPTED`:
 Historical/project rows are labeled `B_PROJECT_INTERPOLATED`.
 
 Their numeric values are project balance decisions and must not be cited as original Civ V/Civ VI values.
+
+
+## Source-precedence rule
+
+This audit is subordinate to:
+`city_system/PROJECT_CONTENT_SOURCE_PRECEDENCE_V1.md`
+
+Important correction:
+Civ V BNW is a fallback/reference scale, **not** a universal first source.
+
+Examples:
+- Pouakai Enlightenment Era owns Cloth Mill / Gunsmith / Drydock effects where adopted.
+- Health & Plague owns Health/plague-layer behavior.
+- Barathor More Luxuries and the project 47-resource roster own added-resource identity.
+- Civilization VI / Gathering Storm owns imported Government Plaza, Power, Future and other explicitly adopted systems.
+- BNW still supplies unaffected base fields where the adopted source leaves them unchanged.
+
+The mod-source re-audit manifest is:
+`city_system/BUILDING_MOD_SOURCE_REAUDIT_V2.csv`
