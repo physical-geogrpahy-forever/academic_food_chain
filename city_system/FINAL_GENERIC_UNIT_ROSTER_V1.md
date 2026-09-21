@@ -11,12 +11,13 @@ Authority:
 
 This file consolidates the project's **generic non-Great-Person unit roster** after the 109-technology and 72-civic unlock passes.
 
-Current total: **85 units**
+Current total: **88 units**
 
 Source split:
 - 73 units from `MASTER_TECHNOLOGY_UNLOCKS_109_V1.csv`
 - 7 civic-only or civic-owned units from `MASTER_CIVIC_UNLOCKS_72_V2.csv`
 - 5 baseline/system units recovered outside the unlock tables
+- 3 project-designed advanced founding units from `SETTLER_PROGRESSION_V1`
 
 Great People are intentionally excluded from this roster. Great Generals, Great Admirals, Great Prophets, Great Merchants, Great Engineers, Great Scientists, Great Writers, Great Artists, Great Musicians and the project Great Director remain in their own Great Person systems.
 
@@ -101,6 +102,7 @@ These are **role/progression families**, not yet a promise that every neighborin
 - Fighter aircraft: Triplane -> Fighter -> Jet Fighter
 - Bomber aircraft: Great War Bomber -> Bomber -> Stealth Bomber
 - Late airborne assault: Paratrooper / Marine -> XCOM Squad
+- Founding: Settler -> Pioneer -> Colonist -> Urban Planner
 
 Exact combat strength, cost, movement, promotions and strict upgrade edges belong to the later numerical combat-balance pass.
 
@@ -118,7 +120,24 @@ The following are not owned by a single technology row alone:
 
 Cross-gated units already present in the technology master, such as Infantry, Paratrooper, Supply Convoy, Nuclear Submarine and Spec Ops, are not duplicated.
 
-## 7. Explicit exclusions
+## 7. Founding-unit progression
+
+The generic founding line is now:
+
+**Settler -> Pioneer -> Colonist -> Urban Planner**
+
+| Unit | Era | Gate | Starting population | Territory |
+|---|---|---|---:|---|
+| Settler | Ancient | game start | 1 | same base rule |
+| Pioneer | Exploration | Cartography + Exploration | 2 | same base rule |
+| Colonist | Industrial | Railroad + Colonialism | 3 | same base rule |
+| Urban Planner | Modern | Combustion + Urbanization | 4 | same base rule |
+
+Later founding units do **not** claim more free tiles. Their advantage comes from the restrained population progression `1 -> 2 -> 3 -> 4` and a progressively stronger minimum founding-infrastructure package.
+
+Authority: `city_system/SETTLER_PROGRESSION_V1.md`.
+
+## 8. Explicit exclusions
 
 ### Heavy Chariot
 Excluded as a separate generic unit. The project retains the Civ V-style Chariot Archer + Horseman ancient mounted structure.
@@ -136,13 +155,13 @@ Excluded from the baseline roster. It remains in:
 ### Great People
 Excluded from this generic roster and managed separately.
 
-## 8. Resource-requirement field
+## 9. Resource-requirement field
 
 `RESOURCE_REQUIREMENT` only records strategic-material requirements that were already explicitly locked or stated in the audit trail.
 
 A blank field **does not mean the unit is permanently resource-free**. It means that no strategic-material requirement is being newly invented during this consolidation pass. Final quantity and consumption rules remain part of military/economic numerical balance.
 
-## 9. Era counts
+## 10. Era counts
 
 | Era | Units |
 |---|---:|
@@ -152,17 +171,17 @@ A blank field **does not mean the unit is permanently resource-free**. It means 
 | Early Medieval | 1 |
 | High Medieval | 4 |
 | Renaissance | 5 |
-| Exploration | 9 |
+| Exploration | 10 |
 | Enlightenment | 2 |
-| Industrial | 11 |
-| Modern | 18 |
+| Industrial | 12 |
+| Modern | 19 |
 | Atomic | 11 |
 | Information | 1 |
-| **Total** | **85** |
+| **Total** | **88** |
 
 The low Information-era count is intentional under the current baseline: the Giant Death Robot line is optional, while most late-game military capability is reached during the Modern and Atomic project eras.
 
-## 10. Next military pass
+## 11. Next military pass
 
 This V1 locks **which generic units exist and what unlocks them**.
 
@@ -177,4 +196,4 @@ The next military-specific pass should determine:
 - naval transport/cargo rules
 - air basing and interception rules
 
-Those numerical rules should not modify the 85-unit existence/gate roster unless a concrete progression gap is demonstrated.
+Those numerical rules should not modify the 88-unit existence/gate roster unless a concrete progression gap is demonstrated.
