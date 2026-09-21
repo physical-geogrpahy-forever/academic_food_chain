@@ -1,7 +1,10 @@
 # Final Generic Building Numeric Balance V1
 
 Date: 2026-09-21  
-Status: **LOCKED V1**
+Status: **STRUCTURAL BASELINE V1 — MOD-SENSITIVE ROWS UNDER SOURCE RE-AUDIT**
+
+> **Source-precedence correction:** This file is not authoritative by itself for rows affected by adopted mods or Gathering Storm. See `PROJECT_CONTENT_SOURCE_PRECEDENCE_V1.md` and `BUILDING_MOD_SOURCE_REAUDIT_V2.csv`.
+
 
 Authorities:
 - `city_system/FINAL_GENERIC_BUILDING_ROSTER_V1.csv`
@@ -240,3 +243,44 @@ All 102 rows:
 `NUMERIC_STATUS=LOCKED_BUILDING_V1`
 
 System-placeholder tags identify only the unfinished external system layer; they do not mean the building row itself is missing.
+
+
+## Source-precedence correction — 2026-09-21
+
+The earlier V1 pass overused Civilization V BNW as the primary source.
+
+Correct rule:
+- adopted source/mod behavior first;
+- explicit project adaptation second;
+- BNW only for fields not overridden/extended by the adopted source.
+
+Current row status:
+- `LOCKED_BUILDING_V1`: 83
+- `MOD_SOURCE_REAUDIT_REQUIRED`: 19
+
+The 19 re-audit rows must not be described as final until their Health, resource, Enlightenment Era or Civ VI/GS source layers are reconciled.
+
+### Health & Plague nuance
+
+The adopted Health & Plague mod **adds Health as a separate yield** and intentionally minimizes edits to base-game building data for compatibility.
+
+Therefore:
+- Hospital's BNW +5 Food does not automatically disappear merely because Health exists.
+- however, a Hospital row that records only +5 Food while omitting its Health/plague role is incomplete.
+- if the project chooses to reduce/remove the +5 Food to prevent double growth, that will be a **project override**, not a claim about the original mod.
+
+### Enlightenment Era corrections already applied
+
+Pouakai source effects restored:
+- Cloth Mill: +1 Production, +10% Production, +2 Gold from worked Cotton/Sheep/Silk
+- Gunsmith: +25% Production toward Gunpowder units
+- Drydock: naval units trained in the city receive +15% Combat Strength
+
+These effects replace the earlier improvised values.
+
+### 47-resource rule
+
+All resource-sensitive building effects must be audited against the project's complete 47-resource roster, including the More Luxuries-derived:
+Coffee, Tea, Tobacco, Olives, Perfume, Amber, Jade, Lapis Lazuli and Coral.
+
+The existence of a resource does not itself justify inventing a building synergy. Only source-defined or explicitly adopted project interactions are allowed.
