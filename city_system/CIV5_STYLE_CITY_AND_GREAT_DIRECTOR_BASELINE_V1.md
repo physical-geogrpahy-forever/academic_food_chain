@@ -155,3 +155,23 @@ Baseline Great Person classes therefore remain:
 Candidate mod classes such as Great Diplomat, Great Explorer, Great Doctor, Great Architect, Great Philosopher, Great Sculptor, Great Dignitary, Great Performer and related variants are **not adopted as separate Great Person classes**.
 
 Their useful gameplay functions, if ever needed, should be represented through existing units, specialists, buildings, policies, projects or existing Great Person abilities rather than by expanding the Great Person-class roster.
+
+
+## Great Person recruitment model — LOCKED
+
+Authority:
+`city_system/FINAL_GREAT_PERSON_RECRUITMENT_SYSTEM_V1.md`
+
+Hybrid design:
+- Scientist / Engineer / Merchant / Writer / Artist / Musician / Director:
+  specialist/building GPP production + global named-person recruitment
+- Great General:
+  land-combat point production + global named-person recruitment
+- Great Admiral:
+  naval-combat point production + global named-person recruitment
+- Great Prophet:
+  **Faith purchase + global named-person recruitment**
+
+Great Prophet does not use Prophet GPP.
+
+All named Great People are globally unique once recruited.
