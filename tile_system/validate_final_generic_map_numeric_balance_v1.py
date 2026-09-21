@@ -55,9 +55,16 @@ for name, r in rmap.items():
     if n["NUMERIC_STATUS"] != "LOCKED_MAP_NUMERIC_V1":
         errors.append(f"{name}: numeric status not locked")
 
-# Parse actual canonical resource IDs from YAML; do not assume vanilla Civ V set.
+# Parse only the canonical resources block from YAML; support block and inline mapping forms.
 catalog_text = RESOURCE_CATALOG.read_text(encoding="utf-8")
-catalog_ids = set(re.findall(r"^\s*-\s+id:\s*([A-Z0-9_]+)\s*$", catalog_text, flags=re.M))
+resource_block = catalog_text.split("\nresources:", 1)[1].split("\nexcluded:", 1)[0]
+catalog_ids = set(
+    re.findall(
+        r"^\s*-\s*(?:id:\s*|\{id:\s*)([A-Z0-9_]+)",
+        resource_block,
+        flags=re.M,
+    )
+)
 if len(catalog_ids) != 47:
     errors.append(f"resource catalog expected 47 IDs, got {len(catalog_ids)}")
 if len(compat) != 47 or len(cmap) != 47:
