@@ -134,3 +134,24 @@ Natural History may also create archaeological Historic Landmarks from Antiquity
 
 Authority:
 `tile_system/FORMER_GREAT_PERSON_TILE_IMPROVEMENTS_V1.md`
+
+
+## Great Person class scope — FINAL
+
+The project will **not add any further Great Person classes** beyond the already adopted Great Director.
+
+Baseline Great Person classes therefore remain:
+- Great General
+- Great Admiral
+- Great Scientist
+- Great Engineer
+- Great Merchant
+- Great Prophet
+- Great Writer
+- Great Artist
+- Great Musician
+- Great Director
+
+Candidate mod classes such as Great Diplomat, Great Explorer, Great Doctor, Great Architect, Great Philosopher, Great Sculptor, Great Dignitary, Great Performer and related variants are **not adopted as separate Great Person classes**.
+
+Their useful gameplay functions, if ever needed, should be represented through existing units, specialists, buildings, policies, projects or existing Great Person abilities rather than by expanding the Great Person-class roster.
