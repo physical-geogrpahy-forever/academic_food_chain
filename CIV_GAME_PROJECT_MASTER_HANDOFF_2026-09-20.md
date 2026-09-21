@@ -2654,3 +2654,175 @@ Coffee, Tea, Tobacco, Olives, Perfume, Amber, Jade, Lapis Lazuli and Coral.
 Never audit Plantation/Pasture/Mine/Quarry/Fishing Boat/building-resource bonuses against the vanilla Civ V resource list alone.
 
 More Luxuries resource existence does not automatically create a city-building bonus. A synergy must come from an adopted source or an explicit project rule.
+
+
+---
+
+## Generic map numeric balance V1 locked — 2026-09-21
+
+Authorities:
+- `tile_system/FINAL_GENERIC_MAP_NUMERIC_BALANCE_V1.csv`
+- `tile_system/FINAL_MAP_YIELD_UPGRADE_RULES_V1.csv`
+- `tile_system/FINAL_RESOURCE_IMPROVEMENT_COMPATIBILITY_V1.csv`
+- `tile_system/FINAL_MORE_LUXURIES_RESOURCE_RULES_V1.csv`
+- `tile_system/FINAL_GENERIC_MAP_NUMERIC_BALANCE_V1.md`
+- `tile_system/FINAL_GENERIC_MAP_NUMERIC_SOURCE_AUDIT_V1.md`
+- `tile_system/FINAL_GENERIC_MAP_NUMERIC_BALANCE_V1_QA.md`
+- `tile_system/validate_final_generic_map_numeric_balance_v1.py`
+- `.github/workflows/civ-final-map-numeric-balance-qa.yml`
+
+Exact state:
+- canonical map records: **39**
+- numeric rows: **39**
+- project resource catalog IDs: **47**
+- resource/improvement compatibility rows: **47**
+- strategic / bonus / luxury = **7 / 10 / 30**
+- More Luxuries exact resource rows: **9**
+- yield-upgrade rules: **23**
+- integrated validation: **PASS**
+
+### Critical source-precedence rule
+
+This layer follows:
+`city_system/PROJECT_CONTENT_SOURCE_PRECEDENCE_V1.md`
+
+Do not audit improvements against the vanilla Civ V resource list alone.
+
+The actual project resource set must be used, including:
+- Coffee
+- Tea
+- Tobacco
+- Olives
+- Perfume
+- Amber
+- Jade
+- Lapis Lazuli
+- Coral
+- Maize
+- Rice
+- Niter
+
+### More Luxuries exact mapping
+
+Plantation:
+- Coffee
+- Tea
+- Tobacco
+- Olives
+- Perfume
+
+Mine:
+- Amber
+- Jade
+- Lapis Lazuli
+
+Fishing Boats:
+- Coral
+
+Exact base resource yields:
+- Coffee/Tea/Tobacco/Perfume/Amber/Jade/Lapis/Coral: +2 Gold
+- Olives: +1 Food +1 Gold
+
+### Main improvement baselines
+
+Farm:
+- +1 Food
+- Irrigation fresh-water +1 Food
+- Calendar Wheat/Rice/Maize +1 Food
+- Horse Collar +1 Production
+- Fertilizer non-fresh +1 Food
+
+Pasture:
+- Horses/Cattle +1 Production
+- Sheep +1 Food
+- Fertilizer +1 Food
+- Replaceable Parts +1 Production
+
+Mine:
+- +1 Production
+- Apprenticeship +1
+- Chemistry +1
+- Industrialization +1
+- Smart Materials +1
+
+Fishing Boats:
+- +1 Food
+- Compass +1 Gold
+- compatible with Fish/Crab/Pearls/Whales/Coral
+
+Plantation:
+- generic +1 Gold
+- Fertilizer +1 Food
+- full project Plantation resource set used
+
+Quarry:
+- +1 Production
+- Chemistry +1
+
+Camp:
+- source-specific base Production/Gold
+- Economics +1 Gold
+- Civ VI Mercantilism Camp bonus remains intentionally dropped
+
+Lumber Mill:
+- +1 Production
+- Machinery +1
+- Scientific Theory +1
+- Steam Power +1
+
+### Routes
+
+- Road MP cost 0.5, maintenance 1 Gold/tile
+- Improved Road MP cost 1/3
+- Railroad MP cost 0.1, maintenance 2 Gold/tile
+- Railroad capital connection: +25% city Production
+
+### Former Great Person improvements
+
+Worker-buildable:
+- Academy +2 Science
+- Manufactory +2 Production
+- Customs House +2 Gold
+- Holy Site +2 Faith
+- Landmark +2 Culture
+
+Per-city cap 1, no Great Person consumed.
+
+### Gathering Storm infrastructure
+
+- Wind Farm: +1 Production, +1 Gold, Power 2
+- Solar Farm: +1 Production, +1 Gold, Power 2
+- Geothermal Plant: +2 Production, +1 Science, Power 4
+- Offshore Wind Farm: +1 Production, +1 Gold, Power 2
+- Seastead: +2 Food + adjacency effects
+- Hydroelectric Dam Upgrade: Power 6
+
+GS effects may be source-exact while Worker build-work values remain project-scaled.
+
+### Saltworks
+
+Current natural Salt improvement remains **Mine**.
+
+A possible coastal Saltworks exists only as a prior design note in the resource-transfer layer. It is **not** part of the current 39-record canonical map roster and was not added implicitly.
+
+### Building re-audit state
+
+Separate from the completed map numeric pass:
+- building numeric rows total 102
+- 96 currently locked
+- 6 Health-sensitive rows remain for quantitative Health re-audit:
+  - Apothecary
+  - Hospital
+  - Sewer
+  - Factory
+  - Medical Lab
+  - Recycling Center
+
+Do not revert to the older 83/19 building status.
+
+### Next clean numerical layer
+
+After map numeric V1, the next generic system target is:
+- Great Person / specialist generation and ability values
+
+World Wonders and civilization-specific unique content remain later audits.
