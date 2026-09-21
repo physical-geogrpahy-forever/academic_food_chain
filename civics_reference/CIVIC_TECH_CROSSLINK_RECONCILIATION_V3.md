@@ -32,3 +32,22 @@ The added premodern technologies also give later design room for:
 - Written Culture / Print Culture content to interact with Papermaking and Block Printing;
 - medieval intellectual civics to use Algebra/Astrolabe as Inspiration sources where useful;
 - military civics to interact with early Gunpowder without forcing firearm units to unlock immediately.
+
+
+## Gathering Storm Future Era update — 2026-09-21
+
+The project now uses a separate Future era with era index 13.
+
+Late civic/technology crosslink checks were re-run after the split:
+- missing referenced technologies: 0
+- HARD/BOOST links to a later era: 0
+- technology/civic era-backward violations: 0
+
+Late examples:
+- Environmentalism (Information) <- Ecology (Atomic) BOOST
+- Optimization Imperative (Information) <- Robotics (Information) HARD
+- Information Warfare (Future) inherits the Information civic branch and interacts with Advanced AI (Future)
+- Global Warming Mitigation (Future) <- Satellites (Information) BOOST
+- Exodus Imperative (Future) <- Satellites (Information) HARD
+
+This preserves all 72 civic rows while restoring Gathering Storm's distinct Future Era.
