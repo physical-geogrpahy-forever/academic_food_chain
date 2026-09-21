@@ -1,0 +1,10 @@
+RESOURCE_ID,RESOURCE_CLASS,BASE_FOOD,BASE_PRODUCTION,BASE_GOLD,BASE_SCIENCE,BASE_CULTURE,BASE_FAITH,PRIMARY_IMPROVEMENT,SOURCE_BASIS,STATUS
+"COFFEE","luxury","0","0","2","0","0","0","Plantation","Barathor More Luxuries exact","LOCKED_V1"
+"TEA","luxury","0","0","2","0","0","0","Plantation","Barathor More Luxuries exact","LOCKED_V1"
+"TOBACCO","luxury","0","0","2","0","0","0","Plantation","Barathor More Luxuries exact","LOCKED_V1"
+"OLIVES","luxury","1","0","1","0","0","0","Plantation","Barathor More Luxuries exact","LOCKED_V1"
+"PERFUME","luxury","0","0","2","0","0","0","Plantation","Barathor More Luxuries exact","LOCKED_V1"
+"AMBER","luxury","0","0","2","0","0","0","Mine","Barathor More Luxuries exact","LOCKED_V1"
+"JADE","luxury","0","0","2","0","0","0","Mine","Barathor More Luxuries exact","LOCKED_V1"
+"LAPIS_LAZULI","luxury","0","0","2","0","0","0","Mine","Barathor More Luxuries exact","LOCKED_V1"
+"CORAL","luxury","0","0","2","0","0","0","Fishing Boats","Barathor More Luxuries exact","LOCKED_V1"
