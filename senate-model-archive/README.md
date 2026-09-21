@@ -9,7 +9,7 @@
 - 기존 Core V2의 RMSE/MAE 수치는 역사 보존값으로 유지하되, 현재 primary objective는 winner-direction accuracy
 - 채팅 길이 제한으로 Core V2 문서 작성 이후의 일부 진전이 유실되었을 가능성이 있다.
 - 따라서 handoff의 `authoritative/latest` 표기는 작성 당시 기준이며, 더 뒤의 보존 자료가 발견되면 그 자료가 우선한다.
-- exact Core V2 산출 CSV와 설정 파일은 현재 Library 및 연결 GitHub에서 발견되지 않았다. 재구축본은 반드시 `Core V2-R`로 별도 표기한다.
+- 원본 historical Core V2의 exact 산출 CSV와 original config는 여전히 미복구다. 다만 현재 확정된 Core V2-R의 96/99 clean nested와 98/99 retrospective 산출물은 `final/validation/`에 canonical bundle로 고정되어 있다.
 
 ## Core V2 고정 원칙
 
@@ -41,13 +41,19 @@ k = 0.5
 - `data/schema/`: 앞으로 생성해야 할 exact outputs의 schema
 - `config/`: 보존된 Core V2 설정과 불확실 항목
 
-## 다음 작업
+## 현재 검증 기준
 
-1. Core V2-R 재현 데이터셋 구축
-2. 45-day historical rolling OOS 재현
-3. 기존 7.85%p headline 재현 여부 확인
-4. 재현 성공 후에만 V3-A hierarchical Era partial pooling 시험
-5. 모든 실험은 새 commit으로 남기고 `CHANGELOG.md` 갱신
+- 공식 clean nested OOS: **96/99 = 97.0%**
+- production retrospective diagnostic: **98/99 = 99.0%**, 단 OOS 아님
+- 98/99의 유일 오답: **2014 North Carolina**
+- 94/99 대비 production selector가 교정한 경주: **2018 Nevada, Missouri, Florida, Indiana**
+
+canonical bundle:
+- `final/validation/README.md`
+- `final/validation/manifest.json`
+- `final/validation/verification_report.json`
+
+다음 채팅이나 복구 작업에서는 실험 폴더보다 이 bundle을 먼저 읽는다.
 
 
 ## 2026 production lock
