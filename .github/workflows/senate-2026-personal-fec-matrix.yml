@@ -24,7 +24,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add senate-model-archive/data/snapshots/2026_production_input_matrix_45d.csv senate-model-archive/data/snapshots/2026_personal_vote_core.csv senate-model-archive/data/snapshots/2026_fec_june30_top50.csv senate-model-archive/docs/analysis/2026_PRODUCTION_INPUT_MATRIX_45D.md
+          git add senate-model-archive/data/snapshots/2026_production_input_matrix_45d.csv senate-model-archive/data/snapshots/2026_personal_vote_core.csv senate-model-archive/data/snapshots/2026_fec_june30_top50.csv senate-model-archive/data/snapshots/2026_fec_current_coverage_audit.csv senate-model-archive/docs/analysis/2026_PRODUCTION_INPUT_MATRIX_45D.md
           if git diff --cached --quiet; then echo nochanges; else
             git commit -m 'data: build complete 2026 45-day production input matrix [skip ci]'
             git fetch origin archive-2026-us-senate-model
