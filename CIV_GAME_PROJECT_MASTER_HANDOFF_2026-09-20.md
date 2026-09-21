@@ -1990,7 +1990,7 @@ Authorities:
 - `.github/workflows/civ-final-unit-roster-qa.yml`
 
 Exact state:
-- final generic units: **85**
+- final generic units: **88**
 - technology-master units: **73**
 - civic-only/civic-owned units: **7**
 - recovered game-start/religion-system units: **5**
@@ -2039,7 +2039,7 @@ The following large generic content sets are now consolidated:
 - 72 civics
 - 127 policy cards
 - 102 generic/national buildings
-- 85 generic non-Great-Person units
+- 88 generic non-Great-Person units
 - 5 restored former-Great-Person Worker-built improvements
 - 32 corporation sectors / 98 signature founders
 
@@ -2104,7 +2104,7 @@ The Ecology technology master was synchronized so Solar Farm explicitly carries 
 - 72 civics
 - 127 policy cards
 - 102 generic/national buildings
-- 85 generic non-Great-Person units
+- 88 generic non-Great-Person units
 - 39 generic map improvement/route/infrastructure records
 - 32 corporation sectors
 - 98 signature corporate founders
@@ -2116,3 +2116,43 @@ The core generic **existence + unlock ownership** layer is therefore substantial
 - Great Person and specialist numerical rules/rosters
 - World Wonder audit
 - civilization-specific unique content
+
+
+---
+
+## Advanced founding-unit progression locked — 2026-09-21
+
+The generic unit roster is superseded from 85 to **88** units by adding three advanced founding units.
+
+Authority:
+- `city_system/SETTLER_PROGRESSION_V1.csv`
+- `city_system/SETTLER_PROGRESSION_V1.md`
+- `city_system/FINAL_GENERIC_UNIT_ROSTER_V1.csv`
+
+Final line:
+
+`Settler -> Pioneer -> Colonist -> Urban Planner`
+
+Final gates and starting population:
+- Settler: game start, population 1
+- Pioneer: Cartography + Exploration, population 2
+- Colonist: Railroad + Colonialism, population 3
+- Urban Planner: Combustion + Urbanization, population 4
+
+**All four use the same base founding-territory rule.** Later founding units do not receive a larger initial tile claim.
+
+Founding infrastructure V1:
+- Settler: none
+- Pioneer: Monument + Granary
+- Colonist: Pioneer package + Library + Market + Aqueduct
+- Urban Planner: Colonist package + Workshop + University + Sewer
+
+High-value specialization buildings such as Barracks/Armory, Factory/Power Plant, Research Lab, Hospital/Medical Lab, Stock Exchange, Airport and Broadcast Center are not granted for free.
+
+Replacement behavior:
+- newly produced founding units use the newest unlocked class
+- existing units already on the map do not auto-upgrade
+- founding consumes the unit
+- no free Worker is created after founding
+
+The previous 7-population Urban Planner concept is rejected. Final starting-population progression is deliberately restrained at **1 -> 2 -> 3 -> 4**.
