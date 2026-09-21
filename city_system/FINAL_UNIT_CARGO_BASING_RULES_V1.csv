@@ -1,0 +1,5 @@
+BASE_TYPE,BASE_EN,BASE_CAPACITY,ELIGIBLE_CARGO,EXCLUDED_CARGO,CAPACITY_MODIFIERS,STATUS,SOURCE_BASIS,NOTES
+"CITY","City Air Base","6","Triplane; Fighter; Jet Fighter; Great War Bomber; Bomber; Stealth Bomber; Guided Missile","","Building/system modifiers may alter separately","LOCKED_V1","Civ5 BNW BASE_CITY_AIR_STACKING","Nuclear payload delivery is a separate project system, not a standalone Nuclear Missile unit."
+"UNIT","Aircraft Carrier","2","Triplane; Fighter; Jet Fighter; Great War Bomber; Bomber","Stealth Bomber; Guided Missile","Flight Deck I +1; Flight Deck II +1; Flight Deck III +1","LOCKED_V1","Civ5 BNW","Maximum air capacity 5 after Flight Deck III."
+"UNIT","Nuclear Submarine","2","Guided Missile","All aircraft","None","LOCKED_V1","Civ5 BNW","Carries missile-class units only."
+"UNIT","Missile Cruiser","3","Guided Missile","All aircraft","None","LOCKED_V1","Civ5 BNW","Carries missile-class units only."
