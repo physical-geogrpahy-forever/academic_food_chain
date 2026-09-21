@@ -47,7 +47,7 @@ Current result: **PASS**
 - duplicate UNIT_ID: 0
 - advanced settler rows: 3
 - gate mismatches: 0
-- era counts: Ancient 14; Classical 6; Late Antiquity 3; Early Medieval 1; High Medieval 4; Renaissance 5; Exploration 10; Enlightenment 2; Industrial 12; Modern 19; Atomic 4; Information 8; Future 1
+- era counts: Ancient 14; Classical 6; Late Antiquity 3; Early Medieval 1; High Medieval 4; Renaissance 5; Exploration 10; Enlightenment 2; Industrial 12; Modern 18; Atomic 5; Information 8; Future 1
 
 The workflow file remains active; the Run ID above records the earlier 85-unit Actions pass and is retained as historical audit evidence rather than being misrepresented as the new 88-unit run.
 
