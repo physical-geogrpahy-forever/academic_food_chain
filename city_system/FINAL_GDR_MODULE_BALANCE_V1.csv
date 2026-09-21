@@ -1,0 +1,7 @@
+TECH_GATE,MODULE_EN,EFFECT_TYPE,BASE_VALUE,FINAL_VALUE,STATUS,SOURCE_BASIS,PROJECT_INTERPRETATION
+"Advanced AI","Drone Air Defense","ANTI_AIR_DEFENSE_STRENGTH","","130","LOCKED_V1","Civ6 Gathering Storm","GDR gains anti-air defense strength 130; no ordinary promotion needed."
+"Advanced Power Cells","Particle Beam Siege Cannon","CITY_RANGED_STRENGTH_BONUS","100","130","LOCKED_V1","Civ6 Gathering Storm","Base project GDR ranged strength is 100; attacks against cities use 130 and are 100% effective against defenses."
+"Advanced Power Cells","Particle Beam Siege Cannon","CITY_DEFENSE_EFFECTIVENESS_PERCENT","","100","LOCKED_V1","Civ6 Gathering Storm","No city-defense ranged penalty for the GDR after module unlock."
+"Cybernetics","Enhanced Mobility","MOVES_CHANGE","5","8","LOCKED_V1","Civ6 Gathering Storm","Base project GDR movement 5 becomes 8."
+"Cybernetics","Enhanced Mobility","MOUNTAIN_JUMP","","1","LOCKED_V1","Civ6 Gathering Storm","GDR may perform a Jump action across Mountain terrain."
+"Smart Materials","Reinforced Armor Plating","DEFENSE_STRENGTH_VS_LAND_NAVAL","","10","LOCKED_V1","Civ6 Gathering Storm","+10 Combat Strength only while defending against land or naval attacks."
