@@ -13,9 +13,9 @@
 
 ## Core V2 고정 원칙
 
-`PVI + National + SameSeat + Incumbency + OutPartyIncumbent + Senate/Governor/House ExperienceDiff + PersonalVoteDiff + RelativeEconomicGrowth + Era interactions`
+`PVI + National + SameSeat prior margin + SameSeat gap + IncumbencyDiff + OutPartyIncumbent + RelativeEconomicGrowth + incumbency/out-party Era interactions`
 
-Poll은 fundamentals prior를 대체하지 않고 observation layer로 업데이트한다.
+Candidate experience, PersonalVote, FEC finance are retained as auxiliary diagnostics and are not terms in the canonical 98/99 production calculation.\n\nPoll은 fundamentals prior를 대체하지 않고 observation layer로 업데이트한다.
 
 ```text
 w_max = 0.75
