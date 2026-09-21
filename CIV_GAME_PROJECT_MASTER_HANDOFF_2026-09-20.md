@@ -2173,3 +2173,25 @@ Replacement behavior:
 - no free Worker is created after founding
 
 The previous 7-population Urban Planner concept is rejected. Final starting-population progression is deliberately restrained at **1 -> 2 -> 3 -> 4**.
+
+
+## Great Person class scope locked — 2026-09-21
+
+No additional Great Person classes will be added beyond the already adopted Great Director.
+
+Final class scope:
+- Great General
+- Great Admiral
+- Great Scientist
+- Great Engineer
+- Great Merchant
+- Great Prophet
+- Great Writer
+- Great Artist
+- Great Musician
+- Great Director
+
+Great Diplomat, Great Explorer, Great Doctor, Great Architect, Great Philosopher, Great Sculptor and other mod-added classes are not adopted as separate classes.
+
+Authority:
+- `city_system/CIV5_STYLE_CITY_AND_GREAT_DIRECTOR_BASELINE_V1.md`
