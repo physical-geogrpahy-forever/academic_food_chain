@@ -34,6 +34,7 @@ Core package:
 - Market
 - Aqueduct
 - Amphitheater
+- Arena
 - Workshop
 - University
 - Bank
@@ -75,8 +76,10 @@ Includes the entire Colonist package, then adds:
 - Hospital
 - Sewer
 - Food Market
+- Cold Storage
 - Cinema
 - Shopping Mall
+- Telegraph Office
 - Power Plant
 
 Conditional maritime package:
