@@ -21,12 +21,11 @@ Authority:
 Run:
 https://github.com/physical-geogrpahy-forever/academic_food_chain/actions/runs/35527600918
 
-## Validator output
+## Historical validator output for Run 35527600918
 
 ```text
-unit_count=89
-advanced_settler_units=3
-technology_master_units=74
+unit_count=85
+technology_master_units=73
 civic_only_units=7
 baseline_system_units=5
 duplicate_unit_names=0
@@ -34,6 +33,8 @@ forbidden_units_present=0
 great_people_present=0
 PASS
 ```
+
+This run predates Pioneer / Colonist / Urban Planner and the later Gathering Storm Future Era realignment.
 
 ## Current repository validation
 
@@ -49,7 +50,7 @@ Current result: **PASS**
 - gate mismatches: 0
 - era counts: Ancient 14; Classical 6; Late Antiquity 3; Early Medieval 1; High Medieval 4; Renaissance 5; Exploration 10; Enlightenment 2; Industrial 12; Modern 18; Atomic 5; Information 8; Future 1
 
-The workflow file remains active; the Run ID above records the earlier 85-unit Actions pass and is retained as historical audit evidence rather than being misrepresented as the new 88-unit run.
+The workflow file remains active; the Run ID above records the earlier 85-unit Actions pass and is retained as historical audit evidence rather than being misrepresented as the current 89-unit validation.
 
 ## Structural checks passed
 
@@ -99,6 +100,7 @@ This PASS locks unit **existence and unlock ownership**. It does not yet lock nu
 - Modern Armor -> Information
 - Guided Missile -> Information
 - Missile Cruiser -> Information
+- Spec Ops -> Radar + Rapid Deployment -> Atomic
 
 Future GDR upgrades:
 - Advanced AI -> Drone Air Defense
