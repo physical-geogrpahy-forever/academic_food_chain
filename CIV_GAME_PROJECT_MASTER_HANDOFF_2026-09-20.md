@@ -1990,8 +1990,8 @@ Authorities:
 - `.github/workflows/civ-final-unit-roster-qa.yml`
 
 Exact state:
-- final generic units: **88**
-- technology-master units: **73**
+- final generic units: **89**
+- technology-master units: **74**
 - civic-only/civic-owned units: **7**
 - recovered game-start/religion-system units: **5**
 - duplicate unit names: **0**
@@ -2017,7 +2017,7 @@ Important audit/master mismatch corrections:
 Explicit exclusions remain:
 - Heavy Chariot: no separate generic unit
 - Nuclear Missile: no standalone generic unit; use Nuclear/Thermonuclear Device delivery system
-- Giant Death Robot: optional endgame module only
+- Giant Death Robot: baseline Information-era unit at Robotics; Future upgrades at Advanced AI / Advanced Power Cells / Cybernetics / Smart Materials
 - Great People: separate Great Person systems
 
 Major role families now represented:
@@ -2039,7 +2039,7 @@ The following large generic content sets are now consolidated:
 - 72 civics
 - 127 policy cards
 - 102 generic/national buildings
-- 88 generic non-Great-Person units
+- 89 generic non-Great-Person units
 - 5 restored former-Great-Person Worker-built improvements
 - 32 corporation sectors / 98 signature founders
 
@@ -2104,7 +2104,7 @@ The Ecology technology master was synchronized so Solar Farm explicitly carries 
 - 72 civics
 - 127 policy cards
 - 102 generic/national buildings
-- 88 generic non-Great-Person units
+- 89 generic non-Great-Person units
 - 39 generic map improvement/route/infrastructure records
 - 32 corporation sectors
 - 98 signature corporate founders
@@ -2195,3 +2195,51 @@ Great Diplomat, Great Explorer, Great Doctor, Great Architect, Great Philosopher
 
 Authority:
 - `city_system/CIV5_STYLE_CITY_AND_GREAT_DIRECTOR_BASELINE_V1.md`
+
+
+---
+
+## Gathering Storm Future Era realignment locked — 2026-09-21
+
+Authoritative late-era document:
+- `tech_reference/GATHERING_STORM_FUTURE_ERA_REALIGNMENT_V1.md`
+
+The project now uses a distinct **Future Era (era index 13)**.
+
+Technology distribution:
+- Atomic 5
+- Information 9
+- Future 8
+- total remains 109
+
+Civic distribution:
+- Atomic 5
+- Information 7
+- Future 6
+- total remains 72
+
+Critical decisions:
+- Giant Death Robot is baseline again at Robotics.
+- GDR upgrades: Advanced AI / Advanced Power Cells / Cybernetics / Smart Materials.
+- XCOM Squad is Future and unlocks at Cybernetics + Rapid Deployment.
+- Spec Ops is Atomic because Rapid Deployment is Atomic.
+- generic unit roster total is **89**.
+- Environmentalism is Information.
+- Information/Future infrastructure follows the latest gate era.
+- Future policies are separated from Information; total policy cards remains 127.
+- old SS Engine / SS Stasis Chamber space-part abstractions are superseded.
+
+Science-victory chain:
+`Launch Earth Satellite -> Moon Landing -> Launch Mars Colony -> Exoplanet Expedition -> Terrestrial/Lagrange Laser Stations`
+
+Cross-system validation:
+- 109 technologies
+- 72 civics
+- 89 units
+- 127 policies
+- 39 map/infrastructure records
+- 102 buildings
+- missing references 0
+- backward-era edges 0
+- content-earlier-than-gate violations 0
+- **PASS**
