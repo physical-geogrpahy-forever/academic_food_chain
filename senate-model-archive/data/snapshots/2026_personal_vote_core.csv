@@ -1,10 +1,10 @@
-state_abbrev,candidate_D,candidate_R,d_prior_statewide_count,r_prior_statewide_count,d_personal_vote_cycle_adjusted_pctpt,r_personal_vote_cycle_adjusted_pctpt,PersonalVoteDiff_D_minus_R_pctpt,personal_vote_status
-AK,Mary Peltola,Dan Sullivan,0,2,,-10.777594893499712,10.777594893499712,available_with_missing_side_zero_for_diff
-GA,Jon Ossoff,Mike Collins,1,0,1.940880627023354,,1.940880627023354,available_with_missing_side_zero_for_diff
-IA,Josh Turek,Ashley Hinson,0,0,,,,both_missing
-ME,Troy Jackson,Susan Collins,0,3,,37.9820694352427,-37.9820694352427,available_with_missing_side_zero_for_diff
-MI,Abdul El-Sayed,Mike Rogers,0,1,,-2.2447700600703864,2.2447700600703864,available_with_missing_side_zero_for_diff
-NC,Roy Cooper,Michael Whatley,2,0,13.663702239598738,,13.663702239598738,available_with_missing_side_zero_for_diff
-NH,Chris Pappas,John Sununu,0,1,,7.44200737155826,-7.44200737155826,available_with_missing_side_zero_for_diff
-OH,Sherrod Brown,Jon Husted,4,0,2.2667655244118703,,2.2667655244118703,available_with_missing_side_zero_for_diff
-TX,James Talarico,Ken Paxton,0,0,,,,both_missing
+state_abbrev,candidate_D,candidate_R,D_prior_statewide_count,D_prior_senate_count,D_prior_governor_count,D_personal_mean_cycle_adjusted_pctpt,D_personal_latest_cycle,D_personal_history,R_prior_statewide_count,R_prior_senate_count,R_prior_governor_count,R_personal_mean_cycle_adjusted_pctpt,R_personal_latest_cycle,R_personal_history,PersonalVoteDiff_D_minus_R_pctpt
+AK,Mary Peltola,Dan Sullivan,0,0,0,,,,2,2,0,-10.450888701681606,2020,Senate 2014 AK score=-20.67 | Senate 2020 AK score=-0.23,10.450888701681606
+GA,Jon Ossoff,Mike Collins,1,1,0,1.8802281074288745,2020,Senate 2020 GA score=1.88,0,0,0,,,,1.8802281074288745
+IA,Josh Turek,Ashley Hinson,0,0,0,,,,0,0,0,,,,0.0
+ME,Troy Jackson,Susan Collins,0,0,0,,,,3,3,0,36.881045586815446,2020,Senate 2008 ME score=44.13 | Senate 2014 ME score=47.50 | Senate 2020 ME score=19.01,-36.881045586815446
+MI,Abdul El-Sayed,Mike Rogers,0,0,0,,,,2,2,0,-2.333767773517697,2024,Senate 2024 MI score=-2.33 | Senate 2024 MI score=-2.33,2.333767773517697
+NH,Chris Pappas,John Sununu,0,0,0,,,,1,1,0,7.3511424634818034,2008,Senate 2008 NH score=7.35,-7.3511424634818034
+NC,Roy Cooper,Michael Whatley,2,0,2,12.449613235245367,2020,Governor 2016 NC score=6.79 | Governor 2020 NC score=18.11,0,0,0,,,,12.449613235245367
+OH,Sherrod Brown,Jon Husted,5,5,0,4.462592969707454,2024,Senate 2006 OH score=0.11 | Senate 2012 OH score=0.78 | Senate 2018 OH score=4.75 | Senate 2024 OH score=8.33 | Senate 2024 OH score=8.33,0,0,0,,,,4.462592969707454
+TX,James Talarico,Ken Paxton,0,0,0,,,,0,0,0,,,,0.0
