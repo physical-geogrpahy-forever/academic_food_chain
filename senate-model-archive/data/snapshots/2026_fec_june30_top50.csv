@@ -1,10 +1,10 @@
-state_abbrev,candidate_D,candidate_R,D_fec_name,D_fec_coverage_end,D_receipts,D_individual,D_cash,R_fec_name,R_fec_coverage_end,R_receipts,R_individual,R_cash,receipts_share_D_minus_R,individual_share_D_minus_R,cash_share_D_minus_R,fec_source,fec_cutoff_rule
-AK,Mary Peltola,Dan Sullivan,,,,,,,,,,,,,,https://www.fec.gov/files/bulk-downloads/2026/weball26.zip,Coverage_End_Date exactly 06/30/2026
-GA,Jon Ossoff,Mike Collins,,,,,,,,,,,,,,https://www.fec.gov/files/bulk-downloads/2026/weball26.zip,Coverage_End_Date exactly 06/30/2026
-IA,Josh Turek,Ashley Hinson,,,,,,,,,,,,,,https://www.fec.gov/files/bulk-downloads/2026/weball26.zip,Coverage_End_Date exactly 06/30/2026
-ME,Troy Jackson,Susan Collins,,,,,,,,,,,,,,https://www.fec.gov/files/bulk-downloads/2026/weball26.zip,Coverage_End_Date exactly 06/30/2026
-MI,Abdul El-Sayed,Mike Rogers,,,,,,,,,,,,,,https://www.fec.gov/files/bulk-downloads/2026/weball26.zip,Coverage_End_Date exactly 06/30/2026
-NH,Chris Pappas,John Sununu,,,,,,,,,,,,,,https://www.fec.gov/files/bulk-downloads/2026/weball26.zip,Coverage_End_Date exactly 06/30/2026
-NC,Roy Cooper,Michael Whatley,,,,,,,,,,,,,,https://www.fec.gov/files/bulk-downloads/2026/weball26.zip,Coverage_End_Date exactly 06/30/2026
-OH,Sherrod Brown,Jon Husted,,,,,,,,,,,,,,https://www.fec.gov/files/bulk-downloads/2026/weball26.zip,Coverage_End_Date exactly 06/30/2026
-TX,James Talarico,Ken Paxton,,,,,,,,,,,,,,https://www.fec.gov/files/bulk-downloads/2026/weball26.zip,Coverage_End_Date exactly 06/30/2026
+state_abbrev,candidate_D,candidate_R,d_receipts,r_receipts,receipts_share_D_minus_R,d_individual,r_individual,individual_share_D_minus_R,d_cash,r_cash,cash_share_D_minus_R
+AK,Mary Peltola,Dan Sullivan,,,,,,,,,
+GA,Jon Ossoff,Mike Collins,,,,,,,,,
+IA,Josh Turek,Ashley Hinson,,,,,,,,,
+ME,Troy Jackson,Susan Collins,,,,,,,,,
+MI,Abdul El-Sayed,Mike Rogers,,,,,,,,,
+NH,Chris Pappas,John Sununu,,,,,,,,,
+NC,Roy Cooper,Michael Whatley,,,,,,,,,
+OH,Sherrod Brown,Jon Husted,,,,,,,,,
+TX,James Talarico,Ken Paxton,,,,,,,,,
