@@ -15,25 +15,31 @@ Snapshot cutoff:
 - clean nested OOS validation: **96/99**
 - these are not interchangeable metrics
 
-## Included model inputs
+## Canonical 98/99 production inputs
 
+Used by the locked production calculation:
 - PVI
-- SameSeat
-- Incumbency
+- SameSeat prior margin
+- SameSeat year gap
+- IncumbencyDiff
 - OutPartyIncumbent
+- RelativeEconomicGrowth
+- National environment bridge
+- era interaction terms derived from incumbency / out-party status
+- 45-day poll layer
+- production close-poll/PVI selector
+- third-party / multi-candidate uncertainty flag only
+
+Retained in this snapshot for diagnostics but **not used by the canonical 98/99 calculation**:
 - SenateExperience
 - GovernorExperience
 - HouseExperience
 - PersonalVote
-- RelativeEconomicGrowth
-- National environment bridge
-- exact-cutoff Senate poll diagnostic layer
-- production close-poll/PVI trigger fields
-- third-party / multi-candidate uncertainty flag
+- FEC finance
 
-## PersonalVote
+## PersonalVote diagnostic
 
-PersonalVote was rebuilt through the 2024 election cycle from prior Senate and Governor general elections only.
+PersonalVote was rebuilt through the 2024 election cycle from prior Senate and Governor general elections only. It is retained for audit and future experiments, but it is not a canonical 98/99 production term.
 
 | State | D PersonalVote | R PersonalVote | D-R difference |
 |---|---:|---:|---:|
