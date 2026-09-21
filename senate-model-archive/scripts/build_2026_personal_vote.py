@@ -76,13 +76,13 @@ def build_statewide(rows,office):
             else:
                 try:c['votes']+=int(float(v))
                 except:c['missing']=True
-        cs=list(cand.values());d=r=None;rule='standard_dem_rep'
+        cs=list(cand.values());d=r=None
         if office=='Senate':
             ov=override.get((cyc,st,first.get('office_seat_name') or ''))
             if ov and ov['action']=='ALIGN':
                 ds=[c for c in cs if norm(c['name'])==norm(ov['d_side_name'])]
                 rs=[c for c in cs if norm(c['name'])==norm(ov['r_side_name'])]
-                d=ds[0] if len(ds)==1 else None;r=rs[0] if len(rs)==1 else None;rule='alignment_override'
+                d=ds[0] if len(ds)==1 else None;r=rs[0] if len(rs)==1 else None
             elif ov and ov['action'] in {'EXCLUDE','REVIEW'}:continue
         if d is None and r is None:
             ds=[c for c in cs if 'DEM' in c['parties']]
@@ -94,7 +94,7 @@ def build_statewide(rows,office):
         margin=100*(d['votes']-r['votes'])/(d['votes']+r['votes'])
         out.append({'office':office,'race_id':rid,'cycle':cyc,'state_abbrev':st,
                     'd_name':d['name'],'d_pid':d['pid'],'r_name':r['name'],'r_pid':r['pid'],
-                    'margin':margin,'pvi':pvi,'resid':margin-pvi,'rule':rule})
+                    'margin':margin,'pvi':pvi,'resid':margin-pvi})
     return out
 
 statewide=build_statewide(sen,'Senate')+build_statewide(gov,'Governor')
@@ -121,13 +121,10 @@ for st,side,name in TARGET:
         if r['state_abbrev']!=st or r['cycle']>=2026:continue
         cname=r['d_name'] if side=='D' else r['r_name']
         sc=score_name(name,cname)
-        if sc>=.72:
-            candidates.append((sc,r,cname))
-    # disambiguate by candidate identity via best normalized name cluster
+        if sc>=.72:candidates.append((sc,r,cname))
     if candidates:
         best=max(candidates,key=lambda z:z[0])[2]
-        bnorm=norm(best)
-        selected=[(sc,r,cname) for sc,r,cname in candidates if norm(cname)==bnorm or score_name(best,cname)>=.92]
+        selected=[(sc,r,cname) for sc,r,cname in candidates if norm(cname)==norm(best) or score_name(best,cname)>=.92]
     else:selected=[]
     own=[]
     for sc,r,cname in sorted(selected,key=lambda z:z[1]['cycle']):
@@ -148,7 +145,6 @@ for st,side,name in TARGET:
                   'mean_own_party_overperf_cycle_adjusted_pctpt':'' if not adjvals else sum(adjvals)/len(adjvals),
                   'latest_prior_statewide_cycle':'' if not own else max(x[0] for x in own)})
 
-# race-level D-R PersonalVote difference
 by={(r['state_abbrev'],r['side']):r for r in stats}
 out=[]
 for st in sorted(set(x[0] for x in TARGET)):
