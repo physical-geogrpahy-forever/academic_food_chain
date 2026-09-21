@@ -68,3 +68,20 @@ Any post-lock modification must:
 - receive its own chronological OOS validation
 - preserve this locked config and documentation
 - update CHANGELOG.md
+
+
+## Canonical validation bundle
+
+The authoritative reconstructed validation artifacts are frozen under:
+
+- `final/validation/README.md`
+- `final/validation/manifest.json`
+- `final/validation/clean_nested_96of99_predictions.csv`
+- `final/validation/production_98of99_predictions.csv`
+- `final/validation/base_prior_99_predictions.csv`
+- `final/validation/base_prior_coefficients_by_cycle.csv`
+- `final/validation/base_prior_standardization_by_cycle.csv`
+- `final/validation/production_selector_top_grid.csv`
+- `final/validation/verification_report.json`
+
+Recovery rule: read `final/validation/README.md` before using any experimental validation output.
