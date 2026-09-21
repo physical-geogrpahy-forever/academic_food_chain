@@ -1,0 +1,26 @@
+name: Civ Final Unit Upgrade Graph QA
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "city_system/FINAL_GENERIC_UNIT_ROSTER_V1.csv"
+      - "city_system/FINAL_UNIT_UPGRADE_GRAPH_V1.csv"
+      - "city_system/FINAL_UNIT_UPGRADE_GRAPH_V1.md"
+      - "city_system/validate_final_unit_upgrade_graph_v1.py"
+      - ".github/workflows/civ-final-unit-upgrade-graph-qa.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout authoritative branch
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate final unit upgrade graph
+        run: python city_system/validate_final_unit_upgrade_graph_v1.py
