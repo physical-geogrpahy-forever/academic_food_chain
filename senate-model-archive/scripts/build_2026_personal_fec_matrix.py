@@ -278,6 +278,41 @@ def match_bulk(st,target,side):
     if len(pool)>1 and pool[0][0]-pool[1][0]<.03:return None
     return pool[0][1]
 
+# Audit the best current bulk match regardless of coverage end.
+def match_bulk_any(st,target,side):
+    aliases=ALIASES.get(target,[norm(target)])
+    pool=[]
+    for r in fec_records:
+        rst=hget(r,'CAND_OFFICE_ST','Cand_Office_St').upper()
+        if rst!=st:continue
+        name=hget(r,'CAND_NAME','Cand_Name')
+        n=norm(name)
+        if not n:continue
+        score=max(SequenceMatcher(None,a,n).ratio() for a in aliases)
+        party=party_side(hget(r,'CAND_PTY_AFFILIATION','Cand_Party_Affiliation'))
+        if party==side:score+=.06
+        pool.append((score,r))
+    pool.sort(key=lambda z:z[0],reverse=True)
+    if not pool:return None,0.0
+    return pool[0][1],pool[0][0]
+
+fec_audit=[]
+for st,(dc,rc) in TARGETS.items():
+    for side,cand in [('D',dc),('R',rc)]:
+        m,score=match_bulk_any(st,cand,side)
+        fec_audit.append({
+          'state_abbrev':st,'side':side,'target_candidate':cand,'match_score':score,
+          'fec_name':'' if not m else hget(m,'CAND_NAME','Cand_Name'),
+          'cand_id':'' if not m else hget(m,'CAND_ID','Cand_Id'),
+          'coverage_end':'' if not m else hget(m,'CVG_END_DT','Coverage_End_Date'),
+          'total_receipts':'' if not m else hget(m,'TTL_RECEIPTS','Total_Receipt'),
+          'individual_contrib':'' if not m else hget(m,'TTL_INDIV_CONTRIB','Individual_Contribution'),
+          'cash_on_hand':'' if not m else hget(m,'COH_COP','Cash_On_Hand_COP')
+        })
+FECAUDIT=ROOT/'data/snapshots/2026_fec_current_coverage_audit.csv'
+with FECAUDIT.open('w',encoding='utf-8',newline='') as f:
+    w=csv.DictWriter(f,fieldnames=list(fec_audit[0].keys()));w.writeheader();w.writerows(fec_audit)
+
 fecrows=[]
 for st,(dc,rc) in TARGETS.items():
     rec={'state_abbrev':st,'candidate_D':dc,'candidate_R':rc}
