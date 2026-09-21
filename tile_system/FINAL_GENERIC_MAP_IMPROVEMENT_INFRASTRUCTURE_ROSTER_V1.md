@@ -110,6 +110,14 @@ to:
 
 This matches the already-locked Environmentalism civic, which treats Solar, Wind and Geothermal infrastructure as cross-gated content.
 
+### Gathering Storm era split
+
+- Wind Farm -> Information (Composites + Environmentalism)
+- Offshore Wind Farm -> Future (Predictive Systems + Environmentalism)
+- Seastead -> Future (Seasteads)
+
+The unlock gates are unchanged; only the project-era classification is realigned.
+
 ## 6. Water infrastructure
 
 - Dam -> Buttress
