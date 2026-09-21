@@ -2421,3 +2421,77 @@ Next remaining military-system tasks:
 2. Prize Ships capture chance
 3. support-aura stacking/formation interaction
 4. XP thresholds / promotion acquisition cadence
+
+
+---
+
+## Generic unit operational rules V1 locked — 2026-09-21
+
+Authorities:
+- `city_system/FINAL_UNIT_CARGO_BASING_RULES_V1.csv`
+- `city_system/FINAL_PRIVATEER_PRIZE_SHIPS_V1.csv`
+- `city_system/FINAL_SUPPORT_UNIT_OPERATION_RULES_V1.csv`
+- `city_system/FINAL_UNIT_XP_PROGRESSION_V1.csv`
+- `city_system/FINAL_UNIT_OPERATIONAL_RULES_V1.md`
+- `city_system/FINAL_UNIT_OPERATIONAL_RULES_V1_QA.md`
+- `city_system/validate_final_unit_operational_rules_v1.py`
+- `.github/workflows/civ-final-unit-operational-rules-qa.yml`
+
+Exact locked state:
+
+### Cargo / basing
+- City air capacity: 6
+- Aircraft Carrier base capacity: **2**, not 3
+- Flight Deck I / II / III -> Carrier capacity 3 / 4 / 5
+- Carrier may base Triplane, Fighter, Jet Fighter, Great War Bomber, Bomber
+- Carrier may not base Stealth Bomber or Guided Missile
+- Nuclear Submarine: 2 Guided Missiles
+- Missile Cruiser: 3 Guided Missiles
+
+### Prize Ships
+Privateer capture chance:
+`min(80, 10 + int((attacker_base_combat / defender_base_combat) * 40))`
+
+- minimum 10%
+- maximum 80%
+- captured ship appears at 50 HP
+- captured promotions do not transfer
+- Prize Ships is lost on project Privateer -> Submarine transition
+
+### Support formation
+- one SUPPORT-class unit may share a tile with one friendly land combat unit
+- only one SUPPORT-class unit occupies the support slot
+- same aura category does not stack; strongest applies
+- different categories may coexist
+
+Values:
+- Medic +20 stationary healing
+- Supply Convoy +20 stationary healing and +1 Movement
+- Observation Balloon +1 siege Range
+- Drone +1 siege Range and +5 siege Ranged Strength
+
+### XP
+Civ V progression retained:
+- cumulative promotion thresholds: 10, 30, 60, 100, 150, 210, 280, 360, 450
+- formula: 5*(L-1)*L
+- promotion opportunity may instead be spent to heal 50 HP
+- Barbarian XP cap: 30
+- GDR remains excluded from normal XP/promotion progression
+
+Current operational QA: **PASS**
+
+This closes the generic military-unit baseline for:
+- roster
+- unlocks
+- direct upgrade graph
+- numerical stats
+- upgrade Gold
+- promotions
+- innate abilities
+- GDR modules
+- air combat
+- cargo/basing
+- support rules
+- XP progression
+
+Remaining military work is now mainly civilization-specific unique units and the separate nuclear-device delivery system.
