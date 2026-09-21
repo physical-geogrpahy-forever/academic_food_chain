@@ -109,28 +109,29 @@ for (cyc,rid,st),rr in grp.items():
         sen_races.append({'cycle':cyc,'state':st,'margin':two_party_margin(ds[0]['votes'],rs[0]['votes']),
                           'D':ds[0]['name'],'R':rs[0]['name'],'source':'538 election-results'})
 
-# Add 2024 MEDSL statewide Senate results.
-raw=urllib.request.urlopen(urllib.request.Request(SEN2024_URL,headers={'User-Agent':'CoreV2R-2026-personal/1.0'}),timeout=120).read()
-med=list(csv.DictReader(io.StringIO(raw.decode('utf-8-sig','replace'))))
-grp=defaultdict(list)
-for r in med:
-    if (r.get('stage') or '').upper()=='GEN' and (r.get('mode') or '').upper()=='TOTAL':
-        grp[r['state_po']].append(r)
-for st,rr in grp.items():
-    cands=defaultdict(lambda:{'votes':0,'party':'','name':''})
-    for x in rr:
-        name=x.get('candidate') or ''
-        if not name or name.upper() in {'UNDERVOTES','OVERVOTES','VOID','SCATTERING','WRITE-IN'}:continue
-        key=norm(name)
-        c=cands[key];c['name']=name
-        try:c['votes']+=int(float(x.get('votes') or 0))
-        except:pass
-        ps=party_side(x.get('party_simplified') or x.get('party_detailed') or '')
-        if ps:c['party']=ps
-    ds=[c for c in cands.values() if c['party']=='D'];rs=[c for c in cands.values() if c['party']=='R']
-    if len(ds)==1 and len(rs)==1 and ds[0]['votes']+rs[0]['votes']>0:
-        sen_races.append({'cycle':2024,'state':st,'margin':two_party_margin(ds[0]['votes'],rs[0]['votes']),
-                          'D':ds[0]['name'],'R':rs[0]['name'],'source':'MEDSL 2024 official collection'})
+# Add MEDSL 2024 statewide Senate results only when the historical raw does not already contain 2024.
+if not any(r['cycle']==2024 for r in sen_races):
+    raw=urllib.request.urlopen(urllib.request.Request(SEN2024_URL,headers={'User-Agent':'CoreV2R-2026-personal/1.0'}),timeout=120).read()
+    med=list(csv.DictReader(io.StringIO(raw.decode('utf-8-sig','replace'))))
+    grp=defaultdict(list)
+    for r in med:
+        if (r.get('stage') or '').upper()=='GEN' and (r.get('mode') or '').upper()=='TOTAL':
+            grp[r['state_po']].append(r)
+    for st,rr in grp.items():
+        cands=defaultdict(lambda:{'votes':0,'party':'','name':''})
+        for x in rr:
+            name=x.get('candidate') or ''
+            if not name or name.upper() in {'UNDERVOTES','OVERVOTES','VOID','SCATTERING','WRITE-IN'}:continue
+            key=norm(name)
+            c=cands[key];c['name']=name
+            try:c['votes']+=int(float(x.get('votes') or 0))
+            except:pass
+            ps=party_side(x.get('party_simplified') or x.get('party_detailed') or '')
+            if ps:c['party']=ps
+        ds=[c for c in cands.values() if c['party']=='D'];rs=[c for c in cands.values() if c['party']=='R']
+        if len(ds)==1 and len(rs)==1 and ds[0]['votes']+rs[0]['votes']>0:
+            sen_races.append({'cycle':2024,'state':st,'margin':two_party_margin(ds[0]['votes'],rs[0]['votes']),
+                              'D':ds[0]['name'],'R':rs[0]['name'],'source':'MEDSL 2024 official collection'})
 
 # Governor general elections.
 gov_rows=load(GOV);gov_races=[]
@@ -211,87 +212,86 @@ PVOUT.parent.mkdir(parents=True,exist_ok=True)
 with PVOUT.open('w',encoding='utf-8',newline='') as f:
     w=csv.DictWriter(f,fieldnames=list(pvrows[0].keys()));w.writeheader();w.writerows(pvrows)
 
-# FEC Top-50 June-30 2026.
-def get(url):
-    return urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 CoreV2R-2026-FEC/1.0'}),timeout=120).read()
-def num(v):
-    if isinstance(v,(int,float)):return float(v)
-    s=str(v or '').replace('$','').replace(',','').replace('(','-').replace(')','').strip()
+# FEC candidate-summary bulk, strict June-30 coverage.
+WEBALL_URL='https://www.fec.gov/files/bulk-downloads/2026/weball26.zip'
+WEBALL_HEADER_URL='https://www.fec.gov/files/bulk-downloads/data_dictionaries/weball_header_file.csv'
+
+def parse_money(v):
+    s=str(v or '').replace('$','').replace(',','').strip()
     try:return float(s)
     except:return None
-def parse_top50(metric,table):
-    urls=[
-      f'https://www.fec.gov/resources/campaign-finance-statistics/2026/tables/congressional/ConCand{table}_2026_18m.xlsx',
-      f'https://www.fec.gov/resources/campaign-finance-statistics/2026/tables/congressional/ConCand{table}_2026_18M.xlsx'
-    ]
-    raw=None;used=''
-    for u in urls:
-        try:
-            b=get(u)
-            if b[:2]==b'PK':raw=b;used=u;break
-        except:pass
-    if raw is None:return [],''
-    wb=load_workbook(io.BytesIO(raw),data_only=True,read_only=True)
-    found=[]
-    for ws in wb.worksheets:
-        vals=list(ws.iter_rows(values_only=True));hi=None
-        for i,row in enumerate(vals[:40]):
-            txt=[str(x or '').strip() for x in row];low=[x.lower() for x in txt]
-            if any('candidate name' in x for x in low) and any(x=='state' for x in low):
-                hi=i;break
-        if hi is None:continue
-        headers=[str(x or '').strip() for x in vals[hi]]
-        def idx(terms):
-            for t in terms:
-                for j,h in enumerate(headers):
-                    if t in h.lower():return j
-            return None
-        ni=idx(['candidate name','candidate']);si=idx(['state']);pi=idx(['party'])
-        ai=None
-        for j in range(len(headers)-1,-1,-1):
-            h=headers[j].lower()
-            if any(k in h for k in ['receipt','individual','cash on hand','contribution']):
-                ai=j;break
-        if None in (ni,si,ai):continue
-        for row in vals[hi+1:]:
-            name=str(row[ni] or '').strip() if ni<len(row) else ''
-            st=str(row[si] or '').strip().upper() if si<len(row) else ''
-            amount=num(row[ai] if ai<len(row) else None)
-            if not name or len(st)!=2 or amount is None:continue
-            party=str(row[pi] or '').strip() if pi is not None and pi<len(row) else ''
-            found.append({'metric':metric,'name':name,'state':st,'party':party,'amount':amount,'source_url':used})
-    return found,used
 
-fec_all=[];fec_source={}
-for metric,table in FEC_TABLES.items():
-    rr,u=parse_top50(metric,table);fec_all.extend(rr);fec_source[metric]=u
-idx=defaultdict(list)
-for r in fec_all:idx[(r['metric'],r['state'])].append(r)
-def match_fec(metric,st,target,side):
-    pool=idx.get((metric,st),[]);aliases=ALIASES.get(target,[norm(target)]);sc=[]
-    for x in pool:
-        n=norm(x['name'])
-        name_score=max(SequenceMatcher(None,a,n).ratio() for a in aliases)
-        p=party_side(x['party'])
-        bonus=.06 if p==side else 0
-        sc.append((name_score+bonus,x))
-    sc.sort(key=lambda z:z[0],reverse=True)
-    if not sc or sc[0][0]<.72:return None
-    if len(sc)>1 and sc[0][0]-sc[1][0]<.03:return None
-    return sc[0][1]
+bulk=get(WEBALL_URL)
+zf=zipfile.ZipFile(io.BytesIO(bulk))
+txtname=next(n for n in zf.namelist() if n.lower().endswith('.txt'))
+lines=zf.read(txtname).decode('utf-8-sig','replace').splitlines()
+
+# FEC publishes the header dictionary separately.
+hraw=get(WEBALL_HEADER_URL).decode('utf-8-sig','replace')
+hrows=list(csv.reader(io.StringIO(hraw)))
+headers=hrows[0]
+fec_records=[]
+for line in lines:
+    vals=line.split('|')
+    if len(vals)<len(headers):
+        vals += ['']*(len(headers)-len(vals))
+    rec={headers[i]:vals[i] if i<len(vals) else '' for i in range(len(headers))}
+    fec_records.append(rec)
+
+def hget(rec,*names):
+    low={k.lower():v for k,v in rec.items()}
+    for n in names:
+        if n.lower() in low:return low[n.lower()]
+    return ''
+
+strict=[]
+for r in fec_records:
+    office=hget(r,'CAND_OFFICE','Cand_Office')
+    st=hget(r,'CAND_OFFICE_ST','Cand_Office_St').upper()
+    cov=hget(r,'CVG_END_DT','Coverage_End_Date')
+    if office.upper()!='S' or len(st)!=2:continue
+    if cov not in ('06/30/2026','06/30/26'):continue
+    strict.append(r)
+
+def match_bulk(st,target,side):
+    aliases=ALIASES.get(target,[norm(target)])
+    pool=[]
+    for r in strict:
+        rst=hget(r,'CAND_OFFICE_ST','Cand_Office_St').upper()
+        if rst!=st:continue
+        name=hget(r,'CAND_NAME','Cand_Name')
+        n=norm(name)
+        if not n:continue
+        score=max(SequenceMatcher(None,a,n).ratio() for a in aliases)
+        party=party_side(hget(r,'CAND_PTY_AFFILIATION','Cand_Party_Affiliation'))
+        if party==side:score+=.06
+        pool.append((score,r))
+    pool.sort(key=lambda z:z[0],reverse=True)
+    if not pool or pool[0][0]<.72:return None
+    if len(pool)>1 and pool[0][0]-pool[1][0]<.03:return None
+    return pool[0][1]
 
 fecrows=[]
 for st,(dc,rc) in TARGETS.items():
     rec={'state_abbrev':st,'candidate_D':dc,'candidate_R':rc}
-    for metric in FEC_TABLES:
-        dm=match_fec(metric,st,dc,'D');rm=match_fec(metric,st,rc,'R')
-        rec['D_'+metric]='' if not dm else dm['amount']
-        rec['R_'+metric]='' if not rm else rm['amount']
-        if dm and rm and dm['amount']+rm['amount']>0:
-            rec[metric+'_share_D_minus_R']=(dm['amount']-rm['amount'])/(dm['amount']+rm['amount'])
-        else:rec[metric+'_share_D_minus_R']=''
-        rec[metric+'_source']=fec_source.get(metric,'')
+    dm=match_bulk(st,dc,'D');rm=match_bulk(st,rc,'R')
+    for side,obj in [('D',dm),('R',rm)]:
+        if obj:
+            rec[side+'_fec_name']=hget(obj,'CAND_NAME','Cand_Name')
+            rec[side+'_fec_coverage_end']=hget(obj,'CVG_END_DT','Coverage_End_Date')
+            rec[side+'_receipts']=parse_money(hget(obj,'TTL_RECEIPTS','Total_Receipt'))
+            rec[side+'_individual']=parse_money(hget(obj,'INDV_CONTRIB','Individual_Contribution'))
+            rec[side+'_cash']=parse_money(hget(obj,'COH_COP','Cash_On_Hand_COP'))
+        else:
+            rec[side+'_fec_name']='';rec[side+'_fec_coverage_end']=''
+            rec[side+'_receipts']='';rec[side+'_individual']='';rec[side+'_cash']=''
+    for metric in ['receipts','individual','cash']:
+        dv=rec['D_'+metric];rv=rec['R_'+metric]
+        rec[metric+'_share_D_minus_R']=(dv-rv)/(dv+rv) if dv!='' and rv!='' and dv+rv>0 else ''
+    rec['fec_source']=WEBALL_URL
+    rec['fec_cutoff_rule']='Coverage_End_Date exactly 06/30/2026'
     fecrows.append(rec)
+
 with FECOUT.open('w',encoding='utf-8',newline='') as f:
     w=csv.DictWriter(f,fieldnames=list(fecrows[0].keys()));w.writeheader();w.writerows(fecrows)
 
@@ -333,10 +333,10 @@ for r in pvrows:
     q='NA' if r['R_personal_mean_cycle_adjusted_pctpt']=='' else f"{float(r['R_personal_mean_cycle_adjusted_pctpt']):.2f}"
     lines.append(f"| {r['state_abbrev']} | {r['candidate_D']} | {r['D_prior_statewide_count']} | {d} | {r['candidate_R']} | {r['R_prior_statewide_count']} | {q} | {r['PersonalVoteDiff_D_minus_R_pctpt']:.2f} |")
 lines += ['','## FEC June-30 block','',
-'- Source family: FEC congressional Top-50 18-month workbooks.',
+'- Source family: FEC 2025-2026 candidate-summary bulk file (weball26.zip), filtered to Coverage_End_Date exactly 06/30/2026.',
 '- Metrics: total receipts, contributions from individuals, cash on hand.',
-'- A D-R share is computed only when both major-party candidates appear in the same metric table.',
-'- Missing Top-50 appearance remains missing; it is never treated as zero.','',
+'- A D-R share is computed only when both candidates have an exact 06/30/2026 candidate-summary record.',
+'- Candidates whose latest bulk-summary coverage does not equal 06/30/2026 remain missing; later reporting periods are never back-filled or treated as June-30 data.','',
 '| State | receipts share | individual share | cash share |',
 '|---|---:|---:|---:|']
 for r in fecrows:
