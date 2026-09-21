@@ -180,8 +180,8 @@ A blank field **does not mean the unit is permanently resource-free**. It means 
 | Exploration | 10 |
 | Enlightenment | 2 |
 | Industrial | 12 |
-| Modern | 19 |
-| Atomic | 4 |
+| Modern | 18 |
+| Atomic | 5 |
 | Information | 8 |
 | Future | 1 |
 | **Total** | **89** |
