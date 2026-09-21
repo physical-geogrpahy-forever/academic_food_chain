@@ -19,18 +19,18 @@ PersonalVote follows the Core historical definition:
 | GA | Jon Ossoff | 1 | 1.88 | Mike Collins | 0 | NA | 1.88 |
 | IA | Josh Turek | 0 | NA | Ashley Hinson | 0 | NA | 0.00 |
 | ME | Troy Jackson | 0 | NA | Susan Collins | 3 | 36.88 | -36.88 |
-| MI | Abdul El-Sayed | 0 | NA | Mike Rogers | 2 | -2.33 | 2.33 |
+| MI | Abdul El-Sayed | 0 | NA | Mike Rogers | 1 | -2.18 | 2.18 |
 | NH | Chris Pappas | 0 | NA | John Sununu | 1 | 7.35 | -7.35 |
 | NC | Roy Cooper | 2 | 12.45 | Michael Whatley | 0 | NA | 12.45 |
-| OH | Sherrod Brown | 5 | 4.46 | Jon Husted | 0 | NA | 4.46 |
+| OH | Sherrod Brown | 4 | 3.46 | Jon Husted | 0 | NA | 3.46 |
 | TX | James Talarico | 0 | NA | Ken Paxton | 0 | NA | 0.00 |
 
 ## FEC June-30 block
 
-- Source family: FEC congressional Top-50 18-month workbooks.
+- Source family: FEC 2025-2026 candidate-summary bulk file (weball26.zip), filtered to Coverage_End_Date exactly 06/30/2026.
 - Metrics: total receipts, contributions from individuals, cash on hand.
-- A D-R share is computed only when both major-party candidates appear in the same metric table.
-- Missing Top-50 appearance remains missing; it is never treated as zero.
+- A D-R share is computed only when both candidates have an exact 06/30/2026 candidate-summary record.
+- Candidates whose latest bulk-summary coverage does not equal 06/30/2026 remain missing; later reporting periods are never back-filled or treated as June-30 data.
 
 | State | receipts share | individual share | cash share |
 |---|---:|---:|---:|
