@@ -217,7 +217,6 @@ def get(url):
 
 # FEC candidate-summary bulk, strict June-30 coverage.
 WEBALL_URL='https://www.fec.gov/files/bulk-downloads/2026/weball26.zip'
-WEBALL_HEADER_URL='https://www.fec.gov/files/bulk-downloads/data_dictionaries/weball_header_file.csv'
 
 def parse_money(v):
     s=str(v or '').replace('$','').replace(',','').strip()
@@ -229,10 +228,15 @@ zf=zipfile.ZipFile(io.BytesIO(bulk))
 txtname=next(n for n in zf.namelist() if n.lower().endswith('.txt'))
 lines=zf.read(txtname).decode('utf-8-sig','replace').splitlines()
 
-# FEC publishes the header dictionary separately.
-hraw=get(WEBALL_HEADER_URL).decode('utf-8-sig','replace')
-hrows=list(csv.reader(io.StringIO(hraw)))
-headers=hrows[0]
+# FEC weball bulk file has no header row. Official all-candidates field order.
+headers=[
+'CAND_ID','CAND_NAME','CAND_ICI','PTY_CD','CAND_PTY_AFFILIATION','TTL_RECEIPTS',
+'TRANS_FROM_AUTH','TTL_DISB','TRANS_TO_AUTH','COH_BOP','COH_COP','CAND_CONTRIB',
+'CAND_LOANS','OTHER_LOANS','CAND_LOAN_REPAY','OTHER_LOAN_REPAY','DEBTS_OWED_BY',
+'TTL_INDIV_CONTRIB','CAND_OFFICE_ST','CAND_OFFICE_DISTRICT','SPEC_ELECTION',
+'PRIM_ELECTION','RUN_ELECTION','GEN_ELECTION','GEN_ELECTION_PRECENT',
+'OTHER_POL_CMTE_CONTRIB','POL_PTY_CONTRIB','CVG_END_DT','INDIV_REFUNDS','CMTE_REFUNDS'
+]
 fec_records=[]
 for line in lines:
     vals=line.split('|')
