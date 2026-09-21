@@ -32,11 +32,11 @@ The package never bypasses technology or civic progress: a building is granted o
 
 - Settler: none
 - Pioneer: core infrastructure through Renaissance
-  - Monument, Granary, Library, Market, Aqueduct, Amphitheater, Workshop, University, Bank
+  - Monument, Granary, Library, Market, Aqueduct, Amphitheater, Arena, Workshop, University, Bank
 - Colonist: Pioneer package + selected Exploration/Enlightenment core infrastructure
   - Opera House, Public School, Stock Exchange, Newspaper Office, Zoo
 - Urban Planner: Colonist package + selected Industrial core infrastructure
-  - **Factory, Hospital, Sewer, Food Market, Cinema, Shopping Mall, Power Plant**
+  - **Factory, Hospital, Sewer, Food Market, Cold Storage, Cinema, Shopping Mall, Telegraph Office, Power Plant**
 
 Conditional local infrastructure:
 - Water Mill if normally eligible
