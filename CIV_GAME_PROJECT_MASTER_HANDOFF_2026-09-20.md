@@ -2141,13 +2141,30 @@ Final gates and starting population:
 
 **All four use the same base founding-territory rule.** Later founding units do not receive a larger initial tile claim.
 
-Founding infrastructure V1:
+Founding infrastructure V1 (expanded previous-era core rule):
 - Settler: none
-- Pioneer: Monument + Granary
-- Colonist: Pioneer package + Library + Market + Aqueduct
-- Urban Planner: Colonist package + Workshop + University + Sewer
+- Pioneer: 10 core buildings through Renaissance
+  - Monument, Granary, Library, Market, Aqueduct, Amphitheater, Arena, Workshop, University, Bank
+- Colonist: 15 core buildings through Enlightenment
+  - Pioneer package + Opera House, Public School, Stock Exchange, Newspaper Office, Zoo
+- Urban Planner: 24 core buildings through Industrial
+  - Colonist package + Factory, Hospital, Sewer, Food Market, Cold Storage, Cinema, Shopping Mall, Telegraph Office, Power Plant
+- conditional local infrastructure:
+  - Water Mill where eligible
+  - Pioneer coastal: Harbor + Lighthouse
+  - Colonist coastal: + Seaport
+  - Urban Planner coastal: + Shipyard
 
-High-value specialization buildings such as Barracks/Armory, Factory/Power Plant, Research Lab, Hospital/Medical Lab, Stock Exchange, Airport and Broadcast Center are not granted for free.
+Critical rule:
+- free building never bypasses its normal technology/civic/local prerequisites
+- if not eligible at the founding moment, it is not granted later for free
+- one-per-civ, government-choice, religion-specialization, military-training, city-defense and museum-choice buildings remain outside the automatic core package
+- Factory and Hospital are explicitly part of the Urban Planner package as major Industrial-era infrastructure.
+
+Authority:
+- `city_system/ADVANCED_SETTLER_FREE_BUILDING_PACKAGE_V1.md`
+- `city_system/validate_settler_progression_v1.py`
+- `.github/workflows/civ-settler-progression-qa.yml`
 
 Replacement behavior:
 - newly produced founding units use the newest unlocked class
