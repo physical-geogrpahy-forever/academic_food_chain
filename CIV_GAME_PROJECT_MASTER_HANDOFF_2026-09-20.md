@@ -2308,3 +2308,62 @@ Next:
 7. promotion/class interactions
 
 Use Civ V BNW values as primary anchors, with Civ VI / Gathering Storm and adopted era-mod units interpolated only where Civ V has no matching unit.
+
+
+---
+
+## Unit numeric balance V1 locked — 2026-09-21
+
+Authorities:
+- `city_system/FINAL_UNIT_NUMERIC_BALANCE_V1.csv`
+- `city_system/FINAL_UNIT_NUMERIC_BALANCE_V1.md`
+- `city_system/FINAL_UNIT_UPGRADE_COSTS_V1.csv`
+- `city_system/FINAL_UNIT_NUMERIC_BALANCE_V1_QA.md`
+- `city_system/validate_final_unit_numeric_balance_v1.py`
+- `.github/workflows/civ-final-unit-numeric-balance-qa.yml`
+
+Exact state:
+- canonical units: **89**
+- numeric rows: **89**
+- locked military/support/trade numeric rows: **80**
+- intentionally deferred system-economy rows: **9**
+- direct Gold upgrade edges priced: **55**
+- numeric validation: **PASS**
+
+Primary numerical scale:
+- Civilization V BNW exact stats where directly available;
+- Civ V stage remapping/interpolation for project historical stages;
+- Civ VI / Gathering Storm scaled into Civ V magnitude only where Civ V has no matching unit;
+- Pouakai Enlightenment Era adopted units interpolated between Civ V anchors.
+
+Important economic rules:
+- no invented fixed per-unit Gold maintenance; retain Civ V-style global maintenance formula;
+- explicit strategic-resource units reserve 1 slot;
+- strategic-resource upkeep per turn remains 0 in V1;
+- do not silently convert the project to Gathering Storm's per-turn strategic-resource economy.
+
+System-economy costs deliberately deferred:
+- Settler
+- Pioneer
+- Colonist
+- Urban Planner
+- Missionary
+- Inquisitor
+- Spy
+- Naturalist
+- Rock Band
+
+Those require founding/Faith/espionage/conservation/culture-specific pricing.
+
+Upgrade Gold:
+- 55 direct edges
+- production-cost-difference formula derived from Civ V
+- project 13 eras compressed to Civ V-equivalent indices
+- founding production-replacement edges receive no Gold-upgrade cost
+
+Next military task:
+1. promotion trees and retained promotions
+2. anti-class / city / terrain combat modifiers
+3. healing/support aura values
+4. interception/evasion and air-sweep rules
+5. cargo eligibility and missile/air basing rules
