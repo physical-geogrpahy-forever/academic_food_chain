@@ -26,24 +26,40 @@ There is no larger free territorial claim for Pioneer, Colonist or Urban Planner
 
 ## Founding infrastructure
 
-The package is deliberately conservative. It prevents a late-founded city from restarting from the Ancient era without turning a new city into an instant mature core city.
+The package now follows a **previous-era core infrastructure** rule. A late-founded city should not restart from the Ancient era.
+
+The package never bypasses technology or civic progress: a building is granted only if the civilization has already unlocked it normally and all local city prerequisites are satisfied at founding.
 
 - Settler: none
-- Pioneer: Monument, Granary
-- Colonist: Pioneer package + Library, Market, Aqueduct
-- Urban Planner: Colonist package + Workshop, University, Sewer
+- Pioneer: core infrastructure through Renaissance
+  - Monument, Granary, Library, Market, Aqueduct, Amphitheater, Workshop, University, Bank
+- Colonist: Pioneer package + selected Exploration/Enlightenment core infrastructure
+  - Opera House, Public School, Stock Exchange, Newspaper Office, Zoo
+- Urban Planner: Colonist package + selected Industrial core infrastructure
+  - **Factory, Hospital, Sewer, Food Market, Cinema, Shopping Mall, Power Plant**
 
-Not granted for free:
-- Barracks/Armory/Military Base
-- Factory/Power Plant/Steelworks
-- Hospital/Medical Lab
-- Research Lab
-- Stock Exchange
-- Airport
-- Broadcast Center
-- terrain-conditional maritime buildings
+Conditional local infrastructure:
+- Water Mill if normally eligible
+- Pioneer coastal city: Harbor + Lighthouse if eligible
+- Colonist coastal city: + Seaport if eligible
+- Urban Planner coastal city: + Shipyard if eligible
 
-This prevents founding units from becoming a shortcut to military, industrial, scientific or financial specialization.
+Important:
+- Factory and Hospital are intentionally included in the Urban Planner package because they are major Industrial-era institutions.
+- No building is granted if its normal technology/civic gate has not been met.
+- A building that was ineligible at founding is not granted later for free when its prerequisite is researched.
+
+Still excluded from the automatic core package:
+- military-training chain
+- city-defense chain
+- religion-specialization chain
+- one-per-civilization/government-choice buildings
+- museum branch choices
+- Research Lab, Medical Lab, Airport and Broadcast Center
+- specialized Steelworks, Coal Power Plant and Drydock
+
+Full authority:
+`city_system/ADVANCED_SETTLER_FREE_BUILDING_PACKAGE_V1.md`
 
 ## Replacement behavior
 
