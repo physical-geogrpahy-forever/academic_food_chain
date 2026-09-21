@@ -1,0 +1,35 @@
+name: Build 2026 personal and FEC blocks
+on:
+  push:
+    branches: [archive-2026-us-senate-model]
+    paths:
+      - 'senate-model-archive/scripts/build_2026_personal_vote.py'
+      - 'senate-model-archive/scripts/build_2026_fec_june30.py'
+      - '.github/workflows/senate-2026-personal-fec.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: archive-2026-us-senate-model
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check openpyxl
+      - run: python senate-model-archive/scripts/build_2026_personal_vote.py
+      - run: python senate-model-archive/scripts/build_2026_fec_june30.py
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add senate-model-archive/data/snapshots/2026_personal_vote_core.csv senate-model-archive/data/snapshots/2026_personal_vote_prior_history.csv senate-model-archive/data/snapshots/2026_fec_june30_top50.csv senate-model-archive/data/snapshots/2026_fec_june30_source_meta.csv senate-model-archive/docs/analysis/2026_PERSONAL_VOTE_CORE.md senate-model-archive/docs/analysis/2026_FEC_JUNE30_BLOCK.md
+          if git diff --cached --quiet; then echo nochanges; else
+            git commit -m 'data: build 2026 PersonalVote and FEC June30 blocks [skip ci]'
+            git fetch origin archive-2026-us-senate-model
+            git rebase --autostash origin/archive-2026-us-senate-model
+            git push origin HEAD:archive-2026-us-senate-model
+          fi
