@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import csv,io,re,urllib.request
+from collections import defaultdict
 from pathlib import Path
 from difflib import SequenceMatcher
 from datetime import datetime,timezone
