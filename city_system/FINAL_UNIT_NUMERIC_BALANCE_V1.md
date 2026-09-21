@@ -254,7 +254,7 @@ Interception coverage field:
 - Missile Cruiser: 2
 
 Cargo:
-- Aircraft Carrier: 3
+- Aircraft Carrier: 2
 - Nuclear Submarine: 2
 - Missile Cruiser: 3
 
