@@ -30,8 +30,9 @@ Do not add a new civic when the same name, function, or a broader containing con
 | Enlightenment | 5 |
 | Industrial | 9 |
 | Modern | 6 |
-| Atomic | 6 |
-| Information | 12 |
+| Atomic | 5 |
+| Information | 7 |
+| Future | 6 |
 | **Total** | **72** |
 
 ## Locked additions beyond the imported Civ VI roster
@@ -124,3 +125,34 @@ Next:
 10. only after graph QA, assign/revise Inspirations and unlock content.
 
 This file is the roster baseline for that graph work.
+
+
+## Gathering Storm late-era split — 2026-09-21
+
+The project now uses a separate **Future Era**.
+
+Atomic:
+- Nuclear Program
+- Cultural Heritage
+- Cold War
+- Rapid Deployment
+- Space Race
+
+Information:
+- Globalization
+- Social Media
+- Near Future Governance
+- Venture Politics
+- Distributed Sovereignty
+- Optimization Imperative
+- Environmentalism
+
+Future:
+- Information Warfare
+- Global Warming Mitigation
+- Cultural Hegemony
+- Smart Power Doctrine
+- Exodus Imperative
+- Future Civic
+
+The total remains 72 civics.
