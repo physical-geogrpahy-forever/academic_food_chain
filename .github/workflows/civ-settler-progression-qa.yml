@@ -1,0 +1,27 @@
+name: Civ Settler Progression QA
+
+on:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - "city_system/SETTLER_PROGRESSION_V1.csv"
+      - "city_system/SETTLER_PROGRESSION_V1.md"
+      - "city_system/ADVANCED_SETTLER_FREE_BUILDING_PACKAGE_V1.md"
+      - "city_system/FINAL_GENERIC_BUILDING_ROSTER_V1.csv"
+      - "city_system/validate_settler_progression_v1.py"
+      - ".github/workflows/civ-settler-progression-qa.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout authoritative branch
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate settler progression
+        run: python city_system/validate_settler_progression_v1.py
