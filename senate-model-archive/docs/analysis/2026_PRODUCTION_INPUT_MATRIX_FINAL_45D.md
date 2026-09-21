@@ -57,9 +57,14 @@ A missing candidate-side value means there is no usable prior Senate/Governor ge
 
 ## Poll layer
 
-The poll rows are frozen at the U.S. 2026-09-19 cutoff. The current RCP row extract does not expose usable sample-size metadata for every row, so the included value is a 14-day recency-weighted equal-sample-size diagnostic proxy.
+The original `poll_D_minus_R_45d_recency_proxy` column is retained only as a legacy diagnostic and is superseded for canonical production input use.
 
-This diagnostic proxy must not be confused with a reconstructed exact historical FiveThirtyEight-style n_eff poll aggregate.
+Canonical poll-layer artifacts are now:
+- `data/snapshots/2026_poll_sample_size_audit.csv`
+- `data/snapshots/2026_poll_45d_canonical_weight_detail.csv`
+- `data/snapshots/2026_poll_45d_canonical_sample_weighted.csv`
+
+The canonical layer uses verified sample sizes and field-end dates, the locked 30-day window, 14-day recency half-life, and `sqrt(clamp(n,100,5000)/600)` sample-size weighting.
 
 ## Third-party handling
 
