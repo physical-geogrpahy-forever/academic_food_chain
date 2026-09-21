@@ -56,7 +56,7 @@ Profiles:
 - NONE
 
 Current assignment counts:
-- LAND_MELEE: 28
+- LAND_MELEE: 27
 - LAND_RANGED: 13
 - RECON: 4
 - NAVAL_MELEE: 6
@@ -65,7 +65,7 @@ Current assignment counts:
 - CARRIER: 1
 - AIR_FIGHTER: 3
 - AIR_BOMBER: 3
-- NONE: 22
+- NONE: 23
 
 Privateer is the intentional exception:
 although its canonical project role is NAVAL_RAIDER, it uses the **NAVAL_MELEE** promotion profile while it is a surface raider.
@@ -359,23 +359,72 @@ Battering Ram / Siege Tower / Medic / Supply Convoy and Observation Balloon / Dr
 
 GDR remains the same unit and does not upgrade into another class.
 
-Future modules:
-- Advanced AI -> Drone Air Defense
-- Advanced Power Cells -> Particle Beam Siege Cannon
-- Cybernetics -> Enhanced Mobility
-- Smart Materials -> Reinforced Armor
+It also **does not earn ordinary XP or promotions**. Its promotion profile is `NONE`.
 
-The exact module numbers are intentionally a separate late-game module-balance subpass.
+Future modules:
+- Advanced AI -> Drone Air Defense: anti-air defense strength 130
+- Advanced Power Cells -> Particle Beam Siege Cannon: city/defense ranged strength 130 and full effectiveness
+- Cybernetics -> Enhanced Mobility: movement 5 -> 8 plus Mountain Jump
+- Smart Materials -> Reinforced Armor Plating: +10 defense vs land/naval attacks
+
+Additional Gathering Storm identity retained:
+- may move/fight on Coast/Ocean without ordinary embarkation
+- heals only in friendly territory
+
+Authority:
+- `city_system/FINAL_GDR_MODULE_BALANCE_V1.csv`
 
 ## 19. What remains after V1
 
 Still to lock numerically:
-- exact GDR four-module values
-- interception probability and damage formula details
-- air sweep resolution details
 - Prize Ships conversion probability
 - support aura interaction with stacked/formation units
 - promotion XP thresholds if the project deviates from Civ V
 - exact cargo eligibility by aircraft/missile type
 
 The existence, profile ownership, promotion effects, core innate abilities and upgrade-inheritance logic are now locked.
+
+
+## 20. Air combat V1 — LOCKED
+
+Authorities:
+- `city_system/FINAL_AIR_INTERCEPTION_UNIT_RULES_V1.csv`
+- `city_system/FINAL_AIR_COMBAT_GLOBAL_RULES_V1.csv`
+
+Interception chances:
+- Triplane 50%
+- Fighter 100%
+- Jet Fighter 100%
+- Anti-Air Gun 100%
+- Mobile SAM 100%
+- Destroyer 40%
+- Missile Cruiser 100%
+- GDR after Drone Air Defense: project-adapted 100%, AA strength 130
+
+Resolution:
+1. check target aircraft's innate evasion chance;
+2. if not evaded, check interceptor chance;
+3. only one interceptor resolves each air attack;
+4. each interceptor normally intercepts once per turn;
+5. Sortie grants fighters one additional interception.
+
+Air Sweep:
+- fighter-only;
+- deliberately consumes one enemy interception;
+- fighter-vs-fighter becomes a dogfight;
+- surface interceptors inflict reduced damage during a sweep, but V1 does not invent an unsupported fixed percentage.
+
+Innate 100% evasion:
+- Stealth Bomber
+- Guided Missile
+
+Earned Evasion promotion:
+- interception damage -50%, not +50% evasion chance.
+
+Fighters:
+- normal ground/naval air strike strength -50%
+- +150% vs bombers and helicopters
+- Air Recon radius 6
+
+Anti-Air Gun / Mobile SAM:
+- +150% vs aircraft and helicopters.
