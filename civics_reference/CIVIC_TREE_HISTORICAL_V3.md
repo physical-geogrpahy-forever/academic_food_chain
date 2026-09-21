@@ -160,18 +160,17 @@ Changed:
 - Conservation -> Cultural Heritage
 - Ideology + Nuclear Program -> Cold War
 - Cold War -> Rapid Deployment / Space Race
-- Conservation + Mass Media -> Environmentalism
-
 Nuclear Program is no longer caused by Ideology.
 Its real material requirement — nuclear physics/fission — will be a technology gate.
 Mobilization represents the social/state-capacity side of large strategic programs.
 
-Environmentalism returns directly to Conservation plus Mass Media; Cultural Heritage is not treated as a necessary cause.
+Environmentalism is socially derived from Conservation + Mass Media but is now placed in the Information era under the Gathering Storm late-era split.
 
 ### Information
 
 - Capitalism + Mass Media -> Globalization
 - Mass Media + Public Sphere -> Social Media
+- Conservation + Mass Media -> Environmentalism
 - Environmentalism + Globalization -> Near Future Governance
 - Globalization + Social Media -> Venture Politics / Distributed Sovereignty / Optimization Imperative
 
@@ -181,6 +180,20 @@ Professional Sports no longer causes Social Media.
 The social link Public Sphere -> Social Media is supported conceptually by scholarship that treats social media as a transformed digital public sphere. Internet/telecommunications/computing will be technology gates, not social predecessors.
 
 Cold War is no longer a mandatory prerequisite for Globalization. The Information-era placement supplies chronology; Capitalism + Mass Media supplies the social/economic communication lineage.
+
+
+### Future
+
+The Gathering Storm Future civic layer is restored as a separate project era:
+
+- Near Future Governance + Venture Politics -> Information Warfare
+- Distributed Sovereignty + Optimization Imperative -> Global Warming Mitigation
+- Information Warfare + Distributed Sovereignty -> Cultural Hegemony
+- Global Warming Mitigation + Venture Politics -> Smart Power Doctrine
+- Cultural Hegemony + Smart Power Doctrine -> Exodus Imperative
+- Exodus Imperative -> Future Civic
+
+Future Civic remains the repeatable terminal node.
 
 ## Remaining intentional abstractions
 
