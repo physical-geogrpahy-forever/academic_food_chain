@@ -24,7 +24,8 @@ Status: **PASS**
 - Industrial: 14
 - Modern: 14
 - Atomic: 12
-- Information: 14
+- Information: 6
+- Future: 8
 
 ## Slot counts
 
@@ -41,7 +42,7 @@ Total: **127**
 - Civ VI district conditions are translated into Civ V-style building-chain conditions.
 - Builder-charge effects are translated to persistent Worker effects.
 - Governor-dependent effects are removed or adapted because baseline Governors are not adopted.
-- Giant Death Robot clauses are excluded from baseline and preserved only in the optional GDR module.
+- Giant Death Robot is restored to baseline; Gathering Storm GDR-linked policy clauses may apply to the baseline unit where appropriate.
 - Policy ownership is unique: each final policy has one civic owner.
 - Exact policy effects are locked in `FINAL_POLICY_CARD_ROSTER_V1.csv`.
 
@@ -59,3 +60,4 @@ Total: **127**
 - `policy_balance/MODERN_POLICY_EFFECTS_V1.csv`
 - `policy_balance/ATOMIC_POLICY_EFFECTS_V1.csv`
 - `policy_balance/INFORMATION_POLICY_EFFECTS_V1.csv`
+- `policy_balance/FUTURE_POLICY_EFFECTS_V1.csv`
