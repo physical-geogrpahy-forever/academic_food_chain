@@ -2579,3 +2579,78 @@ followed by:
 - Great Person / specialist numerical rules
 - World Wonder audit
 - civilization-specific unique content
+
+
+---
+
+## Content source precedence corrected — 2026-09-21
+
+Authority:
+- `city_system/PROJECT_CONTENT_SOURCE_PRECEDENCE_V1.md`
+- `city_system/BUILDING_MOD_SOURCE_REAUDIT_V2.csv`
+
+**Do not use Civ V BNW as the universal highest-priority balance source.**
+
+Per-field precedence:
+1. explicit project lock / adaptation
+2. the adopted source that supplied the content or mechanic
+3. another explicitly adopted source used for reconciliation
+4. Civ V BNW fallback for fields not defined/changed by the adopted source
+5. minimal project interpolation
+
+Required adopted sources to check:
+- Health & Plague for BNW
+- Pouakai Enlightenment Era
+- Barathor More Luxuries / project canonical 47-resource roster
+- Civilization VI / Gathering Storm
+- any later explicitly adopted project module
+
+### Building numeric V1 status correction
+
+The earlier statement that all 102 building numeric rows were final is superseded.
+
+Current:
+- total building rows: **102**
+- `LOCKED_BUILDING_V1`: **83**
+- `MOD_SOURCE_REAUDIT_REQUIRED`: **19**
+- structural coverage remains 102/102
+- structural QA may PASS while source-finality is still partial
+
+Re-audit buildings are listed in:
+`city_system/BUILDING_MOD_SOURCE_REAUDIT_V2.csv`
+
+### Known Enlightenment Era corrections already applied
+
+Pouakai source effects restored:
+- Cloth Mill: +1 Production, +10% Production, +2 Gold from worked Cotton/Sheep/Silk
+- Gunsmith: +25% Production toward Gunpowder units
+- Drydock: naval units trained in the city receive +15% Combat Strength
+
+Earlier improvised Cloth Mill/Gunsmith/Drydock values are not authoritative.
+
+### Health & Plague nuance
+
+Health & Plague adds Health as a separate yield and intentionally minimizes changes to base-game assets.
+
+Therefore do **not** assume:
+- Health replaces all BNW Food/growth effects; or
+- BNW Food/growth alone is sufficient.
+
+Example:
+Hospital's BNW +5 Food may coexist with Health in the original mod.  
+The correct project row must represent both the unaffected base field and the adopted Health/plague layer.  
+If the project later removes/reduces +5 Food to avoid double growth, record that as a **project override**, not as the source-mod rule.
+
+### 47-resource rule
+
+All resource-sensitive buildings and tile improvements must use the project's actual 47-resource roster:
+- 7 strategic
+- 10 bonus
+- 30 luxury
+
+The More Luxuries-derived project resources include:
+Coffee, Tea, Tobacco, Olives, Perfume, Amber, Jade, Lapis Lazuli and Coral.
+
+Never audit Plantation/Pasture/Mine/Quarry/Fishing Boat/building-resource bonuses against the vanilla Civ V resource list alone.
+
+More Luxuries resource existence does not automatically create a city-building bonus. A synergy must come from an adopted source or an explicit project rule.
