@@ -76,9 +76,7 @@ Old authoritative references to **SS Engine** and **SS Stasis Chamber** are supe
 
 ## Late military realignment
 
-Technology-era migration moves associated units with their gates.
-
-Information-era late units include:
+Information-era late units:
 - Stealth Bomber
 - Jet Fighter
 - Mobile SAM
@@ -86,10 +84,13 @@ Information-era late units include:
 - Modern Armor
 - Guided Missile
 - Missile Cruiser
-- **Giant Death Robot**
+- Giant Death Robot
+
+Atomic:
+- Spec Ops -> Radar + Rapid Deployment
 
 Future:
-- **XCOM Squad** -> Cybernetics + Rapid Deployment
+- XCOM Squad -> Cybernetics + Rapid Deployment
 
 ### Giant Death Robot
 
@@ -102,7 +103,7 @@ GDR is restored to the baseline:
 
 The former optional GDR module is superseded.
 
-Integrated Attack Logistics returns to its Gathering Storm-style baseline:
+Integrated Attack Logistics restores its Gathering Storm-style baseline:
 - +1 Movement to units beginning their turn in enemy territory
 - +50% Production toward Giant Death Robots
 
@@ -110,19 +111,33 @@ Integrated Attack Logistics returns to its Gathering Storm-style baseline:
 
 Information:
 - Wind Farm -> Composites + Environmentalism
+- Solar Farm -> Ecology + Environmentalism
+- Geothermal Plant -> Ecology + Environmentalism
+- Flood Barrier -> Ecology + Environmentalism
+- Recycling Center -> Ecology + Environmentalism
+- Solar Plant -> Ecology + Environmentalism
 
 Future:
 - Grid Battery Storage -> Advanced Power Cells + Global Warming Mitigation
 - Offshore Wind Farm -> Predictive Systems + Environmentalism
 - Seastead -> Seasteads
 
+The era label follows the latest required technology/civic gate.
+
 ## Policy split
 
-Information: 6 policy cards  
-Future: 8 policy cards
+Information: **6 policy cards**  
+Future: **8 policy cards**
 
-Future policy-effect authority:
-- `civics_reference/policy_balance/FUTURE_POLICY_EFFECTS_V1.csv`
+Future:
+- Integrated Attack Logistics
+- Rabblerousing
+- Hallyu
+- Non-State Actors
+- Diplomatic Capital
+- Global Coalition
+- Aerospace Contractors
+- Space Tourism
 
 ## Totals after realignment
 
@@ -132,6 +147,40 @@ Future policy-effect authority:
 - policy cards: **127**
 - generic buildings: **102**
 - generic map improvement/infrastructure records: **39**
+
+Unit era counts:
+- Ancient 14
+- Classical 6
+- Late Antiquity 3
+- Early Medieval 1
+- High Medieval 4
+- Renaissance 5
+- Exploration 10
+- Enlightenment 2
+- Industrial 12
+- Modern 18
+- Atomic 5
+- Information 8
+- Future 1
+
+## Validation
+
+Cross-system validation: **PASS**
+
+Checked:
+- technology nodes: 109
+- civic nodes: 72
+- unit rows: 89
+- policy rows: 127
+- map/infrastructure rows: 39
+- building rows: 102
+- missing technology/civic references: 0
+- backward-era prerequisite edges: 0
+- content placed earlier than its latest unlock gate: 0
+
+Additional cleanup found during validation:
+- Spec Ops era corrected from Modern to Atomic because Rapid Deployment is Atomic.
+- Coal Power Plant and Steelworks no longer misuse Industrialization as a civic gate; Industrialization is inherited through their Factory / Power Plant prerequisite chain.
 
 This file supersedes all earlier statements that:
 - Gathering Storm Future technologies are folded into Information;
