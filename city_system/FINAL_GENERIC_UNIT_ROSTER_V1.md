@@ -11,10 +11,10 @@ Authority:
 
 This file consolidates the project's **generic non-Great-Person unit roster** after the 109-technology and 72-civic unlock passes.
 
-Current total: **88 units**
+Current total: **89 units**
 
 Source split:
-- 73 units from `MASTER_TECHNOLOGY_UNLOCKS_109_V1.csv`
+- 74 units from `MASTER_TECHNOLOGY_UNLOCKS_109_V1.csv`
 - 7 civic-only or civic-owned units from `MASTER_CIVIC_UNLOCKS_72_V2.csv`
 - 5 baseline/system units recovered outside the unlock tables
 - 3 project-designed advanced founding units from `SETTLER_PROGRESSION_V1`
@@ -149,8 +149,14 @@ Excluded as a standalone generic unit. Nuclear weapons use the adopted strategic
 - Missile Silo and eligible delivery platforms
 
 ### Giant Death Robot
-Excluded from the baseline roster. It remains in:
-`optional_endgame/GDR_OPTIONAL_MODULE_V1.md`
+Restored to the baseline roster under the Gathering Storm Future Era realignment.
+- Robotics -> Giant Death Robot
+- Advanced AI -> Drone Air Defense
+- Advanced Power Cells -> Particle Beam Siege Cannon
+- Cybernetics -> Enhanced Mobility
+- Smart Materials -> Reinforced Armor
+
+The former optional module is superseded and retained only as design provenance.
 
 ### Great People
 Excluded from this generic roster and managed separately.
@@ -175,11 +181,12 @@ A blank field **does not mean the unit is permanently resource-free**. It means 
 | Enlightenment | 2 |
 | Industrial | 12 |
 | Modern | 19 |
-| Atomic | 11 |
-| Information | 1 |
-| **Total** | **88** |
+| Atomic | 4 |
+| Information | 8 |
+| Future | 1 |
+| **Total** | **89** |
 
-The low Information-era count is intentional under the current baseline: the Giant Death Robot line is optional, while most late-game military capability is reached during the Modern and Atomic project eras.
+The Gathering Storm realignment separates late military content across Atomic, Information and Future. Giant Death Robot is now a baseline Information-era super-unit, while XCOM Squad is a Future-era unit.
 
 ## 11. Next military pass
 
@@ -196,4 +203,4 @@ The next military-specific pass should determine:
 - naval transport/cargo rules
 - air basing and interception rules
 
-Those numerical rules should not modify the 88-unit existence/gate roster unless a concrete progression gap is demonstrated.
+Those numerical rules should not modify the 89-unit existence/gate roster unless a concrete progression gap is demonstrated.
