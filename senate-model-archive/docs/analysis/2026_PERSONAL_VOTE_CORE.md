@@ -1,6 +1,6 @@
 # 2026 Core PersonalVote reconstruction
 
-- Generated UTC: 2026-09-21T01:06:57.468565+00:00
+- Generated UTC: 2026-09-21T01:40:44.896502+00:00
 - Uses prior statewide Senate and Governor general elections only.
 - PVI is reconstructed from the two previous presidential state leans with 0.67/0.33 weights.
 - Candidate overperformance is adjusted by leave-one-out office-cycle residual, matching the archived sufficient-statistics procedure.
