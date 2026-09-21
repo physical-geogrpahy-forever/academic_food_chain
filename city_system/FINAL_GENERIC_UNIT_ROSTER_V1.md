@@ -90,7 +90,7 @@ This prevents technology names such as Warships or Advanced Flight from being mi
 
 ## 5. Major role families
 
-These are **role/progression families**, not yet a promise that every neighboring entry is a direct one-click upgrade edge.
+These remain role/progression families in this roster file. Exact direct one-step upgrade edges are now separately locked in `city_system/FINAL_UNIT_UPGRADE_GRAPH_V1.csv`.
 
 - Recon: Scout -> Explorer -> Ranger -> Spec Ops
 - Ranged infantry: Archer -> Composite Bowman -> Crossbowman -> Skirmisher -> Gatling Gun -> Machine Gun
@@ -192,15 +192,51 @@ The Gathering Storm realignment separates late military content across Atomic, I
 
 This V1 locks **which generic units exist and what unlocks them**.
 
+The direct upgrade graph is now complete and locked in:
+- `city_system/FINAL_UNIT_UPGRADE_GRAPH_V1.csv`
+- `city_system/FINAL_UNIT_UPGRADE_GRAPH_V1.md`
+- `city_system/FINAL_UNIT_UPGRADE_GRAPH_V1_QA.md`
+
 The next military-specific pass should determine:
-- exact direct upgrade edges
 - combat/ranged strength
 - movement and range
 - production and maintenance cost
 - strategic-resource quantity/consumption
 - promotions and unit-class interactions
-- obsolescence and upgrade costs
+- upgrade Gold costs
 - naval transport/cargo rules
 - air basing and interception rules
 
 Those numerical rules should not modify the 89-unit existence/gate roster unless a concrete progression gap is demonstrated.
+
+
+## 12. Direct upgrade graph — LOCKED V1
+
+The 89-unit graph is structurally complete.
+
+Important lines:
+- Warrior -> Swordsman -> Man-at-Arms -> Arquebusier -> Line Infantry -> Rifleman -> Infantry -> Mechanized Infantry
+- Spearman -> Pikeman -> Pike and Shot -> Anti-Tank Gun -> Modern AT
+- Archer -> Composite Bowman -> Crossbowman -> Skirmisher -> Gatling Gun -> Machine Gun
+- Catapult -> Trebuchet -> Bombard -> Field Gun -> Artillery -> Rocket Artillery
+- Scout -> Explorer -> Ranger -> Spec Ops
+- Horseman -> Cavalry -> Helicopter
+- Chariot Archer -> Knight -> Lancer -> Landship -> Tank -> Modern Armor
+- Trireme -> Caravel -> Ironclad -> Destroyer
+- Privateer -> Submarine -> Nuclear Submarine
+- Paratrooper -> XCOM Squad
+- Observation Balloon -> Drone
+- Battering Ram -> Siege Tower -> Medic -> Supply Convoy
+
+Naval ranged contains the sole explicit branch:
+- Frigate -> Ship of the Line -> Battleship -> Missile Cruiser
+- Frigate -> Cruiser -> Missile Cruiser
+
+Founding units are production replacements, not direct upgrades.
+
+QA:
+- 89/89 rows
+- unknown successors 0
+- era regressions 0
+- cycles 0
+- PASS
