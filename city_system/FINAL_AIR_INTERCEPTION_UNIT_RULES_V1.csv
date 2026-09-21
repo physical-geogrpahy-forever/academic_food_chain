@@ -1,0 +1,11 @@
+UNIT_EN,INTERCEPTION_CHANCE_PERCENT,INTERCEPTION_RADIUS,BASE_INTERCEPTIONS_PER_TURN,ANTI_AIR_BONUS_PERCENT,AIR_SWEEP_CAPABLE,AIR_RECON_RADIUS,BASE_EVASION_PERCENT,NORMAL_AIR_STRIKE_MODIFIER_PERCENT,SOURCE_BASIS,STATUS,NOTES
+"Triplane","50","2","1","150","1","6","0","-50","Civ5 BNW","LOCKED_V1","Fighter-type aircraft."
+"Fighter","100","2","1","150","1","6","0","-50","Civ5 BNW","LOCKED_V1","Fighter-type aircraft."
+"Jet Fighter","100","2","1","150","1","6","0","-50","Civ5 BNW","LOCKED_V1","Fighter-type aircraft."
+"Anti-Air Gun","100","2","1","150","0","0","0","0","Civ5 BNW","LOCKED_V1","Automatic ground interception."
+"Mobile SAM","100","2","1","150","0","0","0","0","Civ5 BNW","LOCKED_V1","Automatic ground interception."
+"Destroyer","40","2","1","0","0","0","0","0","Civ5 BNW","LOCKED_V1","Automatic naval interception; also anti-submarine."
+"Missile Cruiser","100","2","1","0","0","0","0","0","Civ5 BNW","LOCKED_V1","Automatic naval interception; also anti-submarine."
+"Stealth Bomber","0","0","0","0","0","6","100","0","Civ5 BNW","LOCKED_V1","Cannot be intercepted under base rules."
+"Guided Missile","0","0","0","0","0","0","100","0","Civ5 BNW","LOCKED_V1","One-use missile; cannot be intercepted."
+"Giant Death Robot","100","2","1","0","0","0","0","0","Project adaptation of Civ6 Drone Air Defense","CONDITIONAL_MODULE","Only active after Advanced AI; anti-air defense strength = 130."
