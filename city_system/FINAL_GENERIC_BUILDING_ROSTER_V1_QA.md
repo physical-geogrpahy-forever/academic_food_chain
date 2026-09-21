@@ -65,3 +65,25 @@ Current cross-system validation:
 - content earlier than latest technology/civic gate: 0
 - broken simple prerequisite references: 0
 - **PASS**
+
+
+## Numeric balance V1 follow-up
+
+The 102-building numeric pass found one pre-existing chronology issue:
+
+- Art Museum was labeled Renaissance
+- it requires Opera House
+- Opera House is Exploration
+
+Correction:
+- Art Museum -> Exploration
+
+Post-correction:
+- building prerequisite era regressions: 0
+- canonical row count remains 102
+- duplicate names remain 0
+- numeric coverage: 102/102
+- numeric QA: PASS
+
+Authority:
+`FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V1_QA.md`
