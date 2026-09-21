@@ -101,3 +101,15 @@ Workflow:
 A current completed Actions run ID has **not** been retrieved through the connected GitHub endpoint, so none is claimed here.
 
 The PASS above is from re-reading the current branch files and reproducing the validator checks directly.
+
+
+## Aircraft Carrier cargo correction
+
+A later source audit corrected Carrier base cargo from 3 to the Civ V BNW value of **2**.
+
+- base capacity: 2
+- Flight Deck I: 3
+- Flight Deck II: 4
+- Flight Deck III: 5
+
+This correction is validated by `validate_final_unit_operational_rules_v1.py`.
