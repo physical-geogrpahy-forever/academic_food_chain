@@ -1,5 +1,33 @@
 # CHANGELOG
 
+## 2026-09-21 - Core V2-R 2026 production model locked
+
+### Final validation
+- accepted clean nested direction benchmark: **96/99 = 97.0%**
+- the previous 94/99 fixed-poll baseline is superseded as the primary direction benchmark
+- 2026 production selector is fit using historical information through 2022
+- retrospective 98/99 is retained as a diagnostic only and is explicitly not OOS
+
+### Frozen 2026 production selector
+- poll-PVI disagree threshold: 2.0 percentage points
+- poll-PVI agree threshold: 0.75 percentage points
+- minimum absolute PVI when poll and PVI agree: 15 percentage points
+- poll blend remains w_max=0.75, k=0.5, 30-day window, 14-day half-life
+
+### Third-party policy
+- no directional point correction from minor-party share
+- third-party support is uncertainty-only until broader historical multi-candidate coverage exists
+- major independent / party-replacement races are modeled separately from ordinary D/R races
+
+### Governance
+- production model is frozen in docs/final/MODEL_FINAL_LOCK_2026-09-21.md
+- all future structural changes must use a new experimental version
+- 2026 observed outcomes may not be used to retune the locked model
+
+### 2026 analysis
+- added neutral competitive-race input diagnostic snapshot
+- exact poll-row cutoff audit and full production input matrix remain next
+
 ## 2026-09-21 - Recovery archive initialized
 
 ### Preserved
