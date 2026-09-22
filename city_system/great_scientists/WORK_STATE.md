@@ -55,10 +55,13 @@ Completed:
 - Exploration: 37/37 reviewed
 - Enlightenment: 29/29 reviewed
 - Industrial: 47/47 reviewed
-- Combined completed in current design pass: 120 scientists
+- Modern: 50/50 reviewed
+- Atomic: 64/64 reviewed
+- Information: 23/23 reviewed
+- Combined completed in current design pass: 257 scientists
 
 Next batch:
-- Modern (50 scientists)
+- Ancient through High Medieval (75 scientists)
 
 ## Current diagnostic result
 
@@ -74,11 +77,12 @@ Design-level issue:
 
 ## Next batch
 
-Process Modern (50 scientists) in one file pass.
+Process Ancient through High Medieval together (75 scientists total) in one five-file pass.
 
 Then:
-1. Atomic + Information
-2. final cross-era power-band audit
+1. final full-roster validation
+2. cross-era power-band audit
+3. cross-class review after other Great Person rosters exist
 
 ## Execution rule
 
