@@ -1,6 +1,6 @@
 # Great Scientist roster — Atomic — V1
 
-Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA3
+Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA / DEDUPED
 
 | # | Scientist | Region | Minimum condition | Ability | Effect | Status |
 |---:|---|---|---|---|---|---|
@@ -40,38 +40,34 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA3
 | 34 | Maria Goeppert Mayer | Germany/USA | Nuclear Fission | 핵껍질 모형 | Nuclear Fission 완료 도시의 Research Lab +1 Great Scientist Point. Uranium 개발 도시 +1 Science. | KEEP |
 | 35 | John Bardeen | USA | Electronics | 트랜지스터와 초전도 | 전력 공급 도시의 Research Lab +1 Science. Computers 연구 시작 시 15% 진척. | CROSS_CLASS_REVIEW |
 | 36 | George Gamow | Ukraine/USA | Particle Physics | 빅뱅 핵합성 | Particle Physics 완료 후 Science 260. Observatory가 있는 도시 Great Scientist Point +1. | KEEP |
-| 37 | Geoffrey Hinton | Britain/Canada | Computers | 신경망 | Computers가 완료된 도시의 Scientist 전문직 +1 Science. 활성화 시 Great Scientist Point 80. | KEEP |
-| 38 | John Hopfield | USA | Computers | 연상 신경망 | Scientist 전문직이 2명 이상인 도시는 +2 Science. 활성 도시 Research Lab +1 Great Scientist Point. | KEEP |
-| 39 | Katherine Johnson | USA | Guidance Systems researchable | 궤도 계산 | Guidance Systems Eureka. Space Race 프로젝트가 진행 중인 도시 +10% Production. | KEEP |
-| 40 | Margaret Hamilton | USA | Guidance Systems researchable | 아폴로 비행 소프트웨어 | Guidance Systems 연구비 35% 진척. 우주 프로젝트 생산 손실 또는 실패 페널티가 있다면 1회 무시. | CROSS_CLASS_REVIEW |
-| 41 | Geoffrey Hinton | Britain/Canada | Computers | 신경망 | Computers가 완료된 도시의 Scientist 전문직 +1 Science. 활성화 시 Great Scientist Point 80. | KEEP |
-| 42 | John Hopfield | USA | Computers | 연상 신경망 | Scientist 전문직이 2명 이상인 도시는 +2 Science. 활성 도시 Research Lab +1 Great Scientist Point. | KEEP |
-| 43 | Katherine Johnson | USA | Guidance Systems researchable | 궤도 계산 | Guidance Systems Eureka. Space Race 프로젝트가 진행 중인 도시 +10% Production. | KEEP |
-| 44 | Margaret Hamilton | USA | Guidance Systems researchable | 아폴로 비행 소프트웨어 | Guidance Systems 연구비 35% 진척. 우주 프로젝트 생산 손실 또는 실패 페널티가 있다면 1회 무시. | CROSS_CLASS_REVIEW |
-| 45 | Carl Sagan | USA | Space Race | 코스모스 | Space Race 프로젝트에 Production 1200 즉시 투입. Broadcast Center 도시 +1 Science. | KEEP |
-| 46 | Stephen Hawking | Britain | Particle Physics | 블랙홀 우주론 | Science 400. Space Race 프로젝트 +10% Production. | KEEP |
-| 47 | Vera Rubin | USA | Particle Physics researchable | 암흑물질 | Particle Physics 연구비 25% 진척. Observatory와 Research Lab을 모두 가진 도시 Great Scientist Point +1. | KEEP |
-| 48 | Jocelyn Bell Burnell | Britain | Radio + Observatory exists | 펄서 | 2 charges. 각 charge는 Science 100. Observatory가 있는 도시에서 사용하면 Great Scientist Point 30 추가. | KEEP |
-| 49 | Kip Thorne | USA | Particle Physics researchable | 중력파 | Particle Physics Eureka. Space Race 프로젝트 완료 시 Science 150. | KEEP |
-| 50 | Syukuro Manabe | Japan/USA | Ecology | 기후모형 | Ecology 완료 시 Science 300. 오염 발생 Power Plant 도시의 Science 페널티 1 감소. | KEEP |
-| 51 | Roger Penrose | Britain | Particle Physics | 특이점 정리 | Science 400. 다른 영구 효과 없음. | KEEP |
-| 52 | Rainer Weiss | USA | Research Lab exists | 레이저 간섭계 | 2 charges. 각 charge는 Research Lab 도시에서 Science 120. Space Launch Center가 있는 도시라면 추가 Science 40. | KEEP |
-| 53 | Alain Aspect | France | Particle Physics researchable | 양자 얽힘 실험 | Particle Physics Eureka. Research Agreement를 처음 체결할 때 Science 150. | KEEP |
-| 54 | Klaus Hasselmann | Germany | Ecology | 기후 귀인 | 오염이 있는 도시 1곳당 Science 20, 최대 300. 오염 자체는 제거하지 않음. | KEEP |
-| 55 | John O'Keefe | Britain/USA | Medical Lab exists | 장소세포 | Specialist 3명 이상인 도시 +1 Science. 활성 도시 Medical Lab +1 Science. | KEEP |
-| 56 | Peter Higgs | Britain | Particle Physics researchable | 힉스 메커니즘 | Particle Physics 연구비 50% 진척. 활성 도시 Research Lab +1 Great Scientist Point. | KEEP |
-| 57 | François Englert | Belgium | Particle Physics researchable | 대칭성 붕괴 메커니즘 | Particle Physics Eureka. Science 120 추가. | KEEP |
-| 58 | Donna Strickland | Canada | Research Lab exists | 처프 펄스 증폭 | 2 charges. 각 charge는 Science 100. 전력 공급 Research Lab 도시에서 사용하면 추가 Science 50. | KEEP |
-| 59 | Gérard Mourou | France/USA | Research Lab exists | 초고강도 레이저 | 활성 도시 연구 프로젝트 Production +15%. 활성화 시 Science 140. | KEEP |
-| 60 | Barry Marshall | Australia | Medical Lab exists | 헬리코박터 치료 | 활성 도시 Medical Lab +1 Health. 그 도시의 질병 회복 페널티 -15%. | KEEP |
-| 61 | Robin Warren | Australia | Medical Lab exists | 병리 진단 | 활성 도시 Medical Lab +2 Science. Health가 음수인 동안 추가 +1 Science. | KEEP |
-| 62 | Elizabeth Blackburn | Australia/USA | Medical Lab + Research Lab in one city | 텔로미어 | 해당 도시의 인구 기반 Health 페널티 1 감소. | KEEP |
-| 63 | Carol Greider | USA | Medical Lab exists | 텔로머레이스 | Medical Lab Great Scientist Point +1. 역병 회복 기간 -10%. | KEEP |
-| 64 | Jack Szostak | USA | Research Lab exists | 염색체 말단 | Science 220. 활성 도시 Research Lab Scientist 슬롯 +1. | KEEP |
-| 65 | Christiane Nüsslein-Volhard | Germany | Research Lab exists | 발생 유전학 | Research Lab 도시가 인구 1 증가할 때 Science 30, 도시당 최대 3회. | KEEP |
-| 66 | Kary Mullis | USA | Medical Lab + Research Lab in one city | PCR | 새 역병이 해당 도시에 발생할 때 Science 75 획득, 역병 심각도 -5%. | KEEP |
-| 67 | Vint Cerf | USA | Computers | 인터넷 프로토콜 | 도로 또는 교역로로 수도와 연결된 Research Lab 도시 +1 Science. 국제 교역로 +1 Gold. | CROSS_CLASS_REVIEW |
-| 68 | Barbara Liskov | USA | Computers | 추상화와 분산시스템 | Research Lab 유지비 -1 Gold. Scientist 전문직이 2명 이상인 도시는 +1 Science. | KEEP |
+| 37 | Carl Sagan | USA | Space Race | 코스모스 | Space Race 프로젝트에 Production 1200 즉시 투입. Broadcast Center 도시 +1 Science. | KEEP |
+| 38 | Stephen Hawking | Britain | Particle Physics | 블랙홀 우주론 | Science 400. Space Race 프로젝트 +10% Production. | KEEP |
+| 39 | Vera Rubin | USA | Particle Physics researchable | 암흑물질 | Particle Physics 연구비 25% 진척. Observatory와 Research Lab을 모두 가진 도시 Great Scientist Point +1. | KEEP |
+| 40 | Jocelyn Bell Burnell | Britain | Radio + Observatory exists | 펄서 | 2 charges. 각 charge는 Science 100. Observatory가 있는 도시에서 사용하면 Great Scientist Point 30 추가. | KEEP |
+| 41 | Kip Thorne | USA | Particle Physics researchable | 중력파 | Particle Physics Eureka. Space Race 프로젝트 완료 시 Science 150. | KEEP |
+| 42 | Syukuro Manabe | Japan/USA | Ecology | 기후모형 | Ecology 완료 시 Science 300. 오염 발생 Power Plant 도시의 Science 페널티 1 감소. | KEEP |
+| 43 | Roger Penrose | Britain | Particle Physics | 특이점 정리 | Science 400. 다른 영구 효과 없음. | KEEP |
+| 44 | Rainer Weiss | USA | Research Lab exists | 레이저 간섭계 | 2 charges. 각 charge는 Research Lab 도시에서 Science 120. Space Launch Center가 있는 도시라면 추가 Science 40. | KEEP |
+| 45 | Alain Aspect | France | Particle Physics researchable | 양자 얽힘 실험 | Particle Physics Eureka. Research Agreement를 처음 체결할 때 Science 150. | KEEP |
+| 46 | Klaus Hasselmann | Germany | Ecology | 기후 귀인 | 오염이 있는 도시 1곳당 Science 20, 최대 300. 오염 자체는 제거하지 않음. | KEEP |
+| 47 | John O'Keefe | Britain/USA | Medical Lab exists | 장소세포 | Specialist 3명 이상인 도시 +1 Science. 활성 도시 Medical Lab +1 Science. | KEEP |
+| 48 | Peter Higgs | Britain | Particle Physics researchable | 힉스 메커니즘 | Particle Physics 연구비 50% 진척. 활성 도시 Research Lab +1 Great Scientist Point. | KEEP |
+| 49 | François Englert | Belgium | Particle Physics researchable | 대칭성 붕괴 메커니즘 | Particle Physics Eureka. Science 120 추가. | KEEP |
+| 50 | Donna Strickland | Canada | Research Lab exists | 처프 펄스 증폭 | 2 charges. 각 charge는 Science 100. 전력 공급 Research Lab 도시에서 사용하면 추가 Science 50. | KEEP |
+| 51 | Gérard Mourou | France/USA | Research Lab exists | 초고강도 레이저 | 활성 도시 연구 프로젝트 Production +15%. 활성화 시 Science 140. | KEEP |
+| 52 | Barry Marshall | Australia | Medical Lab exists | 헬리코박터 치료 | 활성 도시 Medical Lab +1 Health. 그 도시의 질병 회복 페널티 -15%. | KEEP |
+| 53 | Robin Warren | Australia | Medical Lab exists | 병리 진단 | 활성 도시 Medical Lab +2 Science. Health가 음수인 동안 추가 +1 Science. | KEEP |
+| 54 | Elizabeth Blackburn | Australia/USA | Medical Lab + Research Lab in one city | 텔로미어 | 해당 도시의 인구 기반 Health 페널티 1 감소. | KEEP |
+| 55 | Carol Greider | USA | Medical Lab exists | 텔로머레이스 | Medical Lab Great Scientist Point +1. 역병 회복 기간 -10%. | KEEP |
+| 56 | Jack Szostak | USA | Research Lab exists | 염색체 말단 | Science 220. 활성 도시 Research Lab Scientist 슬롯 +1. | KEEP |
+| 57 | Christiane Nüsslein-Volhard | Germany | Research Lab exists | 발생 유전학 | Research Lab 도시가 인구 1 증가할 때 Science 30, 도시당 최대 3회. | KEEP |
+| 58 | Kary Mullis | USA | Medical Lab + Research Lab in one city | PCR | 새 역병이 해당 도시에 발생할 때 Science 75 획득, 역병 심각도 -5%. | KEEP |
+| 59 | Vint Cerf | USA | Computers | 인터넷 프로토콜 | 도로 또는 교역로로 수도와 연결된 Research Lab 도시 +1 Science. 국제 교역로 +1 Gold. | CROSS_CLASS_REVIEW |
+| 60 | Barbara Liskov | USA | Computers | 추상화와 분산시스템 | Research Lab 유지비 -1 Gold. Scientist 전문직이 2명 이상인 도시는 +1 Science. | KEEP |
+| 61 | Geoffrey Hinton | Britain/Canada | Computers | 신경망 | Computers가 완료된 도시의 Scientist 전문직 +1 Science. 활성화 시 Great Scientist Point 80. | KEEP |
+| 62 | John Hopfield | USA | Computers | 연상 신경망 | Scientist 전문직이 2명 이상인 도시는 +2 Science. 활성 도시 Research Lab +1 Great Scientist Point. | KEEP |
+| 63 | Katherine Johnson | USA | Guidance Systems researchable | 궤도 계산 | Guidance Systems Eureka. Space Race 프로젝트가 진행 중인 도시 +10% Production. | KEEP |
+| 64 | Margaret Hamilton | USA | Guidance Systems researchable | 아폴로 비행 소프트웨어 | Guidance Systems 연구비 35% 진척. 우주 프로젝트 생산 손실 또는 실패 페널티가 있다면 1회 무시. | CROSS_CLASS_REVIEW |
 
 ## Ability QA4 notes
 
@@ -90,5 +86,6 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA3
 
 - Geoffrey Hinton and John Hopfield moved here from the invalid Future roster because their defining neural-network work dates to 1983–1985 and 1982 respectively.
 - Katherine Johnson and Margaret Hamilton were restored after an interrupted Atomic QA4 write; both have defining NASA work in the 1960s.
+
 
 
