@@ -16,7 +16,7 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA1
 | 10 | William Harvey | England | University exists | 혈액 순환 | 모든 도시 Health +1. 우호영토의 부상 지상 유닛 회복 +5 HP/턴. | KEEP |
 | 11 | Francis Bacon | England | University exists | 귀납법 | 다음 3개 기술에서 발생하는 Eureka가 각각 추가로 연구비 10%를 제공. | KEEP |
 | 12 | René Descartes | France | University exists | 해석기하학 | Scientist 전문직 +1 Culture. 활성 도시 University +1 Great Scientist Point. | KEEP |
-| 13 | Pierre de Fermat | France | University exists | 수론 | Science 220 즉시 획득. 영구 효과 없음. | KEEP |
+| 13 | Pierre de Fermat | France | University exists | 수론 | 현재 연구 중인 기술의 남은 비용 20%만큼 Science. 활성 도시 University의 Great Scientist Point +1. | KEEP |
 | 14 | Jan Baptist van Helmont | Low Countries | Apothecary exists | 기체와 물질 | Apothecary +1 Science. 활성 도시 Health가 양수면 Science 120 추가. | KEEP |
 | 15 | Evangelista Torricelli | Italy | University exists | 기압 | 활성 도시 University +2 Science. Water Mill이 있는 같은 도시는 +1 Production. | KEEP |
 | 16 | Blaise Pascal | France | Bank exists | 확률과 압력 | Bank와 University를 모두 가진 도시 +1 Science +1 Gold. 활성화 시 Science 120. | KEEP |
