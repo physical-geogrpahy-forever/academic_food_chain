@@ -169,16 +169,16 @@ Explicit boundary/review flags in this first pass: **11**
 | 115 | Montesquieu | Enlightenment | France | political philosophy and constitutional thought | STRONG_CANDIDATE |
 | 116 | David Hume | Enlightenment | Scotland | epistemology, ethics, philosophy of religion | STRONG_CANDIDATE |
 | 117 | Jean-Jacques Rousseau | Enlightenment | Geneva/France | political philosophy, education, inequality | STRONG_CANDIDATE |
-| 118 | Voltaire | Enlightenment | France | philosophy of religion, toleration, political criticism | WRITER_BOUNDARY |
-| 119 | Denis Diderot | Enlightenment | France | materialism, ethics, Enlightenment thought | WRITER_BOUNDARY |
+| 118 | Voltaire | Enlightenment | France | philosophy of religion, toleration, political criticism | STRONG_CANDIDATE |
+| 119 | Denis Diderot | Enlightenment | France | materialism, ethics, Enlightenment thought | STRONG_CANDIDATE |
 | 120 | Étienne Bonnot de Condillac | Enlightenment | France | epistemology, philosophy of mind | STRONG_CANDIDATE |
 | 121 | Francis Hutcheson | Enlightenment | Scotland | moral philosophy and political economy | STRONG_CANDIDATE |
 | 122 | Thomas Reid | Enlightenment | Scotland | epistemology and moral philosophy | STRONG_CANDIDATE |
 | 123 | Immanuel Kant | Enlightenment | Prussia | epistemology, ethics, metaphysics, political philosophy | STRONG_CANDIDATE |
 | 124 | Adam Smith | Enlightenment | Scotland | moral philosophy and political economy | STRONG_CANDIDATE |
 | 125 | Jeremy Bentham | Enlightenment | Britain | utilitarian ethics, law, political philosophy | STRONG_CANDIDATE |
-| 126 | Edmund Burke | Enlightenment | Britain/Ireland | political philosophy | POLITICAL_WRITER_BOUNDARY |
-| 127 | Thomas Paine | Enlightenment | Britain/USA/France | political philosophy and rights | POLITICAL_WRITER_BOUNDARY |
+| 126 | Edmund Burke | Enlightenment | Britain/Ireland | political philosophy | STRONG_CANDIDATE |
+| 127 | Thomas Paine | Enlightenment | Britain/USA/France | political philosophy and rights | STRONG_CANDIDATE |
 | 128 | Mary Wollstonecraft | Enlightenment | Britain | political philosophy, rights, gender | STRONG_CANDIDATE |
 | 129 | Cesare Beccaria | Enlightenment | Italy | philosophy of law and punishment | STRONG_CANDIDATE |
 | 130 | Baron d'Holbach | Enlightenment | France | materialism, ethics, philosophy of religion | STRONG_CANDIDATE |
@@ -186,14 +186,14 @@ Explicit boundary/review flags in this first pass: **11**
 | 132 | Motoori Norinaga | Enlightenment | Japan | philosophy of language, culture, ethics | STRONG_CANDIDATE |
 | 133 | Jeong Je-du (정제두) | Enlightenment | Joseon Korea | Korean Yangming philosophy | STRONG_CANDIDATE |
 | 134 | Hong Dae-yong (홍대용) | Enlightenment | Joseon Korea | natural philosophy, social thought, cosmology | STRONG_CANDIDATE |
-| 135 | Park Ji-won (박지원) | Enlightenment | Joseon Korea | political economy, social criticism | WRITER_BOUNDARY |
+| 135 | Park Ji-won (박지원) | Enlightenment | Joseon Korea | political economy, social criticism | STRONG_CANDIDATE |
 | 136 | Mary Astell | Enlightenment | England | political philosophy, education, gender | STRONG_CANDIDATE |
 | 137 | G. W. F. Hegel | Industrial | German lands | metaphysics, philosophy of history, political philosophy | STRONG_CANDIDATE |
 | 138 | Arthur Schopenhauer | Industrial | German lands | metaphysics, ethics, aesthetics | STRONG_CANDIDATE |
 | 139 | Auguste Comte | Industrial | France | positivism, philosophy of science and society | STRONG_CANDIDATE |
 | 140 | Søren Kierkegaard | Industrial | Denmark | existential philosophy, ethics, religion | STRONG_CANDIDATE |
 | 141 | Karl Marx | Industrial | German lands | political philosophy, political economy, social theory | STRONG_CANDIDATE |
-| 142 | Friedrich Engels | Industrial | German lands/Britain | social philosophy and political economy | POLITICAL_THEORY_BOUNDARY |
+| 142 | Friedrich Engels | Industrial | German lands/Britain | social philosophy and political economy | STRONG_CANDIDATE |
 | 143 | John Stuart Mill | Industrial | Britain | ethics, political philosophy, political economy | STRONG_CANDIDATE |
 | 144 | Alexis de Tocqueville | Industrial | France | political philosophy and democracy | STRONG_CANDIDATE |
 | 145 | Ludwig Feuerbach | Industrial | German lands | philosophy of religion and materialism | STRONG_CANDIDATE |
@@ -208,7 +208,7 @@ Explicit boundary/review flags in this first pass: **11**
 | 154 | Jeong Yak-yong (정약용) | Industrial | Joseon Korea | ethics, political philosophy, institutional reform | STRONG_CANDIDATE |
 | 155 | Choe Han-gi (최한기) | Industrial | Joseon Korea | epistemology, natural philosophy, social thought | STRONG_CANDIDATE |
 | 156 | Nishi Amane | Industrial | Japan | modern Japanese philosophy, epistemology, ethics | STRONG_CANDIDATE |
-| 157 | Fukuzawa Yukichi | Industrial | Japan | political and social philosophy, education | POLITICAL_WRITER_BOUNDARY |
+| 157 | Fukuzawa Yukichi | Industrial | Japan | political and social philosophy, education | STRONG_CANDIDATE |
 | 158 | Bertrand Russell | Modern | Britain | logic, analytic philosophy, epistemology | STRONG_CANDIDATE |
 | 159 | Ludwig Wittgenstein | Modern | Austria/Britain | logic, language, mind | STRONG_CANDIDATE |
 | 160 | John Dewey | Modern | USA | pragmatism, education, democracy | STRONG_CANDIDATE |
@@ -227,9 +227,9 @@ Explicit boundary/review flags in this first pass: **11**
 | 173 | Moritz Schlick | Modern | Austria | logical empiricism, epistemology | STRONG_CANDIDATE |
 | 174 | Karl Jaspers | Modern | Germany | existential philosophy | STRONG_CANDIDATE |
 | 175 | Mahatma Gandhi | Modern | India | ethics, political philosophy, nonviolence | STRONG_CANDIDATE |
-| 176 | Rabindranath Tagore | Modern | India | humanism, ethics, political and educational thought | WRITER_BOUNDARY |
+| 176 | Rabindranath Tagore | Modern | India | humanism, ethics, political and educational thought | MOVE_TO_WRITER |
 | 177 | W. E. B. Du Bois | Modern | USA | social philosophy, race, democracy | STRONG_CANDIDATE |
-| 178 | B. R. Ambedkar | Modern | India | political philosophy, law, social equality | MODERN_ATOMIC_BOUNDARY |
+| 178 | B. R. Ambedkar | Modern | India | political philosophy, law, social equality | STRONG_CANDIDATE |
 | 179 | Hannah Arendt | Atomic | Germany/USA | political philosophy, totalitarianism, action | STRONG_CANDIDATE |
 | 180 | Karl Popper | Modern | Austria/Britain | philosophy of science and political philosophy | STRONG_CANDIDATE |
 | 181 | Jean-Paul Sartre | Modern | France | existentialism, ethics, political philosophy | STRONG_CANDIDATE |
@@ -252,7 +252,7 @@ Explicit boundary/review flags in this first pass: **11**
 | 198 | Richard Rorty | Atomic | USA | pragmatism, epistemology, political philosophy | STRONG_CANDIDATE |
 | 199 | G. E. M. Anscombe | Atomic | Britain | ethics, action theory | STRONG_CANDIDATE |
 | 200 | Philippa Foot | Atomic | Britain | ethics, virtue theory | STRONG_CANDIDATE |
-| 201 | Iris Murdoch | Atomic | Britain/Ireland | moral philosophy | WRITER_BOUNDARY |
+| 201 | Iris Murdoch | Atomic | Britain/Ireland | moral philosophy | STRONG_CANDIDATE |
 | 202 | Alasdair MacIntyre | Atomic | Britain/USA | ethics, political philosophy | STRONG_CANDIDATE |
 | 203 | Peter Singer | Atomic | Australia | ethics and applied philosophy | STRONG_CANDIDATE |
 | 204 | Frantz Fanon | Atomic | Martinique/Algeria | political and social philosophy | STRONG_CANDIDATE |
@@ -365,3 +365,32 @@ Boundary cases retained after review:
 - Judith Butler: Information
 
 See `ACTIVITY_PERIOD_AUDIT_MASTER_V1.md` for rationale.
+
+
+## Class-boundary audit V1 result
+
+The initial Writer/Prophet boundary pass was completed on 2026-09-22.
+
+Philosopher retained:
+- Voltaire
+- Denis Diderot
+- Edmund Burke
+- Thomas Paine
+- Park Ji-won (박지원)
+- Friedrich Engels
+- Fukuzawa Yukichi
+- Iris Murdoch
+- B. R. Ambedkar
+
+Moved out:
+- Rabindranath Tagore -> Great Writer priority
+
+Prophet-priority founders/reformers remain outside the active Philosopher pool:
+- Gautama Buddha
+- Jesus
+- Muhammad
+- Guru Nanak
+- Martin Luther
+- John Calvin
+
+Laozi remains the only major historicity/textual-era review case.
