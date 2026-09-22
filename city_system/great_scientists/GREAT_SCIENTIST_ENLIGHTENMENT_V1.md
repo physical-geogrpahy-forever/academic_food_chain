@@ -31,8 +31,8 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA2
 | 25 | Anders Celsius | Sweden | Observatory exists | 표준화된 온도 측정 | Observatory와 Public School을 모두 가진 도시 +2 Science. 활성화 시 Science 80. | KEEP |
 | 26 | Jean le Rond d'Alembert | France | Ballistics researchable | 역학과 백과전서 | Ballistics Eureka. 활성 도시 Public School +1 Great Scientist Point +1 Culture. | KEEP |
 | 27 | Maria Sibylla Merian | German/Dutch | Irrigation | 변태와 곤충 | Plantation 자원 타일 +1 Culture. Plantation 도시 Scientist 전문직 +1 Science. | KEEP |
-| 28 | Charles-Augustin de Coulomb | France | Scientific Theory researchable | 정량 전기학 | 2 charges. 각 charge는 Science 90. 두 charge를 모두 사용하면 Electricity가 처음 연구 가능해질 때 자동으로 Eureka를 획득. | KEEP |
-| 29 | Luigi Galvani | Italy | Public School exists | 생체전기 | 활성 도시 Public School의 Scientist 전문직 +1 Science. 그 도시 Health +1. Electricity 연구를 처음 시작할 때 연구비 10% 진척. | KEEP |
+| 28 | Charles-Augustin de Coulomb | France | Scientific Theory researchable | 정량 전기학 | 2 charges. 각 charge는 Science 90. 두 번째 사용 시 활성 도시 Public School +1 Great Scientist Point. | KEEP |
+| 29 | Luigi Galvani | Italy | Public School exists | 생체전기 | 활성 도시 Public School의 Scientist 전문직 +1 Science. 그 도시 Health +1. | KEEP |
 
 ## Candidate expansion QA2
 
