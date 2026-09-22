@@ -56,3 +56,13 @@ Status: DRAFT ABILITY-READY LONGLIST — ABILITY QA5 / CANDIDATE EXPANSION
 - Medical candidates are separated into Health, severity, recovery, mortality, diagnosis, population-pressure and outbreak-trigger effects.
 - Added 16 major Information-era candidates rather than padding to a fixed count.
 - Higgs/Englert are tied to particle physics and Nuclear Fusion; Strickland/Mourou to high-intensity laser physics; Mayor/Queloz to exoplanets; Marshall/Warren to H. pylori; Blackburn/Greider/Szostak to telomeres; Nüsslein-Volhard to developmental genetics; Mullis to PCR; Berners-Lee/Cerf/Liskov to computing and networking.
+
+| 45 | David Baker | USA | Nanotechnology researchable | 단백질 설계 | Nanotechnology 연구비 25% 진척. Medical Lab과 Research Lab을 모두 가진 도시 +1 Science. | KEEP |
+| 46 | Demis Hassabis | Britain | Advanced AI researchable | 단백질 구조 예측 | Advanced AI Eureka. Medical Lab +1 Science. | CROSS_CLASS_REVIEW |
+| 47 | John Jumper | USA | Advanced AI researchable | AlphaFold | Advanced AI 연구비 40% 진척. Medical Lab이 있는 도시 Scientist 전문직 +1 Great Scientist Point. | KEEP |
+
+## Future-era correction
+
+- David Baker moved here because Rosetta/de novo protein design spans the late 1990s–2003.
+- Demis Hassabis and John Jumper moved here because AlphaFold2 is a 2020 achievement.
+- Their era label is Information even if some abilities are gated by Future technologies.
