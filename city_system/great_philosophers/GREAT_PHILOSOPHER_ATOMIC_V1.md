@@ -8,7 +8,7 @@ Status: FIRST-PASS ABILITY DRAFT
 | 1 | Hannah Arendt | Germany/USA | Cultural Heritage | 인간의 조건 | Government 계통과 CULTURE_MEDIA 계통을 모두 가진 도시는 +2 Culture. Specialist 3명 이상이면 Great Philosopher Point +1. | DRAFT |
 | 2 | Simone de Beauvoir | France | Suffrage | 제2의 성 | Public School 또는 Research Lab이 있는 도시에서 Specialist 2명 이상이면 +1 Science, +2 Culture. | DRAFT |
 | 3 | Maurice Merleau-Ponty | France | Medical Lab exists | 지각의 현상학 | Medical Lab과 Research Lab을 모두 가진 도시는 +1 Science, +1 Culture. Health가 양수이면 Great Philosopher Point +1. | DRAFT |
-| 4 | W. V. O. Quine | USA | Computers | 믿음의 그물 | 기술을 완료하면 다음 사회제도에 Culture 70, 사회제도를 완료하면 다음 기술에 Science 70. 각각 최대 3회. | DRAFT |
+| 4 |W. V. O. Quine |USA |Computers |믿음의 그물 |Research Lab이 있고 활성 사상 계통이 3개 이상인 도시는 +1 Science, +1 Culture. 활성화 시 두 산출량 100씩 획득. |DRAFT |
 | 5 | J. L. Austin | Britain | Cultural Heritage | 언어행위 | Broadcast Center가 있는 도시 +1 Culture. Government 계통도 있으면 +1 Culture, +1 Great Philosopher Point. | DRAFT |
 | 6 | Gilbert Ryle | Britain | Computers | 범주 오류 | Research Lab이 있는 도시 +1 Science. CULTURE_MEDIA 계통도 있으면 +1 Culture. | DRAFT |
 | 7 | Hans-Georg Gadamer | Germany | Cultural Heritage | 진리와 방법 | Museum 또는 Broadcast Center가 있는 도시 +2 Culture. University 또는 Research Lab도 있으면 +1 Science. | DRAFT |
@@ -29,7 +29,7 @@ Status: FIRST-PASS ABILITY DRAFT
 | 22 | Alasdair MacIntyre | Britain/USA | Cultural Heritage | 덕 이후 | Temple, University, Government 계통 중 2개 이상을 가진 도시는 +1 Culture. 3개 모두면 +1 Great Philosopher Point. | DRAFT |
 | 23 | Peter Singer | Australia | Ecology | 실천윤리 | Hospital 또는 Medical Lab이 있는 도시 +1 Culture. Food 자원 3종 이상을 사용하는 도시는 +1 Health 추가. | DRAFT |
 | 24 | Frantz Fanon | Martinique/Algeria | Cold War | 탈식민과 해방 | Colonialism을 완료한 뒤 Government 계통 도시 +1 Culture. 새로 편입한 도시의 불행 페널티 1 감소. | DRAFT |
-| 25 | Amartya Sen | India/Britain | Globalization researchable | 역량 접근 | Hospital 또는 Medical Lab과 Public School 또는 Research Lab을 모두 가진 도시는 +1 Health, +1 Culture. 행복하면 +1 Science. | DRAFT |
+| 25 |Amartya Sen |India/Britain |Cold War |역량 접근 |Hospital 또는 Medical Lab과 Public School 또는 Research Lab을 모두 가진 도시는 +1 Health, +1 Culture. 행복하면 +1 Science. |DRAFT |
 | 26 | Thomas Nagel | USA | Space Race | 어디에서도 아닌 관점 | Research Lab 또는 Space Launch Center가 있는 도시 +1 Science, +1 Culture. 활성화 시 Great Philosopher Point 80. | DRAFT |
 | 27 | Derek Parfit | Britain | Computers | 이유와 인격 동일성 | 2 charges. 각 charge는 현재 사회제도의 남은 비용 12%만큼 Culture. Medical Lab 도시에서 사용하면 Science 50 추가. | DRAFT |
 | 28 | Saul Kripke | USA | Computers | 이름과 필연성 | Research Lab이 있는 도시 +1 Science, +1 Culture. 활성화 시 Science 130. | DRAFT |
