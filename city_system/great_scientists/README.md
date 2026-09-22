@@ -1,7 +1,7 @@
 # Great Scientist longlist and ability design V1
 
 Date: 2026-09-22
-Status: DRAFT CONTENT PASS
+Status: DRAFT CONTENT PASS — PREMODERN QA1 APPLIED
 
 ## Purpose
 
@@ -11,27 +11,24 @@ Candidate count is deliberately not capped at 100. Era/region counts are not quo
 ## Design rules
 
 1. Keep the candidate pool broad first; prune only after other Great Person classes are also built.
-2. Every named Scientist has an individual ability. Exact duplicate effect strings are prohibited in V1.
-3. Abilities use the project's existing systems wherever possible: technology progress/Eureka, Library/University/Observatory/Public School/Research Lab, specialists/GPP, tile improvements/resources, Health/Plague, trade routes, power, archaeology and space projects.
-4. Do not use vague map-reveal effects that require difficult bespoke area calculations unless a later implementation pass explicitly adopts them.
-5. A Scientist does not require a building or technology that does not yet exist at recruitment. MIN_CONDITION gates entry to the eligible candidate pool.
+2. Every named Scientist has an individual ability. Exact name-swapped copies should be rewritten during QA.
+3. Abilities use the project's existing systems wherever possible: technology progress/Eureka, city science buildings, specialists/GPP, tile improvements/resources, Health/Plague, trade routes, power, archaeology and space projects.
+4. Avoid vague map-reveal effects requiring bespoke area calculations unless a later implementation pass explicitly adopts them.
+5. A Scientist must not depend on a building/system unavailable at recruitment. A condition marked `researchable` means the named technology can legally be researched; it need not already be completed.
 6. Flat Science/Production values are Standard-speed draft numbers and scale with game speed.
-7. CROSS_CLASS_REVIEW means the person remains in the Scientist longlist now but must be resolved against Engineer/Merchant/Writer/Prophet/etc. after those rosters exist.
+7. CROSS_CLASS_REVIEW keeps ambiguous figures until Engineer/Merchant/Writer/Prophet/etc. rosters exist for final de-duplication.
+8. Civ VI provides the named-person/individual-ability principle, not a mandatory ability template.
 
-## Civ VI reference principle
-
-Civ VI is used for the principle that named Great People have individual historically grounded abilities, not as a template that must be copied. The project is Civ V city/specialist based and may use permanent specialists, city buildings, Health/Plague, trade, resources and other project systems in ways Civ VI does not.
-
-## Counts
+## Current counts after Premodern QA1
 
 | Project era | Candidates |
 |---|---:|
 | Ancient | 7 |
-| Classical | 13 |
+| Classical | 20 |
 | Late Antiquity | 13 |
 | Early Medieval | 17 |
-| High Medieval | 22 |
-| Renaissance | 10 |
+| High Medieval | 19 |
+| Renaissance | 13 |
 | Exploration | 30 |
 | Enlightenment | 19 |
 | Industrial | 46 |
@@ -39,7 +36,15 @@ Civ VI is used for the principle that named Great People have individual histori
 | Atomic | 37 |
 | Information | 28 |
 | Future | 5 |
-| **Total** | **279** |
+| **Total** | **286** |
+
+## Premodern QA1 changes
+
+- Moved Ptolemy, Galen, Diophantus, Liu Hui, Zhang Zhongjing, Wang Fan and Hua Tuo from Late Antiquity to Classical.
+- Added Theon of Alexandria, Marinus of Neapolis, John Philoponus, Anthemius of Tralles, Aëtius of Amida, Alexander of Tralles and Boethius to Late Antiquity.
+- Moved Madhava of Sangamagrama, Ibn al-Shatir and Ibn Khaldun from High Medieval to Renaissance.
+- Rewrote affected abilities so moved candidates do not require buildings that belong to a later era.
+- Preserved boundary cases such as Kamal al-Din al-Farisi and Guo Shoujing for a later exact boundary-policy pass.
 
 ## Files
 
@@ -56,11 +61,13 @@ Civ VI is used for the principle that named Great People have individual histori
 - GREAT_SCIENTIST_ATOMIC_V1.md
 - GREAT_SCIENTIST_INFORMATION_V1.md
 - GREAT_SCIENTIST_FUTURE_V1.md
+- PREMODERN_QA1.md
 
-## Next QA pass
+## Next QA passes
 
-- historical active-period/era check
+- Early Medieval ability-overlap cleanup
+- Exploration/Enlightenment historical-period and building-gate audit
+- Industrial/Modern ability power-band audit
+- Atomic/Information/Future implementation audit
 - cross-class duplicate check after Engineer/Merchant/etc. rosters
-- ability power-band comparison within each project era
-- implementation audit against the locked 109-tech tree and final building roster
 - exact numerical balance after game-speed scaling is defined
