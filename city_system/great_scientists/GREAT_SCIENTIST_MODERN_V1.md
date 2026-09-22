@@ -1,6 +1,6 @@
 # Great Scientist roster — Modern — V1
 
-Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
+Status: CURRENT — POST PHILOSOPHER TRANSFER / KOREAN ADDITIONS
 
 | # | Scientist | Region | Minimum condition | Ability | Effect | Status |
 |---:|---|---|---|---|---|---|
@@ -54,6 +54,7 @@ Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
 | 48 | Margaret Mead | USA | Museum exists | 문화인류학 | Science 180 + Culture 250. 활성 도시 Museum +1 Science. | CROSS_CLASS_REVIEW |
 | 49 | Hideki Yukawa | Japan | Atomic Theory researchable | 중간자 이론 | Atomic Theory Eureka. 2 charges, 각 charge는 Science 80. 두 번째 사용 시 Great Scientist Point 50. | KEEP |
 | 50 | Homi J. Bhabha | India | Rocketry researchable | 우주선과 입자 | Rocketry 연구비 25% 진척. Observatory가 있는 도시에서 연구 프로젝트 Production +10%. | KEEP |
+| 51 | Woo Jang-choon (우장춘) | Korea/Japan | Biology | 종의 합성 | 서로 다른 Farm 또는 Plantation 작물 자원 2종 이상을 사용하는 도시는 +1 Food +1 Science. 활성 도시 Health +1. | KEEP |
 
 ## Ability QA3 notes
 

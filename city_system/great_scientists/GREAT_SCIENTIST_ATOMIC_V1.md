@@ -1,6 +1,6 @@
 # Great Scientist roster — Atomic — V1
 
-Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
+Status: CURRENT — POST PHILOSOPHER TRANSFER / KOREAN ADDITIONS
 
 | # | Scientist | Region | Minimum condition | Ability | Effect | Status |
 |---:|---|---|---|---|---|---|
@@ -68,6 +68,7 @@ Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
 | 62 | John Hopfield | USA | Computers | 연상 신경망 | 서로 다른 전문직 유형이 3종 이상 배치된 도시는 +2 Science. 활성화 시 Great Scientist Point 100. | KEEP |
 | 63 | Katherine Johnson | USA | Space Launch Center exists | 궤도 계산 | 활성 도시 Space Race 프로젝트 +10% Production. 활성화 시 Science 150. | KEEP |
 | 64 | Margaret Hamilton | USA | Space Launch Center exists | 아폴로 비행 소프트웨어 | Space Race 프로젝트를 수행 중인 도시의 Research Lab +2 Science, Engineer 전문직 +1 Production. | CROSS_CLASS_REVIEW |
+| 65 | Benjamin Whisoh Lee (이휘소) | Korea/USA | Particle Physics researchable | 게이지 이론과 입자물리 | Particle Physics Eureka. 다음 Research Agreement에서 얻는 Science +15%. 활성화 시 Great Scientist Point 60. | KEEP |
 
 ## Ability QA4 notes
 

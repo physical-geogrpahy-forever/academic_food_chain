@@ -1,6 +1,6 @@
 # Great Scientist roster — Industrial — V1
 
-Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
+Status: CURRENT — POST PHILOSOPHER TRANSFER / KOREAN ADDITIONS
 
 | # | Scientist | Region | Minimum condition | Ability | Effect | Status |
 |---:|---|---|---|---|---|---|
@@ -51,6 +51,7 @@ Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
 | 45 | Wilhelm Röntgen | Germany | Hospital exists | X선 | 활성 도시 Hospital +2 Science. 그 도시의 모든 부상 유닛 즉시 +20 HP. | KEEP |
 | 46 | Alexander von Humboldt | Prussia/Latin America | Academy exists | 자연의 통일성 | Academy +1 Science +1 Culture. 서로 다른 타일개선 4종을 운영하는 도시 +1 Science. | KEEP |
 | 47 | Sophie Germain | France | Factory + Public School in one city | 탄성과 수론 | 해당 도시 연구 프로젝트 Production +15%. 활성화 시 Science 160. | KEEP |
+| 48 | Kim Jeong-ho (김정호) | Joseon Korea | Printing Press exists | 대동여지도 | 수도와 도로 또는 철도로 연결된 도시 1곳당 Science 15, 최대 180. 육상 국제교역로 이동거리 +2. | KEEP |
 
 ## Ability QA3 notes
 
