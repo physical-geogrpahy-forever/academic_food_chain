@@ -46,8 +46,8 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA2
 | 40 | Alice Ball | USA | Hospital exists | 볼 방법 | 활성 도시 Hospital +1 Science. 그 도시의 질병 회복 페널티 -15%. | KEEP |
 | 41 | Ivan Pavlov | Russia | Hospital exists | 조건반사 | Hospital이 있는 도시의 Scientist 전문직 +1 Science. Stable이 있는 같은 도시는 추가 +1 Food. | KEEP |
 | 42 | Alan Turing | Britain | Electronics researchable | 계산가능성과 암호해독 | Electronics Eureka. 기술 탈취 또는 방첩 임무를 수행하는 Spy의 작전 시간 -15%. 활성화 시 Science 150. | KEEP |
-| 43 | Enrico Fermi | Italy/USA | Atomic Theory researchable | 중성자와 연쇄반응 | Atomic Theory 연구비 50% 진척. Nuclear Fission이 처음 연구 가능해질 때 자동으로 Eureka를 획득. | KEEP |
-| 44 | Lise Meitner | Austria/Sweden | Atomic Theory researchable | 핵분열의 해석 | Atomic Theory Eureka. 활성 도시 Research Lab +1 Great Scientist Point. Nuclear Fission 연구 시작 시 Science 100. | KEEP |
+| 43 | Enrico Fermi | Italy/USA | Atomic Theory researchable | 중성자 실험 | Atomic Theory 연구비 50% 진척. 활성 도시 Research Lab의 Scientist 전문직 +1 Science. | KEEP |
+| 44 | Lise Meitner | Austria/Sweden | Atomic Theory researchable | 핵분열의 해석 | Atomic Theory Eureka. 활성 도시 Research Lab +1 Great Scientist Point. Science 120. | KEEP |
 | 45 | Linus Pauling | USA | Research Lab exists | 화학 결합 | 활성 도시 Research Lab +2 Science. Chemistry가 완료되어 있으면 Great Scientist Point 75. | KEEP |
 | 46 | Lev Landau | Soviet Union | Atomic Theory researchable | 응집물질과 초유체 | Atomic Theory 연구비 30% 진척. 전력 공급 Research Lab 도시 +1 Science. | KEEP |
 | 47 | Janaki Ammal | India | Biology | 세포유전학과 작물 | Plantation 자원 타일 +1 Food. Research Lab이 있는 Plantation 도시 +1 Science. | KEEP |
