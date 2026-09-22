@@ -53,10 +53,12 @@ Full creative ability QA for all 332 scientists.
 Completed:
 - Renaissance: 7/7 reviewed
 - Exploration: 37/37 reviewed
-- Combined completed in current design pass: 44 scientists
+- Enlightenment: 29/29 reviewed
+- Industrial: 47/47 reviewed
+- Combined completed in current design pass: 120 scientists
 
 Next batch:
-- Enlightenment + Industrial (76 scientists)
+- Modern (50 scientists)
 
 ## Current diagnostic result
 
@@ -72,12 +74,11 @@ Design-level issue:
 
 ## Next batch
 
-Process Enlightenment + Industrial together (76 scientists total), using one fetch per era and one update per era.
+Process Modern (50 scientists) in one file pass.
 
 Then:
-1. Modern
-2. Atomic + Information
-3. final cross-era power-band audit
+1. Atomic + Information
+2. final cross-era power-band audit
 
 ## Execution rule
 
