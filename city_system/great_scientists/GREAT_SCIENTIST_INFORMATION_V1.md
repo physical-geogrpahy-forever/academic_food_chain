@@ -22,11 +22,11 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA / DEDUPED
 | 16 | James P. Allison | USA | Medical Lab exists | 면역관문 | Medical Lab +1 Health. 질병 인구손실 위험 -10%. | KEEP |
 | 17 | Tasuku Honjo | Japan | Medical Lab exists | PD-1 | 역병 회복 후 해당 도시 Health +1 영구. Medical Lab +1 Science. | KEEP |
 | 18 | Michel Mayor | Switzerland | Satellites | 외계행성 탐지 | Observatory 도시 Great Scientist Point +1. Space Race 프로젝트 완료 시 Science 120. | KEEP |
-| 19 | Didier Queloz | Switzerland | Satellites | 51 Pegasi b | 활성 도시 Observatory +1 Science. Future의 Offworld Mission을 처음 연구할 때 10% 진척. | KEEP |
+| 19 | Didier Queloz | Switzerland | Satellites | 51 Pegasi b | 활성 도시 Observatory의 Scientist 슬롯 +1. Space Race 프로젝트를 완료할 때 최초 1회 Science 180. | KEEP |
 | 20 | Tim Berners-Lee | Britain | Telecommunications | 월드 와이드 웹 | 국제 교역로 +1 Science. Telecommunications 완료 도시는 Great Scientist Point +1. | CROSS_CLASS_REVIEW |
 | 21 | David Baker | USA | Nanotechnology researchable | 단백질 설계 | Nanotechnology 연구비 25% 진척. Medical Lab과 Research Lab을 모두 가진 도시 +1 Science. | KEEP |
-| 22 | Demis Hassabis | Britain | Advanced AI researchable | 단백질 구조 예측 | Advanced AI Eureka. Medical Lab +1 Science. | CROSS_CLASS_REVIEW |
-| 23 | John Jumper | USA | Advanced AI researchable | AlphaFold | Advanced AI 연구비 40% 진척. Medical Lab이 있는 도시 Scientist 전문직 +1 Great Scientist Point. | KEEP |
+| 22 | Demis Hassabis | Britain | Robotics researchable | 과학적 AI | Robotics 연구비 25% 진척. Medical Lab과 Research Lab을 모두 가진 도시 +1 Science. | CROSS_CLASS_REVIEW |
+| 23 | John Jumper | USA | Nanotechnology researchable | AlphaFold | Nanotechnology 연구비 25% 진척. Medical Lab이 있는 도시의 Scientist 전문직 +1 Great Scientist Point. | KEEP |
 
 ## QA5 notes
 
