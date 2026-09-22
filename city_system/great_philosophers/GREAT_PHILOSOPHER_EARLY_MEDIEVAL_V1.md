@@ -17,6 +17,6 @@ Class rule: Great Philosopher connects intellectual systems rather than simply d
 | 8 | Fazang | Tang China | Theology | 화엄법계 | 도시의 활성 사상 계통이 3개 이상이면 +2 Culture, 4개 이상이면 +1 Faith 추가. | DRAFT |
 | 9 |Han Yu |Tang China |Written Culture |고문운동과 도통 |사회제도를 완료할 때 다음 기술 연구 시작 시 5% 진척, 최대 3회. Scriptorium이 있는 도시는 Culture +1. |DRAFT |
 | 10 |Al-Farabi |Islamicate world |Court Culture |덕의 도시 |행복한 도시에서 서로 다른 Specialist 유형 2종 이상이 배치되면 +1 Science, +1 Culture. Court가 있으면 Great Philosopher Point +1. |DRAFT |
-| 11 |Saadia Gaon |Jewish Babylon |Theology |신앙과 이성 |기술을 완료하면 다음 사회제도에 Culture 45, 사회제도를 완료하면 다음 기술에 Science 45. 각각 최대 2회. |DRAFT |
+| 11 |Saadia Gaon |Jewish Babylon |Theology |신앙과 이성 |다음 Inspiration 2개가 각각 Science 60을 추가로 제공. Temple과 Library를 모두 가진 도시에서 Great Philosopher Point +1. |DRAFT |
 
 Candidates: **11**.
