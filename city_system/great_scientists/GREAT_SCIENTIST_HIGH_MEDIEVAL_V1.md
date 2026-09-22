@@ -1,6 +1,6 @@
 # Great Scientist roster — High Medieval — V1
 
-Status: DRAFT ABILITY-READY LONGLIST — PREMODERN QA1
+Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA1
 
 | # | Scientist | Region | Minimum condition | Ability | Effect | Status |
 |---:|---|---|---|---|---|---|
@@ -18,13 +18,13 @@ Status: DRAFT ABILITY-READY LONGLIST — PREMODERN QA1
 | 12 | Bhaskara II | India | Education | 릴라바티 | University가 있는 도시마다 Science 25, 최대 250. | KEEP |
 | 13 | Robert Grosseteste | England | University exists | 빛과 실험 | 활성 도시 University +1 Science +1 Culture. 그 도시 Scientist 전문직 +1 GPP. | KEEP |
 | 14 | Roger Bacon | England | University exists | 경험적 지식 | 현재 연구 기술의 Eureka 조건을 절반 이상 충족했다면 즉시 Eureka. 아니면 Science 120. | KEEP |
-| 15 | Kamal al-Din al-Farisi | Persia | Optics | 빛의 굴절 | University와 Lighthouse를 모두 가진 도시의 두 건물에 각각 +1 Science. | KEEP |
-| 16 | Guo Shoujing | China | Compass | 수시력 | Compass 완료 시 Science 150. Water Mill +1 Science. | KEEP |
-| 17 | Qutb al-Din al-Shirazi | Persia | University exists | 천문과 광학 | University와 Lighthouse를 모두 가진 도시 Great Scientist Point +1. | KEEP |
-| 18 | Al-Jazari | Mesopotamia | Machinery | 자동기계 | Workshop이 있는 도시의 Water Mill +1 Production +1 Science. | CROSS_CLASS_REVIEW |
-| 19 | Hildegard of Bingen | German lands | Temple exists | 자연학과 의학 | Temple이 있는 도시 Health +1. 같은 도시 Scientist 전문직 Great Scientist Point +1. | CROSS_CLASS_REVIEW |
+| 15 | Guo Shoujing | China | Compass | 수시력 | Compass 완료 시 Science 150. Water Mill +1 Science. | KEEP |
+| 16 | Qutb al-Din al-Shirazi | Persia | University exists | 천문과 광학 | University와 Lighthouse를 모두 가진 도시 Great Scientist Point +1. | KEEP |
+| 17 | Al-Jazari | Mesopotamia | Machinery | 자동기계 | Workshop이 있는 도시의 Water Mill +1 Production +1 Science. | CROSS_CLASS_REVIEW |
+| 18 | Hildegard of Bingen | German lands | Temple exists | 자연학과 의학 | Temple이 있는 도시 Health +1. 같은 도시 Scientist 전문직 Great Scientist Point +1. | CROSS_CLASS_REVIEW |
 
 ## QA1 notes
 
 - Madhava of Sangamagrama, Ibn al-Shatir and Ibn Khaldun moved to Renaissance because their main activity is 14th century.
 - Kamal al-Din al-Farisi and Guo Shoujing remain here as late-13th/early-14th boundary cases pending final era-boundary policy.
+
