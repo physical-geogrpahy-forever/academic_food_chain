@@ -1,24 +1,24 @@
 # Great Philosopher Work State
 
 Date: 2026-09-22
-Status: FIRST-PASS ROSTER AND ABILITY QA COMPLETE
+Status: FIRST-PASS HISTORICAL EFFECT QA COMPLETE
 
 ## System
 
-- Class name: Great Philosopher / 위대한 철학가
+- Class: Great Philosopher / 위대한 철학가
 - No dedicated Philosopher specialist.
-- City Great Philosopher Points come from institutional diversity.
+- GPhP comes from institutional diversity.
 - Five thought chains: knowledge, religion/nature, culture/media, government/diplomacy, commerce/trade.
 - City GPhP per turn = max(0, active thought chains - 1).
 - Same-chain buildings do not stack for GPhP.
-- Recruitment uses globally unique named candidates and retained overflow.
+- Recruitment uses globally unique named candidates with retained overflow.
 
-## Current roster
+## Roster
 
-- Broad candidate pool: 228
+- broad candidate pool: 228
+- active Philosopher roster: 227
 - Great Writer priority: Rabindranath Tagore
-- Current ability roster: 227
-- Laozi: historicity/textual-era review retained
+- Laozi: HISTORICITY_REVIEW
 - Future historical-person roster: 0
 
 ## Era counts
@@ -36,25 +36,36 @@ Status: FIRST-PASS ROSTER AND ABILITY QA COMPLETE
 - Atomic: 33
 - Information: 15
 
-## QA
+## QA completed
 
-- roster rows: 227
+Initial individual ability draft:
+- 227 / 227
+
+Second-pass historical/gameplay effect QA:
+- rewritten in second pass: 131
 - duplicate names: 0
 - exact duplicate effects: 0
 - normalized near-duplicate effects: 0
 - later-era technology/civic/building references: 0
-- Future-tech references: 0
+- Future references: 0
+
+The second pass specifically reduced repeated patterns such as:
+- Temple + University -> +1 Faith/+1 Science
+- Public School + culture building -> +1 Science/+1 Culture
+- Government building -> flat +Culture
+- flat Science/Culture bursts without a historical mechanic
 
 ## Completed audits
 
 - SCIENTIST_TO_PHILOSOPHER_TRANSFER_AUDIT_V1.md
 - ACTIVITY_PERIOD_AUDIT_MASTER_V1.md
 - CLASS_BOUNDARY_AUDIT_V1.md
+- GREAT_PHILOSOPHER_CURRENT_SUMMARY.md
 
 ## Remaining work
 
-1. individual historical-effect refinement;
-2. numerical balance and game-speed scaling;
-3. Laozi historicity decision;
-4. cross-class review after Writer/Prophet/Merchant rosters are finalized;
-5. implementation of GPhP generation in city logic.
+1. numerical power-band balance and game-speed scaling;
+2. decide Laozi historicity policy;
+3. cross-class review after Writer/Prophet/Merchant rosters are locked;
+4. implement GPhP generation in city logic;
+5. later playtest whether institutional-diversity GPhP generation is too fast in large late-game empires.
