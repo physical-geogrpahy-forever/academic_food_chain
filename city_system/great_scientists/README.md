@@ -33,9 +33,9 @@ Candidate count is deliberately not capped at 100. Era/region counts are not quo
 | Enlightenment | 29 |
 | Industrial | 48 |
 | Modern | 40 |
-| Atomic | 47 |
-| Information | 44 |
-| Future | 5 |
+| Atomic | 49 |
+| Information | 47 |
+| Future | 0 |
 | **Total** | **332** |
 
 ## Premodern QA1 changes
@@ -70,6 +70,33 @@ Candidate count is deliberately not capped at 100. Era/region counts are not quo
 - Industrial/Modern ability-overlap and candidate QA3: APPLIED
 - Atomic QA4: APPLIED
 - Information QA5: APPLIED
-- Future implementation audit
+- Future historical-person roster removed; 5 candidates reassigned by activity period
 - cross-class duplicate check after Engineer/Merchant/etc. rosters
 - exact numerical balance after game-speed scaling is defined
+
+
+## Activity-period full audit status
+
+Completed audit files:
+- ACTIVITY_PERIOD_AUDIT_01_PREMODERN.md
+- ACTIVITY_PERIOD_AUDIT_02_EARLY_MODERN.md
+- ACTIVITY_PERIOD_AUDIT_03_INDUSTRIAL_MODERN.md
+- ACTIVITY_PERIOD_AUDIT_04_LATE_MODERN.md
+
+The actual roster files are now only **partially reconciled** to these audits. Future has been fully reconciled. The remaining era-to-era moves should follow the activity-period audit rather than technology-gate convenience.
+
+Target counts after full reconciliation:
+- Ancient 5
+- Classical 22
+- Late Antiquity 13
+- Early Medieval 17
+- High Medieval 18
+- Renaissance 7
+- Exploration 37
+- Enlightenment 29
+- Industrial 47
+- Modern 50
+- Atomic 64
+- Information 23
+- Future 0
+- Total 332
