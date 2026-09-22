@@ -77,15 +77,10 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA / DEDUPED
 - Tu Youyou now uses the generic plague-recovery system rather than assuming a named regional disease model.
 - Added major computing, nuclear, particle and space-calculation omissions: von Neumann, Hopper, Wiener, Yukawa, Goeppert Mayer, Bardeen, Bhabha, Gamow.
 
-| 46 | Geoffrey Hinton | Britain/Canada | Computers | 신경망 | Computers가 완료된 도시의 Scientist 전문직 +1 Science. 활성화 시 Great Scientist Point 80. | KEEP |
-| 47 | John Hopfield | USA | Computers | 연상 신경망 | Scientist 전문직이 2명 이상인 도시는 +2 Science. 활성 도시 Research Lab +1 Great Scientist Point. | KEEP |
-| 48 | Katherine Johnson | USA | Guidance Systems researchable | 궤도 계산 | Guidance Systems Eureka. Space Race 프로젝트가 진행 중인 도시 +10% Production. | KEEP |
-| 49 | Margaret Hamilton | USA | Guidance Systems researchable | 아폴로 비행 소프트웨어 | Guidance Systems 연구비 35% 진척. 우주 프로젝트 생산 손실 또는 실패 페널티가 있다면 1회 무시. | CROSS_CLASS_REVIEW |
 
 ## Future-era correction
 
 - Geoffrey Hinton and John Hopfield moved here from the invalid Future roster because their defining neural-network work dates to 1983–1985 and 1982 respectively.
 - Katherine Johnson and Margaret Hamilton were restored after an interrupted Atomic QA4 write; both have defining NASA work in the 1960s.
-
 
 
