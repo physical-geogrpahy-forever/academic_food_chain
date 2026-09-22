@@ -1,6 +1,6 @@
 # Great Scientist roster — Classical — V1
 
-Status: DRAFT ABILITY-READY LONGLIST — PREMODERN QA1
+Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA1
 
 | # | Scientist | Region | Minimum condition | Ability | Effect | Status |
 |---:|---|---|---|---|---|---|
@@ -24,8 +24,11 @@ Status: DRAFT ABILITY-READY LONGLIST — PREMODERN QA1
 | 18 | Zhang Zhongjing | China | Writing | 상한잡병론 | 역병 심각도 -15%. 각 도시가 역병을 처음 극복할 때 Science 30. | KEEP |
 | 19 | Wang Fan | China | Celestial Navigation | 천문 상수 | Lighthouse가 있는 도시 Great Scientist Point +1. 활성화 시 Science 110. | KEEP |
 | 20 | Hua Tuo | China | Writing | 마비산과 외과 | 패시브: 인접 아군 지상 유닛 회복 +5 HP/턴. 소모 시 인접 부상 유닛 +25 HP. | KEEP |
+| 21 | Alcmaeon of Croton | Greek world | Writing | 관찰 의학 | 활성 도시 Health +1. 해당 도시에서 역병 회복 페널티 -15%. | KEEP |
+| 22 | Charaka | India | Writing | 임상 기록 | 모든 도시의 역병 회복 페널티 -5%. 역병을 처음 극복한 각 도시는 Science 25 1회 획득. | KEEP |
 
 ## QA1 notes
 
 - Ptolemy, Galen, Diophantus, Liu Hui, Zhang Zhongjing, Wang Fan, Hua Tuo moved here from Late Antiquity because their activity belongs primarily to the 2nd–3rd century CE Classical horizon used by this project.
 - Technology conditions with the word `researchable` mean the candidate may enter the pool when that technology can legally be researched; it need not already be completed.
+
