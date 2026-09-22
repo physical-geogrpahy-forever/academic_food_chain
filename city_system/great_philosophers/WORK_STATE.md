@@ -62,9 +62,15 @@ The second pass specifically reduced repeated patterns such as:
 - CLASS_BOUNDARY_AUDIT_V1.md
 - GREAT_PHILOSOPHER_CURRENT_SUMMARY.md
 
+## Numerical balance screen
+
+- POWER_BAND_AUDIT_V1.md completed.
+- no obvious within-era outlier requires immediate retuning;
+- final numerical tuning deferred until game-speed costs and GP recruitment thresholds are locked.
+
 ## Remaining work
 
-1. numerical power-band balance and game-speed scaling;
+1. final numerical power-band balance and game-speed scaling after global thresholds are defined;
 2. decide Laozi historicity policy;
 3. cross-class review after Writer/Prophet/Merchant rosters are locked;
 4. implement GPhP generation in city logic;
