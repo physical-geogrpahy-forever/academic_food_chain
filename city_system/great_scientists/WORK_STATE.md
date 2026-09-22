@@ -1,7 +1,7 @@
 # Great Scientist Work State
 
 Date: 2026-09-22
-Status: ACTIVE CHECKPOINT
+Status: FIRST-PASS SCIENTIST CONTENT QA COMPLETE
 
 ## Purpose
 
@@ -48,47 +48,30 @@ Specific recent fixes include:
 
 ## Current open task
 
-Full creative ability QA for all 332 scientists.
+First-pass historical placement and individual effect QA is complete for all 332 Great Scientists.
 
-Completed:
-- Ancient: 5/5 reviewed
-- Classical: 22/22 reviewed
-- Late Antiquity: 13/13 reviewed
-- Early Medieval: 17/17 reviewed
-- High Medieval: 18/18 reviewed
-- Renaissance: 7/7 reviewed
-- Exploration: 37/37 reviewed
-- Enlightenment: 29/29 reviewed
-- Industrial: 47/47 reviewed
-- Modern: 50/50 reviewed
-- Atomic: 64/64 reviewed
-- Information: 23/23 reviewed
-- Combined completed in current design pass: 332 scientists
-
-Next batch:
-- Final full-roster validation + cross-era power-band audit
+Next content task:
+- numerical balance / game-speed scaling, or
+- begin another Great Person class and return later for cross-class review.
 
 ## Current diagnostic result
 
-Formal QA:
-- 332 roster rows
-- late-era tech/building references: 0
-- exact duplicate effect strings: 0
-- normalized duplicate effect groups: 0 after Fermat rewrite
-
-Design-level issue:
-- 66 effects are still dominated by simple building Science/GPP modifications.
-- This is not a formal error but is the main remaining design-diversity problem.
+Final validation:
+- roster rows: 332
+- duplicate names: 0
+- exact duplicate effects: 0
+- normalized near-duplicate groups: 0
+- later-era technology/building references: 0
+- Future-tech references in historical Scientist abilities: 0
 
 ## Next batch
 
-Run one final 332-person validation across all era files:
-1. exact roster count and unique names
-2. no historical Future roster
-3. no later-era technology/building references
-4. no exact or near-exact duplicate abilities
-5. cross-era power-band outliers
-6. remaining simple building-yield overuse
+No mandatory Scientist content pass remains.
+
+Recommended next steps:
+1. define game-speed scaling and numerical power bands;
+2. build the next Great Person class;
+3. run cross-class review after multiple classes exist.
 
 ## Execution rule
 
