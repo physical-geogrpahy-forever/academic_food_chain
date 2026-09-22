@@ -30,17 +30,17 @@ This is a **first-pass placement**. Boundary cases must receive a later person-b
 
 | Era | Candidates |
 |---|---:|
-| Ancient | 6 |
-| Classical | 22 |
+| Ancient | 5 |
+| Classical | 23 |
 | Late Antiquity | 12 |
 | Early Medieval | 11 |
 | High Medieval | 17 |
 | Renaissance | 14 |
 | Exploration | 29 |
 | Enlightenment | 25 |
-| Industrial | 21 |
-| Modern | 21 |
-| Atomic | 35 |
+| Industrial | 19 |
+| Modern | 25 |
+| Atomic | 33 |
 | Information | 15 |
 | **Total** | **228** |
 
@@ -57,7 +57,7 @@ Explicit boundary/review flags in this first pass: **11**
 | 3 | Pythagoras | Ancient | Greek world | Pythagorean philosophy, number, ethics | TRANSFERRED_FROM_SCIENTIST |
 | 4 | Confucius | Ancient | China | ethics, political philosophy, education | STRONG_CANDIDATE |
 | 5 | Heraclitus | Ancient | Ephesus | metaphysics, change, logos | STRONG_CANDIDATE |
-| 6 | Laozi | Ancient | China | Daoist metaphysics and political thought | REVIEW_HISTORICITY |
+| 6 | Laozi | Classical | China | Daoist metaphysics and political thought | REVIEW_HISTORICITY_TEXTUAL_ERA |
 | 7 | Socrates | Classical | Athens | ethics and philosophical method | STRONG_CANDIDATE |
 | 8 | Plato | Classical | Athens | metaphysics, epistemology, political philosophy | STRONG_CANDIDATE |
 | 9 | Aristotle | Classical | Greece | logic, metaphysics, ethics, politics, natural philosophy | TRANSFERRED_FROM_SCIENTIST |
@@ -202,9 +202,9 @@ Explicit boundary/review flags in this first pass: **11**
 | 148 | Friedrich Nietzsche | Industrial | German lands | ethics, genealogy, culture | STRONG_CANDIDATE |
 | 149 | Herbert Spencer | Industrial | Britain | social philosophy and ethics | STRONG_CANDIDATE |
 | 150 | Charles Sanders Peirce | Industrial | USA | pragmatism, logic, epistemology | STRONG_CANDIDATE |
-| 151 | William James | Industrial | USA | pragmatism, philosophy of mind and religion | STRONG_CANDIDATE |
+| 151 | William James | Modern | USA | pragmatism, philosophy of mind and religion | STRONG_CANDIDATE |
 | 152 | Gottlob Frege | Industrial | German lands | logic, philosophy of language, mathematics | STRONG_CANDIDATE |
-| 153 | Henri Bergson | Industrial | France | metaphysics, time, philosophy of mind | STRONG_CANDIDATE |
+| 153 | Henri Bergson | Modern | France | metaphysics, time, philosophy of mind | STRONG_CANDIDATE |
 | 154 | Jeong Yak-yong (정약용) | Industrial | Joseon Korea | ethics, political philosophy, institutional reform | STRONG_CANDIDATE |
 | 155 | Choe Han-gi (최한기) | Industrial | Joseon Korea | epistemology, natural philosophy, social thought | STRONG_CANDIDATE |
 | 156 | Nishi Amane | Industrial | Japan | modern Japanese philosophy, epistemology, ethics | STRONG_CANDIDATE |
@@ -231,8 +231,8 @@ Explicit boundary/review flags in this first pass: **11**
 | 177 | W. E. B. Du Bois | Modern | USA | social philosophy, race, democracy | STRONG_CANDIDATE |
 | 178 | B. R. Ambedkar | Modern | India | political philosophy, law, social equality | MODERN_ATOMIC_BOUNDARY |
 | 179 | Hannah Arendt | Atomic | Germany/USA | political philosophy, totalitarianism, action | STRONG_CANDIDATE |
-| 180 | Karl Popper | Atomic | Austria/Britain | philosophy of science and political philosophy | STRONG_CANDIDATE |
-| 181 | Jean-Paul Sartre | Atomic | France | existentialism, ethics, political philosophy | STRONG_CANDIDATE |
+| 180 | Karl Popper | Modern | Austria/Britain | philosophy of science and political philosophy | STRONG_CANDIDATE |
+| 181 | Jean-Paul Sartre | Modern | France | existentialism, ethics, political philosophy | STRONG_CANDIDATE |
 | 182 | Simone de Beauvoir | Atomic | France | existential ethics, gender, political philosophy | STRONG_CANDIDATE |
 | 183 | Maurice Merleau-Ponty | Atomic | France | phenomenology, perception | STRONG_CANDIDATE |
 | 184 | W. V. O. Quine | Atomic | USA | logic, epistemology, philosophy of language | STRONG_CANDIDATE |
@@ -340,3 +340,28 @@ The first pass was checked against broad reference works including:
 - Stanford Encyclopedia of Philosophy, Korean Buddhism
 
 The next pass must verify principal activity period and representative philosophical work for every candidate before effects are drafted.
+
+
+## Activity-period audit V1 result
+
+A full first-pass activity-period audit of all 228 candidates was completed on 2026-09-22.
+
+Era assignment follows principal philosophical/intellectual activity rather than birth year, death year, or a single late publication.
+
+Relocations from the broad-pool first pass:
+- Laozi: Ancient -> Classical (textual-era placement only; historical-person status remains under review)
+- William James: Industrial -> Modern
+- Henri Bergson: Industrial -> Modern
+- Karl Popper: Atomic -> Modern
+- Jean-Paul Sartre: Atomic -> Modern
+
+Boundary cases retained after review:
+- B. R. Ambedkar: Modern
+- Maurice Merleau-Ponty: Atomic
+- John Rawls: Atomic
+- Jürgen Habermas: Atomic
+- Charles Taylor: Information
+- Bruno Latour: Information
+- Judith Butler: Information
+
+See `ACTIVITY_PERIOD_AUDIT_MASTER_V1.md` for rationale.
