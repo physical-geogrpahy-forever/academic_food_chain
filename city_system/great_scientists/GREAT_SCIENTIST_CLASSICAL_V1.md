@@ -1,26 +1,31 @@
 # Great Scientist roster — Classical — V1
 
-Status: DRAFT ABILITY-READY LONGLIST
-
-Rules:
-- 후보 수를 시대별로 인위적으로 맞추지 않는다.
-- 최소 조건은 위인이 후보 풀에 들어오기 전에 충족되어야 한다.
-- 능력은 원칙적으로 등장 시점에 이미 존재하는 기술, 건물, 전문직, 자원, Health/Plague, 교역, 프로젝트 시스템만 사용한다.
-- 고정 Science/Production 수치는 Standard speed 기준 초안이며 게임 속도에 따라 스케일한다.
-- CROSS_CLASS_REVIEW는 Engineer/Merchant/Writer/Prophet 등 다른 위인 직군과 최종 중복 검토가 필요한 인물이다.
+Status: DRAFT ABILITY-READY LONGLIST — PREMODERN QA1
 
 | # | Scientist | Region | Minimum condition | Ability | Effect | Status |
 |---:|---|---|---|---|---|---|
-| 1 | Hippocrates | Greece | Writing | 히포크라테스 선서 | 모든 도시 Health +1. 역병 인구손실 판정 시 사망 위험 -10%. | KEEP |
-| 2 | Democritus | Greece | Mathematics | 원자론 | 활성화 시 현재 연구 가능한 Classical 또는 Late Antiquity 기술 중 무작위 1개에 연구 진척 40%. | KEEP |
-| 3 | Eudoxus of Cnidus | Greece | Mathematics | 기하학적 천문학 | Celestial Navigation과 Mathematics 중 미완료 기술마다 Eureka. 둘 다 완료했으면 Science 120. | KEEP |
-| 4 | Aristotle | Greece | Library | 리케이온 | 모든 Scientist 전문직이 +1 Culture를 추가 생산. 활성 도시의 Library에 Scientist 슬롯 +1. | KEEP |
-| 5 | Theophrastus | Greece | Irrigation | 식물 연구 | Plantation 개선이 +1 Science. 활성 도시가 서로 다른 Plantation 자원 2종 이상을 사용하면 즉시 Science 75. | KEEP |
-| 6 | Euclid | Alexandria | Mathematics | 원론 | Mathematics Eureka. 이미 완료했다면 Late Antiquity 기술 중 무작위 1개 Eureka. | KEEP |
-| 7 | Aristarchus of Samos | Greece | Celestial Navigation | 태양 중심의 가설 | 현재 연구 중인 기술에 남은 비용의 25%만큼 Science. 다음에 연구를 시작하는 기술은 시작 즉시 10% 진척. | KEEP |
-| 8 | Archimedes | Syracuse | Engineering | 기계학 | Engineering Eureka. Catapult와 Siege Tower 생산 +15%. | CROSS_CLASS_REVIEW |
-| 9 | Eratosthenes | Alexandria | Harbor | 지리학 | Harbor가 있는 도시에서 출발하는 국제 해상 교역로 +1 Science. | KEEP |
-| 10 | Hipparchus | Greek world | Optics | 별의 목록 | Lighthouse가 +1 Science. Lighthouse가 있는 도시의 Scientist 전문직은 Great Scientist Point +1. | KEEP |
+| 1 | Hippocrates | Greece | Writing | 히포크라테스 선서 | 모든 도시 Health +1. 역병 인구손실 판정의 사망 위험 -10%. | KEEP |
+| 2 | Democritus | Greece | Mathematics researchable | 원자론 | 현재 연구 가능한 Classical 또는 Late Antiquity 기술 중 무작위 1개에 연구비 40% 진척. | KEEP |
+| 3 | Eudoxus of Cnidus | Greece | Mathematics researchable | 기하학적 천문학 | Celestial Navigation과 Mathematics 중 미완료 기술마다 Eureka. 둘 다 완료했으면 Science 120. | KEEP |
+| 4 | Aristotle | Greece | Library exists | 리케이온 | 모든 Scientist 전문직이 +1 Culture. 활성 도시 Library에 Scientist 슬롯 +1. | KEEP |
+| 5 | Theophrastus | Greece | Irrigation | 식물 연구 | Plantation +1 Science. 활성 도시가 서로 다른 Plantation 자원 2종 이상을 사용하면 Science 75. | KEEP |
+| 6 | Euclid | Alexandria | Mathematics researchable | 원론 | Mathematics Eureka. 이미 완료했다면 Late Antiquity 기술 중 무작위 1개 Eureka. | KEEP |
+| 7 | Aristarchus of Samos | Greece | Celestial Navigation researchable | 태양 중심의 가설 | 현재 연구 기술에 남은 비용의 25%만큼 Science. 다음 연구 기술은 시작 즉시 10% 진척. | KEEP |
+| 8 | Archimedes | Syracuse | Engineering researchable | 기계학 | Engineering Eureka. Catapult와 Siege Tower 생산 +15%. | CROSS_CLASS_REVIEW |
+| 9 | Eratosthenes | Alexandria | Harbor exists | 지리학 | Harbor가 있는 도시에서 출발하는 국제 해상 교역로 +1 Science. | KEEP |
+| 10 | Hipparchus | Greek world | Lighthouse exists | 별의 목록 | Lighthouse +1 Science. Lighthouse가 있는 도시 Scientist 전문직의 Great Scientist Point +1. | KEEP |
 | 11 | Herophilus | Alexandria | Writing | 해부학 | 활성 도시의 부상 유닛 회복 +10 HP/턴. 그 도시 Health +1. | KEEP |
-| 12 | Erasistratus | Alexandria | Aqueduct | 생리 기능 | Aqueduct가 있는 도시에서 Scientist 전문직 +1 Science. 활성 도시 Aqueduct는 +1 Health. | KEEP |
-| 13 | Zhang Heng | China | Engineering | 혼천의와 지동의 | Celestial Navigation, Mathematics, Engineering 중 미완료 기술 최대 2개에 Eureka. 모두 완료했으면 Science 150. | KEEP |
+| 12 | Erasistratus | Alexandria | Aqueduct exists | 생리 기능 | Aqueduct 도시의 Scientist 전문직 +1 Science. 활성 도시 Aqueduct +1 Health. | KEEP |
+| 13 | Zhang Heng | China | Engineering researchable | 혼천의와 지동의 | Celestial Navigation, Mathematics, Engineering 중 미완료 기술 최대 2개 Eureka. 모두 완료했으면 Science 150. | KEEP |
+| 14 | Ptolemy | Roman Egypt | Optics researchable | 알마게스트 | Optics Eureka. Library와 Lighthouse를 모두 가진 도시 +2 Science. | KEEP |
+| 15 | Galen | Roman Empire | Writing | 갈레노스 의학 | Health가 양수인 도시에서 주둔 및 회복 중인 지상 유닛 회복 +5 HP/턴. | KEEP |
+| 16 | Diophantus | Alexandria | Mathematics | 산술학 | 현재 연구 기술에 연구비 25% 진척. Mathematics가 완료되어 있으면 Great Scientist Point 60 추가. | KEEP |
+| 17 | Liu Hui | China | Mathematics | 구장산술 주석 | Library와 Water Mill을 모두 가진 도시 +1 Science. 활성 도시 Scientist 전문직 +1 Science. | KEEP |
+| 18 | Zhang Zhongjing | China | Writing | 상한잡병론 | 역병 심각도 -15%. 각 도시가 역병을 처음 극복할 때 Science 30. | KEEP |
+| 19 | Wang Fan | China | Celestial Navigation | 천문 상수 | Lighthouse가 있는 도시 Great Scientist Point +1. 활성화 시 Science 110. | KEEP |
+| 20 | Hua Tuo | China | Writing | 마비산과 외과 | 패시브: 인접 아군 지상 유닛 회복 +5 HP/턴. 소모 시 인접 부상 유닛 +25 HP. | KEEP |
+
+## QA1 notes
+
+- Ptolemy, Galen, Diophantus, Liu Hui, Zhang Zhongjing, Wang Fan, Hua Tuo moved here from Late Antiquity because their activity belongs primarily to the 2nd–3rd century CE Classical horizon used by this project.
+- Technology conditions with the word `researchable` mean the candidate may enter the pool when that technology can legally be researched; it need not already be completed.
