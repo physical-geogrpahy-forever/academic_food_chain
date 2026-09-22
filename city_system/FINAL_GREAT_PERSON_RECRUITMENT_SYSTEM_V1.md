@@ -37,6 +37,18 @@ Recruitment:
 
 This preserves Civ V specialist city management while using Civ VI-style named-person competition.
 
+## 1A. Great Philosopher
+
+Great Philosopher uses institution-diversity GPP rather than a dedicated specialist.
+
+- no Philosopher specialist is created;
+- qualifying science, religion, culture, government and commerce institution chains activate city thought-chain flags;
+- a city generates Great Philosopher Points according to distinct active chains: `max(0, N - 1)`;
+- same-chain buildings do not stack;
+- recruitment uses the same globally unique named-candidate competition and overflow retention as other GPP classes;
+- Great Philosopher cannot found a religion and does not replace Great Prophet;
+- detailed rules: `city_system/great_philosophers/GREAT_PHILOSOPHER_SYSTEM_V1.md`.
+
 ## 2. Great Prophet
 
 Great Prophet does **not** use Prophet GPP.
@@ -97,6 +109,7 @@ No Admiral specialist is required.
 | Great Person class | Generation / purchase source | Recruitment competition |
 |---|---|---|
 | Great Scientist | Scientist specialist/building GPP | Global named candidate |
+| Great Philosopher | Multi-chain institution-diversity GPP; no dedicated specialist | Global named candidate |
 | Great Engineer | Engineer specialist/building GPP | Global named candidate |
 | Great Merchant | Merchant specialist/building GPP | Global named candidate |
 | Great Writer | Writer specialist/building GPP | Global named candidate |
@@ -152,10 +165,11 @@ Great Prophet is different:
 
 ## 9. Design consequence
 
-The project now has three generation models but one recruitment identity model:
+The project now has four generation models but one recruitment identity model:
 
 1. specialist/building GPP
-2. combat GPP
+2. institution-diversity GPP (Great Philosopher)
+3. combat GPP
 3. direct Faith purchase
 
 All three resolve to:
