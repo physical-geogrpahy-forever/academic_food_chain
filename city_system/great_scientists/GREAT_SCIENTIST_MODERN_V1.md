@@ -1,13 +1,6 @@
 # Great Scientist roster — Modern — V1
 
-Status: DRAFT ABILITY-READY LONGLIST — ABILITY QA3 / CANDIDATE EXPANSION
-
-Rules:
-- 후보 수를 시대별로 인위적으로 맞추지 않는다.
-- 최소 조건은 위인이 후보 풀에 들어오기 전에 충족되어야 한다.
-- 능력은 원칙적으로 등장 시점에 이미 존재하는 기술, 건물, 전문직, 자원, Health/Plague, 교역, 프로젝트 시스템만 사용한다.
-- 고정 Science/Production 수치는 Standard speed 기준 초안이며 게임 속도에 따라 스케일한다.
-- CROSS_CLASS_REVIEW는 Engineer/Merchant/Writer/Prophet 등 다른 위인 직군과 최종 중복 검토가 필요한 인물이다.
+Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA2
 
 | # | Scientist | Region | Minimum condition | Ability | Effect | Status |
 |---:|---|---|---|---|---|---|
@@ -43,7 +36,6 @@ Rules:
 | 30 | Theodosius Dobzhansky | Ukraine/USA | Biology | 유전과 진화 | Research Lab이 있는 도시에서 Farm 또는 Plantation 자원 1종 이상 보유 시 +2 Science. | KEEP |
 | 31 | Oswald Avery | Canada/USA | Biology | 유전물질 | Research Lab +1 Science. Hospital과 Research Lab을 모두 가진 도시 +1 Health. | KEEP |
 | 32 | Alexander Oparin | Russia | Biology | 생명의 기원 | Biology 완료 후 Science 220. Research Lab +1 Science. | KEEP |
-
 | 33 | Henri Becquerel | France | Atomic Theory researchable | 자연 방사능 | Atomic Theory Eureka. 활성 도시 Research Lab +1 Science. | KEEP |
 | 34 | Arthur Eddington | Britain | Observatory exists | 항성 내부 | Observatory +1 Production. Rocketry 연구 중이면 연구비 20% 진척. | KEEP |
 | 35 | Georges Lemaître | Belgium | Rocketry researchable | 팽창 우주 | Space Race 프로젝트 +15% Production. 활성화 시 Science 180. | KEEP |
@@ -52,8 +44,19 @@ Rules:
 | 38 | Karl Landsteiner | Austria/USA | Hospital exists | 혈액형 | Hospital 도시의 유닛 회복 +5 HP/턴. 역병 인구손실 위험 -5%. | KEEP |
 | 39 | Nettie Stevens | USA | Biology | 성염색체 | Biology 완료 시 Great Scientist Point 100. 활성 도시 Research Lab +1 Science. | KEEP |
 | 40 | Alice Ball | USA | Hospital exists | 볼 방법 | 활성 도시 Hospital +1 Science. 그 도시의 질병 회복 페널티 -15%. | KEEP |
+| 41 | Ivan Pavlov | Russia | Hospital exists | 조건반사 | Hospital이 있는 도시의 Scientist 전문직 +1 Science. Stable이 있는 같은 도시는 추가 +1 Food. | KEEP |
+| 42 | Alan Turing | Britain | Electronics researchable | 계산가능성과 암호해독 | Electronics Eureka. 기술 탈취 또는 방첩 임무를 수행하는 Spy의 작전 시간 -15%. 활성화 시 Science 150. | KEEP |
+| 43 | Enrico Fermi | Italy/USA | Atomic Theory researchable | 중성자와 연쇄반응 | Atomic Theory 연구비 50% 진척. Nuclear Fission이 처음 연구 가능해질 때 자동으로 Eureka를 획득. | KEEP |
+| 44 | Lise Meitner | Austria/Sweden | Atomic Theory researchable | 핵분열의 해석 | Atomic Theory Eureka. 활성 도시 Research Lab +1 Great Scientist Point. Nuclear Fission 연구 시작 시 Science 100. | KEEP |
+| 45 | Linus Pauling | USA | Research Lab exists | 화학 결합 | 활성 도시 Research Lab +2 Science. Chemistry가 완료되어 있으면 Great Scientist Point 75. | KEEP |
+| 46 | Lev Landau | Soviet Union | Atomic Theory researchable | 응집물질과 초유체 | Atomic Theory 연구비 30% 진척. 전력 공급 Research Lab 도시 +1 Science. | KEEP |
+| 47 | Janaki Ammal | India | Biology | 세포유전학과 작물 | Plantation 자원 타일 +1 Food. Research Lab이 있는 Plantation 도시 +1 Science. | KEEP |
+| 48 | Margaret Mead | USA | Museum exists | 문화인류학 | Science 180 + Culture 250. 활성 도시 Museum +1 Science. | CROSS_CLASS_REVIEW |
+| 49 | Hideki Yukawa | Japan | Atomic Theory researchable | 중간자 이론 | Atomic Theory Eureka. 활성 도시 Research Lab의 Great Scientist Point +1. | KEEP |
+| 50 | Homi J. Bhabha | India | Observatory + Research Lab in one city | 우주선과 입자 | 해당 도시 +2 Science. Atomic Theory 연구 중이면 추가 Science 120. | KEEP |
 
 ## Ability QA3 notes
 
 - Theoretical-physics candidates now use different mechanisms: Research Agreement, multiple charges, laboratory-count burst, specialist thresholds, next-tech startup progress and Space Race coupling.
 - Added eight major omitted Modern candidates: Becquerel, Eddington, Lemaître, Payne-Gaposchkin, Morgan, Landsteiner, Stevens and Ball.
+
