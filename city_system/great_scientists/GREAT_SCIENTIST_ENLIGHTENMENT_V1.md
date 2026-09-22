@@ -1,6 +1,6 @@
 # Great Scientist roster — Enlightenment — V1
 
-Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
+Status: CURRENT — POST PHILOSOPHER TRANSFER / KOREAN ADDITIONS
 
 | # | Scientist | Region | Minimum condition | Ability | Effect | Status |
 |---:|---|---|---|---|---|---|
@@ -29,10 +29,10 @@ Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
 | 23 | Nevil Maskelyne | Britain | Seaport exists | 항해력서 | Seaport 도시에서 출발하는 해상 국제교역로 +1 Science +1 Gold. | KEEP |
 | 24 | Jan Ingenhousz | Dutch/Austrian | Public School exists | 빛과 식물 | Public School이 있는 도시의 Farm과 Plantation 자원 타일 +1 Science. | KEEP |
 | 25 | Anders Celsius | Sweden | Observatory exists | 표준화된 온도 측정 | 2 charges. 각 charge는 Science 75. Health가 양수인 도시에서 사용하면 추가 Science 25. | KEEP |
-| 26 | Jean le Rond d'Alembert | France | Ballistics researchable | 역학과 백과전서 | Ballistics Eureka. 활성 도시 Public School +1 Great Scientist Point +1 Culture. | KEEP |
-| 27 | Maria Sibylla Merian | German/Dutch | Irrigation | 변태와 곤충 | Plantation 자원 타일 +1 Culture. Plantation 도시 Scientist 전문직 +1 Science. | KEEP |
-| 28 | Charles-Augustin de Coulomb | France | Scientific Theory researchable | 정량 전기학 | 2 charges. 각 charge는 Science 90. 두 번째 사용 시 활성 도시 Public School +1 Great Scientist Point. | KEEP |
-| 29 | Luigi Galvani | Italy | Public School exists | 생체전기 | 활성 도시 Public School의 Scientist 전문직 +1 Science. 그 도시 Health +1. | KEEP |
+| 26 | Maria Sibylla Merian | German/Dutch | Irrigation | 변태와 곤충 | Plantation 자원 타일 +1 Culture. Plantation 도시 Scientist 전문직 +1 Science. | KEEP |
+| 27 | Charles-Augustin de Coulomb | France | Scientific Theory researchable | 정량 전기학 | 2 charges. 각 charge는 Science 90. 두 번째 사용 시 활성 도시 Public School +1 Great Scientist Point. | KEEP |
+| 28 | Luigi Galvani | Italy | Public School exists | 생체전기 | 활성 도시 Public School의 Scientist 전문직 +1 Science. 그 도시 Health +1. | KEEP |
+| 29 | Hong Jeong-ha (홍정하) | Joseon Korea | Public School exists | 구일집 | 현재 연구 기술에 Eureka가 있으면 남은 비용 15%만큼 Science. Eureka가 없으면 Science 120. 활성 도시 Great Scientist Point 40. | KEEP |
 
 ## Candidate expansion QA2
 
@@ -55,3 +55,7 @@ The additions are historical candidates, not quota fillers.
 Reviewed all 29 Enlightenment candidates. Rewritten: Edmond Halley, Émilie du Châtelet, Henry Cavendish, William Herschel, Joseph-Louis Lagrange, Pierre-Simon Laplace, Laura Bassi, Maria Gaetana Agnesi, Mikhail Lomonosov, Charles Messier, Anders Celsius.
 
 Focus: reduce Observatory/Public School +yield repetition and differentiate mathematical, astronomical, medical and experimental-science play patterns.
+
+## Class-transfer update
+
+Great Philosopher transfers and Korean Scientist additions applied on 2026-09-22.
