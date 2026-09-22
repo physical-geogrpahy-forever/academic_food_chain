@@ -15,7 +15,7 @@ Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
 | 9 | Al-Razi | Persia | Alchemy | 임상과 화학 | Apothecary +1 Science. 역병 발생 도시에서 활성화하면 해당 도시의 회복 페널티 즉시 제거. | KEEP |
 | 10 | Qusta ibn Luqa | Levant | Astrolabe | 측정 기구 | Library와 Market을 모두 가진 도시 +1 Science +1 Gold. 활성화 시 Science 70. | KEEP |
 | 11 | Al-Sijzi | Persia | Astrolabe | 회전하는 지구 | Astrolabe Eureka. Lighthouse가 있는 도시의 해상 교역거리 +1. | KEEP |
-| 12 | Abu al-Wafa | Persia | Algebra | 삼각법 | 2 charges. 각 charge는 현재 연구 기술의 남은 비용 10%만큼 Science. 두 번째 사용 시 Great Scientist Point 40. | KEEP |
+| 12 | Abu al-Wafa | Persia | Algebra | 삼각법 | 2 charges. 각 charge는 Astrolabe가 있는 도시에서 Science 80. 서로 다른 도시에서 사용하면 두 번째 사용 시 Great Scientist Point 50 추가. | KEEP |
 | 13 | Al-Karaji | Persia | Algebra | 귀납적 대수 | 현재 연구 기술에 Science 100. 활성 도시 Scientist 전문직 수 × Science 20, 최대 80 추가. | KEEP |
 | 14 | Mariam al-Asturlabi | Syria | Astrolabe | 정밀 아스트롤라베 | 해상 유닛 시야 +1. Lighthouse가 있는 도시 +1 Science. | CROSS_CLASS_REVIEW |
 | 15 | Ibn Yunus | Egypt | Astrolabe | 하키미 천문표 | 3 charges. 각 charge는 Lighthouse 도시에서 Science 55. 서로 다른 도시에서 모두 사용하면 Great Scientist Point 60. | KEEP |
