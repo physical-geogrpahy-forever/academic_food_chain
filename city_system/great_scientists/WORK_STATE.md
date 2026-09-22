@@ -51,6 +51,11 @@ Specific recent fixes include:
 Full creative ability QA for all 332 scientists.
 
 Completed:
+- Ancient: 5/5 reviewed
+- Classical: 22/22 reviewed
+- Late Antiquity: 13/13 reviewed
+- Early Medieval: 17/17 reviewed
+- High Medieval: 18/18 reviewed
 - Renaissance: 7/7 reviewed
 - Exploration: 37/37 reviewed
 - Enlightenment: 29/29 reviewed
@@ -58,10 +63,10 @@ Completed:
 - Modern: 50/50 reviewed
 - Atomic: 64/64 reviewed
 - Information: 23/23 reviewed
-- Combined completed in current design pass: 257 scientists
+- Combined completed in current design pass: 332 scientists
 
 Next batch:
-- Ancient through High Medieval (75 scientists)
+- Final full-roster validation + cross-era power-band audit
 
 ## Current diagnostic result
 
@@ -77,12 +82,13 @@ Design-level issue:
 
 ## Next batch
 
-Process Ancient through High Medieval together (75 scientists total) in one five-file pass.
-
-Then:
-1. final full-roster validation
-2. cross-era power-band audit
-3. cross-class review after other Great Person rosters exist
+Run one final 332-person validation across all era files:
+1. exact roster count and unique names
+2. no historical Future roster
+3. no later-era technology/building references
+4. no exact or near-exact duplicate abilities
+5. cross-era power-band outliers
+6. remaining simple building-yield overuse
 
 ## Execution rule
 
