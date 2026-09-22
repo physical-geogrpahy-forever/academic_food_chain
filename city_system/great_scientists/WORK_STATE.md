@@ -50,12 +50,13 @@ Specific recent fixes include:
 
 Full creative ability QA for all 332 scientists.
 
-Goal:
-- reduce overuse of simple building +Science/+GPP effects;
-- preserve historical grounding;
-- keep abilities implementable using existing project systems;
-- maintain rough within-era power parity;
-- do not reintroduce later-era prerequisites.
+Completed:
+- Renaissance: 7/7 reviewed
+- Exploration: 37/37 reviewed
+- Combined completed in current design pass: 44 scientists
+
+Next batch:
+- Enlightenment + Industrial (76 scientists)
 
 ## Current diagnostic result
 
@@ -71,16 +72,12 @@ Design-level issue:
 
 ## Next batch
 
-Process Renaissance + Exploration together (44 scientists total).
+Process Enlightenment + Industrial together (76 scientists total), using one fetch per era and one update per era.
 
-Review every ability, not just flagged ones.
-Rewrite only where the effect is too generic, historically weak, or duplicates the play pattern of nearby scientists.
-
-After that:
-1. Enlightenment + Industrial
-2. Modern
-3. Atomic + Information
-4. final cross-era power-band audit
+Then:
+1. Modern
+2. Atomic + Information
+3. final cross-era power-band audit
 
 ## Execution rule
 
