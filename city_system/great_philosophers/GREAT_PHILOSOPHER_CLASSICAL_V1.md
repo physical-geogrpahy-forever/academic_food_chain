@@ -27,7 +27,7 @@ Class rule: Great Philosopher connects intellectual systems rather than simply d
 | 18 | Marcus Aurelius | Rome | Political Philosophy | 명상록 | Government Plaza가 있는 도시 +1 Culture. Barracks가 같은 도시에 있으면 유닛 회복 +5 HP/턴. | DRAFT |
 | 19 | Plotinus | Roman Empire | Mysticism | 일자 | Shrine과 Library를 모두 가진 도시 +1 Faith, +1 Science. 활성화 시 Culture 80. | DRAFT |
 | 20 | Kautilya | India | Currency | 아르타샤스트라 | Market과 Government 계통 건물을 모두 가진 도시는 +1 Gold, +1 Culture. 국제 교역로가 있으면 +1 Science 추가. | DRAFT |
-| 21 | Nagarjuna | India | Theology researchable | 공과 중도 | Shrine이 있는 도시에서 Great Philosopher Point +1. Library도 있으면 +1 Science, +1 Culture. | DRAFT |
+| 21 |Nagarjuna |India |Mysticism |공과 중도 |Shrine이 있는 도시에서 Great Philosopher Point +1. Library도 있으면 +1 Science, +1 Culture. |DRAFT |
 | 22 | Wang Chong | China | Writing | 논형 | Library가 있는 도시 +1 Science. Shrine 또는 Grove도 있는 도시는 추가 +1 Culture. | DRAFT |
 | 23 | Wang Bi | China | Recorded History | 현학 주석 | Monument 또는 Amphitheater가 있는 도시에서 Library가 +1 Culture. 활성화 시 Science 80. | DRAFT |
 
