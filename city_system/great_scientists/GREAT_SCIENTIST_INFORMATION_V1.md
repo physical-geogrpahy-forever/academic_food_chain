@@ -1,6 +1,6 @@
 # Great Scientist roster — Information — V1
 
-Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA3
+Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA / DEDUPED
 
 | # | Scientist | Region | Minimum condition | Ability | Effect | Status |
 |---:|---|---|---|---|---|---|
@@ -25,8 +25,8 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA3
 | 19 | Didier Queloz | Switzerland | Satellites | 51 Pegasi b | 활성 도시 Observatory +1 Science. Future의 Offworld Mission을 처음 연구할 때 10% 진척. | KEEP |
 | 20 | Tim Berners-Lee | Britain | Telecommunications | 월드 와이드 웹 | 국제 교역로 +1 Science. Telecommunications 완료 도시는 Great Scientist Point +1. | CROSS_CLASS_REVIEW |
 | 21 | David Baker | USA | Nanotechnology researchable | 단백질 설계 | Nanotechnology 연구비 25% 진척. Medical Lab과 Research Lab을 모두 가진 도시 +1 Science. | KEEP |
-| 22 | Demis Hassabis | Britain | Robotics researchable | 단백질 구조 예측 | Robotics 연구비 25% 진척. Medical Lab +1 Science. | CROSS_CLASS_REVIEW |
-| 23 | John Jumper | USA | Nanotechnology researchable | AlphaFold | Nanotechnology 연구비 25% 진척. Medical Lab이 있는 도시 Scientist 전문직 +1 Great Scientist Point. | KEEP |
+| 22 | Demis Hassabis | Britain | Advanced AI researchable | 단백질 구조 예측 | Advanced AI Eureka. Medical Lab +1 Science. | CROSS_CLASS_REVIEW |
+| 23 | John Jumper | USA | Advanced AI researchable | AlphaFold | Advanced AI 연구비 40% 진척. Medical Lab이 있는 도시 Scientist 전문직 +1 Great Scientist Point. | KEEP |
 
 ## QA5 notes
 
@@ -45,4 +45,5 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA3
 - David Baker moved here because Rosetta/de novo protein design spans the late 1990s–2003.
 - Demis Hassabis and John Jumper moved here because AlphaFold2 is a 2020 achievement.
 - Their era label is Information even if some abilities are gated by Future technologies.
+
 
