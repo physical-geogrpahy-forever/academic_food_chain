@@ -266,6 +266,21 @@ A person remains Great Scientist when the representative achievement is primaril
 
 Do not classify solely from period terminology such as "natural philosopher."
 
+## 8A. Class identity and ability content are separate
+
+Class assignment is based on the person's representative historical identity, not on the yield type of the ability.
+
+Therefore a Great Philosopher may have a strongly scientific, mathematical, economic or religious ability when that reflects the person's real work.
+
+Examples:
+- René Descartes belongs to Great Philosopher because his representative historical identity includes systematic philosophy and epistemology, but his ability may emphasize analytic geometry, mathematical method and scientific reasoning.
+- Aristotle may be a Great Philosopher while an ability can still interact with science, biological classification or specialist learning.
+- Francis Bacon may be a Great Philosopher while his ability can strengthen empirical research and Eureka mechanics.
+- Adam Smith may be a Great Philosopher while his ability can work through Gold, Trade and economic systems.
+
+Do not force every Philosopher ability into Culture/Faith simply because the class is philosophical.
+The class identity is philosophical; the gameplay expression should follow the individual's actual body of work.
+
 ## 9. Boundary with other Great Person classes
 
 ### Philosopher vs Scientist
