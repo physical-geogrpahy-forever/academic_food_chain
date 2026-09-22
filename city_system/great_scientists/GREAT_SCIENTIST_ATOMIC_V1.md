@@ -57,8 +57,6 @@ Rules:
 | 43 | John Bardeen | USA | Electronics | 트랜지스터와 초전도 | 전력 공급 도시의 Research Lab +1 Science. Computers 연구 시작 시 15% 진척. | CROSS_CLASS_REVIEW |
 | 44 | Homi J. Bhabha | India | Particle Physics researchable | 우주선과 입자 | Particle Physics 연구비 25% 진척. Observatory와 Research Lab을 모두 가진 도시 +1 Science. | KEEP |
 | 45 | George Gamow | Ukraine/USA | Particle Physics | 빅뱅 핵합성 | Particle Physics 완료 후 Science 260. Observatory가 있는 도시 Great Scientist Point +1. | KEEP |
-| 46 | Katherine Johnson | USA | Guidance Systems researchable | 궤도 계산 | Guidance Systems Eureka. Space Race 프로젝트가 진행 중인 도시 +10% Production. | KEEP |
-| 47 | Margaret Hamilton | USA | Guidance Systems researchable | 아폴로 비행 소프트웨어 | Guidance Systems 연구비 35% 진척. 우주 프로젝트 실패/생산 손실 페널티가 있다면 1회 무시. | CROSS_CLASS_REVIEW |
 
 ## Ability QA4 notes
 
@@ -66,4 +64,4 @@ Rules:
 - Mary Leakey now gates on Archaeological Museum rather than a non-tech `Archaeology` placeholder.
 - Norman Borlaug no longer references an unconfirmed crop Health penalty.
 - Tu Youyou now uses the generic plague-recovery system rather than assuming a named regional disease model.
-- Added major computing, nuclear, particle and space-calculation omissions: von Neumann, Hopper, Wiener, Yukawa, Goeppert Mayer, Bardeen, Bhabha, Gamow, Katherine Johnson and Margaret Hamilton.
+- Added major computing, nuclear, particle and space-calculation omissions: von Neumann, Hopper, Wiener, Yukawa, Goeppert Mayer, Bardeen, Bhabha, Gamow.
