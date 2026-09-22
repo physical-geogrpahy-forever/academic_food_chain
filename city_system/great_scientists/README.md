@@ -31,12 +31,12 @@ Candidate count is deliberately not capped at 100. Era/region counts are not quo
 | Renaissance | 13 |
 | Exploration | 30 |
 | Enlightenment | 29 |
-| Industrial | 46 |
-| Modern | 32 |
+| Industrial | 48 |
+| Modern | 40 |
 | Atomic | 37 |
 | Information | 28 |
 | Future | 5 |
-| **Total** | **296** |
+| **Total** | **306** |
 
 ## Premodern QA1 changes
 
@@ -67,7 +67,7 @@ Candidate count is deliberately not capped at 100. Era/region counts are not quo
 
 - Early Medieval ability-overlap cleanup
 - Exploration/Enlightenment candidate expansion and ability-overlap QA2: APPLIED
-- Industrial/Modern ability power-band audit
+- Industrial/Modern ability-overlap and candidate QA3: APPLIED
 - Atomic/Information/Future implementation audit
 - cross-class duplicate check after Engineer/Merchant/etc. rosters
 - exact numerical balance after game-speed scaling is defined
