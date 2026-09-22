@@ -10,7 +10,7 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA1
 | 4 | Jamshid al-Kashi | Persia | Education | 정밀 계산 | University가 있는 도시 하나를 선택해 +3 Science. 다른 도시는 영향 없음. | KEEP |
 | 5 | Regiomontanus | Central Europe | Printing researchable | 인쇄된 천문표 | Printing Press가 있는 도시 Scientist 전문직 +1 Science. Printing Eureka. | KEEP |
 | 6 | Kamal al-Din al-Farisi | Persia | University exists | 빛의 굴절 | University와 Lighthouse를 모두 가진 도시 +2 Science. 활성 도시 Great Scientist Point +1. | KEEP |
-| 7 | Ulugh Beg | Timurid Empire | University exists | 사마르칸트 천문표 | 활성 도시 University +2 Science, Great Scientist Point +1. Astronomy를 처음 연구하기 시작할 때 연구비 15% 진척. | KEEP |
+| 7 | Ulugh Beg | Timurid Empire | University exists | 사마르칸트 천문표 | 활성 도시 University +2 Science, Great Scientist Point +1. 활성화 시 Science 120. | KEEP |
 
 ## QA1 notes
 
