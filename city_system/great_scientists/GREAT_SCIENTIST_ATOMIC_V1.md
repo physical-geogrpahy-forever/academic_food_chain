@@ -67,7 +67,7 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA / DEDUPED
 | 61 | Geoffrey Hinton | Britain/Canada | Computers | 신경망 | Computers가 완료된 도시의 Scientist 전문직 +1 Science. 활성화 시 Great Scientist Point 80. | KEEP |
 | 62 | John Hopfield | USA | Computers | 연상 신경망 | Scientist 전문직이 2명 이상인 도시는 +2 Science. 활성 도시 Research Lab +1 Great Scientist Point. | KEEP |
 | 63 | Katherine Johnson | USA | Space Launch Center exists | 궤도 계산 | 활성 도시 Space Race 프로젝트 +10% Production. 활성화 시 Science 150. | KEEP |
-| 64 | Margaret Hamilton | USA | Guidance Systems researchable | 아폴로 비행 소프트웨어 | Guidance Systems 연구비 35% 진척. 우주 프로젝트 생산 손실 또는 실패 페널티가 있다면 1회 무시. | CROSS_CLASS_REVIEW |
+| 64 | Margaret Hamilton | USA | Space Launch Center exists | 아폴로 비행 소프트웨어 | Space Race 프로젝트를 수행 중인 도시의 Research Lab +2 Science, Engineer 전문직 +1 Production. | CROSS_CLASS_REVIEW |
 
 ## Ability QA4 notes
 
