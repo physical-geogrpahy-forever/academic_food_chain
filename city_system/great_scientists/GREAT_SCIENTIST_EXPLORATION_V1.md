@@ -40,7 +40,7 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA1
 | 34 | Garcia de Orta | Portuguese India | Irrigation | 약용식물 | Plantation이 있는 도시 Health +1. | KEEP |
 | 35 | Li Shizhen | China | Apothecary exists | 본초강목 | Apothecary +1 Health +1 Science. Plantation 도시 역병 회복 페널티 -5%. | KEEP |
 | 36 | Gerolamo Cardano | Italy | University exists | 확률과 방정식 | 미완료 Exploration 기술 1개와 Enlightenment 기술 1개에 각각 Eureka. 해당 시대 기술이 모두 완료되었으면 Science 180. | KEEP |
-| 37 | Isaac Newton | England | University exists | 프린키피아 | 활성 도시에 무료 Library와 University. 모든 University +2 Science. Scientific Theory를 처음 연구하기 시작할 때 15% 진척. | KEEP |
+| 37 | Isaac Newton | England | University exists | 프린키피아 | 활성 도시에 무료 Library와 University. 모든 University +2 Science. 활성화 시 Science 180. | KEEP |
 
 ## Ability QA2 notes
 
