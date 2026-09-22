@@ -115,7 +115,17 @@ Once recruited:
 - that individual can never be recruited by another civilization in the same game
 - the class advances to the next eligible historical candidate
 
-Candidate era availability and exact person rosters are a later content pass.
+Great Scientist content now has a separate draft roster:
+- `city_system/great_scientists/README.md`
+- 279 first-pass candidates across Ancient through Future
+- each candidate has an individual ability draft
+- candidate count is deliberately not quota-balanced by era or region
+- recruitment eligibility is gated by a minimum technology/building/system condition so a Scientist does not depend on an institution that does not yet exist
+- `CROSS_CLASS_REVIEW` preserves ambiguous figures until Engineer/Merchant/Writer/Prophet/etc. rosters are available for final de-duplication
+
+The 279-person Scientist roster is **not yet a locked final roster**. Historical-period QA, cross-class de-duplication and numerical balance remain pending.
+
+Other Great Person classes still require their own content passes.
 
 ## 7. Pass and patronage
 
