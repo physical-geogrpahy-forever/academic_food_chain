@@ -73,7 +73,7 @@ This audit uses the activity-first chronology defined in Audit 01.
 | C. V. Raman | Modern | 1920s; Raman effect 1928 | Modern | KEEP |
 | Satyendra Nath Bose | Modern | 1920s; Bose statistics 1924 | Modern | KEEP |
 | Meghnad Saha | Modern | 1920s; ionization equation | Modern | KEEP |
-| J. J. Thomson | Modern | 1890s; electron discovery 1897 | Industrial | MOVE |
+| J. J. Thomson | Modern | 1897 electron discovery; 1903–1904 atomic-structure model; later positive-ray/isotope work | Modern | BOUNDARY_KEEP |
 | Frederick Banting | Modern | 1920s; insulin 1921–1922 | Modern | KEEP |
 | Wolfgang Pauli | Modern | 1920s–1940s; exclusion principle 1925 | Modern | KEEP |
 | Max Born | Modern | 1920s–1930s; probabilistic QM 1926 | Modern | KEEP |
@@ -87,7 +87,7 @@ This audit uses the activity-first chronology defined in Audit 01.
 | Theodosius Dobzhansky | Modern | 1930s–1940s; Genetics and Origin of Species 1937 | Modern | KEEP |
 | Oswald Avery | Modern | 1910s–1944; transforming principle 1944 | Modern | KEEP |
 | Alexander Oparin | Modern | 1920s–1930s; origin-of-life hypothesis 1924 | Modern | KEEP |
-| Henri Becquerel | Modern | 1896 radioactivity discovery | Industrial | MOVE |
+| Henri Becquerel | Modern | 1896 natural radioactivity discovery; continued radiation studies through 1900 and Nobel synthesis in 1903 | Modern | BOUNDARY_KEEP |
 | Arthur Eddington | Modern | 1910s–1930s; 1919 eclipse/stellar structure | Modern | KEEP |
 | Georges Lemaître | Modern | 1920s–1930s; expanding universe 1927 | Modern | KEEP |
 | Cecilia Payne-Gaposchkin | Modern | 1920s–1940s; stellar composition 1925 | Modern | KEEP |
@@ -101,12 +101,14 @@ This audit uses the activity-first chronology defined in Audit 01.
 - Coulomb: Industrial -> Enlightenment.
 - Galvani: Industrial -> Enlightenment.
 - Pavlov: Industrial -> Modern as a boundary case because the conditioned-reflex program that defines his gameplay identity is early 20th century.
-- J. J. Thomson: Modern -> Industrial because the electron discovery was 1897.
-- Henri Becquerel: Modern -> Industrial because spontaneous radioactivity was discovered in 1896.
+- J. J. Thomson: Modern 유지. 1897 전자 발견만이 아니라 1903–1904 원자 구조 모형과 이후 양전하선/동위원소 연구까지 대표 활동기에 포함한다.
+- Henri Becquerel: Modern 유지. 1896 자연방사능 발견 이후에도 방사선 성질 연구가 1900년대 초까지 이어졌으므로 19세기 단일 발견로만 자르지 않는다.
 
 ## Boundary judgments
 
 - Volta stays Industrial because the voltaic pile was announced in 1800.
+- J. J. Thomson stays Modern because the activity-first rule includes his 1903–1904 atomic-structure model and subsequent positive-ray/isotope research, not only the 1897 electron discovery.
+- Henri Becquerel stays Modern as a boundary case because his defining radioactivity research spans 1896 into 1900–1903.
 - Marie Curie stays Modern despite 1898 discoveries because her defining radioactivity career, doctorate and Nobel recognition extend centrally into the 20th century.
 - Cajal, Poincaré, Jagadish Chandra Bose, Prafulla Chandra Ray and Beijerinck remain Industrial because their defining research programs begin decisively in the 19th century.
 - Pavlov is moved to Modern because his conditioned-reflex program was explicitly developed and presented from 1903 onward.
@@ -127,3 +129,17 @@ Priority checks included:
 - NobelPrize.org for Pavlov's digestion work and 1903 onward conditioned-reflex program.
 - Oregon State University Linus Pauling Institute for 1930s chemical-bond work used in the next boundary pass.
 - Library of Congress / Columbia for Margaret Mead's 1925–1928 Samoa work used in the next boundary pass.
+
+
+## Audit correction — Thomson and Becquerel
+
+The first draft over-weighted the date of the earliest landmark discovery. The audit rule is now clarified:
+
+- use the **principal research activity window**, not just the first famous discovery date;
+- when a person's defining scientific identity spans an era boundary, use the period containing the broader representative body of work and the gameplay ability concept;
+- J. J. Thomson therefore remains Modern;
+- Henri Becquerel therefore remains Modern as a boundary case.
+
+Evidence anchors:
+- Thomson: electron 1897; atomic-structure model developed in 1899–1904 and prominently associated with his 1903–1904 work; later positive-ray/isotope research.
+- Becquerel: natural radioactivity 1896; subsequent radiation-property work, including beta-ray work by 1900; Nobel synthesis 1903.
