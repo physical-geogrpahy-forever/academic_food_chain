@@ -36,7 +36,7 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA / DEDUPED
 | 30 | Mary Leakey | Britain/Kenya | Archaeological Museum exists | 인류의 기원 | Artifact가 있는 도시마다 즉시 Science 50, 최대 400. Archaeological Museum +1 Science. | CROSS_CLASS_REVIEW |
 | 31 | John von Neumann | Hungary/USA | Computers researchable | 저장 프로그램 구조 | Computers 연구비 50% 진척. Computers 완료 후 모든 Research Lab의 Scientist 슬롯 +1은 아니며, 활성 도시 Research Lab에만 Scientist 슬롯 +1. | KEEP |
 | 32 | Grace Hopper | USA | Computers | 컴파일러 | Computers 완료 후 활성화. Research Lab 유지비 -1 Gold. 국제 교역로가 연결된 Research Lab 도시는 +1 Science. | KEEP |
-| 33 | Norbert Wiener | USA | Computers | 사이버네틱스 | Scientist와 Engineer 전문직이 함께 배치된 도시 +2 Science. Future의 Cybernetics를 처음 연구할 때 15% 진척. | KEEP |
+| 33 | Norbert Wiener | USA | Computers | 사이버네틱스 | Scientist와 Engineer 전문직이 함께 배치된 도시 +2 Science. 활성화 시 Great Scientist Point 100. | KEEP |
 | 34 | Maria Goeppert Mayer | Germany/USA | Nuclear Fission | 핵껍질 모형 | Nuclear Fission 완료 도시의 Research Lab +1 Great Scientist Point. Uranium 개발 도시 +1 Science. | KEEP |
 | 35 | John Bardeen | USA | Electronics | 트랜지스터와 초전도 | 전력 공급 도시의 Research Lab +1 Science. Computers 연구 시작 시 15% 진척. | CROSS_CLASS_REVIEW |
 | 36 | George Gamow | Ukraine/USA | Particle Physics | 빅뱅 핵합성 | Particle Physics 완료 후 Science 260. Observatory가 있는 도시 Great Scientist Point +1. | KEEP |
@@ -66,7 +66,7 @@ Status: DRAFT — ACTIVITY-PERIOD RECONCILIATION / EFFECT QA / DEDUPED
 | 60 | Barbara Liskov | USA | Computers | 추상화와 분산시스템 | Research Lab 유지비 -1 Gold. Scientist 전문직이 2명 이상인 도시는 +1 Science. | KEEP |
 | 61 | Geoffrey Hinton | Britain/Canada | Computers | 신경망 | Computers가 완료된 도시의 Scientist 전문직 +1 Science. 활성화 시 Great Scientist Point 80. | KEEP |
 | 62 | John Hopfield | USA | Computers | 연상 신경망 | Scientist 전문직이 2명 이상인 도시는 +2 Science. 활성 도시 Research Lab +1 Great Scientist Point. | KEEP |
-| 63 | Katherine Johnson | USA | Guidance Systems researchable | 궤도 계산 | Guidance Systems Eureka. Space Race 프로젝트가 진행 중인 도시 +10% Production. | KEEP |
+| 63 | Katherine Johnson | USA | Space Launch Center exists | 궤도 계산 | 활성 도시 Space Race 프로젝트 +10% Production. 활성화 시 Science 150. | KEEP |
 | 64 | Margaret Hamilton | USA | Guidance Systems researchable | 아폴로 비행 소프트웨어 | Guidance Systems 연구비 35% 진척. 우주 프로젝트 생산 손실 또는 실패 페널티가 있다면 1회 무시. | CROSS_CLASS_REVIEW |
 
 ## Ability QA4 notes
