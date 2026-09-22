@@ -20,7 +20,7 @@ Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
 | 14 | Abdus Salam | Pakistan/Britain | Particle Physics researchable | 전자기약력 통일 | Particle Physics Eureka. 15턴 동안 활성 도시 Scientist와 Engineer 전문직이 각각 +1 Science. | KEEP |
 | 15 | Norman Borlaug | USA/Mexico | Fertilizer | 녹색혁명 | Wheat, Rice, Maize 개선 타일 +1 Food. 세 작물 중 2종 이상을 가진 도시 +1 Science. | KEEP |
 | 16 | Rachel Carson | USA | Ecology | 침묵의 봄 | Ecology 연구비 75% 진척. Plantation과 Farm에서 발생하는 오염 페널티가 있다면 1 감소. | KEEP |
-| 17 | Frederick Sanger | Britain | Medical Lab exists | 염기서열 분석 | Medical Lab이 있는 도시의 연구 프로젝트 Production +15%. 활성화 시 Science 140. | KEEP |
+| 17 | Frederick Sanger | Britain | Medical Lab exists | 염기서열 분석 | Medical Lab이 있는 도시에서 연구 프로젝트를 완료할 때 최초 2회 각각 Science 100. 활성화 시 Science 100. | KEEP |
 | 18 | Albert Sabin | USA | Medical Lab | 경구 백신 | 역병 발생 위험 -15%. 교역로를 통한 역병 전파 위험 -10%. | KEEP |
 | 19 | Alfred Hershey | USA | Research Lab | 박테리오파지 | Research Lab +1 Science. 현재 역병이 있으면 Science 150 추가. | KEEP |
 | 20 | Martha Chase | USA | Research Lab exists | 블렌더 실험 | 2 charges. 각 charge는 Science 90. 같은 도시에서 두 번 사용하면 그 도시 Great Scientist Point +1. | KEEP |
@@ -40,7 +40,7 @@ Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
 | 34 | Maria Goeppert Mayer | Germany/USA | Nuclear Fission | 핵껍질 모형 | Nuclear Fission 완료 도시의 Research Lab +1 Great Scientist Point. Uranium 개발 도시 +1 Science. | KEEP |
 | 35 | John Bardeen | USA | Electronics | 트랜지스터와 초전도 | 전력 공급 도시의 Research Lab +1 Science. Computers 연구 시작 시 15% 진척. | CROSS_CLASS_REVIEW |
 | 36 | George Gamow | Ukraine/USA | Particle Physics | 빅뱅 핵합성 | 2 charges. 각 charge는 Observatory가 있는 도시에서 Science 120. 두 번째 사용 시 Great Scientist Point 50. | KEEP |
-| 37 | Carl Sagan | USA | Space Race | 코스모스 | Space Race 프로젝트에 Production 1200 즉시 투입. Broadcast Center 도시 +1 Science. | KEEP |
+| 37 | Carl Sagan | USA | Space Race | 코스모스 | 현재 진행 중인 Space Race 프로젝트의 남은 비용 15%만큼 Production. Broadcast Center가 있는 도시는 +1 Science +1 Culture. | KEEP |
 | 38 | Stephen Hawking | Britain | Particle Physics | 블랙홀 우주론 | Science 400. Space Race 프로젝트 +10% Production. | KEEP |
 | 39 | Vera Rubin | USA | Observatory + Research Lab in one city | 은하 회전 곡선 | 3 charges. 각 charge는 Science 80. 서로 다른 Observatory 도시에서 모두 사용하면 Great Scientist Point 100. | KEEP |
 | 40 | Jocelyn Bell Burnell | Britain | Radio + Observatory exists | 펄서 | 2 charges. 각 charge는 Science 100. Observatory가 있는 도시에서 사용하면 Great Scientist Point 30 추가. | KEEP |
@@ -57,7 +57,7 @@ Status: DRAFT — FULL EFFECT QA PASS 1 COMPLETE
 | 51 | Gérard Mourou | France/USA | Research Lab exists | 초고강도 레이저 | 활성 도시 연구 프로젝트 Production +15%. 활성화 시 Science 140. | KEEP |
 | 52 | Barry Marshall | Australia | Medical Lab exists | 헬리코박터 치료 | 활성 도시 Medical Lab +1 Health. 그 도시의 질병 회복 페널티 -15%. | KEEP |
 | 53 | Robin Warren | Australia | Medical Lab exists | 병리 진단 | 활성 도시 Medical Lab +2 Science. Health가 음수인 동안 추가 +1 Science. | KEEP |
-| 54 | Elizabeth Blackburn | Australia/USA | Medical Lab + Research Lab in one city | 텔로미어 | 해당 도시의 인구 기반 Health 페널티 1 감소. | KEEP |
+| 54 | Elizabeth Blackburn | Australia/USA | Medical Lab + Research Lab in one city | 텔로미어 | 해당 도시의 인구 기반 Health 페널티 1 감소. 인구 10 이상이면 추가 +1 Science. | KEEP |
 | 55 | Carol Greider | USA | Medical Lab exists | 텔로머레이스 | Medical Lab Great Scientist Point +1. 역병 회복 기간 -10%. | KEEP |
 | 56 | Jack Szostak | USA | Research Lab exists | 염색체 말단 | 2 charges. 각 charge는 Science 100. Medical Lab이 있는 도시에서 두 번째 charge를 사용하면 Health +1. | KEEP |
 | 57 | Christiane Nüsslein-Volhard | Germany | Research Lab exists | 발생 유전학 | Research Lab 도시가 인구 1 증가할 때 Science 30, 도시당 최대 3회. | KEEP |
