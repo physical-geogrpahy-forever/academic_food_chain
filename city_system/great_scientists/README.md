@@ -23,18 +23,18 @@ Candidate count is deliberately not capped at 100. Era/region counts are not quo
 
 | Project era | Candidates |
 |---|---:|
-| Ancient | 7 |
-| Classical | 20 |
+| Ancient | 5 |
+| Classical | 22 |
 | Late Antiquity | 13 |
 | Early Medieval | 17 |
-| High Medieval | 19 |
-| Renaissance | 13 |
-| Exploration | 30 |
+| High Medieval | 18 |
+| Renaissance | 7 |
+| Exploration | 37 |
 | Enlightenment | 29 |
-| Industrial | 48 |
-| Modern | 40 |
-| Atomic | 49 |
-| Information | 47 |
+| Industrial | 47 |
+| Modern | 50 |
+| Atomic | 64 |
+| Information | 23 |
 | Future | 0 |
 | **Total** | **332** |
 
@@ -100,3 +100,22 @@ Target counts after full reconciliation:
 - Information 23
 - Future 0
 - Total 332
+
+
+## Full activity and effect QA status
+
+Completed on 2026-09-22:
+
+- 332 historical Great Scientists audited by principal activity period.
+- Era placement reconciled across all roster files.
+- Historical-person Future roster removed; Future remains a gameplay/technology era only.
+- First-pass individual effect QA completed for all 332 candidates.
+- Final validation:
+  - total roster rows: 332
+  - duplicate names: 0
+  - exact duplicate effects: 0
+  - normalized/near-exact duplicate effect groups: 0
+  - later-era technology/building references: 0
+  - Future-technology references in historical Scientist abilities: 0
+
+The remaining work is numerical balance and eventual cross-class review against Engineers, Merchants, Writers and other Great Person rosters.
