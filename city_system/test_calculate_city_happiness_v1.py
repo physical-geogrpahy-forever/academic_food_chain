@@ -225,6 +225,8 @@ def test_invalid_inputs_rejected(module):
         {"basic": 2, "gold": 1, "science": 1, "culture": 0},
         {"basic": 2, "gold": 1, "science": -1, "culture": 1},
         {"basic": 2, "gold": 1, "science": "bad", "culture": 1},
+        {"basic": 2, "gold": 1, "science": float("nan"), "culture": 1},
+        {"basic": 2, "gold": 1, "science": float("inf"), "culture": 1},
     ]
     for medians in invalid_medians:
         assert_raises_value_error(
@@ -232,6 +234,22 @@ def test_invalid_inputs_rejected(module):
                 **base_city(), global_medians=medians
             ),
             "global",
+        )
+
+
+def test_nonfinite_numeric_inputs_rejected(module):
+    for key, value in (
+        ("gross_food_pre_health", float("nan")),
+        ("city_health", float("nan")),
+        ("local_happiness_sources", float("inf")),
+        ("war_weariness_unhappiness", float("inf")),
+    ):
+        assert_raises_value_error(
+            lambda key=key, value=value: module.calculate_city_happiness(
+                **base_city(**({key: value} if key in base_city() else {})),
+                **({key: value} if key not in base_city() else {}),
+            ),
+            key,
         )
 
 
@@ -260,6 +278,7 @@ def run_task2_tests(module):
     test_external_penalties_pass_through_once(module)
     test_zero_population_only_passes_external_penalties(module)
     test_invalid_inputs_rejected(module)
+    test_nonfinite_numeric_inputs_rejected(module)
     test_floor_boundary_does_not_round_up(module)
 
 
