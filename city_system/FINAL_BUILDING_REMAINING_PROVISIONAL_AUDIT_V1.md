@@ -4,7 +4,7 @@ Generated from `FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5.csv`.
 
 - Building rows: 104
 - Provisional columns found: 2
-- Unresolved nonzero provisional entries: 17
+- Unresolved nonzero provisional entries: 0
 
 ## HEALTH_POINTS_PROVISIONAL
 
@@ -26,8 +26,8 @@ Generated from `FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5.csv`.
 
 ## STABILITY_POINTS_PROVISIONAL
 
-- Status: `UNRESOLVED_QUANTITATIVE_LAYER`
-- Current authority: No final Stability field/system found
+- Status: `SUPERSEDED_PROVENANCE`
+- Current authority: STABILITY_POINTS_FINAL / Building Stability Support V1
 - Nonzero rows: 17
 
 | Building | Era | Chain | Value |
@@ -54,4 +54,6 @@ Generated from `FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5.csv`.
 
 `HEALTH_POINTS_PROVISIONAL` is retained only as provenance and does not control gameplay because Health V1 supplies `HEALTH_POINTS_FINAL`.
 
-Any nonzero `STABILITY_POINTS_PROVISIONAL` remains unresolved until a Stability/administrative-unrest quantitative pass creates a final authoritative field or explicitly removes the mechanic.
+`STABILITY_POINTS_PROVISIONAL` is also retained only as provenance. Building gameplay authority is `STABILITY_POINTS_FINAL` under `STABILITY_BUILDING_SUPPORT_V1.md`.
+
+The building support values are not direct additions to country-level State Stability. The later State Stability quantitative pass will aggregate them with Happiness, War Weariness, government transition, occupation and colonial burdens.
