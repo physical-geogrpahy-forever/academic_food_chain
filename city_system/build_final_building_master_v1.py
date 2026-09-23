@@ -24,6 +24,15 @@ EXTRA_FIELDS = [
     "FINAL_MERGE_SOURCES",
 ]
 
+HAPPINESS_ZERO_DEFAULT_FIELDS = [
+    "LOCAL_HAPPINESS",
+    "VP_DISTRESS_REDUCTION",
+    "VP_POVERTY_REDUCTION",
+    "VP_ILLITERACY_REDUCTION",
+    "VP_BOREDOM_REDUCTION",
+    "VP_RELIGIOUS_UNREST_REDUCTION",
+]
+
 V3_TO_BASE = {
     "PROJECT_ERA": "PROJECT_ERA",
     "CHAIN": "CHAIN",
@@ -74,6 +83,9 @@ def init_system_defaults(row):
     row["SPONTANEOUS_PLAGUE_RISK_MULT"] = "1.00"
     row["PLAGUE_DURATION_MOD_TURNS"] = "0"
     row["STABILITY_POINTS_FINAL"] = "0"
+    for field in HAPPINESS_ZERO_DEFAULT_FIELDS:
+        if field in row:
+            row[field] = "0"
     row["FINAL_MERGE_STATUS"] = "MERGED_V5"
     return row
 
