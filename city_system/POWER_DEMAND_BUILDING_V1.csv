@@ -1,0 +1,11 @@
+BUILDING_EN,POWER_LOAD,POWERED_BONUS,BASE_ROW_ADAPTATION,STATUS,RATIONALE
+Factory,2,Production+3,NONE,SOURCE_ADAPTED,GS Power load and incremental powered Production layered onto the project's VP-adapted Factory role.
+Stock Exchange,3,Gold+7,NONE,SOURCE_ADAPTED,GS Power load and incremental powered Gold layered onto the project's VP commercial role; base VP effects remain.
+Research Lab,3,Science+5,NONE,SOURCE_ADAPTED,GS Power load and incremental powered Science layered onto project Research Lab; Worker-built Academy bonus remains separately nerfed to +1.
+Broadcast Center,3,Culture+4,NONE,SOURCE_ADAPTED,GS Power load and incremental powered Culture layered onto the VP Broadcast Tower-style population/tourism role.
+Film Studio,3,Culture+4,NONE,SOURCE_ADAPTED,Project generic Film Studio uses the GS Film Studio powered Culture field while retaining project Film slots/tourism role.
+Food Market,1,Food+2,NONE,SOURCE_EXACT_GS,Project base Food+4 already matches current GS unpowered yield; powered bonus adds +2 Food.
+Shopping Mall,1,Gold+2; Local Happiness+1,NONE,SOURCE_EXACT_GS,Project base Gold+2 and Local Happiness+1 match GS base; powered bonuses activate only when city is Powered.
+Airport,1,Production+2,NONE,SOURCE_ADAPTED,Project keeps BNW airlift/tourism role; GS Power field adds only the incremental powered Production bonus.
+Stadium,2,Local Happiness+2,NONE,SOURCE_ADAPTED,Project keeps VP Stadium baseline role while GS Power field supplies the powered entertainment increment.
+Aquatics Center,2,Local Happiness+2,LOCAL_HAPPINESS_BASE:2->1,PROJECT_OVERRIDE_GS_ALIGNMENT,Current GS has +1 base Amenity and +2 more when powered; project V2 inherited +2 base and is corrected to +1 before adding the powered increment.
