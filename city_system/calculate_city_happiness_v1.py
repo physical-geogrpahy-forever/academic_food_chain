@@ -23,9 +23,12 @@ def _number(value, label: str) -> float:
     if isinstance(value, bool):
         raise ValueError(f"{label} must be numeric")
     try:
-        return float(value)
+        number = float(value)
     except (TypeError, ValueError) as exc:
         raise ValueError(f"{label} must be numeric") from exc
+    if not math.isfinite(number):
+        raise ValueError(f"{label} must be finite")
+    return number
 
 
 def _positive_float(value, label: str) -> float:
