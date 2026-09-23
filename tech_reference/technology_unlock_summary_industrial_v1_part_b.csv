@@ -1,9 +1,9 @@
-"TECH_EN","UNITS","CITY_BUILDINGS","TILE_IMPROVEMENTS","ROUTES_INFRASTRUCTURE","RESOURCE_REVEAL","RESOURCE_EXPLOITATION","SYSTEMS_NOTES"
-"Mass Production","","Shipyard","","","","","Assembly-Line Production; four corporation sector gates with Capitalism"
-"Fertilizer","","","","","","","Non-fresh Farm +1 Food; Plantation +1 Food; Pasture +1 Food; chemical-sector fertilizer upgrade"
-"Biology","","Hospital with Urbanization","","","","","Medical Biology; Pharmaceuticals corp gate; Oil moved to Refining"
-"Dynamite","Artillery with Military Science","","","","","","High-Explosive Mining; Mining corp gate"
-"Railroad","","","Railroad route","","","","Rail-network production/logistics bonus; hospitality corp gate; mining/logistics upgrades"
-"Refrigeration","","Cold Storage","","","","","Refrigerated Food Logistics with Capitalism; food processing/service corp gates"
-"Telegraph","","Telegraph Office with Sovereignty; Military Base","","","","","Telegraph Network; telecom corp gate; trading-house upgrade; Military Base retains the Civ5 final city-defense tier"
-"Armor Plating","Cruiser; Battleship with Warships","Drydock","","","","","Naval Armor Modernization"
+TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+Mass Production,,Shipyard; Shopping Mall with Capitalism,,,,,Assembly-Line Production; four corporation sector gates with Capitalism
+Fertilizer,,,,,,,Non-fresh Farm +1 Food; Plantation +1 Food; Pasture +1 Food; chemical-sector fertilizer upgrade
+Biology,,Hospital with Urbanization,,,,,Medical Biology; Pharmaceuticals corp gate; Oil moved to Refining
+Dynamite,Artillery with Military Science,,,,,,High-Explosive Mining; Mining corp gate
+Railroad,,,Railroad route,,,,Rail-network production/logistics bonus; hospitality corp gate; mining/logistics upgrades
+Refrigeration,,Cold Storage,,,,,Refrigerated Food Logistics with Capitalism; food processing/service corp gates
+Telegraph,,Telegraph Office with Sovereignty; Military Base,,,,,Telegraph Network; telecom corp gate; trading-house upgrade; Military Base retains the Civ5 final city-defense tier
+Armor Plating,Cruiser; Battleship with Warships,Drydock,,,,,Naval Armor Modernization

@@ -1,5 +1,5 @@
-"CIVIC_EN","FINAL_UNLOCKS_SYSTEMS","POLICY_CANDIDATES","NOTES"
-"Humanism","Art Museum; Landmark tile improvement","Frescoes; Invention","Landmark restores the pre-BNW Great Artist improvement as a nerfed Worker-built Culture/Tourism tile; Archaeological Museum remains Natural History"
-"Diplomatic Service","Chancery; Constabulary; Spy; Resident Embassies; formal Casus Belli; World Congress cross-gate with Printing","Machiavellianism; Wisselbanken","Constabulary moved here from Civ5 Banking; Chancery requires earlier Consulate"
-"Patronage","Great Person Patronage; City-State Patronage; City-State Great Person support","Philanthropy; Cultural Diplomacy; Merchant Confederacy","Adapts Civ5 Patronage tree; allied city-states support Great Person generation rather than gifting whole Great People randomly"
-"Print Culture","Mass Print Culture with Printing; Writing-work tourism boost","Vernacular Print; Pamphleteering candidates","Printing technology supplies capacity; civic represents widespread social adoption"
+CIVIC_EN,FINAL_UNLOCKS_SYSTEMS,POLICY_CANDIDATES,NOTES
+Humanism,Art Museum; Landmark tile improvement,Frescoes; Invention,Landmark restores the pre-BNW Great Artist improvement as a nerfed Worker-built Culture/Tourism tile; Archaeological Museum remains Natural History
+Diplomatic Service,Chancery; Constabulary; Spy; Resident Embassies; formal Casus Belli; World Congress cross-gate with Printing,Machiavellianism; Wisselbanken,Constabulary moved here from Civ5 Banking; Chancery requires earlier Consulate
+Patronage,Great Person Patronage; City-State Patronage; City-State Great Person support; Opera House with Acoustics; Musicians' Guild with Acoustics,Philanthropy; Cultural Diplomacy; Merchant Confederacy,Adapts Civ5 Patronage tree; allied city-states support Great Person generation rather than gifting whole Great People randomly
+Print Culture,Mass Print Culture with Printing; Writing-work tourism boost,Vernacular Print; Pamphleteering candidates,Printing technology supplies capacity; civic represents widespread social adoption

@@ -1,7 +1,7 @@
-"CIVIC_EN","FINAL_UNLOCKS_SYSTEMS","POLICY_CANDIDATES","NOTES"
-"Information Warfare","Cyber/Information Operations with Advanced AI; military network coordination","Integrated Attack Logistics; Rabblerousing","With Advanced AI: offensive Spy mission duration -10%; enemy Spy detection chance +10%; GDR-specific effects generalized because GDR is optional"
-"Global Warming Mitigation","Carbon Recapture with Ecology; carbon accounting/mitigation; +3 Envoys","","Diplomatic Victory point dropped unless project later adopts that victory system"
-"Cultural Hegemony","Global Cultural Influence","Hallyu; Non-State Actors","Rock Band/Spy promotion concepts retained"
-"Smart Power Doctrine","Smart Power Strategy; alliance/coalition leverage","Diplomatic Capital; Global Coalition","Direct Civ6 future-civic content used to fill sparse node"
-"Exodus Imperative","Exodus Program; Exoplanet Expedition with Smart Materials; Terrestrial/Lagrange Laser Stations with Offworld Mission","Aerospace Contractors; Space Tourism","Spaceport references converted to Space Launch Center; Future-era science-victory stage"
-"Future Civic","Repeatable Future Civic; +50 Diplomatic Favor per completion","","Governor Title and Score Victory rewards omitted; repeatable Diplomatic Favor retained"
+CIVIC_EN,FINAL_UNLOCKS_SYSTEMS,POLICY_CANDIDATES,NOTES
+Information Warfare,Cyber/Information Operations with Advanced AI; military network coordination,Integrated Attack Logistics; Rabblerousing,With Advanced AI: offensive Spy mission duration -10%; enemy Spy detection chance +10%; GDR-specific effects generalized because GDR is optional
+Global Warming Mitigation,Carbon Recapture with Ecology; carbon accounting/mitigation; +3 Envoys; Grid Battery Storage with Advanced Power Cells,,Diplomatic Victory point dropped unless project later adopts that victory system
+Cultural Hegemony,Global Cultural Influence,Hallyu; Non-State Actors,Rock Band/Spy promotion concepts retained
+Smart Power Doctrine,Smart Power Strategy; alliance/coalition leverage,Diplomatic Capital; Global Coalition,Direct Civ6 future-civic content used to fill sparse node
+Exodus Imperative,Exodus Program; Exoplanet Expedition with Smart Materials; Terrestrial/Lagrange Laser Stations with Offworld Mission,Aerospace Contractors; Space Tourism,Spaceport references converted to Space Launch Center; Future-era science-victory stage
+Future Civic,Repeatable Future Civic; +50 Diplomatic Favor per completion,,Governor Title and Score Victory rewards omitted; repeatable Diplomatic Favor retained

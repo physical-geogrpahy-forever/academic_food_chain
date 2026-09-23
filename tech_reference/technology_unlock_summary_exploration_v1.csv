@@ -1,9 +1,9 @@
-"TECH_EN","UNITS","CITY_BUILDINGS","TILE_IMPROVEMENTS","ROUTES_INFRASTRUCTURE","RESOURCE_REVEAL","RESOURCE_EXPLOITATION","SYSTEMS_NOTES"
-"Cartography","","","","","","","Cartographic Surveying; Caravel/ocean role owned by Astronomy + Exploration under Civ V priority"
-"Square Rigging","","","","","","","Embarked movement +1; Advanced Sailing Rig; Frigate moved to Warships"
-"Astronomy","Caravel with Exploration","Observatory","","","","","Ocean Crossing with Exploration"
-"Navigation","Ship of the Line","Seaport","","","","","Advanced Naval Navigation; Navigation School with Exploration"
-"Acoustics","","Opera House + Musicians' Guild with Patronage","","","","","Great Musician generation with Patronage; Cultural Goods corporation gate with Capitalism"
-"Flintlock","Line Infantry; Skirmisher","Gunsmith","","","","","Mature flintlock infantry stage"
-"Warships","Frigate","","","","","","Purpose-built Warship Production"
-"Fortification","Field Gun","Star Fort / Advanced Bastion","Advanced Fortification upgrade","","","","Upgrades Siege Tactics defenses rather than duplicating them"
+TECH_EN,UNITS,CITY_BUILDINGS,TILE_IMPROVEMENTS,ROUTES_INFRASTRUCTURE,RESOURCE_REVEAL,RESOURCE_EXPLOITATION,SYSTEMS_NOTES
+Cartography,,Navigation School with Exploration,,,,,Cartographic Surveying; Caravel/ocean role owned by Astronomy + Exploration under Civ V priority
+Square Rigging,,,,,,,Embarked movement +1; Advanced Sailing Rig; Frigate moved to Warships
+Astronomy,Caravel with Exploration,Observatory,,,,,Ocean Crossing with Exploration
+Navigation,Ship of the Line,Seaport,,,,,Advanced Naval Navigation; Navigation School with Exploration
+Acoustics,,Opera House + Musicians' Guild with Patronage,,,,,Great Musician generation with Patronage; Cultural Goods corporation gate with Capitalism
+Flintlock,Line Infantry; Skirmisher,Gunsmith,,,,,Mature flintlock infantry stage
+Warships,Frigate,,,,,,Purpose-built Warship Production
+Fortification,Field Gun,Star Fort / Advanced Bastion,Advanced Fortification upgrade,,,,Upgrades Siege Tactics defenses rather than duplicating them
