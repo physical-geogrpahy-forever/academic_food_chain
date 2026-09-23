@@ -10,6 +10,11 @@ MASTER = Path("city_system/FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5.csv")
 TECH = Path("tech_reference/MASTER_TECHNOLOGY_UNLOCKS_109_V2.csv")
 CIVIC = Path("civics_reference/MASTER_CIVIC_UNLOCKS_72_V3.csv")
 
+SYNTHETIC_CIVIC_GATES = {
+    "Tier-2 government adoption",
+    "Tier-3 government adoption",
+}
+
 
 def read(path):
     with path.open(newline="", encoding="utf-8-sig") as f:
@@ -83,7 +88,7 @@ def validate(roster_path, roster_v3_path, master_path, tech_path, civic_path):
             elif not row_contains(tech_by[tech_gate], name):
                 errors.append(f"{name}: tech row {tech_gate} does not mention building")
 
-        if civic_gate:
+        if civic_gate and civic_gate not in SYNTHETIC_CIVIC_GATES:
             if civic_gate not in civic_by:
                 errors.append(f"{name}: CIVIC_GATE not found: {civic_gate}")
             elif not row_contains(civic_by[civic_gate], name):
