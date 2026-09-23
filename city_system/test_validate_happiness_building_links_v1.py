@@ -100,6 +100,21 @@ def test_nonnumeric_need_fails(module, root: Path):
     assert_fails(lambda: module.validate_building_links(path), "VP_ILLITERACY_REDUCTION")
 
 
+def test_nonfinite_values_fail(module, root: Path):
+    cases = [
+        ("LOCAL_HAPPINESS", "nan"),
+        ("VP_ILLITERACY_REDUCTION", "inf"),
+        ("HEALTH_POINTS_FINAL", "-inf"),
+        ("STABILITY_POINTS_FINAL", "nan"),
+    ]
+    for field, value in cases:
+        path = root / f"nonfinite_{field}.csv"
+        rows = valid_rows()
+        rows[0][field] = value
+        write_csv(path, REQUIRED, rows)
+        assert_fails(lambda path=path, field=field: module.validate_building_links(path), field)
+
+
 def test_cross_system_guard_columns_required(module, root: Path):
     for missing in ("HEALTH_POINTS_FINAL", "STABILITY_POINTS_FINAL"):
         path = root / f"missing_{missing}.csv"
@@ -117,6 +132,7 @@ def main():
         test_missing_distress_column_fails(module, root)
         test_negative_local_happiness_fails(module, root)
         test_nonnumeric_need_fails(module, root)
+        test_nonfinite_values_fail(module, root)
         test_cross_system_guard_columns_required(module, root)
     print("HAPPINESS_BUILDING_LINK_TEST: PASS")
 
