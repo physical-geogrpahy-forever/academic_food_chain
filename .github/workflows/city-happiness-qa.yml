@@ -35,3 +35,6 @@ jobs:
 
       - name: Run building-link fixture tests
         run: python city_system/test_validate_happiness_building_links_v1.py
+
+      - name: Validate actual building master
+        run: python city_system/validate_happiness_building_links_v1.py
