@@ -1,0 +1,89 @@
+name: Build final building master
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - '.github/workflows/build-final-building-master.yml'
+      - 'city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V2_VP.csv'
+      - 'city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V3_VP_OVERRIDE.csv'
+      - 'city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V4_POWER_OVERRIDE.csv'
+      - 'city_system/FINAL_GENERIC_BUILDING_ROSTER_V1.csv'
+      - 'city_system/FINAL_GENERIC_BUILDING_ROSTER_V3_OVERRIDE.csv'
+      - 'city_system/build_final_building_master_v1.py'
+      - 'city_system/validate_final_building_master_v1.py'
+      - 'health_system/HEALTH_BUILDING_VALUES_V1.csv'
+      - 'tech_reference/MASTER_TECHNOLOGY_UNLOCKS_109_V2.csv'
+      - 'civics_reference/MASTER_CIVIC_UNLOCKS_72_V3.csv'
+
+permissions:
+  contents: write
+
+jobs:
+  build-master:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target branch
+        uses: actions/checkout@v4
+        with:
+          ref: civ-game-map-stage1b-etopo2022
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build merged master
+        run: |
+          python city_system/build_final_building_master_v1.py | tee /tmp/build.log
+
+      - name: Validate merged master and write QA report
+        id: validate
+        shell: bash
+        run: |
+          set +e
+          python city_system/validate_final_building_master_v1.py > /tmp/validate.log 2>&1
+          status=$?
+          set -e
+          {
+            echo '# Final Generic Building Numeric Master V5 QA'
+            echo
+            echo 'Generated automatically from repository authority files on the target branch.'
+            echo
+            echo '## Build result'
+            echo '```text'
+            cat /tmp/build.log
+            echo '```'
+            echo
+            echo '## Validation result'
+            echo '```text'
+            cat /tmp/validate.log
+            echo '```'
+            echo
+            if [ "$status" -eq 0 ]; then
+              echo '**VERDICT: PASS**'
+            else
+              echo '**VERDICT: FAIL - inspect validation output above before treating the merged master as authoritative.**'
+            fi
+          } > city_system/FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5_QA.md
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+
+      - name: Commit generated master and QA
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add city_system/FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5.csv city_system/FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5_QA.md
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'build: regenerate final building numeric master v5'
+            git push origin HEAD:civ-game-map-stage1b-etopo2022
+          fi
+
+      - name: Fail workflow if validation failed
+        if: steps.validate.outputs.status != '0'
+        run: exit 1
