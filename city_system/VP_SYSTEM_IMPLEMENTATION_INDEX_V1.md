@@ -183,3 +183,88 @@ Vox Populi의 핵심 시스템을 우리 게임에 거의 전면 도입하기로
   - commit `6f95c081e5a5cac68f8b744420ced05b8a150c6d`
 
 주요 변경: Palace, Granary, Aqueduct, Library, University, Public School, Research Lab, Barracks/Armory/Military Academy, Walls/Harbor/Seaport, Arena/Circus/Zoo, Temple, Constabulary 등은 VP 수치를 직접 또는 구조적으로 반영했다. Health와 Stability 절대값은 project-provisional로 분리했다.
+
+
+## 2026-09-23 기술/사회제도 → 유닛 → 타일개선/자원 전수감사
+
+### 기술 및 사회제도
+
+- `tech_reference/VP_SCIENCE_COST_CURVE_ADAPTATION_V1.csv`
+  - 109개 기술의 VP형 Science 비용곡선 초안
+  - commit `b51fe219498c0bf8c3e1865b4341c131ad9f9141`
+- `civics_reference/VP_CULTURE_COST_CURVE_ADAPTATION_V1.csv`
+  - 72개 사회제도의 Culture 비용곡선 초안
+  - commit `c407a257693008ee2ddc7e108ee7b8d1ac15d817`
+- `civics_reference/civic_tree_locked_v2.csv`
+  - 후기 시대 분류 불일치 수정
+  - commit `9115b59155a766edcfdc7391bde9d03415b95bf5`
+- `tech_reference/VP_TECH_CIVIC_SYSTEM_REAUDIT_V1.md`
+  - VP TechCostSweeps와 프로젝트 13시대 체계 비교
+  - commit `2a7a8a2c441e68f6b89231504e71362fec70f3c2`
+
+비용은 아직 provisional이다. 유닛, 타일, 자원, 전문가, 불가사의까지 VP화한 뒤 Standard 속도 autoplay로 최종 보정한다.
+
+### 유닛
+
+- `city_system/FINAL_UNIT_NUMERIC_BALANCE_V2_VP_AUDIT.csv`
+  - 89개 유닛 전수감사
+  - VP 직접대응 56
+  - VP analogue 9
+  - 역할충돌 4
+  - project-specific 20
+  - commit `7b310f4dbf1608ec51c4f6aa6161fae682ee5200`
+- `city_system/VP_UNIT_SYSTEM_REAUDIT_V1.md`
+  - commit `cba2aca9c6d58d633232b37a49044c770a3d49ff`
+
+역할충돌 4개는 별도 잠금 전까지 자동 덮어쓰기 금지:
+- Cavalry
+- Anti-Tank Gun
+- Helicopter
+- Aircraft Carrier
+
+### 타일개선
+
+- `city_system/VP_TILE_IMPROVEMENT_ADOPTION_V1.csv`
+  - 29개 일반/특수/후기 타일개선 정리
+  - commit `07798d7071583ac04566463fcb092037069e8226`
+
+핵심:
+- Farm, Village, Mine, Quarry, Pasture, Plantation, Camp, Fishing Boats, Lumber Mill, Fort, Oil Well 계열은 VP 구조 적극 채택
+- Academy, Manufactory, Landmark, Holy Site, Customs House는 Worker-built이므로 VP GPTI보다 너프
+- Citadel 제외
+- Dam, Canal, Airstrip, Seaside Resort, renewable-energy improvements, Seastead 유지
+
+### 자원
+
+- `civ_map_stage10_resources/VP_RESOURCE_YIELD_ADOPTION_V1.csv`
+  - 프로젝트 47개 자원 전부에 VP base yield, improved yield, Luxury Happiness, Monopoly를 매핑
+  - commit `b247ef5d5ac75fce5ce944a815c23083de07a4dc`
+- `civ_map_stage10_resources/VP_TILE_RESOURCE_SYSTEM_REAUDIT_V1.md`
+  - commit `3441709f1dd392c42ccc48365fc218acca98d1a3`
+
+프로젝트 우선 예외:
+- Stage10 실제 지리 배치
+- 증거기반 strategic quantity
+- 18개 생물자원 START_VISIBLE/LATENT/ACTIVE_INTRODUCED
+- Niter
+- Saltworks
+- GP tile improvement 일반시설화
+- Citadel 제거
+
+### 교차 시스템 충돌로 확정된 후속 수정
+
+1. `Animal Husbandry → Horses reveal`의 옛 master 표기는 동적 자원 V2와 충돌한다.
+   - Horses의 실제 visibility는 CONTACT_DYNAMIC_V2가 우선
+   - Animal Husbandry는 Pasture/exploitation gate로만 남기는 방향
+2. 기존 tech unlock summary의 Farm/Mine/Pasture/Camp/Fishing Boats/Lumber Mill upgrade 메모 일부는 VP adoption table과 재동기화 필요.
+3. Building V2의 VP Research Lab → Academy +4 Science, Factory → Manufactory +2 Production은 프로젝트의 Worker-built GPTI 규칙에서 과도할 수 있으므로 최종 도시산출 감사에서 축소한다.
+4. Niter Monopoly는 VP 원형이 없어 별도 설계 필요.
+5. Power 계열 modern improvements의 정확한 산출은 Power 수요/공급 단위 확정 뒤 잠근다.
+
+### 현재 단계 상태
+
+`기술 및 사회제도 → 유닛 → 타일개선/자원`의 VP 1차 통합감사는 완료됐다.
+
+다음 수치 잠금 단계는:
+`전문가/위인 → 불가사의/국가불가사의 → 종교/교역 세부수치 → 전체 autoplay → Science/Culture/Production 최종 재보정`
+순서로 진행한다.
