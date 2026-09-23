@@ -18,6 +18,8 @@ on:
       - 'city_system/repair_building_gate_master_v1.py'
       - 'city_system/validate_final_building_master_v1.py'
       - 'city_system/audit_remaining_provisional_building_fields_v1.py'
+      - 'city_system/validate_happiness_building_links_v1.py'
+      - 'city_system/test_validate_happiness_building_links_v1.py'
       - 'health_system/HEALTH_BUILDING_VALUES_V1.csv'
       - 'tech_reference/MASTER_TECHNOLOGY_UNLOCKS_109_V2.csv'
       - 'civics_reference/MASTER_CIVIC_UNLOCKS_72_V3.csv'
@@ -47,6 +49,10 @@ jobs:
       - name: Run validator fixture test
         run: |
           python city_system/test_validate_final_building_master_v1.py
+
+      - name: Run Happiness-link fixture test
+        run: |
+          python city_system/test_validate_happiness_building_links_v1.py
 
       - name: Repair building cross-gates
         run: |
@@ -91,6 +97,17 @@ jobs:
             fi
           } > city_system/FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5_QA.md
           echo "status=$status" >> "$GITHUB_OUTPUT"
+
+      - name: Validate Happiness layer on generated master
+        run: |
+          python city_system/validate_happiness_building_links_v1.py | tee /tmp/happiness-building.log
+          {
+            echo
+            echo '## Happiness-link validation'
+            echo '```text'
+            cat /tmp/happiness-building.log
+            echo '```'
+          } >> city_system/FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5_QA.md
 
       - name: Audit remaining provisional fields
         run: |
