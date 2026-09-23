@@ -19,6 +19,7 @@ EXTRA_FIELDS = [
     "SPONTANEOUS_PLAGUE_RISK_MULT",
     "PLAGUE_DURATION_MOD_TURNS",
     "HEALTH_OTHER_EFFECT",
+    "STABILITY_POINTS_FINAL",
     "FINAL_MERGE_STATUS",
     "FINAL_MERGE_SOURCES",
 ]
@@ -72,6 +73,7 @@ def init_system_defaults(row):
     row["HEALTH_POINTS_FINAL"] = "0"
     row["SPONTANEOUS_PLAGUE_RISK_MULT"] = "1.00"
     row["PLAGUE_DURATION_MOD_TURNS"] = "0"
+    row["STABILITY_POINTS_FINAL"] = "0"
     row["FINAL_MERGE_STATUS"] = "MERGED_V5"
     return row
 
@@ -159,6 +161,17 @@ def apply_health(rows, health_rows):
     return rows
 
 
+def apply_stability(rows):
+    for row in rows:
+        final_value = as_int_text(row.get("STABILITY_POINTS_PROVISIONAL", "")) or "0"
+        row["STABILITY_POINTS_FINAL"] = final_value
+        if final_value != "0":
+            row["FINAL_MERGE_SOURCES"] = ";".join(
+                filter(None, [row.get("FINAL_MERGE_SOURCES", ""), "STABILITY_BUILDING_V1"])
+            )
+    return rows
+
+
 def resolve_stale_markers(rows):
     for row in rows:
         special = row.get("SPECIAL_EFFECTS", "")
@@ -209,6 +222,7 @@ def build(base, v3, power, health, out):
     apply_v3(rows, fieldnames, read_csv(v3))
     apply_power(rows, read_csv(power))
     apply_health(rows, read_csv(health))
+    apply_stability(rows)
     resolve_stale_markers(rows)
 
     names = [r["BUILDING_EN"] for r in rows]
