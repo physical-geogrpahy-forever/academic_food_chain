@@ -1,0 +1,3 @@
+BUILDING_EN,ACTION,PROJECT_ERA,CHAIN,TECH_GATE,CIVIC_GATE,PREREQUISITE,SCOPE,MUTEX_GROUP,LOCATION_REQUIREMENT,SOURCE_BASIS,STATUS,NOTES
+Smokehouse,ADD,Ancient,FOOD_HEALTH,Trapping,,,PER_CITY,,,Vox Populi current building class + project resource-building resolution,LOCKED_ROSTER_V3,Camp-specialized rural food/production building; Bison and Deer interactions resolved here.
+Forge,ADD,Ancient,INDUSTRY_POWER,Bronze Working,,,PER_CITY,,,Vox Populi current production-line adaptation + project resource-building resolution,LOCKED_ROSTER_V3,Early metalworking/Engineer building; deliberately placed at Bronze Working rather than later Metal Casting.
