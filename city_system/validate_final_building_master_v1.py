@@ -15,6 +15,11 @@ SYNTHETIC_CIVIC_GATES = {
     "Tier-3 government adoption",
 }
 
+ALLOWED_PENDING_SPECIAL_EFFECT_TOKENS = {
+    "FOOD_STORAGE_TRADE_LOSS_REDUCTION=PENDING_LOGISTICS_SYSTEM",
+    "POWER_SYSTEM_CAPACITY=PENDING",
+}
+
 
 def read(path):
     with path.open(newline="", encoding="utf-8-sig") as f:
@@ -61,6 +66,7 @@ def validate(roster_path, roster_v3_path, master_path, tech_path, civic_path):
     master_names = [r["BUILDING_EN"] for r in master]
     errors = []
     warnings = []
+    deferred = []
 
     if len(roster_names) != len(set(roster_names)):
         errors.append("duplicate BUILDING_EN in merged roster")
@@ -98,15 +104,18 @@ def validate(roster_path, roster_v3_path, master_path, tech_path, civic_path):
         name = row["BUILDING_EN"]
         special = row.get("SPECIAL_EFFECTS", "")
         health_type = row.get("HEALTH_EFFECT_TYPE", "NONE")
-        power_source = row.get("POWER_SOURCE_RULE", "")
-        powered_bonus = row.get("POWERED_BONUS", "")
 
-        if "HEALTH_SYSTEM_EFFECT=PENDING" in special and health_type == "NONE":
-            errors.append(f"{name}: unresolved HEALTH_SYSTEM_EFFECT=PENDING")
-        if "POWER_SYSTEM_OUTPUT=PENDING" in special and not power_source:
-            errors.append(f"{name}: unresolved POWER_SYSTEM_OUTPUT=PENDING")
-        if "POWERED_BONUS_HANDLED_BY_POWER_SYSTEM_PENDING" in special and not powered_bonus:
-            errors.append(f"{name}: unresolved powered bonus pending")
+        pending_tokens = [
+            token.strip()
+            for token in special.split(";")
+            if "PENDING" in token.upper()
+        ]
+        for token in pending_tokens:
+            if token in ALLOWED_PENDING_SPECIAL_EFFECT_TOKENS:
+                deferred.append(f"{name}: {token}")
+            else:
+                errors.append(f"{name}: unexpected unresolved pending marker: {token}")
+
         if row.get("HEALTH_POINTS_FINAL", "") == "":
             errors.append(f"{name}: HEALTH_POINTS_FINAL blank")
         if row.get("POWER_LOAD", "") == "":
@@ -127,6 +136,7 @@ def validate(roster_path, roster_v3_path, master_path, tech_path, civic_path):
         "roster_rows": len(roster),
         "master_rows": len(master),
         "warnings": warnings,
+        "deferred": deferred,
     }
 
 
@@ -143,10 +153,12 @@ def main():
     print(
         "FINAL_BUILDING_MASTER_QA: PASS "
         f"roster={result['roster_rows']} master={result['master_rows']} "
-        f"warnings={len(result['warnings'])}"
+        f"warnings={len(result['warnings'])} deferred={len(result['deferred'])}"
     )
     for warning in result["warnings"]:
         print("WARN:", warning)
+    for item in result["deferred"]:
+        print("DEFERRED:", item)
 
 
 if __name__ == "__main__":
