@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import math
 from pathlib import Path
 
 MASTER = Path("city_system/FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5.csv")
@@ -40,6 +41,8 @@ def parse_numeric(value, *, building: str, field: str, nonnegative: bool) -> flo
         number = float(text)
     except ValueError as exc:
         raise AssertionError(f"{building}: {field} is non-numeric: {text!r}") from exc
+    if not math.isfinite(number):
+        raise AssertionError(f"{building}: {field} must be finite, got {text!r}")
     if nonnegative and number < 0:
         raise AssertionError(f"{building}: {field} must be >= 0, got {number}")
     return number
