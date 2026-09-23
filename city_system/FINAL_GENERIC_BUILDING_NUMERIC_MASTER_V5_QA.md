@@ -49,9 +49,6 @@ National History Museum: CIVIC_GATE not found: Tier-3 government adoption
 Royal Society: CIVIC_GATE not found: Tier-3 government adoption
 War Department: CIVIC_GATE not found: Tier-3 government adoption
 Arsenal: civic row Military Training does not mention building
-Smokehouse: POWER_LOAD blank
-Forge: HEALTH_POINTS_FINAL blank
-Forge: POWER_LOAD blank
 ```
 
 **VERDICT: FAIL - inspect validation output above before treating the merged master as authoritative.**
