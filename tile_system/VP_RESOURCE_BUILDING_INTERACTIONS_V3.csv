@@ -1,0 +1,5 @@
+BUILDING_EN,TECH_GATE,RESOURCE_ID,YIELD_CHANGE,STATUS,NOTES
+Smokehouse,Trapping,BISON,Food+1,LOCKED_V3,Direct resolved interaction; no placeholder remains.
+Smokehouse,Trapping,DEER,Food+1,LOCKED_V3,Direct resolved interaction; no placeholder remains.
+Forge,Bronze Working,IRON,Production+1; Gold+1,LOCKED_V3,Direct resolved interaction; early metalworking building rather than Gunsmith or Steelworks.
+Forge,Bronze Working,COPPER,Gold+2,LOCKED_V3,Direct resolved interaction; early metalworking building rather than Gunsmith or Steelworks.
