@@ -1,0 +1,3 @@
+"RESOURCE_ID","FIELD","V1_VALUE","AUTHORITATIVE_V2_VALUE","STATUS","RATIONALE"
+"NITER","MONOPOLY_EFFECT","PENDING_PROJECT_MONOPOLY","Production toward gunpowder and siege units +10%","PROJECT_MONOPOLY_LOCK_V2","VP has no Niter. A production bonus represents secure saltpetre/munition supply without duplicating Horses attack, Iron defense, Oil XP, Aluminum healing, or Uranium science/attack monopolies."
+"HORSES","VISIBILITY_OR_REVEAL","CONTACT_DYNAMIC_V2","CONTACT_DYNAMIC_V2","CONFIRM_DYNAMIC_OVERRIDE","Animal Husbandry is exploitation/Pasture gate only; it does not globally reveal latent introduced Horses."
