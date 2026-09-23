@@ -1,0 +1,5 @@
+"V1_PLACEHOLDER","FINAL_PROJECT_BUILDING","RESOURCE_ID","YIELD_CHANGE","STATUS","NOTES"
+"PENDING_SMOKEHOUSE_EQUIVALENT","Smokehouse","BISON","Food+1","RESOLVED_ADD_BUILDING","Add generic Smokehouse at Trapping in next building-roster revision."
+"PENDING_SMOKEHOUSE_EQUIVALENT","Smokehouse","DEER","Food+1","RESOLVED_ADD_BUILDING","Add generic Smokehouse at Trapping in next building-roster revision."
+"PENDING_FORGE_EQUIVALENT","Forge","IRON","Production+1; Gold+1","RESOLVED_ADD_BUILDING","Add generic Forge at Bronze Working rather than mapping to late Gunsmith/Steelworks."
+"PENDING_FORGE_EQUIVALENT","Forge","COPPER","Gold+2","RESOLVED_ADD_BUILDING","Add generic Forge at Bronze Working rather than mapping to late Gunsmith/Steelworks."
