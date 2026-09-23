@@ -1,7 +1,7 @@
 # Health-Power Cross-System QA V1
 
 Date: 2026-09-23
-Status: STATIC CROSS-SYSTEM QA COMPLETE / ONE NUMERIC BRIDGE DEFERRED
+Status: STATIC CROSS-SYSTEM QA COMPLETE / POWER-POLLUTION BRIDGE RESOLVED
 
 Inputs:
 
@@ -9,172 +9,140 @@ Inputs:
 - `health_system/HEALTH_BUILDING_VALUES_V1.csv`
 - `health_system/HEALTH_PLAGUE_NUMERIC_RULES_V1.csv`
 - `city_system/POWER_SYSTEM_V1.md`
+- `city_system/POWER_SOURCE_BALANCE_V1.csv`
 - `city_system/POWER_DEMAND_BUILDING_V1.csv`
-- `city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V2_VP.csv`
+- `city_system/POWER_POLLUTION_BRIDGE_V1.csv`
+- `city_system/FINAL_UNIT_UPGRADE_COSTS_V2_VP.csv`
+- `city_system/validate_cross_system_v1.py`
 
 ## 1. Direct Health versus Pollution
 
-PASS structurally.
+PASS.
 
-Factory, Coal Power Plant and generic Oil-role Power Plant do not receive an additional hard-coded direct negative Health value in Health V1.
+Factory, Coal Power Plant and generic Oil-role Power Plant do not receive an additional hard-coded direct negative Health value.
 
-Their intended route is:
+Their route is:
 
-`industrial/power source -> Pollution -> city Health penalty`
+`industrial/power source -> local Pollution -> city Health penalty`
 
-This avoids applying both direct `-Health` and Pollution-derived `-Health` for the same industrial externality.
-
-### Deferred numeric bridge
-
-Power V1 currently records fuel-source emissions only as classes:
-
-- Coal: HEAVY
-- Oil: MODERATE
-- Nuclear: MINUSCULE
-- renewables: ZERO
-
-Power V1 explicitly did not assign exact local Pollution/CO2 points.
-
-Health V1 already defines:
+Health V1 uses:
 
 `Health pollution penalty = -floor(city_pollution / 10)`, capped at -5.
 
-Therefore the formula contract exists, but fossil/nuclear power does not yet inject a numeric city-pollution value into it.
+This prevents duplicate direct industrial `-Health` plus Pollution-derived `-Health`.
 
-Verdict:
+## 2. Power emission -> local Pollution bridge
 
-`DEFERRED_POWER_EMISSION_TO_LOCAL_POLLUTION_BRIDGE`
+RESOLVED V1.
 
-This bridge must be resolved before claiming a full Health-Power runtime balance pass.
+Authority:
 
-## 2. Power demand versus Health buildings
+- `city_system/POWER_POLLUTION_BRIDGE_V1.csv`
+
+Gathering Storm fuel coefficients retained for the global-emission side:
+
+- Coal: 820 per generated Power
+- Oil: 490 per generated Power
+- Nuclear: 48 per generated Power
+- adopted renewables: 0
+
+Project local-Pollution conversion:
+
+`local_pollution = round(actual_power_generated * GS_CO2_per_power / 300)`
+
+The `/300` term is a project normalization, not a claim that Gathering Storm itself uses local Pollution points.
+
+Examples at 4 generated Power:
+
+- Coal: local Pollution 11 -> Health -1
+- Oil: local Pollution 7 -> Health 0
+- Nuclear: local Pollution 1 -> Health 0
+
+At 8 Power, Oil reaches about 13 local Pollution and therefore Health -1. This preserves the intended ordering `Coal > Oil > Nuclear > renewables` without making one fossil plant automatically trigger the -5 Health cap.
+
+Global CO2 and local Pollution remain separate variables.
+
+## 3. Power demand versus Health buildings
 
 PASS.
 
 Hospital, Sewer, Apothecary and Medical Lab do not receive invented Power loads merely because they are medical buildings.
 
-Food Market does have a Power load of 1 because it comes from the adopted Gathering Storm Power structure.
+Food Market has Power load 1 because it comes from the adopted Gathering Storm Power structure.
 
-Thus medical Health progression is not accidentally gated behind electricity unless the source/project building already has a Power role.
+## 4. Food Market overlap
 
-## 3. Food Market overlap
+RUNTIME WATCH, not a structural error.
 
-WATCH, not an error.
-
-Food Market currently has:
+Food Market has:
 
 - base Food +4
 - Health +1
 - Power load 1
 - powered Food +2
 
-A healthy Powered city can therefore obtain both the direct Food bonus and an indirect Food contribution through total city Health.
+Direct Food and Health-derived Food are distinct systems. Do not remove either before runtime evidence.
 
-These effects are mechanically distinct:
+## 5. Hospital overlap
 
-- direct/powered Food is building output;
-- Health-derived Food is a city-state conversion affected by population, water, resources, pollution and plague.
+RUNTIME WATCH.
 
-Do not remove either before runtime data exists.
+Hospital retains base Food +5 while Health V1 adds Health +4 and plague-duration -1.
 
-Runtime watch: Industrial urban growth acceleration.
+Monitor Industrial city growth and whether Population -1 Health per citizen naturally absorbs the temporary Health surplus.
 
-## 4. Hospital overlap
-
-WATCH, not an error.
-
-Hospital currently retains Civ V-style base Food +5 while Health V1 adds Health +4 and plague-duration -1.
-
-A sufficiently healthy city can therefore receive substantial direct Food plus indirect Health-derived Food.
-
-This is intentional source-layer separation, but it is one of the strongest potential growth accelerators in the system.
-
-Do not reduce Hospital Food or Health from static arithmetic alone.
-
-Runtime watch:
-
-- city growth immediately after Hospital completion;
-- whether Population -1 Health per citizen naturally absorbs the temporary Health surplus;
-- whether Hospital + Sewer together erase the Industrial disease challenge too abruptly.
-
-## 5. Aqueduct duplicate counting
-
-PASS after Health V1 override.
-
-The old building V2 table contains provisional `Aqueduct Health +2` as if it were a flat building value.
-
-Health V1 supersedes that interpretation:
-
-- natural fresh water -> water Health 2
-- Aqueduct -> water Health floor 2
-- they do not stack
-
-This removes a potential +4 river-city double count.
-
-## 6. International trade double-effect
-
-PASS structurally, runtime watch quantitatively.
-
-International trade affects Health in two different ways:
-
-1. every four active international routes impose -1 Empire Health, capped at -2;
-2. an active international trade link from an infected city has plague network multiplier x2.0.
-
-These are not the same event:
-
-- the Empire Health effect is a mild persistent connectivity/crowding cost;
-- the transmission multiplier applies only when there is an actual infected source city.
-
-Therefore this is not a literal duplicate penalty.
-
-Runtime watch: highly trade-oriented civilizations during the High Medieval plague peak.
-
-## 7. Dynamic resource system compatibility
+## 6. Aqueduct duplicate counting
 
 PASS.
 
-Health from resources requires the resource copy to be worked locally.
+Natural fresh water and Aqueduct each provide a water-Health floor of +2, but do not stack. River cities therefore do not receive an accidental +4 water bonus.
 
-Discovery, contact or trade can reveal/use a resource under the dynamic-resource system, but mere visibility or import does not create automatic Health.
+## 7. International trade double-effect
 
-This preserves the existing contact-based resource-discovery rules and prevents global trade networks from creating free city Health.
+PASS structurally, RUNTIME WATCH quantitatively.
 
-## 8. Strategic-resource Health tradeoff
+International trade has two distinct effects:
 
-WATCH.
+1. every four active international routes impose -1 Empire Health, capped at -2;
+2. an infected international trade link uses plague transmission multiplier x2.0.
 
-The original Health & Plague design explicitly used Coal, Iron and Oil as additive worked Health maluses. Health V1 preserves -1 per worked copy.
+The first is persistent connectivity pressure; the second exists only when an infected source city is present.
 
-For the project this creates a meaningful but potentially strong interaction:
+## 8. Dynamic resource compatibility
 
-- Iron may impose an early Health cost before the Pollution system is important;
-- Coal/Oil can later have both worked-tile Health malus and city Pollution externality from industrial use.
+PASS.
 
-These are different mechanisms: extraction-site local Health versus citywide pollution from consumption.
+Health from resources requires the local resource copy to be worked. Visibility, contact, or import alone does not create city Health.
 
-Autoplay must check whether the combined Coal/Oil burden is excessive.
+## 9. Strategic-resource Health tradeoff
 
-## 9. Late disease suppression
+RUNTIME WATCH.
 
-WATCH.
+Worked Coal/Oil can carry extraction-site Health maluses while power consumption creates citywide Pollution. These are different mechanisms but can compound, so autoplay must test whether the combined burden is excessive.
 
-The late stack can include:
+## 10. Late disease suppression
 
-- Sewer +4 Health and x0.75 spontaneous risk
-- Hospital +4 Health and duration -1
-- Medical Lab +5 Health and duration -2
-- Recycling Center +2 Health plus Pollution -25%
+RUNTIME WATCH.
 
-This is intentionally powerful but may make post-Modern plague nearly irrelevant before the era multiplier itself declines.
+The late stack can include Sewer +4, Hospital +4, Medical Lab +5, Recycling Center +2 and Pollution -25%. No static nerf is applied before outbreak-frequency data exists.
 
-No static nerf is applied. Runtime outbreak frequency will decide.
+## 11. Validator
+
+`city_system/validate_cross_system_v1.py` checks:
+
+- Coal/Oil/Nuclear Power-resource ratios and emission ordering;
+- zero-emission renewable consistency;
+- Health building positive values;
+- absence of duplicate direct Health penalties on industry/transport buildings;
+- locked plague anchors;
+- 55 unit-upgrade edges and the three equal-cost 10 Gold watch edges.
+
+The validator logic was executed against a matching fixture and returned `CROSS_SYSTEM_STATIC_QA: PASS`. Repository-source rows were then reread through GitHub and matched the asserted anchors. Full game-engine runtime autoplay remains separate.
 
 ## Final verdict
 
-Cross-system structure is coherent and no direct duplicate Health/Power bonus or penalty requires immediate removal.
+Health-Power structural integration is now closed for pre-autoplay V1.
 
-One implementation dependency remains before full runtime integration:
+No known numeric bridge remains between Power emissions and Health.
 
-**Power emission class -> numeric local Pollution points.**
-
-All other identified interactions are runtime balance watches rather than structural errors.
+Remaining issues are runtime balance questions rather than missing structural links.
