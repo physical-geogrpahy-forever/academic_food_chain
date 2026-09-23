@@ -1,0 +1,10 @@
+POWER_SOURCE,POWER_PER_RESOURCE_CAPACITY,GS_CO2_PER_POWER,GLOBAL_CO2_FORMULA,LOCAL_POLLUTION_FORMULA,EXAMPLE_AT_4_POWER,HEALTH_EFFECT_AT_EXAMPLE,STATUS,BASIS
+Coal Power Plant,4,820,"actual_power_generated*820","round(actual_power_generated*820/300)",11,-1,PROJECT_LOCKED_V1,"GS Expansion2 resource coefficient retained; /300 is project normalization to the Health system's 10-pollution-per-Health threshold."
+Oil-role Power Plant,4,490,"actual_power_generated*490","round(actual_power_generated*490/300)",7,0,PROJECT_LOCKED_V1,"GS Expansion2 resource coefficient retained; moderate local pollution. At 8 Power the local score is ~13 and produces -1 Health."
+Nuclear Power Plant,16,48,"actual_power_generated*48","round(actual_power_generated*48/300)",1,0,PROJECT_LOCKED_V1,"GS Expansion2 resource coefficient retained; minuscule local pollution. 16 Power produces local score ~3 and no direct Health loss under the 10-point threshold."
+Solar Plant,NA,0,0,0,0,0,PROJECT_LOCKED_V1,"Zero-emission project renewable building."
+Solar Farm,NA,0,0,0,0,0,PROJECT_LOCKED_V1,"Zero-emission renewable improvement."
+Wind Farm,NA,0,0,0,0,0,PROJECT_LOCKED_V1,"Zero-emission renewable improvement."
+Offshore Wind Farm,NA,0,0,0,0,0,PROJECT_LOCKED_V1,"Zero-emission renewable improvement."
+Geothermal Plant,NA,0,0,0,0,0,PROJECT_LOCKED_V1,"Zero-emission for the adopted Gathering Storm gameplay layer."
+Hydroelectric Dam,NA,0,0,0,0,0,PROJECT_LOCKED_V1,"Zero-emission for the adopted Gathering Storm gameplay layer."
