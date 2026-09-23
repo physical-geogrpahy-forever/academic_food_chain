@@ -13,3 +13,5 @@ Pre-flight shared interfaces:
 Ruling: The harness has GitHub connector access but no checked-out repository/worktree execution environment. Use the existing non-main feature branch as the isolated workspace and GitHub Actions as the command runner. This preserves RED/GREEN evidence but means test execution evidence comes from Actions rather than a local worktree. Cost if wrong: workflow latency and extra CI commits, not gameplay semantics.
 
 Ruling: Create the City Happiness CI harness early, before Task 5, because it is required to observe TDD RED/GREEN in this connector-only environment. Task 5 will finalize its triggers and command set. Cost if wrong: CI configuration appears earlier in history than the plan's nominal task order; implementation interfaces are unchanged.
+
+Task 1: complete. RED run 35861270501 failed exactly because `calculate_city_happiness_v1.py` did not exist. GREEN run 35861345013 passed after adding the 13-era expectation table and expectation loader/clamp implementation. Commits: e1544da, 5b8b781, b2830a2, 8a54fab.
