@@ -1,0 +1,34 @@
+name: City happiness quantitative QA
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - civ-game-map-stage1b-etopo2022
+    paths:
+      - '.github/workflows/city-happiness-qa.yml'
+      - 'city_system/HAPPINESS_ERA_EXPECTATIONS_V1.csv'
+      - 'city_system/calculate_city_happiness_v1.py'
+      - 'city_system/test_calculate_city_happiness_v1.py'
+      - 'city_system/validate_happiness_building_links_v1.py'
+      - 'city_system/test_validate_happiness_building_links_v1.py'
+      - 'city_system/generate_city_happiness_static_qa_v1.py'
+      - 'city_system/CITY_HAPPINESS_QUANTITATIVE_V1.md'
+      - 'city_system/FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5.csv'
+
+jobs:
+  happiness-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target branch
+        uses: actions/checkout@v4
+        with:
+          ref: civ-game-map-stage1b-etopo2022
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run calculator tests
+        run: python city_system/test_calculate_city_happiness_v1.py
