@@ -15,6 +15,7 @@ on:
       - 'city_system/build_final_building_master_v1.py'
       - 'city_system/repair_building_gate_master_v1.py'
       - 'city_system/validate_final_building_master_v1.py'
+      - 'city_system/audit_remaining_provisional_building_fields_v1.py'
       - 'health_system/HEALTH_BUILDING_VALUES_V1.csv'
       - 'tech_reference/MASTER_TECHNOLOGY_UNLOCKS_109_V2.csv'
       - 'civics_reference/MASTER_CIVIC_UNLOCKS_72_V3.csv'
@@ -81,6 +82,10 @@ jobs:
           } > city_system/FINAL_GENERIC_BUILDING_NUMERIC_MASTER_V5_QA.md
           echo "status=$status" >> "$GITHUB_OUTPUT"
 
+      - name: Audit remaining provisional fields
+        run: |
+          python city_system/audit_remaining_provisional_building_fields_v1.py | tee /tmp/provisional-audit.log
+
       - name: Commit repaired gates, generated master and QA
         shell: bash
         run: |
@@ -90,7 +95,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No generated changes to commit.'
           else
-            git commit -m 'build: repair gates and regenerate building master v5'
+            git commit -m 'build: regenerate building master and provisional audit'
             git push origin HEAD:civ-game-map-stage1b-etopo2022
           fi
 
