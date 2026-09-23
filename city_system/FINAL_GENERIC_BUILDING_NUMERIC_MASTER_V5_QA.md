@@ -20,3 +20,8 @@ DEFERRED: Grid Battery Storage: POWER_SYSTEM_CAPACITY=PENDING
 ```
 
 **VERDICT: PASS**
+
+## Happiness-link validation
+```text
+HAPPINESS_BUILDING_LINK_QA: PASS rows=104 distress_sources=5 poverty_sources=4 illiteracy_sources=8 boredom_sources=10 religious_sources=2 local_happiness_sources=6
+```
