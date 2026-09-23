@@ -1,0 +1,16 @@
+BUILDING_EN,ACTION,POWER_LOAD,POWERED_BONUS,BASE_NUMERIC_CHANGE,POWER_SOURCE_RULE,STATUS,RATIONALE
+Factory,ADD_POWER_LAYER,2,Production+3,, ,SOURCE_ADAPTED,GS Power field layered onto VP-adapted Factory.
+Stock Exchange,ADD_POWER_LAYER,3,Gold+7,, ,SOURCE_ADAPTED,GS Power field layered onto VP-adapted Stock Exchange.
+Research Lab,ADD_POWER_LAYER,3,Science+5,, ,SOURCE_ADAPTED,GS Power field layered onto project Research Lab; Academy interaction remains +1 from Building V3.
+Broadcast Center,ADD_POWER_LAYER,3,Culture+4,, ,SOURCE_ADAPTED,GS Power field layered onto VP Broadcast role.
+Film Studio,ADD_POWER_LAYER,3,Culture+4,, ,SOURCE_ADAPTED,GS Film Studio Power field adapted to project generic Film Studio.
+Food Market,ADD_POWER_LAYER,1,Food+2,, ,SOURCE_EXACT_GS,Base Food+4 plus powered Food+2.
+Shopping Mall,ADD_POWER_LAYER,1,Gold+2; Local Happiness+1,, ,SOURCE_EXACT_GS,Base Gold+2 and Local Happiness+1 retained; powered increment added.
+Airport,ADD_POWER_LAYER,1,Production+2,, ,SOURCE_ADAPTED,BNW/project airlift baseline retained while GS powered increment is added.
+Stadium,ADD_POWER_LAYER,2,Local Happiness+2,, ,SOURCE_ADAPTED,VP baseline role retained while GS powered entertainment increment is added.
+Aquatics Center,ADD_POWER_LAYER,2,Local Happiness+2,Local Happiness 2 -> 1, ,PROJECT_OVERRIDE_GS_ALIGNMENT,Correct base/powered split to current GS 1 base +2 powered.
+Coal Power Plant,RESOLVE_POWER_SOURCE,0,,,Coal capacity 1 -> 4 Power; network radius 6; emission HEAVY,SOURCE_ADAPTED,Replaces POWER_SYSTEM_OUTPUT/POLLUTION pending fields for electricity generation.
+Power Plant,RESOLVE_POWER_SOURCE,0,,,Oil capacity 1 -> 4 Power; network radius 6; emission MODERATE,PROJECT_OVERRIDE_GS_OIL_ROLE,Existing generic Power Plant fills Oil Power Plant role instead of adding duplicate building.
+Nuclear Power Plant,RESOLVE_POWER_SOURCE,0,,,Uranium capacity 1 -> 16 Power; network radius 6; emission MINUSCULE,SOURCE_ADAPTED,Replaces POWER_SYSTEM_OUTPUT pending field; accident risk remains separate.
+Solar Plant,RESOLVE_POWER_SOURCE,0,,,Fixed 6 Power; network radius 6; emission ZERO,PROJECT_INTERPOLATED,Compact late renewable city building; equal to one Hydroelectric Dam or three Solar Farms.
+Grid Battery Storage,RESOLVE_POWER_SOURCE,0,,,Generates 0 Power; storage rule deferred,DEFERRED_STORAGE_RULE,No unsupported generation assigned.
