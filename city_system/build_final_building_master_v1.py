@@ -42,6 +42,13 @@ V3_TO_BASE = {
     "RATIONALE": "VP_AUDIT_REASON",
 }
 
+STALE_MARKER_REPLACEMENTS = {
+    "HEALTH_SYSTEM_EFFECT=PENDING": "HEALTH_SYSTEM_EFFECT=HEALTH_V1",
+    "POWER_SYSTEM_OUTPUT=PENDING": "POWER_SYSTEM_OUTPUT=POWER_V4",
+    "POWERED_BONUS_HANDLED_BY_POWER_SYSTEM_PENDING": "POWERED_BONUS_HANDLED_BY_POWER_SYSTEM=POWER_V4",
+    "POLLUTION_SYSTEM_EFFECT=PENDING": "POLLUTION_SYSTEM_EFFECT=POWER_POLLUTION_BRIDGE_V1",
+}
+
 
 def read_csv(path: Path):
     with path.open(newline="", encoding="utf-8-sig") as f:
@@ -152,6 +159,38 @@ def apply_health(rows, health_rows):
     return rows
 
 
+def resolve_stale_markers(rows):
+    for row in rows:
+        special = row.get("SPECIAL_EFFECTS", "")
+
+        if row.get("HEALTH_EFFECT_TYPE", "NONE") != "NONE":
+            special = special.replace(
+                "HEALTH_SYSTEM_EFFECT=PENDING",
+                STALE_MARKER_REPLACEMENTS["HEALTH_SYSTEM_EFFECT=PENDING"],
+            )
+
+        if row.get("POWER_SOURCE_RULE", ""):
+            special = special.replace(
+                "POWER_SYSTEM_OUTPUT=PENDING",
+                STALE_MARKER_REPLACEMENTS["POWER_SYSTEM_OUTPUT=PENDING"],
+            )
+            special = special.replace(
+                "POLLUTION_SYSTEM_EFFECT=PENDING",
+                STALE_MARKER_REPLACEMENTS["POLLUTION_SYSTEM_EFFECT=PENDING"],
+            )
+
+        if row.get("POWERED_BONUS", ""):
+            special = special.replace(
+                "POWERED_BONUS_HANDLED_BY_POWER_SYSTEM_PENDING",
+                STALE_MARKER_REPLACEMENTS[
+                    "POWERED_BONUS_HANDLED_BY_POWER_SYSTEM_PENDING"
+                ],
+            )
+
+        row["SPECIAL_EFFECTS"] = special
+    return rows
+
+
 def build(base, v3, power, health, out):
     base_rows = read_csv(base)
     if not base_rows:
@@ -170,6 +209,7 @@ def build(base, v3, power, health, out):
     apply_v3(rows, fieldnames, read_csv(v3))
     apply_power(rows, read_csv(power))
     apply_health(rows, read_csv(health))
+    resolve_stale_markers(rows)
 
     names = [r["BUILDING_EN"] for r in rows]
     if len(names) != len(set(names)):
