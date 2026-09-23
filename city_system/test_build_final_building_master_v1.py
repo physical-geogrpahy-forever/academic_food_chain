@@ -32,10 +32,17 @@ def test_merge_fixture():
             "SCIENCE_FLAT", "CULTURE_FLAT", "FAITH_FLAT", "LOCAL_HAPPINESS",
             "SPECIALIST_TYPE", "SPECIALIST_SLOTS", "SPECIAL_EFFECTS", "SOURCE_GRADE",
             "NUMERIC_STATUS", "NUMERIC_BASIS", "HEALTH_POINTS_PROVISIONAL",
-            "VP_AUDIT_STATUS", "VP_AUDIT_REASON",
+            "STABILITY_POINTS_PROVISIONAL", "VP_AUDIT_STATUS", "VP_AUDIT_REASON",
         ]
 
-        def base_row(name, era="Industrial", local_happiness="0", effects="OLD", health="0"):
+        def base_row(
+            name,
+            era="Industrial",
+            local_happiness="0",
+            effects="OLD",
+            health="0",
+            stability="0",
+        ):
             row = {k: "" for k in base_fields}
             row.update(
                 BUILDING_EN=name,
@@ -53,6 +60,7 @@ def test_merge_fixture():
                 SPECIALIST_SLOTS="0",
                 SPECIAL_EFFECTS=effects,
                 HEALTH_POINTS_PROVISIONAL=health,
+                STABILITY_POINTS_PROVISIONAL=stability,
             )
             return row
 
@@ -66,6 +74,7 @@ def test_merge_fixture():
                 base_row("Aquatics Center", "Modern", "2"),
                 base_row("Coal Power Plant"),
                 base_row("Aqueduct", "Classical", health="2"),
+                base_row("Courthouse", "Ancient", stability="2"),
             ],
         )
 
@@ -143,6 +152,8 @@ def test_merge_fixture():
         assert by_name["Coal Power Plant"]["POWER_SOURCE_RULE"].startswith("Coal capacity")
         assert by_name["Aqueduct"]["HEALTH_EFFECT_TYPE"] == "WATER_HEALTH_FLOOR"
         assert by_name["Aqueduct"]["HEALTH_POINTS_FINAL"] == "2"
+        assert by_name["Courthouse"]["STABILITY_POINTS_FINAL"] == "2"
+        assert by_name["Smokehouse"]["STABILITY_POINTS_FINAL"] == "0"
         assert len({r["BUILDING_EN"] for r in rows}) == len(rows)
 
 
