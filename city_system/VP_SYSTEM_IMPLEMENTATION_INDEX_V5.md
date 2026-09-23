@@ -1,13 +1,14 @@
 # VP 시스템 구현 인덱스 V5
 
 기준일: 2026-09-23
-상태: HEALTH QUANTITATIVE V1 / PRE-AUTOPLAY STATIC QA COMPLETE
+상태: HEALTH QUANTITATIVE V1 / PRE-AUTOPLAY STATIC QA COMPLETE / POWER-POLLUTION BRIDGE DEFERRED
 
 상위 기록:
 
 - `city_system/VP_SYSTEM_IMPLEMENTATION_INDEX_V4.md`
 - `city_system/STANDARD_SPEED_PRE_AUTOPLAY_CURVE_QA_V1.md`
 - `health_system/HEALTH_AND_PLAGUE_QUANTITATIVE_V1.md`
+- `health_system/HEALTH_POWER_CROSS_SYSTEM_QA_V1.md`
 
 ## 1. 기술 및 사회제도
 
@@ -117,6 +118,17 @@ Autoplay가 시작되었다고 해서 자동으로 VP 원수치로 복구하지 
 
 Power와 일반 Production bonus를 동일 변수로 처리하지 않는다.
 
+중요한 미완성 연결:
+
+- Coal = HEAVY
+- Oil = MODERATE
+- Nuclear = MINUSCULE
+- renewable = ZERO
+
+까지는 확정되어 있으나, 이 emission class를 **numeric local Pollution points**로 변환하는 값은 아직 확정하지 않았다.
+
+따라서 Health의 Pollution penalty 식은 존재하지만 발전소가 몇 Pollution point를 투입하는지는 아직 `DEFERRED_POWER_EMISSION_TO_LOCAL_POLLUTION_BRIDGE`이다.
+
 ## 6. Health and Plague V1
 
 정성 설계:
@@ -130,6 +142,7 @@ Power와 일반 Production bonus를 동일 변수로 처리하지 않는다.
 - `health_system/HEALTH_RESOURCE_FEATURE_VALUES_V1.csv`
 - `health_system/HEALTH_PLAGUE_NUMERIC_RULES_V1.csv`
 - `health_system/HEALTH_PLAGUE_ERA_RISK_V1.csv`
+- `health_system/HEALTH_POWER_CROSS_SYSTEM_QA_V1.md`
 
 핵심식:
 
@@ -158,6 +171,14 @@ Power/industry의 Health 외부효과는 Pollution을 통해 연결한다. Facto
 
 Harbor/Airport는 전파 네트워크를 통해 작용하고 direct -Health를 받지 않는다.
 
+Cross-system runtime watch:
+
+- Hospital +5 base Food와 Health +4의 간접 Food 전환
+- Food Market +4 base Food + powered Food +2 + Health +1
+- 국제무역의 소규모 Empire Health malus와 감염 시 x2 transmission
+- worked Coal/Oil의 -1 Health와 향후 소비단계 Pollution의 결합
+- Sewer/Hospital/Medical Lab 이후 후기 plague 억제가 지나치게 빠른지
+
 ## 7. Pre-autoplay static QA
 
 권위본:
@@ -178,41 +199,43 @@ Harbor/Airport는 전파 네트워크를 통해 작용하고 direct -Health를 �
 
 1. `city_system/VP_SYSTEM_IMPLEMENTATION_INDEX_V5.md`
 2. `health_system/HEALTH_AND_PLAGUE_QUANTITATIVE_V1.md`
-3. `health_system/HEALTH_BUILDING_VALUES_V1.csv`
-4. `health_system/HEALTH_RESOURCE_FEATURE_VALUES_V1.csv`
-5. `health_system/HEALTH_PLAGUE_NUMERIC_RULES_V1.csv`
-6. `health_system/HEALTH_PLAGUE_ERA_RISK_V1.csv`
-7. `city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V4_POWER_OVERRIDE.csv`
-8. `city_system/POWER_SOURCE_BALANCE_V1.csv`
-9. `city_system/POWER_DEMAND_BUILDING_V1.csv`
-10. `city_system/FINAL_GENERIC_BUILDING_ROSTER_V3_OVERRIDE.csv`
-11. `city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V3_VP_OVERRIDE.csv`
-12. `tech_reference/VP_TECH_BUILDING_ADDITIONS_V3.csv`
-13. `tile_system/VP_RESOURCE_BUILDING_INTERACTIONS_V3.csv`
-14. `tech_reference/MASTER_TECHNOLOGY_UNLOCKS_109_V2.csv`
-15. `civics_reference/MASTER_CIVIC_UNLOCKS_72_V3.csv`
-16. `city_system/FINAL_UNIT_NUMERIC_BALANCE_V3_VP.csv`
-17. `city_system/FINAL_UNIT_UPGRADE_COSTS_V2_VP.csv`
-18. `city_system/VP_TILE_IMPROVEMENT_ADOPTION_V2.csv`
-19. `civ_map_stage10_resources/VP_RESOURCE_OVERRIDE_V2.csv`
-20. locked historical/dynamic-resource rules
-21. earlier V4/V3/V2/V1 audit and master files
+3. `health_system/HEALTH_POWER_CROSS_SYSTEM_QA_V1.md`
+4. `health_system/HEALTH_BUILDING_VALUES_V1.csv`
+5. `health_system/HEALTH_RESOURCE_FEATURE_VALUES_V1.csv`
+6. `health_system/HEALTH_PLAGUE_NUMERIC_RULES_V1.csv`
+7. `health_system/HEALTH_PLAGUE_ERA_RISK_V1.csv`
+8. `city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V4_POWER_OVERRIDE.csv`
+9. `city_system/POWER_SOURCE_BALANCE_V1.csv`
+10. `city_system/POWER_DEMAND_BUILDING_V1.csv`
+11. `city_system/FINAL_GENERIC_BUILDING_ROSTER_V3_OVERRIDE.csv`
+12. `city_system/FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V3_VP_OVERRIDE.csv`
+13. `tech_reference/VP_TECH_BUILDING_ADDITIONS_V3.csv`
+14. `tile_system/VP_RESOURCE_BUILDING_INTERACTIONS_V3.csv`
+15. `tech_reference/MASTER_TECHNOLOGY_UNLOCKS_109_V2.csv`
+16. `civics_reference/MASTER_CIVIC_UNLOCKS_72_V3.csv`
+17. `city_system/FINAL_UNIT_NUMERIC_BALANCE_V3_VP.csv`
+18. `city_system/FINAL_UNIT_UPGRADE_COSTS_V2_VP.csv`
+19. `city_system/VP_TILE_IMPROVEMENT_ADOPTION_V2.csv`
+20. `civ_map_stage10_resources/VP_RESOURCE_OVERRIDE_V2.csv`
+21. locked historical/dynamic-resource rules
+22. earlier V4/V3/V2/V1 audit and master files
 
 ## 9. 다음 작업
 
-구조 및 주요 숫자 결정은 실제 runtime 전 단계까지 닫혔다.
-
 다음 순서:
 
-1. Health/Power/Upgrade까지 포함한 정적 cross-system validator 작성
-2. runtime autoplay harness 또는 실제 게임 엔진 연결 경로 확정
-3. Standard-speed autoplay
-4. Ancient -> Classical, Industrial, Atomic, Health/plague, equal-cost upgrade 감시
-5. 실제 turn data가 있을 때만 Science/Culture/Production global common multiplier 조정
-6. 최종 완전 병합 master regeneration
+1. Power emission class -> numeric local Pollution bridge 확정
+2. Health/Power/Upgrade까지 포함한 정적 cross-system validator 작성
+3. runtime autoplay harness 또는 실제 게임 엔진 연결 경로 확정
+4. Standard-speed autoplay
+5. Ancient -> Classical, Industrial, Atomic, Health/plague, equal-cost upgrade 감시
+6. 실제 turn data가 있을 때만 Science/Culture/Production global common multiplier 조정
+7. 최종 완전 병합 master regeneration
 
 ## 10. 현재 판정
 
-**Technology/Civic -> Unit -> Tile/Resource -> Building -> Power -> Health의 pre-autoplay 구조 통합 완료.**
+**Technology/Civic -> Unit -> Tile/Resource -> Building -> Power -> Health의 pre-autoplay 구조 및 Health 정량화는 완료.**
 
-다음 단계는 정적 cross-system validator와 실제 runtime autoplay이다.
+다만 **Power emission class -> numeric local Pollution** 연결은 runtime Health-Power 통합 전 필수 미완성 항목이다.
+
+다음 단계는 이 Pollution bridge를 먼저 확정하는 것이다.
