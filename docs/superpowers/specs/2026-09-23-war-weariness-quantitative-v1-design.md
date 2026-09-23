@@ -2,7 +2,7 @@
 
 Date: 2026-09-23
 Branch: `civ-game-map-stage1b-etopo2022`
-Status: DESIGN APPROVED IN CHAT, IMPLEMENTATION NOT YET STARTED
+Status: WRITTEN SPEC AWAITING USER REVIEW
 
 ## 1. Purpose
 
@@ -73,45 +73,58 @@ Each opponent state should expose at minimum:
 
 ## 4. Per-turn weariness accumulation
 
-For an active war against opponent `i`:
+For an active war against opponent `i`, first compute positive accumulation only:
 
 ```text
-ΔW_i_raw
+ΔW_i_raw_positive
 =
   Duration
 + CombatLoss
 + EnemyDamage
 + CivilianCityDamage
 + Conscription
-+ StrategicShock
++ PositiveStrategicShock
 ```
 
-Then apply one bounded war-context multiplier:
+Then apply one bounded war-context multiplier and the per-turn gain cap:
 
 ```text
-ΔW_i
+ΔW_i_positive
 =
 clamp(
-  ΔW_i_raw × WarContextMultiplier,
+  ΔW_i_raw_positive × WarContextMultiplier,
   0,
   TurnGainCap
 )
 ```
 
-and update:
+Relief events are calculated separately:
 
 ```text
-W_i_next = clamp(W_i + ΔW_i - ActiveWarRelief, 0, 100)
+Relief_i >= 0
+```
+
+Final active-war update:
+
+```text
+W_i_next
+=
+clamp(
+  W_i + ΔW_i_positive - Relief_i,
+  0,
+  100
+)
 ```
 
 For V1:
 
 ```text
 TurnGainCap = 20
-ActiveWarRelief = 0
 ```
 
-A per-turn cap prevents one pathological combat event or malformed input from jumping directly from calm to maximum weariness.
+This separation is mandatory. Negative liberation relief must never disappear merely because positive accumulation is clamped at zero.
+
+A per-turn positive-gain cap prevents one pathological combat event or malformed input from jumping directly from calm to maximum weariness. Relief is not counted against the positive-gain cap because it moves weariness downward.
 
 ## 5. Duration term
 
@@ -190,9 +203,11 @@ V1 event additions before context multiplier:
 
 - civilian unit lost: `+2`
 - non-capital city lost: `+10`
-- capital lost: `+25` total for that event, not `+10 + +25`
-- city population lost directly to war event: `+0.5` per population, maximum `+5` per city per turn
+- capital lost: `+25` total for the city-loss event, not `+10 + +25`
+- city population lost directly to a war event: `+0.5` per population, maximum `+5` per city per turn
 - city razed by the opponent: additional `+5`
+
+Capital loss may still coexist with direct wartime population loss or razing because those represent distinct harms. Only the normal city-loss `+10` is replaced by the capital-loss `+25`.
 
 The city-loss values are intentionally large because territorial collapse should create a sharper political shock than routine battlefield attrition.
 
@@ -204,28 +219,31 @@ If a mechanic creates military units through forced or emergency conscription, a
 Conscription = min(5, conscripted_units_this_turn × 1)
 ```
 
-Ordinary gold purchase, normal Production and free units from non-conscription effects do not count.
+Ordinary Gold purchase, normal Production and free units from non-conscription effects do not count.
 
 This term should be fed only by mechanics explicitly tagged as conscription or emergency levy.
 
-## 9. Strategic shock
+## 9. Strategic shock and relief
 
-Strategic shocks are sparse event modifiers, not a generic catch-all.
+Strategic events are sparse event modifiers, not a generic catch-all.
 
-V1 supports:
+Positive strategic shocks contributing to `ΔW_i_raw_positive`:
 
 - loss of a designated core city other than the capital: `+4`
 - first enemy occupation of the player's original core region in the current war: `+5`
-- liberation of one of the player's cities by self or ally: `-4`
-- liberation of another civilization's city by the player: `-8`
 
-Negative relief events are applied after positive raw accumulation for the turn and still respect the final `[0,100]` bound.
+Relief contributing to `Relief_i` after positive accumulation is calculated:
+
+- liberation of one of the player's cities by self or ally: `4`
+- liberation of another civilization's city by the player: `8`
+
+Relief is subtracted after the context-adjusted positive gain and then the final opponent weariness state is clamped to `[0,100]`.
 
 Do not create a separate generic 'losing war' flat shock here. Losing status is handled by the war-context multiplier using War Score.
 
 ## 10. War-context multiplier
 
-Only one combined multiplier is applied to the raw per-turn accumulation. Individual flags combine multiplicatively and the result is clamped so stacks cannot explode.
+Only one combined multiplier is applied to positive raw per-turn accumulation. Relief is not multiplied.
 
 Base:
 
@@ -249,7 +267,7 @@ Definitions:
 - `homeland defensive war`: opponent declared or invaded and the player is not currently pursuing a primary offensive war goal outside its pre-war sovereign/recognized territory.
 - `liberation-war objective`: the active primary war goal is liberation and the player has not converted the war into territorial annexation beyond liberated/returned territory.
 - `overseas offensive war`: the main combat theater is not connected to the player's capital landmass by owned contiguous land and is being prosecuted offensively.
-- `repeat war`: a new war against the same opponent begins within 30 turns of the previous peace.
+- `repeat war`: a new war against the same opponent begins 30 or fewer turns after the previous peace.
 - `clearly winning`: War Score at or above the project's positive threshold.
 - `clearly losing`: War Score at or below the symmetric negative threshold.
 
@@ -267,14 +285,16 @@ Offensive/defensive/liberation classification must be supplied by the diplomacy/
 
 VP's highest-opponent concept is retained as the dominant term, but the project adds partial contribution from secondary wars.
 
-Let active or nonzero opponent weariness values be sorted descending:
+Let all nonzero opponent weariness values be sorted descending:
 
 ```text
 W_max = max(W_i)
 W_secondary = sum(W_i for all other opponents)
 ```
 
-Then:
+If there are no nonzero states, `W_empire = 0` and there is no dominant opponent.
+
+Otherwise:
 
 ```text
 W_empire
@@ -297,13 +317,13 @@ For V1, all nonzero opponent states participate in aggregation, including recent
 
 ## 12. Peace and recovery
 
-On peace with opponent `i`:
+On a newly signed peace with opponent `i`:
 
 ```text
 W_i = 0.50 × W_i
 ```
 
-Apply the halving once at peace settlement.
+Apply the halving exactly once per peace transition, never once per peaceful turn.
 
 Additional settlement relief:
 
@@ -312,7 +332,7 @@ if final war result is clearly favorable:
     W_i = max(0, W_i - 10)
 ```
 
-Do not stack multiple 'victory' labels for the same treaty.
+`clearly favorable` uses the same positive War Score threshold used by the war-context layer at settlement time. Do not stack multiple victory labels for the same treaty.
 
 During each subsequent peaceful turn with that opponent:
 
@@ -320,9 +340,9 @@ During each subsequent peaceful turn with that opponent:
 W_i_next = max(0, W_i - 4)
 ```
 
-If war resumes before `W_i` reaches zero, the existing value becomes the starting burden of the new war. The repeat-war context factor may also apply.
+If war resumes before `W_i` reaches zero, the existing value becomes the starting burden of the new war. The repeat-war context factor also applies when the new declaration occurs 30 or fewer turns after the previous peace.
 
-A city liberation event during war may additionally reduce weariness as specified in Strategic Shock.
+A city liberation event during war may additionally reduce weariness through `Relief_i` as specified above.
 
 ## 13. City Happiness output
 
@@ -365,12 +385,12 @@ The War Weariness module does not recalculate City Happiness. It only supplies t
 
 War Weariness increases the cost of producing and purchasing new military units.
 
-V1:
+To avoid programming-language differences in half-value rounding, V1 defines integer rounding explicitly:
 
 ```text
 military_unit_cost_increase_percent
 =
-round(0.75 × W_empire)
+floor(0.75 × W_empire + 0.5)
 ```
 
 Bound:
@@ -397,7 +417,7 @@ V1:
 ```text
 military_capacity_reduction_percent
 =
-round(0.30 × W_empire)
+floor(0.30 × W_empire + 0.5)
 ```
 
 Bound:
@@ -442,7 +462,7 @@ Occupation and Colonial burden remain separate City Happiness inputs and future 
 
 ## 18. Required calculator inputs
 
-A pure per-opponent update function should accept at minimum:
+A pure per-opponent active-war update function should accept at minimum:
 
 - current opponent weariness
 - current-war turn count
@@ -455,14 +475,15 @@ A pure per-opponent update function should accept at minimum:
 - war-related city population loss
 - razing events
 - conscripted units this turn
-- liberation/core strategic events
+- positive strategic-shock events
+- relief events
 - war-context flags
 - War Score state
 
 A separate empire aggregation function should accept all opponent states and return:
 
 - `W_empire`
-- dominant opponent identifier
+- dominant opponent identifier, or none if all states are zero
 - secondary contribution
 - City Happiness penalty
 - military unit cost increase percent
@@ -471,11 +492,11 @@ A separate empire aggregation function should accept all opponent states and ret
 A peace update function should accept:
 
 - current `W_i`
-- peace newly signed or already peaceful
-- favorable settlement flag
-- liberation relief already applied or not
+- whether peace was newly signed this update
+- whether the state was already peaceful
+- favorable-settlement flag
 
-The interface must make one-time events explicit so the same city loss or peace halving cannot be applied twice.
+The interface must make one-time events explicit so the same city loss, liberation relief or peace halving cannot be applied twice.
 
 ## 19. Error handling
 
@@ -495,6 +516,7 @@ Allow:
 - military value of zero, handled through `MilitaryValueFloor`
 - no active wars with residual postwar weariness
 - one or many opponent states
+- fractional `W_i` and `W_empire` values internally
 
 All final percentages and weariness states are explicitly clamped to their documented ranges.
 
@@ -509,13 +531,13 @@ At minimum implementation tests must cover:
 5. same relative enemy damage produces one fifth the own-loss burden
 6. homeland defensive multiplier lowers otherwise identical accumulation
 7. overseas offensive multiplier raises otherwise identical accumulation
-8. repeat-war multiplier activates only inside the 30-turn window
+8. repeat-war multiplier activates only at 30 or fewer turns since previous peace
 9. combined context multiplier clamps at 0.60 and 1.50
 10. one severe war dominates empire aggregation
 11. two secondary wars contribute at 20 percent each
 12. empire aggregation caps at 100
-13. peace halves opponent weariness once
-14. favorable peace removes an additional 10
+13. peace halves opponent weariness exactly once
+14. favorable peace removes an additional 10 after halving
 15. peaceful decay removes 4 per turn without crossing below zero
 16. resumed war inherits residual weariness
 17. `W_empire <= 10` gives zero City Happiness penalty
@@ -524,9 +546,11 @@ At minimum implementation tests must cover:
 20. `W_empire = 100` gives 30 percent Military Capacity reduction
 21. capital loss uses the capital event value rather than double-counting normal city loss
 22. conscription contribution caps at 5 per turn
-23. per-turn weariness gain caps at 20
-24. liberation relief cannot reduce `W_i` below zero
+23. positive per-turn weariness gain caps at 20
+24. liberation relief reduces weariness even on a turn with zero positive accumulation and cannot reduce `W_i` below zero
 25. NaN and Infinity inputs are rejected
+26. no nonzero opponent states returns `W_empire=0` and no dominant opponent
+27. half-value military-effect rounding follows the explicit `floor(x + 0.5)` rule
 
 These are pre-runtime arithmetic tests. They are not autoplay or actual game telemetry.
 
