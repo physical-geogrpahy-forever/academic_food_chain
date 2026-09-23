@@ -26,6 +26,13 @@ def read(path):
         return list(csv.DictReader(f))
 
 
+def as_int_text(value):
+    text = str(value or "").strip()
+    if not text:
+        return ""
+    return str(int(float(text)))
+
+
 def row_contains(row, needle):
     return needle.lower() in " | ".join(str(v) for v in row.values()).lower()
 
@@ -118,15 +125,25 @@ def validate(roster_path, roster_v3_path, master_path, tech_path, civic_path):
 
         if row.get("HEALTH_POINTS_FINAL", "") == "":
             errors.append(f"{name}: HEALTH_POINTS_FINAL blank")
+        if row.get("STABILITY_POINTS_FINAL", "") == "":
+            errors.append(f"{name}: STABILITY_POINTS_FINAL blank")
         if row.get("POWER_LOAD", "") == "":
             errors.append(f"{name}: POWER_LOAD blank")
 
-        provisional = row.get("HEALTH_POINTS_PROVISIONAL", "")
+        provisional_health = row.get("HEALTH_POINTS_PROVISIONAL", "")
         final_health = row.get("HEALTH_POINTS_FINAL", "")
-        if provisional not in ("", final_health) and health_type != "NONE":
+        if provisional_health not in ("", final_health) and health_type != "NONE":
             warnings.append(
                 f"{name}: provisional Health retained for provenance; "
-                f"final={final_health}, provisional={provisional}"
+                f"final={final_health}, provisional={provisional_health}"
+            )
+
+        provisional_stability = as_int_text(row.get("STABILITY_POINTS_PROVISIONAL", ""))
+        final_stability = as_int_text(row.get("STABILITY_POINTS_FINAL", ""))
+        if provisional_stability and provisional_stability != final_stability:
+            errors.append(
+                f"{name}: Stability provisional/final mismatch: "
+                f"provisional={provisional_stability}, final={final_stability}"
             )
 
     if errors:
