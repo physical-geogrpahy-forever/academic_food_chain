@@ -7,7 +7,7 @@ Class rule: Great Philosopher connects intellectual systems rather than simply d
 
 | # | Philosopher | Region | Minimum condition | Ability | Effect | Status |
 |---:|---|---|---|---|---|---|
-| 1 | Laozi | China | Mysticism | 무위 | Grove 또는 Shrine이 있고 Government 계통 건물이 없는 도시는 Culture +2. 사회제도를 완료할 때 최초 2회 Faith 40 추가. | HISTORICITY_REVIEW |
+| 1 | Laozi | China | Mysticism | 무위 | Grove 또는 Shrine이 있고 Government 계통 건물이 없는 도시는 Culture +2. 사회제도를 완료할 때 최초 2회 Faith 40 추가. | KEEP |
 | 2 | Socrates | Athens | Recorded History | 문답법 | 2 charges. 각 charge는 현재 연구 중인 사회제도의 남은 비용 12%만큼 Culture. Library가 있는 도시에서 사용하면 Science 35 추가. | DRAFT |
 | 3 | Plato | Athens | Political Philosophy | 철인정치 | 새 정부를 처음 2회 채택할 때마다 Culture 80, Science 50. Government Plaza가 있으면 각 발동 시 Great Philosopher Point 25 추가. | DRAFT |
 | 4 | Aristotle | Greece | Recorded History | 리케이온 | Library의 Scientist 전문직이 +1 Culture. 현재 연구 기술에 Science 100. | DRAFT |
@@ -32,3 +32,5 @@ Class rule: Great Philosopher connects intellectual systems rather than simply d
 | 23 | Wang Bi | China | Recorded History | 현학 주석 | 사회제도를 완료할 때 최초 3회 Science 35 획득. Monument 또는 Amphitheater가 있는 도시는 Great Philosopher Point +1. | DRAFT |
 
 Candidates: **23**.
+
+Audit note 2026-09-23: Laozi is retained in the active roster by design decision; historicity uncertainty is acknowledged but no longer blocks inclusion.
