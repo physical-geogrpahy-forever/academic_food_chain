@@ -169,3 +169,17 @@ Vox Populi의 핵심 시스템을 우리 게임에 거의 전면 도입하기로
 **VP의 주요 시스템을 우리 게임의 구조로 옮기는 1차 설계 분해 완료.**
 
 다음 단계부터는 `도입 여부`를 다시 논의하기보다, 각 시스템의 **구체적 데이터와 수치**를 확정하는 단계로 진행한다.
+
+## 2026-09-23 건물 수치 전수감사 진행
+
+- `FINAL_GENERIC_BUILDING_NUMERIC_BALANCE_V2_VP.csv`
+  - 102개 건물 전수감사
+  - VP exact 채택 35
+  - project VP adaptation 39
+  - V1 유지 28
+  - commit `fc5a02d6dfbbe6d7c33cebe9822e78675920b182`
+- `VP_BUILDING_NUMERIC_REAUDIT_V2.md`
+  - VP 공식 BuildingChanges/PreBuildingChanges/NewConceptText 대조 근거와 변경 이유
+  - commit `6f95c081e5a5cac68f8b744420ced05b8a150c6d`
+
+주요 변경: Palace, Granary, Aqueduct, Library, University, Public School, Research Lab, Barracks/Armory/Military Academy, Walls/Harbor/Seaport, Arena/Circus/Zoo, Temple, Constabulary 등은 VP 수치를 직접 또는 구조적으로 반영했다. Health와 Stability 절대값은 project-provisional로 분리했다.
