@@ -1,0 +1,3 @@
+TECH_EN,BUILDING_EN,ACTION,STATUS,RATIONALE
+Trapping,Smokehouse,ADD_CITY_BUILDING,LOCKED_V3,Resolves the VP camp-resource building gap at the existing Trapping technology.
+Bronze Working,Forge,ADD_CITY_BUILDING,LOCKED_V3,Adds the VP early metalworking/Engineer building at Bronze Working; avoids the previously rejected late Metal Casting placement.
