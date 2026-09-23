@@ -1,0 +1,6 @@
+IMPROVEMENT_EN,PROJECT_GATE,BASE_YIELD_CHANGE,POWER_PER_TURN,POWER_SCOPE,LOCATION_RULE,STATUS,RATIONALE
+Solar Farm,Ecology + Environmentalism,Production+1; Gold+1,2,OWN_CITY,Flat land; no Snow,SOURCE_ADAPTED,GS renewable numeric retained while project technology/civic gate remains authoritative.
+Geothermal Plant,Ecology + Environmentalism,Production+2; Science+1,4,OWN_CITY,Geothermal Fissure or implemented project geothermal-potential tile,SOURCE_ADAPTED,GS renewable numeric retained; location layer must exist before placement.
+Wind Farm,Composites + Environmentalism,Production+1; Gold+2,2,OWN_CITY,Hills,SOURCE_ADAPTED,GS renewable numeric retained with project civic co-gate.
+Offshore Wind Farm,Predictive Systems + Environmentalism,Production+2,2,OWN_CITY,Coast or Lake,SOURCE_ADAPTED,Current GS Civilopedia numeric retained; no extra Gold added in this pass.
+Hydroelectric Dam,Electricity after Dam,,6,OWN_CITY,River-linked Dam infrastructure,SOURCE_EXACT_GS,GS Hydroelectric output retained after district-to-infrastructure translation.
