@@ -40,9 +40,8 @@ def main():
             status = "SUPERSEDED_PROVENANCE"
             authority = "HEALTH_POINTS_FINAL / Health V1"
         elif field == "STABILITY_POINTS_PROVISIONAL":
-            status = "UNRESOLVED_QUANTITATIVE_LAYER"
-            authority = "No final Stability field/system found"
-            unresolved_count += len(hits)
+            status = "SUPERSEDED_PROVENANCE"
+            authority = "STABILITY_POINTS_FINAL / Building Stability Support V1"
         else:
             status = "UNRESOLVED_REVIEW"
             authority = "No explicit superseding authority registered"
@@ -87,7 +86,9 @@ def main():
         "",
         "`HEALTH_POINTS_PROVISIONAL` is retained only as provenance and does not control gameplay because Health V1 supplies `HEALTH_POINTS_FINAL`.",
         "",
-        "Any nonzero `STABILITY_POINTS_PROVISIONAL` remains unresolved until a Stability/administrative-unrest quantitative pass creates a final authoritative field or explicitly removes the mechanic.",
+        "`STABILITY_POINTS_PROVISIONAL` is also retained only as provenance. Building gameplay authority is `STABILITY_POINTS_FINAL` under `STABILITY_BUILDING_SUPPORT_V1.md`.",
+        "",
+        "The building support values are not direct additions to country-level State Stability. The later State Stability quantitative pass will aggregate them with Happiness, War Weariness, government transition, occupation and colonial burdens.",
         "",
     ])
 
