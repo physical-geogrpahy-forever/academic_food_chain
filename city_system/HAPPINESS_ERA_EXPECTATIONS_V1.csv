@@ -1,0 +1,14 @@
+ERA,BASIC_NEED,GOLD_NEED,SCIENCE_NEED,CULTURE_NEED
+Ancient,2.00,0.75,0.75,0.40
+Classical,2.20,1.00,1.00,0.50
+Late Antiquity,2.40,1.10,1.20,0.60
+Early Medieval,2.60,1.25,1.40,0.70
+High Medieval,2.80,1.40,1.60,0.80
+Renaissance,3.00,1.60,1.90,1.00
+Exploration,3.20,1.80,2.20,1.20
+Enlightenment,3.40,2.00,2.60,1.40
+Industrial,3.60,2.30,3.00,1.60
+Modern,3.80,2.60,3.50,1.90
+Atomic,4.00,3.00,4.00,2.20
+Information,4.20,3.40,4.60,2.60
+Future,4.40,3.80,5.20,3.00
