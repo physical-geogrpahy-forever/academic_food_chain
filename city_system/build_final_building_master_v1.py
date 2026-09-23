@@ -59,6 +59,16 @@ def blank_row(fieldnames):
     return {k: "" for k in fieldnames}
 
 
+def init_system_defaults(row):
+    row["POWER_LOAD"] = "0"
+    row["HEALTH_EFFECT_TYPE"] = "NONE"
+    row["HEALTH_POINTS_FINAL"] = "0"
+    row["SPONTANEOUS_PLAGUE_RISK_MULT"] = "1.00"
+    row["PLAGUE_DURATION_MOD_TURNS"] = "0"
+    row["FINAL_MERGE_STATUS"] = "MERGED_V5"
+    return row
+
+
 def apply_v3(rows, fieldnames, v3_rows):
     by_name = {r["BUILDING_EN"]: r for r in rows}
     for ov in v3_rows:
@@ -67,7 +77,7 @@ def apply_v3(rows, fieldnames, v3_rows):
         if action == "ADD":
             if name in by_name:
                 raise ValueError(f"V3 ADD duplicates existing building: {name}")
-            row = blank_row(fieldnames)
+            row = init_system_defaults(blank_row(fieldnames))
             row["BUILDING_EN"] = name
             for src, dst in V3_TO_BASE.items():
                 if src in ov and ov[src] != "":
@@ -152,14 +162,8 @@ def build(base, v3, power, health, out):
 
     rows = []
     for src in base_rows:
-        row = blank_row(fieldnames)
+        row = init_system_defaults(blank_row(fieldnames))
         row.update(src)
-        row["POWER_LOAD"] = "0"
-        row["HEALTH_EFFECT_TYPE"] = "NONE"
-        row["HEALTH_POINTS_FINAL"] = "0"
-        row["SPONTANEOUS_PLAGUE_RISK_MULT"] = "1.00"
-        row["PLAGUE_DURATION_MOD_TURNS"] = "0"
-        row["FINAL_MERGE_STATUS"] = "MERGED_V5"
         row["FINAL_MERGE_SOURCES"] = "BASE_V2"
         rows.append(row)
 
