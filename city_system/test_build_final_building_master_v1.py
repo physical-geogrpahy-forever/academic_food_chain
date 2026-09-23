@@ -31,7 +31,9 @@ def test_merge_fixture():
             "GOLD_MAINTENANCE", "FOOD_FLAT", "PRODUCTION_FLAT", "GOLD_FLAT",
             "SCIENCE_FLAT", "CULTURE_FLAT", "FAITH_FLAT", "LOCAL_HAPPINESS",
             "SPECIALIST_TYPE", "SPECIALIST_SLOTS", "SPECIAL_EFFECTS", "SOURCE_GRADE",
-            "NUMERIC_STATUS", "NUMERIC_BASIS", "HEALTH_POINTS_PROVISIONAL",
+            "NUMERIC_STATUS", "NUMERIC_BASIS", "VP_DISTRESS_REDUCTION",
+            "VP_POVERTY_REDUCTION", "VP_ILLITERACY_REDUCTION", "VP_BOREDOM_REDUCTION",
+            "VP_RELIGIOUS_UNREST_REDUCTION", "HEALTH_POINTS_PROVISIONAL",
             "STABILITY_POINTS_PROVISIONAL", "VP_AUDIT_STATUS", "VP_AUDIT_REASON",
         ]
 
@@ -59,6 +61,11 @@ def test_merge_fixture():
                 LOCAL_HAPPINESS=local_happiness,
                 SPECIALIST_SLOTS="0",
                 SPECIAL_EFFECTS=effects,
+                VP_DISTRESS_REDUCTION="0",
+                VP_POVERTY_REDUCTION="0",
+                VP_ILLITERACY_REDUCTION="0",
+                VP_BOREDOM_REDUCTION="0",
+                VP_RELIGIOUS_UNREST_REDUCTION="0",
                 HEALTH_POINTS_PROVISIONAL=health,
                 STABILITY_POINTS_PROVISIONAL=stability,
             )
@@ -144,6 +151,15 @@ def test_merge_fixture():
         by_name = {r["BUILDING_EN"]: r for r in rows}
 
         assert by_name["Smokehouse"]["PRODUCTION_COST"] == "75"
+        assert by_name["Smokehouse"]["LOCAL_HAPPINESS"] == "0"
+        for field in (
+            "VP_DISTRESS_REDUCTION",
+            "VP_POVERTY_REDUCTION",
+            "VP_ILLITERACY_REDUCTION",
+            "VP_BOREDOM_REDUCTION",
+            "VP_RELIGIOUS_UNREST_REDUCTION",
+        ):
+            assert by_name["Smokehouse"][field] == "0", (field, by_name["Smokehouse"][field])
         assert by_name["Factory"]["SPECIAL_EFFECTS"] == "PROJECT_MANUFACTORY_PRODUCTION=+1"
         assert by_name["Factory"]["POWER_LOAD"] == "2"
         assert by_name["Food Market"]["POWERED_BONUS"] == "Food+2"
