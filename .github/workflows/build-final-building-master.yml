@@ -14,6 +14,7 @@ on:
       - 'city_system/FINAL_GENERIC_BUILDING_ROSTER_V3_OVERRIDE.csv'
       - 'city_system/build_final_building_master_v1.py'
       - 'city_system/test_build_final_building_master_v1.py'
+      - 'city_system/test_validate_final_building_master_v1.py'
       - 'city_system/repair_building_gate_master_v1.py'
       - 'city_system/validate_final_building_master_v1.py'
       - 'city_system/audit_remaining_provisional_building_fields_v1.py'
@@ -42,6 +43,10 @@ jobs:
       - name: Run merge fixture test
         run: |
           python city_system/test_build_final_building_master_v1.py
+
+      - name: Run validator fixture test
+        run: |
+          python city_system/test_validate_final_building_master_v1.py
 
       - name: Repair building cross-gates
         run: |
@@ -95,7 +100,7 @@ jobs:
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
-          git config user.email '4189824+github-actions[bot]@users.noreply.github.com'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           if git diff --cached --quiet; then
             echo 'No generated changes to commit.'
