@@ -10,12 +10,12 @@ BUILDING_MASTER_MERGE: PASS rows=104 out=city_system/FINAL_GENERIC_BUILDING_NUME
 ## Validation result
 ```text
 Traceback (most recent call last):
-  File "/home/runner/work/academic_food_chain/academic_food_chain/city_system/validate_final_building_master_v1.py", line 148, in <module>
+  File "/home/runner/work/academic_food_chain/academic_food_chain/city_system/validate_final_building_master_v1.py", line 153, in <module>
     main()
-  File "/home/runner/work/academic_food_chain/academic_food_chain/city_system/validate_final_building_master_v1.py", line 137, in main
+  File "/home/runner/work/academic_food_chain/academic_food_chain/city_system/validate_final_building_master_v1.py", line 142, in main
     result = validate(args.roster, args.roster_v3, args.master, args.tech, args.civic)
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/academic_food_chain/academic_food_chain/city_system/validate_final_building_master_v1.py", line 119, in validate
+  File "/home/runner/work/academic_food_chain/academic_food_chain/city_system/validate_final_building_master_v1.py", line 124, in validate
     raise AssertionError("\n".join(errors))
 AssertionError: Space Launch Center: tech row Rocketry does not mention building
 Nuclear Power Plant: civic row Civil Engineering does not mention building
@@ -31,9 +31,6 @@ Military Academy: civic row Military Training does not mention building
 Musicians' Guild: civic row Patronage does not mention building
 Opera House: civic row Patronage does not mention building
 Navigation School: tech row Cartography does not mention building
-Foreign Ministry: CIVIC_GATE not found: Tier-2 government adoption
-Grand Master's Chapel: CIVIC_GATE not found: Tier-2 government adoption
-Intelligence Agency: CIVIC_GATE not found: Tier-2 government adoption
 Shopping Mall: tech row Mass Production does not mention building
 Hospital: civic row Urbanization does not mention building
 Telegraph Office: civic row Sovereignty does not mention building
@@ -45,9 +42,6 @@ Airport: civic row Mass Media does not mention building
 Radar Station: civic row Mobilization does not mention building
 Film Studio: civic row Mass Media does not mention building
 Medical Lab: civic row Urbanization does not mention building
-National History Museum: CIVIC_GATE not found: Tier-3 government adoption
-Royal Society: CIVIC_GATE not found: Tier-3 government adoption
-War Department: CIVIC_GATE not found: Tier-3 government adoption
 Arsenal: civic row Military Training does not mention building
 ```
 
