@@ -1,7 +1,7 @@
 # Great Philosopher Work State
 
 Date: 2026-09-23
-Status: FIRST-PASS HISTORICAL EFFECT QA COMPLETE — ROSTER REVISED
+Status: HISTORICAL INSTITUTION / EFFECT AUDIT COMPLETE — ROSTER 220
 
 ## System
 
@@ -11,6 +11,7 @@ Status: FIRST-PASS HISTORICAL EFFECT QA COMPLETE — ROSTER REVISED
 - Five thought chains: knowledge, religion/nature, culture/media, government/diplomacy, commerce/trade.
 - City GPhP per turn = max(0, active thought chains - 1).
 - Same-chain buildings do not stack for GPhP.
+- Thought-chain names are internal generation logic only; individual Philosopher abilities should use visible buildings, specialists, yields, trade routes and government systems.
 - Recruitment uses globally unique named candidates with retained overflow.
 
 ## Current roster
@@ -47,11 +48,6 @@ Removed from active roster:
 - Gi Dae-seung (기대승)
 - Seong Hon (성혼)
 
-Choe Han-gi correction:
-- removed Telegraph / Telegraph Office dependency;
-- Choe Han-gi died in 1877, before Korea's first operational telegraph line in 1885;
-- current ability is tied to Scientific Theory, international knowledge exchange, empirical inquiry and global geography.
-
 ## Era counts
 
 - Ancient: 5
@@ -70,16 +66,38 @@ Choe Han-gi correction:
 
 ## QA completed
 
-Initial individual ability draft completed for the pre-review roster.
+- candidate/activity-period audit completed;
+- Scientist-to-Philosopher transfer audit completed;
+- Writer/Prophet class-boundary audit completed;
+- first individual ability draft completed;
+- duplicate and later-era-reference QA completed on the pre-review roster;
+- second historical/gameplay effect diversity pass completed;
+- first power-band screen completed;
+- Korean roster reduction completed;
+- historical institution/effect audit completed on 2026-09-23.
 
-Second-pass historical/gameplay effect QA:
-- duplicate names: 0 before the 2026-09-23 roster reduction
-- exact duplicate effects: 0 before the 2026-09-23 roster reduction
-- normalized near-duplicate effects: 0 before the 2026-09-23 roster reduction
-- later-era technology/civic/building references: 0 before the Choe Han-gi historical correction
-- Future references: 0
+### Historical institution/effect audit rules
 
-The 2026-09-23 removals cannot introduce duplicates. Choe Han-gi's anachronistic Telegraph dependency was removed.
+1. Same broad era is not sufficient: personal activity period and intellectual setting matter.
+2. Internal thought-chain names are not exposed in individual effects.
+3. University is not used as a generic global proxy for every intellectual tradition.
+4. Technologies/buildings that postdate the person's representative activity are removed when they are not defensible abstractions.
+5. Effects should represent the person's actual philosophical/scientific/economic/religious work rather than a merely convenient game-era keyword.
+
+Major corrections include:
+- Aristotle: Paper Workshop removed;
+- Dharmakirti: Algebra removed;
+- Jeong Yak-yong: Sewer/Hospital removed;
+- Choe Han-gi: Telegraph removed;
+- Vico: Archaeological Museum removed;
+- Jeong Je-du, Hong Dae-yong and several Enlightenment figures: Public School dependencies reduced/removed;
+- Cavendish and Conway: generic University dependency removed;
+- Carnap: Electronics removed;
+- Nagel: Space Race removed;
+- Quine/Ryle/Parfit/Kripke: generic Computers gates removed where unrelated;
+- Butler/Taylor/Zizek: Social Media gates removed where their representative programs predate social media;
+- Chalmers: Robotics removed;
+- hidden KNOWLEDGE / RELIGION_NATURE / CULTURE_MEDIA / COMMERCE_TRADE / active-thought-chain expressions removed from individual abilities reviewed in this pass.
 
 ## Completed audits
 
@@ -87,12 +105,13 @@ The 2026-09-23 removals cannot introduce duplicates. Choe Han-gi's anachronistic
 - ACTIVITY_PERIOD_AUDIT_MASTER_V1.md
 - CLASS_BOUNDARY_AUDIT_V1.md
 - POWER_BAND_AUDIT_V1.md
+- HISTORICAL_INSTITUTION_EFFECT_AUDIT_V1.md
 
 ## Remaining work
 
-1. regenerate the repository-wide consolidated summary from the 220-person era files;
+1. regenerate repository-wide consolidated summary from the revised 220-person era files;
 2. final numerical power-band balance and game-speed scaling after global thresholds are defined;
 3. decide Laozi historicity policy;
 4. cross-class review after Writer/Prophet/Merchant rosters are locked;
 5. implement GPhP generation in city logic;
-6. later playtest whether institutional-diversity GPhP generation is too fast in large late-game empires.
+6. playtest whether institutional-diversity GPhP generation is too fast in large late-game empires.
