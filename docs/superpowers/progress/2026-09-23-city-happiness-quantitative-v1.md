@@ -15,3 +15,5 @@ Ruling: The harness has GitHub connector access but no checked-out repository/wo
 Ruling: Create the City Happiness CI harness early, before Task 5, because it is required to observe TDD RED/GREEN in this connector-only environment. Task 5 will finalize its triggers and command set. Cost if wrong: CI configuration appears earlier in history than the plan's nominal task order; implementation interfaces are unchanged.
 
 Task 1: complete. RED run 35861270501 failed exactly because `calculate_city_happiness_v1.py` did not exist. GREEN run 35861345013 passed after adding the 13-era expectation table and expectation loader/clamp implementation. Commits: e1544da, 5b8b781, b2830a2, 8a54fab.
+
+Task 2: complete. RED run 35861499245 failed exactly because `calculate_city_happiness` was not implemented. GREEN run 35861622924 passed the full calculator suite covering scenarios A-H, zero population, invalid inputs and floating-point floor boundaries. Commits: 059fbc1, b4fa8bc.
