@@ -20,6 +20,10 @@
 - 사용자 현재 지시: **지도자 제외하고 문명만**. 이후 문명/지도자 확정 뒤 혁명가 연결.
 - 이 디렉터리에서 사용하는 `NOT_LOCKED`를 제거하려면 사용자 명시적 승인과 변경 근거가 필요하다.
 
+## 초기 11시대 자료 (역사 기록)
+
+- [EARLY_JUNE_2026_11ERA_HISTORICAL_SNAPSHOT.md](EARLY_JUNE_2026_11ERA_HISTORICAL_SNAPSHOT.md): 2026-06-19 한국·중국 **초기 AI 시대별 원안**을 별도로 보존. 9월 12시대 원안으로 오인하거나 덮어쓰지 않는다.
+
 ## 원래 대화 표의 회수본 (V2)
 
 - [EAST_ASIA_CONVERSATION_SOURCE_RECONSTRUCTION_V2.md](EAST_ASIA_CONVERSATION_SOURCE_RECONSTRUCTION_V2.md): **2026-09-17 한국 AI 최초 초안**, **2026-09-25 사용자 직접 중국 계보**, **2026-09-26 일본 AI 제안**을 출처별로 분리. 한국 초기 AI표는 연대 오류가 있으므로 최종 문명표로 쓰지 않는다. **이전 V1의 한국 '미복원'은 최종 사용자 승인 칸에 한정**한다.
