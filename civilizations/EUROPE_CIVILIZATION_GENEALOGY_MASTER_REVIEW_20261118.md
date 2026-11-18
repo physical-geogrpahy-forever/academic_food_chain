@@ -70,7 +70,7 @@
 
 | 북유럽 이주 부족 | 킴브리·테우토네스 | BC 113–101년 로마와 전쟁한 이주 부족연맹. 민족 분류·기원 논쟁을 주석으로 보존 |
 | 다뉴브 이주기 집단 | 게피드·헤룰·루기·알란 | 훈족 제국 해체 뒤 다뉴브·카르파티아 주변에 등장한 여러 왕국·부족연맹. 알란은 이란계 유목 집단 |
-| 북극·북동유럽 토착민 | 사미·코미·네네츠·한티·만시 | 국가가 아닌 민족·언어·문화권 후보. 지역별 역사와 정치조직은 개별 연구 필요 |
+| 북극·북동유럽·우랄 접경 토착민 | 사미·코미·네네츠·한티·만시 | 국가가 아닌 민족·언어·문화권 후보. 사미·코미는 유럽 북부, 네네츠·한티·만시는 우랄 동서에 걸친 분포를 고려해 유럽·서시베리아 범위를 구분 |
 
 ### 2.3 이탈리아 선주민과 로마
 
@@ -237,6 +237,8 @@ Walter Pohl의 연구는 훈족 시대 이후 서고트·반달·알란·수에�
 - Derow, P. S. (2016). Teuta. *Oxford Classical Dictionary*. [https://doi.org/10.1093/acrefore/9780199381135.013.6310](https://doi.org/10.1093/acrefore/9780199381135.013.6310).
 - Hitchins, K. *A Concise History of Romania*. Cambridge University Press. [Excerpt](https://assets.cambridge.org/97805218/72386/excerpt/9780521872386_excerpt.pdf).
 - Pohl, W. (2014). Migrations, ethnic groups, and state building. In *The Cambridge Companion to the Age of Attila*, 247–263. [https://doi.org/10.1017/CCO9781139128964.019](https://doi.org/10.1017/CCO9781139128964.019).
+- Brogan, O. P. F., & Drinkwater, J. F. (2015). Cimbri. *Oxford Classical Dictionary*. [https://doi.org/10.1093/acrefore/9780199381135.013.1574](https://doi.org/10.1093/acrefore/9780199381135.013.1574). BC 113년부터 이동해 BC 102년 테우토네스, BC 101년 킴브리의 패배로 끝난 전쟁을 설명한다. 민족 분류는 고대 사료와 현대 연구의 차이를 주석으로 남긴다.
+- [Arctic Mirrors: Russia and the Small Peoples of the North](https://www.jstor.org/stable/10.7591/j.ctvrf89hb): 사미·한티·만시·네네츠 등 북부 토착민의 범주를 참고하되, 우랄 동서의 지리적 범위를 구분한다.
 - Pohl, W. (2016). Avar Khaganate. *The Encyclopedia of Empire*. [https://doi.org/10.1002/9781118455074.wbeoe208](https://doi.org/10.1002/9781118455074.wbeoe208).
 - Pohl, W. (2018). *The Avars: A Steppe Empire in Central Europe, 567–822*. Cornell University Press. [JSTOR](https://www.jstor.org/stable/10.7591/j.ctt21h4xd7).
 - [PNAS, Ancient genomes reveal trans-Eurasian connections between the European Huns and the Xiongnu Empire](https://www.pnas.org/doi/pdf/10.1073/pnas.2418485122).
