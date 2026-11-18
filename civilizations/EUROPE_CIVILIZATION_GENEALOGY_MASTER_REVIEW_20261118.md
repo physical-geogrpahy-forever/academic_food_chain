@@ -5,9 +5,9 @@
 ## 0. 이번 정리의 범위와 산출물
 
 - 기준 자료: 사용자가 직접 제공한 `문명.xlsx`의 Sheet1 구조. 12개 역사시대와 미래 열을 그대로 사용.
-- [유럽 전체 107계보 시대별 매트릭스 CSV](EUROPE_FULL_ERA_MATRIX_DRAFT_20261118.csv): **112개 계보·정치체 행 × 13개 시대 열**, 총 14열(계보명 포함). 사용자 엑셀의 시대 열과 순서를 맞춤.
+- [유럽 전체 107계보 시대별 매트릭스 CSV](EUROPE_FULL_ERA_MATRIX_DRAFT_20261118.csv): **116개 계보·정치체 행 × 13개 시대 열**, 총 14열(계보명 포함). 사용자 엑셀의 시대 열과 순서를 맞춤.
 - 이 CSV는 **새로운 유럽 조사안**이며, 사용자 원본 `문명.xlsx`, 한중일 수정안, 원본 보존 CSV를 수정하거나 대체하지 않는다.
-- 112행은 플레이 가능한 문명 112개를 확정한 숫자가 아니다. 청동기 문명, 고고학 문화권, 부족, 부족연맹, 왕국, 제국, 지역 국가계보, 군사수도회, 도시연맹, 초국가 연합, 유럽 밖에 중심을 둔 지중해 세력까지 포함한 **조사 후보 풀**이다.
+- 116행은 플레이 가능한 문명 116개를 확정한 숫자가 아니다. 청동기 문명, 고고학 문화권, 부족, 부족연맹, 왕국, 제국, 지역 국가계보, 군사수도회, 도시연맹, 초국가 연합, 유럽 밖에 중심을 둔 지중해 세력까지 포함한 **조사 후보 풀**이다.
 - 시대 칸의 화살표는 연대적·정치적 변화의 압축 표기다. 모든 화살표가 직접적인 국가 계승을 뜻하지 않는다. 상세 관계는 아래 주석을 우선한다.
 - 지도자와 위대한 혁명가 roster는 이번 범위에서 제외한다.
 
@@ -252,6 +252,9 @@ Walter Pohl의 연구는 훈족 시대 이후 서고트·반달·알란·수에�
 - Hemingway, C., & Hemingway, S. (2003). [Mycenaean Civilization](https://www.metmuseum.org/de/essays/mycenaean-civilization). Metropolitan Museum of Art.
 - Metropolitan Museum of Art. [Ancient Greece, 1000 B.C.–1 A.D.](https://www.metmuseum.org/de/toah/ht/04/eusb).
 - Metropolitan Museum of Art. [Italian Peninsula, 1000 B.C.–1 A.D.](https://www.metmuseum.org/pt/toah/ht/04/eust.html).
+- Hemingway, C., & Hemingway, S. (2007). [Ancient Greek Colonization and Trade and their Influence on Greek Art](https://www.metmuseum.org/it/essays/ancient-greek-colonization-and-trade-and-their-influence-on-greek-art). Metropolitan Museum of Art. 마그나 그라이키아의 도시들은 모도시와 종교·교역 관계를 유지했지만 정치적으로 독립된 entities였음을 설명.
+- Rich, J. W. (2008). Treaties, allies and the Roman conquest of Italy. In *War and Peace in Ancient and Medieval History*, 51–75. Cambridge University Press. [https://doi.org/10.1017/CBO9780511496301.005](https://doi.org/10.1017/CBO9780511496301.005). 로마-라틴 동맹 조약과 BC 343년 삼니움 전쟁의 맥락을 다룬다.
+- [Cambridge Ancient History, The conquest of Italy](https://www.cambridge.org/core/books/abs/cambridge-ancient-history/conquest-of-italy/9516E2A26F96E263AB36F0C1A9653662). 삼니움인의 부족연맹과 BC 343–290년 전쟁을 다룬다.
 
 ### 켈트·갈리아·이베리아
 - Pope, R. (2022). Re-approaching Celts: Origins, Society, and Social Change. *Journal of Archaeological Research, 30*, 1–67. [https://doi.org/10.1007/s10814-021-09157-1](https://doi.org/10.1007/s10814-021-09157-1).
