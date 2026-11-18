@@ -1,5 +1,7 @@
 # Great Scientist Work State
 
+> **HISTORICAL CHECKPOINT — superseded for roster counts (2026-11-18 repository audit):** This file's 332-person count reflects the **pre-Philosopher-transfer work state**. The actual current roster has **319** people, verified by counting all 12 era roster files and matching [GREAT_SCIENTIST_CURRENT_SUMMARY.md](GREAT_SCIENTIST_CURRENT_SUMMARY.md) 319 rows, with 0 duplicate names. Preserve this historic state text for provenance, but **do not use 332 as the current playable roster size**.
+
 Date: 2026-09-22
 Status: FIRST-PASS SCIENTIST CONTENT QA COMPLETE
 
