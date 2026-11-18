@@ -7,6 +7,13 @@ on:
     paths:
       - 'tools/audit_civ_repository_v1.py'
       - '.github/workflows/civ-full-repository-static-audit.yml'
+      - 'tech_reference/**'
+      - 'civics_reference/**'
+      - 'city_system/**'
+      - 'tile_system/**'
+      - 'corporations/**'
+      - 'civ_map_stage10_resources/resource_fix_v1/**'
+      - 'civilizations/**'
   workflow_dispatch:
 
 permissions:
