@@ -1,8 +1,8 @@
 TECH_EN,PROJECT_ERA,UNLOCK_TYPE,CONTENT_EN,SOURCE_GAME,SOURCE_TECH,SOURCE_FORM,DECISION,FINAL_FORM,FINAL_TECH,REASON,NOTES
 "Agriculture","Ancient","UNIT","Worker","Civ5 BNW","Agriculture","Unit","KEEP","Unit","Agriculture","Civ V worker-based tile-improvement structure is the project baseline","Starting worker/improvement workforce"
 "Agriculture","Ancient","UNIT","Settler","Civ5 BNW","Agriculture","Unit","MERGE","Starting Unit","Agriculture","Agriculture is the project root technology; Settler is available at game start","Do not treat as a later research reward"
-"Agriculture","Ancient","UNIT","Warrior","Civ5 BNW","Agriculture","Unit","MERGE","Starting Unit","Agriculture is the project root technology; Warrior is available at game start",""
-"Agriculture","Ancient","UNIT","Scout","Civ5 BNW","Agriculture","Unit","MERGE","Starting Unit","Agriculture is the project root technology; Scout is available from the opening roster",""
+"Agriculture","Ancient","UNIT","Warrior","Civ5 BNW","Agriculture","Unit","MERGE","Starting Unit","","Agriculture is the project root technology; Warrior is available at game start",""
+"Agriculture","Ancient","UNIT","Scout","Civ5 BNW","Agriculture","Unit","MERGE","Starting Unit","","Agriculture is the project root technology; Scout is available from the opening roster",""
 "Agriculture","Ancient","TILE_IMPROVEMENT","Farm","Civ5 BNW","Agriculture","Improvement","KEEP","Tile Improvement","Agriculture","Primary Civ V farming improvement","+1 Food baseline; later Irrigation and Fertilizer upgrades handled separately"
 "Pottery","Ancient","CITY_BUILDING","Granary","Civ5 BNW; Civ6 GS","Pottery","Building","KEEP","City Building","Pottery","Both source games attach Granary to Pottery","Health value to be tuned during Health & Plague system pass"
 "Pottery","Ancient","CITY_BUILDING","Shrine","Civ5 BNW","Pottery","Building","REMAP_TECH","City Building","Astrology","Project has a dedicated Astrology node and Civ6 places Shrine there","Removes duplicate Shrine unlock"
