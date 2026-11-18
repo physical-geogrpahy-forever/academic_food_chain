@@ -1,5 +1,7 @@
 # Corporation Sector and Output Catalogue V2
 
+> **Counting-scope clarification (2026-11-18 audit):** Aerospace Manufacturing/AEROSPACE has `FOUNDER_COUNT=2` in the V2 sector catalogue, counting **Ozires Silva (reference-only institutional creator)** alongside **William Boeing**. The current [98-person playable signature-founder roster](signature_corporate_founder_roster_v1.csv) contains **only William Boeing** for AEROSPACE. Do not interpret the sector catalogue's count as two playable founders. Original numeric data is preserved pending any separately approved catalogue rule change.
+
 Date: 2026-09-20  
 Status: **CANONICAL SECTOR CATALOGUE — founder-linked design baseline**
 
