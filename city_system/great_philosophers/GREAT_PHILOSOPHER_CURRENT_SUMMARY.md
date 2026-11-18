@@ -1,5 +1,7 @@
 # Great Philosopher Current Summary
 
+> **HISTORICAL SNAPSHOT — superseded roster counts (2026-11-18 repository audit):** This summary still describes the **previous 227-person stage**. The actual active roster is **220**, verified from the 12 era files and the later [WORK_STATE.md](WORK_STATE.md), with 0 duplicate names. Do not present 227 as the current count; existing text below is retained for provenance.
+
 Date: 2026-09-22
 Status: FIRST-PASS HISTORICAL EFFECT QA COMPLETE
 
