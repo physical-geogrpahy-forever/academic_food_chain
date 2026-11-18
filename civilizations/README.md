@@ -26,7 +26,7 @@
 
 ## 원래 대화 표의 회수본 (V2)
 
-- [EAST_ASIA_CONVERSATION_SOURCE_RECONSTRUCTION_V2.md](EAST_ASIA_CONVERSATION_SOURCE_RECONSTRUCTION_V2.md): **2026-09-17 한국 AI 최초 초안**, **2026-09-25 사용자 직접 중국 계보**, **2026-09-26 일본 AI 제안**을 출처별로 분리. 한국 초기 AI표는 연대 오류가 있으므로 최종 문명표로 쓰지 않는다. **이전 V1의 한국 '미복원'은 최종 사용자 승인 칸에 한정**한다.
+- [EAST_ASIA_CONVERSATION_SOURCE_RECONSTRUCTION_V2.md](EAST_ASIA_CONVERSATION_SOURCE_RECONSTRUCTION_V2.md): **2026-09-17 한국 AI 최초 초안**, **2026-09-25 중국 계보 AI 초안(사용자 시대구분 요청)**, **2026-09-26 일본 AI 제안**을 출처별로 분리. 한국 초기 AI표는 연대 오류가 있으므로 최종 문명표로 쓰지 않는다. **이전 V1의 한국 '미복원'은 최종 사용자 승인 칸에 한정**한다.
 
 ## 과거 문명 프로젝트 대화 색인
 
