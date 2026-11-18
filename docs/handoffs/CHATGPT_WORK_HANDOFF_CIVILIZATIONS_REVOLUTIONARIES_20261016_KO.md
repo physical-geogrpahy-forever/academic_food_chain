@@ -1,5 +1,7 @@
 # ChatGPT Work 인계문 — 문명 계보 / 지도자 / 위대한 혁명가
 
+> **2026-11-18 추가 감사 알림 (기존 내용 보존):** 이 문서는 2026-10-16 당시의 **2차 인계문**으로, 한국의 시대별 문명 계보가 누락되어 있고 중국·일본도 최종 잠금된 문명 로스터가 아니다. 사용자의 이전 대화 지적·수정사항을 재검색한 회수본은 [civilizations/EAST_ASIA_12ERA_RECOVERY_V1.md](../../civilizations/EAST_ASIA_12ERA_RECOVERY_V1.md), 구체적인 회수 근거와 한계는 [CONVERSATION_DECISIONS_PROVENANCE_20261118.md](../../civilizations/CONVERSATION_DECISIONS_PROVENANCE_20261118.md), 문명 1~5 후속 작업별 색인은 [PROJECT_CONVERSATION_WORKSTREAM_INDEX_20261118.md](../../civilizations/PROJECT_CONVERSATION_WORKSTREAM_INDEX_20261118.md)를 참조할 것. **한국 12시대 사용자 원본 표는 아직 전체 미복원**이므로 추정으로 확정하지 말 것. 현재 사용자 작업 지시는 **한·중·일 문명부터, 지도자 제외, 북미·중앙아메리카·카리브 후순위**다.
+
 Date: 2026-10-16
 Project: 문명
 Repository: `physical-geogrpahy-forever/academic_food_chain`
