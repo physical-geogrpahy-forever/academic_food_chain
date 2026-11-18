@@ -20,6 +20,10 @@
 - 사용자 현재 지시: **지도자 제외하고 문명만**. 이후 문명/지도자 확정 뒤 혁명가 연결.
 - 이 디렉터리에서 사용하는 `NOT_LOCKED`를 제거하려면 사용자 명시적 승인과 변경 근거가 필요하다.
 
+## 과거 문명 프로젝트 대화 색인
+
+- [PROJECT_CONVERSATION_WORKSTREAM_INDEX_20261118.md](PROJECT_CONVERSATION_WORKSTREAM_INDEX_20261118.md): 문명 1~5와 후속 대화에서 확인 가능한 결정사항 및 실제 GitHub 파일 대응표. **모든 메시지 원문을 전수 열람한 것은 아님.**
+
 ## 기반 권위 문서
 
 - [기존 2026-10-16 문명/혁명가 인계문](../docs/handoffs/CHATGPT_WORK_HANDOFF_CIVILIZATIONS_REVOLUTIONARIES_20261016_KO.md)
