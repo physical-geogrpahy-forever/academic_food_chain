@@ -20,6 +20,11 @@
 - 사용자 현재 지시: **지도자 제외하고 문명만**. 이후 문명/지도자 확정 뒤 혁명가 연결.
 - 이 디렉터리에서 사용하는 `NOT_LOCKED`를 제거하려면 사용자 명시적 승인과 변경 근거가 필요하다.
 
+## 2026-11-18 한국 원문 추적 및 GitHub 검증
+
+- [KOREA_CHRONOLOGY_SOURCE_TRACE_20261118.md](KOREA_CHRONOLOGY_SOURCE_TRACE_20261118.md): 6월 19일과 9월 17일 **한국 AI 원안·사용자 교정·미복원 상태**를 날짜별로 추적. 사용자 확정표를 재창작하지 않는다.
+- [CIV_REPOSITORY_STATIC_AUDIT_20261118.md](../docs/audits/CIV_REPOSITORY_STATIC_AUDIT_20261118.md): 618개 파일·23개 기존 검증기·8개 CSV 29행 수정의 GitHub Actions **실행 증거와 한계**.
+
 ## 초기 11시대 자료 (역사 기록)
 
 - [EARLY_JUNE_2026_11ERA_HISTORICAL_SNAPSHOT.md](EARLY_JUNE_2026_11ERA_HISTORICAL_SNAPSHOT.md): 2026-06-19 한국·중국 **초기 AI 시대별 원안**을 별도로 보존. 9월 12시대 원안으로 오인하거나 덮어쓰지 않는다.
