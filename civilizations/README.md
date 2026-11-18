@@ -3,7 +3,7 @@
 ## 2026-11-18 유럽 계보 전수 후보 풀
 
 - [유럽 문명·정치체 계보 전수 정리 V1](EUROPE_CIVILIZATION_GENEALOGY_MASTER_REVIEW_20261118.md): 고대 문명·부족·부족연맹·왕국·제국·근대국가·초국가 조직의 구분, 연대와 관계 주의사항, 참고자료.
-- [유럽 전체 110계보 시대별 매트릭스](EUROPE_FULL_ERA_MATRIX_DRAFT_20261118.csv): 사용자 `문명.xlsx`의 13개 시대 열과 동일한 순서로 만든 110행 후보 CSV. **플레이 가능 문명 110개 확정이 아님.**
+- [유럽 전체 112계보 시대별 매트릭스](EUROPE_FULL_ERA_MATRIX_DRAFT_20261118.csv): 사용자 `문명.xlsx`의 13개 시대 열과 동일한 순서로 만든 112행 후보 CSV. **플레이 가능 문명 112개 확정이 아님.**
 - [고대 문명·부족 확대 조사](EUROPE_ANCIENT_CIVILIZATIONS_AND_TRIBAL_POLITIES_DRAFT_20261118.md): 미노스·미케네·키클라데스, 골족·삼니움·이베리아·일리리아·트라키아 등 상세 후보.
 - [유럽 범위 초안](EUROPE_CIVILIZATION_SCOPE_DRAFT_20261118.md): 최초 21개 국가 중심 범위 제안. 최신 전수 후보 풀은 위 master review를 우선 참조.
 - 원본 `문명.xlsx`와 한중일 수정안은 이번 유럽 후보 작성 과정에서 변경하지 않았다.
