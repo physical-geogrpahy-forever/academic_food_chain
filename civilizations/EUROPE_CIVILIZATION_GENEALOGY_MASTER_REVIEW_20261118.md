@@ -5,9 +5,9 @@
 ## 0. 이번 정리의 범위와 산출물
 
 - 기준 자료: 사용자가 직접 제공한 `문명.xlsx`의 Sheet1 구조. 12개 역사시대와 미래 열을 그대로 사용.
-- [유럽 전체 107계보 시대별 매트릭스 CSV](EUROPE_FULL_ERA_MATRIX_DRAFT_20261118.csv): **110개 계보·정치체 행 × 13개 시대 열**, 총 14열(계보명 포함). 사용자 엑셀의 시대 열과 순서를 맞춤.
+- [유럽 전체 107계보 시대별 매트릭스 CSV](EUROPE_FULL_ERA_MATRIX_DRAFT_20261118.csv): **112개 계보·정치체 행 × 13개 시대 열**, 총 14열(계보명 포함). 사용자 엑셀의 시대 열과 순서를 맞춤.
 - 이 CSV는 **새로운 유럽 조사안**이며, 사용자 원본 `문명.xlsx`, 한중일 수정안, 원본 보존 CSV를 수정하거나 대체하지 않는다.
-- 110행은 플레이 가능한 문명 110개를 확정한 숫자가 아니다. 청동기 문명, 고고학 문화권, 부족, 부족연맹, 왕국, 제국, 지역 국가계보, 군사수도회, 도시연맹, 초국가 연합, 유럽 밖에 중심을 둔 지중해 세력까지 포함한 **조사 후보 풀**이다.
+- 112행은 플레이 가능한 문명 112개를 확정한 숫자가 아니다. 청동기 문명, 고고학 문화권, 부족, 부족연맹, 왕국, 제국, 지역 국가계보, 군사수도회, 도시연맹, 초국가 연합, 유럽 밖에 중심을 둔 지중해 세력까지 포함한 **조사 후보 풀**이다.
 - 시대 칸의 화살표는 연대적·정치적 변화의 압축 표기다. 모든 화살표가 직접적인 국가 계승을 뜻하지 않는다. 상세 관계는 아래 주석을 우선한다.
 - 지도자와 위대한 혁명가 roster는 이번 범위에서 제외한다.
 
@@ -144,6 +144,11 @@ Walter Pohl의 연구는 훈족 시대 이후 서고트·반달·알란·수에�
 
 훈족은 아틸라 사후 빠르게 해체되었고, 아바르 카간국은 568–796년 중부·동부 유럽의 일부를 지배했다. 마자르의 카르파티아 분지 정착은 895/896년으로 제시되며, 헝가리 왕국의 기독교 왕국 성립은 1000/1001년 전후다. [PNAS, Ancient genomes and European Huns](https://www.pnas.org/doi/pdf/10.1073/pnas.2418485122), [Pohl 2016, Avar Khaganate](https://doi.org/10.1002/9781118455074.wbeoe208), [National Atlas of Hungary, Hungary and the Hungarians](https://nemzetiatlasz.hu/MNA/National-Atlas-of-Hungary_Vol1_Ch7.pdf).
 
+### 초원계 중세 정치체 추가
+
+| 볼가 불가르 | 볼가-카마 지역의 불가르 정치체 | 7~10세기 형성과 10~13세기 국가를 다뉴브 불가리아와 구분. 1236년 몽골 정복 |
+| 페체네그·쿠만/킵차크 | 흑해 북부·폰토스 초원의 유목 정치연맹 | 페체네그는 9세기 말~11세기, 쿠만/킵차크는 11~13세기 초원 세력. 단일 왕국으로 뭉개지 않음 |
+
 ## 3. 중세 이후의 주요 계보와 관계 판정
 
 | 계보 | 주요 시대 전개 | 구분해야 할 사항 |
@@ -239,6 +244,9 @@ Walter Pohl의 연구는 훈족 시대 이후 서고트·반달·알란·수에�
 - Pohl, W. (2014). Migrations, ethnic groups, and state building. In *The Cambridge Companion to the Age of Attila*, 247–263. [https://doi.org/10.1017/CCO9781139128964.019](https://doi.org/10.1017/CCO9781139128964.019).
 - Brogan, O. P. F., & Drinkwater, J. F. (2015). Cimbri. *Oxford Classical Dictionary*. [https://doi.org/10.1093/acrefore/9780199381135.013.1574](https://doi.org/10.1093/acrefore/9780199381135.013.1574). BC 113년부터 이동해 BC 102년 테우토네스, BC 101년 킴브리의 패배로 끝난 전쟁을 설명한다. 민족 분류는 고대 사료와 현대 연구의 차이를 주석으로 남긴다.
 - [Arctic Mirrors: Russia and the Small Peoples of the North](https://www.jstor.org/stable/10.7591/j.ctvrf89hb): 사미·한티·만시·네네츠 등 북부 토착민의 범주를 참고하되, 우랄 동서의 지리적 범위를 구분한다.
+- Paroń, A. (2021). *The Pechenegs: Nomads in the Political and Cultural Landscape of Medieval Europe*. Brill. [https://doi.org/10.1163/9789004441095](https://doi.org/10.1163/9789004441095). 9세기 말 흑해 초원에서의 페체네그 세력과 10~11세기 이웃 국가와의 관계를 다룬다.
+- *Southeastern Europe in the Middle Ages, 500–1250*, “The second Byzantine century (1100–1200)”. Cambridge University Press. [https://doi.org/10.1017/CBO9780511815638.009](https://doi.org/10.1017/CBO9780511815638.009). 12세기 드네프르-다뉴브 초원의 쿠만/킵차크 지배와 부족 분화를 설명한다.
+- Krustev, K. (2016). The Wars between Volga Bulgarians and Mongols. *Istoriya*, 24(1), 77–88. [CEEOL record](https://www.ceeol.com/search/article-detail?id=818085). 볼가 불가리아의 몽골 정복(1236)을 다룬다.
 - Pohl, W. (2016). Avar Khaganate. *The Encyclopedia of Empire*. [https://doi.org/10.1002/9781118455074.wbeoe208](https://doi.org/10.1002/9781118455074.wbeoe208).
 - Pohl, W. (2018). *The Avars: A Steppe Empire in Central Europe, 567–822*. Cornell University Press. [JSTOR](https://www.jstor.org/stable/10.7591/j.ctt21h4xd7).
 - [PNAS, Ancient genomes reveal trans-Eurasian connections between the European Huns and the Xiongnu Empire](https://www.pnas.org/doi/pdf/10.1073/pnas.2418485122).
