@@ -40,6 +40,7 @@ VALIDATE = [
     "tech_reference/validate_technology_tree_historical_v2.py",
     "tile_system/validate_final_generic_map_numeric_balance_v1.py",
     "tile_system/validate_final_generic_map_roster_v1.py",
+    "tools/validate_europe_classification_v1.py",
 ]
 
 def fail(msg):
